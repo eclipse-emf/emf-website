@@ -67,72 +67,71 @@
 	</head>
 	<body>
 
-<xsl:if test="$showFiltersOrHeaderFooter!='1'">
-<!-- wrapper for left nav -->
-<table cellspacing="0" cellpadding="0" border="0" width="100%">
-	<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+	<!-- wrapper for left nav -->
+	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+		<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
 
-     <tr>
-          <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
-          <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
-          <td width="250" height="50"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
-     </tr>
+		 <tr>
+			  <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
+			  <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
+			  <td width="250" height="50"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
+		 </tr>
 
-    </table></td>
-  </tr>
-</table>
-</xsl:if>
+		</table></td>
+	  </tr>
+	</table>
+	</xsl:if>
 
-<table cellspacing="0" cellpadding="0" border="0">
-	<tr valign="top">
-		<td align="left" width="115" bgcolor="#6699CC">
+	<table cellspacing="0" cellpadding="0" border="0">
+		<tr valign="top">
+			<td align="left" width="115" bgcolor="#6699CC">
 
-		<!-- left nav here -->
-		<xsl:if test="$showFiltersOrHeaderFooter!='1'">
-			<xsl:copy-of select="document('../includes/nav.xml')/div"/>
-		</xsl:if>
+			<!-- left nav here -->
+			<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+				<xsl:copy-of select="document('../includes/nav.xml')/div"/>
+			</xsl:if>
 
-		</td>
+			</td>
 
-		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
-&#160;
-<table border="0" cellpadding="2" width="100%">
-  <tbody>
+			<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
+	&#160;
+	<table border="0" cellpadding="2" width="100%">
+	  <tbody>
 
-    <tr>
-      <td align="left" width="60%">
-        <font class="indextop">FAQ</font>
+		<tr>
+		  <td align="left" width="60%">
+			<font class="indextop">FAQ</font>
 
-      </td>
-      <td width="40%">
-        <img src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/reference.gif" hspace="50" align="right"/>
-      </td>
+		  </td>
+		  <td width="40%">
+			<img src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/reference.gif" hspace="50" align="right"/>
+		  </td>
 
-    </tr>
-  </tbody>            
-</table>
+		</tr>
+	  </tbody>            
+	</table>
 
-<table border="0" cellpadding="2" width="100%" >
-<tr>
+	<table border="0" cellpadding="2" width="100%" >
+	<tr>
 
-<td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
-<b><font face="Arial,Helvetica"><font color="#FFFFFF">
-<xsl:copy-of select="$pageTitle" />
-</font></font></b></td>
-</tr>
-</table>
-<table border="0" cellpadding="2" width="100%" >
-<tr>
-<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/></xsl:if></font>
-<b class="big-header">Last modified: 
-		<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
-		<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
-</b></td>
-</tr>
-</table>
+	<td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
+	<b><font face="Arial,Helvetica"><font color="#FFFFFF">
+	<xsl:copy-of select="$pageTitle" />
+	</font></font></b></td>
+	</tr>
+	</table>
+	<table border="0" cellpadding="2" width="100%" >
+	<tr>
+	<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/></xsl:if></font>
+	<b class="big-header">Last modified: 
+			<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
+			<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
+	</b></td>
+	</tr>
+	</table>
 
-	<xsl:if test="$showFiltersOrHeaderFooter='1'">
-	<form action="" method="get" name="mainform">
+	<form action="faq.php" method="get" name="mainform">
 	<table width="100%">
 			<tr>
 				<td width="75%">
@@ -155,7 +154,7 @@
 							<option value=""> Choose... </option>
 							<xsl:for-each select="category-def">
 							<xsl:choose>
-								<xsl:when test="contains(@category,$filterName1)">
+								<xsl:when test="contains(@category,$filterVal1)">
 									<option value="{@category}" selected="selected"><xsl:value-of select="@label" /></option>
 								</xsl:when>
 								<xsl:otherwise>
@@ -181,7 +180,7 @@
 			</tr>
 	</table>
 	</form>
-	</xsl:if>
+
 	<!-- table of contents -->
 	<table width="100%" border="0" cellspacing="1" cellpadding="3">
 <!-- 		<tr class="light-row" valign="bottom">
@@ -409,4 +408,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.6 2004/12/23 05:24:42 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.7 2004/12/23 05:33:10 nickb Exp $ -->
