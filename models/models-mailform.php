@@ -158,15 +158,14 @@ $message = '
 <p>
 
 Thanks for your submission! 
-
+<br><br>
 Your submission will be processed shortly - watch the EMF Corner site
 for updates. Note that submissions are approved by the same people 
 developing EMF, SDO and XSD, so please be patient!
-
+<br><br>
 Once approved, your submission should appear within 24 hrs.
-
+<br><br>
 Here\'s what you sent:
-
 <br><br>
 ';
 foreach ($fields as $field => $data) {
@@ -222,5 +221,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.5 2005/01/05 20:23:38 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.6 2005/01/05 20:29:46 nickb Exp $ -->
 ?>
