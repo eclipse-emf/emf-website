@@ -1,0 +1,25 @@
+<STYLE type="text/css">
+td.spacer {padding-bottom: 0px; padding-top: 0px;}
+
+/* text header styles */
+.title { font-family: sans-serif; color: #99AACC;}
+.sub-header { font-family: sans-serif; font-style: normal; font-weight: bold; font-size: 9pt; color: white;}
+.big-header { font-family: sans-serif; font-style: normal; font-weight: bold; font-size: 9pt; color: black;}
+
+/* table cell header styles */
+.content-header {background:#0070A0; }
+.header {background:#99AADD}
+
+/* alternative content row styles */
+.light-row {background:#FFFFFF}
+.dark-row {background:#EEEEFF}
+.dark-row2 {background:#EEEEEE}
+
+/* general text styles */
+.bold			{font-family: sans-serif; font-size: 9pt; color:black; font-weight: bold; }
+.normal		{font-family: sans-serif; font-size: 9pt; color:black;}
+.datestamp	{ font-family: sans-serif; color: purple; font-size: 9pt; }
+.red			{ color: red; }
+.green		{ color: green; }
+.blue			{ color: blue; }
+</STYLE>

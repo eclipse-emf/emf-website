@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="models.xsl"?>
+<data>
+
+  <review
+  reviewName="Emfatic Review"
+  date="2004-12-14"
+  rating="8"
+  modelID="ChrisDaly20041110011007"
+  reviewID="RuiFigueira20041214212033">
+    <text>very cool! Auto-completion would be nice, however :D</text>
+    <reviewer>Rui Figueira</reviewer>
+    <reviewerURL></reviewerURL>
+  </review>
+
+  <model
+  modelName="Dynamic JET Generator"
+  date="2004-12-10"
+  category="EMF tool"
+  modelID="JoelCheuoua20041210164245">
+    <text>This is an Eclipse plugin, based on EMF and JET templates, whose
+    goal is to ease the process of automating the code generation process.
+    Using Merlin JET Generator, you'll be able not only to dynamically
+    generate code from your EMF Genmodel, but also yo can have a better
+    control on the generation thanks to a customizable mapping capability
+    between the JET templates and any Genmodel elements</text>
+    <modelURL>http://sourceforge.net/projects/merlingenerator/</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Joel Cheuoua</submitter>
+    <submitterURL>http://sourceforge.net/projects/merlingenerator/</submitterURL>
+  </model>
+
+  <review
+  reviewName="JET-Editor Review"
+  date="2004-11-23"
+  rating="9"
+  modelID="AlexanderRupsch20041003141937"
+  reviewID="EdMerks20041123081632">
+    <text>It's very cool and definitely makes templates easier to read and
+    write.</text>
+    <reviewer>Ed Merks</reviewer>
+    <reviewerURL></reviewerURL>
+  </review>
+
+  <model
+  modelName="Emfatic"
+  date="2004-11-10"
+  category="EMF tool"
+  modelID="ChrisDaly20041110011007">
+    <text>Emfatic is a language for representing EMF Ecore models in a
+    simple textual form.
+    <br/><br/>
+   There are currently several different ways to construct and modify EMF
+   Ecore models, including annotated Java, XML Schema, Unified Modeling
+   Language (UML) tools, and the EMF model editor. The advantage of Emfatic
+   is that it represents an entire Ecore model in a single source file and
+   it uses a Java-like syntax familiar to many programmers.
+   <br/><br/>
+Emfatic comprises several Eclipse plug-ins, which include an
+editor and a parser for the language. The Eclipse plug-ins add actions that
+    allow Emfatic source code to be compiled into an Ecore model and also
+    allow Ecore models to be decompiled into Emfatic source code.</text>
+<modelURL>http://alphaworks.ibm.com/tech/emfatic</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Chris Daly</submitter>
+<submitterURL>http://alphaworks.ibm.com/tech/emfatic</submitterURL>
+  </model>
+
+  <review
+  reviewName="EMF Eclipse Forms Editor Update"
+  date="2004-10-26"
+  rating="7"
+  modelID="SteveBlass20041004133615"
+  reviewID="SteveBlass20041026190408">
+    <text>The form editor example has been revised.  The new version is a
+    stand alone plugin delivering a Master/Details editor able to edit
+    arbitrary EMF models.</text>
+    <reviewer>Steve Blass</reviewer>
+    <reviewerURL>http://conceptualprocessengineering.com/library</reviewerURL>
+  </review>
+
+  <model
+  modelName="EclipseUML"
+  date="2004-10-25"
+  category="EMF tool"
+  modelID="julien20041025173305">
+    <text>EclipseUML provides an EMF native graphic editors with 8 diagrams
+    and the Java code generation driving through class diagram directly. In
+    the version 2.0.0 of Free edition, it is possible to export UML model
+    to EMF.</text>
+    <modelURL>http://www.omondo.com</modelURL>
+    <thumbnailURL width="80" height="22">http://www.eclipsedownload.com/pictures/omondo-anime.gif</thumbnailURL>
+    <screenshotURL>http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/glibmod/glibmod_emf1.1.html</screenshotURL>
+    <submitter>julien</submitter>
+    <submitterURL>http://www.omondo.com</submitterURL>
+  </model>
+
+  <review
+  reviewName="EMF Eclipse Forms Editor Review"
+  date="2004-10-13"
+  rating="10"
+  modelID="SteveBlass20041004133615"
+  reviewID="MarkDiggory20041013172220">
+    <text>Great example, I might recommend packaging the source as a plugin
+    projects so it can be reused without going through the process of
+    setting up each plugin project just to get the source compiling. Great
+    job.</text>
+    <reviewer>Mark Diggory</reviewer>
+    <reviewerURL></reviewerURL>
+  </review>
+
+  <model
+  modelName="CDO Example Workspace"
+  date="2004-10-11"
+  category="EMF framework"
+  modelID="EikeStepper20041011132202">
+    <text>CDO (Connected Data Objects) is an object persistence technology
+    that integrates with EMF (Eclipse Modelling Framework) to transparently
+    store objects of an arbitrary business model in a relational database
+    system.
+This is an example workspace to demonstrate the basic functionality of CDO.
+Please visit the website for further instructions.
+Any feedback is greatly appreciated. Happy persisting...</text>
+<modelURL>http://download.berlios.de/cdo/workspaces.zip</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Eike Stepper</submitter>
+<submitterURL>http://www.sympedia.org/cdo</submitterURL>
+  </model>
+
+  <model
+  modelName="Notification Gatherer"
+  date="2004-10-07"
+  category="EMF utility"
+  modelID="ConstantineAPlotnikov(onbehalfofIBMATS)20041007014530">
+    <text>The Notification Gatherer component is a simple utility component
+    that automates listening to events that happen in EMF object graph.
+    Such code usually is not very complex, but it is quite error prone
+    because a lot of small things should be done in a lot of places. So,
+    from our experience, the component enhances clarity of the code and
+    reduces number of bugs.
+The component is a reimplementation of the idea that was previously
+implemented in NSMDF and NSUML open source projects. These projects have an
+idea that is similar to EMF one, but their APIs significantly differ from
+EMF API.
+The plug-in is submitted as patch to EMF team. URL points to corresponding
+    RFE.</text>
+<modelURL>https://bugs.eclipse.org/bugs/show_bug.cgi?id=73143</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Constantine A Plotnikov (on behalf of IBM ATS)</submitter>
+<submitterURL>http://www-306.ibm.com/software/ebusiness/jstart/ats-index.shtml</submitterURL>
+  </model>
+
+  <review
+  reviewName="EMF Eclipse Forms Editor Review"
+  date="2004-10-07"
+  rating="10"
+  modelID="SteveBlass20041004133615"
+  reviewID="Kiran20041007095302">
+    <text>Hi Steve,
+    This is a very good example which helped me a lot.</text>
+    <reviewer>Kiran</reviewer>
+    <reviewerURL></reviewerURL>
+  </review>
+
+  <model
+  modelName="MetaDiff"
+  date="2004-10-06"
+  category="EMF framework"
+  modelID="MarkKofman20041006145812">
+    <text>MetaDiff is a generic model comparison solution. Generic, in a
+    sense, that it should make possible to compare models based on
+    different meta-models specified by EMF. It is important to point out
+    that result is not a tool but a framework. In addition to model
+    comparison functionality, framework should also give a possibility to
+    extend available comparison algorithms, and provide practical way of
+    working with different meta-models.</text>
+    <modelURL>http://dis.dsv.su.se/~emis-mak/metadiff/index.html</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Mark Kofman</submitter>
+    <submitterURL>http://dis.dsv.su.se/~emis-mak/metadiff/index.html</submitterURL>
+  </model>
+
+  <review
+  reviewName="Must have!"
+  date="2004-10-05"
+  rating="8"
+  modelID="AlexanderRupsch20041003141937"
+  reviewID="JorgvonFrantzius20041005042515">
+    <text>Working on complex .jet sources without this editor can drive you nuts. Made my JET coding life much easier.</text>
+    <reviewer>Jorg von Frantzius</reviewer>
+    <reviewerURL>http://www.artnology.com</reviewerURL>
+  </review>
+
+  <model
+  modelName="EMF Eclipse Forms Editor"
+  date="2004-10-04"
+  category="EMF example"
+  modelID="SteveBlass20041004133615">
+    <text>This example demonstrates how to convert a generated EMF editor
+to an Eclipse Forms based editor by changing the generated editor to extend
+    FormEditor rather than MultipageEditorPart and using addPages() rather
+than createPages(). In particular this example implements Master/Details
+form editing of the libary model presented in the EMF overview
+documentation.</text>
+    <modelURL>http://www.conceptualprocessengineering.com/library</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL>http://www.conceptualprocessengineering.com/library/refshot.jpg</screenshotURL>
+    <submitter>Steve Blass</submitter>
+    <submitterURL></submitterURL>
+  </model>
+
+  <model
+  modelName="Sandwich Pattern"
+  date="2004-10-04"
+  category="EMF example"
+  modelID="PhilippW.Kutter20041004094720">
+    <text>Frameworks on top of EMF: the Sandwich Pattern - see <a href="http://www.montages.com/index.php?lbl=sandwich">http://www.montages.com/index.php?lbl=sandwich</a> for details</text>
+    <modelURL>http://www.montages.com/downloads/sandwich.zip</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Philipp W. Kutter</submitter>
+    <submitterURL>http://www.montages.com/index.php?id_page=38</submitterURL>
+  </model>
+
+  <model
+  modelName="JET-Editor"
+  date="2004-10-03"
+  category="EMF tool"
+  modelID="AlexanderRupsch20041003141937">
+    <text>Editor for JET-templates. It is intended to support the development of JET-templates in a quality which is adequate to other eclispe language support.</text>
+    <modelURL>http://sourceforge.net/projects/jet-editor/</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Alexander Rupsch</submitter>
+    <submitterURL></submitterURL>
+  </model>
+
+  <model
+  modelName="Marven"
+  date="2004-10-03"
+  category="EMF tool"
+  modelID="AlexanderRupsch20041003142919">
+    <text>Marven is a model based generator implemented as eclipse plugin.
+    It is based on EMF JET-templates and the UML 2.0 metamodel
+    implementation for eclipse. It comes with a comprehensive example to
+    generate EJBs out of UML-models.</text>
+    <modelURL>http://sourceforge.net/projects/marven/</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Alexander Rupsch</submitter>
+    <submitterURL></submitterURL>
+  </model>
+
+  <model 
+     modelName="Welcome To EMF Corner" 
+     date="2004-09-13" 
+     category="General discussion" 
+     modelID="NickBoldt20040913165614">
+    <text>Welcome, everyone. If you have any suggestions or comments, please post them into this thread or start your own under the General Discussion category.</text>
+    <modelURL>http://www.eclipse.org/emf/models.php</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Nick Boldt</submitter> 
+    <submitterURL>http://www.divbyzero.com/v-web/b2/index.php?cat=2</submitterURL>
+  </model>
+
+   <category-def category="General discussion"  label="General Discussion" />
+
+   <category-def category="EMF model"     label="EMF Models" />
+   <category-def category="EMF framework" label="EMF Frameworks" />
+   <category-def category="EMF tool"      label="EMF Tools" />
+   <category-def category="EMF utility"   label="EMF Utilities" />
+   <category-def category="EMF example"   label="EMF Examples" />
+   <category-def category="EMF other"     label="EMF (Other)" />
+
+   <category-def category="SDO model"     label="SDO Models" />
+   <category-def category="SDO framework" label="SDO Frameworks" />
+   <category-def category="SDO tool"      label="SDO Tools" />
+   <category-def category="SDO utility"   label="SDO Utilities" />
+   <category-def category="SDO example"   label="SDO Examples" />
+   <category-def category="SDO other"     label="SDO (Other)" />
+
+   <category-def category="XSD model"     label="XSD Models" />
+   <category-def category="XSD framework" label="XSD Frameworks" />
+   <category-def category="XSD tool"      label="XSD Tools" />
+   <category-def category="XSD utility"   label="XSD Utilities" />
+   <category-def category="XSD example"   label="XSD Examples" />
+   <category-def category="XSD other"     label="XSD (Other)" />
+
+</data>
+<!-- $Id: models.xml,v 1.1 2004/12/21 21:32:13 nickb Exp $ -->
