@@ -19,11 +19,14 @@
 
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 COLS=1 WIDTH="100%" BGCOLOR="#90C8FF" height="45" >
   <tr> 
-    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&nbsp;<a href="eclipse_nav.php" target="_self" class="navhead">eclipse nav</a></td>
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="eclipse_nav.php" target="_self" class="navhead">eclipse nav</a></td>
   </tr>
 	<?php echo $sep_line; ?>
+
+  <!-- common links - both projects -->
+  
   <tr> 
-    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <span class="navhead"> &amp; </span><a href="../../xsd/" target="_top" class="navhead">xsd</a></td>
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <small><b> &amp; </b></small><a href="../../xsd/" target="_top" class="navhead">xsd</a></td>
   </tr>
 
   <tr valign=CENTER> 
@@ -84,88 +87,6 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="../docs.php" class="nav">Documentation</a><br>
-		<small class="nav">
-		&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160;  
-
-		<a class="nav" href="../docs.php?doc=references/overview/EMF.html">EMF</a>, <a class="nav" href="../docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="nav" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a> <br>
-		</small>
-		</p>
-
-    </td>
-  </tr>
-
-	<?php echo $sep_line; ?>
-
-  <tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
-<?php 
-	$files = loadDirSimple("../news","release-notes(.*)\.html","f");
-	rsort($files); reset($files);
-
-	$didBreak=0;
-	$stored_ver="";
-	$out="";
-	foreach ($files as $i => $file) { 
-		preg_match("/release-notes(.*)\.html/",$file,$m);
-		$vver = $m[1];
-		if ($i>0) { 
-			$out .= ', '; 
-			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
-		}
-		$out .= '<a class="nav" href="../news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
-		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $vver : $stored_ver; } // get largest
-	}
-	?>
-      <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
-		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
-		</small>
-		</p>
-
-    </td>
-  </tr>
-
-	<?php echo $sep_line; ?>
-
-  <tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
-      <p>&#160; <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav">EMF Newsgroup</a><br>
-		<small class="nav">&#160; &#160; &#160;  
-		
-		<a href="http://www.eclipse.org/search/search.cgi"
- target="_self" class="nav">Search</a>, <a
- href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
- target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a><br>
-&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="nav">Archives</a>
-		</small>
-		</p>
-
-    </td>
-  </tr>
-
-	<?php echo $sep_line; ?>
-
-  <tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
-      <p>&#160; <a href="news://news.eclipse.org/eclipse.technology.xsd" class="nav">XSD Newsgroup</a><br>
-		<small class="nav">&#160; &#160; &#160;  
-		
-		<a href="http://www.eclipse.org/search/search.cgi"
- target="_self" class="nav">Search</a>, <a
- href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
- target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a><br>
-&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="nav">Archives</a>
-		
-		</small>
-		</p>
-
-    </td>
-  </tr>
-
-	<?php echo $sep_line; ?>
-
-  <tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
       <p>&#160; <a href="../models.php" class="nav">EMF Corner</a><br>
 		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="../models-submit.php">Contribute!</a>
 		
@@ -217,10 +138,150 @@
     </td>
   </tr>
 		
+	<?php echo $sep_line; ?>
+
+  <!-- emf/sdo project links -->
+  
+  <tr> 
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a></td>
+  </tr>
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="../docs.php" class="nav">Documentation</a><br>
+		<small class="nav">
+		&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160;  
+
+		<a class="nav" href="../docs.php?doc=references/overview/EMF.html">EMF</a>, <a class="nav" href="../docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="nav" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a> <br>
+		</small>
+		</p>
+
+    </td>
+  </tr>
 
 	<?php echo $sep_line; ?>
 
   <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+<?php 
+	$files = loadDirSimple("../news","release-notes(.*)\.html","f");
+	rsort($files); reset($files);
+
+	$didBreak=0;
+	$stored_ver="";
+	$out="";
+	foreach ($files as $i => $file) { 
+		preg_match("/release-notes(.*)\.html/",$file,$m);
+		$vver = $m[1];
+		if ($i>0) { 
+			$out .= ', '; 
+			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+		}
+		$out .= '<a class="nav" href="../news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
+		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $vver : $stored_ver; } // get largest
+	}
+	?>
+      <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav">Newsgroup</a><br>
+		<small class="nav">&#160; &#160; &#160;  
+		
+		<a href="http://www.eclipse.org/search/search.cgi"
+ target="_self" class="nav">Search</a>, <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
+ target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a>,<br>
+&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="nav">Archives</a>
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <!-- emf/sdo project links -->
+  
+  <tr> 
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../xsd/" target="_top" class="navhead">xsd</a></td>
+  </tr>
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="../../xsd/docs.php" class="nav">Documentation</a><br>
+		<small class="nav">
+		&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160;  
+
+		<a class="nav" href="http://dev.eclipse.org/viewcvs/indextech.cgi/%7Echeckout%7E/xsd-home/docs/XSD.mdl">UML model</a><br>
+		&#160; &#160; &#160;  
+		<a class="nav" href="http://download.eclipse.org/technology/xsd/javadoc/org/eclipse/xsd/package-summary.html#details">UML Diagrams</a>
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+<?php 
+	$files = loadDirSimple("../../xsd/news","release-notes(.*)\.html","f");
+	rsort($files); reset($files);
+
+	$didBreak=0;
+	$stored_ver="";
+	$out="";
+	foreach ($files as $i => $file) { 
+		preg_match("/release-notes(.*)\.html/",$file,$m);
+		$vver = $m[1];
+		if ($i>0) { 
+			$out .= ', '; 
+			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+		}
+		$out .= '<a class="nav" href="../../xsd/news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
+		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $vver : $stored_ver; } // get largest
+	}
+	?>
+      <p>&#160; <a href="../../xsd/news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="news://news.eclipse.org/eclipse.technology.xsd" class="nav">Newsgroup</a><br>
+		<small class="nav">&#160; &#160; &#160;  
+		
+		<a href="http://www.eclipse.org/search/search.cgi"
+ target="_self" class="nav">Search</a>, <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
+ target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a>,<br>
+&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="nav">Archives</a>
+		
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+	
+  <!-- other project links -->
+  
+	<tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="http://www.eclipse.org/uml2" class="nav">UML2</a></p>
 
