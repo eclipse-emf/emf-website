@@ -33,7 +33,7 @@
 			xmlFile = document.implementation.createDocument("", "", null);
 			stylesheet = document.implementation.createDocument("", "", null);
 			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet.load("../faq/faq.xsl");
+			stylesheet.load("../release-notes/release-notes.xsl");
 			xmlFile.addEventListener("load", transform, false);
 			stylesheet.addEventListener("load", transform, false);
 		}
@@ -44,7 +44,7 @@
 			xmlFile.load("<?php echo $XMLfile; ?>");
 			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
 			stylesheet.async = false;
-			stylesheet.load("../faq/faq.xsl");
+			stylesheet.load("../release-notes/release-notes.xsl");
 			cache = new ActiveXObject("msxml2.XSLTemplate.3.0");
 			cache.stylesheet = stylesheet;
 			transformData();
@@ -93,4 +93,4 @@
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: release-notes.php,v 1.1 2005/01/23 11:54:58 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.2 2005/01/23 12:04:41 nickb Exp $ -->
