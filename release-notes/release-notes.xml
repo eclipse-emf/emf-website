@@ -2,7 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="release-notes.xsl"?>
 <data>
 
+<version-def version="2.1.0" label="2.1.0" />
 <version-def version="2.1" label="2.1.x" />
+<version-def version="2.0.2" label="2.0.2" />
+<version-def version="2.0.1" label="2.0.1" />
 <version-def version="2.0" label="2.0.x" />
 
 <project-def project="emf" label="EMF Release Notes" />
@@ -1235,4 +1238,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.1 2005/01/23 11:54:58 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.2 2005/01/23 12:14:10 nickb Exp $ -->

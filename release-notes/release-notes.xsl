@@ -59,9 +59,11 @@
     <tr>
       <td align="left" width="60%">
         <font class="indextop">
+		Release Notes<xsl:if test="$project!='' or $version!=''">:
 			<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
 			<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
-			Release Notes</font><br/>
+		</xsl:if>
+		</font><br/>
         <font class="indexsub">Eclipse Modeling Framework</font>
 
       </td>
@@ -77,9 +79,11 @@
 <tr>
 
 <td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">
-	<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
-	<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
-	Release Notes</font></font></b><a name="top">&#160;</a></td>
+	Release Notes<xsl:if test="$project!='' or $version!=''">:
+		<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
+		<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
+	</xsl:if>
+</font></font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
 <table border="0" cellpadding="2" width="100%" >
@@ -140,7 +144,7 @@
 	
 	<table border="0" cellspacing="1" cellpadding="3" width="100%">
 	<xsl:for-each select="project-def">
-		<xsl:if test="(count(key('entryProj',@project)) != 0 or $project = '')">
+		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="header">
 				<td colspan="1" class="sub-header" width="20%">
 					<a class="sub-header" style="text-decoration:none" href="#{@project}"><xsl:value-of select="@label" /></a> (<xsl:value-of select="count(key('entryProj',@project))" /> Builds)
@@ -194,7 +198,7 @@
 	<!-- content! -->
 	<table border="0" cellspacing="1" cellpadding="5" width="100%">
 	<xsl:for-each select="project-def">
-		<xsl:if test="(count(key('entryProj',@project)) != 0 or $project = '')">
+		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="content-header">
 				<td colspan="1" class="sub-header">
 					<a name="{@project}"><xsl:value-of select="@label"/></a> (<xsl:value-of select="count(key('entryProj',@project))" /> Builds)
@@ -267,4 +271,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.1 2005/01/23 11:54:58 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.2 2005/01/23 12:14:10 nickb Exp $ -->
