@@ -15,7 +15,7 @@
 <entry version="2.1.0" build="I200502100800" project="emf">
 <bug id="70399">CompareUtil</bug>
 <bug id="82092">JMerger to support multiple &quot;user code&quot; sections in method body</bug>
-<bug id="83314">ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
+<bug id="83872">[Change Model] Make objectsToDetach transient and derived</bug>
 <bug id="84329">Protected error handling method for BasicCommandStack</bug>
 <bug id="84337">java.lang.NullPointerException while editing a model with Sample Ecore Model Editor</bug>
 <bug id="84377">Allow direct iteration over FeatureMap values via an EContentsEList.FeatureIterator</bug>
@@ -1332,4 +1332,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.18 2005/02/10 17:35:51 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.19 2005/02/10 17:37:58 nickb Exp $ -->
