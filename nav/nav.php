@@ -26,7 +26,8 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="downloads.php" class="nav">Downloads</a>:<br/>
-		&#160; &#160; &#160; <a href="downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></p>
+		&#160; &#160; &#160; <small class="nav"><a href="downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></small>
+		</p>
     </td>
   </tr>
 
@@ -64,16 +65,40 @@
 			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on"
 		);
 		$blcnt=0;
-		echo '<small class="nav">'.$statusLabel.":</small>\n";
+		echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
 		foreach ($bugzLinks as $label => $url) { 
 			if ($blcnt>0) { echo ", "; } $blcnt++;
-			echo "\n\t\t".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
+			echo "".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
 		} 
 		echo "<br>";
 	}
 ?>
 
 		</p>
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="docs.php" class="nav" target="_top">Documentation</a><br>
+		<small class="nav">&#160; &#160; &#160; Overviews: <a class="nav" href="docs.php?doc=references/overview/EMF.html">EMF</a>, <a class="nav" href="docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a><br/>
+		&#160; &#160; &#160; <a class="nav" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a> </small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="docs.php" class="nav" target="_top">Release Notes</a><br>
+		<small class="nav">&#160; &#160; &#160;  
+		</small>
+		</p>
+
     </td>
   </tr>
 
