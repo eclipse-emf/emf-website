@@ -14,7 +14,6 @@
 
 <entry version="2.1.0" build="I200501270800" project="emf">
 <bug id="82651">XMLResource.toDOM() doesn't return namespace aware Document</bug>
-<bug id="83044">[DUPE] caching of Lookup in XMLSaveImpl for major performance boost of serialization</bug>
 <bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
 <bug id="83414">Add leading / to template path, if necessary.</bug>
 <bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
@@ -1270,4 +1269,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.8 2005/01/27 13:54:53 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.9 2005/01/27 13:57:00 nickb Exp $ -->
