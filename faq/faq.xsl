@@ -371,8 +371,8 @@
 
 </td></tr></table>
 
-	</body>
-	</html>
+</body>
+</html>
 
 </xsl:for-each>
 </xsl:template>
@@ -409,4 +409,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.5 2004/12/23 02:32:12 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.6 2004/12/23 05:24:42 nickb Exp $ -->

@@ -352,10 +352,10 @@
 <!-- wrapper for left nav -->
 </td></tr></table>
 
-	</body>
-	</html>
+</body>
+</html>
 </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.6 2004/12/23 02:32:12 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.7 2004/12/23 05:24:42 nickb Exp $ -->
