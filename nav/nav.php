@@ -91,7 +91,7 @@
       <p>&#160; <a href="http://download.eclipse.org/tools/emf/scripts/faq.php" class="nav">FAQs</a><br>
 		<small class="nav"> 
 		
-		&#160; &#160; &#160;  <a class="nav" href="http://download.eclipse.org/tools/emf/scripts/faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="http://download.eclipse.org/tools/emf/scripts/faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="http://download.eclipse.org/tools/emf/scripts/faq.php?FAQ=XSD">XSD</a> <br>
+		&#160; &#160; &#160;  <a class="nav" href="http://download.eclipse.org/tools/emf/scripts/faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="http://download.eclipse.org/tools/emf/scripts/faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="http://download.eclipse.org/technology/xsd/scripts/faq.php">XSD</a> <br>
 		&#160; &#160; &#160;  <a href="../../eclipse/faq/eclipse-faq.html" class="nav">Eclipse FAQ</a>
 		
 		</small>
