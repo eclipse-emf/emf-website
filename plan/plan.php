@@ -72,28 +72,63 @@ $column_order = array( // column label => field name (mixed case version)
 	"Summary" => "Summary"
 );
 
+$committers = array(); // list of names that are valid committers; ignore comments posted by non-committers
+
+getCommitterList(); //w("\$committers:",1); wArr($committers); w("");
 getMetaAndBugList();
 getPlanItems($columns); 
 if ($contentType=="text/html") { 
-	wArr($bugz);
+	w("\$bugz:"); wArr($bugz);
 } else if ($contentType=="text/xml") { 
 	displayXML();
 }
 
 /************************************** FUNCTIONS ***********************************/
 
+function getCommitterList() {
+	global $committers;
+
+	$projects = array("tools" => "EMF"); //, "technology" => "XSD");
+	foreach ($projects as $folder => $project) { 
+		if (!$usetmpfile) { 
+			$html = file("http://www.eclipse.org/$folder/commit.html"); // wArr($html);
+			$fh = fopen("/tmp/emf_plan.php_getCommittersList_$folder_$project.html","w");
+			foreach ($html as $line) { 
+				fputs($fh,$line."\n");
+			}
+			fclose($fh);
+		} else {
+			$html = file("/tmp/emf_plan.php_getCommittersList_$folder_$project.html");
+		}
+		//w(sizeof($html),1);
+
+		$loading=0;
+		foreach ($html as $line) { 
+			if (isIn($line,$project)) {
+				$loading=1;
+			} else if ($loading>0 && isIn($line,"<table")) { // now we start collecting names
+				$loading=2;
+			} else if ($loading>1 && isIn($line,"<td") && preg_match("/\<td[^\<\>]+\>\<b\>([^\<\>]+)\<\/b\>\<\/td\>/",$line,$m)) { // get the name
+				$committers[$m[1]]=$m[1];
+			} else if ($loading>1 && isIn($line,"</table>")) { // done
+				break;
+			}
+		}
+	}
+}
+
 function getMetaAndBugList() {
 	global $bugz,$buglist,$usetmpfile;
 
 	if (!$usetmpfile) { 
 		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); // wArr($html);
-		$fh = fopen("/tmp/out.html","w");
+		$fh = fopen("/tmp/emf_plan.php_getMetaAndBugList.html","w");
 		foreach ($html as $line) { 
 			fputs($fh,$line."\n");
 		}
 		fclose($fh);
 	} else {
-		$html = file("/tmp/out.html");
+		$html = file("/tmp/emf_plan.php_getMetaAndBugList.html");
 	}
 	//w(sizeof($html),1);
 
@@ -134,21 +169,22 @@ function getMetaAndBugList() {
 }
 
 function getPlanItems($extrafields=array()) {
-	global $bugz,$buglist,$usetmpfile;
+	global $bugz,$buglist,$usetmpfile,$committers;
 
 	if (!$usetmpfile) { 
 		$html = https_file("https://bugs.eclipse.org/bugs/long_list.cgi?buglist=$buglist"); // wArr($html);
-		$fh = fopen("/tmp/out2.html","w");
+		$fh = fopen("/tmp/emf_plan.php_getPlanItems.html","w");
 		foreach ($html as $line) { 
 			fputs($fh,$line."\n");
 		}
 		fclose($fh);
 	} else {
-		$html = file("/tmp/out2.html");
+		$html = file("/tmp/emf_plan.php_getPlanItems.html");
 	}
 	//w(sizeof($html),1);
 
 	$loading=0;
+	$commenter = "";
 	foreach ($html as $line) { 
 		if (isIn($line,"<font size=\"+3\">Bug ")) { // name of bug means start of a bug 
 			if (preg_match("/\<font size\=\"\+3\"\>Bug\ (\d+)/",$line,$m)) { 
@@ -170,7 +206,9 @@ function getPlanItems($extrafields=array()) {
 					//w("key $key not collected.",1);
 				}
 			}
-		} else if (isIn($line,"[plan")) { // get plan items
+		} else if (isIn($line,"<a href=\"mailto:") && preg_match("/\"mailto\:([a-zA-Z0-9\_\-\.]+\&\#64\;[a-zA-Z0-9\_\-\.]+)\"\>([a-zA-Z\ ]+)\<\/a\>/",$line,$m)) { // <a href="mailto:merks&#64;ca.ibm.com">Ed Merks</a> -- trap for bug commenter
+			$commenter = $m[2]; //w("commenter = $commenter",1);
+		} else if (in_array($commenter,$committers) && isIn($line,"[plan")) { // get plan items
 			//w($line,1);
 			if (!isIn($line,"/]")) { 
 				$loading=1;
@@ -178,7 +216,7 @@ function getPlanItems($extrafields=array()) {
 			if (preg_match("/pri\=(\d)/",$line,$m)) { // [plan pri=2 est=2w/]
 				$bugz[$bugnum]["Plan-Priority"] = $m[1];
 			}
-			if (preg_match("/est=(\d[dwm])/",$line,$m)) { // [plan pri=2 est=2w/]
+			if (preg_match("/est=(\d+[dwm])/",$line,$m)) { // [plan pri=2 est=2w/]
 				$bugz[$bugnum]["Plan-Estimate"] = $m[1];
 			}
 			if (preg_match("/](.+)\[\/plan\]/",$line,$m)) { // [plan pri=2 est=1d]This is mostly done already.[/plan]
@@ -192,11 +230,12 @@ function getPlanItems($extrafields=array()) {
 			//w("\$bugz[$bugnum][Plan Estimate] = ".$bugz[$bugnum]["Plan Estimate"],1);
 			//w("\$bugz[$bugnum][Plan Priority] = ".$bugz[$bugnum]["Plan Priority"],1);
 			//w("\$bugz[$bugnum][Plan-Comments] = ".htmlentities($bugz[$bugnum]["Plan-Comments"]),1);
-		} else if ($loading) { // collect more plan item content (if necessary)
+		} else if (in_array($commenter,$committers) && $loading) { // collect more plan item content (if necessary)
 			//w($line,1);
 			if (preg_match("/(.+)\[\/plan\]/",$line,$m)) { // [plan pri=2 est=1d]This is mostly done already.[/plan]
 				$bugz[$bugnum]["Plan-Comments"] .= " ".$m[1];
 				$loading=0;
+				$commenter = "";
 			} else { 
 				$bugz[$bugnum]["Plan-Comments"] .= " ".$line;
 			}
@@ -213,9 +252,9 @@ function displayXML() {
 	header('Content-type: text/xml');
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.1 2005/02/19 07:30:00 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.2 2005/02/19 08:10:45 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/02/19 07:30:00 $</modified>
+	<modified>$Date: 2005/02/19 08:10:45 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
