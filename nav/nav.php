@@ -92,7 +92,6 @@
 		);
 		//$blcnt=0;
 		//echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
-		echo '<small class="nav">'."\n";
 		foreach ($bugzLinks as $label => $url) { 
 			//if ($blcnt>0) { echo ", "; } $blcnt++;
 			//echo "".'<small class="nav"><a href="'.$url.'" class="nav">'.$label.'</a></small>';
@@ -153,14 +152,14 @@
 		if ($i>0) { 
 			$out .= ', '; 
 			//if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
-			if ($i==2) { break; } // only the first three
 		}
 		$out .= '<a class="nav" href="../news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
 		if ($i==0) { $stored_ver = $vver; } 
+		if ($i==2) { break; } // only the first three
 	}
 	?>
-      <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
-		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../news-release-notes.php?ver=<?php echo $vver; ?>#relnotes1">...</a>
+      <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $stored_ver; ?>" class="nav">Release Notes</a><br>
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../news-release-notes.php?ver=<?php echo $stored_ver; ?>#relnotes1">...</a>
 		</small>
 		</p>
     </td>
