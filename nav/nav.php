@@ -56,52 +56,8 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav" target="_bz">Bugzilla</a><br/>
-<?php
-	
-	$statuses = array(
-		"Open" => "%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED",
-		"Closed This Week" => "%26bug_status%3DRESOLVED%26bug_status%3DVERIFIED%26bug_status%3DCLOSED%26changedin%3D7"
-	);
-	foreach ($statuses as $statusLabel => $statusString) { 
-		$bugzLinks = array(
-			"EMF/SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
-			"XSD" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
-			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on"
-		);
-		$blcnt=0;
-		echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
-		foreach ($bugzLinks as $label => $url) { 
-			if ($blcnt>0) { echo ", "; } $blcnt++;
-			echo "".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
-		} 
-		echo "<br>";
-	}
-?>
-
-		</p>
-    </td>
-  </tr>
-
-	<?php echo $sep_line; ?>
-
-  <tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
       <p>&#160; <a href="../models.php" class="nav">EMF Corner</a><br>
 		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="../models-submit.php">Contribute!</a>
-		
-		</small>
-		</p>
-
-    </td>
-  </tr>
-
-	<?php echo $sep_line; ?>
-
-  <tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
-      <p>&#160; <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" class="nav">CVS</a><br>
-		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/">EMF</a> | <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/">SDO</a> | <a class="nav" href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.xsd">XSD</a>
 		
 		</small>
 		</p>
@@ -119,6 +75,50 @@
 		</small>
 		</p>
 
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" class="nav">CVS Repository</a><br>
+		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/">EMF</a> | <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/">SDO</a> | <a class="nav" href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.xsd">XSD</a>
+		
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav" target="_bz">Bugzilla</a><br/>
+<?php
+	
+	$statuses = array(
+		"Open" => "%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED",
+		"Closed This Week" => "%26bug_status%3DRESOLVED%26bug_status%3DVERIFIED%26bug_status%3DCLOSED%26changedin%3D7"
+	);
+	foreach ($statuses as $statusLabel => $statusString) { 
+		$bugzLinks = array(
+			"EMF/SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
+			"XSD" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
+			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on"
+		);
+		$blcnt=0;
+		echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
+		foreach ($bugzLinks as $label => $url) { 
+			if ($blcnt>0) { echo " | "; } $blcnt++;
+			echo "".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
+		} 
+		echo "<br>";
+	}
+?>
+
+		</p>
     </td>
   </tr>
 
