@@ -288,7 +288,6 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="M200502030700" project="emf">
-<bug id="83044">[DUPE] caching of Lookup in XMLSaveImpl for major performance boost of serialization</bug>
 <bug id="83047">[DUPE] EDate's createFromString/convertToString isn't thread safe.</bug>
 <bug id="83049">[DUPE] EObject.eContainmentFeature may return wrong result for containment via an open content feature in a  feature map entry.</bug>
 <bug id="83050">[DUPE] ClassCastException when saving a ChangeDescription with multivalue attribute.</bug>
@@ -1301,4 +1300,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.14 2005/02/03 17:52:13 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.15 2005/02/03 17:53:04 nickb Exp $ -->
