@@ -1,0 +1,1856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="faq.xsl"?>
+<faq>
+  <modified>$Date: 2005/01/14 17:14:37 $</modified>
+  <author>$Author: nickb $</author>
+
+  <entry date="2004/02/01 00:00" UNID="20040201-28367460">
+    <category>newbie</category>
+    <category>emf</category>
+    <question>
+What is EMF?
+    </question>
+    <answer>
+The <a href="http://www.eclipse.org/emf">Eclipse Modeling Framework</a> is a Java/XML framework for generating tools and other applications based on simple class models. EMF helps you rapidly turn models into efficient, correct, and easily customizable Java code. It is intended to provide the benefits of formal modeling, but with a very low cost of entry. In addition to code generation, it provides the ability to save objects as XML documents for interchange with other tools and applications. Models can be created using annotated Java, XML documents, or modeling tools like Rational Rose, then imported into EMF. The code generator turns a model into a set of Java implementation classes. These classes are extensible and regenerable - you can modify them by adding user-defined methods and instance variables. When the model changes, you can regenerate the implementation classes, and your modifications will be retained. This works both ways - changes in the Java code can be used to update the model.
+    </answer>
+  </entry>
+
+  <entry date="2004/02/03 00:00" UNID="20040203-1007613655">
+    <category>newbie</category>
+    <question>
+How do I get started with EMF?
+    </question>
+    <answer>
+Start by reading the <a href="http://download.eclipse.org/tools/emf/scripts/docs.php">overview documents and the tutorials</a>, followed by <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">downloading the driver</a>.
+<br/><br/>
+After going through the tutorial, you will have generated a completely working editor from nothing but a picture of the object model (i.e., the simple libarary model shown in the tutorial). If you run the generated editor, you can add and remove books and authors, edit the properties (e.g., the book title), copy, paste, drag-and-drop, etc. All with unlimited undo/redo. You can also save the document (the default framework serialization format is XMI).<br/><br/>
+The purpose of the tutorial is to illustrate the power of a model driven architecture (MDA). By providing a model for the data your application will manipulate, you can use EMF to generate a Java implementation for you. EMF.Edit can leverage the same model (meta) data to generate view support and even a working editor. Read the overview documents for more details.
+    </answer>
+  </entry>
+
+  <entry date="2004/02/04 00:00" UNID="20040204-1269172246">
+    <category>newbie</category>
+    <question>
+Are there any "real" example EMF models in Eclipse?
+    </question>
+    <answer>
+Well, for starters, EMF itself contains two interesting models. The Ecore model serves as the meta-model for any EMF model you create -- it is the model that describes the structure of your models. The Genmodel controls generation of an EMF model. In fact, the generator UI that is used in the tutorial is the EMF.Edit editor for the Genmodel, which explains why it looks so much like the library editor in the tutorial. If you want to explore Ecore and Genmodel further, you'll find their Rose models and Java code in the EMF source package available on our download page. Of course, the code produced by the EMF generator is meant to be a starting place, so you'll see that much functionality has been manually added to both of these models. But, it's quite easy to see the same sort of generated patterns that appear in the simple library example. Ecore is in the org.eclipse.emf.ecore plugin, the Genmodel is in org.eclipse.emf.codegen.ecore, and its editor UI is in org.eclipse.emf.codegen.ecore.ui. You'll find the Rose models in the "model" subdirectory of the source for the former two plugins.<br /><br />
+Finally, an even more complex example of an EMF model is XSD, the <a href="http://www.eclipse.org/xsd">XML Schema Infoset Model</a>, a subproject of the Eclipse Technology Project. XSD models the concrete and abstract relationships expressed in an XML schema document, providing an API to manipulate the model and an XML-schema-specific replacement for EMF's default XMI serialization. Of course, there's also an EMF.Edit-based XML schema editor built on it.
+    </answer>
+  </entry>
+
+  <entry date="2004/10/13 20:00" UNID="20041013-1553003533">
+    <category>gen</category>
+    <question>
+How does EMF perform in regard to serializing to
+relational databases? I am
+wondering if this framework suits central repository servers, where
+hundreds of thousand of instances
+are present. When is it mandatory to have a relational database as the
+EMF's object serialization target?
+    </question>
+    <answer>
+There is no out of the box EMF support for RDB persistence, but several
+people have done or are doing such things themselves. It involves
+customized
+resources, or in the case of SDO - mediators.
+    </answer>
+  </entry>
+
+
+
+  <!-- gen --> 
+
+  <entry date="2004/05/27 18:53" UNID="20040527-380137306">
+    <category>gen</category>
+    <question>
+If using EMF in a non-Eclipse
+environment is feasible (licensing issues), what if any, advantages does
+using EMF have over using JAXB?
+    </question>
+    <answer>
+EMF and XSD are definitely intended to support standalone execution outside
+of
+Eclipse.  Only the EMF jars are needed for standalone execution (as
+described
+in the FAQ).  Within IBM, you should discuss licensing issues with the WSWB
+folks, since that's the supported distribution vehicle for EMF and XSD
+within
+IBM.  I don't believe there are any issues as long as you stick to using
+released (i.e., supported) drivers.
+<br/><br/>
+JAXB produces a simple Java API given an XML Schema and it does so using
+essentially a black box design.  EMF produces an Ecore model given an XML
+Schema and then uses template-based generator technology to generate a rich
+Java API (of hand written quality).   The XML Schema to Ecore conversion
+can be
+tailored, the templates used to generate the Java API can be tailored, and
+the
+resulting Java API can be tailored.  The generator supports merging
+regeneration so that it will preserve your hand written changes.  In other
+words, EMF is far richer and more flexible, and supports a broader subset
+of
+XML Schema (especially in 2.0, where wildcards and mixed content will be
+supported).
+    </answer>
+  </entry>
+
+  <entry date="2004/11/09 17:24" UNID="20041109-1267996348">
+    <category>dev</category>
+    <question>
+EMF is failing to load a resource. How can I make it recognize a
+non-standard archive URI scheme?
+Why does EMF fail to load resources when running on an application server
+or other specialized runtime?
+    </question>
+    <answer>
+EMF recognizes a couple of well known archive schemes, such as "<tt class="code">zip</tt>" and
+"<tt class="code">jar</tt>", so everything will work fine if the URI of an archived resource
+starts, for example, with "<tt class="code">zip:</tt>".  Although most applications probably use
+one of these recognized schemes, you may find that certain runtimes use a
+different one.  For example, when running in the IBM WebSphere Application
+Server, <tt class="code">Class.getResource(String)</tt> may return a URL with a "<tt class="code">wsjar</tt>" scheme,
+like
+"<tt class="code">wsjar:file:/C:/dev/ws/default/sample_app/xsd.resources.jar!/org/eclipse/xsd/plugin.properties</tt>".
+<br/>
+By default, EMF will not recognize this as an archive URI and will fail
+to handle it correctly, probably resulting in multiple unregistered
+resources errors and/or null pointer exceptions.
+If you are facing this problem, you will need to change EMF's set of
+recognized archive schemes. This is done by defining a property named
+"<tt class="code">org.eclipse.emf.common.util.URI.archiveSchemes</tt>", whose value is the
+desired space-separated list of archive schemes.  Here's an example of how
+you could define it when invoking your Java application:<br/><br/>
+<tt class="code">java MyApp -Dorg.eclipse.emf.common.util.URI.archiveSchemes="wsjar wszip jar zip"</tt>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/22 16:00" UNID="20040622-1939882562">
+    <category>dev</category>
+    <question>
+Is there a built-in facility to check whether a given value is valid
+compared to the effective facets of its type? 
+    </question>
+    <answer>
+To determine if a literal is valid with respect to a simple type, you can use
+either <tt class="code">XSDSimpleTypeDefinition.isValidLiteral</tt> or
+<tt class="code">XSDSimpleTypeDefinition.assess</tt>.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/27 19:25" UNID="20040527-736739837">
+    <category>dev</category>
+    <question>
+I have a simple model consisting of a root that contains a single EList
+of children.  The child type contians several attributes.  I would like
+to create a custom editor such that the model is completely displayed in
+a table.  How should I start?  Overload getText() on the child item
+provider, and just return null for a propery
+descriptor?
+    </question>
+    <answer>
+Try working within the generated editor and updating the tab with
+existing table viewer support there until you have it working nicely.
+You might want a plain table or a table tree.  You can add some more
+columns in the editor for the table/table tree and then use your item
+provider's implementation of ITableItemLabelProvider to populate the
+additional columns.  Property descriptors will only be used when they are
+needed, so you don't have to do anything to hide them.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/27 19:25" UNID="20040527-1705767040">
+    <category>dev</category>
+    <question>
+How big a job would it be to get the EMF editor generator to spit out
+Swing editor code instead of
+SWT/JFace code?
+    </question>
+    <answer>
+You'd want something similar to org.eclipse.emf.edit.ui, but for binding
+the platform independent .edit support to Swing instead of to Eclipse,
+and you'd want to replace the editor templates with stuff for Swing.
+It's not a trivial task, but not a huge one either.
+    </answer>
+  </entry>
+
+  <entry date="2004/04/03 00:00" UNID="20040403-960799976">
+    <category>gen</category>
+    <question>
+Are there any examples of EMF used standalone?
+    </question>
+    <answer>
+Yes, definitely. In fact, SDO (Service Data Objects) is a standalone
+application of EMF. <a
+href="http://download.eclipse.org/tools/emf/sdo/javadoc">Javadoc</a>, <a
+href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/27 18:53" UNID="20040527-1737811215">
+    <category>dev</category>
+    <question>
+Is it possible to convert back from EMF model (ecore files or generated
+Java code?) to UML?
+    </question>
+    <answer>
+It's possible in theory, but we don't have anything like the working in
+practice.  It shouldn't be too difficult to do the Ecore to UML2 conversion
+using Eclipse's EMF-based UML2 model.<br/><br/>
+Check the uml2 newsgroup. They may have plans or already have an Ecore
+model
+importer.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/27 18:53" UNID="20040527-1911592151">
+    <category>dev</category>
+    <question>
+As of EMF 2.0.0.I20040408, it seems like the code templates in
+chapter 14.2.3 in the emf-book needs to be rewritten. Is this already done
+and published somewhere?
+    </question>
+    <answer>
+The existing mechanisms should continue to work, but will result in
+deprecation warnings for 2.0.  The framework was generalized so that a
+number
+of places where only EReference was supported, now EStructuralFeature is
+supported.  It would certainly be a FAQ worthy addition to outline the
+places
+where such changes would be made.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/27 18:53" UNID="20040527-786181750">
+    <category>dev</category>
+    <question>
+Can I link parts of UML diagrams to portions of the code in the EMF editor?
+    </question>
+    <answer>
+Yes, but the <a
+href="http://eclipse.org/uml2">UML2 project</a> should be able to provide
+you with
+most of the "model" code that you need, and the <a
+href="http://eclipse.org/gef">GEF project</a> will give you a huge
+head-start when it somes to creating the "view" and "controller" bits.
+<br /><br />
+I would guess that the best approach when it comes to linking your model
+and
+code would be via the JET framework which is part of EMF, this will handle
+most
+of the merging issues for you.
+    </answer>
+  </entry>
+
+  <entry date="2004/02/03 00:00" UNID="20040203-709087300">
+    <category>newbie</category>
+    <question>
+Is there an electronic version of the EMF book?
+    </question>
+    <answer>
+There's an IBM "RedBook" on GEF which also has some chapters on EMF in it,
+it's
+a free download at <a
+href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246302.pdf">http://www.redbooks.ibm.com/redbooks/pdfs/sg246302.pdf</a>.
+<br /><br />
+You can buy an electronic copy of the book here: <a
+href="http://www.awprofessional.com/titles/0131425420">http://www.awprofessional.com/titles/0131425420</a>.
+    </answer>
+  </entry>
+
+<!--  <entry date="2004/01/07 00:00" UNID="20040207-1527768436">
+    <category>unc</category>
+    <question>
+How can I get my question into the FAQ?
+    </question>
+    <answer>
+Just send a blank email with the subject 'readme submitter' to 
+<a href="mailto:emf-faq@eclipse.org?Subject=readme submitter"><tt class="code">emf-faq@eclipse.org</tt></a> 
+(or cc:/bcc: a 
+<a target="_ng" href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">newsgroup post</a> 
+to that address) 
+and you will receive instructions on how to submit. 
+Your submissions will be checked for viability and 
+usefulness by the EMF/XSD support team. 
+    </answer>
+  </entry> -->
+
+  <entry date="2004/04/02 00:00" UNID="20040402-751483936">
+    <category>dev</category>
+    <question>
+Is there a clean way to use an EMF model's generated editor in a
+standalone application?
+    </question>
+    <answer>
+The .edit projects can be used standalone (although you'd need to put
+the plugin.properties and
+icons into a resource jar), but the .editor projects are tightly
+integrated Eclipse components
+that will only function within an Eclipse environment.
+<br/><br/>
+For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
+    </answer>
+  </entry>
+
+  <entry date="2005/01/14 12:02" UNID="20050114-120205">
+    <category>dev</category>
+    <question>
+I want to use EMF, SDO, or XSD in my standalone project, or include only a working subset of the jars. What do I need?
+    </question>
+    <answer>
+EMF provides the infrastructure to run the generated models and dynamic model based on existing ecore files. It also provides XMI/XML serialization and deserialization. The following jars can be used in standalone mode:
+<ul>
+<li>org.eclipse.emf.common/runtime/common.jar</li>
+<li>org.eclipse.emf.common/runtime/common.resources.jar</li>
+<li>org.eclipse.emf.ecore/runtime/ecore.jar</li>
+<li>org.eclipse.emf.ecore/runtime/ecore.resources.jar</li>
+<li>org.eclipse.emf.ecore.change/runtime/ecore.change.jar</li>
+<li>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar (requires XML)</li>
+</ul>
+If using ecore.xmi, you will require XML; a SAX parser such as the one available in JRE 1.4 or in Xerces. To get a copy of Xerces, <a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php" target="_xerces">click here</a>. 
+<br/><br/>
+Service Data Object (SDO) is an API specification in the format of Java interfaces and the EMF implementation that requires the EMF jars above and the following jars to be used in standalone mode:
+<ul>
+<li>org.eclipse.emf.commonj.sdo/runtime/commonj.sdo.jar</li>
+<li>org.eclipse.emf.ecore.sdo/runtime/ecore.sdo.jar</li>
+</ul>
+
+XSD is a reference library for use with any code that manipulates XML schemas and requires the EMF jars above and the following jars to be used in standalone mode:
+<ul>
+<li>org.eclipse.xsd/runtime/xsd.jar</li>
+<li>org.eclipse.xsd/runtime/xsd.resources.jar</li>
+<li>org.eclipse.xsd.test/runtime/xsd.test.jar</li>
+</ul>
+This configuration requires XML; a SAX parser such as the one available in JRE 1.4 or in Xerces. To get a copy of Xerces, <a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php" target="_xerces">click here</a>. 
+<br/><br/>
+The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b>_2.1.0</b>.
+<br/><br/>
+
+    </answer>
+  </entry>
+
+  <!-- mod -->
+
+<entry date="2004/05/19 12:58" UNID="20040519-351638432">
+    <category>mod</category>
+    <question>
+What is Model Driven Architecture (MDA)?
+    </question>
+    <answer>
+MDA is an industry architecture proposed by the OMG that addresses full life cycle application development, data, and application integration standards that work with multiple middleware (CORBA, J2EE), languages, and interchange formats. MDA unifies some of the industry best practices in software architecture, modeling, metadata management, and software transformation technologies that allow a user to develop a modeling specification once and target multiple technology implementations by using precise transformations/mappings.<br /><br />
+An example of the use of MDA is to use a UML model representation of a tool or application and to use this model to automate (some or all) of the Java interface, implementation, as well as any XML serialization for the modeled objects. Many of the recent OMG standards such as UML, MOF, and CWM were developed using MDA principles of using abstract models (these are also referred to as Platform Independent Models - PIM) which can be mapped to Platform Specific Models (PSM). Please note that 'platform independent' is a relative term!<br /><br />
+or more information on MDA and related MDA specifications including UML, XMI, and MOF, please visit www.omg.org/mda.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-1683270233">
+    <category>mod</category>
+    <question>
+Does EMF support OMG XMI?
+    </question>
+    <answer>
+EMF uses OMG XML Metadata Interchange (XMI<sup>TM</sup>) 2.0 as the default XML serialization format for Ecore models and Ecore instances. The EMF framework allows the use of other serialization formats also. The XMI 2.0 document production rules are used because of more compact representation than XMI 1.2.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-1536473629">
+    <category>mod</category>
+    <question>
+Can I create an EMF model using OMG XMI?
+    </question>
+    <answer>
+Yes. The XMI document that conforms to the EMF Ecore model can be directly edited using your favorite text or an XML editor. Alternately you can use a modeling tool that can produce the XMI document from a UML model. You can also use annotated Java interfaces to define your input model.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-603774618">
+    <category>mod</category>
+    <question>
+Can I create an EMF model using UML<sup>TM</sup> modeling tools?
+    </question>
+    <answer>
+EMF models can be defined using UML modeling tools such as Rational Rose. You simply define a class model with the packages, attributes, references, data types, and operations. This class model can be imported into EMF for additional code generation. Since many Java developers are familiar with simple class modeling, this serves as a 'gentle introduction' to UML class modeling. In addition to UML class models, EMF models can be created by using annotated Java interfaces or by directly editing an XMI document using an XML editor. This approach is used to allow the benefits of model based code generation (one of the principles of the OMG Model Driven Architecture - MDA) to not just users familiar with UML, but also the larger community of developers using Java and XML.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-2066174092">
+    <category>mod</category>
+    <question>
+What is the relationship of OMG<sup>TM</sup> MOF<sup>TM</sup> to the EMF Ecore model?
+    </question>
+    <answer>
+The OMG MOF 1.4 Model has influenced the design of the EMF Ecore model. The Ecore model evolved in parallel with the MOF 1.4 model. Implementation experience in integrating a number of tools led to an optimized implementation (focused on tool integration as opposed to the original MOF focus of metadata repositories) that uses a subset of the modeling concepts in MOF 1.4. For example, Ecore does not support 'first class' Associations. Associations are mapped to a pair of Ecore References. To minimize confusion, we have used the term 'Ecore' to refer to the object model in the EMF framework. We use the terms 'Ecore model' and 'EMF model' interchangeably in this FAQ, because the object model of the Eclipse EMF framework is the Ecore model.<br /><br />
+The designers of EMF are participating in the OMG process to influence the design of MOF 2.0 and UML 2.0, which are still being defined.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-1035101438">
+    <category>mod</category>
+    <question>
+What is the relationship of EMF to OMG<sup>TM</sup> MDA<sup>TM</sup>?
+    </question>
+    <answer>
+One of the key goals of EMF is to use simple visual models to allow easy integration of Java and XML tools. To accomplish this you can use a UML class model as input to the EMF framework. This model is then used to drive Java interface and implementation generation for EMF instances. These Java interfaces define a consistent programming model for tools built using EMF. The same EMF model is also used to generate the XML serialization (XMI 2.0 format) for EMF instances. Essentially EMF supports the key MDA concept of using models as input to development and integration tools which produce multiple programming language (Java in the case of Eclipse EMF itself) or data interchange format (XML) representations. The code generation and XML serialization is 'driven' from the same model.<br /><br />
+EMF supports OMG XMI 2.0 XML serialization format and the use of UML models for the analysis and design of EMF models.
+    </answer>
+
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-1158672323">
+    <category>mod</category>
+    <question>
+What is the relationship of EMF to JMI<sup>TM</sup>?
+    </question>
+    <answer>
+JMI (Java<sup>TM</sup> Metadata Interface) is a mapping of the OMG MOF 1.4 to the Java language developed by the Java Community Process. The JMI spec and the Eclipse EMF model to Java mapping were developed in parallel and are not the same. The Eclipse EMF Java mappings have been optimized for in memory tool integration using Java and XML while JMI has been optimized for metadata repository usage scenarios. Eclipse EMF designers are actively involved in the ongoing development of MOF 2.0 and related mappings to XML and Java that are expected to proceed in the OMG and Java Community Process respectively.
+    </answer>
+  </entry>
+
+  <!-- dev -->
+
+  <entry date="2004/05/19 12:58" UNID="20040519-1820359639">
+    <category>dev</category>
+    <question>
+Does it matter what node in the genmodel tree I invoke Generate from?
+    </question>
+    <answer>
+Definitely. To do a full generation, you need to invoke "Generate" or "Generate EMF.Edit" from the root node in the genmodel editor. If you invoke Generate lower down, you'll only generate the files associated with the selected subtree.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-275719351">
+    <category>dev</category>
+
+    <question>
+Can model classes be in the Java default package?
+    </question>
+    <answer>
+No. EMF does not allow model classes to be in the default Java package because it would need to be handled specially in the code generator, and since it's not a good Java convention anyway, we don't think it is worth supporting. Make sure that if you load your model from annotated Java that all the interfaces and classes with an @model tag also have an explicit package declaration.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-1718062883">
+    <category>dev</category>
+    <question>
+Can annotated Java files use * imports?
+    </question>
+
+    <answer>
+Currently no. Until our Java name lookup mechanisms are improved, we really rely on explicit imports to resolve names, i.e., two * imports would confuse the code. It's best to entirely avoid * imports for the time being. We will improve identifier lookup in the coming weeks.
+    </answer>
+  </entry>
+
+  <entry date="2004/05/19 12:58" UNID="20040519-345339539">
+    <category>dev</category>
+    <question>
+Does regeneration/merge work for properties and plugin.xml files?
+    </question>
+    <answer>
+Not yet. The current generator does not support merge for the plugin.properties and plugin.xml files, so it will not overwrite them if they exist. If you want to regenerate them, you'll need to remove or rename them before regenerating. This will also be improved in the future.
+    </answer>
+  </entry>
+
+  <entry date="2004/04/01 00:00" UNID="20040401-2098357246">
+    <category>dev</category>
+    <category>emf</category>
+    <question>
+How do I use EMF in standalone applications (such as an ordinary main)?
+    </question>
+    <answer>
+An EMF model can be used without change in a standalone application with couple of exceptions.<br/><br/> 
+
+Default resource factories are not registered in the standalone EMF environment. Therefore, for each file extension or scheme your application wants to load or save, you need to register the corresponding resource factory. For example, to load and save XMI documents, add a line similar to the one below to your main program:<br/><br/>
+<tt class="code">
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", new XMIResourceFactoryImpl());
+</tt>
+<br/><br/>
+To load and save XML documents, register the following factory:
+<br/><br/>
+<tt class="code">
+Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
+</tt>
+
+<br/><br/>
+In the above examples, the model is registered using the global static resource factory registry instance. You can also register factories local to the <tt class="code">ResourceSet</tt> being used, e.g:
+ <br/><br/>
+
+<tt class="code">
+ResourceSet rs = new ResourceSet();
+<br/>
+rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put(("xml", new XMLResourceFactoryImpl());
+</tt>
+<br/><br/>
+In addition, you'll also need to register your package, which happens as a side effect of accessing XyzPackage.eINSTANCE. For example, to register the library model, add the following line to your main program:
+<br/><br/>
+<tt class="code">
+LibraryPackage packageInstance = LibraryPackage.eINSTANCE;
+</tt>
+
+<br/><br/>
+You need to add to the CLASSPATH all the jars for the plugins (and their dependent plugins) that you want to use standalone. The list is dependent on exactly what plugins you want to use and is available by looking at the runtime libraries in their <tt class="code">plugin.xml</tt> files. This includes, but is not limited to: 
+<ul>
+<li>org.eclipse.emf.common/runtime/common.jar</li>
+<li>org.eclipse.emf.common/runtime/common.resources.jar</li>	
+<li>org.eclipse.emf.ecore/runtime/ecore.jar</li>
+<li>org.eclipse.emf.ecore/runtime/ecore.resources.jar</li>
+<li>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</li>
+</ul>
+
+The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b>_2.1.0</b>.
+<br/><br/>
+For EMF.Edit you would also have to add the following jar files to your classpath:
+
+<ul>
+<li>org.eclipse.emf.common.ui/runtime/common.ui.jar</li>
+<li>org.eclipse.emf.common.ui/runtime/common.ui.resources.jar</li>
+<li>org.eclipse.emf.edit/runtime/edit.jar</li>
+<li>org.eclipse.emf.edit/runtime/edit.resources.jar</li>
+</ul>
+
+<br/>
+Also, to produce the right .jar file for standalone execution of a generated project, you need to copy the <tt class="code">plugin.properties</tt> file and the icons directory to the directory containing the EMF XyzPlugin for the project. This will put the resources in just the right place to be found by the generated XyzPlugin during standalone execution. Such a project will work as both a plugin and for standalone execution.
+    </answer>
+  </entry>
+
+  <!-- sdo -->
+
+  <entry date="2004/02/01 00:00" UNID="20040201-880027404">
+    <category>newbie</category>
+    <category>sdo</category>
+    <question>
+What are Service Data Objects (SDO)?
+    </question>
+    <answer>
+Service Data Objects (SDO), previously Web Data Objects (WDO), is designed to simplify and unify the way in which applications handle data. Using SDO, application programmers can uniformly access and manipulate data from heterogeneous data sources, including relational databases, XML data sources, Web services, and enterprise information systems. For more information about the goals and architecture of SDO, see the whitepaper "<a href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc" target="_dw">Next-Generation Data Programming: Service Data Objects</a>."
+<br/><br/>
+SDO is based on the concept of <i>disconnected data graphs</i>. A data graph is a collection of tree-structured or graph-structured data objects. Under the disconnected data graphs architecture, a client retrieves a data graph from a data source, mutates the data graph, and can then apply the data graph changes back to the data source. <a href="http://www-106.ibm.com/developerworks/library/j-commonj-sdowmt/" target="_dw">More...</a>
+    </answer>
+  </entry>
+
+  <entry date="2004/02/01 00:00" UNID="20040201-707321517">
+    <category>sdo</category>
+    <question>
+What is the relationship between SDO &amp; WDO?
+    </question>
+    <answer>
+Web Data Objects, or WDO, is the name of an early release of SDO shipped in IBM WebSphere Application Server 5.1 and IBM WebSphere Studio Application Developer 5.1.2. If you've spent any time with WebSphere Studio 5.1.2, you should already be somewhat familiar with SDO, although you're probably accustomed to seeing it denoted as WDO, for example in library names. WDO is now called SDO.
+    </answer>
+  </entry>
+
+  <entry date="2004/02/01 00:00" UNID="20040201-2093075295">
+    <category>sdo</category>
+    <category>emf</category>
+    <question>
+What is the relationship between EMF &amp; SDO?
+    </question>
+    <answer>
+EMF and SDO both deal with data representation. The SDO implementation is based on EMF and is essentially a thin layer (facade) over EMF. You can get SDO from the <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" target="_emf">Eclipse EMF Project Downloads page</a>.
+    </answer>
+  </entry>
+
+  <entry date="2004/11/17 00:00" UNID="20041117-1090193998">
+    <category>sdo</category>
+    <question>
+How do I serialize the model of an SDO data graph?
+    </question>
+    <answer>
+It may be convenient to serialize the package in the data graph, along with the instance data that requires it. To do so, the package's resource needs to be added to the resource set of the data graph.
+<br/><br/>
+For example:
+<br/><br/>
+<tt class="code">
+EDataGraph companyGraph = SDOFactory.eINSTANCE.createEDataGraph();
+<br/>
+ResourceSet set = companyGraph.getResourceSet();
+<br/>
+Resource packageResource = set.createResource(URI.createURI(companyPackage.getNsURI()));
+<br/>
+packageResource.getContents().add(companyPackage);
+</tt>
+<br/><br/>
+At load-time, the package will automatically be located with no further effort.
+    </answer>
+  </entry>
+
+  <entry date="2004/08/31 17:24" UNID="20040831-1490826115">
+    <category>dev</category>
+    <question>
+Can I use XSD to help create XML instances that are valid according to a given schema?
+    </question>
+    <answer>
+No, but <a href="http://developer.k-int.com/OpenXSD/" target="_out">Knowledge Integration Ltd</a>. uses XSD to help support this kind of cabability and have shared their results under the GPL.
+    </answer>
+  </entry>
+
+  <entry date="2004/10/13 00:00" UNID="20041013-1829026425">
+    <category>sdo</category>
+    <question>
+What is the relationship between SDO &amp; JDO?
+    </question>
+    <answer>
+      JDO is a Java Community Process (JCP) standard and stands for Java Data Objects. JDO looks at data programming in the Java environment and provides a common API to access data stored in various types of data sources. JDO preserves relationships between Java objects (graphs) and at the same time allows concurrent access to the data.
+      <br/><br/>
+      JDO's goal is similar to SDO's in that it wants to simplify and unify Java data programming. The main difference, however, is that JDO looks at the persistence issue only (the J2EE data tier or enterprise information system (EIS) tier), whereas SDO is more general and represents data that can flow between any J2EE tier, such as between a presentation and business tier.
+      <br/><br/>
+      SDO can be used in conjunction with JDO where JDO is a data source that SDO can access, applying the Data Transfer Object (DTO) design pattern.
+    </answer>
+  </entry>
+
+    <entry date="2004/10/13 00:00" UNID="20041013-420924899">
+    <category>sdo</category>
+    <question>
+What is the relationship between SDO &amp; JAXB?
+    </question>
+    <answer>
+      JAXB is a Java Community Process (JCP) standard and stands for Java API for XML Data Binding. As an XML binding framework for the Java language, JAXB performs marshalling/serializing (Java to XML) and unmarshalling/deserializing (XML to Java).
+      <br/><br/>
+      SDO defines a Java binding framework of its own and it goes one step further. While JAXB is only focused on a Java-to-XML binding, XML isn't the only kind of data SDO can bind to. SDO provides uniform access to data of various types through its Data Mediator Service (DMS). Examples of data types include relational databases (RDBs), entity Enterprise Java Beans (EJBs), or XML registries. SDO also offers both a static and dynamic API, whereas JAXB only provides a static binding.
+    </answer>
+  </entry>
+
+  <entry date="2004/10/13 00:00" UNID="20041013-2131103265">
+    <category>sdo</category>
+    <question>
+What is the relationship between SDO &amp; ADO .NET?
+    </question>
+    <answer>
+      ADO .NET provides uniform data access between different tiers in the .NET framework.
+      <br/><br/>
+      ADO .NET and SDO share similar motivators for supporting XML and applications distributed on multiple tiers. Other than technical differences, one major difference between the two technologies is that ADO .NET is for the Microsoft .NET platform whereas SDO is for the Java (J2EE) platform.
+    </answer>
+  </entry>  
+    <entry date="2004/10/20 00:00" UNID="20041020-2098594544">
+    <category>dev</category>
+    <question>
+What libraries (jar files) are needed to use SDO in standalone applications?
+    </question>
+    <answer>
+You need to add to the CLASSPATH the jars needed by EMF. This includes, but is not limited to: 
+<ul>
+<li>org.eclipse.emf.common/runtime/common.jar</li>
+<li>org.eclipse.emf.common/runtime/common.resources.jar</li>
+<li>org.eclipse.emf.ecore/runtime/ecore.jar</li>
+<li>org.eclipse.emf.ecore/runtime/ecore.resources.jar</li>
+<li>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</li>
+</ul>
+
+The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b>_2.1.0</b>.
+<br/>
+<br/>
+In addition to the EMF jars, you also neeed to add to the CLASSPATH the following SDO jars:
+<ul>
+<li>org.eclipse.emf.commonj.sdo/runtime/commonj.sdo.jar</li>
+<li>org.eclipse.emf.ecore.sdo/runtime/ecore.sdo.jar</li>
+<li>org.eclipse.emf.ecore.change/runtime/ecore.change.jar</li>
+</ul>
+
+For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
+
+    </answer>
+  </entry>
+  
+  <entry date="2004/11/17 00:00" UNID="20041117-1616872334">
+    <category>dev</category>
+    <question>
+I get a PackageNotFoundException: e.g., "Package with uri ‘http://com.example.company.ecore‘ not found." What do I need to do?
+    </question>
+    <answer>
+When an EMF model instance (or SDO data graph) is loaded from its serialized form, the resource needs to obtain the correct metamodel, which is to be instantiated. The metamodel, represented by EMF as an EPackage, must be available (either in memory, or in serialized form), and EMF must be able to locate it from its namespace URI, which appears in the serialized model instance.
+<br/>
+There are number of different ways this can occur, depending on a number of factors:
+<ul>
+<li>Static or dynamic: static means code has been generated at development time to implement the model; dynamic means no code has been generated and the metamodel is built in memory.</li>
+<li>Eclipse or stand-alone: you may be running your code under or outside of Eclipse. The latter is referred to as stand-alone.</li>
+<li>EMF or SDO: you may be using non-SDO EMF, or SDO.</li>
+</ul>
+When using static SDO stand-alone, it is recommended to follow the instructions described under <i>"Do I have to pre-register my static, generated package when running stand-alone (outside of Eclipse)?"</i>
+<br/><br/> 
+If you are using static EMF, the generated package interface (e.g. CompanyPackage) will include a static field called eINSTANCE. Accessing this field will cause the package to be initialized and registered in the global package registry, allowing any resource to locate it. For example, the following code accesses the eINSTANCE field of CompanyPackage:
+<br/><br/>
+<tt class="code">CompanyPackage packageInstance = CompanyPackage.eINSTANCE;</tt>
+<br/><br/>
+When running under Eclipse, this step is unnecessary, as a plug-in manifest file drives automatic package registration.
+<br/><br/>
+In SDO, the package can be included in the serialized data graph, along with the instance data that requires it. This is one option with dynamic, for example. To do so, refer to <i>"How do I serialize the model of an SDO data graph?"</i>
+<br/><br/>
+To register a dynamic model, refer to <i>"How do I register a dynamic package?"</i> Alternatively, the metamodel can be automatically loaded from its serialized form. For details, refer to <i>"Do I have to initialize and pre-register my dynamic packages?"</i>
+    </answer>
+  </entry>
+  
+  <entry date="2004/11/17 00:00" UNID="20041117-1542941924">
+    <category>dev</category>
+    <question>
+Do I have to pre-register my static, generated package when running stand-alone (outside of Eclipse)?
+    </question>
+    <answer>
+No. Use the OPTION_SCHEMA_LOCATION_IMPLEMENTATION option to avoid pre-registration of your generated packages. This is the recommended approach to using static SDO.
+<br/><br/>
+When a model instance is saved with this option set, an xsi:schemaLocation attribute will be added to the document element, associating the package's namespace URI with the qualified name of the generated package interface. When the package is needed at load-time, the eINSTANCE field of that interface will be reflectively accessed to obtain it.
+<br/><br/>
+The following code shows how to set the option in the resource associated with an SDO data graph:
+<br/><br/>
+<tt class="code">
+((XMLResource)eDataGraph.getDataGraphResource()).getDefaultSaveOptions().put(XMLResource.OPTION_SCHEMA_LOCATION_IMPLEMENTATION, Boolean.TRUE);
+  </tt>
+<br/>
+    </answer>
+  </entry>
+  
+  <entry date="2004/11/17 00:00" UNID="20041117-1444194833">
+    <category>dev</category>
+    <question>
+How do I register a dynamic package?
+    </question>
+    <answer>
+In order for EMF to locate a dynamic package that has been built up programmatically, it must be registered in a package registry. For example, the following code globally registers companyPackage:
+<br/><br/>
+<tt class="code">EPackage.Registry.INSTANCE.put(companyPackage.getNsURI(), companyPackage);</tt>
+<br/><br/>
+Each resource set has its own local package registry, which is consulted before the global registry. To avoid collisions, you may prefer to register the dynamic package locally, instead of globally:
+<br/><br/>
+<tt class="code">
+ResourceSet set = new ResourceSetImpl();
+<br/>
+set.getPackageRegistry().put(companyPackage.getNsURI(), companyPackage);
+</tt>
+<br/>
+    </answer>
+  </entry>
+  
+  <entry date="2004/11/17 00:00" UNID="20041117-1298027498">
+    <category>dev</category>
+    <question>
+Do I have to initialize and pre-register my dynamic packages?
+    </question>
+    <answer>
+No. The package needed to load a model instance will be automatically loaded from its serialized form, if available.
+<br/><br/>
+The simplest approach is to use an accessible URL as the package's namespace URI, and to make the package serialization available at that location (for example, via HTTP). If found, the package will be loaded with no additional effort.
+<br/><br/>
+If the package is available at a different physical location, whether public or on the local filesystem, you can serialize the model instance with the OPTION_SCHEMA_LOCATION to include that location, so that it can be found at load-time.
+<br/><br/>
+First, create a resource and add your package to it. For example:
+<br/><br/>
+<tt class="code">
+ResourceSet set = new ResourceSetImpl();
+<br/>
+Resource packageResource = set.createResource(URI.createURI("file:///c:/data/company.ecore"));
+<br/>
+packageResource.getContents().add(companyPackage);
+<br/>
+packageResource.save(null);
+</tt>
+<br/><br/>
+Then, use the OPTION_SCHEMA_LOCATION when you serialize your model instance: 
+<br/><br/>
+<tt class="code">
+Resource resource = set.createResource(URI.createURI("file:///c:/data/company.xml"));
+<br/>
+Resource.getContents.add(company);
+<br/>
+Map options = new HashMap();
+<br/>
+options.put(XMLResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
+<br/>
+resource.save(options);
+</tt>
+<br/><br/>
+This adds an xsi:schemaLocation attribute to company.xml, associating the company package's namespace URI with the physical URI "company.ecore" (this relative URI is automatically computed, allowing the two files to be relocated, together).
+    </answer>
+  </entry>
+
+  <entry date="2004/06/22 16:00" UNID="20040622-511183199">
+    <category>dev</category>
+    <question>
+Is there a built-in facility to check whether a given value is valid
+compared to the effective facets of its type? 
+    </question>
+    <answer>
+To determine if a literal is valid with respect to a simple type, you can use
+either <pre class="code">XSDSimpleTypeDefinition.isValidLiteral</pre> or
+<pre class="code">XSDSimpleTypeDefinition.assess</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-159556182">
+    <category>dev</category>
+    <question>
+I'm generating EMF models from xsd files. To generate relations between
+entities I use the following syntax, with the ecore:reference attribute on
+xsd:element.<pre class="code">    &lt;xsd:complexType name="Writer"&gt;
+    &lt;xsd:sequence&gt;
+    &lt;xsd:element name="name" type="xsd:string"/&gt;
+    &lt;xsd:element maxOccurs="unbounded" minOccurs="0"
+    name="books" type="xsd:anyURI" ecore:reference="lib:Book"/&gt;
+    &lt;/xsd:sequence&gt;
+    &lt;/xsd:complexType&gt;</pre>
+But I have to generate this XSD schema and for this I need the schema
+that defines the ecore namespace. Where can I find this schema ?
+    </question>
+    <answer>
+I don't think you actually need it in order to generate a schema like the
+one
+below.  The XML Schema spec defines the wildcard for these "non-schema
+namespace
+attributes" like this:<pre class="code">    &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;</pre>
+so no schema needs to exist for that namespace in order for the schema to
+be
+valid, you only need to ensure that the prefix is defined.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-648566821">
+    <category>dev</category>
+    <question>
+I have an element that comprises four sub-elements derived from type
+&lt;xs:string>.
+How can I examine the contents of an &lt;xs:complexType>? How could I
+programmatically determine its restrictions/enumerations etc?
+    </question>
+    <answer>
+Here's snippet of code that does some of the things you mention:<pre
+class="code">    void handle(XSDElementDeclaration xsdElementDeclaration)
+    {
+      XSDTypeDefinition xsdTypeDefinition =
+        xsdElementDeclaration.getTypeDefinition();
+      if (xsdTypeDefinition instanceof XSDSimpleTypeDefinition)
+      {
+        XSDSimpleTypeDefinition xsdSimpleTypeDefinition =
+          (XSDSimpleTypeDefinition)xsdTypeDefinition;
+        for (Iterator i = xsdSimpleTypeDefinition.getFacets().iterator();
+          i.hasNext(); )
+        {
+          XSDFacet xsdFacet = (XSDFacet)i.next();
+          if (xsdFacet instanceof XSDEnumerationFacet)
+          {
+            for (Iterator j =
+              ((XSDEnumerationFacet)xsdFacet).getValue().iterator(); j.hasNext(); )
+            {
+              Object enumerator = j.next();
+            }
+          }
+          else if (xsdFacet instanceof XSDPatternFacet)
+          {
+          }
+          // ...
+        }
+      }
+      else
+      {
+        XSDComplexTypeDefinition xsdComplexTypeDefinition =
+          (XSDComplexTypeDefinition)xsdTypeDefinition;
+        switch (xsdComplexTypeDefinition.getContentTypeCategory().getValue())
+        {
+          case XSDContentTypeCategory.EMPTY:
+          {
+            break;
+          }
+          case XSDContentTypeCategory.SIMPLE:
+          {
+            XSDSimpleTypeDefinition xsdSimpleTypeDefinition =
+              (XSDSimpleTypeDefinition)xsdComplexTypeDefinition.getContentType();
+            break;
+          }
+          case XSDContentTypeCategory.ELEMENT_ONLY:
+          case XSDContentTypeCategory.MIXED:
+          {
+            XSDParticle xsdParticle =
+              (XSDParticle)xsdComplexTypeDefinition.getContentType();
+            XSDTerm xsdTerm = xsdParticle.getTerm();
+            if (xsdTerm instanceof XSDModelGroup)
+            {
+              XSDModelGroup xsdModelGroup = (XSDModelGroup)xsdTerm;
+              for (Iterator i = xsdModelGroup.getParticles().iterator();
+                i.hasNext(); )
+              {
+                XSDParticle childXSDParticle = (XSDParticle)i.next();
+              }
+            }
+            else if (xsdTerm instanceof XSDElementDeclaration)
+            {
+            }
+            else if (xsdTerm instanceof XSDWildcard)
+            {
+            }
+            break;
+          }
+        }
+      }
+    }</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-1313416558">
+    <category>dev</category>
+    <question>
+How does setIncrementalUpdate() work?
+    </question>
+    <answer>
+You can use XSDSchema.setIncrementalUpdate(false) to turn off the
+expensive global updates and set it back to true, or call
+XSDSchema.update(), afterwards. Calling update() does not cause
+setIncrementalUpdate(true).
+Attached to this state is the warning that names will no longer be
+re-resolved and non-concrete
+relations will no longer be recomputed.  If you aren't relying on these to
+drive your actions, it won't matter.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-1235905127">
+    <category>dev</category>
+    <question>
+How can I load a XSDSchema from a simple Java String or from a DOM Tree?
+    </question>
+    <answer>
+Assuming you do something much like what's in <tt
+class="code">XSDMainTest</tt> in
+<tt class="code">org.eclipse.xsd.test</tt>, this should do the trick:<pre
+class="code">    ResourceSet resourceSet = new ResourceSetImpl();
+    XSDResourceImpl xsdMainResource =
+    (XSDResourceImpl)resourceSet.createResource(URI.createURI("*.xsd"));
+    xsdMainResource.setURI(uri);
+    if (fromString)
+    {
+    xsdMainResource.load(/* ByteArrayInputStream created from
+    String */, resourceSet.getLoadOptions());
+    }
+    else
+    {
+    XSDSchema xsdSchema =
+    XSDPackage.eINSTANCE.createXSDSchema();
+    xsdSdchema.setElement(/* your &lt;schema> element */);
+    xsdMainResource.getContents().add(xsdSchema);
+    }</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-615620082">
+    <category>dev</category>
+    <question>
+How do I convert code that runs in an Eclipse environment to a standalone
+environment?
+    </question>
+    <answer>
+In an Eclipse environment the EPackage.Registry.INSTANCE is populated at
+startup time by the registrations of the models in the plugin.xml,
+e.g.,<pre class="code">    &lt;extension
+    point="org.eclipse.emf.ecore.generated_package">
+    &lt;package
+    uri = "http://www.eclipse.org/xsd/2002/XSD"
+    class = "org.eclipse.xsd.XSDPackage" />
+    &lt;/extension></pre>
+But in a standalone environment, this doesn't happen, so you need to
+register each package explicitly.
+<br /><br />
+If you have a package Xyz, accessing XyzPackage.eINSTANCE will create the
+package and register it in the registry.
+<br /><br />
+So if you add the line XyzPackage.eINSTANCE.getEFactoryInstance() to your
+initialization code, the Xyz package will be properly registered.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-1042256708">
+    <category>dev</category>
+    <question>
+How do target namespaces work?
+    </question>
+    <answer>
+A complex type has an attribute reference to a simple xsd:integer
+attribute. XSD provides an AttributeUse with an AttributeDeclaration.
+<br /><br />
+WITHOUT a target namespace declaration at the top level, the
+AttributeDeclaration has as typeDefintion an XSDSimpleTypeDefinitionImpl
+with name "integer", fine.
+<br /><br />
+WITH a target namespace declaration at the top level, the same
+typeDefiniion field is null.
+<br /><br />
+When the target namespace is null, the implicit xmlns="" declaration allows
+you to reference the name without a prefix, but when you define a target
+namespace, you need to define
+an xmlns prefix for that namespace and youneed to use that prefix to
+reference any name in the
+namespace.
+<br /><br />
+The actual declarations do not need to be qualified, and you'd expect that
+references also default to
+the target namespace, but in fact they do not. Your schema may validate
+using XSV, but according to
+the XML Schema spec part 1, the ref must be qualified, unless you have an
+xmlns=.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/03 13:02" UNID="20040603-682957195">
+    <category>newbie</category>
+    <category>xsd</category>
+    <question>
+What is XML Schema Infoset Model?
+    </question>
+    <answer>
+The XML Schema Infoset Model (XSD) is
+a reference library for use with any code that examines, creates or
+modifies XML Schemas (standalone or as part of other artifacts,
+such as XForms or WSDL documents). The library provides an API for
+manipulating the components of an XML Schema as described by the
+W3C XML Schema specifications, as well as an API for manipulating the
+DOM-accessible representation of XML Schema as a series of XML
+documents, and for keeping these representations in agreement as schemas
+are modified. The library includes services to serialize and
+deserialize XML Schema documents, and to do integrity checking of schemas
+(for example, not using a maximum value for a simpleType
+which is invalid considering the base type of that simpleType).
+<br /><br />
+The model incorporates many of the ideas that several people at IBM had
+about an excellent API for schemas.
+These ideas were shared with the W3C in February 2002, in a requirements
+document.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-1084602631">
+    <category>dnl</category>
+    <category>xsd</category>
+    <question>
+What should my Java CLASSPATH include, in order to use XSD?
+    </question>
+    <answer>
+For XSD 1.1, the classpath should be:
+<ul>
+<li>plugins/org.apache.xerces_4.0.13/xmlParserAPIs.jar;</li>
+<li>plugins/org.apache.xerces_4.0.13/xercesImpl.jar;</li>
+<li>plugins/org.eclipse.emf.common_1.1.0/runtime/common.jar;</li>
+<li>plugins/org.eclipse.emf.ecore_1.1.0/runtime/ecore.jar;</li>
+<li>plugins/org.eclipse.xsd_1.1.0/runtime/xsd.jar;</li>
+<li>plugins/org.eclipse.xsd_1.1.0/runtime/xsd.resources.jar; (needed
+at runtime, not compile at time)</li>
+<li>yourcode.jar</li>
+</ul>
+Note that this version requires the use of Xerces-J 2.0.6 (or XML4J
+4.0.13).
+Other versions of Xerces-J may not work properly,
+although it should continue to work for Xerces-J 2.0.2 (or XML4J
+4.0.7).
+<br /><br />
+For XSD 2.0 and beyond, please note that Eclipse no longer includes Xerces. Xerces was removed after Eclipse 3.0M8. To get a copy of Xerces, <a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php" target="_xerces">click here</a>.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-1169537823">
+    <category>xsd</category>
+    <question>
+Can the XSD library be used outside of  the Eclipse environment?
+    </question>
+    <answer>
+Yes, it can be used within Eclipse and outside of Eclipse.
+<br /><br />
+Please note that when running outside Eclipse,
+you need to include on your classpath this additional jar:
+<tt class="code">
+plugins/org.eclipse.xsd_1.1.0/runtime/xsd.resources.jar</tt>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-1657539397">
+    <category>gen</category>
+    <category>xsd</category>
+    <question>
+What version of W3C XML Schema is accepted as input to XSD?
+    </question>
+    <answer>
+The version specified on May 2, 2001 as a W3C Recommendation.
+This version is described in XML Schema Part 0: Primer,
+XML Schema Part 1: Structures,
+and XML Schema Part 2: Datatypes.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-1856291499">
+    <category>xsd</category>
+    <category>gen</category>
+    <question>
+Are there sample Java methods that show how to use the XSD API?
+    </question>
+    <answer>
+Sample code that includes links back to the javadoc is at:
+XSDPrototypicalSchema.html.
+<br /><br />
+Examples of convenience functions also illustrate the use of the bare API.
+Those example convenience functions are in the source code.  Info about
+them is located at
+XSDSchemaBuildingTools.html
+and
+XSDSchemaQueryTools.html.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-1983612875">
+    <category>xsd</category>
+    <question>
+For XML Schema simple types that are not included in the table on p.140 of
+the EMF book
+(or derived from these), the book says we should get an EDataType with
+name equal to the XML Schema type, and instanceClassName of
+java.lang.String.
+<br /><br />
+Which is wrong - me, the book or the code?
+    </question>
+    <answer>
+Unfortunately, the book.
+<br /><br />
+The book's companion web site (<a target="_book"
+href="http://www.aw.com/budinsky/">http://www.aw.com/budinsky/</a>)
+includes an
+Errata (<a target="_book"
+href="http://wps.aw.com/aw_budinsky_eclipsemod_1/0,7999,967283-,00.html">http://wps.aw.com/aw_budinsky_eclipsemod_1/0,7999,967283-,00.html</a>).
+You'll notice that this problem comes up twice: on page 82 and on page
+140.
+<br /><br />
+The book describes the way it used to work, and then the current, simpler
+approach was adopted later on in the publishing cycle.  The text was never
+updated to reflect the change.
+<br /><br />
+Please continue refer to the Errata when things don't seem quite right, and
+do let us know if you find any other problems that we haven't caught yet,
+so
+that we can keep it up to date.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-1713156149">
+    <category>xsd</category>
+    <question>
+It appears to us that XSDEcoreBuilder ignores user information in an
+annotation - is this true? Isn't this supported by the XSDEcoreBuilder?
+    </question>
+    <answer>
+Yes, it is ignored right now, but it is
+definitely a work item on our list (for the 2.0 stream) to be able to carry
+over XML Schema documentation into the Ecore model and then reproduce it in
+the generated Javadoc.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1721819006">
+    <category>dev</category>
+    <question>
+What happens if I pass a DOM which claims to be the XML representation of a
+Schema, but there are errors in the attribute values?
+Is there a function to inquire "Is this parsed or constructed schema
+completely correct?"
+    </question>
+    <answer>
+The schema can be validated to diagnose all such errors.
+You can call
+validate
+on a schema and check whether there are any
+diagnostics.
+The diagnostics may include warnings or informational messages, in
+addition to error messages.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1902125861">
+    <category>dev</category>
+    <question>
+Is there a way to have schema documents which
+reference other schema documents through &lt;include&gt; &lt;import&gt; or
+&lt;redefine&gt; be fetched from locations other than those given in the
+schemaLocation attribute?
+    </question>
+    <answer>
+Yes, you can use a ResourceSet's URIConverter's
+URI map
+to map logical URIs to physical URIs.
+You can see an example of that code in XSDProtocotypicalSchema
+traceLoading().
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1375694551">
+    <category>dev</category>
+    <question>
+When modifications are made to a schema document
+which was used by another schema document (which has been loaded by this
+library), will my code need to explicitly make the corresponding
+modifications to the using schema document?
+    </question>
+    <answer>
+Yes.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-690878222">
+    <category>dev</category>
+    <question>
+Does the o1.equals(o2) method determine "semantic equivalence" between two
+schema components?
+    </question>
+    <answer>
+This version of the code returns true if o1 and o2 are the same object,
+otherwise it returns false.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1444104470">
+    <category>dev</category>
+    <question>
+What happens if I add a schema component to schema2 that I had  previously
+added to schema1?
+    </question>
+    <answer>
+It is removed from schema1.
+This package maintains referential integrity for black diamond relations
+(in the UML), i.e., containment relations.
+When you add/set to a black diamond relation, the
+object will be effectively removed from the current black diamond relation
+and is then added/set to the new relation.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1095834441">
+    <category>dev</category>
+    <question>
+ComplexTypes and SimpleTypes only have at most 1 annotation. Why is there
+XSDTypeDefinition.getAnnotations() in addition to getAnnotation(). What is
+getAnnotations() used for?
+    </question>
+    <answer>
+There can be at most one annotation in the element information item in the
+XML Representation of schema which is a
+&lt;simpleType&gt; or &lt;complexType&gt;.
+But there can also be an annotation in the &lt;restriction&gt;,
+&lt;extension&gt;, &lt;list&gt;, &lt;union&gt; (getDerivationAnnotation),
+as well as one in
+the &lt;simpleContent&gt;, &lt;complexContent&gt; (getContentAnnotation)
+element information items that are part of (children of) the
+simpleType or complexType element information item.
+The list returned by getAnnotations() is the list of all these annotations.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1238097910">
+    <category>dev</category>
+    <question>
+If I used one of the getEffectivePROPERTY() methods with a simpleType of
+the LIST or UNION type,
+would any of the facet information from the itemType (in the case of List)
+or the memberTypes (in
+the case of union) be used to adjust or supplement the values returned (as
+happens with a simpleType which is atomic and derived by restriction from
+another type)?
+    </question>
+    <answer>
+No.  We follow the concepts of effective properties from the W3C Schema
+specifications, which
+do not cause facets of the memberTypes or item types to be used in the case
+of UNION or LIST.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-360701127">
+    <category>dev</category>
+    <question>
+What can cause some of the resources in a resource set, which correspond
+to schema documents referenced by &lt;include&gt; &lt;import&gt; or
+&lt;redefine&gt;, to return null from (XSDResourceImpl)resource.getSchema()?
+    </question>
+    <answer>
+This could be seen if you iterate through the resource in a ResourceSet,
+for example:<pre class="code">    for (Iterator resources = resourceSet.getResources().iterator();
+    resources.hasNext();)
+    {
+        Resource resource = (Resource)resources.next(); 
+        /* Now use getSchema() */
+    }</pre>
+If the &lt;include&gt; &lt;import&gt; or &lt;redefine&gt; contained a
+schemaLocation which has
+a relative file path, the library will not resolve it, and this can be a
+symptom.
+<br /><br />
+To get around this problem, have code which is guaranteed to turn the URI
+into an absolute
+URI. For example:<pre class="code">    File file = new File(schemaURL);
+    if (file.isFile())
+    {
+        schemaURL =
+            URI.createFileURI(file.getCanonicalFile().toString()).toString();
+    }</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-689882716">
+    <category>dev</category>
+    <question>
+How is a declaration of an attribute or element that specifies
+<strong>anySimpleType</strong>
+processed?
+    </question>
+    <answer>
+Following the clarifications to the spec, it is permissible to use
+<strong>anySimpleType</strong> in user schemas.
+However, it is an error to extend or restrict this type except in the
+schema for schemas.
+<br /><br />
+Note that an element declaration with an anyType will resolve its type to
+the complex version of "anyType" and an
+attribute declaration with an anyType will resolve its type to the simple
+version of "anyType";
+an element's type may be simple or complex, but an attribute's type must be
+simple.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-99523342">
+    <category>dev</category>
+    <question>
+When will <strong>getElement()</strong>
+return null when used against a component?
+    </question>
+    <answer>
+If the component you have has been synthesized,
+<strong>getElement()</strong> will return null.
+For example, if you have selected the effective pattern facet, the model
+synthesized
+that facet from the zero or more concrete pattern facets.  Another
+effective facet
+that comes from zero to an unlimited number of concrete facets is the
+enumeration facet.
+<br /><br />
+If an <strong>XSDComplexTypeDefinition</strong> exists that extends another
+one, normally a synthesized
+<strong>XSDModelGroup</strong> is produced, containing one or more
+synthesized
+<strong>XSDParticle</strong> objects;
+<strong>getElement()</strong> against those components would also return
+null.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1945877481">
+    <category>dev</category>
+    <question>
+To obtain a component of a schema by name, or find out such a component
+does not exist in the schema, what sequence of code should be used?
+    </question>
+    <answer>
+The resolveXXXDeclaration and resolveXXXDefinition methods declared in
+Interface
+org.eclipse.xsd.XSDConcreteComponent allow lookup of components that have
+names.
+Note that these methods always return something.
+If your schema does not have the component you are looking for, the
+returned value will be a newly manufactured reference to it.
+<br /><br />
+Here is an example method to return the component or return null if it was
+not in the schema,
+in this case for an Attribute Declaration with a particular name:
+<pre class="code">    /**
+    return the XSDAttributeDeclaration of a given namespace and name
+    defined in a given schema
+    or a schema it includes, redefines or imports
+    */
+    static XSDAttributeDeclaration
+        getAttributeDeclaration(XSDSchema schema, String namespace,
+            String name)
+    {
+        XSDAttributeDeclaration
+            ret=schema.resolveAttributeDeclaration(namespace,name);
+        if (ret.getContainer() == null())
+        {
+            return null;
+        }
+        else
+        {
+            return ret;
+        }
+    }</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-168721096">
+    <category>dev</category>
+    <question>
+How can the attribute maxOccurs="unbounded" be set on a particle?
+    </question>
+    <answer>
+Use XSDParticle.setMaxOccurs(-1) to set an unbounded value for maxOccurs.
+XSDParticle.getMaxOccurs will return -1 if a particle has an unbounded
+value for maxOccurs.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1960759913">
+    <category>dev</category>
+    <question>
+When passed an object of type XSDSchema, what method tells me if it was
+parsed from a Resource?
+    </question>
+    <answer>
+xsdSchema.eResource() returns a Resource, if one is associated, or returns
+nill.
+The Resource returned has methods such as getURI().
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-56341156">
+    <category>dev</category>
+    <question>
+When passed an object of type XSDSchema, what method permits me to alter
+the Resource  in which it will be serialized?
+    </question>
+    <answer>
+r = xsdSchema.eResource() returns the Resource associated with an
+XSDSchema.  You may invoke
+r.setURI(uri) if you wish the schema to be saved in the future to another
+location.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1956926442">
+    <category>dev</category>
+    <question>
+How do I remove a component from the Schema?
+    </question>
+    <answer>
+There is generic support for remove in EMF: <tt class="code">EcoreUtil.remove</tt>
+The removed component will look like an unresolved reference to any
+components that still reference it.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-2135178445">
+    <category>dev</category>
+    <question>
+If I want the library to parse a Schema from a file which does not have the
+extension <strong>.xsd</strong>,
+or serialize a Schema to a file which does not have the extension
+<strong>.xsd</strong>,
+what do I do?
+    </question>
+    <answer>
+As part of your initialization, for each extension that will contain
+schemas (shown as foo in this
+example), you should call <tt class="code">
+org.eclipse.emf.resource.Resource.Factory.Registry.INSTANCE.registerExtension("foo",
+new XSDResourceFactoryImpl());</tt>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-2001759334">
+    <category>dev</category>
+    <question>
+Is there a function to inquire "Did this parsed schema  have unresolved
+&lt;include&gt; &lt;import&gt; or &lt;redefine&gt; directives?"
+    </question>
+    <answer>
+You can write code like this:<pre class="code">    if (xsdSchema.getAllDiagnostics().isEmpty())
+    {
+        xsdSchema.validate();
+    }
+    if (xsdSchema.getAllDiagnostics().isEmpty())
+    {
+        /* No Unresolved directives */
+    }
+    else
+    {
+        */ Unresolved directives or other problems */
+    }</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-637916527">
+    <category>dev</category>
+    <question>
+Is there a way to determine if a string represents a value that
+a particular simpleType would consider valid?
+    </question>
+    <answer>
+Yes. The call <tt class="code">yourSimpleTypeDefinition.isValidLiteral("a-particular-string")</tt> will give you the boolean answer.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-350461713">
+    <category>dev</category>
+    <question>
+When I used the method type.getBaseTypeDefinition(), how do I know when
+I've reached "the top" -- something like anyType?
+    </question>
+    <answer>
+For simpleTypes, you would write:<pre class="code">    yourStopVariable =
+    yourSchema.getSchemaForSchema().resolveSimpleTypeDefinition("anyType");
+    /*
+    as you loop through from one type definition to another,
+    via getBaseTypeDefinition() you compare it to yourStopVariable
+    */</pre>
+For complexTypes, you would write:<pre class="code">    yourStopVariable =
+    yourSchema.getSchemaForSchema().resolveComplexTypeDefinition("anyType");
+    /*
+    as you loop through from one type definition to another,
+    via getBaseTypeDefinition() you compare it to yourStopVariable
+    */</pre>
+If you are not sure if your time is simple or complex, you could write:<pre class="code">    yourStopVariable =
+    yourSchema.getSchemaForSchema().resolveTypeDefinition("anyType");</pre>
+There are recognizers of the special types in XSDConstants:<pre class="code">    XSDConstants.isURType
+    XSDConstants.isAnyType
+    XSDConstants.isAnySimpleType</pre>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:27" UNID="20040602-1383194195">
+    <category>dev</category>
+    <question>
+Because <tt class="code">td = resolveTypeDefinition(String nsuri, String
+name)</tt>
+may return
+an unresolved instance, which is synthesized to hold the namespace and
+name, if an existing instance cannot be found,
+what method can be called to tell whether the resulting type definition is
+synthesized or
+whether it comes from an existing instance?
+    </question>
+    <answer>
+XSDConcreteComponent.getContainer() will yield null for <tt
+class="code">td</tt>
+if resolveTypeDefinition returned a synthesized type definition.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-1607774993">
+    <category>dnl</category>
+    <question>
+What steps should I take to install the source code in one Eclipse project,
+and to identify another project with my own code as dependent upon and
+using the XSD library?
+    </question>
+    <answer>
+To install the source code in an Eclipse new project, follow these steps :
+<ul>
+<li>
+unzip org.eclipse.xsd.zip
+in &lt;XSD_HOME&gt; directory
+</li>
+<li>create a new Eclipse project and import into it the content of
+&lt;XSD_HOME&gt;/plugins/org.eclipse.xsd</li>
+<li>set the directory containing the source of the new project to
+"src" (this directory was imported in the previous step)</li>
+<li>add the following locations to the classspath:
+<ul>
+<li>&lt;ECL_HOME&gt;/plugins/org.apache.xerces_4.0.13
+/xercesImpl.jar;</li>
+<li>&lt;ECL_HOME&gt;/plugins/org.apache.xerces_4.0.13
+/xmlParserAPIs.jar;</li>
+<li>&lt;XSD_HOME&gt;/plugins/org.eclipse.emf.ecore_1.1.0
+/runtime/ecore.jar;</li>
+<li>&lt;XSD_HOME&gt;/plugins/org.eclipse.emf.common_1.1.0
+/runtime/common.jar;</li>
+</ul>
+&lt;ECL_HOME&gt; is the directory where ECL has been installed and
+&lt;XSD_HOME&gt; is the directory
+where xsd.zip has been unzipped.
+</li>
+</ul>
+To identify another project with your own code as dependent upon and using
+this library, follow these steps :
+<ul>
+<li>make sure that you have created a new project containing the code
+of this library as indicated previously;</li>
+<li>right click on the project folder which should use this library,
+click on "properties" popup menu item</li>
+<li>then, in the java Build Path section, go to the Project pane and
+check the project you previously created for this library.</li></ul>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-1578927438">
+    <category>dev</category>
+    <question>
+Does the XSD library allow me to supply an instance document and have it
+validated against the schema?
+    </question>
+    <answer>
+No.  Validating parsers, such as Xerces, should be used for this function.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-176170432">
+    <category>dev</category>
+    <question>
+What happens if I pass a DOM which claims to be the XML representation of a
+Schema, but there are errors in the attribute values?
+Is there a function to inquire "Is this parsed or constructed schema
+completely correct?"
+    </question>
+    <answer>
+The schema can be validated to diagnose all such errors.
+You can call
+validate
+on a schema and check whether there are any
+diagnostics.
+The diagnostics may include warnings or informational messages, in
+addition to error messages.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-2037770058">
+    <category>dev</category>
+    <question>
+Is there a way to have schema documents which
+reference other schema documents through &lt;include&gt; &lt;import&gt; or
+&lt;redefine&gt; be fetched from locations other than those given in the
+schemaLocation attribute?
+    </question>
+    <answer>
+Yes, you can use a ResourceSet's URIConverter's
+URI map
+to map logical URIs to physical URIs.
+You can see an example of that code in XSDProtocotypicalSchema
+traceLoading().
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-2066118815">
+    <category>dev</category>
+    <question>
+When modifications are made to a schema document
+which was used by another schema document (which has been loaded by this
+library), will my code need to explicitly make the corresponding
+modifications to the using schema document?
+    </question>
+    <answer>
+Yes.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-442853169">
+    <category>mod</category>
+    <question>
+How does the model choose what prefix to use in QNAMEs for a namespace URI
+in serializing the schema, when more than one prefix has been associated
+with that namespace?
+    </question>
+    <answer>
+One of the prefixes, or the no-prefix, will be chosen, and used
+consistently whenever
+an XML representation of schema in the form of a DOM is requested.
+This version of the code does not allow you to select which one will be
+chosen.
+    </answer>
+  </entry>
+
+  <entry date="2004/01/03 17:08" UNID="20041111-585630441">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>sdo</category>
+    <category>xsd</category>
+    <question>
+How do I install EMF, SDO, or XSD 2.x (for Eclipse 3.x)?
+    </question>
+    <answer>
+<a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>
+the version of EMF, SDO and/or XSD that <b>matches</b> your installation of Eclipse.
+Generally, the version of Eclipse is one version greater than that of EMF; 
+eg., EMF 2.1.0 is build against (and for) Eclipse 3.1.0. 
+Exit Eclipse, then unzip into your Eclipse directory.
+    </answer>
+  </entry>
+
+
+  <entry date="2004/01/02 21:58" UNID="20041111-1390234495">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>xsd</category>
+    <question>
+How do I install EMF or XSD 1.x for Eclipse 2.x?
+    </question>
+    <answer>
+
+<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html">Download</a>
+the version of EMF and/or XSD that matches your installation of Eclipse. Exit Eclipse, 
+then unzip into your Eclipse directory.
+    </answer>
+  </entry>
+
+  <entry date="2004/01/04 17:08" UNID="20041111-1113822544">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>sdo</category>
+    <category>xsd</category>
+    <question>
+
+How do I get EMF, SDO or XSD source from CVS?
+    </question>
+    <answer>
+See <a href="http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, XSD and SDO from CVS</a>.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-246959756">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>sdo</category>
+    <category>xsd</category>
+    <question>
+Does EMF, SDO or XSD have a site that I can use with the Eclipse Update Manager?
+    </question>
+    <answer>
+<p>Yes, as of June 21, 2004, there is an Update Manager site for EMF, SDO, and XSD.</p>
+<p>This is only for the 2.x+ stream, not the 1.1.x stream.</p>
+
+<p>IBM Internal can use:<ul>
+
+<li><a href="http://fullmoon.torolab.ibm.com/tools/emf/updates/" target="_upd">http://fullmoon.torolab.ibm.com/tools/emf/updates/</a></li>
+<li><a href="http://emf.torolab.ibm.com/tools/emf/updates/" target="_upd">http://emf.torolab.ibm.com/tools/emf/updates/</a></li>
+</ul>
+</p>
+
+<p>The rest of the world can use:<ul>
+
+<li><a href="http://download.eclipse.org/tools/emf/updates/" target="_upd">http://download.eclipse.org/tools/emf/updates/</a></li>
+<li><a href="http://eclipse.mirrors.tds.net/tools/emf/updates/" target="_upd">http://eclipse.mirrors.tds.net/tools/emf/updates/</a></li>
+<li>(or other mirrors with similar paths. some mirrors use <b>/eclipse</b>/tools/emf/updates/)</li></ul>
+</p>
+
+<p>If you're not familiar with Update Manager, surf to one of the above URLs and read the instructions there.</p>
+
+<p> Please note, however:
+<ol>
+<li>You cannot upgrade from EMF 1.x to EMF 2.x, since you must also
+upgrade versions of Eclipse (2.x -> 3.0).</li>
+<li>If you install a stable, integration build of EMF, such as
+2.0.0.I200406211000, when EMF 2.0.0 Final is launched, UM will consider this
+to be an OLDER version, rather than a newer version. So, if you wanted to
+use UM to stay abreast of changes between Eclipse 3.0 Milestones, when 3.0
+Final was launched, you'd have to download EMF manually and remove your
+2.0.0.yyyymmddhhmm version manually anyway. The same problem exists with
+updating Eclipse itself via UM to 3.0.0.yyyymmddhhmm - once 3.0.0 is
+launched, you won't be able to use UM to upgrade the the Final version,
+since 3.0.0 &lt; 3.0.0.yyyymmddhhmm. However, we're planning to drop a new UM site build for every zipped build, so you should be able to continue to upgrade without having to download zips manually.</li>
+</ol>
+</p>
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-358549632">
+    <category>newbie</category>
+    <question>
+What version of Eclipse does XSD run on?
+    </question>
+    <answer>
+EMF/SDO/XSD <b class="question">2.1.0</b> run on Eclipse <b class="question">3.1.0</b>.<br />
+EMF/SDO/XSD <b class="question">2.0.1</b> run on Eclipse <b class="question">3.0.1</b>.<br />
+EMF/SDO/XSD <b class="question">2.0</b> run on Eclipse <b class="question">3.0</b>.<br />
+EMF/XSD <b class="question">1.1</b> run on Eclipse <b class="question">2.1</b>.<br />
+EMF/XSD <b class="question">1.0</b> run on Eclipse <b class="question">2.0</b>.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/04 20:42" UNID="20040604-2018856217">
+    <category>newbie</category>
+    <question>
+Why is Eclipse 3.x required for XSD 2.x?
+    </question>
+    <answer>
+XSD 2.0, like 1.0, runs standalone, so in that sense, it doesn't require
+Eclipse at all.  But if you want to use the tools, like the Sample XML
+Schema
+Editor within Eclipse, you need to get Eclipse 3.0.
+    </answer>
+  </entry>
+
+  <entry date="2004/01/01 00:00" UNID="20040205-1770726049">
+    <category>newbie</category>
+    <category>gen</category>
+    <category>xsd</category>
+    <question>
+My XSD file reports no errors, but I can't finish the New EMF Project wizard!<br/>
+I plan to use XML Schema (XSD) with EMF. Are there any bugs with that?<br/>
+I get a NullPointerException when loading an XSD Model! Is there a fix or workaround?<br/>
+Is there a bug in the Crimson DOM implementation of the SUN JDK 1.4?<br/>
+I get the error "Specify a valid XML Schema and try loading again"!<br/>
+Why does EMF refuses to accept my schema file?
+    </question>
+    <answer>
+The following problem has been reported many times in the org.eclipse.emf newsgroup:<br /><br />
+<b><a style="background-color:yellow;color:black" target="_xml" href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
+<br/><br/>
+
+The Crimson DOM implementation in (some versions of) the Sun JDK has a bug in the implementation of
+<tt class="code">hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php">click here for details</a>.<br />
+
+This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
+<ul>
+<li>a null pointer exception, or</li>
+<li>the error message "Specify a valid XML Schema and try loading again".</li>
+</ul>
+<blockquote><tt>
+I was trying to generate an EMF model from an XML Schema (.xsd) file
+and I was essentially following the tutorial with the promising name
+"Generating an EMF Model using XML Schema" (see
+<a target="_new" href="http://download.eclipse.org/tools/emf/scripts/docs.php?doc=tutorials/xlibmod/xlibmod.html">http://download.eclipse.org/tools/emf/scripts/docs.php?doc=tutorials/xlibmod/xlibmod.html</a>).
+<br /><br />
+But alas I am already stuck in step 1:
+File => New => Other => Eclipse Modeling Framework => EMF Project =>
+(entered a name and directory) => Next => (*) Load from XML Schema =>
+Next => Browse File System and picked the schema file => OK
+at which point "New Project" dialogue gets a red X and an error
+message at the top telling me "Specify a valid XML Schema and try
+loading again".
+<br /><br />
+The Next and Finish buttons are grayed out at this point.
+
+<br /><br />
+I have validated that schema file using misc. schema validators, all
+of which reported "no errors", so I would say, that the schema file
+should be OK and contains a valid schema.
+<br /><br />
+Why does EMF refuse to accept my schema file?
+</tt></blockquote>
+    </answer>
+  </entry>
+
+  <entry date="2005/01/04 00:00" UNID="20050104-04355675">
+    <category>dev</category>
+    <question>
+    I've created a model from an XML Schema.  Why won't EMF load or 
+    save conforming instance documents (loading 
+    throws a <tt class="code">ClassNotFoundException</tt>)?
+    </question>
+    <answer>
+EMF does some remapping to turn XML element and attribute names into conventional 
+Ecore attribute and reference names (i.e. conventional Java field names). 
+It annotates the model with the original XML names (and a bunch of other 
+information from the schema that can't be represented in Ecore) via the 
+<tt class="code">ExtendedMetaData</tt> interface. Resources must use this information to 
+save and load conforming instance documents.
+<br/><br/>
+Look in the util package of the generated model code and you'll find a resource 
+factory implementation, <tt class="code">XxyResourceFactoryImpl</tt>. This factory returns 
+instances of <tt class="code">XMLResource</tt> with a few non-default options set. Most 
+importantly, it enables the use of <tt>ExtendedMetaData</tt>.
+<br/><br/>
+When you're running the editor under Eclipse, this resource factory will 
+automatically be registered. For standalone applications, you'll need to perform 
+the registration in your code. For example, to globally register the generated 
+library resource factory implementation against the extension "library":
+<br/><br/>
+<tt class="code">Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", 
+new LibraryResourceFactoryImpl());</tt>
+    </answer>
+  </entry>
+  
+   <category-def category="newbie" label="Getting Started"/>
+   <category-def category="dnl" label="Download and Installation" />
+   <category-def category="mod" label="Modeling Standards" />
+   <category-def category="gen" label="General" />
+   <category-def category="emf" label="Eclipse Modeling Framework"/>
+   <category-def category="sdo" label="Service Data Objects"/>
+   <category-def category="xsd" label="XML Schema Infoset Model"/>
+   <category-def category="dev" label="Developer" />
+<!--   <category-def category="unc" label="Uncategorized" /> -->
+
+   <!-- $Id: faq-temp.xml,v 1.1 2005/01/14 17:14:37 nickb Exp $ -->
+
+</faq>
