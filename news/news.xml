@@ -5,16 +5,6 @@
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502240800</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
-<news date="February 25, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502240800</a>) is available 
-	for <a href="downloads.php">download</a>.
-</news>
-<news date="February 25, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502240800</a>) is available 
-	for <a href="downloads.php">download</a>.
-</news>
 <news date="February 17, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502171619</a>) is available 
@@ -441,6 +431,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.22 2005/02/25 06:31:40 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.23 2005/02/25 06:36:56 nickb Exp $ -->
 
 </doc>
