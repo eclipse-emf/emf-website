@@ -25,7 +25,8 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="downloads.php" class="nav">Downloads</a>: <a href="downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html">v1.x</a></p>
+      <p>&#160; <a href="downloads.php" class="nav">Downloads</a>:<br/>
+		&#160; &#160; &#160; <a href="downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></p>
     </td>
   </tr>
 
@@ -63,10 +64,10 @@
 			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on"
 		);
 		$blcnt=0;
-		echo '<a name="'.$statusLabel.'" class="nav">'.$statusLabel.":</a> \n";
+		echo '<small class="nav">'.$statusLabel.":</small>\n";
 		foreach ($bugzLinks as $label => $url) { 
 			if ($blcnt>0) { echo ", "; } $blcnt++;
-			echo "\n\t\t".'<a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a>';
+			echo "\n\t\t".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
 		} 
 		echo "<br>";
 	}
