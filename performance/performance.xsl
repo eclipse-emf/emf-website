@@ -4,7 +4,6 @@
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 	<xsl:param name="threshholdPercentage">3</xsl:param> 
 	<xsl:param name="filter"></xsl:param>
-	<xsl:param name="sortMethod"></xsl:param> <!-- to be implemented? -->
 	<xsl:param name="unitSigDigs">100000</xsl:param> <!-- number of decimal places to keep in displaying values -->
 	<xsl:param name="pcntSigDigs">10</xsl:param> <!-- number of decimal places to keep in displaying percentages -->
 
@@ -54,9 +53,9 @@
 		<td align="left" width="115" bgcolor="#6699CC">
 
 			<!-- left nav here -->
-<!--			<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+			<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 				<xsl:copy-of select="document('../includes/nav.xml')/div"/>
-			</xsl:if> -->
+			</xsl:if>
 
 		</td>
 
@@ -68,11 +67,7 @@
     <tr>
       <td align="left" width="60%">
         <font class="indextop">
-		Performance Data<!-- <xsl:if test="$threshholdPercentage!='' or $filter!='' or $sortMethod!=''">:
-			<xsl:if test="$threshholdPercentage!=''"><xsl:value-of select="$threshholdPercentage" />&#160;</xsl:if>
-			<xsl:if test="$filter!=''"><xsl:value-of select="$filter" />&#160;</xsl:if>
-			<xsl:if test="$sortMethod!=''"><xsl:value-of select="$sortMethod" />&#160;</xsl:if>
-		</xsl:if> -->
+		Performance Data
 		</font><br/>
         <font class="indexsub">Eclipse Modeling Framework</font>
 
@@ -92,11 +87,7 @@
 	Performance Data for <xsl:value-of select="build[1]/@id" /> (<xsl:value-of select="build[1]/@type" />)
 	<xsl:if test="count(build) > 1">
 	and <xsl:value-of select="build[2]/@id" /> (<xsl:value-of select="build[2]/@type" />)
-	</xsl:if><!-- <xsl:if test="$threshholdPercentage!='' or $filter!='' or $sortMethod!=''">:
-			<xsl:if test="$threshholdPercentage!=''"><xsl:value-of select="$threshholdPercentage" />&#160;</xsl:if>
-			<xsl:if test="$filter!=''"><xsl:value-of select="$filter" />&#160;</xsl:if>
-			<xsl:if test="$sortMethod!=''"><xsl:value-of select="$sortMethod" />&#160;</xsl:if>
-	</xsl:if> -->
+	</xsl:if>
 </font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
@@ -138,7 +129,6 @@
 	</select> 
 	<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 	<br/><br/>
-	
 	<b>Sort Method</b><br/><select class="field9px" name="sortMethod" size="1">
         <option value="byDeltaNegThenPos">Improvements (-) Then Regressions (+)</option>
         <option value="byDeltaPosThenNeg">Regressions (+) Then Improvements (-)</option>
@@ -248,13 +238,6 @@
 </html>
 </xsl:for-each>
 </xsl:template>
-
-
-<!-- need to recreate:
-
-http://emf.torolab.ibm.com/emf/secure/performance-results.php?build_Build_Delta=2.1.0%2FI200502171619&build_Build_Threshhold_Percentage=3&build_Build_Baseline=2.1.0%2FI200502100800&build_Build_Filter=Kernel+Time&build_Build_Sort_Method=byDeltaNegThenPos
-
--->	
 
 <xsl:template name="show_perf_data_columns" match="data">
 	<!-- begin comparison columns -->

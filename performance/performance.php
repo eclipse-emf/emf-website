@@ -8,6 +8,9 @@
 	include "includes/header.php"; 
 		
 	$XSLfile = "performance.xsl";
+	if (!$unitSigDigs) { $unitSigDigs = 10000; } // 5 decimals
+	if (!$pcntSigDigs) { $pcntSigDigs = 10; } // one decimal
+	if (!$threshholdPercentage) { $threshholdPercentage = 3; } // minimum 3% before we show a value
 
 	if ($XMLfile) { 
 		doXML();
@@ -32,7 +35,7 @@
 	}
 
 	function doXML() {
-		global $threshholdPercentage,$filter,$sortMethod,$unitSigDigs,$pcntSigDigs;
+		global $threshholdPercentage,$filter,$unitSigDigs,$pcntSigDigs;
 		global $XMLfile,$XSLfile; ?>
 <style>@import url("performance.css");</style>
 <script type="text/javascript">
@@ -41,7 +44,6 @@
 
 	var threshholdPercentage = "<?php echo $threshholdPercentage; ?>";
 	var filter = "<?php echo $filter; ?>";
-	var sortMethod = "<?php echo $sortMethod; ?>";
 	var unitSigDigs = "<?php echo $unitSigDigs; ?>";
 	var pcntSigDigs = "<?php echo $pcntSigDigs; ?>";
 	var showFiltersOrHeaderFooter = '1'; // set to '1' for YES, anything else for NO
@@ -77,7 +79,6 @@
 
 		processor.addParameter("threshholdPercentage", threshholdPercentage,"");
 		processor.addParameter("filter", filter,"");
-		processor.addParameter("sortMethod", sortMethod,"");
 		processor.addParameter("unitSigDigs", unitSigDigs,"");
 		processor.addParameter("pcntSigDigs", pcntSigDigs,"");
 		processor.addParameter("showFiltersOrHeaderFooter", showFiltersOrHeaderFooter,"");
@@ -94,7 +95,6 @@
 
 			processor.setParameter("","threshholdPercentage", threshholdPercentage);
 			processor.setParameter("","filter", filter);
-			processor.setParameter("","sortMethod", sortMethod);
 			processor.setParameter("","unitSigDigs", unitSigDigs);
 			processor.setParameter("","pcntSigDigs", pcntSigDigs);
 			processor.setParameter("","showFiltersOrHeaderFooter", showFiltersOrHeaderFooter);
@@ -133,33 +133,12 @@
 			while (($file = readdir($handle))!==false) {
 			  if ( ($ext=="" || preg_match("/".$ext."$/",$file)) && $file!=".." && $file!="." && $type=="f") { 
 				  $stuff[] = "$file"; 
-				  //w("$index, $dir, $file, f$i",1);
 			  } else if ( ($ext=="" || preg_match("/".$ext."$/",$file)) && $file!=".." && $file!="." && $type=="d") {
 				  $stuff[] = "$file"; 
-				 //w("$index, $dir, $file, d$i",1);
 			  }
 			}
 			closedir($handle); 
 			ini_set("display_errors","1"); // and turn 'em back on.
-		} else {
-			global $hadLoadDirSimpleError;
-			if (!$hadLoadDirSimpleError) { 
-				global $_SERVER;
-				echo "<p> Directory ($dir) <b>".(!is_dir($dir)?"NOT FOUND":(!is_readable($dir)?"NOT READABLE":"PROBLEM"))."</b> on mirror: <b>".$_SERVER["HTTP_HOST"]."</b>! </p>";
-				echo "<p> Please report this error to <a href=\"mailto:webmaster@eclipse.org?Subject=Directory ($dir) ".(!is_dir($dir)?"NOT FOUND":(!is_readable($dir)?"NOT READABLE":"PROBLEM"))." in scripts.php::loadDirSimple() on mirror ".$_SERVER["HTTP_HOST"]."\">webmaster@eclipse.org</a>, or make directory readable. </p>";
-				/*echo '
-					<p> While this problem is being resolved, you can get a copy of the latest EMF, SDO, or XSD from here:
-					<ul>
-						<li><a href="http://download.eclipse.org/tools/emf/downloads/drops/2.0/I200406030436/">http://download.eclipse.org/tools/emf/downloads/drops/2.0/I200406030436/</a> [Main Public Mirror]</li>
-						<li><a href="http://fullmoon.toronto.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/">http://fullmoon.toronto.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/</a> [IBM Only]</li>
-						<li><a href="http://fullmoon.hursley.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/">http://fullmoon.hursley.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/</a> [IBM Only]</li>
-					</ul>
-					</p>
-					<p> Thanks for your patience! </p>
-					';*/
-				$hadLoadDirSimpleError=1;
-			}
-			//exit;
 		}
 		return $stuff;
 	} 
