@@ -21,7 +21,6 @@
 <bug id="85141">XMLParserPool holding onto XMLHandler which holds on to too much</bug>
 <bug id="85202">Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</bug>
 <bug id="85253">Cross referencers should ignore nulls</bug>
-<bug id="85555">[DUPE] A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.</bug>
 </entry>
 
 <entry version="2.1.0" build="I200502100800" project="emf">
@@ -1364,4 +1363,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.22 2005/02/17 22:59:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.23 2005/02/17 23:03:54 nickb Exp $ -->
