@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2004/12/23 07:59:21 $</modified>
+  <modified>$Date: 2005/01/04 17:56:51 $</modified>
   <author>$Author: nickb $</author>
 
+  <entry date="2005/01/04 00:00" UNID="20050104-04355675">
+    <category>mod</category>
+    <category>emf</category>
+    <category>xsd</category>
+    <question>
+    I've created a model from an XML Schema.  Why won't EMF load or 
+    save conforming instance documents (loading 
+    throws a <tt class="code">ClassNotFoundException</tt>)?
+    </question>
+    <answer>
+EMF does some remapping to turn XML element and attribute names into conventional 
+Ecore attribute and reference names (i.e. conventional Java field names). 
+It annotates the model with the original XML names (and a bunch of other 
+information from the schema that can't be represented in Ecore) via the 
+<tt class="code">ExtendedMetaData</tt> interface. Resources must use this information to 
+save and load conforming instance documents.
+<br/><br/>
+Look in the util package of the generated model code and you'll find a resource 
+factory implementation, <tt class="code">XxyResourceFactoryImpl</tt>. This factory returns 
+instances of <tt class="code">XMLResource</tt> with a few non-default options set. Most 
+importantly, it enables the use of <tt>ExtendedMetaData</tt>.
+<br/><br/>
+When you're running the editor under Eclipse, this resource factory will 
+automatically be registered. For standalone applications, you'll need to perform 
+the registration in your code. For example, to globally register the generated 
+library resource factory implementation against the extension "library":
+<br/><br/>
+<tt class="code">Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", 
+new LibraryResourceFactoryImpl());</tt>
+    </answer>
+    
+  </entry>
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
     <category>newbie</category>
     <category>emf</category>
@@ -1784,6 +1816,6 @@ Why does EMF refuse to accept my schema file?
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.2 2004/12/23 07:59:21 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.3 2005/01/04 17:56:51 nickb Exp $ -->
 
 </faq>
