@@ -12,6 +12,18 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200502171619" project="emf">
+<bug id="81512">'href' attribute seems to be a reserved attribute</bug>
+<bug id="84634">Single-valued features in a feature map behave as if they are unsettable</bug>
+<bug id="84947">[Ant tasks] Move the ant tasks to the EMF feature</bug>
+<bug id="84956">Generated resource  doesn't call eNotify if content throws exceptions</bug>
+<bug id="85140">EMF cannot handle arrays as function arguments when importing from annotated Java</bug>
+<bug id="85141">XMLParserPool holding onto XMLHandler which holds on to too much</bug>
+<bug id="85202">Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</bug>
+<bug id="85253">Cross referencers should ignore nulls</bug>
+<bug id="85555">[DUPE] A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.</bug>
+</entry>
+
 <entry version="2.1.0" build="I200502100800" project="emf">
 <bug id="70399">CompareUtil</bug>
 <bug id="82092">JMerger to support multiple &quot;user code&quot; sections in method body</bug>
@@ -40,6 +52,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200502171619" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -223,6 +239,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200502171619" project="xsd">
+<bug id="84865">Opposite not generated when using capitalized element names</bug>
 </entry>
 
 <entry version="2.1.0" build="I200502100800" project="xsd">
@@ -1344,4 +1364,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.21 2005/02/17 18:21:17 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.22 2005/02/17 22:59:56 nickb Exp $ -->
