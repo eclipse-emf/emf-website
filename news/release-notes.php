@@ -8,7 +8,7 @@
 		include "includes/header.php"; 
 		
 		if (!$doc) { 
-			$XMLfile = "../release-notes/release-notes.xml";
+			$XMLfile = "../news/release-notes.xml";
 		} else {
 			$XMLfile = $doc; 
 		}
@@ -17,7 +17,7 @@
 
 		?>
 
-<style>@import url("../release-notes/release-notes.css");</style>
+<style>@import url("../news/release-notes.css");</style>
 <script type="text/javascript">
 	var returnval = 0;
 	var stylesheet, xmlFile, cache, doc;
@@ -33,7 +33,7 @@
 			xmlFile = document.implementation.createDocument("", "", null);
 			stylesheet = document.implementation.createDocument("", "", null);
 			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet.load("../release-notes/release-notes.xsl");
+			stylesheet.load("../news/release-notes.xsl");
 			xmlFile.addEventListener("load", transform, false);
 			stylesheet.addEventListener("load", transform, false);
 		}
@@ -44,7 +44,7 @@
 			xmlFile.load("<?php echo $XMLfile; ?>");
 			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
 			stylesheet.async = false;
-			stylesheet.load("../release-notes/release-notes.xsl");
+			stylesheet.load("../news/release-notes.xsl");
 			cache = new ActiveXObject("msxml2.XSLTemplate.3.0");
 			cache.stylesheet = stylesheet;
 			transformData();
@@ -93,4 +93,4 @@
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: release-notes.php,v 1.1 2005/01/24 19:24:07 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.2 2005/01/24 20:10:42 nickb Exp $ -->

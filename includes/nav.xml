@@ -59,7 +59,7 @@
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="http://www.eclipse.org/emf/release-notes/release-notes.xml" class="nav">Release Notes</a>
+      &#160; <a href="http://www.eclipse.org/emf/news/release-notes.xml" class="nav">Release Notes</a>
 		
     </td>
   </tr>
@@ -285,4 +285,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.6 2005/01/23 12:53:41 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.7 2005/01/24 20:10:42 nickb Exp $ -->
