@@ -184,7 +184,7 @@ echo '	<table border="0" cellspacing="1" cellpadding="3" width="560">
 echo "<span>";
 echo $message;
 echo "</span>";
-echo "<p><a href=\"models.xml\">Back to the Models</a></p>\n\n";
+echo "<p><a href=\"models.xml\">Back to EMF Corner</a></p>\n\n";
 echo '</td></tr></table>';
 
 		include "../includes/footer.html"; 
@@ -221,5 +221,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.6 2005/01/05 20:29:46 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.7 2005/01/05 20:39:10 nickb Exp $ -->
 ?>

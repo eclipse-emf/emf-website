@@ -5,8 +5,8 @@
 
 	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<form action="models-mailform.php" method="post">
-			<input type=hidden name="h_Email_Title" value="Eclipse EMF Model Submission">
-			<input type=hidden name="h_Email_Recipient_Name" value="EMFModelSubmit">
+			<input type=hidden name="h_Email_Title" value="Eclipse EMF Corner Submission">
+			<input type=hidden name="h_Email_Recipient_Name" value="EMFCornerSubmit">
 			<input type=hidden name="h_Email_Recipient_Email" value="emf-models@eclipse.org">
 			<input type=hidden name="h_Site_Name" value="<?php echo $_SERVER["SERVER_NAME"]; ?>">
 			<input type="hidden" name="h_Submission_Type" value="Model">
@@ -87,4 +87,4 @@
 	</table>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: models-submit.php,v 1.4 2004/12/23 02:23:19 nickb Exp $ -->
+<!-- $Id: models-submit.php,v 1.5 2005/01/05 20:39:10 nickb Exp $ -->
