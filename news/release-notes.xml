@@ -15,21 +15,7 @@
 <entry version="2.1.0" build="I200502100800" project="emf">
 <bug id="70399">CompareUtil</bug>
 <bug id="82092">JMerger to support multiple &quot;user code&quot; sections in method body</bug>
-<bug id="82651">XMLResource.toDOM() doesn't return namespace aware Document</bug>
-<bug id="83044">[DUPE] caching of Lookup in XMLSaveImpl for major performance boost of serialization</bug>
-<bug id="83047">[DUPE] EDate's createFromString/convertToString isn't thread safe.</bug>
-<bug id="83049">[DUPE] EObject.eContainmentFeature may return wrong result for containment via an open content feature in a  feature map entry.</bug>
-<bug id="83050">[DUPE] ClassCastException when saving a ChangeDescription with multivalue attribute.</bug>
 <bug id="83314">ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
-<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
-<bug id="83414">Add leading / to template path, if necessary.</bug>
-<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
-<bug id="83650">Pass multiple model files to XSD2Java Ant task</bug>
-<bug id="83740">Allow &quot;*&quot; to represent multiplicity many</bug>
-<bug id="83789">[Ant tasks] The emf.Rose2Java and emf.XSD2Java don't generate the plugin.xml file.</bug>
-<bug id="83872">[Change Model] Make objectsToDetach transient and derived</bug>
-<bug id="84143">Add plugin id to codegen and emf ant tasks</bug>
-<bug id="84182">[DUPE] ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
 <bug id="84329">Protected error handling method for BasicCommandStack</bug>
 <bug id="84337">java.lang.NullPointerException while editing a model with Sample Ecore Model Editor</bug>
 <bug id="84377">Allow direct iteration over FeatureMap values via an EContentsEList.FeatureIterator</bug>
@@ -58,12 +44,7 @@
 </entry>
 
 <entry version="2.1.0" build="I200502100800" project="sdo">
-<bug id="83045">[DUPE] Issue with containment and deleted objects</bug>
-<bug id="83046">[DUPE] Inconsistent data access on List values</bug>
-<bug id="83048">[DUPE] getContainmentProperty() throws a NullPointerException</bug>
-<bug id="83314">ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
-<bug id="83872">[Change Model] Make objectsToDetach transient and derived</bug>
-<bug id="84182">[DUPE] ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200502030800" project="sdo">
@@ -245,8 +226,7 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.1.0" build="I200502100800" project="xsd">
-<bug id="82872">Exception during loading XSD</bug>
-<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200502030800" project="xsd">
@@ -1352,4 +1332,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.17 2005/02/10 16:49:29 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.18 2005/02/10 17:35:51 nickb Exp $ -->
