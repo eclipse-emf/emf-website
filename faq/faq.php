@@ -35,7 +35,7 @@
 				if (!$Question && !$Answer && !$Category) { 
 					$Question="EMF";
 					$Answer="EMF";
-					$Category="";
+					$Category="emf";
 				}
 		} else {
 			$HTMLTitle = "Eclipse Modeling Framework FAQ";
@@ -150,4 +150,4 @@
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: faq.php,v 1.4 2004/12/23 02:28:24 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.5 2004/12/23 07:10:18 nickb Exp $ -->
