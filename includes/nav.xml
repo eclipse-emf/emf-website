@@ -70,7 +70,7 @@
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="models.xml" class="nav">EMF Corner</a><br/>
+      &#160; <a href="http://www.eclipse.org/emf/models/models.xml" class="nav">EMF Corner</a><br/>
 		
     </td>
   </tr>
@@ -138,12 +138,12 @@
 
 <table border="0" cellspacing="0" cellpadding="0" cols="1" width="116" BGCOLOR="#90C8FF" height="45" >
   <tr> 
-    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160;<a href="http://www.eclipse.org/http://www.eclipse.orgtools/index.html" target="_top" class="navhead">
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160;<a href="http://www.eclipse.org/tools/index.html" target="_top" class="navhead">
       tools</a></td>
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="http://www.eclipse.org/downloads.html" class="nav">Downloads</a>
+      &#160; <a href="http://www.eclipse.org/downloads/" class="nav">Downloads</a>
     </td>
 
   </tr>
@@ -285,4 +285,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.4 2005/01/19 19:42:49 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.5 2005/01/19 19:48:09 nickb Exp $ -->
