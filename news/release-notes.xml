@@ -13,6 +13,10 @@
 <project-def project="xsd" label="XSD Release Notes" />
 
 <entry version="2.1.0" build="I200502240800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200502240800" project="emf">
 <bug id="85202">Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</bug>
 <bug id="85957">The xml namespace, i.e., xml.xsd, has a new id attribute</bug>
 <bug id="85969">Spelling error in ItemProvider.javajet</bug>
@@ -62,6 +66,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200502240800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -253,6 +261,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200502240800" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200502240800" project="xsd">
@@ -1384,4 +1396,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.24 2005/02/25 05:35:21 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.25 2005/02/25 06:00:32 nickb Exp $ -->
