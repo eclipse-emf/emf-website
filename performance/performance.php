@@ -1,4 +1,5 @@
-<?php $HTMLTitle = "EMF, SDO, XSD Performance Data";
+<?php 
+	$HTMLTitle = "EMF, SDO, XSD Performance Data";
 	$ProjectName = array(
 		"EMF, SDO, XSD Performance Data",
 		"EMF, SDO, XSD Performance Data",
@@ -42,7 +43,6 @@
 		global $threshholdPercentage,$filter,$unitSigDigs,$pcntSigDigs;
 		global $XMLfile,$XSLfile; ?>
 <style>@import url("performance.css");</style>
-<script type="text/javascript" src="performance.js"></script>
 <script type="text/javascript">
 	var returnval = 0;
 	var stylesheet, xmlDocObj, cache, doc;
@@ -115,17 +115,15 @@
 <body onload="init();">
 
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
-<div id="dhtmltooltip"></div>
 <div id="data">
-<!-- this is where the transformed XML data goes -->
-			<p><b class="big-header">XML now loading...</b></p> 
-			<p>Your browser must support XML &amp; XSL.</p>
-			<p>Try 
-				<a target="_new" href="http://channels.netscape.com/ns/browsers/download.jsp">Netscape 7.1</a>, 
-				<a target="_new" href="http://mozilla.org/products/mozilla1.x/">Mozilla 1.7</a>, or 
-				<a target="_new" href="http://www.microsoft.com/windows/ie/default.asp">Internet Explorer 6.0</a>.
-			</p>
-
+	<!-- this is where the transformed XML data goes -->
+	<p><b class="big-header">XML now loading...</b></p> 
+	<p>Your browser must support XML &amp; XSL.</p>
+	<p>Try 
+		<a target="_new" href="http://channels.netscape.com/ns/browsers/download.jsp">Netscape 7.1</a>, 
+		<a target="_new" href="http://mozilla.org/products/mozilla1.x/">Mozilla 1.7</a>, or 
+		<a target="_new" href="http://www.microsoft.com/windows/ie/default.asp">Internet Explorer 6.0</a>.
+	</p>
 </div>
 
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
@@ -150,6 +148,6 @@
 		}
 		return $stuff;
 	} 
-?>
-<?php include "../includes/footer.html"; ?>
+
+	include "../includes/footer.html"; ?>
 <!-- $Id$ -->
