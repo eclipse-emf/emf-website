@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+<news date="January 19, 2005" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200501190800">I200501190800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="January 19, 2005" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.0.2#emf_202">Version 2.0.2</a> Maintenance build
+	(<a href="news-release-notes.php?ver=2.0.2#M200501191212">M200501191212</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="January 12, 2005" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200501121156">I200501121156</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="January 11, 2005" showOn="docs,whatsnew">
+	<a href="../../../tools/emf/scripts/docs.php#plandocs">EMF/SDO/XSD Plan Docs</a> added.
+</news>
+<news date="January 04, 2005" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200501041213">I200501041213</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="December 23, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200412230800">I200412230800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="December 16, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200412160800">I200412160800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="December 09, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200412091159">I200412091159</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="December 02, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200412020800">I200412020800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="November 25, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200411250800">I200411250800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="November 18, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200411180800">I200411180800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="November 11, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200411110800">I200411110800</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="November 05, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200411042134">I200411042134</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="October 28, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200410281648">I200410281648</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="October 22, 2004" showOn="whatsnew">
+	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="news-release-notes.php?ver=2.1.0#I200410220709">I200410220709</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="October 18, 2004" showOn="docs,whatsnew">
+	New SDO tutorial: <a href="../../../tools/emf/scripts/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="../../../tools/emf/scripts/docs.php?noHeader=true&doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
+</news>
+<news date="October 18, 2004" showOn="whatsnew">
+	Since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD!
+</news>
+<news date="October 18, 2004" showOn="docs">
+	Since April 2004, there have been over 75,000 downloads of EMF, SDO, and XSD documentation!
+</news>
+<news date="October 14, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-whatsnew-cvs.php?source=emf">What's New, CVS?</a> tool launched for tracking CVS changes.
+</news>
+<news date="October 14, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.1.0#I200410141127">I200410141127</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="October 13, 2004" showOn="docs,whatsnew">
+	New Eclipse Corner article: <a href="../../../tools/emf/scripts/docs.php?noHeader=true&doc=http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
+</news>
+<news date="October 13, 2004" showOn="docs,whatsnew">
+	<a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=SDO">SDO FAQ</a> split from <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=EMF">EMF FAQ</a> for ease of use. Now filterable!
+</news>
+<news date="October 07, 2004" showOn="docs,whatsnew">
+	Links to SDO <a href="../../../tools/emf/scripts/docs.php#sdo">articles</a> added.
+</news>
+<news date="September 30, 2004" showOn="docs,whatsnew">
+	<a href="http://www.eclipse.org/emf/models/">EMF Corner launched</a>!
+</news>
+<news date="September 30, 2004" showOn="docs,whatsnew">
+	Link to SDO <a href="../../../tools/emf/scripts/docs.php#sdo">Overview</a> on developerWorks added.
+</news>
+<news date="September 24, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/downloads.php#NLS">NLS packs</a> for EMF, SDO, and XSD (SDK and Runtime) now available.
+</news>
+<news date="September 23, 2004" showOn="docs,whatsnew">
+	Added two new walkthroughs for <a href="../../../tools/emf/scripts/docs.php#references">offline newsgroup searching</a>.
+</news>
+<news date="September 17, 2004" showOn="whatsnew">
+	<!-- "#R200409171617" -->
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Release build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#2.0.1">2.0.1</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="September 16, 2004" showOn="whatsnew">
+	<!-- "#M200409161148" -->
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#2.0.1RC2">2.0.1RC2</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="September 14, 2004" showOn="docs,whatsnew">
+	New <a href="../../../tools/emf/scripts/docs.php#downloads">Update Manager</a> article added.
+</news>
+<news date="September 08, 2004" showOn="whatsnew">
+	<!-- "#M200409081700" -->
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#2.0.1RC1">2.0.1RC1</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="September 02, 2004" showOn="whatsnew">
+	Since April 2004, there have been over 150,000 downloads of EMF, SDO, and XSD!
+</news>
+<news date="September 02, 2004" showOn="docs">
+	Since April 2004, there have been over 50,000 downloads of EMF, SDO, and XSD documentation!
+</news>
+<news date="September 01, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200409011021">M200409011021</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="August 31, 2004" showOn="whatsnew">
+	EMF/SDO/XSD Update Manager site bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70176">70176</a> fixed - UM now actually works, as of Eclipse 3.0.1.M20040825 or Eclipse 3.1.0.N20040831.
+</news>
+<news date="August 31, 2004" showOn="docs,whatsnew">
+	Link to new <a href="../../../tools/emf/scripts/docs.php#tutorials">Kent OCL Library tutorial</a> added.
+</news>
+<news date="August 26, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200408261626">M200408261626</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="August 26, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200408260844">M200408260844</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="August 19, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200408190924">M200408190924</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="August 12, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200408120834">M200408120834</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="August 12, 2004" showOn="docs,whatsnew">
+	Link to EMF Book <a href="../../../tools/emf/scripts/docs.php#overviews">sample chapter</a> added.
+</news>
+<news date="August 04, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200408040957">M200408040957</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="July 28, 2004" showOn="whatsnew">
+	Since April 2004, there have been over 125,000 downloads of EMF, SDO, and XSD!
+</news>
+<news date="July 28, 2004" showOn="whatsnew">
+	Fixed sort by date feature on <a href="../../../tools/emf/scripts/downloads.php">downloads</a> page. Click Build Date column to sort, or Build Type column to revert.
+</news>
+<news date="July 28, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200407280859">M200407280859</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="July 28, 2004" showOn="docs">
+	Since April 2004, there have been over 39,000 downloads of EMF, SDO, and XSD documentation!
+</news>
+<news date="July 27, 2004" showOn="whatsnew">
+	Bugzilla links in nav updated to include specific columns and status/milestone/id sort.
+</news>
+<news date="July 24, 2004" showOn="whatsnew">
+	Mirrors page updated with more accurate list of mirrors &amp; links. (This page no longer maintained due to new centralized mirror-based download page for all eclipse downloads.)
+</news>
+<news date="July 21, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200407211027">M200407211027</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="July 15, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200407150937">M200407150937</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="July 13, 2004" showOn="docs,whatsnew">
+	<a href="../../../tools/emf/scripts/docs.php#presentations">JavaOne 2004 Presentation</a> added.
+</news>
+<news date="June 28, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Release build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#R200406280827">2.0.0</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 25, 2004" showOn="whatsnew">
+	List of EMF, SDO &amp; XSD download &amp; documentation mirrors now available. (This page no longer maintained due to new centralized mirror-based download page for all eclipse downloads.)
+</news>
+<news date="June 25, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406250129">I200406250129</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 24, 2004" showOn="docs,whatsnew">
+	<a href="../../../tools/emf/scripts/docs.php#overviews">Two new <i>draft</i> overview documents</a>: EMF FeatureMaps &amp; XML Schema to Ecore Mapping added.
+</news>
+<news date="June 24, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406241017">I200406241017</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 23, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406231402">I200406231402</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 23, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406231126">I200406231126</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 22, 2004" showOn="whatsnew">
+	EMF, SDO, and XSD now have an Eclipse 3.0 Update Manager site you can use. Details (including mirror info) posted to the <a href="http://www.eclipse.org/emf/faq/faq.php">FAQ</a>. Instructions &amp; list of available builds <a href="../updates/">here</a>.
+</news>
+<news date="June 22, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406221136">I200406221136</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 21, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406211000">I200406211000</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 17, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406171028">I200406171028</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 10, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#I200406100948">I200406100948</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 03, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200m">I200406030436</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="June 1, 2004" showOn="docs,whatsnew">
+	Updated: <a href="http://www.eclipse.org/emf/faq/faq.php">FAQ</a>, <a href="../../../tools/emf/scripts/docs.php#overviews">Overviews</a>, <a href="../../../tools/emf/scripts/docs.php#tutorials">Tutorials</a>!
+</news>
+<news date="May 26, 2004" showOn="docs,whatsnew">
+	Added links to <a href="../../../tools/emf/scripts/docs.php#contributions">two new developerWorks articles</a>.
+</news>
+<news date="May 20, 2004" showOn="whatsnew">
+	<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=62422">In order to support Rich Client Platform</a>, the <tt>org.eclipse.emf.edit.ui</tt> plugin now optionally requires <tt>org.eclipse.core.resources</tt> and <tt>org.eclipse.ui.ide</tt> and <b style="background-color:yellow;color:black">no longer exports these imports</b>. <a href="../../../tools/emf/scripts/downloads.php">Details here</a>.
+</news>
+<news date="May 20, 2004">
+	To better meet the needs of our users, Runtime bundles no longer contain docs. See SDK bundles for Runtime, Source, and docs. <a href="../../../tools/emf/scripts/docs.php#references">Javadocs are still available online</a>, updated with every new build.
+</news>
+<news date="May 20, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200l">I200405200923</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="May 17, 2004" showOn="docs,whatsnew">
+	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://www.eclipse.org/emf/faq/faq.php">EMF FAQ</a> & <a href="../../../tools/emf/scripts/docs.php">EMF Docs page</a>
+</news>
+<news date="May 13, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200k">I200405131028</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="May 06, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200j">I200405060858</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="April 30, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200i">I200404291310</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="April 29, 2004" showOn="docs,whatsnew">
+	Added link to <a href="http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg246302.html">GEF EMF Redbook</a>.
+</news>
+<news date="April 28, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200h">I200404281648</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="April 28, 2004">
+	To better meet the needs of our users, EMF & SDO have been combined into one Runtime and one SDK packages, instead of two of each. 
+</news>
+<news date="April 15, 2004">
+	To better meet the needs of our users, Source, Runtime, and Docs have been combined into one easier-to-<a href="../../../tools/emf/scripts/downloads.php">download</a> SDK bundle for each of EMF, SDO and XSD. Runtimes are still available separately.
+</news>
+<news date="April 8, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200g">I200404080727</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
+</news>
+<news date="March 25, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200f">I200403081633</a>) is available 
+	for <a href="../../../tools/emf/scripts/downloads.php">download</a>
+</news>
+<news date="March 16, 2004" showOn="docs,whatsnew">
+	Updated the <a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> document.
+</news>
+<news date="March 9, 2004" showOn="whatsnew">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200e">I200403081633</a>) is available 
+	for <a href="downloads/dl.html#stable_builds">download</a>
+</news>
+<news date="February 25, 2004">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200d">20040225_1234SL</a>) is available 
+	for <a href="downloads/dl.html#stable_builds">download</a>.
+</news>
+<news date="February 25, 2004" showOn="docs,whatsnew">
+	Added EMF development plan and links to SDO specification and white paper. <a href="../../../tools/emf/scripts/docs.php#overviews">link</a>
+</news>
+<news date="February 12, 2004" showOn="docs,whatsnew">
+	Added EclipseCon Presentation and Steinberg Interview. <a href="../../../tools/emf/scripts/docs.php#presentations">link</a>
+</news>
+<news date="January 28, 2004">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200c">20040127_1738SL</a>) is available 
+	for <a href="downloads/dl.html#stable_builds">download</a>.
+</news>
+<news date="December 19, 2003">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200b">20031219_0637VL</a>) is available 
+	for <a href="downloads/dl.html#stable_builds">download</a>.
+</news>
+<news date="December 12, 2003">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200a">20031210_1532XL</a>) is available
+	for <a href="downloads/dl.html#stable_builds">download</a>.
+</news>
+<news date="December 12, 2003">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=1.1.1#emf_111">Version 1.1.1.1</a> Maintenance build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=1.1.1#emf_111d">20031120_1149WL</a>) is available 
+	for <a href="downloads/dl.html">download</a>.
+</news>
+<news date="November 6, 2003">
+	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=1.1.1#emf_111">Version 1.1.1</a> Release build 
+	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=1.1.1#emf_111c">20031020_1612WL</a>) is available 
+	for <a href="downloads/dl.html">download</a>.
+</news>
+<news date="August 26, 2003" showOn="docs">
+	<a href="http://www.eclipse.org/articles/Article-JET2/jet_tutorial2.html">JET Tutorial Part 2 (Write Code that Writes Code)</a> is available.
+</news>
+<news date="August 16, 2003" showOn="docs">
+	<a href="http://www.awprofessional.com/promotions/promotions.asp?st=2D676D36-3075-4F90-8F8B-D0D853F746A4">Eclipse Series</a> book on EMF is available: 
+	<a href="http://www.awprofessional.com/titles/0131425420">Eclipse Modeling Framework</a>.
+</news>
+<news date="July 31, 2003" showOn="docs">
+	<a href="http://www.eclipse.org/articles/Article-JET/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a> is available.
+</news>
+<news date="July 15, 2003" showOn="docs">
+	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
+</news>
+
+<!-- $Id: news.xml,v 1.3 2005/01/24 19:23:50 nickb Exp $ -->
+
+</doc>
