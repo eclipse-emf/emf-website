@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="March 28, 2005" showOn="whatsnew">
+	New NLS packs based on EMF 2.0.2 are available for <a href="downloads.php#NLS">download</a>.
+</news>
 <news date="March 24, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200503240700</a>) is available 
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200503240700</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="March 23, 2005" showOn="whatsnew">
 	<!-- "#R200503151315" -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">Version 2.0.2</a> Release build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">2.0.2</a>) is available 
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">2.0.2</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="March 18, 2005" showOn="whatsnew">
@@ -479,6 +482,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.35 2005/03/24 16:06:52 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.36 2005/03/28 20:21:29 nickb Exp $ -->
 
 </doc>
