@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.xml,v 1.4 2005/03/01 23:23:48 nickb Exp $ -->
+<!-- $Id: plan.xml,v 1.5 2005/03/16 21:46:21 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/03/01 23:23:48 $</modified>
+	<modified>$Date: 2005/03/16 21:46:21 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
@@ -457,7 +457,7 @@
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 
-		<votes>0</votes>
+		<votes>1</votes>
 		<sev>normal</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
@@ -613,27 +613,6 @@
 
 		<plan-comments></plan-comments>
 		<summary>Confusing default drag and drop behaviour</summary>
-	</bug>
-	<bug>
-		<id>82624</id>
-		<product>XSD</product>
-		<comp>Runtime</comp>
-
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-01-11 18:28</opened>
-		<reporter>jtaylor&#64;nextance.com</reporter>
-		<assignee>merks&#64;ca.ibm.com</assignee>
-
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority>3</plan-priority>
-		<plan-estimate>4w</plan-estimate>
-
-		<plan-comments></plan-comments>
-		<summary>redefine affects sibling types</summary>
 	</bug>
 	<bug>
 		<id>82626</id>
@@ -920,7 +899,7 @@
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
@@ -1014,131 +993,47 @@
 		<summary>Show load errors as markers when opening generated editor</summary>
 	</bug>
 	<bug>
-		<id>85852</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-02-18 13:57</opened>
-		<reporter>wendyzhu&#64;ca.ibm.com</reporter>
-		<assignee>merks&#64;ca.ibm.com</assignee>
-
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P1</pri>
-		<stat>NEW</stat>
-		<plan-priority>1</plan-priority>
-		<plan-estimate>1d</plan-estimate>
-
-		<plan-comments></plan-comments>
-		<summary>Can XmlMapImpl be threadsafe?</summary>
-	</bug>
-	<bug>
-		<id>85929</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-
-		<ver>2.0.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-02-20 05:56</opened>
-		<reporter>manklu&#64;web.de</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-
-		<votes>0</votes>
-		<sev>major</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-
-		<summary>Problem with the desiralization of forward references</summary>
-	</bug>
-	<bug>
-		<id>85972</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-
-		<targetm>---</targetm>
-		<opened>2005-02-21 13:08</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>khussey&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-
-		<sev>enhancement</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Option to store boolean attributes in eFlags</summary>
-
-	</bug>
-	<bug>
-		<id>85973</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-02-21 13:11</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>khussey&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>JUnit testcase skeletons for volatile features</summary>
-	</bug>
-
-	<bug>
 		<id>85974</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-02-21 13:13</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>khussey&#64;ca.ibm.com</assignee>
+
 		<votes>0</votes>
 		<sev>enhancement</sev>
-
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
+
 		<summary>Option to not generate any child creation icons</summary>
 	</bug>
-
 	<bug>
 		<id>85975</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
-		<targetm>---</targetm>
 
+		<targetm>---</targetm>
 		<opened>2005-02-21 13:18</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>khussey&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
-		<sev>enhancement</sev>
 
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>GenClass.image should be false by default for abstract classes</summary>
-	</bug>
 
+	</bug>
 	<bug>
 		<id>85976</id>
 		<product>EMF</product>
@@ -1200,27 +1095,6 @@
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Optional localization</summary>
-	</bug>
-
-	<bug>
-		<id>86355</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.0.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-02-23 15:32</opened>
-		<reporter>schacher&#64;us.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Need isLoading() test for Resource</summary>
 	</bug>
 
 	<bug>
@@ -1287,14 +1161,14 @@
 	</bug>
 
 	<bug>
-		<id>86665</id>
+		<id>87679</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 
-		<opened>2005-02-25 12:24</opened>
-		<reporter>iriss&#64;us.ibm.com</reporter>
+		<opened>2005-03-10 13:09</opened>
+		<reporter>aricart&#64;tibco.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
 		<sev>normal</sev>
@@ -1304,19 +1178,40 @@
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>feature name that differ in case</summary>
+		<summary>Reload context menu action on genmodel file doesn`t do update when file is locked by revision control</summary>
 	</bug>
 
 	<bug>
-		<id>86782</id>
+		<id>87800</id>
 		<product>EMF</product>
-		<comp>Mapping</comp>
+		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 
-		<opened>2005-02-27 11:47</opened>
-		<reporter>marcusebner&#64;gmx.net</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<opened>2005-03-11 13:07</opened>
+		<reporter>henrich.kraemer&#64;us.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Batch reload</summary>
+	</bug>
+
+	<bug>
+		<id>87832</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-11 16:21</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
 		<sev>normal</sev>
 
@@ -1325,7 +1220,49 @@
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>Unhandled event loop exception - java.lang.StackOverflowError</summary>
+		<summary>Feature mapped references not saved with href attributes in XMI</summary>
+	</bug>
+
+	<bug>
+		<id>87963</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-14 13:46</opened>
+		<reporter>mortench2004&#64;yahoo.dk</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>JET: new optional target attribute</summary>
+	</bug>
+
+	<bug>
+		<id>88248</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-16 16:02</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>EMF models should take advantage of boolean flags</summary>
 	</bug>
 
 	<bug>
@@ -1455,35 +1392,56 @@
 
 	</bug>
 	<bug>
-		<id>86190</id>
-		<product>XSD</product>
-		<comp>Doc</comp>
+		<id>87825</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 
-		<opened>2005-02-22 14:30</opened>
-		<reporter>eclipse&#64;sujee.net</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<opened>2005-03-11 16:09</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 
 		<pri>P3</pri>
 		<stat>ASSIGNED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>xsd doc : toc.xml has invalid xml?</summary>
+		<summary>Need a way to pre/post-process XML resources</summary>
 	</bug>
 
 	<bug>
-		<id>86747</id>
+		<id>87828</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-11 16:16</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Need enhanced SAVE_TYPE_INFORMATION option</summary>
+	</bug>
+
+	<bug>
+		<id>87933</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 
-		<opened>2005-02-26 08:29</opened>
-		<reporter>saveez&#64;hotmail.com</reporter>
+		<opened>2005-03-14 10:43</opened>
+		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
 		<sev>normal</sev>
@@ -1493,7 +1451,217 @@
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>Bug for a void accessor</summary>
+		<summary>NPE in EObjectValidator</summary>
+	</bug>
+
+	<bug>
+		<id>88111</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-15 15:37</opened>
+		<reporter>elitani&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Tab and LineFeed should be escaped within attributes</summary>
+	</bug>
+
+	<bug>
+		<id>88214</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-16 13:31</opened>
+		<reporter>marcelop&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Invariants stubs should reuse the getObjectLabel() method</summary>
+	</bug>
+
+	<bug>
+		<id>88216</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-03-16 13:35</opened>
+		<reporter>marcelop&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>xsd:length facet doesn`t generate a proper constraint.</summary>
+	</bug>
+
+	<bug>
+		<id>87860</id>
+		<product>XSD</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-03-12 12:18</opened>
+		<reporter>merks&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Delay analyze() until after the schemaLocation is set</summary>
+	</bug>
+
+	<bug>
+		<id>88092</id>
+		<product>XSD</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-03-15 13:52</opened>
+		<reporter>sspeiche&#64;us.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Annotations not available for included/incorporated schemas</summary>
+	</bug>
+
+	<bug>
+		<id>85972</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-02-21 13:08</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Option to store boolean attributes in eFlags</summary>
+	</bug>
+
+	<bug>
+		<id>86665</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-02-25 12:24</opened>
+		<reporter>iriss&#64;us.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>feature name that differ in case</summary>
+	</bug>
+
+	<bug>
+		<id>87132</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-03-04 08:19</opened>
+		<reporter>Jaap.Reitsma&#64;telin.nl</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Invalid code generation for anonymous simple types with enumerations with same name</summary>
+	</bug>
+
+	<bug>
+		<id>87723</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-03-10 17:58</opened>
+		<reporter>merks&#64;ca.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Ignore duplicate inheritance relationships in the Rose EcoreBuilder</summary>
+	</bug>
+
+	<bug>
+		<id>87924</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-03-14 09:15</opened>
+		<reporter>merks&#64;ca.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Allow control over the key used when converting appinfo to an EAnnotation.</summary>
 	</bug>
 
 </plan>

@@ -106,6 +106,8 @@
 	Plan Estimates are annotated in units of days (d), weeks (w), or months (m), where 1m = 4w = 20d.<br/>
 	This Plan is subject to change.
 	</p>
+	<p>Note: anyone is always welcome to contribute a part or bit of code. More consideration, that is, a higher priority will be given to bugs with junit tests reproducing the problem/defect.
+	</p>
 	<p>&#160;</p>
 
 </td>
@@ -231,4 +233,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.5 2005/03/14 21:34:39 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.6 2005/03/16 21:46:21 nickb Exp $ -->
