@@ -28,10 +28,13 @@
 	<style>@import url("performance.css");</style>
 	</head>
 	<body>
+
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+
+	<!-- container and script for tooltips (not required if looking at PHP wrapper; contained in that doc instead) -->
 	<div id="dhtmltooltip"></div>
 	<script type="text/javascript" src="performance.js"></script>
 
-	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<!-- wrapper for left nav -->
 	<table cellspacing="0" cellpadding="0" border="0" width="100%">
 		<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
