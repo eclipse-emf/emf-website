@@ -97,7 +97,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
 <?php 
-	$files = loadDirSimple("./news","release-notes(.*)\.html","f");
+	$files = loadDirSimple("./news/","release-notes(.*)\.html","f");
 	rsort($files); reset($files);
 
 	$didBreak=0;
@@ -105,14 +105,14 @@
 	foreach ($files as $i => $file) { 
 		preg_match("/release-notes(.*)\.html/",$file,$m);
 		$vver = $m[1];
-		if ($i>0) { echo ', '; }
-		if (!$didBreak && preg_match("/^1\.\d+/",$vver)) { echo '<br>'; $didBreak = 1; }
-		echo '<a class="nav" href="'.$pre.'news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
+		if ($i>0) { $out .= ', '; }
+		if ($i%3==2 && preg_match("/^1\.\d+/",$vver)) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+		$out .= '<a class="nav" href="'.$pre.'news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
 		if (!$stored_ver) { $stored_ver=$vver; }
 	}
 	?>
       <p>&#160; <a href="news-release-notes.php?ver=<?php echo $vver; ?>" class="nav" target="_top">Release Notes</a><br>
-		<small class="nav">&#160; &#160; &#160;  
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
 		</small>
 		</p>
 
