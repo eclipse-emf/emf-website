@@ -106,7 +106,7 @@
 
 	<!-- form controls -->
 <form action="performance.php" method="get" name="mainform">
- 	<table width="100%" border="0">
+ 	<table border="0">
 			<tr>
         <td><b>Threshhold Percentage</b><br/><small>
         Absolute value of deltas less than<br/>
@@ -128,14 +128,8 @@
 	<option value="all">All</option>
 	</select> 
 	<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
-	<br/><br/>
-	<b>Sort Method</b><br/><select class="field9px" name="sortMethod" size="1">
-        <option value="byDeltaNegThenPos">Improvements (-) Then Regressions (+)</option>
-        <option value="byDeltaPosThenNeg">Regressions (+) Then Improvements (-)</option>
-        <option value="byDeltaSequential">Sequential (Largest -% to Largest +%)</option>
-        <option value="byClass">Alphabetic By ClassName#testMethod()</option>
-        <option value="unsorted">Unsorted</option>
-        </select> <input type="button" value="Compare" onclick="doSubmit()"/></td>
+	<br/>
+ <input type="button" value="Compare" onclick="doSubmit()"/></td>
 	</table>
 </form>
 	
