@@ -23,6 +23,7 @@
 	}
 
 	function doFileList($files = array()) {
+		global $PHP_SELF, $filter;
 		rsort($files); reset($files);
 		
 		echo "<style>@import url(\"performance.css\");</style>\n";
