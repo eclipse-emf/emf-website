@@ -26,7 +26,7 @@
   <!-- common links - both projects -->
   
   <tr> 
-    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <small><b> &amp; </b></small><a href="../../xsd/" target="_top" class="navhead">xsd</a></td>
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <a href="../../xsd/" target="_top" class="navhead">&amp; xsd</a></td>
   </tr>
 
   <tr valign=CENTER> 
