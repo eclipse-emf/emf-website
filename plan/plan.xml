@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.xml,v 1.1 2005/02/19 07:30:00 nickb Exp $ -->
+<!-- $Id: plan.xml,v 1.2 2005/02/19 08:10:55 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/02/19 07:30:00 $</modified>
+	<modified>$Date: 2005/02/19 08:10:55 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
@@ -317,7 +317,7 @@
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
-		<plan-estimate></plan-estimate>
+		<plan-estimate>12w</plan-estimate>
 
 		<plan-comments></plan-comments>
 		<summary>Generator configuration model (transformation model)</summary>
@@ -1011,7 +1011,7 @@
 
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
-		<plan-estimate></plan-estimate>
+		<plan-estimate>12w</plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>[Theme] Performance Enhancements For EMF/SDO</summary>
 	</bug>
@@ -1050,7 +1050,7 @@
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
-		<plan-estimate></plan-estimate>
+		<plan-estimate>26w</plan-estimate>
 
 		<plan-comments>This will depend on what is all in the next version of the spec</plan-comments>
 		<summary>[Theme] SDO 1.1 Support</summary>
