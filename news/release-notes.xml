@@ -12,6 +12,17 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200502240800" project="emf">
+<bug id="85202">Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</bug>
+<bug id="85957">The xml namespace, i.e., xml.xsd, has a new id attribute</bug>
+<bug id="85969">Spelling error in ItemProvider.javajet</bug>
+<bug id="85970">Project wizard fails for Ecore models with a space in their path</bug>
+<bug id="86117">JETEmitter.addVariable() deal with missing .classpath when in runtime workbench</bug>
+<bug id="86210">Perf: Improve performance for serialization of XML files</bug>
+<bug id="86211">The package initialization should XyzPackage.eINSTANCE</bug>
+<bug id="86338">Generate scaffolding for named constraints and invariants</bug>
+</entry>
+
 <entry version="2.1.0" build="I200502171619" project="emf">
 <bug id="81512">'href' attribute seems to be a reserved attribute</bug>
 <bug id="84634">Single-valued features in a feature map behave as if they are unsettable</bug>
@@ -51,6 +62,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200502240800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -238,6 +253,12 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200502240800" project="xsd">
+<bug id="85957">The xml namespace, i.e., xml.xsd, has a new id attribute</bug>
+<bug id="86118">no getMixed() method created when no content present</bug>
+<bug id="86318">'ref' attribute persists after changing to type style</bug>
 </entry>
 
 <entry version="2.1.0" build="I200502171619" project="xsd">
@@ -1363,4 +1384,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.23 2005/02/17 23:03:54 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.24 2005/02/25 05:35:21 nickb Exp $ -->
