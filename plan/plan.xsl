@@ -178,6 +178,10 @@
 									<xsl:when test="name() = 'votes' and number(../votes) = 0">
 										&#160;
 									</xsl:when>
+									<xsl:when test="name() = 'votes' and number(../votes) &gt; 0">
+										<a href="https://bugs.eclipse.org/bugs/votes.cgi?action=show_bug&amp;bug_id={../id}"><xsl:value-of select="." /></a>
+									</xsl:when>
+									
 									<xsl:when test="name() = 'sev'">
 										<xsl:value-of select="substring(.,1,3)" />
 									</xsl:when>
@@ -227,4 +231,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.3 2005/03/01 23:22:53 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.4 2005/03/01 23:37:09 nickb Exp $ -->
