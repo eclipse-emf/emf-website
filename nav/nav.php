@@ -77,9 +77,9 @@
 	<?php echo $sep_line; ?>
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav">Bugzilla</a>
+      <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav">Bugzilla</a><br/>
+		<small class="nav"> 
 <?php
-	
 	$statuses = array(
 		"Open" => "%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED",
 		"Closed This Week" => "%26bug_status%3DRESOLVED%26bug_status%3DVERIFIED%26bug_status%3DCLOSED%26changedin%3D7"
@@ -92,16 +92,15 @@
 		);
 		$blcnt=0;
 		//echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
-		echo '<small class="nav">'."\n";
 		foreach ($bugzLinks as $label => $url) { 
 			//if ($blcnt>0) { echo ", "; } $blcnt++;
 			if ($blcnt>0) { echo "<br/>\n"; } $blcnt++;
 			//echo "".'<small class="nav"><a href="'.$url.'" class="nav">'.$label.'</a></small>';
 			echo '&#160; &#160; &#160; <a href="'.$url.'" class="nav">'.$statusLabel.'</a>';
 		} 
-		echo "</small>\n";
 	}
 ?>
+		</small>
 		</p>
     </td>
   </tr>
