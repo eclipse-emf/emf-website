@@ -14,10 +14,6 @@
 
 <entry version="2.1.0" build="I200502030800" project="emf">
 <bug id="82651">XMLResource.toDOM() doesn't return namespace aware Document</bug>
-<bug id="83044">[DUPE] caching of Lookup in XMLSaveImpl for major performance boost of serialization</bug>
-<bug id="83047">[DUPE] EDate's createFromString/convertToString isn't thread safe.</bug>
-<bug id="83049">[DUPE] EObject.eContainmentFeature may return wrong result for containment via an open content feature in a  feature map entry.</bug>
-<bug id="83050">[DUPE] ClassCastException when saving a ChangeDescription with multivalue attribute.</bug>
 <bug id="83314">ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
 <bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
 <bug id="83414">Add leading / to template path, if necessary.</bug>
@@ -26,7 +22,6 @@
 <bug id="83740">Allow &quot;*&quot; to represent multiplicity many</bug>
 <bug id="83789">[Ant tasks] The emf.Rose2Java and emf.XSD2Java don't generate the plugin.xml file.</bug>
 <bug id="84143">Add plugin id to codegen and emf ant tasks</bug>
-<bug id="84182">[DUPE] ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
 </entry>
 
 <entry version="2.1.0" build="I200501270800" project="emf">
@@ -44,11 +39,7 @@
 </entry>
 
 <entry version="2.1.0" build="I200502030800" project="sdo">
-<bug id="83045">[DUPE] Issue with containment and deleted objects</bug>
-<bug id="83046">[DUPE] Inconsistent data access on List values</bug>
-<bug id="83048">[DUPE] getContainmentProperty() throws a NullPointerException</bug>
 <bug id="83314">ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
-<bug id="84182">[DUPE] ChangeSummary.isDeleted() fails after endLogging/beginLogging</bug>
 </entry>
 
 <entry version="2.1.0" build="I200501270800" project="sdo">
@@ -1318,4 +1309,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.12 2005/02/03 17:43:08 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.13 2005/02/03 17:48:25 nickb Exp $ -->
