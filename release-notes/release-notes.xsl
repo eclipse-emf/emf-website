@@ -104,7 +104,8 @@
 						<a href="release-notes.php?project=emf">EMF</a> :: 
 						<a href="release-notes.php?project=sdo">SDO</a> :: 
 						<a href="release-notes.php?project=xsd">XSD</a> :: 
-						<a href="release-notes.php?project=">Complete Release Notes</a></span>
+						<a href="release-notes.php?project=">Complete 2.x Notes</a> :: 
+						<a href="release-notes-1.x.php">Complete 1.x Notes</a></span>
 					<hr size="1" width="100%"/>
 					<select class="log-text" name="project" size="1">
 						<option value=""> Choose... </option>
@@ -271,4 +272,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.2 2005/01/23 12:14:10 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.3 2005/01/23 12:42:17 nickb Exp $ -->
