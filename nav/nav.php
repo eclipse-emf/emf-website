@@ -206,7 +206,8 @@
       <p>&#160; <a href="faq.php" class="nav">FAQs</a><br>
 		<small class="nav"> 
 		
-		<a class="nav" href="faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="faq.php?FAQ=XSD">XSD</a> 
+		&#160; &#160; &#160;  <a class="nav" href="faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="faq.php?FAQ=XSD">XSD</a> <br>
+		&#160; &#160; &#160;  <a href="../../eclipse/faq/eclipse-faq.html" class="nav">Eclipse FAQ</a>
 		
 		</small>
 		</p>
