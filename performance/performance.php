@@ -21,7 +21,9 @@
 		doFileList(loadDirSimple(".",".xml","f")); // get all *.xml files in current dir
 	}
 
-	function doFileList($files = array()) { 
+	function doFileList($files = array()) {
+		rsort($files); reset($files);
+		
 		echo "<style>@import url(\"performance.css\");</style>\n";
 		echo "<body>\n";
 		echo "Choose a performance delta to view:\n\n<ul>\n";

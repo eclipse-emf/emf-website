@@ -149,7 +149,7 @@
 			</select> 
 			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 			<br/>
-		 <input type="button" value="Compare"/>
+		 <input type="submit" value="Compare"/>
 		 <input type="hidden" name="XMLfile" value="{$XMLfile}"/>
 		 </td>
 			</table>
