@@ -167,10 +167,11 @@
 						</xsl:choose>
 						<td class="normal">
 							<a href="#{@project}.{@version}.{@build}">
-							<xsl:choose>
-								<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
-								<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
-							</xsl:choose>
+								<xsl:choose>
+									<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
+									<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
+									<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
+								</xsl:choose>
 							</a>
 						</td>
 						<td class="normal">
@@ -218,8 +219,13 @@
 						</xsl:choose>
 						<td class="normal" align="left" width="100%">
 							
-							<a name="{@project}.{@version}.{@build}"></a>
-							<b class="title"><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></b> 
+							<a name="{@project}.{@version}.{@build}"><b class="title">
+								<xsl:choose>
+									<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
+									<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
+									<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
+								</xsl:choose>
+							</b></a>
 							<xsl:if test="count(bug)>0">&#160;(<xsl:value-of select="count(bug)" /> Bugs)</xsl:if>
 							<xsl:if test="note!=''">
 								<br/><span class="details"><xsl:copy-of select="note" /></span>
@@ -272,4 +278,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.1 2005/01/24 19:24:07 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.2 2005/01/24 20:27:35 nickb Exp $ -->
