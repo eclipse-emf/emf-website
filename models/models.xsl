@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <xsl:stylesheet version = '1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 <xsl:output method="html" encoding="ISO-8859-1"/>
 <xsl:key name="modelCatg" match="model" use="@category"/>
@@ -359,4 +358,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.9 2005/01/24 20:59:15 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.10 2005/01/25 22:56:38 nickb Exp $ -->
