@@ -404,6 +404,10 @@ mixin features inherited from interface</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
 </entry>
 
+<entry version="2.0.2" build="2.0.2" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.0.2" build="2.0.2RC3" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -439,6 +443,10 @@ mixin features inherited from interface</bug>
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.0.2" build="2.0.2" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.0.2" build="2.0.2RC3" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -471,6 +479,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="M200501191212" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="2.0.2" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -1477,4 +1489,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.38 2005/03/18 19:36:41 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.39 2005/03/23 22:34:30 nickb Exp $ -->
