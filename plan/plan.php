@@ -75,11 +75,15 @@ $column_order = array( // column label => field name (mixed case version)
 
 $committers = array(); // list of names that are valid committers; ignore comments posted by non-committers
 
-getCommitterList(); //w("\$committers:",1); wArr($committers); w("");
+getCommitterList(); 
+if ($contentType=="text/html") { 
+	w("\$committers:",1); wArr($committers); w("",1);
+}
 getMetaAndBugList();
 getPlanItems($columns); 
 if ($contentType=="text/html") { 
 	w("\$bugz:"); wArr($bugz);
+	w("<br>\$buglist: $buglist");
 } else if ($contentType=="text/xml") { 
 	displayXML();
 }
@@ -259,7 +263,7 @@ function displayXML() {
 	header('Content-type: text/xml');
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.4 2005/02/19 08:33:20 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.5 2005/02/25 20:59:04 nickb Exp $ -->
 <plan>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
