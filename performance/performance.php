@@ -32,7 +32,7 @@
 			$delta = $baseline[1]; 
 			$baseline = $baseline[2];
 			echo 
-				"<li><a href=\"".$PHP_SELF."?XMLfile=".$file."\">".			
+				"<li><a href=\"".$PHP_SELF."?filter=".urlencode($filter)."&XMLfile=".$file."\">".			
 				"$delta vs. $baseline"."</a></li><br/>"."\n";
 		}
 		echo "</ul>\n\n";

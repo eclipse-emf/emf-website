@@ -14,7 +14,6 @@
 </xsl:variable>
 
 <!--
-	// TODO implement filter/thresh (php)
 	// TODO collect build details from gtk console log (if in PHP version, with links to log - copy from performance-results.php)
 -->
 
