@@ -1,9 +1,9 @@
-<?php include $pre."includes/header.html"; ?>
+<?php include "includes/header.html"; ?>
 
 <style>@import url("models.css");</style>
 <script type="text/javascript" src="models.js"></script>
 
-	<table border="0" cellspacing="1" cellpadding="3">
+	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<form action="models-mailform.php" method="post">
 			<input type=hidden name="h_Email_Title" value="Eclipse EMF Model Review">
 			<input type=hidden name="h_Email_Recipient_Name" value="EMFModelReview">
@@ -75,4 +75,4 @@
 	</table>
 
 <?php include "includes/footer.html"; ?>
-<!-- $Id: models-review.php,v 1.2 2004/12/21 21:39:35 nickb Exp $ -->
+<!-- $Id: models-review.php,v 1.3 2004/12/21 21:44:22 nickb Exp $ -->

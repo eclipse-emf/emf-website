@@ -171,11 +171,14 @@ $message .='
 ';
 
 		include "includes/header.html"; 
-		
+
+echo '	<table border="0" cellspacing="1" cellpadding="3" width="560">
+		<tr><td>';
 echo "<span>";
 echo $message;
 echo "</span>";
 echo "<p><a href=\"models.xml\">Back to the Models</a></p>\n\n";
+echo '</td></tr></table>';
 
 		include "includes/footer.html"; 
 
@@ -211,5 +214,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.2 2004/12/21 21:39:35 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.3 2004/12/21 21:44:22 nickb Exp $ -->
 ?>
