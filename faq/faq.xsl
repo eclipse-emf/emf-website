@@ -4,7 +4,7 @@
 
 <!-- show filter form inputs? by default, no. need HTML/PHP wrapper to enable this, -->
 <!-- since can't pass querystring params to XSL without HTML or PHP wrapper -->
-<xsl:param name="showFilters"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
+<xsl:param name="showFiltersAndHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 
 	<!-- XSD defaults -->
 <!--	<xsl:param name="FAQ">XSD</xsl:param>
@@ -67,6 +67,7 @@
 	</head>
 	<body>
 
+<xsl:if test="$showFiltersAndHeaderFooter!='1'">
 <!-- wrapper for left nav -->
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
@@ -80,12 +81,16 @@
     </table></td>
   </tr>
 </table>
+</xsl:if>
+
 <table cellspacing="0" cellpadding="0" border="0">
 	<tr valign="top">
 		<td align="left" width="115" bgcolor="#6699CC">
 
 		<!-- left nav here -->
-		<xsl:copy-of select="document('../includes/nav.xml')/div"/>
+		<xsl:if test="$showFiltersAndHeaderFooter!='1'">
+			<xsl:copy-of select="document('../includes/nav.xml')/div"/>
+		</xsl:if>
 
 		</td>
 
@@ -101,7 +106,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+        <img src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/reference.gif" hspace="50" align="right"/>
       </td>
 
     </tr>
@@ -123,14 +128,12 @@
 		<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
 		<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
 </b></td>
-<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
 </tr>
 </table>
 
+	<xsl:if test="$showFiltersAndHeaderFooter='1'">
 	<form action="" method="get" name="mainform">
-	<a name="top"> </a>
 	<table width="100%">
-		<xsl:if test="$showFilters='1'">
 			<tr>
 				<td width="75%">
 				<table>
@@ -176,9 +179,9 @@
 				</table>
 				</td>
 			</tr>
-		</xsl:if>
 	</table>
-
+	</form>
+	</xsl:if>
 	<!-- table of contents -->
 	<table width="100%" border="0" cellspacing="1" cellpadding="3">
 <!-- 		<tr class="light-row" valign="bottom">
@@ -354,8 +357,8 @@
 		</xsl:if>
 	</xsl:for-each>
 	</table>
-	<!-- $Id: faq.xsl,v 1.2 2004/12/23 02:07:07 nickb Exp $ -->
-	</form>
+
+<xsl:if test="$showFiltersAndHeaderFooter!='1'">
 
 <p>
 	<a href="../">EMF Home</a> |
@@ -364,6 +367,8 @@
 </p>
 
 <!-- wrapper for left nav -->
+</xsl:if>
+
 </td></tr></table>
 
 	</body>
