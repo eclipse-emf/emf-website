@@ -13,6 +13,12 @@
 <project-def project="xsd" label="XSD Release Notes" />
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -20,12 +26,32 @@
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
+</entry>
+
 <entry version="2.1.0" build="I200501121156" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200501121156" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200501041213" project="emf">
@@ -36,8 +62,18 @@
 <bug id="82016">EMF should provide a way of generating code from Ant scripts.</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200501041213" project="sdo">
 <bug id="81809">quote problems in property files</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200412230800" project="emf">
@@ -48,8 +84,18 @@
 <bug id="81756">Need &quot;isFeatureSpecific&quot; option in BasicExtendedMetaData</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200412230800" project="sdo">
 <bug id="81572">In SDOEditor, move model retrieval from createPages to createModel</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200412160800" project="emf">
@@ -59,9 +105,19 @@
 <bug id="81013">The ChangeRecoder should provide a way of resumming a recording</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200412160800" project="sdo">
 <bug id="80767">When transferring ChangeSummary between two DataGraphs, list additions get lost</bug>
 <bug id="81325">EChangeSummary should provide a resumeLogging method.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200412091159" project="emf">
@@ -73,8 +129,18 @@
 <bug id="80502">ObjectChanges.key value is proxy at apply time when loading from xmi</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200412091159" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200411250800" project="emf">
@@ -82,8 +148,18 @@
 <bug id="79312">RoseNode.getAnnotation misses annotations represented on separate lines in the .mdl.</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200411250800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200411180800" project="emf">
@@ -97,8 +173,18 @@
 <bug id="78842">A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200411180800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200411110800" project="emf">
@@ -109,8 +195,18 @@
 <bug id="78117">Bad handling of spaces in file or folder names</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200411110800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200411042134" project="emf">
@@ -122,8 +218,18 @@ mixin features inherited from interface</bug>
 <bug id="77423">XMLResource.HREF serialization and de-serialization</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200411042134" project="sdo">
 <bug id="77108">Inconsistent data access on List values</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200410281648" project="emf">
@@ -132,8 +238,18 @@ mixin features inherited from interface</bug>
 <bug id="76971">ChangeDescription problems when applyAndReverse is invoked multiple time</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200410281648" project="sdo">
 <bug id="76610">Provide a GenPackage option to generate an IDisposable item provider adapter factory.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200410220709" project="emf">
@@ -150,8 +266,18 @@ mixin features inherited from interface</bug>
 <bug id="76757">XMLResource ID caching problems</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200410220709" project="sdo">
 <bug id="76621">getContainmentProperty() throws a NullPointerException</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
 </entry>
 
 <entry version="2.1.0" build="I200410141127" project="emf">
@@ -181,9 +307,23 @@ mixin features inherited from interface</bug>
 <bug id="75775">JET crashes on certain formats of the &quot;imports&quot; attribute.</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="xsd">
@@ -195,6 +335,11 @@ mixin features inherited from interface</bug>
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200501041213" project="xsd">
 <bug id="80565">programmatic redefinition of indirectly used type fails</bug>
 <bug id="80801">Importing components with xs:redefine</bug>
@@ -204,8 +349,18 @@ mixin features inherited from interface</bug>
 <bug id="81903">Handle ecore:reference and ecore:opposite more consistently and save according to IDREF/anyURI properly.</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200412230800" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200412160800" project="xsd">
@@ -214,20 +369,45 @@ mixin features inherited from interface</bug>
 <bug id="80755">Problem with XSDComplexTypeDefinition.handleAnalysis handling of particles</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200412091159" project="xsd">
 <bug id="80256">Support restrictions of wildcards that introduce new features</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200412020800" project="xsd">
 <bug id="78600">Composing a schema from multiple schema documents</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200411250800" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200411180800" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200411110800" project="xsd">
@@ -235,16 +415,36 @@ mixin features inherited from interface</bug>
 <bug id="78186">Annotation at the end of a simple type causes an array store exception</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200411042134" project="xsd">
 <bug id="72109">StackOverflowError when using xs:redefine</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200410281648" project="xsd">
 <bug id="76610">Provide a GenPackage option to generate an IDisposable item provider adapter factory.</bug>
 </entry>
 
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
 <entry version="2.1.0" build="I200410220709" project="xsd">
 <bug id="73771">Memory leak in ItemProviderAdapter</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200410141127" project="xsd">
@@ -1238,4 +1438,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.1 2005/01/24 19:24:07 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.2 2005/01/24 19:48:29 nickb Exp $ -->
