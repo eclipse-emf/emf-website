@@ -2,6 +2,7 @@
 	<head>
     <title>Eclipse Tools - EMF/SDO and XSD FAQs</title>
     <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
+	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
 	<style>@import url("faq.css");</style>
 	</head>
@@ -32,4 +33,4 @@
 
 		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
 &#160;
-<!-- $Id: header.php,v 1.2 2004/12/23 02:28:24 nickb Exp $ -->
+<!-- $Id: header.php,v 1.3 2005/02/07 22:48:21 nickb Exp $ -->

@@ -2,9 +2,10 @@
 	<head>
     <title>Eclipse Tools - EMF and SDO - EMF Corner</title>
     <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
+	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
+	<script type="text/javascript" language="javascript" src="models.js"> </script>
 	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
 	<style>@import url("models.css");</style>
-	<script type="text/javascript" language="javascript" src="models.js"> </script>
 	</head>
 	<body>
 
@@ -55,4 +56,4 @@
 <td align="LEFT" Valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
-<!-- $Id: header.php,v 1.2 2004/12/23 02:28:24 nickb Exp $ -->
+<!-- $Id: header.php,v 1.3 2005/02/07 22:48:21 nickb Exp $ -->

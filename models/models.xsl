@@ -14,9 +14,10 @@
 	<head>
     <title>Eclipse Tools - EMF and SDO - EMF Corner</title>
     <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
+	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
+	<script type="text/javascript" language="javascript" src="models.js"> </script>
 	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
 	<style>@import url("models.css");</style>
-	<script type="text/javascript" language="javascript" src="models.js"> </script>
 	</head>
 	<body>
 
@@ -358,4 +359,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.10 2005/01/25 22:56:38 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.11 2005/02/07 22:48:21 nickb Exp $ -->
