@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="performance.xsl"?>
+<data>
+  <build id="N200503110500" type="delta">
+    <testsuite package="org.eclipse.emf.test.performance.deserialization">
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
+                     name="testLoad">
+        <property name="CPU Time" value="283"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="6"/>
+        <property name="Library Size" value="29491"/>
+        <property name="Soft Page Faults" value="48"/>
+        <property name="Used Java Heap" value="197556"/>
+        <property name="Working Set" value="29491"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
+                     name="testLoadParserAndFeatureMapCache">
+        <property name="CPU Time" value="72"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="10"/>
+        <property name="Used Java Heap" value="-631460"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
+                     name="testLoadParserCache">
+        <property name="CPU Time" value="96"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Used Java Heap" value="462910"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.StaticIpoLoad"
+                     name="testLoad">
+        <property name="CPU Time" value="233"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="11"/>
+        <property name="Library Size" value="409"/>
+        <property name="Used Java Heap" value="299740"/>
+        <property name="Working Set" value="409"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.StaticIpoLoad"
+                     name="testLoadParserAndFeatureMapCache">
+        <property name="CPU Time" value="70"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Used Java Heap" value="-474466"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.StaticIpoLoad"
+                     name="testLoadParserCache">
+        <property name="CPU Time" value="98"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Used Java Heap" value="743601"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.sdo.accessor">
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigDecimalByIndex">
+        <property name="CPU Time" value="70"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="52568"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigDecimalByPath">
+        <property name="CPU Time" value="34"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="-133696"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigDecimalByProperty">
+        <property name="CPU Time" value="20"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="11"/>
+        <property name="Used Java Heap" value="52006"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigIntegerByIndex">
+        <property name="CPU Time" value="70"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="48846"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigIntegerByPath">
+        <property name="CPU Time" value="23"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="947946"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigIntegerByProperty">
+        <property name="CPU Time" value="20"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52046"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getByIndex">
+        <property name="CPU Time" value="46"/>
+        <property name="Iterations" value="10000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="51769"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getByPath">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="300"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="1535731"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getByProperty">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="10000"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51524"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getDataObjectByProperty">
+        <property name="CPU Time" value="20"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="55753"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getObjectByIndex">
+        <property name="CPU Time" value="70"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="11"/>
+        <property name="Used Java Heap" value="51422"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getObjectByProperty">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51473"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getObjectWithEGet">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="50889"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getStringByName">
+        <property name="CPU Time" value="44"/>
+        <property name="Iterations" value="100000"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="50843"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setBigIntegerByIndex">
+        <property name="CPU Time" value="96"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="12"/>
+        <property name="Used Java Heap" value="56836"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setBigIntegerByProperty">
+        <property name="CPU Time" value="34"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="51971"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setByIndex">
+        <property name="CPU Time" value="66"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Used Java Heap" value="1660713"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setByPath">
+        <property name="CPU Time" value="11"/>
+        <property name="Iterations" value="300"/>
+        <property name="Library Size" value="1638"/>
+        <property name="Soft Page Faults" value="1"/>
+        <property name="Used Java Heap" value="1627884"/>
+        <property name="Working Set" value="1638"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setByProperty">
+        <property name="CPU Time" value="66"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Used Java Heap" value="-2212732"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setDataObjectByProperty">
+        <property name="CPU Time" value="48"/>
+        <property name="Iterations" value="10000"/>
+        <property name="Used Java Heap" value="-2574897"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setObjectByIndex">
+        <property name="CPU Time" value="94"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="51972"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setObjectByProperty">
+        <property name="CPU Time" value="32"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="50971"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setObjectWithESet">
+        <property name="CPU Time" value="30"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="53054"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigDecimalByIndex">
+        <property name="CPU Time" value="66"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="6"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="53395"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigDecimalByPath">
+        <property name="CPU Time" value="31"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="-317628"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigDecimalByProperty">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="52576"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByGenerated">
+        <property name="CPU Time" value="7"/>
+        <property name="Iterations" value="800000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Library Size" value="409"/>
+        <property name="Soft Page Faults" value="19"/>
+        <property name="Used Java Heap" value="51839"/>
+        <property name="Working Set" value="409"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByIndex">
+        <property name="CPU Time" value="62"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="52462"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByPath">
+        <property name="CPU Time" value="25"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="2"/>
+        <property name="Used Java Heap" value="877681"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="51731"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByGenerated">
+        <property name="CPU Time" value="4"/>
+        <property name="Iterations" value="40000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="52844"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByIndex">
+        <property name="CPU Time" value="40"/>
+        <property name="Iterations" value="10000"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="55355"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByPath">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="300"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-797157"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="10000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="51192"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getDataObjectByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="49206"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getFromMap">
+        <property name="CPU Time" value="7"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="54818"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getObjectByIndex">
+        <property name="CPU Time" value="64"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Library Size" value="819"/>
+        <property name="Soft Page Faults" value="18"/>
+        <property name="Used Java Heap" value="51599"/>
+        <property name="Working Set" value="819"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getObjectByProperty">
+        <property name="CPU Time" value="11"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51566"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getObjectWithEGet">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="51479"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getStringByName">
+        <property name="CPU Time" value="35"/>
+        <property name="Iterations" value="100000"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="51632"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setBigIntegerByGenerated">
+        <property name="CPU Time" value="7"/>
+        <property name="Iterations" value="800000"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="52225"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setBigIntegerByIndex">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="50838"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setBigIntegerByProperty">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="54516"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByGenerated">
+        <property name="CPU Time" value="80"/>
+        <property name="Iterations" value="10000"/>
+        <property name="Used Java Heap" value="-500608"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByIndex">
+        <property name="CPU Time" value="52"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Used Java Heap" value="-2108748"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByPath">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="300"/>
+        <property name="Used Java Heap" value="1626124"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByProperty">
+        <property name="CPU Time" value="46"/>
+        <property name="Iterations" value="5000"/>
+        <property name="Used Java Heap" value="-2113776"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setDataObjectByProperty">
+        <property name="CPU Time" value="794"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Used Java Heap" value="460715"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setInMap">
+        <property name="CPU Time" value="13"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="204"/>
+        <property name="Used Java Heap" value="-2197324"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setObjectByIndex">
+        <property name="CPU Time" value="15"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51117"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setObjectByProperty">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52251"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setObjectWithESet">
+        <property name="CPU Time" value="8"/>
+        <property name="Iterations" value="200000"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="51026"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticSequenceTest"
+                     name="getDerived">
+        <property name="CPU Time" value="50"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-1445665"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticSequenceTest"
+                     name="getSequence">
+        <property name="CPU Time" value="11"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="-296548"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.sdo.deserialization">
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.DynamicIPOSDOLoadTest"
+                     name="loadWithNoOptions">
+        <property name="CPU Time" value="259"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Library Size" value="2048"/>
+        <property name="Soft Page Faults" value="1"/>
+        <property name="Used Java Heap" value="-1275775"/>
+        <property name="Working Set" value="2048"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.DynamicIPOSDOLoadTest"
+                     name="loadWithParserAndFeatureMapCache">
+        <property name="CPU Time" value="82"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="1"/>
+        <property name="Used Java Heap" value="-351932"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.DynamicIPOSDOLoadTest"
+                     name="loadWithParserCache">
+        <property name="CPU Time" value="112"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="534784"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.StaticIPOSDOLoadTest"
+                     name="loadWithNoOptions">
+        <property name="CPU Time" value="255"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="8"/>
+        <property name="Soft Page Faults" value="1"/>
+        <property name="Used Java Heap" value="539424"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.StaticIPOSDOLoadTest"
+                     name="loadWithParserAndFeatureMapCache">
+        <property name="CPU Time" value="82"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-351401"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.StaticIPOSDOLoadTest"
+                     name="loadWithParserCache">
+        <property name="CPU Time" value="113"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="592033"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.sdo.serialization">
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.DynamicIPOSDOSaveTest"
+                     name="saveWithCaching">
+        <property name="CPU Time" value="49"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-1256057"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.DynamicIPOSDOSaveTest"
+                     name="saveWithNoOptions">
+        <property name="CPU Time" value="66"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Library Size" value="409"/>
+        <property name="Used Java Heap" value="-1421650"/>
+        <property name="Working Set" value="409"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.StaticIPOSDOSaveTest"
+                     name="saveWithCaching">
+        <property name="CPU Time" value="45"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="656213"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.StaticIPOSDOSaveTest"
+                     name="saveWithNoOptions">
+        <property name="CPU Time" value="68"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-1241947"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.serialization">
+      <testcase classname="org.eclipse.emf.test.performance.serialization.DynamicIpo"
+                     name="testSer">
+        <property name="CPU Time" value="48"/>
+        <property name="Data Size" value="819"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Library Size" value="18432"/>
+        <property name="Soft Page Faults" value="5"/>
+        <property name="Used Java Heap" value="638506"/>
+        <property name="Working Set" value="19251"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.serialization.DynamicIpo"
+                     name="testSerCaching">
+        <property name="CPU Time" value="35"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="114662"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.serialization.StaticIpo"
+                     name="testSer">
+        <property name="CPU Time" value="47"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Library Size" value="409"/>
+        <property name="Used Java Heap" value="172184"/>
+        <property name="Working Set" value="409"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.serialization.StaticIpo"
+                     name="testSerCaching">
+        <property name="CPU Time" value="30"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="144580"/>
+      </testcase>
+    </testsuite>
+  </build>
+  <build id="I200503100800" type="baseline">
+    <testsuite package="org.eclipse.emf.test.performance.deserialization">
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
+                     name="testLoad">
+        <property name="CPU Time" value="291"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="12"/>
+        <property name="Library Size" value="26624"/>
+        <property name="Soft Page Faults" value="48"/>
+        <property name="Used Java Heap" value="800258"/>
+        <property name="Working Set" value="26624"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
+                     name="testLoadParserAndFeatureMapCache">
+        <property name="CPU Time" value="71"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-90104"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
+                     name="testLoadParserCache">
+        <property name="CPU Time" value="97"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-1112475"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.StaticIpoLoad"
+                     name="testLoad">
+        <property name="CPU Time" value="242"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="8"/>
+        <property name="Used Java Heap" value="824654"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.StaticIpoLoad"
+                     name="testLoadParserAndFeatureMapCache">
+        <property name="CPU Time" value="68"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="73631"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.deserialization.StaticIpoLoad"
+                     name="testLoadParserCache">
+        <property name="CPU Time" value="98"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Used Java Heap" value="987435"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.sdo.accessor">
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigDecimalByIndex">
+        <property name="CPU Time" value="70"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="10"/>
+        <property name="Used Java Heap" value="51947"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigDecimalByPath">
+        <property name="CPU Time" value="32"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="-1201880"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigDecimalByProperty">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="51419"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigIntegerByIndex">
+        <property name="CPU Time" value="70"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="53468"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigIntegerByPath">
+        <property name="CPU Time" value="26"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="401038"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getBigIntegerByProperty">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="52195"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getByIndex">
+        <property name="CPU Time" value="44"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="51056"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getByPath">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="1520979"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getByProperty">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52475"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getDataObjectByProperty">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="52523"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getObjectByIndex">
+        <property name="CPU Time" value="64"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="54257"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getObjectByProperty">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="53787"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="getObjectWithEGet">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="12"/>
+        <property name="Used Java Heap" value="52480"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setBigIntegerByIndex">
+        <property name="CPU Time" value="88"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="51870"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setBigIntegerByProperty">
+        <property name="CPU Time" value="36"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51400"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setByIndex">
+        <property name="CPU Time" value="60"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="1657574"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setByPath">
+        <property name="CPU Time" value="22"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="5"/>
+        <property name="Library Size" value="1228"/>
+        <property name="Soft Page Faults" value="1"/>
+        <property name="Used Java Heap" value="-1183430"/>
+        <property name="Working Set" value="1228"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setByProperty">
+        <property name="CPU Time" value="50"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="1670979"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setDataObjectByProperty">
+        <property name="CPU Time" value="34"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="1662606"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setObjectByIndex">
+        <property name="CPU Time" value="86"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51737"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setObjectByProperty">
+        <property name="CPU Time" value="30"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="49617"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.DynamicIPOSDOAccessorTest"
+                     name="setObjectWithESet">
+        <property name="CPU Time" value="30"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="58580"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigDecimalByIndex">
+        <property name="CPU Time" value="66"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="45926"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigDecimalByPath">
+        <property name="CPU Time" value="33"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="-1645556"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigDecimalByProperty">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Soft Page Faults" value="13"/>
+        <property name="Used Java Heap" value="50684"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByGenerated">
+        <property name="CPU Time" value="7"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="50908"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByIndex">
+        <property name="CPU Time" value="60"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="12"/>
+        <property name="Used Java Heap" value="50848"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByPath">
+        <property name="CPU Time" value="26"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="216546"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getBigIntegerByProperty">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="50680"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByGenerated">
+        <property name="CPU Time" value="6"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="51396"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByIndex">
+        <property name="CPU Time" value="42"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="52241"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByPath">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="-1405848"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="53307"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getDataObjectByProperty">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="18"/>
+        <property name="Used Java Heap" value="51526"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getFromMap">
+        <property name="CPU Time" value="7"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="51872"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getObjectByIndex">
+        <property name="CPU Time" value="60"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52646"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getObjectByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Soft Page Faults" value="14"/>
+        <property name="Used Java Heap" value="52083"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="getObjectWithEGet">
+        <property name="CPU Time" value="8"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Soft Page Faults" value="18"/>
+        <property name="Used Java Heap" value="52615"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setBigIntegerByGenerated">
+        <property name="CPU Time" value="11"/>
+        <property name="Iterations" value="1"/>
+        <property name="Library Size" value="819"/>
+        <property name="Soft Page Faults" value="18"/>
+        <property name="Used Java Heap" value="52126"/>
+        <property name="Working Set" value="819"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setBigIntegerByIndex">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="4"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52660"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setBigIntegerByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="50729"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByGenerated">
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52939"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByIndex">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="10"/>
+        <property name="Used Java Heap" value="52264"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByPath">
+        <property name="CPU Time" value="16"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="1530932"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setByProperty">
+        <property name="CPU Time" value="6"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="16"/>
+        <property name="Used Java Heap" value="52636"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setDataObjectByProperty">
+        <property name="CPU Time" value="12"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="18"/>
+        <property name="Used Java Heap" value="52600"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setInMap">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="52892"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setObjectByIndex">
+        <property name="CPU Time" value="14"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Soft Page Faults" value="15"/>
+        <property name="Used Java Heap" value="51893"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setObjectByProperty">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Soft Page Faults" value="18"/>
+        <property name="Used Java Heap" value="52516"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticIPOSDOAccessorTest"
+                     name="setObjectWithESet">
+        <property name="CPU Time" value="8"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Soft Page Faults" value="17"/>
+        <property name="Used Java Heap" value="52525"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticSequenceTest"
+                     name="getDerived">
+        <property name="CPU Time" value="42"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="-32563"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.accessor.StaticSequenceTest"
+                     name="getSequence">
+        <property name="CPU Time" value="10"/>
+        <property name="Iterations" value="1"/>
+        <property name="Used Java Heap" value="1653613"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.sdo.deserialization">
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.DynamicIPOSDOLoadTest"
+                     name="loadWithNoOptions">
+        <property name="CPU Time" value="250"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="5"/>
+        <property name="Library Size" value="5324"/>
+        <property name="Soft Page Faults" value="2"/>
+        <property name="Used Java Heap" value="1057325"/>
+        <property name="Working Set" value="5324"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.DynamicIPOSDOLoadTest"
+                     name="loadWithParserAndFeatureMapCache">
+        <property name="CPU Time" value="81"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="263058"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.DynamicIPOSDOLoadTest"
+                     name="loadWithParserCache">
+        <property name="CPU Time" value="113"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="-1809459"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.StaticIPOSDOLoadTest"
+                     name="loadWithNoOptions">
+        <property name="CPU Time" value="249"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="5"/>
+        <property name="Used Java Heap" value="-1186271"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.StaticIPOSDOLoadTest"
+                     name="loadWithParserAndFeatureMapCache">
+        <property name="CPU Time" value="79"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="3"/>
+        <property name="Used Java Heap" value="257630"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.deserialization.StaticIPOSDOLoadTest"
+                     name="loadWithParserCache">
+        <property name="CPU Time" value="111"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="611084"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.sdo.serialization">
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.DynamicIPOSDOSaveTest"
+                     name="saveWithCaching">
+        <property name="CPU Time" value="47"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="-1693570"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.DynamicIPOSDOSaveTest"
+                     name="saveWithNoOptions">
+        <property name="CPU Time" value="66"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Library Size" value="409"/>
+        <property name="Used Java Heap" value="-534433"/>
+        <property name="Working Set" value="409"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.StaticIPOSDOSaveTest"
+                     name="saveWithCaching">
+        <property name="CPU Time" value="41"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="124846"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.sdo.serialization.StaticIPOSDOSaveTest"
+                     name="saveWithNoOptions">
+        <property name="CPU Time" value="58"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="1304999"/>
+      </testcase>
+    </testsuite>
+    <testsuite package="org.eclipse.emf.test.performance.serialization">
+      <testcase classname="org.eclipse.emf.test.performance.serialization.DynamicIpo"
+                     name="testSer">
+        <property name="CPU Time" value="51"/>
+        <property name="Data Size" value="819"/>
+        <property name="Iterations" value="1"/>
+        <property name="Library Size" value="21708"/>
+        <property name="Soft Page Faults" value="6"/>
+        <property name="Used Java Heap" value="-1276162"/>
+        <property name="Working Set" value="22528"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.serialization.DynamicIpo"
+                     name="testSerCaching">
+        <property name="CPU Time" value="36"/>
+        <property name="Iterations" value="1"/>
+        <property name="Library Size" value="1228"/>
+        <property name="Used Java Heap" value="-155495"/>
+        <property name="Working Set" value="1228"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.serialization.StaticIpo"
+                     name="testSer">
+        <property name="CPU Time" value="48"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="2"/>
+        <property name="Used Java Heap" value="1075719"/>
+      </testcase>
+      <testcase classname="org.eclipse.emf.test.performance.serialization.StaticIpo"
+                     name="testSerCaching">
+        <property name="CPU Time" value="32"/>
+        <property name="Iterations" value="1"/>
+        <property name="Kernel time" value="1"/>
+        <property name="Used Java Heap" value="-140331"/>
+      </testcase>
+    </testsuite>
+  </build>
+</data>
+
