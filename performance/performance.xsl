@@ -39,7 +39,7 @@
 		 <tr>
 			  <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
 			  <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
-			  <td width="250" height="50"><img src="http://www.eclipse.org/images/eproduct-simple.GIF" width="250" height="48"/></td>
+			  <td width="250" height="50"><img src="http://www.eclipse.org/images/eclipse-org-simple-small.GIF" width="250" height="48"/></td>
 		 </tr>
 
 		</table></td>
@@ -115,17 +115,38 @@
 				<td>&#160;</td>
 				<td colspan="2"><input class="field9px" name="threshholdPercentage" value="{$threshholdPercentage}"/></td>
 					</tr>
-				<td colspan="3"><b>Filter</b><br/><select class="field9px" name="filter" size="1">
-		<option <xsl:if test="$filter = 'CPU Time' or $filter = 'all'">selected&#32;</xsl:if>value="CPU Time">CPU Time [User Time + Kernel/System Time] (s)</option>
-		<option <xsl:if test="$filter = 'Kernel time' or $filter = 'all'">selected&#32;</xsl:if>value="Kernel time">Kernel/System Time (s)</option>
-		<option <xsl:if test="$filter = 'Soft Page Faults' or $filter = 'all'">selected&#32;</xsl:if>value="Soft Page Faults">Soft Page Faults [Minor fault: no load from disk] </option>
-		<option <xsl:if test="$filter = 'Hard Page Faults' or $filter = 'all'">selected&#32;</xsl:if>value="Hard Page Faults">Hard Page Faults [Major fault, process + children]</option>
-		<option <xsl:if test="$filter = 'Working Set' or $filter = 'all'">selected&#32;</xsl:if>value="Working Set">Working Set (bytes)</option>
-		<option <xsl:if test="$filter = 'Text Size' or $filter = 'all'">selected&#32;</xsl:if>value="Text Size">Text/Code Size (bytes)</option>
-		<option <xsl:if test="$filter = 'Library Size' or $filter = 'all'">selected&#32;</xsl:if>value="Library Size">Library Size (bytes) </option>
-		<option <xsl:if test="$filter = 'Data Size' or $filter = 'all'">selected&#32;</xsl:if>value="Data Size">Data/Stack Size (bytes)</option>
-		<option <xsl:if test="$filter = 'Used Java Heap' or $filter = 'all'">selected&#32;</xsl:if>value="Used Java Heap">Used Java Heap [Used Memory] (bytes)</option>
-			<option value="all">All</option>
+				<td colspan="3"><b>Filter</b><br/>
+				<select class="field9px" name="filter" size="1">
+					<option value="CPU Time">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'CPU Time'">selected</xsl:if></xsl:attribute>
+						CPU Time [User Time + Kernel/System Time] (s)</option>
+					<option value="Kernel time">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Kernel time'">selected</xsl:if></xsl:attribute>
+						Kernel/System Time (s)</option>
+					<option value="Soft Page Faults">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Soft Page Faults'">selected</xsl:if></xsl:attribute>
+						Soft Page Faults [Minor fault: no load from disk] </option>
+					<option value="Hard Page Faults">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Hard Page Faults'">selected</xsl:if></xsl:attribute>
+						Hard Page Faults [Major fault, process + children]</option>
+					<option value="Working Set">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Working Set'">selected</xsl:if></xsl:attribute>
+						Working Set (bytes)</option>
+					<option value="Text Size">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Text Size'">selected</xsl:if></xsl:attribute>
+						Text/Code Size (bytes)</option>
+					<option value="Library Size">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Library Size'">selected</xsl:if></xsl:attribute>
+						Library Size (bytes) </option>
+					<option value="Data Size">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Data Size'">selected</xsl:if></xsl:attribute>
+						Data/Stack Size (bytes)</option>
+					<option value="Used Java Heap">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'Used Java Heap'">selected</xsl:if></xsl:attribute>
+						Used Java Heap [Used Memory] (bytes)</option>
+					<option value="all">
+						<xsl:attribute name="selected"><xsl:if test="$filter = 'all'">selected</xsl:if></xsl:attribute>
+						All</option>
 			</select> 
 			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 			<br/>
