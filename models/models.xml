@@ -2,6 +2,22 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+  <model
+  modelName="IBM Model Transformation Framework"
+  date="2005-01-05"
+  category="EMF framework"
+  modelID="CatherineGriffin20050105045346">
+    <text>The IBM Model Transformation Framework supports the development
+of tools that compare, merge, transform or generate text from EMF models.
+    Samples include generation of HTML documentation from Ecore models and
+a bi-directional UML2.0 to XSD transformation.</text>
+    <modelURL>http://www.alphaworks.ibm.com/tech/mtf</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Catherine Griffin</submitter>
+    <submitterURL>http://www.alphaworks.ibm.com/tech/mtf</submitterURL>
+  </model>
+
   <review
   reviewName="Emfatic Review"
   date="2004-12-14"
@@ -293,4 +309,4 @@ documentation.</text>
    <category-def category="XSD other"     label="XSD (Other)" />
 
 </data>
-<!-- $Id: models.xml,v 1.2 2004/12/21 21:33:39 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.3 2005/01/05 16:38:20 nickb Exp $ -->
