@@ -216,6 +216,16 @@
     <td bgcolor="#CFFFFF" width="116" height="1"></td>
   </tr>
   
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/xsd" class="nav" target="_top">XSD</a>
+    </td>
+  </tr>
+
+  <tr> 
+    <td bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  
   
 </table>
 <table border="0" cellspacing="0" cellpadding="0" width="116" BGCOLOR="#90C8FF" >
@@ -285,4 +295,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.7 2005/01/24 20:10:42 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.8 2005/03/14 22:29:55 nickb Exp $ -->
