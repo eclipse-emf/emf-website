@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2005/01/04 18:33:42 $</modified>
+  <modified>$Date: 2005/01/14 18:14:45 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -292,6 +292,143 @@ For more information on working outside Eclipse, see the question <i>"<a href="f
     </answer>
   </entry>
 
+  <entry date="2004/01/03 17:08" UNID="20041111-585630441">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>sdo</category>
+    <category>xsd</category>
+    <question>
+How do I install EMF, SDO, or XSD 2.x (for Eclipse 3.x)?
+    </question>
+    <answer>
+<a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>
+the version of EMF, SDO and/or XSD that <b class="question">matches</b> your installation of Eclipse.
+Generally, the version of Eclipse is one version greater than that of EMF; 
+eg., EMF 2.1.0 is build against (and for) Eclipse 3.1.0. 
+Exit Eclipse, then unzip into your Eclipse directory.
+    </answer>
+  </entry>
+
+
+  <entry date="2004/01/02 21:58" UNID="20041111-1390234495">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>xsd</category>
+    <question>
+How do I install EMF or XSD 1.x for Eclipse 2.x?
+    </question>
+    <answer>
+
+<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html">Download</a>
+the version of EMF and/or XSD that matches your installation of Eclipse. Exit Eclipse, 
+then unzip into your Eclipse directory.
+    </answer>
+  </entry>
+
+  <entry date="2004/01/04 17:08" UNID="20041111-1113822544">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>sdo</category>
+    <category>xsd</category>
+    <question>
+
+How do I get EMF, SDO or XSD source from CVS?
+    </question>
+    <answer>
+See <a href="http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, XSD and SDO from CVS</a>.
+    </answer>
+  </entry>
+
+  <entry date="2004/06/02 15:02" UNID="20040602-246959756">
+    <category>dnl</category>
+    <category>emf</category>
+    <category>sdo</category>
+    <category>xsd</category>
+    <question>
+Does EMF, SDO or XSD have a site that I can use with the Eclipse Update Manager?
+    </question>
+    <answer>
+Yes, as of June 21, 2004, there is an Update Manager site for EMF, SDO, and XSD.
+<br/><br/>
+This is only for the 2.x+ stream, not the 1.1.x stream.
+<br/><br/>
+
+IBM Internal can use:
+<ul>
+<li><a href="http://fullmoon.torolab.ibm.com/tools/emf/updates/" target="_upd">http://fullmoon.torolab.ibm.com/tools/emf/updates/</a></li>
+<li><a href="http://emf.torolab.ibm.com/tools/emf/updates/" target="_upd">http://emf.torolab.ibm.com/tools/emf/updates/</a></li>
+</ul>
+
+The rest of the world can use:
+<ul>
+<li><a href="http://download.eclipse.org/tools/emf/updates/" target="_upd">http://download.eclipse.org/tools/emf/updates/</a></li>
+<li><a href="http://eclipse.mirrors.tds.net/tools/emf/updates/" target="_upd">http://eclipse.mirrors.tds.net/tools/emf/updates/</a></li>
+<li>(or other mirrors with similar paths. some mirrors use <b class="question">/eclipse</b>/tools/emf/updates/)</li>
+</ul>
+If you're not familiar with Update Manager, surf to one of the above URLs and read the instructions there.
+<br/><br/>
+Please note, however:
+<ol>
+<li>You cannot upgrade from EMF 1.x to EMF 2.x, since you must also
+upgrade versions of Eclipse (2.x -> 3.0).</li>
+<li>If you install a stable, integration build of EMF, such as
+2.0.0.I200406211000, when EMF 2.0.0 Final is launched, UM will consider this
+to be an OLDER version, rather than a newer version. So, if you wanted to
+use UM to stay abreast of changes between Eclipse 3.0 Milestones, when 3.0
+Final was launched, you'd have to download EMF manually and remove your
+2.0.0.yyyymmddhhmm version manually anyway. The same problem exists with
+updating Eclipse itself via UM to 3.0.0.yyyymmddhhmm - once 3.0.0 is
+launched, you won't be able to use UM to upgrade the the Final version,
+since 3.0.0 &lt; 3.0.0.yyyymmddhhmm. However, we're planning to drop a new UM site build for every zipped build, so you should be able to continue to upgrade without having to download zips manually.</li>
+</ol>
+    </answer>
+  </entry>
+
+  <entry date="2005/01/14 12:02" UNID="20050114-120205">
+    <category>dev</category>
+    <category>dnl</category>
+    <question>
+I want to use EMF, SDO, or XSD in my standalone project, or include only a working subset of the code. What libraries (jar files) do I need in my CLASSPATH?
+    </question>
+    <answer>
+<b class="question">Eclipse Modeling Framework (EMF)</b> provides the infrastructure to run the generated models and 
+dynamic model based on existing ecore files. 
+It also provides XMI/XML serialization and deserialization.
+<br/><br/>
+The following jars can be used in standalone mode. Jars are found under the plugins directory of your Eclipse installation - 
+there will be a release number appended to the plugin name, e.g. <tt class="code">org.eclipse.emf.common<b class="question">_2.1.0</b></tt>.
+<br/><br/>
+Add to the following jars to your CLASSPATH or copy them into your project. This includes, but is not limited to:
+<ul>
+<li><tt class="code">org.eclipse.emf.common/runtime/common.jar</tt></li>
+<li><tt class="code">org.eclipse.emf.common/runtime/common.resources.jar</tt> (needed at runtime, not at compile time)</li> 
+<li><tt class="code">org.eclipse.emf.ecore/runtime/ecore.jar</tt></li>
+<li><tt class="code">org.eclipse.emf.ecore/runtime/ecore.resources.jar</tt> (needed at runtime, not at compile time)</li> 
+<li><tt class="code">org.eclipse.emf.ecore.change/runtime/ecore.change.jar</tt></li>
+<li><tt class="code">org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</tt> (requires SAX parser - <a href="#20050114-120205-note">see note below</a>)</li>
+</ul>
+<b class="question">Service Data Objects (SDO)</b> is an API specification in the format of Java interfaces and the 
+EMF implementation that requires the EMF jars above and the following jars to be used in standalone mode:
+<ul>
+<li><tt class="code">org.eclipse.emf.commonj.sdo/runtime/commonj.sdo.jar</tt></li>
+<li><tt class="code">org.eclipse.emf.ecore.sdo/runtime/ecore.sdo.jar</tt></li>
+</ul>
+
+<b class="question">XML Schema Infoset Model (XSD)</b> is a reference library for use with any code that manipulates XML 
+schemas and requires the EMF jars above and the following jars to be used in standalone mode:
+<ul>
+<li><tt class="code">org.eclipse.xsd/runtime/xsd.jar</tt></li>
+<li><tt class="code">org.eclipse.xsd/runtime/xsd.resources.jar</tt> (needed at runtime, not at compile time)</li> 
+<li><tt class="code">org.eclipse.xsd.test/runtime/xsd.test.jar</tt></li>
+</ul>
+<a name="20050114-120205-note"></a><b class="question">NOTE:</b> If using ecore.xmi or any of the XSD jars, you will require a SAX parser such as 
+<a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php" target="_xerces">Xerces</a>. 
+<br/><br/>
+For more information on working outside Eclipse, see the question 
+<i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
+    </answer>
+  </entry>
+
   <!-- mod -->
 
 <entry date="2004/05/19 12:58" UNID="20040519-351638432">
@@ -459,7 +596,7 @@ You need to add to the CLASSPATH all the jars for the plugins (and their depende
 <li>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</li>
 </ul>
 
-The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b>_2.1.0</b>.
+The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b class="question">_2.1.0</b>.
 <br/><br/>
 For EMF.Edit you would also have to add the following jar files to your classpath:
 
@@ -582,35 +719,6 @@ What is the relationship between SDO &amp; ADO .NET?
       ADO .NET and SDO share similar motivators for supporting XML and applications distributed on multiple tiers. Other than technical differences, one major difference between the two technologies is that ADO .NET is for the Microsoft .NET platform whereas SDO is for the Java (J2EE) platform.
     </answer>
   </entry>  
-    <entry date="2004/10/20 00:00" UNID="20041020-2098594544">
-    <category>dev</category>
-    <question>
-What libraries (jar files) are needed to use SDO in standalone applications?
-    </question>
-    <answer>
-You need to add to the CLASSPATH the jars needed by EMF. This includes, but is not limited to: 
-<ul>
-<li>org.eclipse.emf.common/runtime/common.jar</li>
-<li>org.eclipse.emf.common/runtime/common.resources.jar</li>
-<li>org.eclipse.emf.ecore/runtime/ecore.jar</li>
-<li>org.eclipse.emf.ecore/runtime/ecore.resources.jar</li>
-<li>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</li>
-</ul>
-
-The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b>_2.1.0</b>.
-<br/>
-<br/>
-In addition to the EMF jars, you also neeed to add to the CLASSPATH the following SDO jars:
-<ul>
-<li>org.eclipse.emf.commonj.sdo/runtime/commonj.sdo.jar</li>
-<li>org.eclipse.emf.ecore.sdo/runtime/ecore.sdo.jar</li>
-<li>org.eclipse.emf.ecore.change/runtime/ecore.change.jar</li>
-</ul>
-
-For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
-
-    </answer>
-  </entry>
   
   <entry date="2004/11/17 00:00" UNID="20041117-1616872334">
     <category>dev</category>
@@ -973,46 +1081,15 @@ document.
     </answer>
   </entry>
 
-  <entry date="2004/06/02 15:02" UNID="20040602-1084602631">
-    <category>dnl</category>
-    <category>xsd</category>
-    <question>
-What should my Java CLASSPATH include, in order to use XSD?
-    </question>
-    <answer>
-For XSD 1.1, the classpath should be:
-<ul>
-<li>plugins/org.apache.xerces_4.0.13/xmlParserAPIs.jar;</li>
-<li>plugins/org.apache.xerces_4.0.13/xercesImpl.jar;</li>
-<li>plugins/org.eclipse.emf.common_1.1.0/runtime/common.jar;</li>
-<li>plugins/org.eclipse.emf.ecore_1.1.0/runtime/ecore.jar;</li>
-<li>plugins/org.eclipse.xsd_1.1.0/runtime/xsd.jar;</li>
-<li>plugins/org.eclipse.xsd_1.1.0/runtime/xsd.resources.jar; (needed
-at runtime, not compile at time)</li>
-<li>yourcode.jar</li>
-</ul>
-Note that this version requires the use of Xerces-J 2.0.6 (or XML4J
-4.0.13).
-Other versions of Xerces-J may not work properly,
-although it should continue to work for Xerces-J 2.0.2 (or XML4J
-4.0.7).
-<br /><br />
-For XSD 2.0 and beyond, please note that Eclipse no longer includes Xerces. Xerces was removed after Eclipse 3.0M8. To get a copy of Xerces, <a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php" target="_xerces">click here</a>.
-    </answer>
-  </entry>
-
   <entry date="2004/06/02 15:02" UNID="20040602-1169537823">
     <category>xsd</category>
     <question>
-Can the XSD library be used outside of  the Eclipse environment?
+Can the XSD library be used outside of the Eclipse environment?
     </question>
     <answer>
 Yes, it can be used within Eclipse and outside of Eclipse.
 <br /><br />
-Please note that when running outside Eclipse,
-you need to include on your classpath this additional jar:
-<tt class="code">
-plugins/org.eclipse.xsd_1.1.0/runtime/xsd.resources.jar</tt>
+For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20050104-04355675">I want to use EMF, SDO, or XSD in my standalone project, or include only a working subset of the code. What libraries (jar files) do I need in my CLASSPATH?</a>"</i>.
     </answer>
   </entry>
 
@@ -1482,9 +1559,9 @@ if resolveTypeDefinition returned a synthesized type definition.
   </entry>
 
   <entry date="2004/06/02 15:02" UNID="20040602-1607774993">
-    <category>dnl</category>
+    <category>xsd</category>
     <question>
-What steps should I take to install the source code in one Eclipse project,
+What steps should I take to install the XSD code in one Eclipse project,
 and to identify another project with my own code as dependent upon and
 using the XSD library?
     </question>
@@ -1603,103 +1680,10 @@ chosen.
     </answer>
   </entry>
 
-  <entry date="2004/01/03 17:08" UNID="20041111-585630441">
-    <category>dnl</category>
-    <category>emf</category>
-    <category>sdo</category>
-    <category>xsd</category>
-    <question>
-How do I install EMF, SDO, or XSD 2.x (for Eclipse 3.x)?
-    </question>
-    <answer>
-<a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>
-the version of EMF, SDO and/or XSD that <b>matches</b> your installation of Eclipse.
-Generally, the version of Eclipse is one version greater than that of EMF; 
-eg., EMF 2.1.0 is build against (and for) Eclipse 3.1.0. 
-Exit Eclipse, then unzip into your Eclipse directory.
-    </answer>
-  </entry>
-
-
-  <entry date="2004/01/02 21:58" UNID="20041111-1390234495">
-    <category>dnl</category>
-    <category>emf</category>
-    <category>xsd</category>
-    <question>
-How do I install EMF or XSD 1.x for Eclipse 2.x?
-    </question>
-    <answer>
-
-<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html">Download</a>
-the version of EMF and/or XSD that matches your installation of Eclipse. Exit Eclipse, 
-then unzip into your Eclipse directory.
-    </answer>
-  </entry>
-
-  <entry date="2004/01/04 17:08" UNID="20041111-1113822544">
-    <category>dnl</category>
-    <category>emf</category>
-    <category>sdo</category>
-    <category>xsd</category>
-    <question>
-
-How do I get EMF, SDO or XSD source from CVS?
-    </question>
-    <answer>
-See <a href="http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, XSD and SDO from CVS</a>.
-    </answer>
-  </entry>
-
-  <entry date="2004/06/02 15:02" UNID="20040602-246959756">
-    <category>dnl</category>
-    <category>emf</category>
-    <category>sdo</category>
-    <category>xsd</category>
-    <question>
-Does EMF, SDO or XSD have a site that I can use with the Eclipse Update Manager?
-    </question>
-    <answer>
-<p>Yes, as of June 21, 2004, there is an Update Manager site for EMF, SDO, and XSD.</p>
-<p>This is only for the 2.x+ stream, not the 1.1.x stream.</p>
-
-<p>IBM Internal can use:<ul>
-
-<li><a href="http://fullmoon.torolab.ibm.com/tools/emf/updates/" target="_upd">http://fullmoon.torolab.ibm.com/tools/emf/updates/</a></li>
-<li><a href="http://emf.torolab.ibm.com/tools/emf/updates/" target="_upd">http://emf.torolab.ibm.com/tools/emf/updates/</a></li>
-</ul>
-</p>
-
-<p>The rest of the world can use:<ul>
-
-<li><a href="http://download.eclipse.org/tools/emf/updates/" target="_upd">http://download.eclipse.org/tools/emf/updates/</a></li>
-<li><a href="http://eclipse.mirrors.tds.net/tools/emf/updates/" target="_upd">http://eclipse.mirrors.tds.net/tools/emf/updates/</a></li>
-<li>(or other mirrors with similar paths. some mirrors use <b>/eclipse</b>/tools/emf/updates/)</li></ul>
-</p>
-
-<p>If you're not familiar with Update Manager, surf to one of the above URLs and read the instructions there.</p>
-
-<p> Please note, however:
-<ol>
-<li>You cannot upgrade from EMF 1.x to EMF 2.x, since you must also
-upgrade versions of Eclipse (2.x -> 3.0).</li>
-<li>If you install a stable, integration build of EMF, such as
-2.0.0.I200406211000, when EMF 2.0.0 Final is launched, UM will consider this
-to be an OLDER version, rather than a newer version. So, if you wanted to
-use UM to stay abreast of changes between Eclipse 3.0 Milestones, when 3.0
-Final was launched, you'd have to download EMF manually and remove your
-2.0.0.yyyymmddhhmm version manually anyway. The same problem exists with
-updating Eclipse itself via UM to 3.0.0.yyyymmddhhmm - once 3.0.0 is
-launched, you won't be able to use UM to upgrade the the Final version,
-since 3.0.0 &lt; 3.0.0.yyyymmddhhmm. However, we're planning to drop a new UM site build for every zipped build, so you should be able to continue to upgrade without having to download zips manually.</li>
-</ol>
-</p>
-    </answer>
-  </entry>
-
   <entry date="2004/06/02 15:02" UNID="20040602-358549632">
     <category>newbie</category>
     <question>
-What version of Eclipse does XSD run on?
+What version of Eclipse does EMF/SDO/XSD run on?
     </question>
     <answer>
 EMF/SDO/XSD <b class="question">2.1.0</b> run on Eclipse <b class="question">3.1.0</b>.<br />
@@ -1737,7 +1721,7 @@ Why does EMF refuses to accept my schema file?
     </question>
     <answer>
 The following problem has been reported many times in the org.eclipse.emf newsgroup:<br /><br />
-<b><a style="background-color:yellow;color:black" target="_xml" href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
+<b class="question"><a style="background-color:yellow;color:black" target="_xml" href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
 <br/><br/>
 
 The Crimson DOM implementation in (some versions of) the Sun JDK has a bug in the implementation of
@@ -1814,6 +1798,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.4 2005/01/04 18:33:42 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.5 2005/01/14 18:14:45 nickb Exp $ -->
 
 </faq>
