@@ -259,9 +259,10 @@ function displayXML() {
 	header('Content-type: text/xml');
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.3 2005/02/19 08:29:01 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.4 2005/02/19 08:33:20 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/02/19 08:29:01 $</modified>
+	<modified>$'.'Date'.': '.
+		date("Y/m/d H:i:s T").' $'.'</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
