@@ -256,7 +256,7 @@
 	} else {
 		emfsdo_links();
 		xsd_links();
-	} else 
+	}
 	other_links();
 	?>
 </table>
