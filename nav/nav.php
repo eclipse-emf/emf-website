@@ -23,7 +23,7 @@
   </tr>
 	<?php echo $sep_line; ?>
   <tr> 
-    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo &amp; xsd</a></td>
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <span class="navhead"> &amp; </span><a href="../../xsd/" target="_top" class="navhead">xsd</a></td>
   </tr>
 
   <tr valign=CENTER> 
@@ -97,7 +97,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
 <?php 
-	$files = loadDirSimple("./news/","release-notes(.*)\.html","f");
+	$files = loadDirSimple("../news","release-notes(.*)\.html","f");
 	rsort($files); reset($files);
 
 	$didBreak=0;
@@ -113,6 +113,18 @@
 	?>
       <p>&#160; <a href="news-release-notes.php?ver=<?php echo $vver; ?>" class="nav" target="_top">Release Notes</a><br>
 		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav" target="_top">Newsgroup</a><br>
+		<small class="nav">&#160; &#160; &#160;  <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav">EMF</a> | <a href="news://news.eclipse.org/eclipse.technology.xsd" class="nav">XSD</a>
 		</small>
 		</p>
 
