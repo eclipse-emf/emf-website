@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="release-notes.xsl"?>
+<data>
+
+<version-def version="2.1" label="2.1.x" />
+<version-def version="2.0" label="2.0.x" />
+
+<project-def project="emf" label="EMF Release Notes" />
+<project-def project="sdo" label="SDO Release Notes" />
+<project-def project="xsd" label="XSD Release Notes" />
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501121156" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501121156" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501041213" project="emf">
+<bug id="81809">quote problems in property files</bug>
+<bug id="81903">Handle ecore:reference and ecore:opposite more consistently and save according to IDREF/anyURI properly.</bug>
+<bug id="81977">CCE right clicking on title of ViewPane</bug>
+<bug id="81979">NPE in CopyCommand Dragging items in model editor</bug>
+<bug id="82016">EMF should provide a way of generating code from Ant scripts.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501041213" project="sdo">
+<bug id="81809">quote problems in property files</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412230800" project="emf">
+<bug id="79155">Provide a syntax for specifying EAnnotations in Java code.</bug>
+<bug id="80711">JETEmitter.addVariable() should be working in runtime workbench</bug>
+<bug id="81013">The ChangeRecoder should provide a way of resumming a recording</bug>
+<bug id="81569">ClassCastException when applying ChangeSummary</bug>
+<bug id="81756">Need &quot;isFeatureSpecific&quot; option in BasicExtendedMetaData</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412230800" project="sdo">
+<bug id="81572">In SDOEditor, move model retrieval from createPages to createModel</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412160800" project="emf">
+<bug id="80153">Enable collectNewChildDescriptors to use XSD substitionGroup</bug>
+<bug id="80547">Copying a Change model doesn't work because some of the features should be marked as derived.</bug>
+<bug id="80600">Filter available selections for eOpposite in eCore editor.</bug>
+<bug id="81013">The ChangeRecoder should provide a way of resumming a recording</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412160800" project="sdo">
+<bug id="80767">When transferring ChangeSummary between two DataGraphs, list additions get lost</bug>
+<bug id="81325">EChangeSummary should provide a resumeLogging method.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412091159" project="emf">
+<bug id="79922">EDate's createFromString/convertToString isn't thread safe.</bug>
+<bug id="80110">setTrackModification(boolean) not deprecated, but does not work</bug>
+<bug id="80425">ChangeRecorder ConcurrentModificationException during applyAndReverse</bug>
+<bug id="80476">GenBase: Move from JDOM to AST</bug>
+<bug id="80491">ChangePackage not registed in plugin.xml</bug>
+<bug id="80502">ObjectChanges.key value is proxy at apply time when loading from xmi</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412091159" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200411250800" project="emf">
+<bug id="79273">GenClass's Label Feature is not preserved during reload</bug>
+<bug id="79312">RoseNode.getAnnotation misses annotations represented on separate lines in the .mdl.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200411250800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200411180800" project="emf">
+<bug id="75926">Visibility for structural features</bug>
+<bug id="77489">caching of Lookup in XMLSaveImpl for major performance boost of serialization</bug>
+<bug id="78420">ReflectiveItemProvider should not used the cached wrappingNeeded state.</bug>
+<bug id="78619">Generated code doesn't compile for non-changeable, unsettable, multiplicity-1 feature</bug>
+<bug id="78622">Incorrect serialization of BasicEList</bug>
+<bug id="78661">Incorrect deserialization of EcoreEList</bug>
+<bug id="78840">ClassCastException when saving a ChangeDescription with multivalue attribute.</bug>
+<bug id="78842">A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200411180800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200411110800" project="emf">
+<bug id="77930">Capture Documentation into ecore model from annotated java</bug>
+<bug id="77977">Problem with handling a proxy instance of a type that has mixed content</bug>
+<bug id="78036">Preserving namespace declarations on &quot;any type&quot; content</bug>
+<bug id="78116">problem with EcoreUtil.copy</bug>
+<bug id="78117">Bad handling of spaces in file or folder names</bug>
+</entry>
+
+<entry version="2.1.0" build="I200411110800" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200411042134" project="emf">
+<bug id="69869">Generated code does not use formatting preferences.</bug>
+<bug id="71598">no load routine in the overwiew doc described</bug>
+<bug id="76956">No eBaseStructuralFeatureID()/eDerivedStructuralFeatureID() generated for
+mixin features inherited from interface</bug>
+<bug id="77038">Missing Resource String (parsing regular expressions)</bug>
+<bug id="77423">XMLResource.HREF serialization and de-serialization</bug>
+</entry>
+
+<entry version="2.1.0" build="I200411042134" project="sdo">
+<bug id="77108">Inconsistent data access on List values</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410281648" project="emf">
+<bug id="76610">Provide a GenPackage option to generate an IDisposable item provider adapter factory.</bug>
+<bug id="76825">ChangeRecoder exception when apply and reverse is invoked after a multivalue attribute is changed</bug>
+<bug id="76971">ChangeDescription problems when applyAndReverse is invoked multiple time</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410281648" project="sdo">
+<bug id="76610">Provide a GenPackage option to generate an IDisposable item provider adapter factory.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410220709" project="emf">
+<bug id="50779">AddCommand fails on lists with non unique elements</bug>
+<bug id="62885">Caching ID's on large files.</bug>
+<bug id="72159">Unnecessary cast to type InternalEObject in eBasicRemoveFromContainer</bug>
+<bug id="73763">EMF tests for &quot;am I running in Eclipse&quot; not always reliable</bug>
+<bug id="73771">Memory leak in ItemProviderAdapter</bug>
+<bug id="75299">ReflectiveItemProvider#getAllEClasses(EClass) should ignore derived features</bug>
+<bug id="76253">EMF genmodels not created when genmodels form a dependency chain</bug>
+<bug id="76290">Exception when removing all elements of a not unque list</bug>
+<bug id="76463">EObject.eContainmentFeature may return wrong result for containment via an open content feature in a  feature map entry.</bug>
+<bug id="76656">XMLTypeValidator needs to be regenerated to pick up fix for minLength constraint validation.</bug>
+<bug id="76757">XMLResource ID caching problems</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410220709" project="sdo">
+<bug id="76621">getContainmentProperty() throws a NullPointerException</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410141127" project="emf">
+<bug id="68944">SetCommand.create method may create unexecutable command</bug>
+<bug id="69868">The &quot;Validate&quot; action appears to do nothing.</bug>
+<bug id="70960">Default value for Date attribute not generated w/ annotated java</bug>
+<bug id="72160">Unnecessary casts in generated editor</bug>
+<bug id="72913">Feature enhancements needed against EMF edit</bug>
+<bug id="72981">Resource.getEObject throws NPE</bug>
+<bug id="73080">EValidator.URI_ATTRIBUTE has wrong value</bug>
+<bug id="73210">Unicode &#45; Compile and display errors with generated Model code and Editor code</bug>
+<bug id="73211">Unicode &#45; Can't generate core model using anonatated java source file encoded by UTF 16-BE/LE</bug>
+<bug id="73763">EMF tests for &quot;am I running in Eclipse&quot; not always reliable</bug>
+<bug id="73771">Memory leak in ItemProviderAdapter</bug>
+<bug id="74199">Ecore validation fails for EPackage.eFactoryInstance</bug>
+<bug id="74402">Incorrect type generated for map entries implementing interfaces</bug>
+<bug id="74912">AdapterFactoryEditingDomain.getEditingDomainFor crashes if Resource is not part of a resource set</bug>
+<bug id="75291">Ampersand characters not escaped in URIs</bug>
+<bug id="75293">PlatformResourceOutputStream should append without history</bug>
+<bug id="75294">XMLHandler#getPackageForURI(String) does not handle package proxies</bug>
+<bug id="75298">EcoreUtil.CrossReferencer should provide filtering mechanism</bug>
+<bug id="75367">Anonymous XSD type has same scope in ECore as global type</bug>
+<bug id="75429">Prefix maps are not being cleaned up</bug>
+<bug id="75461">FeatureEditorDialog does not handle resize correctly</bug>
+<bug id="75684">SetCommand rejects valid inputs</bug>
+<bug id="75770">org.eclipse.emf.ecore.xmi.FeatureNotFoundException is not Serializable</bug>
+<bug id="75775">JET crashes on certain formats of the &quot;imports&quot; attribute.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410141127" project="sdo">
+<bug id="75416">Issue with containment and deleted objects</bug>
+<bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501121156" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501041213" project="xsd">
+<bug id="80565">programmatic redefinition of indirectly used type fails</bug>
+<bug id="80801">Importing components with xs:redefine</bug>
+<bug id="81487">add methods to get named components relative to a schema</bug>
+<bug id="81809">quote problems in property files</bug>
+<bug id="81815">quote problems in property files (xsd)</bug>
+<bug id="81903">Handle ecore:reference and ecore:opposite more consistently and save according to IDREF/anyURI properly.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412230800" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200412160800" project="xsd">
+<bug id="80153">Enable collectNewChildDescriptors to use XSD substitionGroup</bug>
+<bug id="80548">NPE in XSDSchema.resolveSchema after reset/update</bug>
+<bug id="80755">Problem with XSDComplexTypeDefinition.handleAnalysis handling of particles</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412091159" project="xsd">
+<bug id="80256">Support restrictions of wildcards that introduce new features</bug>
+</entry>
+
+<entry version="2.1.0" build="I200412020800" project="xsd">
+<bug id="78600">Composing a schema from multiple schema documents</bug>
+</entry>
+
+<entry version="2.1.0" build="I200411250800" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200411180800" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200411110800" project="xsd">
+<bug id="77971">Compilation error in generated code (from XML Schema)</bug>
+<bug id="78186">Annotation at the end of a simple type causes an array store exception</bug>
+</entry>
+
+<entry version="2.1.0" build="I200411042134" project="xsd">
+<bug id="72109">StackOverflowError when using xs:redefine</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410281648" project="xsd">
+<bug id="76610">Provide a GenPackage option to generate an IDisposable item provider adapter factory.</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410220709" project="xsd">
+<bug id="73771">Memory leak in ItemProviderAdapter</bug>
+</entry>
+
+<entry version="2.1.0" build="I200410141127" project="xsd">
+<bug id="73230">NullPointerException while validating a simpleType</bug>
+<bug id="73906">NPE thrown on validating XSDs</bug>
+<bug id="74164">Updating the list XSDSimpleTypeDefinition.getFacets()</bug>
+<bug id="75139">Adding to redefine content has no effect</bug>
+<bug id="75278">Enumeration and document root features are not renamed</bug>
+</entry>
+
+<entry version="2.0.2" build="M200501191212" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="M200501191212" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="M200501191212" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="2.0.1" project="emf">
+<bug id="72967">Implementation of XMLSave does not scale</bug>
+<bug id="73004">Support for backup/secondary/multiple Update URL(s)</bug>
+<bug id="74075">Zip support is not working properly</bug>
+</entry>
+
+<entry version="2.0.1" build="2.0.1" project="sdo">
+<bug id="73004">Support for backup/secondary/multiple Update URL(s)</bug>
+</entry>
+
+<entry version="2.0.1" build="2.0.1RC2" project="emf">
+<bug id="74075">Zip support is not working properly</bug>
+</entry>
+
+<entry version="2.0.1" build="2.0.1RC2" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="2.0.1RC1" project="emf">
+<bug id="72967">Implementation of XMLSave does not scale</bug>
+<bug id="73004">Support for backup/secondary/multiple Update URL(s)</bug>
+</entry>
+
+<entry version="2.0.1" build="2.0.1RC1" project="sdo">
+<bug id="73004">Support for backup/secondary/multiple Update URL(s)</bug>
+</entry>
+
+<entry version="2.0.1" build="M200409011021" project="emf">
+<bug id="68099">ClassCastException occurs when calling applyAndRerverse()</bug>
+<bug id="70176">[osgi] headers incorrectly cached when a bundle is installed from the update manager</bug>
+<bug id="72875">Validator class not generated for derived models which (only) inherit validation methods</bug>
+</entry>
+
+<entry version="2.0.1" build="M200409011021" project="sdo">
+<bug id="70176">[osgi] headers incorrectly cached when a bundle is installed from the update manager</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408261626" project="emf">
+<bug id="51639">Extend SetCommand to individual EList members</bug>
+<bug id="72565">Chicken and Egg problem in initialization</bug>
+<bug id="72731">Stop encoding platform resource URI by default</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408261626" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="M200408260844" project="emf">
+<bug id="51639">Extend SetCommand to individual EList members</bug>
+<bug id="72265">New save option w.r.t. xsi/xmi:type</bug>
+<bug id="72428">Invalid validation code generated for minLength / maxLength constrains</bug>
+<bug id="72538">Performance: improve performance of BasicEList.get(int)</bug>
+<bug id="72645">Caching mechanism for URIs on ResourceSet (performance improvement)</bug>
+<bug id="72675">EClassImpl has problem with multi threaded read access</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408260844" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="M200408190924" project="emf">
+<bug id="69680">problems with '#' character in file or folder names</bug>
+<bug id="71509">caching the costly to build eClassFeatureNamePairToEStructuralFeatureMap across deserializations.</bug>
+<bug id="71868">Support frozen Ecore instances for improved performance</bug>
+<bug id="72014">Negative xsd:durations are output incorrectly</bug>
+<bug id="72056">XMLHandler.getPAckageForURI has problem with java: protocol</bug>
+<bug id="72204">&amp;quot;Initialize by Loading&amp;quot; attribute not reconciled</bug>
+<bug id="72254">PackageNotFoundException in XMLHandler#getPackageForURI(String)</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408190924" project="sdo">
+<bug id="70563">Error using the xpath accessor when object doesn't exist</bug>
+<bug id="71868">Support frozen Ecore instances for improved performance</bug>
+<bug id="72194">IllegalStateException when deleting DataObject with read-only EReference</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408120834" project="emf">
+<bug id="70423">Make EChangeSummay=ry#isLogging non-transient</bug>
+<bug id="71034">ChangeRecorder objects accumulating in eAdapters list</bug>
+<bug id="71465">Performance: SDO DataObject getters and setters</bug>
+<bug id="71487">Criteria for Boolean property editor</bug>
+<bug id="71523">Avoid null pointer exception in GenBaseImpl.setImportManager</bug>
+<bug id="71565">TVT3.0:  Default window size for Referenced generator models too small</bug>
+<bug id="71580">JavaJet creates templates that don't compile</bug>
+<bug id="71597">Support XMLResource.OPTION_SCHEMA_LOCATION_IMPLEMENTATION to optionally save the generated package interface name</bug>
+<bug id="71599">Improve performance of BasicEList.getNonDuplicates/getDuplicates for lists with useEquals false.</bug>
+<bug id="71681">JMerge does not  attempt to invoke setFlags on interfaces</bug>
+<bug id="71834">Improve performance in ChangeRecorder.handlerFeature path</bug>
+<bug id="71868">Support frozen Ecore instances for improved performance</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408120834" project="sdo">
+<bug id="70423">Make EChangeSummay=ry#isLogging non-transient</bug>
+<bug id="71034">ChangeRecorder objects accumulating in eAdapters list</bug>
+<bug id="71465">Performance: SDO DataObject getters and setters</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408040957" project="emf">
+<bug id="68564">Enum code generation is bad</bug>
+<bug id="71314">Reference to empty enumeration will lead to failure during Model code generation</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408040957" project="sdo">
+<bug id="71305">Race condition in ETypeImpl::getPropertiesGen</bug>
+</entry>
+
+<entry version="2.0.1" build="M200407280859" project="emf">
+<bug id="70031">Getting a java.lang.IllegalArgumentException exception while generating XSD Schema</bug>
+<bug id="70583">Performance EObjectImpl and ChangeRecorder</bug>
+<bug id="70789">Validation: runtime dependency from org.eclipse.core.runtime.IStatus</bug>
+</entry>
+
+<entry version="2.0.1" build="M200407280859" project="sdo">
+<bug id="70559">SDO: Deleting a DataObject should only process unsettable features</bug>
+<bug id="70560">Changing an object breaks old container</bug>
+</entry>
+
+<entry version="2.0.1" build="M200407211027" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="M200407211027" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="M200407150937" project="emf">
+<bug id="66365">Accessibility: FeatureEditorDialog not Accessible compliant: Text widget focus not readable</bug>
+<bug id="67708">[JET] project&amp;gt;JET Settings&amp;gt;Template Containers should allow plugin references</bug>
+<bug id="69270">Generate Schema action problems</bug>
+<bug id="69525">Codegen Failure in EMF 06280827 Level</bug>
+<bug id="69576">Named constraints are only validated at sub-classes</bug>
+</entry>
+
+<entry version="2.0.1" build="M200407150937" project="sdo">
+<bug id="69029">SDO fails when using settings like setLong(data/value[i], 1)</bug>
+</entry>
+
+<entry version="2.0.1" build="2.0.1" project="xsd">
+<bug id="73004">Support for backup/secondary/multiple Update URL(s)</bug>
+</entry>
+
+<entry version="2.0.1" build="2.0.1RC2" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="2.0.1RC1" project="xsd">
+<bug id="73004">Support for backup/secondary/multiple Update URL(s)</bug>
+</entry>
+
+<entry version="2.0.1" build="M200409011021" project="xsd">
+<bug id="70176">[osgi] headers incorrectly cached when a bundle is installed from the update manager</bug>
+<bug id="72852">Using a redefined group in the original schema</bug>
+<bug id="73024">XSDSchema.validate() block</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408261626" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="M200408260844" project="xsd">
+<bug id="72384">DOMException when calling XSDSchema.createElement()</bug>
+<bug id="72532">Permission  access denied</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408190924" project="xsd">
+<bug id="71868">Support frozen Ecore instances for improved performance</bug>
+<bug id="71882">Including elements from a schema with no namespace</bug>
+<bug id="72018">XSD Serialization has no indents</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408120834" project="xsd">
+<bug id="71868">Support frozen Ecore instances for improved performance</bug>
+</entry>
+
+<entry version="2.0.1" build="M200408040957" project="xsd">
+<bug id="70958">wrong recognize of length of restricted xsd:hexBinary</bug>
+<bug id="71116">Generation from Schema: NullPointerException in XSDECoreBuilder</bug>
+</entry>
+
+<entry version="2.0.1" build="M200407280859" project="xsd">
+<bug id="70958">wrong recognize of length of restricted xsd:hexBinary</bug>
+</entry>
+
+<entry version="2.0.1" build="M200407211027" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.1" build="M200407150937" project="xsd">
+<bug id="69081">Resolution mechanism for schemas does not use the resolved schema</bug>
+</entry>
+
+<entry version="2.0.0" build="2.0.0" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="2.0.0" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200406250129" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200406250129" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200406241017" project="emf">
+<bug id="68465">Schema errors not linked to offending file</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406231126" project="emf">
+<bug id="68198">Dirty flag does not work when undo-redo</bug>
+<bug id="68200">IndexOutOfBoundsException in ChangeRecorder</bug>
+<bug id="68256">NPE in XMLHelperImpl</bug>
+<bug id="68310">ChangeRecorder doesn't pick up new contents</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406221136" project="emf">
+<bug id="68068">JET Compiler not handling files from Linux correctly</bug>
+<bug id="68099">ClassCastException occurs when calling applyAndRerverse()</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406211000" project="emf">
+<bug id="67720">Jar-like archive URI behaviour for zip and other schemes</bug>
+<bug id="67748">(STATIC)ChangeSummary.setting.getValue() returns null for date</bug>
+<bug id="67783">Support caching of extended metadata</bug>
+<bug id="67826">SDO Editor broken for several reasons</bug>
+<bug id="67860">ItemPropertyDescriptor#getPropertyValue(Object) should not call eIsSet() for attributes</bug>
+<bug id="67863">EcoreUtil.UsageCrossReferencer ignores derived features</bug>
+<bug id="67934">BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature) gives bad result for open content features</bug>
+<bug id="67992">Provide more flexibility in the package registry implementation</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406211000" project="sdo">
+<bug id="67826">SDO Editor broken for several reasons</bug>
+<bug id="67934">BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature) gives bad result for open content features</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406171028" project="emf">
+<bug id="66860">Fix EMF editors to avoid new null selection assertion in SelectionChangedEvent in RC2</bug>
+<bug id="66944">Incorrect order of parameters in call to this in ItemPropertyDescriptor causes null Category and broken static image</bug>
+<bug id="67162">RCP Application</bug>
+<bug id="67445">GenClassImpl#getSharedClassCreateChildFeatures() is non-deterministic</bug>
+<bug id="67493">bad trailing null character at the end in base64 type</bug>
+<bug id="67635">Add utility methods to create QName objects</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406171028" project="sdo">
+<bug id="66860">Fix EMF editors to avoid new null selection assertion in SelectionChangedEvent in RC2</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406100948" project="emf">
+<bug id="56076">Generate deployable plug-ins</bug>
+<bug id="65159">JMerge: pull of exception, superclass don't work if getter returns null</bug>
+<bug id="65605">Problem with SDOUtil.setInt()</bug>
+<bug id="65700">Exception calling hasPrevious in ListIterator</bug>
+<bug id="65725">ClassCastException in ChangeRecorder</bug>
+<bug id="65730">ArrayIndexOutOfBoundsException in BasicCommandStack</bug>
+<bug id="66032">Add activities to EMF and XSD</bug>
+<bug id="66037">schemaLocation bypassed when using extended metadata</bug>
+<bug id="66038">hrefs missing after saving recorded unknown features</bug>
+<bug id="66102">Complete the support for validating according to XML Schema simple facets</bug>
+<bug id="66118">Platform.resolve() does not produce a hierarchical URI</bug>
+<bug id="66154">Support ecore:ignore for facets, XSDAnnotation, &amp;lt;documentation&amp;gt;, and &amp;lt;appinfo&amp;gt;.</bug>
+<bug id="66185">Avoid the use of CCombo in the generated wizards.</bug>
+<bug id="66361">Accessibility: LoadResourceDialog not Accessible compliant:  Text overwrites button</bug>
+<bug id="66365">Accessibility: FeatureEditorDialog not Accessible compliant: Text widget focus not readable</bug>
+<bug id="66367">DataObject.createDataObject for open content feature in repeating wildcard breaks</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406100948" project="sdo">
+<bug id="65605">Problem with SDOUtil.setInt()</bug>
+<bug id="66032">Add activities to EMF and XSD</bug>
+<bug id="66185">Avoid the use of CCombo in the generated wizards.</bug>
+<bug id="66367">DataObject.createDataObject for open content feature in repeating wildcard breaks</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406030436" project="emf">
+<bug id="39618">Improve label feature search algorithm</bug>
+<bug id="47201">Generated editor permits save on readonly files</bug>
+<bug id="47327">source editor not dirty on D?D move</bug>
+<bug id="56076">Generate deployable plug-ins</bug>
+<bug id="57593">64k method limit</bug>
+<bug id="61210">Drag and Drop with non-containment references not working</bug>
+<bug id="62314">Enhancement to enable dynamic and generated EPackage usage across JVMs</bug>
+<bug id="63117">Proper static code generation for Store scenario</bug>
+<bug id="63497">Add XML Schema datatype validation for XMLTypeFactory</bug>
+<bug id="63821">IllegalArgumentException when opening properties view</bug>
+<bug id="64217">MappingRootImpl's createNotification() needs extra arg</bug>
+<bug id="64309">generated model editor fails to create model and crashes</bug>
+<bug id="64374">JMerge: JPatternDictionary NullPointerException</bug>
+<bug id="64535">ItemProvider.factorAddCommand should correct the index</bug>
+<bug id="64734">EEnumLiterals (and Booleans) not localized</bug>
+<bug id="65064">NPE in EMFPlugin#getString(String)</bug>
+<bug id="65082">nsPrefix ignored in EMOF file</bug>
+<bug id="65159">JMerge: pull of exception, superclass don't work if getter returns null</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406030436" project="sdo">
+<bug id="63117">Proper static code generation for Store scenario</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405200923" project="emf">
+<bug id="57865">The ok button can not be seen on the default size of &amp;quot;Import Primitive Type&amp;quot; window.</bug>
+<bug id="61595">Mark StructuralFeature  as &amp;quot;read-only&amp;quot;</bug>
+<bug id="61601">getOldContainer and getOldContainingProperty on EChangeSummary</bug>
+<bug id="62275">CopyCommand should not copy unchangeable or derived features</bug>
+<bug id="62422">Support generator control over runtime compatibility and Rich Client Platform</bug>
+<bug id="62452">...provider.&amp;lt;model&amp;gt;EditPlugin class generated in wrong place</bug>
+<bug id="62471">FeatureMap.toArray() not implemented correctly</bug>
+<bug id="62898">JavaEcoreBuilder: mark &amp;quot;dummy&amp;quot; EClasses as interfaces</bug>
+<bug id="62988">Attribute wildcards do not work correctly.</bug>
+<bug id="63079">ClassCastException when generating model code</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405200923" project="sdo">
+<bug id="61595">Mark StructuralFeature  as &amp;quot;read-only&amp;quot;</bug>
+<bug id="61601">getOldContainer and getOldContainingProperty on EChangeSummary</bug>
+<bug id="62181">EDataObject.getProperties() for static/dynamic properties</bug>
+<bug id="62422">Support generator control over runtime compatibility and Rich Client Platform</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405131028" project="emf">
+<bug id="58244">DBCS: The &amp;lt;NLlibrary&amp;gt;.library model project can not be create in Runtime-workbench.</bug>
+<bug id="58972">Provide better default substitution group/abstract element support and provide ecore:featureMap and ecore:mixed for more flexible control</bug>
+<bug id="60854">BIDI: Hebrew text is corrupted in the GenModel name.</bug>
+<bug id="61302">Support ESequence.add(String text) and (int index, String text)</bug>
+<bug id="61465">Handle feature name collisions with root implements interface operations</bug>
+<bug id="61493">Diagnostician does not correctly validate contents</bug>
+<bug id="61495">NullPointerException if diagnostic data is empty</bug>
+<bug id="61500">Validate action creates markers of incorrect severity</bug>
+<bug id="61501">Validate action not available from the Editor menu</bug>
+<bug id="61502">No busy/progess indicator for long validation operations</bug>
+<bug id="61503">Logic for proxy validation is incorrect</bug>
+<bug id="61640">ItemPropertyDescriptor should get the editing domain from the item's adapter factory before its root adapter factory.</bug>
+<bug id="61711">Make &amp;quot;built in&amp;quot; Ecore types always available in Ecore sample editor</bug>
+<bug id="61816">Empty exceptions when trying import model from annoted Java file</bug>
+<bug id="61929">Inadequate error message from SDO</bug>
+<bug id="62026">NullPointerException in LoadResourceAction</bug>
+<bug id="62030">Add support for XML Schema QName datatype</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405131028" project="sdo">
+<bug id="61302">Support ESequence.add(String text) and (int index, String text)</bug>
+<bug id="62025">SDO Data Conversion</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405060858" project="emf">
+<bug id="60224">Separate EditingDomain per Resource</bug>
+<bug id="60535">BasicEMap iterator provides a null value after removing one or more entries</bug>
+<bug id="60602">Initialization of generated packages doesn't set EStructuralFeature::ordered attribute</bug>
+<bug id="60603">References property descriptor missing for EAnnotations</bug>
+<bug id="60731">Removing handle from empty BasicEMap throws /zero exception</bug>
+<bug id="61111">Add the first version of a constraint validation framework</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404291310" project="emf">
+<bug id="59463">createFromString doesn't trigger an error on unknown Enum values</bug>
+<bug id="60224">Separate EditingDomain per Resource</bug>
+<bug id="60535">BasicEMap iterator provides a null value after removing one or more entries</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404281648" project="emf">
+<bug id="40505">org.eclipse.emf.ecore.xmi throws exception for xmi:Extension and elements from other namespaces</bug>
+<bug id="47432">emf.edit support for referencing a different resource</bug>
+<bug id="51917">Add command line option(s) to control generator parameters</bug>
+<bug id="57474">Specifying an Exception in method causes a problem</bug>
+<bug id="57653">Don't revalidate new URIs created from existing validated URIs.</bug>
+<bug id="57654">implement caching mechanism in URI to reduce repetative String parse costs</bug>
+<bug id="58132">DBCS: generated extra text field on UTF-8 template with BOM</bug>
+<bug id="58208">Problem in FeatureChangeImpl.applyAndReverse() method</bug>
+<bug id="58472">NPE reading annotated Java class</bug>
+<bug id="59240">BasicCommandStack.flush() method doesn't reset mostRecentCommand</bug>
+<bug id="59463">createFromString does'n trigger an error on unknown Enum values</bug>
+<bug id="59465">ActionBarContributor template problems when generating without creation commands</bug>
+<bug id="59536">XMLSaveImpl.saveHRefMany resolves references</bug>
+<bug id="59582">DBCS: Garbage code be showed  of  library child's name  in runtime workbench.</bug>
+<bug id="59637">An element of type anyURI mapped to an EReference is improperly handled</bug>
+<bug id="59688">ECoreutil.remove(object, feature, value) should do unset</bug>
+<bug id="60151">instances; an editor is also provided in org.eclipse.emf.mapping.ecore2ecore.editor.org.eclipse.emf.mapping.ecore2ecore, provides a model for mapping between EcoreEcore to Ecore mapping model. A new plug-in,</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404080727" project="sdo">
+<bug id="55577">Casting DataObject to AnyType object throws ClassCastException</bug>
+<bug id="56912">Provide general support for feature map entries in EMF.Edit.</bug>
+<bug id="57444">Null pointer exception saving DataGraph will null root object</bug>
+<bug id="57669">Simplify and improve default factory registration</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404080727" project="emf">
+<bug id="41704">Value automatically selected in combo box</bug>
+<bug id="53453">Feature request - write out xml DOCTYPE declaration</bug>
+<bug id="53806">Perf: Parser pool needed to greatly improve performance</bug>
+<bug id="54112">A new option for XMLLoadImpl not to load external DTD in ecore.xmi</bug>
+<bug id="55577">Casting DataObject to AnyType object throws ClassCastException</bug>
+<bug id="55829">Problems with new Data Types</bug>
+<bug id="56137">Parsing invalid boolean value should throw an exception</bug>
+<bug id="56190">CopyCommand on objects that reference themselves</bug>
+<bug id="56647">XMLHandler/XMIHandlers support for proper xmlns scoping</bug>
+<bug id="56912">Provide general support for feature map entries in EMF.Edit.</bug>
+<bug id="56919">GenClassImpl.getInterfaceExtends() produces duplicates for rootExtendsInterface other than EObject</bug>
+<bug id="57038">NullPointerException when inserting an attribute into a SDO</bug>
+<bug id="57315">Add Diagnostic support, which will be used in the validation framework</bug>
+<bug id="57616">No way to set ItemPropertyDescriptor.filterFlags</bug>
+<bug id="57707">DBCS:Import *.xsd xml schema file failed</bug>
+</entry>
+
+<entry version="2.0.0" build="I200403250631" project="sdo">
+<bug id="54077">Handle CTabFolder changes for new UI look&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54201">Change EMF templates to be able to use JETNature for build&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54367">NPE when accessing bogus feature name in SDO&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55379">Ant targets dialog rendering error&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55462">EDataGraphImpl needs to implement writeReplace for when it is serialized directly&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55463">Performance improvements can help speed up SDO data accessors&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55587">Serialize DataGraph as spelled out in the SDO spec&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55955">Dirty Conflict in Generated Editor&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+</entry>
+
+<entry version="2.0.0" build="I200403250631" project="emf">
+<bug id="47434">refresh capability for model editors&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54077">Handle CTabFolder changes for new UI look&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54079">Use new code formatter constants in GenModelEditor.&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54080">Update of not unsettable to unsettable in rose not copied to ecore&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54201">Change EMF templates to be able to use JETNature for build&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54271">JavaEcoreBuilder should ignore interface in @extends&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54702">Provide a way to block unused imports from being merged in&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54706">EMF Editor Crashes&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55152">java name problems&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55263">ClassCastException during init() of user-defined Registry class&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55276">Provide support for blocking properties from being merged in&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55463">Performance improvements can help speed up SDO data accessors&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="55955">Dirty Conflict in Generated Editor&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+</entry>
+
+<entry version="2.0.0" build="I200403081633" project="emf">
+<bug id="53180">Problem with name collision in XML-schema generated model.</bug>
+<bug id="53772">ListChange should handle index == -1.</bug>
+<bug id="54077">Handle CTabFolder changes for new UI look.</bug>
+<bug id="54079">Use new code formatter constants in GenModelEditor.</bug>
+<bug id="54080">Update of not unsettable to unsettable in rose not copied.</bug>
+</entry>
+
+<entry version="2.0.0" build="I200402251234SL" project="emf">
+<note><p>  
+There are bug fixes and improvements included with this build, some of which are described below.
+Where the description applies to a bug reported through Bugzilla, the Bugzilla number is included after the description.
+<ul>
+<li>
+EMF Change Model. A new plugin, org.eclipse.emf.ecore.change, provides a model for representing changes (i.e., deltas) to an arbitrary collection of EMF objects.
+The change model can apply its change (and optionally reverse the delta so that the change can later be undone). A change recorder (adapter), 
+which builds a change model for a set of monitored objects, is also provided. This model is used by the implementation of SDO, see below.
+</li>
+<li>
+<a href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.doc">SDO (Service Data Objects)</a>
+reference implementation. SDO is a proposed standard (<a href="http://www.jcp.org/en/jsr/detail?id=235">JSR 235</a>) that
+provides a uniform access and manipulation interface for data from heterogeneous data sources, including relational databases, XML data sources, Web services,
+and enterprise information systems. The SDO interfaces are contained in plugin org.eclipse.emf.commonj.sdo and implemented, using EMF,
+in plugin org.eclipse.emf.ecore.sdo.
+</li>
+<li>
+Changed XMLResource to support producing and using IDs that are universally unique. The method EcoreUtil.generateUUID() is provided
+and XMLResource.useUUIDs() and XMLResource.useIDAttributes() can be overridden to enable the capability. There is no support for lookup based on UUID;
+this is simply using the existing ID support but is ensuring that the IDs are universally unique.
+</li>
+<li>
+Special cased xsi:schemaLocation to omit #/ from the end of reference. This lets clients write out schema locations that can be used directly either by EMF or by Xerces.
+</li>
+<li>
+Fixed DelegatingFeatureMap/BasicFeatureMap.isMany to properly return value from affiliated feature.
+</li>
+<li>
+Support elements of type ID and appinfo in XSD2Ecore.
+For appinfo, the source attribute in the appinfo becomes the source attribute of the annotation.
+</li>
+<li>
+Fixed EcoreUtil.Copier to ensure that an unsettable reference that is set to null is copied.
+</li>
+<li>
+Ensures that a wildcard-based feature delegating to a feature map will be properly treated as a many feature.
+</li>
+<li>
+Added eStore() and eSetStore() methods to EStoreEObjectImpl.
+</li>
+<li>
+Refactored EFactoryImpl.create(EClass) for easier reuse. The implementation of instance creation has been moved to a separate method, basicCreate(), 
+making it easier to create something other than EObjectImpl.
+</li>
+</ul></p>
+</note>
+<bug id="43957">Removed recursive build from JET, which caused NPEs in GlobalBuildAction, BuildManager.</bug>
+<bug id="49269">Changed CopyCommand to properly preserve order of copied bi-directional references.</bug>
+<bug id="50176">Changed Rose importer to omit derived attributes with stereotype &amp;lt;&amp;lt;reference&amp;gt;&amp;gt;.</bug>
+<bug id="50782">Fixed AdapterFactoryLabelProvider and AdapterFactoryContentProvider setAdapterFactory() methods which were not clearing the listener.</bug>
+<bug id="51204">Fixed empty StringSegment.Element bug that caused NPE when saving an XMLResource.</bug>
+<bug id="52174">Fixed bug in ReplaceCommand constructor. Wrong object was being used for the replacement.</bug>
+<bug id="52312">Changed EMF editors (.ecore, .genmodel, etc.) and Editor.javajet template to accommodate new UI in Eclipse 3.0 M7.</bug>
+</entry>
+
+<entry version="2.0.0" build="I200401271738SL" project="emf">
+<note><p>  
+There are bug fixes and improvements included with this build, some of which are described below.
+Where the description applies to a bug reported through Bugzilla, the Bugzilla number is included after the description.
+<ul>
+<li>
+Use dynamic classpath containers to accomodate breaking runtime changes in Eclipse 3.0 M6.
+</li>
+</ul></p></note>
+</entry>
+
+<entry version="2.0.0" build="I200312190637VL" project="emf">
+<note>
+<p>
+There are bug fixes and improvements included with this build, some of which are described below.
+Where the description applies to a bug reported through Bugzilla, the Bugzilla number is included after the description.
+<ul>
+<li>
+Added a command-line utility, XSD2GenModel (analogous to Rose2GenModel), for importing models from XML Schema.
+</li>
+<li>
+Renamed some of the new GenModel attributes (defaultRootExtendsInterface->rootExtendsInterface,
+defaultRootExtendsClass->rootExtendsClass, defaultRootImplementsInterface->rootImplementsInterface,
+suppressECollections->suppressEMFTypes), and added more informative, non-default, descriptions to property
+descriptors for all the new 2.0 GenModel attributes.
+</li>
+<li>
+Fixed problem in JMerge where the leading brace of a method body was not being handled correctly.
+</li>
+<li>
+Mangle the feature names of an XSD-based model's DocumentRoot class 
+if they are invalid Java identifiers.
+</li>
+<li>
+An XSD-based model's generated resource factory now sets the OPTION_USE_ENCODED_ATTRIBUTE_STYLE option to true.
+</li>
+</ul></p></note>
+<bug id="48721">Register the package instance against the null target namespace in an XSD model's generated resource factory.</bug>
+<bug id="48838">Problem occurred when importing a namespace where the only reference to that namespace was in an ecore:reference.Handle imports resolving during XSD model import.</bug>
+</entry>
+
+<entry version="2.0.0" build="I200312101532XL" project="emf">
+<note>
+Initial EMF 2.0 driver. Eclipse 3.0 (M5) based
+<p>Eclipse M5 includes breaking API changes which will require regeneration or equivalent hand modification of generated EMF editors.
+Since JDK 1.4 dictates the JAXP default implementation, 
+all dependencies on the Xerces plugin have now been removed from the EMF (and XSD) plugins.
+Use -D<a href="http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html">java.endorsed.dirs</a> to choose a JAXP implementation. 
+E.g., this command will run Eclipse with the implementation used historically:
+<pre>eclipse.exe -vmargs -Djava.endorsed.dirs=plugins/org.apache.xerces_4.0.13</pre>
+</p>
+<p><b>Migration from 1.1</b></p>
+<p>Code regeneration of 1.1 projects is required. There are some breaking changes in this version, specifically in the handling of XML Schema based models. Details are provided below.</p>
+<p><b>Improved XML Schema Support</b></p>
+<p>The support for XML Schema has been significantly enhanced in EMF 2.0. Much more of the complexity of XML Schema is now supported,
+including mixed and open content. In addition, special Ecore annotations are now supported that allow one to specify the 
+Ecore model properties that XML Schema cannot otherwise represent. The most significant changes are as follows:
+<ul>
+<li>
+Added interface FeatureMap to represent an arbitrary feature/value pairs which are used to represent mixed or open content (wildcards).
+The XSDEcoreBuilder will produce features of this type for complex types with mixed content, for element and attribute wildcards,
+and for complex (repeating) model groups. The eGet(), eSet(), etc., methods can be called directly for open content features, which will
+then delegate to the appropriate feature map.
+</li>
+<li>
+Added support for document roots. In EMF 1.1, a global element declaration was mapped to an EClass. In 2.0, every namespace will have a single special
+EClass, by default named DocumentRoot, which contains a feature for every global element or attribute declaration in the namespace. These represent open
+content features which may be used in feature maps corresponding to wildcards. An instance document based on an XML Schema will now
+contain a single instance of the document root, exactly one feature of which will be set to contain the actual root element.
+</li>
+<li>
+Two new packages, XMLTypePackage and XMLNamespacePackage, have been added to the ecore plugin. XSDEcoreBuilder by default maps all XSD built in data types
+to a corresponding EDataType in the XMLTypePackage. It maps "xml" namespace components to a corresponding XMLNamespacePackage model element
+in the XMLNamespace package.
+</li>
+<li>
+A text element from a complex type with mixed content is represented in a feature map by an entry whose feature is one of the attributes
+from the XMLTypePackage's DocumentRoot class (i.e., text, CDATA, or comment), and whose value is the text (String). Note that comments
+and CDATA are only created if you specify the XMLResource.OPTION_USE_LEXICAL_HANDLER load option. A DocumentRoot also has mixed content
+and therefore can capture the comments at the beginning of a document.
+</li>
+<li>
+Added EObject.eContainingFeature(), which in the simple case returns the same as eContainmentFeature(). However, in the case of open content,
+containmentFeature() will return one of the features in a FeatureMap (a document root of some package) while eContainingFeature() will return
+the feature for the feature map itself.
+</li>
+<li>
+A new FeatureMapUtil class holds various static utility methods and implementation classes.
+</li>
+<li>
+A new interface ExtendedMetaData (and default implementation class BasicExtendedMetaData) encapsulates all the meta data in
+an Ecore model and any XSD2Ecore EAnnotations it may have. The default XMLResource now uses this interface
+to access the data it needs to customize a schema-based model's serialization/deserialization, instead of using the XMLMap/XMLInfo mechanism.
+It is enabled using a new save/load option: XMLResource.OPTION_EXTENDED_META_DATA.
+</li>
+<li>
+A set of Ecore namespace (http://www.eclipse.org/emf/2002/Ecore) annotation attributes are now supported in an XSD definition of an Ecore model:
+<ul>
+<li>
+<b>ecore:instanceClass</b> may appear in a simple type to specify the Ecore instanceClassName of the corresponding EDataType.
+</li>
+<li>
+<b>ecore:name</b> is support on any named Component to override the name of the corresponding ENamedElement.
+</li>
+<li>
+<b>ecore:documentRoot</b> can be used on a schema component to specify the name of the document root EClass (which is "DocumentRoot" by default).
+</li>
+<li>
+<b>ecore:package</b> can be used on a schema component to specify the fully qualified Java package name.
+</li>
+<li>
+<b>ecore:nsPrefix</b> on a schema component specifies the nsPrefix attribute the corresponding EPackage.
+</li>
+<li>
+<b>ecore:reference</b> can be specified on either an attribute or element declaration to specify the target of the corresponding EReference. The value
+must be a QName that resolves to a complex type within the schema. 
+</li>
+</ul>
+</li>
+<li>
+In EMF 1.x, anyURI, IDREF, and IDREFS mapped to a reference to EObject. Now, instead, by default they map to the corresponding EDataType 
+in XMLTypePackage instead. This can be tailored using ecore:reference. This is illustrated by the library.xsd example which has been changed
+to use ecore:reference annotation for the books and author references.
+</li>
+<li>
+Preliminary support for feature maps has been added to ItemProviderAdapter. This will be changed in the near future with a more general 
+wrapping mechanism, that will support any feature as a child.
+</li>
+<li>
+Added int UNSPECIFIED_MULTIPLICITY = -2 to ETypedElement. This is used to specify the upper bound of any feature in a document root.
+</li>
+<li>
+Support easier tailoring for handling of xsi:schemaLocation. These changes are to handle more of the
+testsuite cases at http://www.xml.com/lpt/a/2003/09/03/binding.html
+</li>
+</ul>
+</p>
+<p><b>OMG MOF 2 Support</b></p>
+<p>Several changes have been made in EMF 2.0 to align Ecore better with the EMOF (Essential MOF) subset of the MOF 2 Specification. 
+The following changes are related to this feature:
+<ul>
+<li>
+Ecore model changes
+<ul>
+<li>
+Moved the <b>unique</b>, <b>lowerBound</b>, <b>upperBound</b>, <b>many</b>, and <b>required</b> attributes from EStructuralFeature to ETypedElement.
+</li>
+<li>
+Added new <b>ordered</b> attribute to ETypedElement.
+</li>
+<li>
+Added new <b>derived</b> attribute to EStructuralFeature.
+</li>
+<li>
+Added new <b>eStructuralFeatures</b> reference to EClass. This change involves replacing the two black diamond containment references,
+<b>eAttributes</b> and <b>eReferences</b>, with a single containment reference <b>eStructuralFeatures</b>. <b>eAttributes</b> and <b>eReferences</b> are now
+readonly derived non-containment references; although the add() and addUnique() methods are still supported for them,
+so that the parser can read old files. This method will be removed eventually; a warning message is printed to stderr when add() is called.
+The Ecore XMI Resource will always serialize Ecore models using the new reference.
+</li>
+</ul>
+</li>
+<li>
+EMOF Resource
+<ul>
+<li>
+An EMOF Resource is now provided and can be used to read or write a serialized Ecore/EMOF model. The EMOF Resource is registered for the <b>.emof</b> URI suffix.
+</li>
+<li>
+The Sample Ecore Model Editor can now edit <b>.ecore</b> or <b>.emof</b> files and supports <b>Save As</b> to convert between Ecore and EMOF serializations of a model.
+</li>
+<li>
+The EMF Model Wizard now also supports import from either <b>.ecore</b> or <b>.emof</b> files.
+</li>
+<li>
+Ecore features not included in EMOF are nested in xmi:Extension elements with extender equal to
+the Ecore namespace (http://www.eclipse.org/emf/2002/Ecore).
+</li>
+</ul>
+</li>
+</ul></p>
+<p><b>Model Import Enhancements</b></p>
+<p><ul>
+<li>
+XSD diagnostics are displayed in EMF Model Wizard if errors are encountered while loading a model from XML Schema.
+</li>
+<li>
+The import from XML Schema now supports schemas embedded within a WSDL (<b>.wsdl</b>) file.
+</li>
+<li>
+Import from XML Schema now supports specifying/importing multiple URIs at once.
+</li>
+<li>
+The EMF Model Wizard now provides <b>Select All</b> and <b>Deselect All</b> buttons for selecting packages to import.
+</li>
+<li>
+Support for specifying XML Serialization eAnnotations/ExtendedMetaData in Rose.
+</li>
+<li>
+Support for specifying arbitrary Ecore eAnnotations in Rose.
+</li>
+<li>
+Rose comments and XML Schema documentation annotations are now converted to documentation eAnnotations in Ecore,
+and subsequently emitted into the generated JavaDoc.
+</li>
+<li>
+Support for operation method bodies (EOperation eAnnotations, see below) in the Semantic pane for a Rose operation.
+</li>
+<li>
+Improved RoseEcoreBuilder handling of EObject-typed attributes in a Rose model. Previously if you had an attribute of type EObject
+but the Ecore package was not available, it produced an EAttribute with an EClass as its type, resulting in class cast exceptions.
+</li>
+<li>
+Fixed JavaEcoreBuilder to handle closed/missing projects. Previously exceptions were thrown and quiet failure resulted.
+</li>
+<li>
+JavaEcoreBuilder now computes usage closure. This fixes a problem with missing used GenPackages. The problem stems from missing 
+indirect dependencies and is fixed by computing the closure when a new package dependency is added. Packages used by the
+package being used also need to be used.
+</li>
+</ul></p>
+<p><b>New Generator options and function</b></p>
+<p>This new function is preliminary and still subject to change. New features include:
+<ul>
+<li>
+You can now specify in the GenModel a different root base interface and impl class, instead of EObject and EObjectImpl.
+</li>
+<li>
+You can suppress EMF ("E") APIs in the generated interfaces (i.e., generate List instead of EList, Map instead of EMap, etc.).
+</li>
+<li>
+Generator now emits throws clause for EOperations that declare eExceptions.
+</li>
+<li>
+eAnnotations can now be set on an EOperation to specify the method body to generate (instead of default "throw new UnsupportedOperationException();").
+</li>
+<li>
+eAnnotations can now be set to specify documentation to be emitted into the generated JavaDoc.
+</li>
+</ul></p>
+<p><b>Miscellaneous Bug fixes and Improvements</b></p>
+<p><ul>
+<li>
+The bulk of the function in EObjectImpl and NotifierImpl has been moved to base classes BasicEObjectImpl and BasicNotifierImpl, which declare
+no storage. EObjectImpl and NotifierImpl are simple subclasses that implement the default current behavior. Clients that have their own implementations
+of EObject/InternalEObject are encouraged to extend from these Basic implementations so that future method additions won't break them.
+</li>
+<li>
+Added interface InternalEObject.EStore. A "store" can be provided to an InternalEObject, in which case the implementation of dynamic features 
+will be delegated to the store, instead of the default dynamic (EPropertiesHolder) implementation.
+</li>
+<li>
+Added wasSet() method to Notification for determining the old isSet state.
+</li>
+<li>
+EcoreUtil.Copier refactored to support easier specialization in subclasses.
+</li>
+<li>
+Changed EAnnotationItemProvider to include contents as children for EAnnotation.
+</li>
+<li>
+Added the option XMLResource.OPTION_FORMATTED. When set to Boolean.FALSE, this will cause linebreak and indentation to be omitted.
+The default is Boolean.TRUE, so it must be explicitly set to Boolean.FALSE to have an effect.
+</li>
+<li>
+Generated editors no longer reload model for resource marker changes.
+</li>
+<li>
+Improved error handling in EMFPlugin. Will now throw MissingResourceException instead of NullPointerException when properties are missing.
+</li>
+<li>
+Generated editors now flush the command stack when discarding changes (unloading the resource).
+</li>
+<li>
+Fixed LocalTransfer.nativeToJava to handle bad data. It now catches NumberFormatException and returns null in this case.
+</li>
+<li>
+XMLResource's save (XMLSaveImpl) fixed to check for null namespace when saving prefixes.
+</li>
+<li>
+Added new method XMLHelper.getPrefix(EPackage, boolean) that is shared by getQName(EPackage, String, boolean) and
+getPrefix(EPackage), to ensure that the package is added to the helper's packages list when getPrefix is called directly first.
+</li>
+<li>
+XMLSaveImpl changed update of prefix to namespace map to avoid getting notification of an entry being set to the value it already has.
+</li>
+<li>
+XMLHandler support to resolve forward references early. If an Ecore model and an instance of that model need to be processed when they are both
+in the same document, it's necessary to be able to resolve all the forward references in the Ecore model before it can be used to instantiate instances.
+Hence it should be possible to do some of the processing currently in endDocument early. The new method handleForwardReferences() can be called to do this.
+It delegates to a handleForwardReferences() overload which takes an isEndDocument argument, so the code for processing during endDocument() can now be
+shared for use earlier.
+</li>
+<li>
+Fixed improper handling of primitives in EcoreFactoryImpl.createEJavaClassFromString.
+</li>
+<li>
+Support EMap.putAll(EMap). By supporting EMap.putAll() from another EMap we can preserve the overall order.
+</li>
+<li>
+Fixed dynamic setting for container to check feature. The getter for a container dynamic setting was not checking that the feature is the correct one
+and returned the container regardless of whether it was for the feature or not.
+</li>
+<li>
+Fixed generator to not set ECLIPSE_SWT classpath variable to incorrect value when org.eclipse.swt and its platform-specific fragment have different version numbers.
+</li>
+<li>
+Tuned method BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature). Simple dynamic eGet() will be twice as fast now.
+</li>
+</ul>
+</p>
+</note>
+<bug id="45660">Incorrect classpath setting for generated editor code on Linux/gtk</bug>
+<bug id="38069">GenModel meta-model is hard-coded in JET</bug>
+<bug id="40613">Add JET Nature should be a wizard or at least confirm choice; use File-&gt;New-&gt;Other...-&gt;Java Emitter Templates-&gt;Convert Projects to JET Projects</bug>
+<bug id="42502">Rose description text not emitted into Java source (JavaDoc)</bug>
+<bug id="45605">Cannot generate genmodel for plugin project</bug>
+<bug id="45606">Cannot &quot;reload&quot; emf model</bug>
+<bug id="46230">Support XML Schema Instance Document Persistence from Rose model derived ECore model</bug>
+<bug id="46803">Improved customizability of proxy resolution</bug>
+<bug id="47497">Attribute name: 'class'</bug>
+<bug id="47718">notifyChanged method in MappingRootImpl never gets called</bug>
+<bug id="47999">EAnnotation written down in context of Rose model</bug>
+<bug id="48417">JETEmitter generated class not found by URLClassLoader</bug>
+<bug id="48447">Resource creation should only be successful if file was opened</bug>
+</entry>
+
+<!-- here -->
+
+<entry version="2.0.0" build="2.0.0" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200406250129" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200406211000" project="xsd">
+<bug id="67934">BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature) gives bad result for open content features</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406171028" project="xsd">
+<bug id="66860">Fix EMF editors to avoid new null selection assertion in SelectionChangedEvent in RC2</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406100948" project="xsd">
+<bug id="65672">maxLength not permitted in string</bug>
+<bug id="65703">'Save' action does'nt work in the XSD Editor</bug>
+<bug id="66032">Add activities to EMF and XSD</bug>
+<bug id="66102">Complete the support for validating according to XML Schema simple facets</bug>
+<bug id="66154">Support ecore:ignore for facets, XSDAnnotation, &amp;lt;documentation&amp;gt;, and &amp;lt;appinfo&amp;gt;.</bug>
+<bug id="66185">Avoid the use of CCombo in the generated wizards.</bug>
+<bug id="66232">Produce unique getAliasName for anonymous union members</bug>
+<bug id="66327">Use equalsIgnoreCase to match the public ID of the XMLSchema.dtd</bug>
+</entry>
+
+<entry version="2.0.0" build="I200406030436" project="xsd">
+<bug id="62314">Enhancement to enable dynamic and generated EPackage usage across JVMs</bug>
+<bug id="62440">THAI: XSD Editor have problem with Thai characters.</bug>
+<bug id="63916">NPE during Schema validation</bug>
+<bug id="64864">overview tree stops responding</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405200923" project="xsd">
+<bug id="62422">Support generator control over runtime compatibility and Rich Client Platform</bug>
+<bug id="62440">THAI: XSD Editor have problem with Thai characters.</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405131028" project="xsd">
+<bug id="58972">Provide better default substitution group/abstract element support and provide ecore:featureMap and ecore:mixed for more flexible control</bug>
+<bug id="61736">Support an ecore:opposite annotation for XSDEcoreBuilder</bug>
+</entry>
+
+<entry version="2.0.0" build="I200405060858" project="xsd">
+<bug id="58222">Redefinition of type does not affect indirectly included derived type</bug>
+<bug id="60438">Annotation appinfo corrupts element declaration type</bug>
+<bug id="61111">Add the first version of a constraint validation framework</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404291310" project="xsd">
+<bug id="58222">Redefinition of type does not affect indirectly included derived type</bug>
+<bug id="60438">Annotation appinfo corrupts element declaration type</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404281648" project="xsd">
+<bug id="57686">NullPointerException activating Sample XML Schema Editor from M8</bug>
+</entry>
+
+<entry version="2.0.0" build="I200404080727" project="xsd">
+<bug id="56269">XSDSchema.validate() does not return and leads to an OutOfMemory Exception</bug>
+<bug id="56328">Ensure that includes/redefines of a cloned included/redefined schema are computed</bug>
+<bug id="56812">JS: xsd-&amp;gt;ecore converter does not process nillable properly</bug>
+<bug id="56912">Provide general support for feature map entries in EMF.Edit.</bug>
+</entry>
+
+<entry version="2.0.0" build="I200403250631" project="xsd">
+<bug id="53421">Problems not removed after fixing</bug>
+<bug id="53776">Cannot generate XSD for model</bug>
+<bug id="54201">Change EMF templates to be able to use JETNature for build</bug>
+<bug id="54203">Types and elements are not visible when an include is added</bug>
+<bug id="54289">Bad performance for validating XSD with lots of &amp;lt;all&amp;gt;</bug>
+</entry>
+
+<entry version="2.0.0" build="I200403081633" project="xsd">
+<note>There are no code changes in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200402251234SL" project="xsd">
+<bug id="49692">Changed XSD2GenModel to initialize GenModel.modelName to avoid exception when viewing .genmodel file in the IDE.</bug>
+<bug id="50222">The getPropertyDescriptors() method of some of the XSD facet item providers was using the wrong &quot;Value&quot; property.</bug>
+</entry>
+
+<entry version="2.0.0" build="I200401271738SL" project="xsd">
+<note>There are no code changes in this build.</note>
+</entry>
+
+<entry version="2.0.0" build="I200312190637VL" project="xsd">
+<p>
+There are few minor bug fixes and improvements included with this build.
+<ul>
+<li>                
+Bugzilla <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=48894">48894</a> 
+provides support for processing instructions in the XSDParser.
+</li>
+<li>                
+Named components with equal name and namespace are sorted by hashCode.
+</li>
+</ul>
+</p>
+</entry>
+
+<entry version="2.0.0" build="I200312101532XL" project="xsd">
+<note><p>
+There are numerous bug fixes and improvements included with this build, the most significant of which is described below.
+<ul>
+<li>                
+All dependencies on Xerces have been eliminated so XSD can be used with any JAXP implementation.
+Use -D<a href="http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html">java.endorsed.dirs</a> 
+to choose a JAXP implementation.
+E.g., this command will run Eclipse with the implementation used historically:
+<pre>
+eclipse.exe -vmargs -Djava.endorsed.dirs=plugins/org.apache.xerces_4.0.13
+</pre>
+</li>
+<li>                
+A large &lt;all> model group's UPA contstraint is validated as if it were &lt;choice maxOccurs="unbounded">
+Similarly, large maxOccurs are reduced in value
+to allow UPA constraint validation for overly large content models,
+i.e., Bugzilla <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=47488">47488</a> is fixed.
+</li>
+<li>                
+XSDResourceImpl has been generalized so that it can handle a document with multiple embedded schemas, 
+i.e., .wsdl files are directly supported.
+</li>
+<li>
+XSDSchemaLocator is provided to allow clients to specialize how schemas are located;
+it's used internally to ensure that imports between schemas embedded in a document, i.e., a .wsdl file, 
+can will be resolved to the appropriate schema within that document.
+</li>
+<li>
+XSDSchemaLocationResolver is provided to allow clients to specialize how schemas locations are resolved,
+i.e., bugzilla <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=46188">46188</a> is fixed. 
+This fix is is also available in the 1.1.1.1 maintenance release.
+</li>
+<li>                
+The XML namespace schema can now be imported without an explicit schema location and it will load the cached local version.
+</li>
+</ul>
+</p></note>
+</entry>
+
+</data>
+<!-- $Id: release-notes.xml,v 1.1 2005/01/23 11:54:58 nickb Exp $ -->
