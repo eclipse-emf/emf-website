@@ -1,6 +1,6 @@
 <p>
-	<a href="../../../tools/emf/scripts/home.php">EMF Home</a> |
-	<a href="../../../technology/xsd/scripts/home.php">XSD Home</a> | 
+	<a href="http://www.eclipse.org/emf" target="_top">EMF Home</a> |
+	<a href="http://www.eclipse.org/xsd" target="_top">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 </p>
 
