@@ -137,6 +137,5 @@
 
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
-<?php include $pre."includes/footer.php"; 
-		include $pre."includes/clickthru-tracker.php"; ?>
-<!-- $Id: faq.php,v 1.1 2004/12/07 22:03:03 nickb Exp $ -->
+<?php include $pre."includes/footer.php"; ?>
+<!-- $Id: faq.php,v 1.2 2004/12/07 23:29:08 nickb Exp $ -->

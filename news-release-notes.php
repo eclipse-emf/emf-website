@@ -200,6 +200,5 @@
 	}
 	?></td></tr></table>
 
-<?php include $pre."includes/footer.php"; 
-if ($ver) { include $pre."includes/clickthru-tracker.php"; } ?>
-<!-- $Id: news-release-notes.php,v 1.1 2004/12/07 22:03:03 nickb Exp $ -->
+<?php include $pre."includes/footer.php";  ?>
+<!-- $Id: news-release-notes.php,v 1.2 2004/12/07 23:29:08 nickb Exp $ -->
