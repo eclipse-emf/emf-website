@@ -142,7 +142,7 @@
 <?php 
 	$files = "";
 	$files = loadDirSimple("../news","release-notes(.*)\.html","f");
-	rsort($files); reset($files);
+	rsort($files,SORT_STRING); reset($files);
 	$didBreak=0;
 	$stored_ver="";
 	$out="";
@@ -208,7 +208,7 @@
 <?php 
 	$files = "";
 	$files = loadDirSimple("../../xsd/news","release-notes(.*)\.html","f");
-	rsort($files); reset($files);
+	rsort($files,SORT_STRING); reset($files);
 	$didBreak=0;
 	$stored_ver="";
 	$out="";
@@ -217,14 +217,15 @@
 		$vver = $m[1];
 		if ($i>0) { 
 			$out .= ', '; 
-			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+			//if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
 		}
 		$out .= '<a class="nav" href="../../xsd/news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
-		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $vver : $stored_ver; } // get largest
+		if ($i==0) { $stored_ver = $vver; } 
+		if ($i==2) { break; } // only the first three
 	}
 	?>
       <p>&#160; <a href="../../xsd/news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
-		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../news-release-notes.php?ver=<?php echo $stored_ver; ?>#relnotes1">...</a>
 		</small>
 		</p>
     </td>
