@@ -1397,3 +1397,6 @@ to reflect this build (i.e., the latest release).</li>
   </tr>
 </tbody>            
 </table>
+
+<?php include "../includes/footer.html"; ?>
+<!-- $Id: release-notes-1.x.php,v 1.2 2005/01/23 12:56:39 nickb Exp $ -->
