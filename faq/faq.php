@@ -64,7 +64,7 @@
 	var stylesheet, xmlFile, cache, doc;
 
 	var FAQ = "<?php echo $FAQ; ?>";
-	var showFilters = '1'; // set to '1' for YES, anything else for NO
+	var showFiltersOrHeaderFooter = '1'; // set to '1' for YES, anything else for NO
 <?php 
 	$filterNames = array("",
 		"Category","Question","Answer"
@@ -105,7 +105,7 @@
 		processor.input = xmlFile;
 
 		processor.addParameter("FAQ", FAQ,"");
-		processor.addParameter("showFilters", showFilters,"");
+		processor.addParameter("showFiltersOrHeaderFooter", showFiltersOrHeaderFooter,"");
 
 <?php for ($i=1;$i<=5;$i++) { 
 	echo "		processor.addParameter(\"filterName$i\",filterName$i,\"\");\n";
@@ -123,7 +123,7 @@
 			processor.importStylesheet(stylesheet); 
 
 			processor.setParameter("","FAQ", FAQ);
-			processor.setParameter("","showFilters", showFilters);
+			processor.setParameter("","showFiltersOrHeaderFooter", showFiltersOrHeaderFooter);
 
 <?php for ($i=1;$i<=5;$i++) { 
 	echo "			processor.setParameter(\"\",\"filterName$i\",filterName$i);\n";
@@ -150,4 +150,4 @@
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: faq.php,v 1.3 2004/12/23 02:21:51 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.4 2004/12/23 02:28:24 nickb Exp $ -->

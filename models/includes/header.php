@@ -55,3 +55,4 @@
 <td align="LEFT" Valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
+<!-- $Id: header.php,v 1.2 2004/12/23 02:28:24 nickb Exp $ -->

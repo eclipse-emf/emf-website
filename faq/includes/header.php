@@ -32,3 +32,4 @@
 
 		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
 &#160;
+<!-- $Id: header.php,v 1.2 2004/12/23 02:28:24 nickb Exp $ -->

@@ -4,7 +4,7 @@
 
 <!-- show filter form inputs? by default, no. need HTML/PHP wrapper to enable this, -->
 <!-- since can't pass querystring params to XSL without HTML or PHP wrapper -->
-<xsl:param name="showFiltersAndHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
+<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 
 	<!-- XSD defaults -->
 <!--	<xsl:param name="FAQ">XSD</xsl:param>
@@ -67,7 +67,7 @@
 	</head>
 	<body>
 
-<xsl:if test="$showFiltersAndHeaderFooter!='1'">
+<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 <!-- wrapper for left nav -->
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
@@ -88,7 +88,7 @@
 		<td align="left" width="115" bgcolor="#6699CC">
 
 		<!-- left nav here -->
-		<xsl:if test="$showFiltersAndHeaderFooter!='1'">
+		<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 			<xsl:copy-of select="document('../includes/nav.xml')/div"/>
 		</xsl:if>
 
@@ -131,7 +131,7 @@
 </tr>
 </table>
 
-	<xsl:if test="$showFiltersAndHeaderFooter='1'">
+	<xsl:if test="$showFiltersOrHeaderFooter='1'">
 	<form action="" method="get" name="mainform">
 	<table width="100%">
 			<tr>
@@ -358,7 +358,7 @@
 	</xsl:for-each>
 	</table>
 
-<xsl:if test="$showFiltersAndHeaderFooter!='1'">
+<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 
 <p>
 	<a href="../">EMF Home</a> |
@@ -409,3 +409,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
+<!-- $Id: faq.xsl,v 1.4 2004/12/23 02:28:24 nickb Exp $ -->
