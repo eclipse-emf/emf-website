@@ -1,5 +1,8 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
-	<?php $sep_line = '
+<?php 
+	include_once "includes/scripts.php"; 
+
+	$sep_line = '
   <tr> 
     <td BGCOLOR="#CFFFFF"><img SRC="../../projects/images/c.gif" height=1 width=1></td>
   </tr>
@@ -25,8 +28,7 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="downloads.php" class="nav">Downloads</a>:<br/>
-		&#160; &#160; &#160; <small class="nav"><a href="downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></small>
+      <p>&#160; <a href="downloads.php" class="nav">Downloads</a>: <small class="nav"><a href="downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></small>
 		</p>
     </td>
   </tr>
@@ -83,8 +85,8 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="docs.php" class="nav" target="_top">Documentation</a><br>
-		<small class="nav">&#160; &#160; &#160; Overviews: <a class="nav" href="docs.php?doc=references/overview/EMF.html">EMF</a>, <a class="nav" href="docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a><br/>
-		&#160; &#160; &#160; <a class="nav" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a> </small>
+		<small class="nav">&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160; 
+		<a class="nav" href="docs.php?doc=references/overview/EMF.html">EMF</a>, <a class="nav" href="docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="nav" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a> </small>
 		</p>
 
     </td>
@@ -94,7 +96,22 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="docs.php" class="nav" target="_top">Release Notes</a><br>
+<?php 
+	$files = loadDirSimple("./news","release-notes(.*)\.html","f");
+	rsort($files); reset($files);
+
+	$didBreak=0;
+	$stored_ver="";
+	foreach ($files as $i => $file) { 
+		preg_match("/release-notes(.*)\.html/",$file,$m);
+		$vver = $m[1];
+		if ($i>0) { echo ', '; }
+		if (!$didBreak && preg_match("/^1\.\d+/",$vver)) { echo '<br>'; $didBreak = 1; }
+		echo '<a class="nav" href="'.$pre.'news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
+		if (!$stored_ver) { $stored_ver=$vver; }
+	}
+	?>
+      <p>&#160; <a href="news-release-notes.php?ver=<?php echo $vver; ?>" class="nav" target="_top">Release Notes</a><br>
 		<small class="nav">&#160; &#160; &#160;  
 		</small>
 		</p>
