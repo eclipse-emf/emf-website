@@ -29,7 +29,6 @@
 	<style>@import url("performance.css");</style>
 	</head>
 	<body>
-	<div id="dhtmltooltip"></div>
 
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<!-- wrapper for left nav -->

@@ -34,7 +34,7 @@
 		 <tr>
 			  <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
 			  <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
-			  <td width="250" height="50"><img src="http://www.eclipse.org/images/eproduct-simple.GIF" width="250" height="48"/></td>
+			  <td width="250" height="50"><img src="http://www.eclipse.org/images/eclipse-org-simple-small.GIF" width="250" height="48"/></td>
 		 </tr>
 
 		</table></td>
@@ -231,4 +231,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.4 2005/03/01 23:37:09 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.5 2005/03/14 21:34:39 nickb Exp $ -->
