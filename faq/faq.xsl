@@ -154,7 +154,7 @@
 							<option value=""> Choose... </option>
 							<xsl:for-each select="category-def">
 							<xsl:choose>
-								<xsl:when test="contains(@category,$filterVal1)">
+								<xsl:when test="$filterVal1!='' and contains(@category,$filterVal1)">
 									<option value="{@category}" selected="selected"><xsl:value-of select="@label" /></option>
 								</xsl:when>
 								<xsl:otherwise>
@@ -408,4 +408,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.8 2004/12/23 05:36:38 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.9 2004/12/23 07:09:25 nickb Exp $ -->
