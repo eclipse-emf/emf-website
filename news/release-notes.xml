@@ -307,6 +307,18 @@ mixin features inherited from interface</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
 </entry>
 
+<entry version="2.0.2" build="M200502171209" project="emf">
+<bug id="81512">'href' attribute seems to be a reserved attribute</bug>
+<bug id="84634">Single-valued features in a feature map behave as if they are unsettable</bug>
+<bug id="84947">[Ant tasks] Move the ant tasks to the EMF feature</bug>
+<bug id="84956">Generated resource  doesn't call eNotify if content throws exceptions</bug>
+<bug id="85140">EMF cannot handle arrays as function arguments when importing from annotated Java</bug>
+<bug id="85141">XMLParserPool holding onto XMLHandler which holds on to too much</bug>
+<bug id="85202">Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</bug>
+<bug id="85253">Cross referencers should ignore nulls</bug>
+<bug id="85555">[DUPE] A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.</bug>
+</entry>
+
 <entry version="2.0.2" build="M200502100700" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -323,6 +335,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="M200501191212" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="M200502171209" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -343,6 +359,10 @@ mixin features inherited from interface</bug>
 
 <entry version="2.0.2" build="M200501191212" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="M200502171209" project="xsd">
+<bug id="84865">Opposite not generated when using capitalized element names</bug>
 </entry>
 
 <entry version="2.0.2" build="M200502100700" project="xsd">
@@ -1332,4 +1352,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.19 2005/02/10 17:37:58 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.20 2005/02/17 18:03:53 nickb Exp $ -->
