@@ -1,17 +1,7 @@
-<?php $pre = ""; 
-		$HTMLTitle = "Eclipse Tools - EMF and SDO - EMF Corner";
-		$ProjectName = array(
-			"EMF Corner",
-			'Eclipse Modeling Framework',
-			"EMF Corner",
-			"" // defaults to Idea.jpg
-			);
-		include $pre."includes/header.php"; 
-		
-		?>
+<?php include $pre."includes/header.html"; ?>
 
-<style>@import url("../models/models.css");</style>
-<script type="text/javascript" src="../models/models.js"></script>
+<style>@import url("models.css");</style>
+<script type="text/javascript" src="models.js"></script>
 
 	<table border="0" cellspacing="1" cellpadding="3">
 		<form action="models-mailform.php" method="post">
@@ -84,5 +74,5 @@
 		</form>
 	</table>
 
-<?php include $pre."includes/footer.php"; ?>
-<!-- $Id: models-review.php,v 1.1 2004/12/21 21:32:13 nickb Exp $ -->
+<?php include "includes/footer.html"; ?>
+<!-- $Id: models-review.php,v 1.2 2004/12/21 21:39:35 nickb Exp $ -->

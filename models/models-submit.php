@@ -1,17 +1,7 @@
-<?php $pre = ""; 
-		$HTMLTitle = "Eclipse Tools - EMF and SDO - EMF Corner";
-		$ProjectName = array(
-			"EMF Corner",
-			'Eclipse Modeling Framework',
-			"EMF Corner",
-			"" // defaults to Idea.jpg
-			);
-		include $pre."includes/header.php"; 
-		
-		?>
+<?php include "includes/header.html"; ?>
 
-<style>@import url("../models/models.css");</style>
-<script type="text/javascript" src="../models/models.js"></script>
+<style>@import url("models.css");</style>
+<script type="text/javascript" src="models.js"></script>
 
 	<table border="0" cellspacing="1" cellpadding="3">
 		<form action="models-mailform.php" method="post">
@@ -59,7 +49,7 @@
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Contribution URL</h4></td>
 			<td><input type="text" value="http://" name="c_Model_URL" size="40"><br><small>Path to your model, plugin or tool's site, for download or <br>more information</small></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;&nbsp;<!--<a href="../models/models-sample.xml">Sample XML</a>--></td>
+			<td>&nbsp;<b class="red">*</b>&nbsp;&nbsp;<!--<a href="models-sample.xml">Sample XML</a>--></td>
 		</tr>
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Contribution Screenshot URL</h4></td>
@@ -96,5 +86,5 @@
 		</form>
 	</table>
 
-<?php include $pre."includes/footer.php"; ?>
-<!-- $Id: models-submit.php,v 1.1 2004/12/21 21:32:13 nickb Exp $ -->
+<?php include "includes/footer.html"; ?>
+<!-- $Id: models-submit.php,v 1.2 2004/12/21 21:39:35 nickb Exp $ -->

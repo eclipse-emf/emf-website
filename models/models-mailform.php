@@ -170,22 +170,14 @@ $message .='
 </html>
 ';
 
-echo '
-	<html>
-	<head>
-    <title>Eclipse Tools - EMF and SDO - EMF Corner</title>
-    <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
-	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
-	<style>@import url("models.css");</style>
-	<script type="text/javascript" language="javascript" src="models.js"> </script>
-	</head>
-	<body>
-';
-
+		include "includes/header.html"; 
+		
 echo "<span>";
 echo $message;
 echo "</span>";
 echo "<p><a href=\"models.xml\">Back to the Models</a></p>\n\n";
+
+		include "includes/footer.html"; 
 
 // send receipt to customer, from form
 if ($sender && strstr($sender,"@")) { 
@@ -219,5 +211,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.1 2004/12/21 21:32:13 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.2 2004/12/21 21:39:35 nickb Exp $ -->
 ?>
