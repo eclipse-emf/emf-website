@@ -39,7 +39,7 @@
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/faq.php" class="nav">FAQs</a>
+      &#160; <a href="http://www.eclipse.org/emf/faq/faq.php" class="nav">FAQs</a>
 		
     </td>
   </tr>
@@ -276,4 +276,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.2 2004/12/23 02:28:24 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.3 2004/12/23 06:14:55 nickb Exp $ -->
