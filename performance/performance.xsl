@@ -1,6 +1,7 @@
 <xsl:stylesheet version = '1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 <xsl:output method="html" encoding="ISO-8859-1"/>
 
+	<xsl:param name="XMLfile"></xsl:param> <!-- LEAVE BLANK - pass value of the xml doc being parsed into stylesheet via javascript -->
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 	<xsl:param name="threshholdPercentage">3</xsl:param> 
 	<xsl:param name="filter"></xsl:param>
@@ -130,7 +131,7 @@
 			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 			<br/>
 		 <input type="button" value="Compare" onclick="doSubmit()"/>
-		 <input type="hidden" value=""/>
+		 <input type="hidden" name="XMLfile" value="{$XMLfile}"/>
 		 </td>
 			</table>
 		</form>

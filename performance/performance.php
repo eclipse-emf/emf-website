@@ -17,7 +17,6 @@
 	} else {
 		doFileList(loadDirSimple(".",".xml","f")); // get all *.xml files in current dir
 	}
-	exit;
 
 	function doFileList($files = array()) { 
 		echo "<style>@import url(\"performance.css\");</style>\n";
