@@ -12,6 +12,17 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200503170700" project="emf">
+<bug id="85972">Option to store boolean attributes in eFlags</bug>
+<bug id="87723">Ignore duplicate inheritance relationships in the Rose EcoreBuilder</bug>
+<bug id="87825">Need a way to pre/post-process XML resources</bug>
+<bug id="87828">Need enhanced SAVE_TYPE_INFORMATION option</bug>
+<bug id="87933">NPE in EObjectValidator</bug>
+<bug id="88111">Tab and LineFeed should be escaped within attributes</bug>
+<bug id="88214">Invariants stubs should reuse the getObjectLabel() method</bug>
+<bug id="88216">xsd:length facet doesn't generate a proper constraint.</bug>
+</entry>
+
 <entry version="2.1.0" build="I200503100800" project="emf">
 <bug id="85973">JUnit testcase skeletons for volatile features</bug>
 <bug id="86782">Unhandled event loop exception - java.lang.StackOverflowError</bug>
@@ -79,6 +90,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200503170700" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -278,6 +293,14 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200503170700" project="xsd">
+<bug id="86665">feature name that differ in case</bug>
+<bug id="87132">Invalid code generation for anonymous simple types with enumerations with same name</bug>
+<bug id="87860">Delay analyze() until after the schemaLocation is set</bug>
+<bug id="87924">Allow control over the key used when converting appinfo to an EAnnotation.</bug>
+<bug id="88092">Annotations not available for included/incorporated schemas</bug>
 </entry>
 
 <entry version="2.1.0" build="I200503100800" project="xsd">
@@ -1453,4 +1476,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.35 2005/03/15 21:32:25 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.36 2005/03/17 16:22:26 nickb Exp $ -->
