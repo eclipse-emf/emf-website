@@ -79,27 +79,8 @@
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav">Bugzilla</a><br/>
 		<small class="nav"> 
-<?php
-	$statuses = array(
-		"Open" => "%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED",
-		"Closed This Week" => "%26bug_status%3DRESOLVED%26bug_status%3DVERIFIED%26bug_status%3DCLOSED%26changedin%3D7"
-	);
-	foreach ($statuses as $statusLabel => $statusString) { 
-		$bugzLinks = array(
-			//"EMF/SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
-			//"XSD" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
-			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on"
-		);
-		$blcnt=0;
-		//echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
-		foreach ($bugzLinks as $label => $url) { 
-			//if ($blcnt>0) { echo ", "; } $blcnt++;
-			if ($blcnt>0) { echo "<br/>\n"; } $blcnt++;
-			//echo "".'<small class="nav"><a href="'.$url.'" class="nav">'.$label.'</a></small>';
-			echo '&#160; &#160; &#160; <a href="'.$url.'" class="nav">'.$statusLabel.'</a>';
-		} 
-	}
-?>
+			&#160; &#160; &#160; <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on" class="nav">Open</a> <br>
+			&#160; &#160; &#160; <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD%26bug_status%3DRESOLVED%26bug_status%3DVERIFIED%26bug_status%3DCLOSED%26changedin%3D7%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on" class="nav">Closed This Week</a>
 		</small>
 		</p>
     </td>
@@ -225,7 +206,7 @@
 		if ($i==2) { break; } // only the first three
 	}
 	?>
-      <p>&#160; <a href="../../xsd/news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
+      <p>&#160; <a href="../../xsd/news-release-notes.php?ver=<?php echo $stored_ver; ?>" class="nav">Release Notes</a><br>
 		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../news-release-notes.php?ver=<?php echo $stored_ver; ?>#relnotes1">...</a>
 		</small>
 		</p>
