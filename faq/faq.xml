@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2004/12/23 01:39:43 $</modified>
+  <modified>$Date: 2004/12/23 07:59:21 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -288,7 +288,7 @@ icons into a resource jar), but the .editor projects are tightly
 integrated Eclipse components
 that will only function within an Eclipse environment.
 <br/><br/>
-For more information see the above question (<i>"How to use EMF in standalone applications (such as an ordinary main)?"</i>). 
+For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
     </answer>
   </entry>
 
@@ -607,7 +607,7 @@ In addition to the EMF jars, you also neeed to add to the CLASSPATH the followin
 <li>org.eclipse.emf.ecore.change/runtime/ecore.change.jar</li>
 </ul>
 
-Refer to the <i>"How to use EMF in standalone applications (such as an ordinary main)?"</i> FAQ for more information on working outside Eclipse.
+For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
 
     </answer>
   </entry>
@@ -1784,6 +1784,6 @@ Why does EMF refuse to accept my schema file?
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.1 2004/12/23 01:39:43 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.2 2004/12/23 07:59:21 nickb Exp $ -->
 
 </faq>
