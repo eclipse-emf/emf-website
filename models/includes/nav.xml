@@ -1,0 +1,278 @@
+<!-- not really XML, but designed to be embedded as XML, not HTML -->
+<div>
+<table border="0" cellspacing="0" cellpadding="0" BGCOLOR="#90C8FF" width="116">
+  <!-- common links - both projects -->
+  <tr> 
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org/emf/" target="_top" class="navhead">emf/sdo</a></td>
+
+  </tr>
+	
+  <tr><td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td></tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" class="nav">Downloads</a>
+		
+    </td>
+
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21">&#160; <a href="http://download.eclipse.org/tools/emf/updates/" class="nav">Update Manager</a></td>
+  </tr>
+	
+  <tr>
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/docs.php" class="nav">Documentation</a><br/>
+		
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/faq.php" class="nav">FAQs</a>
+		
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/news-release-notes.php" class="nav">Release Notes</a>
+		
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="models.xml" class="nav">EMF Corner</a><br/>
+		
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" class="nav">CVS</a>
+		
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" class="nav">What&#39;s New, CVS?</a>
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="javascript:void(goBugzLink())" onclick="goBugzLink()" class="nav">Open Bugs</a>
+		
+    </td>
+  </tr>
+		
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf" class="nav">Newsgroup</a>
+		
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew.php" class="nav">Site News</a>
+    </td>
+  </tr>
+	
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0" cols="1" width="116" BGCOLOR="#90C8FF" height="45" >
+  <tr> 
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160;<a href="http://www.eclipse.org/http://www.eclipse.orgtools/index.html" target="_top" class="navhead">
+      tools</a></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/downloads.html" class="nav">Downloads</a>
+    </td>
+
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/cdt" class="nav" target="_top">CDT</a>
+    </td>
+  </tr>
+
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/gef" class="nav" target="_top">GEF</a>
+    </td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/cobol" class="nav" target="_top">COBOL</a>
+    </td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/test-and-performance" class="nav" target="_top">Hyades</a>
+    </td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/emf" class="nav" target="_top">EMF</a>
+
+    </td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/vep" class="nav" target="_top">VE</a>
+    </td>
+
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21"> 
+      &#160; <a href="http://www.eclipse.org/uml2" class="nav" target="_top">UML2</a>
+    </td>
+  </tr>
+
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  
+  
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="116" BGCOLOR="#90C8FF" >
+  <tr> 
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org" target="_top" class="navhead"> 
+      eclipse home</a></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/org/index.html" class="nav" target="_top">about us</a></td>
+
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+    <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/projects/index.html" class="nav" target="_top">projects</a></td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/downloads/index.php" class="nav" target="_top">downloads</a></td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/articles/index.html" class="nav" target="_top">articles</a></td>
+
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/newsgroups/index.html" class="nav" target="_top">newsgroups</a></td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21">&#160; <a href="http://www.eclipse.org/mail/index.html" class="nav" target="_top">mailing 
+      lists</a></td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21">&#160; <a href="http://www.eclipse.org/community/index.html" class="nav" target="_top">community</a></td>
+
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+  <tr valign="CENTER">
+    <td height="21">&#160; <a href="http://www.eclipse.org/search/search.cgi" class="nav">search</a></td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+
+  </tr>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="https://bugs.eclipse.org/bugs/" class="nav">bugs</a></td>
+  </tr>
+  <tr> 
+    <td class="tiny" bgcolor="#CFFFFF" width="116" height="1"></td>
+  </tr>
+</table>
+</div>
