@@ -361,6 +361,10 @@ mixin features inherited from interface</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
 </entry>
 
+<entry version="2.0.2" build="M200503081329" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.0.2" build="2.0.2RC2" project="emf">
 <bug id="86190">[DUPE] xsd doc : toc.xml has invalid xml?</bug>
 </entry>
@@ -388,6 +392,10 @@ mixin features inherited from interface</bug>
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.0.2" build="M200503081329" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.0.2" build="2.0.2RC2" project="sdo">
 <bug id="86190">[DUPE] xsd doc : toc.xml has invalid xml?</bug>
 </entry>
@@ -412,6 +420,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="M200501191212" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="M200503081329" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -1410,4 +1422,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.30 2005/03/03 15:58:43 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.31 2005/03/08 20:45:31 nickb Exp $ -->
