@@ -12,7 +12,22 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200501270800" project="emf">
+<bug id="82651">XMLResource.toDOM() doesn't return namespace aware Document</bug>
+<bug id="83044">[DUPE] caching of Lookup in XMLSaveImpl for major performance boost of serialization</bug>
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
+<bug id="83650">Pass multiple model files to XSD2Java Ant task</bug>
+<bug id="83740">Allow &quot;*&quot; to represent multiplicity many</bug>
+<bug id="83789">[Ant tasks] The emf.Rose2Java and emf.XSD2Java don't generate the plugin.xml file.</bug>
+</entry>
+
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501270800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -184,6 +199,11 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501270800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="xsd">
@@ -1250,4 +1270,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.7 2005/01/27 13:43:59 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.8 2005/01/27 13:54:53 nickb Exp $ -->
