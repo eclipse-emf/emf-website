@@ -1,6 +1,6 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <?php 
-	include_once "includes/scripts.php"; 
+	include_once "../includes/scripts.php"; 
 
 	$sep_line = '
   <tr> 
