@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
 <news date="February 10, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.xml">Version 2.1.0</a> Integration build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.xml">I200502100800</a>) is available 
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502100800</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="February 10, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.xml">Version 2.0.2</a> Maintenance build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.xml">M200502100700</a>) is available 
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">Version 2.0.2</a> Maintenance build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">M200502100700</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="February 03, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.xml">Version 2.1.0</a> Integration build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.xml">I200502030800</a>) is available 
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502030800</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="February 03, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.xml">Version 2.0.2</a> Maintenance build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.xml">M200502030700</a>) is available 
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">Version 2.0.2</a> Maintenance build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">M200502030700</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="January 27, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.xml">Version 2.1.0</a> Integration build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.xml">I200501270800</a>) is available 
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200501270800</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="January 27, 2005" showOn="whatsnew">
-	<a href="http://www.eclipse.org/emf/news/release-notes.xml">Version 2.0.2</a> Maintenance build
-	(<a href="http://www.eclipse.org/emf/news/release-notes.xml">M200501270700</a>) is available 
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">Version 2.0.2</a> Maintenance build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">M200501270700</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="January 19, 2005" showOn="whatsnew">
@@ -416,6 +416,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.16 2005/02/10 16:49:29 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.17 2005/02/10 22:17:42 nickb Exp $ -->
 
 </doc>
