@@ -114,7 +114,7 @@
 			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
 		}
 		$out .= '<a class="nav" href="../news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
-		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $stored_ver; } // get largest
+		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $vver : $stored_ver; } // get largest
 	}
 	?>
       <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>

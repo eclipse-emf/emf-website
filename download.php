@@ -16,8 +16,8 @@
 ?>
 <p>
 <?php include "includes/scripts.php"; ?>
-<?php include "includes/clickthru-tracker.php"; ?>
+<?php //include "includes/clickthru-tracker.php"; ?>
 </p>
-<!-- $Id: download.php,v 1.1 2004/12/07 22:03:03 nickb Exp $ -->
+<!-- $Id: download.php,v 1.2 2004/12/07 23:02:23 nickb Exp $ -->
 </body>
 </html>
