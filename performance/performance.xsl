@@ -4,7 +4,7 @@
 	<xsl:param name="XMLfile"></xsl:param> <!-- LEAVE BLANK - pass value of the xml doc being parsed into stylesheet via javascript -->
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 	<xsl:param name="threshholdPercentage">3</xsl:param> 
-	<xsl:param name="filter"></xsl:param>
+	<xsl:param name="filter">all</xsl:param>
 	<xsl:param name="unitSigDigs">100000</xsl:param> <!-- number of decimal places to keep in displaying values -->
 	<xsl:param name="pcntSigDigs">10</xsl:param> <!-- number of decimal places to keep in displaying percentages -->
 
@@ -30,7 +30,6 @@
 	</head>
 	<body>
 	<div id="dhtmltooltip"></div>
-	<!-- <script type="text/javascript" src="performance.js"></script> -->
 
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<!-- wrapper for left nav -->
@@ -114,23 +113,23 @@
 				this percentage will be omitted from<br/> 
 				the plot. To include all, use -1.</small></td>
 				<td>&#160;</td>
-				<td colspan="2"><input class="field9px" name="threshholdPercentage" size="3"/></td>
+				<td colspan="2"><input class="field9px" name="threshholdPercentage" value="{$threshholdPercentage}"/></td>
 					</tr>
 				<td colspan="3"><b>Filter</b><br/><select class="field9px" name="filter" size="1">
-		<option value="CPU Time">CPU Time [User Time + Kernel/System Time] (s)</option>
-		<option value="Kernel Time">Kernel/System Time (s)</option>
-		<option value="Soft Page Faults">Soft Page Faults [Minor fault: no load from disk] </option>
-		<option value="Hard Page Faults">Hard Page Faults [Major fault, process + children]</option>
-		<option value="Working Set">Working Set (bytes)</option>
-		<option value="Text Size">Text/Code Size (bytes)</option>
-		<option value="Library Size">Library Size (bytes) </option>
-		<option value="Data Size">Data/Stack Size (bytes)</option>
-		<option value="Used Java Heap">Used Java Heap [Used Memory] (bytes)</option>
+		<option <xsl:if test="$filter = 'CPU Time' or $filter = 'all'">selected&#32;</xsl:if>value="CPU Time">CPU Time [User Time + Kernel/System Time] (s)</option>
+		<option <xsl:if test="$filter = 'Kernel time' or $filter = 'all'">selected&#32;</xsl:if>value="Kernel time">Kernel/System Time (s)</option>
+		<option <xsl:if test="$filter = 'Soft Page Faults' or $filter = 'all'">selected&#32;</xsl:if>value="Soft Page Faults">Soft Page Faults [Minor fault: no load from disk] </option>
+		<option <xsl:if test="$filter = 'Hard Page Faults' or $filter = 'all'">selected&#32;</xsl:if>value="Hard Page Faults">Hard Page Faults [Major fault, process + children]</option>
+		<option <xsl:if test="$filter = 'Working Set' or $filter = 'all'">selected&#32;</xsl:if>value="Working Set">Working Set (bytes)</option>
+		<option <xsl:if test="$filter = 'Text Size' or $filter = 'all'">selected&#32;</xsl:if>value="Text Size">Text/Code Size (bytes)</option>
+		<option <xsl:if test="$filter = 'Library Size' or $filter = 'all'">selected&#32;</xsl:if>value="Library Size">Library Size (bytes) </option>
+		<option <xsl:if test="$filter = 'Data Size' or $filter = 'all'">selected&#32;</xsl:if>value="Data Size">Data/Stack Size (bytes)</option>
+		<option <xsl:if test="$filter = 'Used Java Heap' or $filter = 'all'">selected&#32;</xsl:if>value="Used Java Heap">Used Java Heap [Used Memory] (bytes)</option>
 			<option value="all">All</option>
 			</select> 
 			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 			<br/>
-		 <input type="button" value="Compare" onclick="doSubmit()"/>
+		 <input type="button" value="Compare"/>
 		 <input type="hidden" name="XMLfile" value="{$XMLfile}"/>
 		 </td>
 			</table>
@@ -278,7 +277,7 @@
 			<xsl:variable name="classname"><xsl:value-of select="@classname" /></xsl:variable>
 			<xsl:variable name="name"><xsl:value-of select="@name" /></xsl:variable>
 			<xsl:for-each select="property">
-				<xsl:if test="./@name != 'Iterations' and ($filter = '' or contains(./@name,$filter))">
+				<xsl:if test="./@name != 'Iterations' and ($filter = 'all' or contains(./@name,$filter))">
 					<xsl:variable name="property"><xsl:value-of select="./@name" /></xsl:variable>
 					<xsl:variable name="iterations1"><xsl:value-of select="//build[1]/testsuite[@package=$package]/testcase[@classname=$classname and @name=$name]/property[@name='Iterations']/@value" /></xsl:variable>
 					<xsl:variable name="iterations2"><xsl:value-of select="//build[2]/testsuite[@package=$package]/testcase[@classname=$classname and @name=$name]/property[@name='Iterations']/@value" /></xsl:variable>
@@ -397,7 +396,7 @@
 			<xsl:variable name="classname"><xsl:value-of select="@classname" /></xsl:variable>
 			<xsl:variable name="name"><xsl:value-of select="@name" /></xsl:variable>
 			<xsl:for-each select="property">
-				<xsl:if test="./@name != 'Iterations' and ($filter = '' or contains(./@name,$filter))">
+				<xsl:if test="./@name != 'Iterations' and ($filter = 'all' or contains(./@name,$filter))">
 					<xsl:variable name="property"><xsl:value-of select="./@name" /></xsl:variable>
 					<xsl:variable name="iterations1"><xsl:value-of select="//build[1]/testsuite[@package=$package]/testcase[@classname=$classname and @name=$name]/property[@name='Iterations']/@value" /></xsl:variable>
 					<xsl:variable name="iterations2"><xsl:value-of select="//build[2]/testsuite[@package=$package]/testcase[@classname=$classname and @name=$name]/property[@name='Iterations']/@value" /></xsl:variable>
