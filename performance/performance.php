@@ -14,7 +14,7 @@
 	if (!$unitSigDigs) { $unitSigDigs = 10000; } // 5 decimals
 	if (!$pcntSigDigs) { $pcntSigDigs = 10; } // one decimal
 	if (!$threshholdPercentage) { $threshholdPercentage = 3; } // minimum 3% before we show a value
-	if (!$filter) { $filter = "CPU Time"; } 
+	if (!$filter) { $filter = "CPU Time"; }  
 
 	if ($XMLfile) { 
 		doXML();
