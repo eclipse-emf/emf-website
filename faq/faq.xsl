@@ -123,7 +123,7 @@
 	</table>
 	<table border="0" cellpadding="2" width="100%" >
 	<tr>
-	<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/></xsl:if></font>
+	<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/><br/></xsl:if></font>
 	<b class="big-header">Last modified: 
 			<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
 			<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
@@ -408,4 +408,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.7 2004/12/23 05:33:10 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.8 2004/12/23 05:36:38 nickb Exp $ -->
