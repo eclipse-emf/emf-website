@@ -12,6 +12,12 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200503030800" project="emf">
+<bug id="85929">Problem with the desiralization of forward references</bug>
+<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
+<bug id="86747">Bug for a void accessor</bug>
+</entry>
+
 <entry version="2.1.0" build="I200502240800" project="emf">
 <bug id="85202">Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</bug>
 <bug id="85957">The xml namespace, i.e., xml.xsd, has a new id attribute</bug>
@@ -63,6 +69,10 @@
 
 <entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200503030800" project="sdo">
+<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
 </entry>
 
 <entry version="2.1.0" build="I200502240800" project="sdo">
@@ -253,6 +263,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200503030800" project="xsd">
+<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
 </entry>
 
 <entry version="2.1.0" build="I200502240800" project="xsd">
@@ -1396,4 +1410,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.29 2005/02/28 23:44:19 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.30 2005/03/03 15:58:43 nickb Exp $ -->
