@@ -106,7 +106,7 @@
 					We welcome your feedback about this idea, as well as your feedback about contributions on this page. If enough people comment favourably about the code provided here, it may one day make its way into the EMF code base. Or into our test suite. Or something. 
 					</p>
 					<p class="normal" style="font-weight:normal">
-					Note that contributions and reviews are moderated by the EMF Team. 
+					If you would like to update or revise an existing entry, please submit a new entry (and include some mention of the original post to be replaced). Since contributions and reviews are moderated by the EMF Team, we`ll be able to process your request easily.
 					</p>
 					<p class="normal" style="font-weight:normal">
 					To provide comments about this prototype community project, please email <a href="mailto:codeslave@ca.ibm.com?Subject=EMF Corner Comments">codeslave@ca.ibm.com</a>, or <a href="models-submit.php">start a thread</a> under the 'General Discussion' category.
@@ -358,4 +358,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.7 2004/12/23 05:24:42 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.8 2005/01/12 00:01:24 nickb Exp $ -->
