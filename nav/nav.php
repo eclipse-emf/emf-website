@@ -29,6 +29,8 @@
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <a href="../../xsd/" target="_top" class="navhead">&amp; xsd</a></td>
   </tr>
 
+	<?php echo $sep_line; ?>
+
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="../downloads.php" class="nav">Downloads</a>: <small class="nav"><a href="../downloads.php" class="nav">v2.x</a>, <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></small>
@@ -145,6 +147,9 @@
   <tr> 
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a></td>
   </tr>
+
+	<?php echo $sep_line; ?>
+
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="../docs.php" class="nav">Documentation</a><br>
@@ -280,11 +285,8 @@
 	
   <!-- other project links -->
   
-	<tr valign=CENTER> 
-    <td valign=CENTER height="21"> 
-      <p>&#160; <a href="http://www.eclipse.org/uml2" class="nav">UML2</a></p>
-
-    </td>
+  <tr> 
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../uml2/" target="_top" class="navhead">uml2</a></td>
   </tr>
 
 	<?php echo $sep_line; ?>
