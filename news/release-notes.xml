@@ -12,6 +12,11 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200503181320" project="emf">
+<bug id="87452">Generated doSwitch fails with concrete subtype in separate package</bug>
+<bug id="87723">Ignore duplicate inheritance relationships in the Rose EcoreBuilder</bug>
+</entry>
+
 <entry version="2.1.0" build="I200503170700" project="emf">
 <bug id="85972">Option to store boolean attributes in eFlags</bug>
 <bug id="87723">Ignore duplicate inheritance relationships in the Rose EcoreBuilder</bug>
@@ -90,6 +95,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200503181320" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -293,6 +302,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200503181320" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200503170700" project="xsd">
@@ -1476,4 +1489,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.36 2005/03/17 16:22:26 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.37 2005/03/18 19:28:26 nickb Exp $ -->
