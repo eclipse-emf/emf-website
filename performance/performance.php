@@ -40,30 +40,31 @@
 <style>@import url("performance.css");</style>
 <script type="text/javascript">
 	var returnval = 0;
-	var stylesheet, xmlFile, cache, doc;
+	var stylesheet, xmlDocObj, cache, doc;
 
 	var threshholdPercentage = "<?php echo $threshholdPercentage; ?>";
 	var filter = "<?php echo $filter; ?>";
 	var unitSigDigs = "<?php echo $unitSigDigs; ?>";
 	var pcntSigDigs = "<?php echo $pcntSigDigs; ?>";
+	var XMLfile = "<?php echo $XMLfile; ?>";
 	var showFiltersOrHeaderFooter = '1'; // set to '1' for YES, anything else for NO
 
 	function init(){
 		// NSCP 7.1+ / Mozilla 1.4.1+
 		// Use the standard DOM Level 2 technique, if it is supported
 		if (document.implementation && document.implementation.createDocument) {
-			xmlFile = document.implementation.createDocument("", "", null);
+			xmlDocObj = document.implementation.createDocument("", "", null);
 			stylesheet = document.implementation.createDocument("", "", null);
-			xmlFile.load("<?php echo $XMLfile; ?>");
+			xmlDocObj.load("<?php echo $XMLfile; ?>");
 			stylesheet.load("<?php echo $XSLfile; ?>");
-			xmlFile.addEventListener("load", transform, false);
+			xmlDocObj.addEventListener("load", transform, false);
 			stylesheet.addEventListener("load", transform, false);
 		}
 		//IE 6.0+ solution
 		else if (window.ActiveXObject) {
-			xmlFile = new ActiveXObject("msxml2.DOMDocument.3.0");
-			xmlFile.async = false;
-			xmlFile.load("<?php echo $XMLfile; ?>");
+			xmlDocObj = new ActiveXObject("msxml2.DOMDocument.3.0");
+			xmlDocObj.async = false;
+			xmlDocObj.load("<?php echo $XMLfile; ?>");
 			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
 			stylesheet.async = false;
 			stylesheet.load("<?php echo $XSLfile; ?>");
@@ -75,12 +76,13 @@
 	// separate transformation function for IE 6.0+
 	function transformData(){
 		var processor = cache.createProcessor();
-		processor.input = xmlFile;
+		processor.input = xmlDocObj;
 
 		processor.addParameter("threshholdPercentage", threshholdPercentage,"");
 		processor.addParameter("filter", filter,"");
 		processor.addParameter("unitSigDigs", unitSigDigs,"");
 		processor.addParameter("pcntSigDigs", pcntSigDigs,"");
+		processor.addParameter("XMLfile", XMLfile,"");
 		processor.addParameter("showFiltersOrHeaderFooter", showFiltersOrHeaderFooter,"");
 
 		processor.transform();
@@ -97,9 +99,10 @@
 			processor.setParameter("","filter", filter);
 			processor.setParameter("","unitSigDigs", unitSigDigs);
 			processor.setParameter("","pcntSigDigs", pcntSigDigs);
+			processor.setParameter("","XMLfile", XMLfile);
 			processor.setParameter("","showFiltersOrHeaderFooter", showFiltersOrHeaderFooter);
 
-			doc = processor.transformToDocument(xmlFile);
+			doc = processor.transformToDocument(xmlDocObj);
 			document.getElementById("data").innerHTML = doc.documentElement.innerHTML;
 		}
 	}

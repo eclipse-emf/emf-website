@@ -14,7 +14,6 @@
 
 <!--
 	// TODO implement filter/thresh (php)
-	// implent sort method?
 	// TODO collect build details from gtk console log (if in PHP version, with links to log - copy from performance-results.php)
 -->
 
@@ -105,38 +104,50 @@
 </table>
 
 	<!-- form controls -->
-<form action="performance.php" method="get" name="mainform">
- 	<table border="0">
-			<tr>
-        <td><b>Threshhold Percentage</b><br/><small>
-        Absolute value of deltas less than<br/>
-        this percentage will be omitted from<br/> 
-        the plot. To include all, use -1.</small></td>
-        <td>&#160;</td>
-        <td colspan="2"><input class="field9px" name="threshholdPercentage" size="3"/></td>
-			</tr>
-        <td colspan="3"><b>Filter</b><br/><select class="field9px" name="filter" size="1">
-<option value="CPU Time">CPU Time [User Time + Kernel/System Time] (s)</option>
-<option value="Kernel Time">Kernel/System Time (s)</option>
-<option value="Soft Page Faults">Soft Page Faults [Minor fault: no load from disk] </option>
-<option value="Hard Page Faults">Hard Page Faults [Major fault, process + children]</option>
-<option value="Working Set">Working Set (bytes)</option>
-<option value="Text Size">Text/Code Size (bytes)</option>
-<option value="Library Size">Library Size (bytes) </option>
-<option value="Data Size">Data/Stack Size (bytes)</option>
-<option value="Used Java Heap">Used Java Heap [Used Memory] (bytes)</option>
-	<option value="all">All</option>
-	</select> 
-	<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
-	<br/>
- <input type="button" value="Compare" onclick="doSubmit()"/></td>
-	</table>
-</form>
-	
-  <xsl:call-template name="show_perf_data_columns"></xsl:call-template>
-	
-<!-- footer stuff -->
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+		<form action="performance.php" method="get" name="mainform">
+			<table border="0">
+					<tr>
+				<td><b>Threshhold Percentage</b><br/><small>
+				Absolute value of deltas less than<br/>
+				this percentage will be omitted from<br/> 
+				the plot. To include all, use -1.</small></td>
+				<td>&#160;</td>
+				<td colspan="2"><input class="field9px" name="threshholdPercentage" size="3"/></td>
+					</tr>
+				<td colspan="3"><b>Filter</b><br/><select class="field9px" name="filter" size="1">
+		<option value="CPU Time">CPU Time [User Time + Kernel/System Time] (s)</option>
+		<option value="Kernel Time">Kernel/System Time (s)</option>
+		<option value="Soft Page Faults">Soft Page Faults [Minor fault: no load from disk] </option>
+		<option value="Hard Page Faults">Hard Page Faults [Major fault, process + children]</option>
+		<option value="Working Set">Working Set (bytes)</option>
+		<option value="Text Size">Text/Code Size (bytes)</option>
+		<option value="Library Size">Library Size (bytes) </option>
+		<option value="Data Size">Data/Stack Size (bytes)</option>
+		<option value="Used Java Heap">Used Java Heap [Used Memory] (bytes)</option>
+			<option value="all">All</option>
+			</select> 
+			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
+			<br/>
+		 <input type="button" value="Compare" onclick="doSubmit()"/>
+		 <input type="hidden" value=""/>
+		 </td>
+			</table>
+		</form>
+	</xsl:if>
 
+<xsl:call-template name="show_perf_data_columns"></xsl:call-template>
+	
+<!-- build details (collected from gtk console log, only available within PHP wrapped XML/XSL, not within XML by itself -->
+<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="4"><b><a name="legend">Build Details</a></b></td></tr>
+</table>
+</p>
+</xsl:if>
+
+<!-- legend --> 
 <p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="4"><b><a name="legend">Legend</a></b></td></tr>
