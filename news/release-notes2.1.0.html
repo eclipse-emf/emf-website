@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+    content="text/html; charset=utf-8" />
+
+    <title>EMF/SDO and XSD - Release Notes</title>
+
+    <link rel="stylesheet" href="../docs/book.css" type="text/css" />
+  </head>
+
+  <body lang="EN-US" xml:lang="EN-US">
+
+<br>
+
+<!-- start 200 -->
+<table border=0 cellpadding=2 width="100%" >
+<tr>
+  <td align=left valign=top bgcolor="#0070a0">
+    <b><span style="color:#ffffff">
+      <a name="emf_210">What's new in EMF 2.1.0?</a>
+    </span></b>
+
+  </td>
+</tr>
+
+<tr>
+<td>
+<ol>
+
+	<!-- ##PREPEND_HERE## -->
+
+	<li>
+	<b><a name="I200412020800">Build I200412020800: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		EMF 2.0.1 examples cause VE 1.0.1.1 to malfunction
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=79078">79078</a>)
+		<a  href="../../../tools/emf/scripts/news-whatsnew-cvs.php?source=emf&bug=79078"><img src="../images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>
+		</li>
+		<li>
+		Wrong import generated for datatypes when generating from java source
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=79623">79623</a>)
+		<a  href="../../../tools/emf/scripts/news-whatsnew-cvs.php?source=emf&bug=79623"><img src="../images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200412020800_">Build I200412020800: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		No new Bugzillas closed or revised in this build.
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411250800">Build I200411250800: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		GenClass's Label Feature is not preserved during reload
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=79273">79273</a>)
+		</li>
+		<li>
+		RoseNode.getAnnotation misses annotations represented on separate lines in the .mdl.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=79312">79312</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411250800_">Build I200411250800: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		No new Bugzillas closed or revised in this build.
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411180800">Build I200411180800: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Visibility for structural features
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75926">75926</a>)
+		</li>
+		<li>
+		caching of Lookup in XMLSaveImpl for major performance boost of serialization
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=77489">77489</a>)
+		</li>
+		<li>
+		ReflectiveItemProvider should not used the cached wrappingNeeded state.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78420">78420</a>)
+		</li>
+		<li>
+		Generated code doesn't compile for non-changeable, unsettable, multiplicity-1 feature
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78619">78619</a>)
+		</li>
+		<li>
+		Incorrect serialization of BasicEList
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78622">78622</a>)
+		</li>
+		<li>
+		Incorrect deserialization of EcoreEList
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78661">78661</a>)
+		</li>
+		<li>
+		ClassCastException when saving a ChangeDescription with multivalue attribute.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78840">78840</a>)
+		</li>
+		<li>
+		A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78842">78842</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411180800_">Build I200411180800: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		No new Bugzillas closed or revised in this build.
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411110800">Build I200411110800: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Capture Documentation into ecore model from annotated java
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=77930">77930</a>)
+		</li>
+		<li>
+		Problem with handling a proxy instance of a type that has mixed content
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=77977">77977</a>)
+		</li>
+		<li>
+		Preserving namespace declarations on &quot;any type&quot; content
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78036">78036</a>)
+		</li>
+		<li>
+		problem with EcoreUtil.copy
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78116">78116</a>)
+		</li>
+		<li>
+		Bad handling of spaces in file or folder names
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=78117">78117</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411110800_">Build I200411110800: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		No new Bugzillas closed or revised in this build.
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411042134">Build I200411042134: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Generated code does not use formatting preferences.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=69869">69869</a>)
+		</li>
+		<li>
+		no load routine in the overwiew doc described
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=71598">71598</a>)
+		</li>
+		<li>
+		No eBaseStructuralFeatureID()/eDerivedStructuralFeatureID() generated for
+mixin features inherited from interface
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76956">76956</a>)
+		</li>
+		<li>
+		Missing Resource String (parsing regular expressions)
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=77038">77038</a>)
+		</li>
+		<li>
+		XMLResource.HREF serialization and de-serialization
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=77423">77423</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200411042134_">Build I200411042134: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Inconsistent data access on List values
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=77108">77108</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200410281648">Build I200410281648: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Provide a GenPackage option to generate an IDisposable item provider adapter factory.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76610">76610</a>)
+		</li>
+		<li>
+		ChangeRecoder exception when apply and reverse is invoked after a multivalue attribute is changed
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76825">76825</a>)
+		</li>
+		<li>
+		ChangeDescription problems when applyAndReverse is invoked multiple time
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76971">76971</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200410281648_">Build I200410281648: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Provide a GenPackage option to generate an IDisposable item provider adapter factory.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76610">76610</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200410220709">Build I200410220709: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		AddCommand fails on lists with non unique elements
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=50779">50779</a>)
+		</li>
+		<li>
+		Caching ID's on large files.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=62885">62885</a>)
+		</li>
+		<li>
+		Unnecessary cast to type InternalEObject in eBasicRemoveFromContainer
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=72159">72159</a>)
+		</li>
+		<li>
+		EMF tests for &quot;am I running in Eclipse&quot; not always reliable
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73763">73763</a>)
+		</li>
+		<li>
+		Memory leak in ItemProviderAdapter
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73771">73771</a>)
+		</li>
+		<li>
+		ReflectiveItemProvider#getAllEClasses(EClass) should ignore derived features
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75299">75299</a>)
+		</li>
+		<li>
+		EMF genmodels not created when genmodels form a dependency chain
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76253">76253</a>)
+		</li>
+		<li>
+		Exception when removing all elements of a not unque list
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76290">76290</a>)
+		</li>
+		<li>
+		EObject.eContainmentFeature may return wrong result for containment via an open content feature in a  feature map entry.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76463">76463</a>)
+		</li>
+		<li>
+		XMLTypeValidator needs to be regenerated to pick up fix for minLength constraint validation.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76656">76656</a>)
+		</li>
+		<li>
+		XMLResource ID caching problems
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76757">76757</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200410220709_">Build I200410220709: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		getContainmentProperty() throws a NullPointerException
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=76621">76621</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200410141127">Build I200410141127: EMF Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		SetCommand.create method may create unexecutable command
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=68944">68944</a>)
+		</li>
+		<li>
+		The &quot;Validate&quot; action appears to do nothing.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=69868">69868</a>)
+		</li>
+		<li>
+		Default value for Date attribute not generated w/ annotated java
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=70960">70960</a>)
+		</li>
+		<li>
+		Unnecessary casts in generated editor
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=72160">72160</a>)
+		</li>
+		<li>
+		Feature enhancements needed against EMF edit
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=72913">72913</a>)
+		</li>
+		<li>
+		Resource.getEObject throws NPE
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=72981">72981</a>)
+		</li>
+		<li>
+		EValidator.URI_ATTRIBUTE has wrong value
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73080">73080</a>)
+		</li>
+		<li>
+		Unicode – Compile and display errors with generated Model code and Editor code
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73210">73210</a>)
+		</li>
+		<li>
+		Unicode – Can’t generate core model using anonatated java source file encoded by UTF 16-BE/LE
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73211">73211</a>)
+		</li>
+		<li>
+		EMF tests for &quot;am I running in Eclipse&quot; not always reliable
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73763">73763</a>)
+		</li>
+		<li>
+		Memory leak in ItemProviderAdapter
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=73771">73771</a>)
+		</li>
+		<li>
+		Ecore validation fails for EPackage.eFactoryInstance
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=74199">74199</a>)
+		</li>
+		<li>
+		Incorrect type generated for map entries implementing interfaces
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=74402">74402</a>)
+		</li>
+		<li>
+		AdapterFactoryEditingDomain.getEditingDomainFor crashes if Resource is not part of a resource set
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=74912">74912</a>)
+		</li>
+		<li>
+		Ampersand characters not escaped in URIs
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75291">75291</a>)
+		</li>
+		<li>
+		PlatformResourceOutputStream should append without history
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75293">75293</a>)
+		</li>
+		<li>
+		XMLHandler#getPackageForURI(String) does not handle package proxies
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75294">75294</a>)
+		</li>
+		<li>
+		EcoreUtil.CrossReferencer should provide filtering mechanism
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75298">75298</a>)
+		</li>
+		<li>
+		Anonymous XSD type has same scope in ECore as global type
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75367">75367</a>)
+		</li>
+		<li>
+		Prefix maps are not being cleaned up
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75429">75429</a>)
+		</li>
+		<li>
+		FeatureEditorDialog does not handle resize correctly
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75461">75461</a>)
+		</li>
+		<li>
+		SetCommand rejects valid inputs
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75684">75684</a>)
+		</li>
+		<li>
+		org.eclipse.emf.ecore.xmi.FeatureNotFoundException is not Serializable
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75770">75770</a>)
+		</li>
+		<li>
+		JET crashes on certain formats of the &quot;imports&quot; attribute.
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75775">75775</a>)
+		</li>
+	</ul>
+	</li><br>
+
+	<li>
+	<b><a name="I200410141127_">Build I200410141127: SDO Bug Fixes and Improvements</a></b>
+	<ul>
+		<li>
+		Issue with containment and deleted objects
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75416">75416</a>)
+		</li>
+		<li>
+		Delete operation should cascade through containment hieracrchy
+		(Bugzilla <a target="bugz" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=75419">75419</a>)
+		</li>
+	</ul>
+	</li><br>
+
+</ol>
+<br>
+
+</td></tr></tbody></table>
+
+<!-- $Id: release-notes2.1.0.html,v 1.1 2004/12/07 22:07:16 nickb Exp $ -->
