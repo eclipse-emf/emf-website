@@ -343,10 +343,11 @@
 <p><a href="models-submit.php">Submit an EMF or SDO model, plugin or tool</a></p>
 
 <p>
+	<a name="quicknav">
 	<a href="../">EMF Home</a> |
 	<a href="../../xsd">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
-
+	</a>
 </p>
 
 <!-- wrapper for left nav -->
@@ -358,4 +359,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.8 2005/01/12 00:01:24 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.9 2005/01/24 20:59:15 nickb Exp $ -->

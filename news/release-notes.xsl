@@ -270,9 +270,11 @@
 <xsl:if test="$showFiltersOrHeaderFooter!='1'">
 
 <p>
+	<a name="quicknav">
 	<a href="../">EMF Home</a> |
 	<a href="../../xsd">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
+	</a>
 </p>
 
 <!-- wrapper for left nav -->
@@ -286,4 +288,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.4 2005/01/24 20:52:25 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.5 2005/01/24 20:59:15 nickb Exp $ -->
