@@ -20,8 +20,7 @@
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="eclipse_nav.php" target="_self" class="navhead">eclipse nav</a></td>
   </tr>
 	<?php echo $sep_line; ?>
-<?php function common_links() { 
-	global $sep_line; ?>
+<?php function common_links() { global $sep_line; ?>
   <!-- common links - both projects -->
   <tr> 
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo</a> <a href="../../xsd/" target="_top" class="navhead">&amp; xsd</a></td>
@@ -87,17 +86,19 @@
 	);
 	foreach ($statuses as $statusLabel => $statusString) { 
 		$bugzLinks = array(
-			"EMF/SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
-			"XSD" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
+			//"EMF/SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
+			//"XSD" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on",
 			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=%26product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id&column_changeddate=on&column_severity=on&column_priority=on&column_platform=on&column_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_summary=on"
 		);
-		$blcnt=0;
-		echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
+		//$blcnt=0;
+		//echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
+		echo '<small class="nav">'."\n";
 		foreach ($bugzLinks as $label => $url) { 
-			if ($blcnt>0) { echo ", "; } $blcnt++;
-			echo "".'<small class="nav"><a href="'.$url.'" class="nav">'.$label.'</a></small>';
+			//if ($blcnt>0) { echo ", "; } $blcnt++;
+			//echo "".'<small class="nav"><a href="'.$url.'" class="nav">'.$label.'</a></small>';
+			echo "&#160; &#160; &#160; ".'<small class="nav"><a href="'.$url.'" class="nav">'.$statusLabel.'</a></small><br>'."\n";
 		} 
-		echo "<br>";
+		//echo "<br>";
 	}
 ?>
 		</p>
@@ -119,7 +120,7 @@
 		
 	<?php echo $sep_line; ?>
 <?php } ?>
-<?php function emfsdo_links() { ?>
+<?php function emfsdo_links() { global $sep_line; ?>
   <!-- emf/sdo project links -->
   
   <tr> 
@@ -177,8 +178,14 @@
     </td>
   </tr>
 	<?php echo $sep_line; ?>
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="../news-whatsnew.php" class="nav">Site News</a></p>
+    </td>
+  </tr>
+	<?php echo $sep_line; ?>
 <?php } ?>
-<?php function xsd_links() { ?>
+<?php function xsd_links() { global $sep_line; ?>
   <!-- xsd project links -->
   <tr> 
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../xsd/" target="_top" class="navhead">xsd</a></td>
@@ -239,8 +246,14 @@
     </td>
   </tr>
 	<?php echo $sep_line; ?>
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="../news-whatsnew.php" class="nav">Site News</a></p>
+    </td>
+  </tr>
+	<?php echo $sep_line; ?>
 <?php } ?>
-<?php function other_links() { ?>
+<?php function other_links() { global $sep_line; ?>
   <!-- other project links -->
   <tr> 
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../uml2/" target="_top" class="navhead">uml2</a></td>
