@@ -31,7 +31,7 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="../downloads.php" class="nav">Downloads</a>: <small class="nav"><a href="../downloads.php" class="nav">v2.x</a> | <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></small>
+      <p>&#160; <a href="../downloads.php" class="nav">Downloads</a>: <small class="nav"><a href="../downloads.php" class="nav">v2.x</a>, <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html" class="nav">v1.x</a></small>
 		</p>
     </td>
   </tr>
@@ -70,7 +70,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="../news-whatsnew-cvs.php?source=emf" class="nav">What's New, CVS?</a><br>
-		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="../news-whatsnew-cvs.php?source=emf/">EMF</a> | <a class="nav" href="../news-whatsnew-cvs.php?source=sdo">SDO</a> | <a class="nav" href="../news-whatsnew-cvs.php?source=xsd">XSD</a>
+		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="../news-whatsnew-cvs.php?source=emf/">EMF</a>, <a class="nav" href="../news-whatsnew-cvs.php?source=sdo">SDO</a>, <a class="nav" href="../news-whatsnew-cvs.php?source=xsd">XSD</a>
 		
 		</small>
 		</p>
@@ -83,7 +83,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" class="nav">CVS Repository</a><br>
-		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/">EMF</a> | <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/">SDO</a> | <a class="nav" href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.xsd">XSD</a>
+		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/">EMF</a>, <a class="nav" href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/">SDO</a>, <a class="nav" href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.xsd">XSD</a>
 		
 		</small>
 		</p>
@@ -111,7 +111,7 @@
 		$blcnt=0;
 		echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
 		foreach ($bugzLinks as $label => $url) { 
-			if ($blcnt>0) { echo " | "; } $blcnt++;
+			if ($blcnt>0) { echo ", "; } $blcnt++;
 			echo "".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
 		} 
 		echo "<br>";
@@ -129,7 +129,7 @@
       <p>&#160; <a href="../faq.php" class="nav">FAQs</a><br>
 		<small class="nav"> 
 		
-		&#160; &#160; &#160;  <a class="nav" href="../faq.php?FAQ=EMF">EMF</a> | <a class="nav" href="../faq.php?FAQ=SDO">SDO</a> | <a class="nav" href="../faq.php?FAQ=XSD">XSD</a> <br>
+		&#160; &#160; &#160;  <a class="nav" href="../faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="../faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="../faq.php?FAQ=XSD">XSD</a> <br>
 		&#160; &#160; &#160;  <a href="../../eclipse/faq/eclipse-faq.html" class="nav">Eclipse FAQ</a>
 		
 		</small>

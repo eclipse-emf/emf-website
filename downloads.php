@@ -32,6 +32,6 @@
 			$colSuf = "all";
 
 		include $pre."includes/header.php";
-		include $pre."../../../tools/emf/scripts/downloads-common.php"; 
+		include $pre."downloads-common.php"; 
 ?>
-<!-- $Id: downloads.php,v 1.1 2004/12/07 22:03:03 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.2 2004/12/07 23:32:13 nickb Exp $ -->
