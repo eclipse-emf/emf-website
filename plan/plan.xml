@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.xml,v 1.3 2005/03/01 20:32:03 nickb Exp $ -->
+<!-- $Id: plan.xml,v 1.4 2005/03/01 23:23:48 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/03/01 20:32:03 $</modified>
+	<modified>$Date: 2005/03/01 23:23:48 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
@@ -16,10 +16,11 @@
 		<column-def column="opened" label="Opened"/>
 		<column-def column="reporter" label="Reported By"/>
 		<column-def column="assignee" label="Assigned To"/>
+		<column-def column="votes" label="Votes"/>
 		<column-def column="sev" label="Sev"/>
 		<column-def column="pri" label="Pri"/>
-		<column-def column="stat" label="Stat"/>
 
+		<column-def column="stat" label="Stat"/>
 		<column-def column="plan-priority" label="Plan Priority"/>
 		<column-def column="plan-estimate" label="Plan Estim"/>
 		<column-def column="plan-comments" label="Plan Comments"/>
@@ -36,85 +37,91 @@
 		<reporter>richkulp&#64;us.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>2d</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>CommandFramework needs a ResetCommand</summary>
 	</bug>
 	<bug>
 		<id>51210</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-		<ver>1.0</ver>
 
+		<ver>1.0</ver>
 		<targetm>---</targetm>
 		<opened>2004-02-04 21:46</opened>
 		<reporter>ole_ersoy&#64;yahoo.com</reporter>
 		<assignee>frankb&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
 
+		<votes>2</votes>
+		<sev>normal</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>XML Schema Choice Element Does Not Ensure Mutual Exclusiveness</summary>
-
 	</bug>
 	<bug>
 		<id>61251</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.0</ver>
 		<targetm>---</targetm>
-
 		<opened>2004-05-06 12:38</opened>
 		<reporter>stepper&#64;esc-net.de</reporter>
 		<assignee>frankb&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Flattening redundant ChangeRecorder information</summary>
 	</bug>
 	<bug>
-
 		<id>61639</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>1.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-05-10 14:46</opened>
-
 		<reporter>josh.allen&#64;zerog.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>3</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Provide a Command which removes objects from all structural features in the model.</summary>
 	</bug>
 	<bug>
 		<id>61751</id>
-
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>2.0</ver>
 		<targetm>---</targetm>
 		<opened>2004-05-11 12:09</opened>
 		<reporter>jcheuoua&#64;ilog.fr</reporter>
-
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
@@ -135,85 +142,91 @@
 		<reporter>pelder&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P4</pri>
 		<stat>NEW</stat>
 		<plan-priority>4</plan-priority>
 		<plan-estimate>0d</plan-estimate>
-		<plan-comments>This depends on migration to AST and will be done when that is done</plan-comments>
 
+		<plan-comments>This depends on migration to AST and will be done when that is done</plan-comments>
 		<summary>JPatternDictionary does not match if elements have multiple comments, even if only one is Javadoc</summary>
 	</bug>
 	<bug>
 		<id>72215</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
-		<ver>2.1</ver>
 
+		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-08-18 16:47</opened>
 		<reporter>hudsonr&#64;us.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<sev>enhancement</sev>
 
+		<votes>0</votes>
+		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Locate dependant genmodels using PDE src extension mechanism</summary>
-
 	</bug>
 	<bug>
 		<id>73143</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2004-09-02 09:05</opened>
 		<reporter>cap&#64;isg.axmor.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P4</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>4</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Notification Gatherer</summary>
 	</bug>
 	<bug>
-
 		<id>74945</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-09-24 09:13</opened>
-
 		<reporter>tdjohns1&#64;rockwellcollins.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>AdapterFactoryTableEditor would be very helpful</summary>
 	</bug>
 	<bug>
 		<id>75617</id>
-
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-10-05 01:42</opened>
 		<reporter>stepper&#64;esc-net.de</reporter>
-
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>1</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
@@ -234,85 +247,91 @@
 		<reporter>cjdaly&#64;us.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>2d</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>add context action to get genmodel from ecore model</summary>
 	</bug>
 	<bug>
 		<id>75921</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-		<ver>2.1</ver>
 
+		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-10-08 12:53</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<sev>enhancement</sev>
 
+		<votes>1</votes>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Handle multiplicity changes to ETypedElement</summary>
-
 	</bug>
 	<bug>
 		<id>75922</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2004-10-08 12:57</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>5</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Content adapter for managing reverse of 1-way references (reference map)</summary>
 	</bug>
 	<bug>
-
 		<id>75923</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-10-08 12:57</opened>
-
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>1</votes>
 		<sev>enhancement</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>1</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Provide extension points for other model importers</summary>
 	</bug>
 	<bug>
 		<id>75925</id>
-
 		<product>EMF</product>
 		<comp>Tools</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-10-08 13:00</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
-
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>1</votes>
 		<sev>enhancement</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
@@ -333,85 +352,91 @@
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
 		<plan-estimate>1w</plan-estimate>
-		<plan-comments>This is mostly done</plan-comments>
 
+		<plan-comments>This is mostly done</plan-comments>
 		<summary>Investigate DOM 2 Ecore mapping</summary>
 	</bug>
 	<bug>
 		<id>75931</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-		<ver>2.1</ver>
 
+		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-10-08 13:39</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<sev>enhancement</sev>
 
+		<votes>0</votes>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Consider using Collection or Set in API rather than List/EList for unordered features</summary>
-
 	</bug>
 	<bug>
 		<id>75933</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2004-10-08 13:40</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>1</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Define constraints on valid Ecore models and diagnose violations of them</summary>
 	</bug>
 	<bug>
-
 		<id>76538</id>
 		<product>EMF</product>
 		<comp>XML/XMI</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-10-18 23:10</opened>
-
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>EMF should support XMI &quot;2.1&quot;</summary>
 	</bug>
 	<bug>
 		<id>77518</id>
-
 		<product>EMF</product>
 		<comp>SDO</comp>
+
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-11-02 14:35</opened>
 		<reporter>kjwillia&#64;us.ibm.com</reporter>
-
 		<assignee>bportier&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
@@ -432,85 +457,91 @@
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
 		<plan-estimate>4w</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>JMerger:  Move from JDOM to AST</summary>
 	</bug>
 	<bug>
 		<id>79089</id>
 		<product>EMF</product>
 		<comp>XML/XMI</comp>
-		<ver>2.0.1</ver>
 
+		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-11-19 12:26</opened>
 		<reporter>ire0&#64;us.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
 
+		<votes>0</votes>
+		<sev>normal</sev>
 		<pri>P4</pri>
 		<stat>NEW</stat>
 		<plan-priority>4</plan-priority>
 		<plan-estimate>1d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Modify computeFeatureKind to return kind to avoid HashMap.gets</summary>
-
 	</bug>
 	<bug>
 		<id>79670</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2004-11-29 11:01</opened>
 		<reporter>aleksander.bandelj&#64;academa.si</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>1</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>SetCommand fails on 1-to-many unique reference</summary>
 	</bug>
 	<bug>
-
 		<id>79768</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-11-30 07:43</opened>
-
 		<reporter>merks&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Investigate support for Java 5.0</summary>
 	</bug>
 	<bug>
 		<id>80796</id>
-
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-12-13 04:57</opened>
 		<reporter>vlcakm&#64;tiscali.cz</reporter>
-
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>1</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
@@ -531,85 +562,91 @@
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1w</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>validate() method should check well-formness of XML characters</summary>
 	</bug>
 	<bug>
 		<id>81752</id>
 		<product>EMF</product>
 		<comp>SDO</comp>
-		<ver>2.0.1</ver>
 
+		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2004-12-21 14:28</opened>
 		<reporter>kjwillia&#64;us.ibm.com</reporter>
 		<assignee>bportier&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
 
+		<votes>0</votes>
+		<sev>normal</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Attr with &quot;xs:date&quot;  desiralization is failed by exception</summary>
-
 	</bug>
 	<bug>
 		<id>82597</id>
 		<product>EMF</product>
+
 		<comp>Edit</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-01-11 14:15</opened>
 		<reporter>kvdijken&#64;juncus.nl</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Confusing default drag and drop behaviour</summary>
 	</bug>
 	<bug>
-
 		<id>82624</id>
 		<product>XSD</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-11 18:28</opened>
-
 		<reporter>jtaylor&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>redefine affects sibling types</summary>
 	</bug>
 	<bug>
 		<id>82626</id>
-
 		<product>XSD</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-11 18:35</opened>
 		<reporter>jtaylor&#64;nextance.com</reporter>
-
 		<assignee>merks&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
@@ -630,105 +667,112 @@
 		<reporter>jtaylor&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2d</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>Chained redefine causes stack overflow</summary>
 	</bug>
 	<bug>
 		<id>82899</id>
 		<product>EMF</product>
 		<comp>XML/XMI</comp>
-		<ver>2.1</ver>
 
+		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-14 19:18</opened>
 		<reporter>kjwenger&#64;yahoo.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<sev>enhancement</sev>
 
+		<votes>0</votes>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Simple type with non-Java-compliant enumeration restriction</summary>
-
 	</bug>
 	<bug>
 		<id>83055</id>
 		<product>XSD</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-01-17 22:15</opened>
 		<reporter>jtaylor&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Redefine not applied to types in sibling includes</summary>
 	</bug>
 	<bug>
-
 		<id>83223</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-19 13:43</opened>
-
 		<reporter>richkulp&#64;us.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P4</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>4</plan-priority>
 		<plan-estimate>1d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>WrappedException should use the new &quot;cause&quot; in Exception.</summary>
 	</bug>
 	<bug>
-
 		<id>83463</id>
 		<product>EMF</product>
+
 		<comp>XML/XMI</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-21 17:15</opened>
-
 		<reporter>iriss&#64;us.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>3</plan-priority>
 		<plan-estimate>2d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>unions of enumerations are causing confusion so that the wrong convertToString method ends up being called</summary>
 	</bug>
 	<bug>
 		<id>83591</id>
-
 		<product>EMF</product>
 		<comp>Doc</comp>
+
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-25 03:59</opened>
 		<reporter>vlcakm&#64;tiscali.cz</reporter>
-
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
@@ -749,85 +793,91 @@
 		<reporter>frankb&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2d</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>Move ImportManager to org.eclipse.emf.codegen plugin</summary>
 	</bug>
 	<bug>
 		<id>83714</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-		<ver>2.1</ver>
 
+		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-26 10:23</opened>
 		<reporter>richkulp&#64;us.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<sev>enhancement</sev>
 
+		<votes>0</votes>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Allow special URI fragments for eAnnotations.</summary>
-
 	</bug>
 	<bug>
 		<id>83873</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-01-27 15:40</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>[Change Model] Proper support FeatureMap changes</summary>
 	</bug>
 	<bug>
-
 		<id>83876</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-27 15:43</opened>
-
 		<reporter>srich&#64;us.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>2</plan-priority>
 		<plan-estimate>1d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Possible problem with clock overrun in EcoreUtil.UUID</summary>
 	</bug>
 	<bug>
 		<id>83899</id>
-
 		<product>XSD</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-27 20:27</opened>
 		<reporter>jtaylor&#64;nextance.com</reporter>
-
 		<assignee>merks&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
@@ -848,105 +898,112 @@
 		<reporter>philipp&#64;kutter.org</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1w</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>popup-action/toolbar-button in the Properties view</summary>
 	</bug>
 	<bug>
 		<id>84327</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-		<ver>2.1</ver>
 
+		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-02-03 08:31</opened>
 		<reporter>merks&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
 
+		<votes>0</votes>
+		<sev>normal</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Support &quot;archive:&quot; URL scheme to access zip files nested in zip files</summary>
-
 	</bug>
 	<bug>
 		<id>84563</id>
 		<product>EMF</product>
+
 		<comp>Edit</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-02-07 08:07</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
+
 		<plan-comments>This affects many places, including the generated editor and the Mapping editor.</plan-comments>
 		<summary>[Deprecated code] Change the generated code to use TreeColumn</summary>
 	</bug>
-
 	<bug>
 		<id>84564</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-02-07 08:08</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>1d</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>[Deprecated code] The generated RCP plugin.xml is using deprecated extension points.</summary>
 	</bug>
 	<bug>
-
 		<id>84813</id>
 		<product>EMF</product>
 		<comp>Doc</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-02-09 13:43</opened>
-
 		<reporter>cbridgha&#64;us.ibm.com</reporter>
 		<assignee>codeslave&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
-
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
+
 		<plan-comments></plan-comments>
 		<summary>Migrate Rose models to UML2</summary>
 	</bug>
 	<bug>
 		<id>84950</id>
-
 		<product>EMF</product>
 		<comp>Edit</comp>
+
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-02-10 17:18</opened>
 		<reporter>henrich.kraemer&#64;us.ibm.com</reporter>
-
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
@@ -967,94 +1024,100 @@
 		<reporter>wendyzhu&#64;ca.ibm.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
 
+		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
 		<plan-estimate>1d</plan-estimate>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>Can XmlMapImpl be threadsafe?</summary>
 	</bug>
 	<bug>
 		<id>85929</id>
 		<product>EMF</product>
 		<comp>XML/XMI</comp>
-		<ver>2.0.1</ver>
 
+		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-02-20 05:56</opened>
 		<reporter>manklu&#64;web.de</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<sev>major</sev>
 
+		<votes>0</votes>
+		<sev>major</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
+
 		<summary>Problem with the desiralization of forward references</summary>
 	</bug>
-
 	<bug>
 		<id>85972</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
-		<targetm>---</targetm>
 
+		<targetm>---</targetm>
 		<opened>2005-02-21 13:08</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+
 		<sev>enhancement</sev>
 		<pri>P3</pri>
-
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Option to store boolean attributes in eFlags</summary>
+
 	</bug>
 	<bug>
 		<id>85973</id>
-
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-21 13:11</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
-
 		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>enhancement</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
-
 		<plan-comments></plan-comments>
 		<summary>JUnit testcase skeletons for volatile features</summary>
 	</bug>
+
 	<bug>
 		<id>85974</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
-
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-21 13:13</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>khussey&#64;ca.ibm.com</assignee>
-
+		<votes>0</votes>
 		<sev>enhancement</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Option to not generate any child creation icons</summary>
-
 	</bug>
+
 	<bug>
 		<id>85975</id>
 		<product>EMF</product>
@@ -1065,55 +1128,59 @@
 		<opened>2005-02-21 13:18</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>enhancement</sev>
-		<pri>P3</pri>
 
+		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>GenClass.image should be false by default for abstract classes</summary>
 	</bug>
+
 	<bug>
 		<id>85976</id>
-
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-21 13:23</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
-
 		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<votes>1</votes>
 		<sev>enhancement</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
-
 		<plan-comments></plan-comments>
 		<summary>GenFeature attribute(s) for property category/filter flags</summary>
 	</bug>
+
 	<bug>
 		<id>85979</id>
 		<product>EMF</product>
 		<comp>Mapping</comp>
-
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-21 13:31</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>khussey&#64;ca.ibm.com</assignee>
-
+		<votes>0</votes>
 		<sev>enhancement</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Ecore2XML mapping capability</summary>
-
 	</bug>
+
 	<bug>
 		<id>85982</id>
 		<product>EMF</product>
@@ -1124,47 +1191,51 @@
 		<opened>2005-02-21 13:43</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>enhancement</sev>
-		<pri>P3</pri>
 
+		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Optional localization</summary>
 	</bug>
+
 	<bug>
 		<id>86355</id>
-
 		<product>EMF</product>
 		<comp>Runtime</comp>
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-23 15:32</opened>
 		<reporter>schacher&#64;us.ibm.com</reporter>
-
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
-
 		<plan-comments></plan-comments>
 		<summary>Need isLoading() test for Resource</summary>
 	</bug>
+
 	<bug>
 		<id>86481</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
-
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-24 10:39</opened>
 		<reporter>bhunt&#64;mac.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
-
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
@@ -1183,55 +1254,59 @@
 		<opened>2005-02-25 09:24</opened>
 		<reporter>jcheuoua&#64;wanadoo.fr</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>enhancement</sev>
-		<pri>P3</pri>
 
+		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Providing a Registry for ItemProviderAdapterFactories</summary>
 	</bug>
+
 	<bug>
 		<id>86634</id>
-
 		<product>EMF</product>
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-25 10:03</opened>
 		<reporter>mlovett&#64;uk.ibm.com</reporter>
-
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
-
 		<plan-comments></plan-comments>
 		<summary>Performance enhancement to BasicExtendedMetaData</summary>
 	</bug>
+
 	<bug>
 		<id>86665</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
-
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-25 12:24</opened>
 		<reporter>iriss&#64;us.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
-
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>feature name that differ in case</summary>
-
 	</bug>
+
 	<bug>
 		<id>86782</id>
 		<product>EMF</product>
@@ -1242,65 +1317,70 @@
 		<opened>2005-02-27 11:47</opened>
 		<reporter>marcusebner&#64;gmx.net</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
-		<pri>P3</pri>
 
+		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Unhandled event loop exception - java.lang.StackOverflowError</summary>
 	</bug>
+
 	<bug>
 		<id>82613</id>
-
 		<product>XSD</product>
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
 		<targetm>2.1</targetm>
+
 		<opened>2005-01-11 17:39</opened>
 		<reporter>codeslave&#64;ca.ibm.com</reporter>
-
 		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P4</pri>
 		<stat>NEW</stat>
 		<plan-priority>4</plan-priority>
 		<plan-estimate>4w</plan-estimate>
-
 		<plan-comments></plan-comments>
 		<summary>[Theme] Performance Enhancements For XSD</summary>
+
 	</bug>
 	<bug>
 		<id>70862</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-
 		<ver>2.1</ver>
 		<targetm>2.1</targetm>
+
 		<opened>2004-07-26 17:55</opened>
 		<reporter>aspyker&#64;us.ibm.com</reporter>
 		<assignee>frankb&#64;ca.ibm.com</assignee>
-
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
 		<plan-estimate>12w</plan-estimate>
 		<plan-comments></plan-comments>
-
 		<summary>[Theme] Performance Enhancements For EMF/SDO</summary>
+
 	</bug>
 	<bug>
 		<id>82611</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
-
 		<targetm>2.1</targetm>
+
 		<opened>2005-01-11 17:38</opened>
 		<reporter>codeslave&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>enhancement</sev>
 
 		<pri>P1</pri>
@@ -1321,16 +1401,17 @@
 		<opened>2005-01-11 17:43</opened>
 		<reporter>codeslave&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
-		<pri>P1</pri>
 
+		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
 		<plan-estimate>26w</plan-estimate>
 		<plan-comments>This will depend on what is all in the next version of the spec</plan-comments>
 		<summary>[Theme] SDO 1.1 Support</summary>
-	</bug>
 
+	</bug>
 	<bug>
 		<id>82610</id>
 		<product>EMF</product>
@@ -1341,16 +1422,17 @@
 		<opened>2005-01-11 17:36</opened>
 		<reporter>codeslave&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
-		<pri>P4</pri>
 
+		<pri>P4</pri>
 		<stat>NEW</stat>
 		<plan-priority>4</plan-priority>
 		<plan-estimate>4w</plan-estimate>
 		<plan-comments>This is just the estimate for investigation</plan-comments>
 		<summary>[Theme] J2SE 5 Support for EMF/SDO</summary>
-	</bug>
 
+	</bug>
 	<bug>
 		<id>82614</id>
 		<product>XSD</product>
@@ -1361,53 +1443,57 @@
 		<opened>2005-01-11 17:41</opened>
 		<reporter>codeslave&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
-		<pri>P4</pri>
 
+		<pri>P4</pri>
 		<stat>NEW</stat>
 		<plan-priority>4</plan-priority>
 		<plan-estimate>1w</plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>[Theme] J2SE 5 Support for XSD</summary>
+
 	</bug>
 	<bug>
-
 		<id>86190</id>
 		<product>XSD</product>
 		<comp>Doc</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-		<opened>2005-02-22 14:30</opened>
 
+		<opened>2005-02-22 14:30</opened>
 		<reporter>eclipse&#64;sujee.net</reporter>
 		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P3</pri>
 		<stat>ASSIGNED</stat>
-
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>xsd doc : toc.xml has invalid xml?</summary>
 	</bug>
+
 	<bug>
 		<id>86747</id>
 		<product>EMF</product>
-
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-02-26 08:29</opened>
 		<reporter>saveez&#64;hotmail.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-
+		<votes>0</votes>
 		<sev>normal</sev>
+
 		<pri>P3</pri>
 		<stat>ASSIGNED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Bug for a void accessor</summary>
-
 	</bug>
+
 </plan>
