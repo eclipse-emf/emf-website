@@ -207,7 +207,7 @@
 	}
 	?>
       <p>&#160; <a href="../../xsd/news-release-notes.php?ver=<?php echo $stored_ver; ?>" class="nav">Release Notes</a><br>
-		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../news-release-notes.php?ver=<?php echo $stored_ver; ?>#relnotes1">...</a>
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../../xsd/news-release-notes.php?ver=<?php echo $stored_ver; ?>#relnotes1">...</a>
 		</small>
 		</p>
     </td>
