@@ -86,10 +86,9 @@
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="docs.php" class="nav">Documentation</a><br>
 		<small class="nav">
-		&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160; 
+		&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160;  
+
 		<a class="nav" href="docs.php?doc=references/overview/EMF.html">EMF</a>, <a class="nav" href="docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="nav" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a> <br>
-		&#160; &#160; &#160; FAQs:<br>&#160; &#160; &#160; 
-		<a class="nav" href="faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="faq.php?FAQ=XSD">XSD</a> 
 		</small>
 		</p>
 
@@ -111,8 +110,8 @@
 		preg_match("/release-notes(.*)\.html/",$file,$m);
 		$vver = $m[1];
 		if ($i>0) { $out .= ', '; }
-		if ($i%3==2) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
 		$out .= '<a class="nav" href="'.$pre.'news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
+		if ($i%3==2) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
 		if (!$stored_ver) { $stored_ver=$vver; }
 	}
 	?>
@@ -134,7 +133,7 @@
 		<a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="nav">Search</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
- target="_self" class="nav">Web UI</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
+ target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
 &#160; &#160; &#160;  <a href="<?php echo $pre; ?>mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="nav">Archives</a>
 		</small>
 		</p>
@@ -152,7 +151,7 @@
 		<a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="nav">Search</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
- target="_self" class="nav">Web UI</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
+ target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
 &#160; &#160; &#160;  <a href="<?php echo $pre; ?>mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="nav">Archives</a>
 		
 		</small>
@@ -166,7 +165,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="models.php" class="nav">EMF Corner</a><br>
-		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="models-submit.php">Submit!</a>
+		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="models-submit.php">Contribute!</a>
 		
 		</small>
 		</p>
@@ -199,6 +198,22 @@
 
     </td>
   </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="faq.php" class="nav">FAQs</a><br>
+		<small class="nav"> 
+		
+		<a class="nav" href="faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="faq.php?FAQ=XSD">XSD</a> 
+		
+		</small>
+		</p>
+
+    </td>
+  </tr>
+		
 
 	<?php echo $sep_line; ?>
 

@@ -19,21 +19,23 @@ imported into EMF. Most important of all, EMF provides the foundation for
 interoperability with other EMF-based tools and applications.
 <br><br>EMF includes an EMF-based implementation of Service Data Objects (SDO). SDO is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices.
 </td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td><a href="../../../tools/emf/scripts/models.php"><img src="<?php echo $CVSpreEMF; ?>images/eclipse-icons/emf_corner.gif" width="52" height="52" border="0" alt=""></a></td>
 <td width="50%">
 <?php		if (strtotime("Sept 30, 2004")>strtotime("-3 weeks")) { 
-				echo '<b>Sept&nbsp;30<sup>th</sup></b> &nbsp;-&nbsp; <img src="http://www.eclipse.org/images/new.gif" width="31" height="14">';
+				echo '<b>Sept&#160;30<sup>th</sup></b> &#160;-&#160; <img src="http://www.eclipse.org/images/new.gif" width="31" height="14">';
 			} ?> The <a href="../../../tools/emf/scripts/models.php">EMF Corner site</a> is now live! For everyone who's wanted to contribute models, projects, files, ideas, utilities, code, or discussion but haven't had a way to do so, now you can. You can contribute anything related to EMF, SDO, or XSD.<br/><br/>
 			Have a look, post your comments, submit your models, or just read what others have written. Enjoy! <img src="<?php echo $CVSpreEMF; ?>images/smileys/NBcool.gif" width="18" height="18" border="0" alt="">
 		<br><br>
-		To provide comments about this prototype community project, you can email <a href="mailto:codeslave@ca.ibm.com?Subject=EMF Corner Comments">codeslave@ca.ibm.com</a>, post to the <a href="news://news.eclipse.org/eclipse.tools.emf">EMF newsgroup</a> or <a href="news://news.eclipse.org/eclipse.technology.xsd">XSD newsgroup</a>, or <a href="../../../tools/emf/scripts/models-submit.php">start a thread</a> under the 'General Discussion' category.
+		To provide comments about this prototype community project, please email <a href="mailto:codeslave@ca.ibm.com?Subject=EMF Corner Comments">codeslave@ca.ibm.com</a>.
+
+<br><br>
 
 		<!-- right column tables start -->
       <table cellspacing="0" cellpadding="0" width="100%" border="0">
 	       <tr>
-            <td rowspan="2" height="15" bgcolor="#8ABDBF"><span style="color: #ffffff; font-weight:bold; font-size: 11px; font-family: Verdana,Arial,Helvetica;">&nbsp;&nbsp;&nbsp;What's New</span></td>
-            <td width="60%">&nbsp;</td>
+            <td rowspan="2" height="15" bgcolor="#8ABDBF"><span style="color: #ffffff; font-weight:bold; font-size: 11px; font-family: Verdana,Arial,Helvetica;">&#160;&#160;&#160;What's New</span></td>
+            <td width="60%">&#160;</td>
           </tr>
           <tr>
             <td height="3" bgcolor="#8ABDBF"><img src="<?php echo $CVSpre; ?>images/c.gif" width=1 height=10></td>
@@ -127,7 +129,7 @@ serves as a starting point from which to start customizing.</li>
 
 All generators support regeneration of code while preserving user
 modifications. The generators can be invoked either through the GUI
-or&nbsp; headless from a command line. 
+or&#160; headless from a command line. 
 
 <br/><br/>
 Want to learn more about how easy it is to use this exciting new
@@ -151,7 +153,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.2 2004/12/07 22:25:31 nickb Exp $ -->
+<!-- $Id: home.php,v 1.3 2004/12/07 22:40:39 nickb Exp $ -->
 </body></html>
 
 
