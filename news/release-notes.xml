@@ -12,6 +12,17 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200503100800" project="emf">
+<bug id="85973">JUnit testcase skeletons for volatile features</bug>
+<bug id="86782">Unhandled event loop exception - java.lang.StackOverflowError</bug>
+<bug id="87210">XMLCalendar throws StringIndexOutOfBounds attempted to parse empty string</bug>
+<bug id="87212">JETEmitter.addVariable() produces classpath errors in .JETEmitters project</bug>
+<bug id="87219">%featureName? %providerName?</bug>
+<bug id="87433">FeatureMapUtil$FeatureEList#basicGet(int) returns wrong result</bug>
+<bug id="87452">Generated doSwitch fails with concrete subtype in separate package</bug>
+<bug id="87456">ECoreUtil.Copier.copyAttribute fails because of cast to EObject</bug>
+</entry>
+
 <entry version="2.1.0" build="I200503030800" project="emf">
 <bug id="85929">Problem with the desiralization of forward references</bug>
 <bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
@@ -68,6 +79,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200503100800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -263,6 +278,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200503100800" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200503030800" project="xsd">
@@ -1422,4 +1441,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.33 2005/03/08 21:35:35 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.34 2005/03/10 15:23:22 nickb Exp $ -->
