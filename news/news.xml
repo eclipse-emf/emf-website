@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="February 28, 2005" showOn="whatsnew">
+	<!-- "#M200502281726" -->
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">Version 2.0.2</a> Maintenance build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.2">2.0.2RC2</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="February 25, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200502240800</a>) is available 
@@ -431,6 +437,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.23 2005/02/25 06:36:56 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.24 2005/02/28 23:35:37 nickb Exp $ -->
 
 </doc>

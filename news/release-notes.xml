@@ -347,6 +347,10 @@ mixin features inherited from interface</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
 </entry>
 
+<entry version="2.0.2" build="2.0.2RC2" project="emf">
+<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
+</entry>
+
 <entry version="2.0.2" build="M200502171209" project="emf">
 <bug id="85555">[DUPE] A data type called URI results in generated XyzPackageImpl that doesn't compile in the case of load initialization.</bug>
 </entry>
@@ -370,6 +374,10 @@ mixin features inherited from interface</bug>
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.0.2" build="2.0.2RC2" project="sdo">
+<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
+</entry>
+
 <entry version="2.0.2" build="M200502171209" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -391,6 +399,10 @@ mixin features inherited from interface</bug>
 
 <entry version="2.0.2" build="M200501191212" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.2" build="2.0.2RC2" project="xsd">
+<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
 </entry>
 
 <entry version="2.0.2" build="M200502171209" project="xsd">
@@ -1384,4 +1396,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.27 2005/02/25 06:36:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.28 2005/02/28 23:35:37 nickb Exp $ -->
