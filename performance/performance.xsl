@@ -28,6 +28,8 @@
 	<style>@import url("performance.css");</style>
 	</head>
 	<body>
+	<div id="dhtmltooltip"></div>
+	<script type="text/javascript" src="performance.js"></script>
 
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<!-- wrapper for left nav -->
@@ -181,14 +183,14 @@
 	<td>&#160;&#160;</td>
 	<td><b><small>User Time + Kernel/System Time</small></b></td>
 	<td>&#160;&#160;</td>
-	<td><b><small>s</small></b></td>
+	<td><b><small>ms or &#956;s</small></b></td>
 	<td>&#160;&#160;</td>
 	<td><b><small>/proc/self/stat</small></b></td></tr>
 <tr bgcolor="#EEEEEE"><td><b><small>Kernel Time</small></b></td>
 	<td>&#160;&#160;</td>
 	<td><b><small>Kernel/System Time</small></b></td>
 	<td>&#160;&#160;</td>
-	<td><b><small>s</small></b></td>
+	<td><b><small>ms or &#956;s</small></b></td>
 	<td>&#160;&#160;</td>
 	<td><b><small>/proc/self/stat</small></b></td></tr>
 <tr bgcolor="#FFFFFF"><td><b><small>Soft Page Faults</small></b></td>
@@ -355,21 +357,25 @@
 						<td><small>&#160;</small></td>
 						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
 						<td><small>&#160;</small></td>
-						<td><i><small style="color:navy"><xsl:choose>
-							<xsl:when test="contains($property,'time') or contains($property,'Time')">
-							<xsl:value-of select="round($value1 * $unitSigDigs) div $unitSigDigs" />
+						<td><a style="text-decoration:none" onMouseover="ddrivetip('{$value1 * $iterations1}'); return true;" onMouseout="hideddrivetip(); return true;" href="#"><small style="color:navy"><xsl:choose>
+							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value1 &lt; 0.01">
+								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
 							</xsl:when>
-							<xsl:otherwise><xsl:value-of select="$value1" />
-							</xsl:otherwise>
-						</xsl:choose></small></i></td>
+							<xsl:when test="contains($property,'time') or contains($property,'Time')">
+								<xsl:value-of select="round($value1 * $unitSigDigs) div $unitSigDigs" /> ms
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="$value1" /></xsl:otherwise>
+						</xsl:choose></small></a></td>
 						<td><small>&#160;</small></td>
-						<td><i><small style="color:#003333"><xsl:choose>
-							<xsl:when test="contains($property,'time') or contains($property,'Time')">
-							<xsl:value-of select="round($value2 * $unitSigDigs) div $unitSigDigs" />
+						<td><a style="text-decoration:none" onMouseover="ddrivetip('{$value2 * $iterations2}'); return true;" onMouseout="hideddrivetip(); return true;" href="#"><small style="color:#003333"><xsl:choose>
+							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value2 &lt; 0.01">
+								<xsl:value-of select="round($value2 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
 							</xsl:when>
-							<xsl:otherwise><xsl:value-of select="$value2" />
-							</xsl:otherwise>
-						</xsl:choose></small></i></td>
+							<xsl:when test="contains($property,'time') or contains($property,'Time')">
+								<xsl:value-of select="round($value2 * $unitSigDigs) div $unitSigDigs" /> ms
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="$value2" /></xsl:otherwise>
+						</xsl:choose></small></a></td>
 						<td><small>&#160;</small></td>
 						<td nowrap="nowrap" align="right"><nobr><small>
 						<xsl:choose>
@@ -477,21 +483,25 @@
 						<td><small>&#160;</small></td>
 						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
 						<td><small>&#160;</small></td>
-						<td><i><small style="color:navy"><xsl:choose>
-							<xsl:when test="contains($property,'time') or contains($property,'Time')">
-							<xsl:value-of select="round($value1 * $unitSigDigs) div $unitSigDigs" />
+						<td><a style="text-decoration:none" onMouseover="ddrivetip('{$value1 * $iterations1}'); return true;" onMouseout="hideddrivetip(); return true;" href="#"><small style="color:navy"><xsl:choose>
+							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value1 &lt; 0.01">
+								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
 							</xsl:when>
-							<xsl:otherwise><xsl:value-of select="$value1" />
-							</xsl:otherwise>
-						</xsl:choose></small></i></td>
+							<xsl:when test="contains($property,'time') or contains($property,'Time')">
+								<xsl:value-of select="round($value1 * $unitSigDigs) div $unitSigDigs" /> ms
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="$value1" /></xsl:otherwise>
+						</xsl:choose></small></a></td>
 						<td><small>&#160;</small></td>
-						<td><i><small style="color:#003333"><xsl:choose>
-							<xsl:when test="contains($property,'time') or contains($property,'Time')">
-							<xsl:value-of select="round($value2 * $unitSigDigs) div $unitSigDigs" />
+						<td><a style="text-decoration:none" onMouseover="ddrivetip('{$value2 * $iterations2}'); return true;" onMouseout="hideddrivetip(); return true;" href="#"><small style="color:#003333"><xsl:choose>
+							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value2 &lt; 0.01">
+								<xsl:value-of select="round($value2 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
 							</xsl:when>
-							<xsl:otherwise><xsl:value-of select="$value2" />
-							</xsl:otherwise>
-						</xsl:choose></small></i></td>
+							<xsl:when test="contains($property,'time') or contains($property,'Time')">
+								<xsl:value-of select="round($value2 * $unitSigDigs) div $unitSigDigs" /> ms
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="$value2" /></xsl:otherwise>
+						</xsl:choose></small></a></td>
 						<td><small>&#160;</small></td>
 						<td nowrap="nowrap" align="right"><nobr><small>
 						<xsl:choose>

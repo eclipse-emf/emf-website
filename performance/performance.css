@@ -25,6 +25,18 @@ a { font-size:8pt; }
 .italic { font-style: italic; font-size: 8pt; color:#333333; }
 .normal { font-size:8pt; }
 
+#dhtmltooltip{
+	position: absolute;
+	/*width: 90px;*/
+	border: 1px solid black;
+	padding: 3px;
+	background-color: #EEEEFF;
+	visibility: hidden;
+	z-index: 100;
+	font-size: 9pt; 
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+} 
+
 /* $Id$ */
 
 </STYLE>
