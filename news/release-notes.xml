@@ -19,7 +19,7 @@
 <bug id="89277">DynamicModelWizard.performFinish() throws an NPE when it doesn't find the default editor for the created file.</bug>
 <bug id="89279">The FeatureEditorDialog should present the options on the left</bug>
 <bug id="89659">Declaratively State EMF Object Allegiance To Enclosing Resource</bug>
-<bug id="89665">VM terminated when switching page in the Plugin manifest editor</bug>
+<bug id="89655">Typos in ActionBarContributor.javajet and FactoryClass.javajet</bug>
 </entry>
 
 <entry version="2.1.0" build="I200503240700" project="emf">
@@ -1526,4 +1526,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.41 2005/03/31 15:50:53 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.42 2005/03/31 16:39:36 nickb Exp $ -->
