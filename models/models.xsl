@@ -22,7 +22,7 @@
 
 <!-- wrapper for left nav -->
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
-	<tr valign="top"><td colspan="3" align="left" width="100%">
+	<tr valign="top"><td colspan="1" align="left" width="100%">
     <table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" BGCOLOR="#006699" >
 
      <tr>
@@ -34,6 +34,8 @@
     </table>
    </td>
   </tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0">
 	<tr valign="top">
 		<td align="left" width="115" bgcolor="#6699CC"><table border="0" cellspacing="0" cellpadding="0" BGCOLOR="#90C8FF" height="45" width="116">
   <!-- common links - both projects -->
@@ -317,7 +319,7 @@
 
 </td>
 
-		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left">
+		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
 &#160;
 <table border="0" cellpadding="2" width="100%">
   <tbody>
@@ -329,7 +331,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="middle"/>
+        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
       </td>
 
     </tr>
@@ -634,4 +636,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.1 2004/12/21 21:32:13 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.2 2004/12/21 21:58:10 nickb Exp $ -->
