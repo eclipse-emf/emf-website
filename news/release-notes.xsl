@@ -92,6 +92,7 @@
 </tr>
 </table>
 
+	<!-- form controls -->
 	<form action="release-notes.php" method="get" name="mainform">
 	<table width="60%">
 			<tr>
@@ -143,15 +144,19 @@
 	</table>
 	</form>
 	
+	<!-- nav header table (release list) -->
 	<table border="0" cellspacing="1" cellpadding="3" width="100%">
 	<xsl:for-each select="project-def">
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="header">
-				<td colspan="1" class="sub-header" width="20%">
+				<td colspan="1" class="sub-header">
 					<a class="sub-header" style="text-decoration:none" href="#{@project}"><xsl:value-of select="@label" /></a> (<xsl:value-of select="count(key('entryProj',@project))" /> Builds)
 				</td>
-				<td colspan="1" class="sub-header" width="80%">
+				<td colspan="1" class="sub-header">
 					Bugs Closed
+				</td>
+				<td colspan="1" class="sub-header">
+					Count
 				</td>
 			</tr>
 			<xsl:for-each select="key('entryProj',@project)">
@@ -165,7 +170,7 @@
 							<xsl:attribute name="class">light-row</xsl:attribute>
 						</xsl:otherwise>
 						</xsl:choose>
-						<td class="normal">
+						<td class="normal" width="22%">
 							<a href="#{@project}.{@version}.{@build}">
 								<xsl:choose>
 									<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
@@ -174,8 +179,7 @@
 								</xsl:choose>
 							</a>
 						</td>
-						<td class="normal">
-							<xsl:if test="count(bug)>0">&#160;(<xsl:value-of select="count(bug)" />)&#160;</xsl:if>
+						<td class="normal" width="70%">
 							<xsl:for-each select="bug">
 								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
 									<xsl:value-of select="@id" />
@@ -183,16 +187,20 @@
 								<xsl:if test="number(substring(../@build,2,8)) &gt;= 20041202">
 									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}"><img src="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>&#160;
 								</xsl:if>
+								<xsl:if test="position() mod 10 = 0"><br/></xsl:if>
 							</xsl:for-each>
+						</td>
+						<td class="normal" valign="bottom">
+							<xsl:if test="count(bug)>0">&#160;<xsl:value-of select="count(bug)" />&#160;</xsl:if>
 						</td>
 					</tr>
 				</xsl:if>
 			</xsl:for-each>
 			<tr><td class="spacer"> </td></tr>
 		</xsl:if>
-		<xsl:if test="count(key('entryProj',@project)) = 0">
+		<!-- <xsl:if test="count(key('entryProj',@project)) = 0">
 			<tr><td colspan="2" class="normal"> &#187; No Release Notes found for <xsl:value-of select="@project" />.</td></tr>
-		</xsl:if>
+		</xsl:if> -->
 	</xsl:for-each>
 	</table>
 	<p> </p>
@@ -253,9 +261,9 @@
 			</xsl:for-each>
 			<tr><td class="spacer"><br/></td><td class="spacer"><br/></td></tr>
 		</xsl:if>
-		<xsl:if test="count(key('entryProj',@project)) = 0">
-		<!--	<tr><td colspan="3" class="normal">n/a</td></tr> -->
-		</xsl:if>
+		<!--<xsl:if test="count(key('entryProj',@project)) = 0">
+			<tr><td colspan="3" class="normal">n/a</td></tr>
+		</xsl:if> -->
 	</xsl:for-each>
 	</table>
 
@@ -278,4 +286,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.3 2005/01/24 20:29:56 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.4 2005/01/24 20:52:25 nickb Exp $ -->
