@@ -13,6 +13,16 @@
 <project-def project="xsd" label="XSD Release Notes" />
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<bug id="83320">Should ignore annotation contents when generating annotation initializers</bug>
+<bug id="83414">Add leading / to template path, if necessary.</bug>
+<bug id="83417">Feature Request: Extend EMF.Edit support to offer a list of chioces</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -184,6 +194,11 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200501190800" project="xsd">
+<bug id="82872">Exception during loading XSD</bug>
+<bug id="83040">Ecore to XML Schema generation and multiple inheritance</bug>
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="xsd">
@@ -1238,4 +1253,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.3 2005/01/24 19:52:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.4 2005/01/24 19:55:31 nickb Exp $ -->
