@@ -19,7 +19,8 @@ to parse out [plan] values and fields missing from above (cuz curl() loses cooki
 
 $contentType = $_GET["Content-Type"] ? $_GET["Content-Type"] : "text/xml"; // default or qs value
 
-$usetmpfile=0; // defines whether or not to use pregen'd tmp file (1) or else to regen on the fly (0)
+$usetmpfile=0; // defines whether or not to use pregen'd tmp files (1) or else to regen on the fly (0)
+$createtmpfile=0; // if not using tmpfiles, defines whether to create new tmpfiles for next time's run (1) or not (0)
 
 $bugz = array(); // $bugz[$num] = array(field => value, field2 => value2, ...);
 $buglist = ""; // "75933,76538,77518,78076,79089, ... ";
@@ -86,17 +87,19 @@ if ($contentType=="text/html") {
 /************************************** FUNCTIONS ***********************************/
 
 function getCommitterList() {
-	global $committers;
+	global $committers,$usetmpfile,$createtmpfile;
 
 	$projects = array("tools" => "EMF"); //, "technology" => "XSD");
 	foreach ($projects as $folder => $project) { 
 		if (!$usetmpfile) { 
 			$html = file("http://www.eclipse.org/$folder/commit.html"); // wArr($html);
-			$fh = fopen("/tmp/emf_plan.php_getCommittersList_$folder_$project.html","w");
-			foreach ($html as $line) { 
-				fputs($fh,$line."\n");
+			if ($createtmpfile) { 
+				$fh = fopen("/tmp/emf_plan.php_getCommittersList_$folder_$project.html","w");
+				foreach ($html as $line) { 
+					fputs($fh,$line."\n");
+				}
+				fclose($fh);
 			}
-			fclose($fh);
 		} else {
 			$html = file("/tmp/emf_plan.php_getCommittersList_$folder_$project.html");
 		}
@@ -118,15 +121,17 @@ function getCommitterList() {
 }
 
 function getMetaAndBugList() {
-	global $bugz,$buglist,$usetmpfile;
+	global $bugz,$buglist,$usetmpfile,$createtmpfile;
 
 	if (!$usetmpfile) { 
 		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); // wArr($html);
-		$fh = fopen("/tmp/emf_plan.php_getMetaAndBugList.html","w");
-		foreach ($html as $line) { 
-			fputs($fh,$line."\n");
+		if ($createtmpfile) { 
+			$fh = fopen("/tmp/emf_plan.php_getMetaAndBugList.html","w");
+			foreach ($html as $line) { 
+				fputs($fh,$line."\n");
+			}
+			fclose($fh);
 		}
-		fclose($fh);
 	} else {
 		$html = file("/tmp/emf_plan.php_getMetaAndBugList.html");
 	}
@@ -169,15 +174,17 @@ function getMetaAndBugList() {
 }
 
 function getPlanItems($extrafields=array()) {
-	global $bugz,$buglist,$usetmpfile,$committers;
+	global $bugz,$buglist,$committers,$usetmpfile,$createtmpfile;
 
 	if (!$usetmpfile) { 
 		$html = https_file("https://bugs.eclipse.org/bugs/long_list.cgi?buglist=$buglist"); // wArr($html);
-		$fh = fopen("/tmp/emf_plan.php_getPlanItems.html","w");
-		foreach ($html as $line) { 
-			fputs($fh,$line."\n");
+		if ($createtmpfile) { 
+			$fh = fopen("/tmp/emf_plan.php_getPlanItems.html","w");
+			foreach ($html as $line) { 
+				fputs($fh,$line."\n");
+			}
+			fclose($fh);
 		}
-		fclose($fh);
 	} else {
 		$html = file("/tmp/emf_plan.php_getPlanItems.html");
 	}
@@ -252,9 +259,9 @@ function displayXML() {
 	header('Content-type: text/xml');
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.2 2005/02/19 08:10:45 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.3 2005/02/19 08:29:01 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/02/19 08:10:45 $</modified>
+	<modified>$Date: 2005/02/19 08:29:01 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
