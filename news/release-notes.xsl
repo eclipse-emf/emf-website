@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <xsl:stylesheet version = '1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 <xsl:output method="html" encoding="ISO-8859-1"/>
 
@@ -68,7 +67,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+			<img src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/reference.gif" hspace="50" align="right"/>
       </td>
 
     </tr>
@@ -112,7 +111,7 @@
 						<option value=""> Choose... </option>
 						<xsl:for-each select="project-def">
 						<xsl:choose>
-							<xsl:when test="$project=@project">
+							<xsl:when test="$project = @project">
 								<option value="{@project}" selected="selected"><xsl:value-of select="@label" /></option>
 							</xsl:when>
 							<xsl:otherwise>
@@ -127,7 +126,7 @@
 						<option value=""> Choose... </option>
 						<xsl:for-each select="version-def">
 						<xsl:choose>
-							<xsl:when test="$version=@version">
+							<xsl:when test="$version = @version">
 								<option value="{@version}" selected="selected"><xsl:value-of select="@label" /></option>
 							</xsl:when>
 							<xsl:otherwise>
@@ -198,9 +197,9 @@
 			</xsl:for-each>
 			<tr><td class="spacer"> </td></tr>
 		</xsl:if>
-		<!-- <xsl:if test="count(key('entryProj',@project)) = 0">
+		<xsl:if test="count(key('entryProj',@project)) = 0">
 			<tr><td colspan="2" class="normal"> &#187; No Release Notes found for <xsl:value-of select="@project" />.</td></tr>
-		</xsl:if> -->
+		</xsl:if>
 	</xsl:for-each>
 	</table>
 	<p> </p>
@@ -261,9 +260,9 @@
 			</xsl:for-each>
 			<tr><td class="spacer"><br/></td><td class="spacer"><br/></td></tr>
 		</xsl:if>
-		<!--<xsl:if test="count(key('entryProj',@project)) = 0">
+		<xsl:if test="count(key('entryProj',@project)) = 0">
 			<tr><td colspan="3" class="normal">n/a</td></tr>
-		</xsl:if> -->
+		</xsl:if>
 	</xsl:for-each>
 	</table>
 
@@ -288,4 +287,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.5 2005/01/24 20:59:15 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.6 2005/01/25 22:45:42 nickb Exp $ -->
