@@ -32,12 +32,12 @@
 		</p>
     </td>
   </tr>
-	<?php echo $sep_line; ?>
+<!--	<?php echo $sep_line; ?>
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="http://download.eclipse.org/tools/emf/scripts/mirrors.php" class="nav">Mirrors</a></p>
     </td>
-  </tr>
+  </tr> -->
 	<?php echo $sep_line; ?>
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
@@ -152,14 +152,15 @@
 		$vver = $m[1];
 		if ($i>0) { 
 			$out .= ', '; 
-			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+			//if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+			if ($i==2) { break; } // only the first three
 		}
 		$out .= '<a class="nav" href="../news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
 		if ($i==0) { $stored_ver = $vver; } 
 	}
 	?>
       <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
-		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?>
+		<small class="nav">&#160; &#160; &#160;  <?php echo $out; ?> <a class="nav" href="../news-release-notes.php?ver=<?php echo $vver; ?>#relnotes1">...</a>
 		</small>
 		</p>
     </td>
