@@ -105,7 +105,7 @@
 </table>
 
 	<!-- form controls -->
-	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+	<xsl:if test="$showFiltersOrHeaderFooter='1'">
 		<form action="performance.php" method="get" name="mainform">
 			<table border="0">
 					<tr>
@@ -140,7 +140,7 @@
 <xsl:call-template name="show_perf_data_columns"></xsl:call-template>
 	
 <!-- build details (collected from gtk console log, only available within PHP wrapped XML/XSL, not within XML by itself -->
-<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+<xsl:if test="$showFiltersOrHeaderFooter='1'">
 <p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="4"><b><a name="legend">Build Details</a></b></td></tr>
