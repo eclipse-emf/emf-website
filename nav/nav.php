@@ -102,11 +102,12 @@
 
 	$didBreak=0;
 	$stored_ver="";
+	$out="";
 	foreach ($files as $i => $file) { 
 		preg_match("/release-notes(.*)\.html/",$file,$m);
 		$vver = $m[1];
 		if ($i>0) { $out .= ', '; }
-		if ($i%3==2 && preg_match("/^1\.\d+/",$vver)) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+		if ($i%3==2) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
 		$out .= '<a class="nav" href="'.$pre.'news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
 		if (!$stored_ver) { $stored_ver=$vver; }
 	}
@@ -123,8 +124,33 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav" target="_top">Newsgroup</a><br>
-		<small class="nav">&#160; &#160; &#160;  <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav">EMF</a> | <a href="news://news.eclipse.org/eclipse.technology.xsd" class="nav">XSD</a>
+      <p>&#160; <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav" target="_top">EMF Newsgroup</a><br>
+		<small class="nav">&#160; &#160; &#160;  
+		
+		<a href="http://www.eclipse.org/search/search.cgi"
+ target="_self" class="nav">Search</a>, <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
+ target="_self" class="nav">Web UI</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
+&#160; &#160; &#160;  <a href="<?php echo $pre; ?>mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="nav">Archives</a>
+		</small>
+		</p>
+
+    </td>
+  </tr>
+
+	<?php echo $sep_line; ?>
+
+  <tr valign=CENTER> 
+    <td valign=CENTER height="21"> 
+      <p>&#160; <a href="news://news.eclipse.org/eclipse.technology.xsd" class="nav" target="_top">XSD Newsgroup</a><br>
+		<small class="nav">&#160; &#160; &#160;  
+		
+		<a href="http://www.eclipse.org/search/search.cgi"
+ target="_self" class="nav">Search</a>, <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
+ target="_self" class="nav">Web UI</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
+&#160; &#160; &#160;  <a href="<?php echo $pre; ?>mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="nav">Archives</a>
+		
 		</small>
 		</p>
 

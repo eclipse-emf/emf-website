@@ -28,11 +28,45 @@ interoperability with other EMF-based tools and applications.
 			Have a look, post your comments, submit your models, or just read what others have written. Enjoy! <img src="<?php echo $CVSpreEMF; ?>images/smileys/NBcool.gif" width="18" height="18" border="0" alt="">
 		<br><br>
 		To provide comments about this prototype community project, you can email <a href="mailto:codeslave@ca.ibm.com?Subject=EMF Corner Comments">codeslave@ca.ibm.com</a>, post to the <a href="news://news.eclipse.org/eclipse.tools.emf">EMF newsgroup</a> or <a href="news://news.eclipse.org/eclipse.technology.xsd">XSD newsgroup</a>, or <a href="../../../tools/emf/scripts/models-submit.php">start a thread</a> under the 'General Discussion' category.
+
+		<!-- right column tables start -->
+      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+	       <tr>
+            <td rowspan="2" height="15" bgcolor="#8ABDBF"><span style="color: #ffffff; font-weight:bold; font-size: 11px; font-family: Verdana,Arial,Helvetica;">&nbsp;&nbsp;&nbsp;What's New</span></td>
+            <td width="60%">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="3" bgcolor="#8ABDBF"><img src="<?php echo $CVSpre; ?>images/c.gif" width=1 height=10></td>
+          </tr>
+      </table>
+      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+          <tr>
+				<td bgcolor="#8ABDBF"><img src="<?php echo $CVSpre; ?>images/c.gif" width=2 height=1></td>
+				<td bgcolor="white"><img src="<?php echo $CVSpre; ?>images/c.gif" width=5 height=1></td>
+            <td width="100%">
+
+<?php getNews(3,"whatsnew"); ?>
+
+      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+          <tr><td><p class="normal">
+<a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
+
+<a href="<?php echo $pre; ?>news-release-notes.php?ver=2.1.0">EMF 2.1.0 Release Notes</a><br><br>
+</td></tr></table>
+
+            </td>
+				<td bgcolor="white"><img src="<?php echo $CVSpre; ?>images/c.gif" width=5 height=1></td>
+				<td bgcolor="#8ABDBF"><img src="<?php echo $CVSpre; ?>images/c.gif" width=2 height=1></td>
+          </tr>
+          <tr>
+				<td bgcolor="#8ABDBF" colspan=5><img src="<?php echo $CVSpre; ?>images/c.gif" width=1 height=2></td>
+			</tr>
+      </table>
+		<!-- end right column tables -->
+
 </td>
 </tr>
 </table>
-
-<?php include $pre."includes/nav.php"; ?>
 
 <table border="0" cellpadding="2" width="100%">
 <tr>
@@ -117,7 +151,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.1 2004/12/07 22:03:03 nickb Exp $ -->
+<!-- $Id: home.php,v 1.2 2004/12/07 22:25:31 nickb Exp $ -->
 </body></html>
 
 
