@@ -380,17 +380,20 @@
 	<xsl:choose>
 		<!-- all three -->
 		<xsl:when test="$filterName3='Answer' and $filterVal3!='' and $filterName2='Question' and $filterVal2!='' and $filterName1='Category' and $filterVal1!=''">
-			<xsl:if test="contains(answer,$filterVal3) or contains(question,$filterVal2) or contains(category,$filterVal1)">1</xsl:if> <!-- found -->
+			<xsl:if test="contains(answer,$filterVal3) or contains(question,$filterVal2)">1</xsl:if> <!-- found -->
+			<xsl:for-each select="category"><xsl:if test="(.)=$filterVal1">1</xsl:if></xsl:for-each> <!-- any matching catg -->
 		</xsl:when>
 		<!-- just two; 3 variations -->
 		<xsl:when test="$filterName3='Answer' and $filterVal3!='' and $filterName2='Question' and $filterVal2!=''">
 			<xsl:if test="contains(answer,$filterVal3) or contains(question,$filterVal2)">1</xsl:if> <!-- found -->
 		</xsl:when>
 		<xsl:when test="$filterName3='Answer' and $filterVal3!='' and $filterName1='Category' and $filterVal1!=''">
-			<xsl:if test="contains(answer,$filterVal3) or contains(category,$filterVal1)">1</xsl:if> <!-- found -->
+			<xsl:if test="contains(answer,$filterVal3)">1</xsl:if> <!-- found -->
+			<xsl:for-each select="category"><xsl:if test="(.)=$filterVal1">1</xsl:if></xsl:for-each> <!-- any matching catg -->
 		</xsl:when>
 		<xsl:when test="$filterName2='Question' and $filterVal2!='' and $filterName1='Category' and $filterVal1!=''">
-			<xsl:if test="contains(question,$filterVal2) or contains(category,$filterVal1)">1</xsl:if> <!-- found -->
+			<xsl:if test="contains(question,$filterVal2)">1</xsl:if> <!-- found -->
+			<xsl:for-each select="category"><xsl:if test="(.)=$filterVal1">1</xsl:if></xsl:for-each> <!-- any matching catg -->
 		</xsl:when>
 		<!-- just one; 3 variations -->
 		<xsl:when test="$filterName3='Answer' and $filterVal3!=''">
@@ -400,7 +403,7 @@
 			<xsl:if test="contains(question,$filterVal2)">1</xsl:if> <!-- found -->
 		</xsl:when>
 		<xsl:when test="$filterName1='Category' and $filterVal1!=''">
-			<xsl:if test="contains(category,$filterVal1)">1</xsl:if> <!-- found -->
+			<xsl:for-each select="category"><xsl:if test="(.)=$filterVal1">1</xsl:if></xsl:for-each> <!-- any matching catg -->
 		</xsl:when>
 		<!-- none -->
 		<xsl:otherwise>1</xsl:otherwise> <!-- no matching filters enabled, show all -->
@@ -408,4 +411,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.9 2004/12/23 07:09:25 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.10 2004/12/23 07:43:12 nickb Exp $ -->
