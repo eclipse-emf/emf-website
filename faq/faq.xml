@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2005/01/14 18:14:45 $</modified>
+  <modified>$Date: 2005/01/14 18:16:07 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -1089,7 +1089,7 @@ Can the XSD library be used outside of the Eclipse environment?
     <answer>
 Yes, it can be used within Eclipse and outside of Eclipse.
 <br /><br />
-For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20050104-04355675">I want to use EMF, SDO, or XSD in my standalone project, or include only a working subset of the code. What libraries (jar files) do I need in my CLASSPATH?</a>"</i>.
+For more information on working outside Eclipse, see the question <i>"<a href="faq.php?Question=standalone#dev20050114-120205">I want to use EMF, SDO, or XSD in my standalone project, or include only a working subset of the code. What libraries (jar files) do I need in my CLASSPATH?</a>"</i>.
     </answer>
   </entry>
 
@@ -1798,6 +1798,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.5 2005/01/14 18:14:45 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.6 2005/01/14 18:16:07 nickb Exp $ -->
 
 </faq>
