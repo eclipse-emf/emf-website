@@ -25,6 +25,8 @@ a { font-size:8pt; }
 .italic { font-style: italic; font-size: 8pt; color:#333333; }
 .normal { font-size:8pt; }
 
+.tableBorders { border-width: none none thin none; }
+
 #dhtmltooltip{
 	position: absolute;
 	/*width: 90px;*/

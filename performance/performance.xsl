@@ -4,7 +4,7 @@
 	<xsl:param name="XMLfile"></xsl:param> <!-- LEAVE BLANK - pass value of the xml doc being parsed into stylesheet via javascript -->
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 	<xsl:param name="threshholdPercentage">3</xsl:param> 
-	<xsl:param name="filter">all</xsl:param>
+	<xsl:param name="filter">CPU Time</xsl:param>
 	<xsl:param name="unitSigDigs">100000</xsl:param> <!-- number of decimal places to keep in displaying values -->
 	<xsl:param name="pcntSigDigs">10</xsl:param> <!-- number of decimal places to keep in displaying percentages -->
 
@@ -21,7 +21,7 @@
 <xsl:for-each select="data">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-    <title>Eclipse Tools - EMF, SDO and XSD - Performance Data</title>
+    <title>Eclipse Tools - EMF, SDO and XSD - Performance Data<xsl:if test="$filter != 'all'">: <xsl:value-of select="$filter" /></xsl:if></title>
     <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
@@ -65,7 +65,7 @@
     <tr>
       <td align="left" width="60%">
         <font class="indextop">
-		Performance Data
+		Performance Data<xsl:if test="$filter != 'all'">: <xsl:value-of select="$filter" /></xsl:if>
 		</font><br/>
         <font class="indexsub">Eclipse Modeling Framework</font>
 
@@ -83,9 +83,7 @@
 
 <td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica" color="#FFFFFF">
 	Performance Data for <xsl:value-of select="build[1]/@id" /> (<xsl:value-of select="build[1]/@type" />)
-	<xsl:if test="count(build) > 1">
-	and <xsl:value-of select="build[2]/@id" /> (<xsl:value-of select="build[2]/@type" />)
-	</xsl:if>
+	and <xsl:value-of select="build[2]/@id" /> (<xsl:value-of select="build[2]/@type" />)<xsl:if test="$filter != 'all'">: <xsl:value-of select="$filter" /></xsl:if>
 </font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
@@ -112,40 +110,28 @@
 				this percentage will be omitted from<br/> 
 				the plot. To include all, use -1.</small></td>
 				<td>&#160;</td>
-				<td colspan="2"><input class="field9px" name="threshholdPercentage" value="{$threshholdPercentage}"/></td>
+				<td colspan="2"><input class="field9px" size="3" name="threshholdPercentage" value="{$threshholdPercentage}"/></td>
 					</tr>
 				<td colspan="3"><b>Filter</b><br/>
 				<select class="field9px" name="filter" size="1">
 					<option value="CPU Time">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'CPU Time'">selected</xsl:if></xsl:attribute>
 						CPU Time [User Time + Kernel/System Time] (s)</option>
 					<option value="Kernel time">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Kernel time'">selected</xsl:if></xsl:attribute>
 						Kernel/System Time (s)</option>
 					<option value="Soft Page Faults">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Soft Page Faults'">selected</xsl:if></xsl:attribute>
 						Soft Page Faults [Minor fault: no load from disk] </option>
 					<option value="Hard Page Faults">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Hard Page Faults'">selected</xsl:if></xsl:attribute>
 						Hard Page Faults [Major fault, process + children]</option>
 					<option value="Working Set">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Working Set'">selected</xsl:if></xsl:attribute>
 						Working Set (bytes)</option>
 					<option value="Text Size">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Text Size'">selected</xsl:if></xsl:attribute>
 						Text/Code Size (bytes)</option>
 					<option value="Library Size">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Library Size'">selected</xsl:if></xsl:attribute>
 						Library Size (bytes) </option>
 					<option value="Data Size">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Data Size'">selected</xsl:if></xsl:attribute>
 						Data/Stack Size (bytes)</option>
 					<option value="Used Java Heap">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'Used Java Heap'">selected</xsl:if></xsl:attribute>
 						Used Java Heap [Used Memory] (bytes)</option>
-					<option value="all">
-						<xsl:attribute name="selected"><xsl:if test="$filter = 'all'">selected</xsl:if></xsl:attribute>
-						All</option>
 			</select> 
 			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 			<br/>
@@ -271,25 +257,25 @@
 
 	<xsl:for-each select="build[1]/testsuite">
 		<xsl:variable name="package"><xsl:value-of select="@package" /></xsl:variable>
-		<tr><td colspan="5">
+		<tr><td colspan="13">
 		<h4><xsl:value-of select="@package" /></h4>
 		</td></tr>
 
 		<!-- improvements -->
 		<tr bgcolor="#EEEECC">
-		<xsl:if test="count(//build) > 1">
-			<td colspan="3"><b><small style="color:green">Improvements (-)</small></b></td>
-			<td><small>&#160;</small></td>
-		</xsl:if>
+		<td colspan="3" width="201"><b><small style="color:green">Improvements</small></b></td>
+		<td><small>&#160;</small></td>
+		<td><b><small>Build</small></b></td>
+		<td><small>&#160;</small></td>
+		<td><b><small>Reference</small></b></td>
+		<td><small>&#160;</small></td>
 		<td><b><small>ClassName</small></b></td>
 		<td><small>&#160;</small></td>
 		<td><b><small>testMethod()</small></b></td>
-		<td><small>&#160;</small></td>
-		<td><a href="#legend" style="color:black"><b><small>Property</small></b></a></td>
-		<td><small>&#160;</small></td>
-		<td><b><small>Delta</small></b></td>
-		<td><small>&#160;</small></td>
-		<td><b><small>Baseline</small></b></td>
+		<xsl:if test="$filter = 'all'">
+			<td><small>&#160;</small></td>
+			<td><a href="#legend" style="color:black"><b><small>Property</small></b></a></td>
+		</xsl:if>
 		<td><small>&#160;</small></td>
 		<td align="right"><b><small>#</small></b></td>
 		</tr>
@@ -339,23 +325,14 @@
 						</xsl:otherwise>
 						</xsl:choose>
 
-						<xsl:if test="count(//build) > 1">
-							<xsl:variable name="width"><xsl:choose>
-								<xsl:when test="$delta &gt; 100">100</xsl:when><xsl:otherwise><xsl:value-of select="$delta" /></xsl:otherwise>
-							</xsl:choose></xsl:variable>
-							<td align="right"><small>
-								<xsl:if test="$delta!=0">-</xsl:if>
-								<xsl:value-of select="$delta" />%&#160;</small></td>
-							<td bgcolor="black"><small>&#160;</small></td>
-							<td align="left"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/misc/bar-green.png" width="{$width}" height="5" border=""/></td>
-							<td><small>&#160;</small></td>
-						</xsl:if>
-						<td nowrap="nowrap"><nobr><small><xsl:value-of select="substring-after($classname,concat($package,'.'))" /></small></nobr></td>
+						<xsl:variable name="width"><xsl:choose>
+							<xsl:when test="$delta &gt; 100">100</xsl:when><xsl:otherwise><xsl:value-of select="$delta" /></xsl:otherwise>
+						</xsl:choose></xsl:variable>
+						<td align="right"><small>
+							<xsl:value-of select="$delta" />%&#160;</small></td>
+						<td bgcolor="black" width="1"><small>&#160;</small></td>
+						<td align="left"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/misc/bar-green.png" width="{$width}" height="5" border=""/></td>
 						<td><small>&#160;</small></td>
-						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$name" />()</small></nobr></td>
-						<td><small>&#160;</small></td>
-						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
-						<td><small>&#160;&#160;&#160;</small></td>
 						<td><small style="color:navy"><xsl:choose>
 							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value1 &lt; 0.01">
 								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" />&#160;&#956;s
@@ -376,6 +353,14 @@
 							<xsl:otherwise><xsl:value-of select="$value2" /></xsl:otherwise>
 						</xsl:choose></small></td>
 						<td><small>&#160;&#160;&#160;</small></td>
+						<td nowrap="nowrap"><nobr><small><xsl:value-of select="substring-after($classname,concat($package,'.'))" /></small></nobr></td>
+						<td><small>&#160;</small></td>
+						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$name" />()</small></nobr></td>
+						<xsl:if test="$filter = 'all'">
+							<td><small>&#160;</small></td>
+							<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
+						</xsl:if>
+						<td><small>&#160;</small></td>
 						<td nowrap="nowrap" align="right"><nobr><small>
 						<xsl:choose>
 							<xsl:when test="not(contains($property,'time')) and not(contains($property,'Time'))">1</xsl:when>
@@ -391,6 +376,11 @@
 						</xsl:choose>
 						</small></nobr></td>
 						</tr>
+						<tr>
+						<td colspan="1" bgcolor="#EEEEEE" height="1"></td>
+						<td colspan="1" bgcolor="#000000" height="1"></td>
+						<td colspan="11" bgcolor="#EEEEEE" height="1"></td>
+						</tr>
 					</xsl:if>
 				</xsl:if>
 			</xsl:for-each>
@@ -400,19 +390,19 @@
 
 		<!-- regressions -->
 		<tr bgcolor="#FFFFCC">
-		<xsl:if test="count(//build) > 1">
-			<td colspan="3"><b><small style="color:red">Regressions (+)</small></b></td>
-			<td><small>&#160;</small></td>
-		</xsl:if>
+		<td colspan="3"><b><small style="color:red">Regressions</small></b></td>
+		<td><small>&#160;</small></td>
+		<td><b><small>Build</small></b></td>
+		<td><small>&#160;</small></td>
+		<td><b><small>Reference</small></b></td>
+		<td><small>&#160;</small></td>
 		<td><b><small>ClassName</small></b></td>
 		<td><small>&#160;</small></td>
 		<td><b><small>testMethod()</small></b></td>
-		<td><small>&#160;</small></td>
-		<td><a href="#legend" style="color:black"><b><small>Property</small></b></a></td>
-		<td><small>&#160;</small></td>
-		<td><b><small>Delta</small></b></td>
-		<td><small>&#160;</small></td>
-		<td><b><small>Baseline</small></b></td>
+		<xsl:if test="$filter = 'all'">
+			<td><small>&#160;</small></td>
+			<td><a href="#legend" style="color:black"><b><small>Property</small></b></a></td>
+		</xsl:if>
 		<td><small>&#160;</small></td>
 		<td align="right"><b><small>#</small></b></td>
 		</tr>
@@ -462,26 +452,18 @@
 						</xsl:otherwise>
 						</xsl:choose>
 
-						<xsl:if test="count(//build) > 1">
-							<xsl:variable name="width"><xsl:choose>
-								<xsl:when test="$delta &gt; 100">100</xsl:when><xsl:otherwise><xsl:value-of select="$delta" /></xsl:otherwise>
-							</xsl:choose></xsl:variable>
-							<td align="right"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/misc/bar-red.png" width="{$width}" height="5" border=""/></td>
-							<td bgcolor="black"><small>&#160;</small></td>
-							<td align="left"><small>&#160;<xsl:choose>
-								<xsl:when test="$delta &gt;= 75">
-									<b style="color:red;font-size:13px">&#160;<xsl:value-of select="$delta" />%</b>
-								</xsl:when>
-								<xsl:otherwise><xsl:value-of select="$delta" /></xsl:otherwise>
-							</xsl:choose></small></td>
-							<td><small>&#160;</small></td>
-						</xsl:if>
-						<td nowrap="nowrap"><nobr><small><xsl:value-of select="substring-after($classname,concat($package,'.'))" /></small></nobr></td>
+						<xsl:variable name="width"><xsl:choose>
+							<xsl:when test="$delta &gt; 100">100</xsl:when><xsl:otherwise><xsl:value-of select="$delta" /></xsl:otherwise>
+						</xsl:choose></xsl:variable>
+						<td align="right"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/misc/bar-red.png" width="{$width}" height="5" border=""/></td>
+						<td bgcolor="black" width="1"><small>&#160;</small></td>
+						<td align="left"><small>&#160;<xsl:choose>
+							<xsl:when test="$delta &gt;= 75">
+								<b style="color:red;font-size:13px">&#160;<xsl:value-of select="$delta" />%</b>
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="$delta" />%</xsl:otherwise>
+						</xsl:choose></small></td>
 						<td><small>&#160;</small></td>
-						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$name" />()</small></nobr></td>
-						<td><small>&#160;</small></td>
-						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
-						<td><small>&#160;&#160;&#160;</small></td>
 						<td><small style="color:navy"><xsl:choose>
 							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value1 &lt; 0.01">
 								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
@@ -502,6 +484,14 @@
 							<xsl:otherwise><xsl:value-of select="$value2" /></xsl:otherwise>
 						</xsl:choose></small></td>
 						<td><small>&#160;&#160;&#160;</small></td>
+						<td nowrap="nowrap"><nobr><small><xsl:value-of select="substring-after($classname,concat($package,'.'))" /></small></nobr></td>
+						<td><small>&#160;</small></td>
+						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$name" />()</small></nobr></td>
+						<xsl:if test="$filter = 'all'">
+							<td><small>&#160;</small></td>
+							<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
+						</xsl:if>
+						<td><small>&#160;</small></td>
 						<td nowrap="nowrap" align="right"><nobr><small>
 						<xsl:choose>
 							<xsl:when test="not(contains($property,'time')) and not(contains($property,'Time'))">1</xsl:when>
@@ -516,6 +506,11 @@
 							<xsl:otherwise><xsl:value-of select="$iterations1" /></xsl:otherwise>
 						</xsl:choose>
 						</small></nobr></td>
+						</tr>
+						<tr>
+						<td colspan="1" bgcolor="#EEEEEE" height="1"></td>
+						<td colspan="1" bgcolor="#000000" height="1"></td>
+						<td colspan="11" bgcolor="#EEEEEE" height="1"></td>
 						</tr>
 					</xsl:if>
 				</xsl:if>

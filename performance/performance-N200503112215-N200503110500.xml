@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="performance.xsl"?>
 <data>
-  <build id="N200503112215" type="delta">
+  <build id="N200503112215" type="build">
     <testsuite package="org.eclipse.emf.test.performance.deserialization">
       <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
                      name="testLoad">
@@ -596,7 +596,7 @@
       </testcase>
     </testsuite>
   </build>
-  <build id="N200503110500" type="baseline">
+  <build id="N200503110500" type="reference">
     <testsuite package="org.eclipse.emf.test.performance.deserialization">
       <testcase classname="org.eclipse.emf.test.performance.deserialization.DynamicIpoLoad"
                      name="testLoad">
