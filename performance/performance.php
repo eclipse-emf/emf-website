@@ -34,7 +34,7 @@
 		global $PHP_SELF, $filter;
 		rsort($files); reset($files);
 
-		echo "<style>@import url(\"performance.css\");</style>\n";
+		//echo "<style>@import url(\"performance.css\");</style>\n";
 		echo "<body>\n";
 		echo "Choose a perfromance comparison to view:\n\n<ul>\n";
 		foreach ($files as $file) {
@@ -211,7 +211,7 @@
 	function doXML() {
 		global $threshholdPercentage,$filter,$unitSigDigs,$pcntSigDigs;
 		global $XMLfile,$XSLfile; ?>
-<style>@import url("performance.css");</style>
+<!-- <style>@import url("performance.css");</style> -->
 <script type="text/javascript">
 	var returnval = 0;
 	var stylesheet, xmlDocObj, cache, doc;

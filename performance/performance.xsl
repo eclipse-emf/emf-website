@@ -3,7 +3,7 @@
 
 	<xsl:param name="XMLfile"></xsl:param> <!-- LEAVE BLANK - pass value of the xml doc being parsed into stylesheet via javascript -->
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
-	<xsl:param name="threshholdPercentage">3</xsl:param> 
+	<xsl:param name="threshholdPercentage">3</xsl:param>
 	<xsl:param name="filter">CPU Time</xsl:param>
 	<xsl:param name="unitSigDigs">100000</xsl:param> <!-- number of decimal places to keep in displaying values -->
 	<xsl:param name="pcntSigDigs">10</xsl:param> <!-- number of decimal places to keep in displaying percentages -->
@@ -14,7 +14,7 @@
 </xsl:variable>
 
 <!--
-	// TODO collect build details from gtk console log (if in PHP version, with links to log - copy from performance-results.php) 
+	// TODO collect build details from gtk console log (if in PHP version, with links to log - copy from performance-results.php)
 -->
 
 <xsl:template name="show_perf_data" match="/">
@@ -25,7 +25,7 @@
     <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
-	<style>@import url("performance.css");</style>
+	<!-- <style>@import url("performance.css");</style> -->
 	</head>
 	<body>
 
@@ -75,7 +75,7 @@
       </td>
 
     </tr>
-  </tbody>            
+  </tbody>
 </table>
 
 <table border="0" cellpadding="2" width="100%" >
@@ -107,7 +107,7 @@
 					<tr>
 				<td><b>Threshhold Percentage</b><br/><small>
 				Absolute value of deltas less than<br/>
-				this percentage will be omitted from<br/> 
+				this percentage will be omitted from<br/>
 				the plot. To include all, use -1.</small></td>
 				<td>&#160;</td>
 				<td colspan="2"><input class="field9px" size="3" name="threshholdPercentage" value="{$threshholdPercentage}"/></td>
@@ -132,7 +132,7 @@
 						Data/Stack Size (bytes)</option>
 					<option value="Used Java Heap">
 						Used Java Heap [Used Memory] (bytes)</option>
-			</select> 
+			</select>
 			<a href="#legend"><img src="http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/question.gif" border="0"/></a>
 			<br/>
 		 <input type="submit" value="Compare"/>
@@ -144,7 +144,7 @@
 
 <xsl:call-template name="show_perf_data_columns"></xsl:call-template>
 
-<!-- legend --> 
+<!-- legend -->
 <p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="4"><b><a name="legend">Legend</a></b></td></tr>
@@ -226,7 +226,7 @@
 <p>
 	<a name="quicknav">
 	<a href="../">EMF Home</a> |
-	<a href="../../xsd">XSD Home</a> | 
+	<a href="../../xsd">XSD Home</a> |
 	<a href="#top">Top of Page</a>
 	</a>
 </p>
