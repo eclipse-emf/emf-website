@@ -39,7 +39,7 @@
 		<td align="left" width="115" bgcolor="#6699CC">
 
 		<!-- left nav here -->
-		<xsl:copy-of select="document('includes/nav.xml')/div"/>
+		<xsl:copy-of select="document('../includes/nav.xml')/div"/>
 
 		</td>
 
@@ -360,4 +360,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.4 2004/12/21 23:23:28 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.5 2004/12/23 02:23:19 nickb Exp $ -->

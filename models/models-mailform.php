@@ -170,7 +170,7 @@ $message .='
 </html>
 ';
 
-		include "includes/header.html"; 
+		include "includes/header.php"; 
 
 echo '	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<tr><td>';
@@ -180,7 +180,7 @@ echo "</span>";
 echo "<p><a href=\"models.xml\">Back to the Models</a></p>\n\n";
 echo '</td></tr></table>';
 
-		include "includes/footer.html"; 
+		include "../includes/footer.html"; 
 
 // send receipt to customer, from form
 if ($sender && strstr($sender,"@")) { 
@@ -214,5 +214,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.3 2004/12/21 21:44:22 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.4 2004/12/23 02:23:19 nickb Exp $ -->
 ?>
