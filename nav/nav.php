@@ -95,7 +95,7 @@
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
-      <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav" target="_bz">Bugzilla</a><br/>
+      <p>&#160; <a href="http://bugs.eclipse.org/bugs" class="nav">Bugzilla</a><br/>
 <?php
 	
 	$statuses = array(
@@ -112,7 +112,7 @@
 		echo '<small class="nav">&#160; &#160; &#160; '.$statusLabel.":</small><br>&#160; &#160; &#160; \n";
 		foreach ($bugzLinks as $label => $url) { 
 			if ($blcnt>0) { echo ", "; } $blcnt++;
-			echo "".'<small class="nav"><a href="'.$url.'" target="_bugz" class="nav">'.$label.'</a></small>';
+			echo "".'<small class="nav"><a href="'.$url.'" class="nav">'.$label.'</a></small>';
 		} 
 		echo "<br>";
 	}
@@ -196,11 +196,9 @@
       <p>&#160; <a href="news://news.eclipse.org/eclipse.tools.emf" class="nav">Newsgroup</a><br>
 		<small class="nav">&#160; &#160; &#160;  
 		
-		<a href="http://www.eclipse.org/search/search.cgi"
- target="_self" class="nav">Search</a>, <a
- href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
- target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a>,<br>
-&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="nav">Archives</a>
+		<a href="http://www.eclipse.org/search/search.cgi" class="nav">Search</a>, <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" class="nav">Pwds</a>,<br>
+&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" class="nav">Archives</a>
 		</small>
 		</p>
 
@@ -267,10 +265,10 @@
 		<small class="nav">&#160; &#160; &#160;  
 		
 		<a href="http://www.eclipse.org/search/search.cgi"
- target="_self" class="nav">Search</a>, <a
+ class="nav">Search</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
- target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a>,<br>
-&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="nav">Archives</a>
+ class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" class="nav">Pwds</a>,<br>
+&#160; &#160; &#160;  <a href="../mailing-list.php" class="nav">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" class="nav">Archives</a>
 		
 		</small>
 		</p>
