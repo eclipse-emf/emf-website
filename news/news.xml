@@ -125,7 +125,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="October 18, 2004" showOn="docs,whatsnew">
-	New SDO tutorial: <a href="../../../tools/emf/scripts/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="../../../tools/emf/scripts/docs.php?noHeader=true&doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
+	New SDO tutorial: <a href="../../../tools/emf/scripts/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="../../../tools/emf/scripts/docs.php?noHeader=true&amp;doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
 </news>
 <news date="October 18, 2004" showOn="whatsnew">
 	Since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD!
@@ -142,7 +142,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="October 13, 2004" showOn="docs,whatsnew">
-	New Eclipse Corner article: <a href="../../../tools/emf/scripts/docs.php?noHeader=true&doc=http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
+	New Eclipse Corner article: <a href="../../../tools/emf/scripts/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
 </news>
 <news date="October 13, 2004" showOn="docs,whatsnew">
 	<a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=SDO">SDO FAQ</a> split from <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=EMF">EMF FAQ</a> for ease of use. Now filterable!
@@ -338,7 +338,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="May 17, 2004" showOn="docs,whatsnew">
-	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://www.eclipse.org/emf/faq/faq.php">EMF FAQ</a> & <a href="../../../tools/emf/scripts/docs.php">EMF Docs page</a>
+	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://www.eclipse.org/emf/faq/faq.php">EMF FAQ</a> &amp; <a href="../../../tools/emf/scripts/docs.php">EMF Docs page</a>
 </news>
 <news date="May 13, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -364,7 +364,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="April 28, 2004">
-	To better meet the needs of our users, EMF & SDO have been combined into one Runtime and one SDK packages, instead of two of each. 
+	To better meet the needs of our users, EMF &amp; SDO have been combined into one Runtime and one SDK packages, instead of two of each. 
 </news>
 <news date="April 15, 2004">
 	To better meet the needs of our users, Source, Runtime, and Docs have been combined into one easier-to-<a href="../../../tools/emf/scripts/downloads.php">download</a> SDK bundle for each of EMF, SDO and XSD. Runtimes are still available separately.
@@ -437,6 +437,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.24 2005/02/28 23:35:37 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.25 2005/03/02 18:19:36 nickb Exp $ -->
 
 </doc>
