@@ -42,6 +42,7 @@
 		global $threshholdPercentage,$filter,$unitSigDigs,$pcntSigDigs;
 		global $XMLfile,$XSLfile; ?>
 <style>@import url("performance.css");</style>
+<script type="text/javascript" src="performance.js"></script>
 <script type="text/javascript">
 	var returnval = 0;
 	var stylesheet, xmlDocObj, cache, doc;
@@ -114,7 +115,7 @@
 <body onload="init();">
 
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
-
+<div id="dhtmltooltip"></div>
 <div id="data">
 <!-- this is where the transformed XML data goes -->
 			<p><b class="big-header">XML now loading...</b></p> 
