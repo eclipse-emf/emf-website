@@ -348,7 +348,7 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="2.0.2RC2" project="emf">
-<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
+<bug id="86190">[DUPE] xsd doc : toc.xml has invalid xml?</bug>
 </entry>
 
 <entry version="2.0.2" build="M200502171209" project="emf">
@@ -375,7 +375,7 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="2.0.2RC2" project="sdo">
-<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
+<bug id="86190">[DUPE] xsd doc : toc.xml has invalid xml?</bug>
 </entry>
 
 <entry version="2.0.2" build="M200502171209" project="sdo">
@@ -402,7 +402,7 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="2.0.2RC2" project="xsd">
-<bug id="86190">xsd doc : toc.xml has invalid xml?</bug>
+<bug id="86190">[DUPE] xsd doc : toc.xml has invalid xml?</bug>
 </entry>
 
 <entry version="2.0.2" build="M200502171209" project="xsd">
@@ -1396,4 +1396,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.28 2005/02/28 23:35:37 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.29 2005/02/28 23:44:19 nickb Exp $ -->
