@@ -102,7 +102,6 @@
     <tr>
       <td align="left" width="60%">
         <font class="indextop">FAQ</font>
-        <font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><br/><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em></xsl:if></font>
 
       </td>
       <td width="40%">
@@ -119,12 +118,13 @@
 <td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
 <b><font face="Arial,Helvetica"><font color="#FFFFFF">
 <xsl:copy-of select="$pageTitle" />
-</font></font></b><a name="top">&#160;</a></td>
+</font></font></b></td>
 </tr>
 </table>
 <table border="0" cellpadding="2" width="100%" >
 <tr>
-<td><b class="big-header">Last modified: 
+<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/></xsl:if></font>
+<b class="big-header">Last modified: 
 		<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
 		<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
 </b></td>
@@ -409,4 +409,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.4 2004/12/23 02:28:24 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.5 2004/12/23 02:32:12 nickb Exp $ -->

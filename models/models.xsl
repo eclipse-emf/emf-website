@@ -81,8 +81,6 @@
 	<table border="0" cellspacing="1" cellpadding="3">
 		<tr class="light-row" valign="bottom">
 			<td colspan="1" class="big-header">
-				<h1 class="title">Eclipse Modeling Framework Corner</h1>
-
 				<b class="big-header">Newest Model: </b> 
 					<xsl:for-each select="model">
 						<xsl:if test="(position()=1)">
@@ -360,4 +358,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.5 2004/12/23 02:23:19 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.6 2004/12/23 02:32:12 nickb Exp $ -->
