@@ -1,5 +1,4 @@
-<?php $pre = ""; 
-		if ($FAQ=="XSD") { 
+<?php if ($FAQ=="XSD") { 
 			$HTMLTitle = "XML Schema Infoset Model FAQ";
 			$ProjectName = array(
 				"XML Schema Infoset Model FAQ",
@@ -47,7 +46,7 @@
 				"images/reference.gif"
 				);
 		}
-		include $pre."includes/header.php"; 
+		include "includes/header.php"; 
 		
 		if (!$doc) { 
 			$XMLfile = "../faq/faq.xml";
@@ -150,6 +149,5 @@
 
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
-<?php include $pre."includes/footer.php"; 
-		//include $pre."includes/clickthru-tracker.php"; ?>
-<!-- $Id: faq.php,v 1.1 2004/12/23 01:39:43 nickb Exp $ -->
+<?php include "../includes/footer.php"; ?>
+<!-- $Id: faq.php,v 1.2 2004/12/23 02:07:07 nickb Exp $ -->

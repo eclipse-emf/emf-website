@@ -58,32 +58,84 @@
 		</xsl:choose>
 	</xsl:variable>
 
-	<html>
+	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<title><xsl:copy-of select="$pageTitle" /></title>
+    <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
+	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
 	<style>@import url("faq.css");</style>
 	</head>
 	<body>
+
+<!-- wrapper for left nav -->
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
+
+     <tr>
+          <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
+          <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
+          <td width="250" height="50"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
+     </tr>
+
+    </table></td>
+  </tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0">
+	<tr valign="top">
+		<td align="left" width="115" bgcolor="#6699CC">
+
+		<!-- left nav here -->
+		<xsl:copy-of select="document('../includes/nav.xml')/div"/>
+
+		</td>
+
+		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
+&#160;
+<table border="0" cellpadding="2" width="100%">
+  <tbody>
+
+    <tr>
+      <td align="left" width="60%">
+        <font class="indextop">FAQ</font>
+        <font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><br/><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em></xsl:if></font>
+
+      </td>
+      <td width="40%">
+        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+      </td>
+
+    </tr>
+  </tbody>            
+</table>
+
+<table border="0" cellpadding="2" width="100%" >
+<tr>
+
+<td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
+<b><font face="Arial,Helvetica"><font color="#FFFFFF">
+<xsl:copy-of select="$pageTitle" />
+</font></font></b><a name="top">&#160;</a></td>
+</tr>
+</table>
+<table border="0" cellpadding="2" width="100%" >
+<tr>
+<td><b class="big-header">Last modified: 
+		<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
+		<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
+</b></td>
+<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
+</tr>
+</table>
+
 	<form action="" method="get" name="mainform">
 	<a name="top"> </a>
 	<table width="100%">
-		<tr valign="top">
-		<td width="75%">
-			<a name="top"> </a>
-			<h1 class="title"><xsl:copy-of select="$pageTitle" />
-			<xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><br/><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em></xsl:if>
-			</h1>
-			<b class="big-header">Last modified: 
-				<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
-				<!-- by <xsl:value-of select="substring-before(substring-after(author,concat('$','Author',':')),'$')" /> -->
-			</b>
-		</td>
-		</tr>
 		<xsl:if test="$showFilters='1'">
 			<tr>
 				<td width="75%">
 				<table>
 					<tr><td colspan="13">
+	
 					<hr size="1" width="100%"/>
 						<span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b> Multiple terms are treated as an <b>OR</b> search.</span><br/>
 						<span class="log-text">You can also use these predefined filters: 
@@ -302,10 +354,21 @@
 		</xsl:if>
 	</xsl:for-each>
 	</table>
-	<!-- $Id: faq.xsl,v 1.1 2004/12/23 01:39:43 nickb Exp $ -->
+	<!-- $Id: faq.xsl,v 1.2 2004/12/23 02:07:07 nickb Exp $ -->
 	</form>
+
+<p>
+	<a href="../">EMF Home</a> |
+	<a href="../../xsd">XSD Home</a> | 
+	<a href="#top">Top of Page</a>
+</p>
+
+<!-- wrapper for left nav -->
+</td></tr></table>
+
 	</body>
 	</html>
+
 </xsl:for-each>
 </xsl:template>
 
