@@ -1,4 +1,10 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+	<?php $sep_line = '
+  <tr> 
+    <td BGCOLOR="#CFFFFF"><img SRC="../../projects/images/c.gif" height=1 width=1></td>
+  </tr>
+'
+; ?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -7,16 +13,15 @@
 <link rel="stylesheet" href="../../nav_style.css" type="text/css">
 </head>
 <body text="#000000" bgcolor="#6699CC" link="#FFFFCC" vlink="#551A8B" alink="#FF0000">
+
 <table BORDER=0 CELLSPACING=0 CELLPADDING=0 COLS=1 WIDTH="100%" BGCOLOR="#90C8FF" height="45" >
+  <tr> 
+    <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&nbsp;<a href="eclipse_nav.php" target="_self" class="navhead">eclipse nav</a></td>
+  </tr>
+	<?php echo $sep_line; ?>
   <tr> 
     <td VALIGN=CENTER HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="../../emf/" target="_top" class="navhead">emf/sdo &amp; xsd</a></td>
   </tr>
-
-	<?php $sep_line = '
-  <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="../../projects/images/c.gif" height=1 width=1></td>
-  </tr>
-'; ?>
 
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
