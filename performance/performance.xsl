@@ -45,12 +45,17 @@
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr valign="top">
 		<td align="left" width="115" bgcolor="#6699CC">
-
 			<!-- left nav here -->
 			<xsl:if test="$showFiltersOrHeaderFooter!='1'">
-				<xsl:copy-of select="document('../includes/nav.xml')/div"/>
+				<xsl:choose>
+					<xsl:when test="boolean(document('http://eclipse.org/emf/includes/nav.xml'))">
+						<xsl:copy-of select="document('http://eclipse.org/emf/includes/nav.xml')/div"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:copy-of select="document('../includes/nav.xml')/div"/>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:if>
-
 		</td>
 
 		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
