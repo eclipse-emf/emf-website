@@ -114,7 +114,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="../news-whatsnew-cvs.php?source=emf" class="nav">What's New, CVS?</a><br>
-		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="../news-whatsnew-cvs.php?source=emf/">EMF</a> | <a class="nav" href="../news-whatsnew-cvs.php?source=sdo/">SDO</a> | <a class="nav" href="../news-whatsnew-cvs.php?source=xsd">XSD</a>
+		<small class="nav">&#160; &#160; &#160;  <a class="nav" href="../news-whatsnew-cvs.php?source=emf/">EMF</a> | <a class="nav" href="../news-whatsnew-cvs.php?source=sdo">SDO</a> | <a class="nav" href="../news-whatsnew-cvs.php?source=xsd">XSD</a>
 		
 		</small>
 		</p>
@@ -163,6 +163,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
 <?php 
+	$files = "";
 	$files = loadDirSimple("../news","release-notes(.*)\.html","f");
 	rsort($files); reset($files);
 
@@ -177,7 +178,7 @@
 			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
 		}
 		$out .= '<a class="nav" href="../news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
-		if (!$stored_ver) { $stored_ver = ($vver-0) > ($stored_ver-0) ? $vver : $stored_ver; } // get largest
+		if ($i==0) { $stored_ver = $vver; } 
 	}
 	?>
       <p>&#160; <a href="../news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
@@ -217,8 +218,7 @@
     <td valign=CENTER height="21"> 
       <p>&#160; <a href="../../xsd/docs.php" class="nav">Documentation</a><br>
 		<small class="nav">
-		&#160; &#160; &#160; Overviews:<br>&#160; &#160; &#160;  
-
+		&#160; &#160; &#160;  
 		<a class="nav" href="http://dev.eclipse.org/viewcvs/indextech.cgi/%7Echeckout%7E/xsd-home/docs/XSD.mdl">UML model</a><br>
 		&#160; &#160; &#160;  
 		<a class="nav" href="http://download.eclipse.org/technology/xsd/javadoc/org/eclipse/xsd/package-summary.html#details">UML Diagrams</a>
@@ -233,6 +233,7 @@
   <tr valign=CENTER> 
     <td valign=CENTER height="21"> 
 <?php 
+	$files = "";
 	$files = loadDirSimple("../../xsd/news","release-notes(.*)\.html","f");
 	rsort($files); reset($files);
 
