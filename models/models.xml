@@ -262,7 +262,7 @@ documentation.</text>
      category="General discussion" 
      modelID="NickBoldt20040913165614">
     <text>Welcome, everyone. If you have any suggestions or comments, please post them into this thread or start your own under the General Discussion category.</text>
-    <modelURL>http://www.eclipse.org/emf/models.php</modelURL>
+    <modelURL>http://www.eclipse.org/emf/models.xml</modelURL>
     <thumbnailURL></thumbnailURL>
     <screenshotURL></screenshotURL>
     <submitter>Nick Boldt</submitter> 
@@ -293,4 +293,4 @@ documentation.</text>
    <category-def category="XSD other"     label="XSD (Other)" />
 
 </data>
-<!-- $Id: models.xml,v 1.1 2004/12/21 21:32:13 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.2 2004/12/21 21:33:39 nickb Exp $ -->
