@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <xsl:stylesheet version = '1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 <xsl:output method="html" encoding="ISO-8859-1"/>
 <xsl:key name="modelCatg" match="model" use="@category"/>
@@ -10,7 +11,7 @@
 
 <xsl:template name="show_models" match="/">
 <xsl:for-each select="data">
-	<html>
+	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
     <title>Eclipse Tools - EMF and SDO - EMF Corner</title>
     <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
@@ -23,12 +24,12 @@
 <!-- wrapper for left nav -->
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr valign="top"><td colspan="1" align="left" width="100%">
-    <table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" BGCOLOR="#006699" >
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
 
      <tr>
           <td BGCOLOR="#000000" width="116" ><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
-          <td WIDTH="637"><img SRC="http://www.eclipse.org/images/gradient.jpg" border="0" height="50" width="282"/></td>
-          <td WIDTH="250"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
+          <td width="637"><img src="http://www.eclipse.org/images/gradient.jpg" border="0" height="50" width="282"/></td>
+          <td width="250"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
      </tr>
 
     </table>
@@ -37,15 +38,15 @@
 </table>
 <table cellspacing="0" cellpadding="0" border="0">
 	<tr valign="top">
-		<td align="left" width="115" bgcolor="#6699CC"><table border="0" cellspacing="0" cellpadding="0" BGCOLOR="#90C8FF" height="45" width="116">
+		<td align="left" width="115" bgcolor="#6699CC"><table border="0" cellspacing="0" cellpadding="0" BGCOLOR="#90C8FF" width="116">
   <!-- common links - both projects -->
   <tr> 
-    <td Valign="CENTER" HEIGHT="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org/emf/" target="_top" class="navhead">emf/sdo</a></td>
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org/emf/" target="_top" class="navhead">emf/sdo</a></td>
 
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
@@ -56,14 +57,14 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"><p>&#160; <a href="http://download.eclipse.org/tools/emf/updates/" class="nav">Update Manager</a></p></td>
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -74,7 +75,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -85,7 +86,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -96,7 +97,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -107,7 +108,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -118,7 +119,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -128,7 +129,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
 
   <tr valign="CENTER"> 
@@ -140,7 +141,7 @@
 		
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
 
   <tr valign="CENTER"> 
@@ -152,7 +153,7 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
 
   <tr valign="CENTER"> 
@@ -162,14 +163,14 @@
   </tr>
 	
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
 
 </table>
 
-<table border="0" cellspacing="0" cellpadding="0" cols="1" WIDTH="116" BGCOLOR="#90C8FF" height="45" >
+<table border="0" cellspacing="0" cellpadding="0" cols="1" width="116" BGCOLOR="#90C8FF" height="45" >
   <tr> 
-    <td Valign="CENTER" HEIGHT="21" BGCOLOR="#0080C0">&#160;<a href="http://www.eclipse.org/http://www.eclipse.orgtools/index.html" target="_top" class="navhead">
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160;<a href="http://www.eclipse.org/http://www.eclipse.orgtools/index.html" target="_top" class="navhead">
       tools</a></td>
   </tr>
   <tr valign="CENTER"> 
@@ -179,7 +180,7 @@
 
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img SRC="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
@@ -188,7 +189,7 @@
   </tr>
 
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
@@ -196,7 +197,7 @@
     </td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
   <tr valign="CENTER"> 
@@ -205,7 +206,7 @@
     </td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
 
   <tr valign="CENTER"> 
@@ -214,7 +215,7 @@
     </td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   
   <tr valign="CENTER"> 
@@ -224,7 +225,7 @@
     </td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   
   <tr valign="CENTER"> 
@@ -234,7 +235,7 @@
 
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   
   <tr valign="CENTER"> 
@@ -244,76 +245,76 @@
   </tr>
 
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   
   
 </table>
-<table border="0" cellspacing="0" cellpadding="0" cols="1" WIDTH="116" BGCOLOR="#90C8FF" >
+<table border="0" cellspacing="0" cellpadding="0" cols="1" width="116" BGCOLOR="#90C8FF" >
   <tr> 
-    <td Valign="CENTER" HEIGHT="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org" target="_top" class="navhead"> 
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org" target="_top" class="navhead"> 
       eclipse home</a></td>
   </tr>
-  <tr Valign="CENTER"> 
-    <td HEIGHT="21">&#160; <a href="http://www.eclipse.org/org/index.html" class="nav" target="_top">about us</a></td>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/org/index.html" class="nav" target="_top">about us</a></td>
 
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
-    <tr Valign="CENTER"> 
-    <td HEIGHT="21">&#160; <a href="http://www.eclipse.org/projects/index.html" class="nav" target="_top">projects</a></td>
+    <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/projects/index.html" class="nav" target="_top">projects</a></td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
-  <tr Valign="CENTER"> 
-    <td HEIGHT="21">&#160; <a href="http://www.eclipse.org/downloads/index.php" class="nav" target="_top">downloads</a></td>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/downloads/index.php" class="nav" target="_top">downloads</a></td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
-  <tr Valign="CENTER"> 
-    <td HEIGHT="21">&#160; <a href="http://www.eclipse.org/articles/index.html" class="nav" target="_top">articles</a></td>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/articles/index.html" class="nav" target="_top">articles</a></td>
 
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
-  <tr Valign="CENTER"> 
-    <td HEIGHT="21">&#160; <a href="http://www.eclipse.org/newsgroups/index.html" class="nav" target="_top">newsgroups</a></td>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="http://www.eclipse.org/newsgroups/index.html" class="nav" target="_top">newsgroups</a></td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
-  <tr Valign="CENTER"> 
-    <td Valign="CENTER" HEIGHT="21">&#160; <a href="http://www.eclipse.org/mail/index.html" class="nav" target="_top">mailing 
+  <tr valign="CENTER"> 
+    <td valign="CENTER" height="21">&#160; <a href="http://www.eclipse.org/mail/index.html" class="nav" target="_top">mailing 
       lists</a></td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21">&#160; <a href="http://www.eclipse.org/community/index.html" class="nav" target="_top">community</a></td>
 
   </tr>
   <tr> 
-    <td bgcolor="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
-  <tr Valign="CENTER">
-    <td HEIGHT="21">&#160; <a href="http://www.eclipse.org/search/search.cgi" class="nav">search</a></td>
+  <tr valign="CENTER">
+    <td height="21">&#160; <a href="http://www.eclipse.org/search/search.cgi" class="nav">search</a></td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
 
   </tr>
-  <tr Valign="CENTER"> 
-    <td HEIGHT="21">&#160; <a href="https://bugs.eclipse.org/bugs/" class="nav">bugs</a></td>
+  <tr valign="CENTER"> 
+    <td height="21">&#160; <a href="https://bugs.eclipse.org/bugs/" class="nav">bugs</a></td>
   </tr>
   <tr> 
-    <td BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1"/></td>
+    <td class="spacer" BGCOLOR="#CFFFFF"><img src="http://www.eclipse.org/images/c.gif" height="1" width="1" /></td>
   </tr>
 </table>
 
@@ -338,15 +339,15 @@
   </tbody>            
 </table>
 
-<table border="0" cellpadding="2" WIDTH="100%" >
+<table border="0" cellpadding="2" width="100%" >
 <tr>
 
-<td align="LEFT" Valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
+<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
-<table border="0" cellpadding="2" WIDTH="100%" >
+<table border="0" cellpadding="2" width="100%" >
 <tr>
-<td align="right" Valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
+<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
 </tr>
 </table>
 
@@ -636,4 +637,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.2 2004/12/21 21:58:10 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.3 2004/12/21 22:16:44 nickb Exp $ -->
