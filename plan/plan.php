@@ -76,15 +76,16 @@ $column_order = array( // column label => field name (mixed case version)
 $committers = array(); // list of names that are valid committers; ignore comments posted by non-committers
 
 getCommitterList(); 
-if ($contentType=="text/html") { 
+if ($contentType=="text/html" || $debug) { 
 	w("\$committers:",1); wArr($committers); w("",1);
 }
 getMetaAndBugList();
 getPlanItems($columns); 
-if ($contentType=="text/html") { 
+if ($contentType=="text/html" || $debug) { 
 	w("\$bugz:"); wArr($bugz);
 	w("<br>\$buglist: $buglist");
-} else if ($contentType=="text/xml") { 
+}
+if ($contentType=="text/xml") { 
 	displayXML();
 }
 
@@ -259,11 +260,11 @@ function getPlanItems($extrafields=array()) {
 }
 
 function displayXML() {
-	global $bugz,$columns,$additional_columns,$column_order;
-	header('Content-type: text/xml');
+	global $bugz,$columns,$additional_columns,$column_order,$debug;
+	if (!$debug) { header('Content-type: text/xml'); }
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.5 2005/02/25 20:59:04 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.6 2005/03/01 20:32:03 nickb Exp $ -->
 <plan>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
@@ -284,9 +285,9 @@ function displayXML() {
 		echo "\t<bug>\n";
 		foreach ($column_order as $col) {
 			if (in_array($col,$columns)) {
-				echo "\t\t<".strtolower($col).">".$data[$col]."</".strtolower($col).">\n";
+				echo "\t\t<".strtolower($col).">".str_replace("'","`",$data[$col])."</".strtolower($col).">\n";
 			} else if (in_array($col,$additional_columns)) {
-				echo "\t\t<".strtolower($col).">".$data[$col]."</".strtolower($col).">\n";
+				echo "\t\t<".strtolower($col).">".str_replace("'","`",$data[$col])."</".strtolower($col).">\n";
 			}
 		}
 		echo "\t</bug>\n";

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.xml,v 1.2 2005/02/19 08:10:55 nickb Exp $ -->
+<!-- $Id: plan.xml,v 1.3 2005/03/01 20:32:03 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/02/19 08:10:55 $</modified>
+	<modified>$Date: 2005/03/01 20:32:03 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
@@ -735,7 +735,7 @@
 		<plan-priority>3</plan-priority>
 		<plan-estimate>1d</plan-estimate>
 
-		<plan-comments>Marcelo can write the blurb when he's done the book chapter</plan-comments>
+		<plan-comments>Marcelo can write the blurb when he`s done the book chapter</plan-comments>
 		<summary>Add a section on model validation in to the EMF Overview document</summary>
 	</bug>
 	<bug>
@@ -977,141 +977,437 @@
 		<summary>Can XmlMapImpl be threadsafe?</summary>
 	</bug>
 	<bug>
-		<id>82613</id>
-		<product>XSD</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
+		<id>85929</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.0.1</ver>
 
-		<targetm>2.1</targetm>
-		<opened>2005-01-11 17:39</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<targetm>---</targetm>
+		<opened>2005-02-20 05:56</opened>
+		<reporter>manklu&#64;web.de</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
+		<sev>major</sev>
 
-		<pri>P4</pri>
+		<pri>P3</pri>
 		<stat>NEW</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>4w</plan-estimate>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>[Theme] Performance Enhancements For XSD</summary>
-
+		<summary>Problem with the desiralization of forward references</summary>
 	</bug>
+
 	<bug>
-		<id>70862</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2004-07-26 17:55</opened>
-		<reporter>aspyker&#64;us.ibm.com</reporter>
-		<assignee>frankb&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
-		<pri>P1</pri>
-
-		<stat>NEW</stat>
-		<plan-priority>1</plan-priority>
-		<plan-estimate>12w</plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>[Theme] Performance Enhancements For EMF/SDO</summary>
-	</bug>
-	<bug>
-
-		<id>82611</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-		<opened>2005-01-11 17:38</opened>
-
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<sev>enhancement</sev>
-		<pri>P1</pri>
-		<stat>NEW</stat>
-
-		<plan-priority>1</plan-priority>
-		<plan-estimate>1w</plan-estimate>
-		<plan-comments>This size reflects unanticipated things not already covered by the bugzillas this depends on</plan-comments>
-		<summary>[Theme] Generator Reusability, EMF/SDO</summary>
-	</bug>
-	<bug>
-		<id>82615</id>
-
-		<product>EMF</product>
-		<comp>SDO</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-		<opened>2005-01-11 17:43</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
-		<pri>P1</pri>
-		<stat>NEW</stat>
-		<plan-priority>1</plan-priority>
-		<plan-estimate>26w</plan-estimate>
-
-		<plan-comments>This will depend on what is all in the next version of the spec</plan-comments>
-		<summary>[Theme] SDO 1.1 Support</summary>
-	</bug>
-	<bug>
-		<id>82610</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-
-		<ver>2.1</ver>
-		<targetm>Future</targetm>
-		<opened>2005-01-11 17:36</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-
-		<sev>normal</sev>
-		<pri>P4</pri>
-		<stat>NEW</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>4w</plan-estimate>
-		<plan-comments>This is just the estimate for investigation</plan-comments>
-
-		<summary>[Theme] J2SE 5 Support for EMF/SDO</summary>
-	</bug>
-	<bug>
-		<id>82614</id>
-		<product>XSD</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-
-		<targetm>Future</targetm>
-		<opened>2005-01-11 17:41</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<sev>normal</sev>
-
-		<pri>P4</pri>
-		<stat>NEW</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>1w</plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>[Theme] J2SE 5 Support for XSD</summary>
-
-	</bug>
-	<bug>
-		<id>85202</id>
+		<id>85972</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 
-		<opened>2005-02-14 17:38</opened>
-		<reporter>Michael.Scharf&#64;windriver.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<opened>2005-02-21 13:08</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Option to store boolean attributes in eFlags</summary>
+	</bug>
+	<bug>
+		<id>85973</id>
+
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-21 13:11</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+
+		<plan-comments></plan-comments>
+		<summary>JUnit testcase skeletons for volatile features</summary>
+	</bug>
+	<bug>
+		<id>85974</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-21 13:13</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Option to not generate any child creation icons</summary>
+
+	</bug>
+	<bug>
+		<id>85975</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-02-21 13:18</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>GenClass.image should be false by default for abstract classes</summary>
+	</bug>
+	<bug>
+		<id>85976</id>
+
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-21 13:23</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+
+		<plan-comments></plan-comments>
+		<summary>GenFeature attribute(s) for property category/filter flags</summary>
+	</bug>
+	<bug>
+		<id>85979</id>
+		<product>EMF</product>
+		<comp>Mapping</comp>
+
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-21 13:31</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Ecore2XML mapping capability</summary>
+
+	</bug>
+	<bug>
+		<id>85982</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-02-21 13:43</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Optional localization</summary>
+	</bug>
+	<bug>
+		<id>86355</id>
+
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.0.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-23 15:32</opened>
+		<reporter>schacher&#64;us.ibm.com</reporter>
+
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+
+		<plan-comments></plan-comments>
+		<summary>Need isLoading() test for Resource</summary>
+	</bug>
+	<bug>
+		<id>86481</id>
+		<product>EMF</product>
+		<comp>Edit</comp>
+
+		<ver>2.0.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-24 10:39</opened>
+		<reporter>bhunt&#64;mac.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<sev>normal</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Extending models &amp; generated editor enhancements</summary>
+
+	</bug>
+	<bug>
+		<id>86623</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-02-25 09:24</opened>
+		<reporter>jcheuoua&#64;wanadoo.fr</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Providing a Registry for ItemProviderAdapterFactories</summary>
+	</bug>
+	<bug>
+		<id>86634</id>
+
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-25 10:03</opened>
+		<reporter>mlovett&#64;uk.ibm.com</reporter>
+
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+
+		<plan-comments></plan-comments>
+		<summary>Performance enhancement to BasicExtendedMetaData</summary>
+	</bug>
+	<bug>
+		<id>86665</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-25 12:24</opened>
+		<reporter>iriss&#64;us.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<sev>normal</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>feature name that differ in case</summary>
+
+	</bug>
+	<bug>
+		<id>86782</id>
+		<product>EMF</product>
+		<comp>Mapping</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-02-27 11:47</opened>
+		<reporter>marcusebner&#64;gmx.net</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P3</pri>
+
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Unhandled event loop exception - java.lang.StackOverflowError</summary>
+	</bug>
+	<bug>
+		<id>82613</id>
+
+		<product>XSD</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+		<opened>2005-01-11 17:39</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P4</pri>
+		<stat>NEW</stat>
+		<plan-priority>4</plan-priority>
+		<plan-estimate>4w</plan-estimate>
+
+		<plan-comments></plan-comments>
+		<summary>[Theme] Performance Enhancements For XSD</summary>
+	</bug>
+	<bug>
+		<id>70862</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+		<opened>2004-07-26 17:55</opened>
+		<reporter>aspyker&#64;us.ibm.com</reporter>
+		<assignee>frankb&#64;ca.ibm.com</assignee>
+
+		<sev>normal</sev>
+		<pri>P1</pri>
+		<stat>NEW</stat>
+		<plan-priority>1</plan-priority>
+		<plan-estimate>12w</plan-estimate>
+		<plan-comments></plan-comments>
+
+		<summary>[Theme] Performance Enhancements For EMF/SDO</summary>
+	</bug>
+	<bug>
+		<id>82611</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+
+		<targetm>2.1</targetm>
+		<opened>2005-01-11 17:38</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<sev>enhancement</sev>
+
+		<pri>P1</pri>
+		<stat>NEW</stat>
+		<plan-priority>1</plan-priority>
+		<plan-estimate>1w</plan-estimate>
+		<plan-comments>This size reflects unanticipated things not already covered by the bugzillas this depends on</plan-comments>
+		<summary>[Theme] Generator Reusability, EMF/SDO</summary>
+
+	</bug>
+	<bug>
+		<id>82615</id>
+		<product>EMF</product>
+		<comp>SDO</comp>
+		<ver>2.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-01-11 17:43</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P1</pri>
+
+		<stat>NEW</stat>
+		<plan-priority>1</plan-priority>
+		<plan-estimate>26w</plan-estimate>
+		<plan-comments>This will depend on what is all in the next version of the spec</plan-comments>
+		<summary>[Theme] SDO 1.1 Support</summary>
+	</bug>
+
+	<bug>
+		<id>82610</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>Future</targetm>
+
+		<opened>2005-01-11 17:36</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P4</pri>
+
+		<stat>NEW</stat>
+		<plan-priority>4</plan-priority>
+		<plan-estimate>4w</plan-estimate>
+		<plan-comments>This is just the estimate for investigation</plan-comments>
+		<summary>[Theme] J2SE 5 Support for EMF/SDO</summary>
+	</bug>
+
+	<bug>
+		<id>82614</id>
+		<product>XSD</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>Future</targetm>
+
+		<opened>2005-01-11 17:41</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P4</pri>
+
+		<stat>NEW</stat>
+		<plan-priority>4</plan-priority>
+		<plan-estimate>1w</plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>[Theme] J2SE 5 Support for XSD</summary>
+	</bug>
+	<bug>
+
+		<id>86190</id>
+		<product>XSD</product>
+		<comp>Doc</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-22 14:30</opened>
+
+		<reporter>eclipse&#64;sujee.net</reporter>
+		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<sev>normal</sev>
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>xsd doc : toc.xml has invalid xml?</summary>
+	</bug>
+	<bug>
+		<id>86747</id>
+		<product>EMF</product>
+
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-02-26 08:29</opened>
+		<reporter>saveez&#64;hotmail.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
+		<sev>normal</sev>
+		<pri>P3</pri>
 		<stat>ASSIGNED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>Add support for adding EStringToStringMapEntry to a EAnnotation  to the .ecore editor</summary>
+		<summary>Bug for a void accessor</summary>
+
 	</bug>
 </plan>
