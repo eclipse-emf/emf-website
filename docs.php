@@ -12,7 +12,7 @@
 		}
 
 		if ($ctype!="text/html" || $noHeader==true) { // don't parse the file; track view, then redirect as is to the page
-			include_once $pre."includes/clickthru-tracker.php";
+			//include_once $pre."includes/clickthru-tracker.php";
 			echo "\n"."<html><body onload=\"document.location.href='$doc';\"></body>\n";
 			exit();
 		}
@@ -147,6 +147,6 @@
 	}
 	
 include_once $pre."includes/footer.php"; 
-if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
+//if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
 
-<!-- $Id: docs.php,v 1.1 2004/12/07 22:03:03 nickb Exp $ -->
+<!-- $Id: docs.php,v 1.2 2004/12/07 23:02:03 nickb Exp $ -->
