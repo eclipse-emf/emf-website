@@ -13,10 +13,6 @@
   </xsl:call-template>
 </xsl:variable>
 
-<!--
-	// TODO collect build details from gtk console log (if in PHP version, with links to log - copy from performance-results.php)
--->
-
 <xsl:template name="show_perf_data" match="/">
 <xsl:for-each select="data">
 	<html xmlns="http://www.w3.org/1999/xhtml">
