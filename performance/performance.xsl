@@ -355,27 +355,27 @@
 						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$name" />()</small></nobr></td>
 						<td><small>&#160;</small></td>
 						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
-						<td><small>&#160;</small></td>
+						<td><small>&#160;&#160;&#160;</small></td>
 						<td><small style="color:navy"><xsl:choose>
 							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value1 &lt; 0.01">
-								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
+								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" />&#160;&#956;s
 							</xsl:when>
 							<xsl:when test="contains($property,'time') or contains($property,'Time')">
-								<xsl:value-of select="round($value1 * $unitSigDigs) div $unitSigDigs" /> ms
+								<xsl:value-of select="round($value1 * $unitSigDigs) div $unitSigDigs" />&#160;ms
 							</xsl:when>
 							<xsl:otherwise><xsl:value-of select="$value1" /></xsl:otherwise>
 						</xsl:choose></small></td>
-						<td><small>&#160;</small></td>
+						<td><small>&#160;&#160;&#160;</small></td>
 						<td><small style="color:#003333"><xsl:choose>
 							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value2 &lt; 0.01">
-								<xsl:value-of select="round($value2 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
+								<xsl:value-of select="round($value2 * 1000 * $unitSigDigs) div $unitSigDigs" />&#160;&#956;s
 							</xsl:when>
 							<xsl:when test="contains($property,'time') or contains($property,'Time')">
-								<xsl:value-of select="round($value2 * $unitSigDigs) div $unitSigDigs" /> ms
+								<xsl:value-of select="round($value2 * $unitSigDigs) div $unitSigDigs" />&#160;ms
 							</xsl:when>
 							<xsl:otherwise><xsl:value-of select="$value2" /></xsl:otherwise>
 						</xsl:choose></small></td>
-						<td><small>&#160;</small></td>
+						<td><small>&#160;&#160;&#160;</small></td>
 						<td nowrap="nowrap" align="right"><nobr><small>
 						<xsl:choose>
 							<xsl:when test="not(contains($property,'time')) and not(contains($property,'Time'))">1</xsl:when>
@@ -481,7 +481,7 @@
 						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$name" />()</small></nobr></td>
 						<td><small>&#160;</small></td>
 						<td nowrap="nowrap"><nobr><small><xsl:value-of select="$property" /></small></nobr></td>
-						<td><small>&#160;</small></td>
+						<td><small>&#160;&#160;&#160;</small></td>
 						<td><small style="color:navy"><xsl:choose>
 							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value1 &lt; 0.01">
 								<xsl:value-of select="round($value1 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
@@ -491,7 +491,7 @@
 							</xsl:when>
 							<xsl:otherwise><xsl:value-of select="$value1" /></xsl:otherwise>
 						</xsl:choose></small></td>
-						<td><small>&#160;</small></td>
+						<td><small>&#160;&#160;&#160;</small></td>
 						<td><small style="color:#003333"><xsl:choose>
 							<xsl:when test="(contains($property,'time') or contains($property,'Time')) and $value2 &lt; 0.01">
 								<xsl:value-of select="round($value2 * 1000 * $unitSigDigs) div $unitSigDigs" /> &#956;s
@@ -501,7 +501,7 @@
 							</xsl:when>
 							<xsl:otherwise><xsl:value-of select="$value2" /></xsl:otherwise>
 						</xsl:choose></small></td>
-						<td><small>&#160;</small></td>
+						<td><small>&#160;&#160;&#160;</small></td>
 						<td nowrap="nowrap" align="right"><nobr><small>
 						<xsl:choose>
 							<xsl:when test="not(contains($property,'time')) and not(contains($property,'Time'))">1</xsl:when>
