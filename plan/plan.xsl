@@ -128,7 +128,7 @@
 	<xsl:for-each select="product-def">
 		<xsl:if test="((count(key('bugEntry',@product)) != 0 and $product = product) or $product = '')">
 			<tr class="header">
-				<td colspan="9" class="sub-header">
+				<td colspan="10" class="sub-header">
 					<a name="{@product}"></a><xsl:value-of select="@label"/>: Summary (<xsl:value-of select="count(key('bugEntry',@product))" /> Bugs)
 				</td>
 			</tr>
@@ -169,8 +169,14 @@
 									<xsl:when test="name() = 'comp'">
 										<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Assigned To: {../assignee}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="." /></a>
 									</xsl:when>
+									<xsl:when test="name() = 'targetm' and ../targetm = '---'">
+										&#160;
+									</xsl:when>
 									<xsl:when test="name() = 'opened'">
 										<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Opened By: {../reporter}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="substring(.,1,10)" /></a>
+									</xsl:when>
+									<xsl:when test="name() = 'votes' and number(../votes) = 0">
+										&#160;
 									</xsl:when>
 									<xsl:when test="name() = 'sev'">
 										<xsl:value-of select="substring(.,1,3)" />
@@ -221,4 +227,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.2 2005/03/01 20:32:03 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.3 2005/03/01 23:22:53 nickb Exp $ -->

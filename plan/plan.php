@@ -35,7 +35,7 @@ $columns = array(
 	"Reported By" => "Reporter",
 	"Assigned To" => "Assignee",
 
-	//"Votes" => "Votes",
+	"Votes" => "Votes",
 	//"Changed Date" => "Changed",
 	//"Resolution" => "Resolution",
 
@@ -62,6 +62,8 @@ $column_order = array( // column label => field name (mixed case version)
 	"Reported By" => "Reporter",
 	"Assigned To" => "Assignee",
 
+	"Votes" => "Votes",
+
 	"Sev" => "Sev",
 	"Pri" => "Pri",
 	"Stat" => "Stat",
@@ -81,6 +83,7 @@ if ($contentType=="text/html" || $debug) {
 }
 getMetaAndBugList();
 getPlanItems($columns); 
+if ($votes=="true") { getVoteCounts(); }
 if ($contentType=="text/html" || $debug) { 
 	w("\$bugz:"); wArr($bugz);
 	w("<br>\$buglist: $buglist");
@@ -259,12 +262,27 @@ function getPlanItems($extrafields=array()) {
 
 }
 
+function getVoteCounts() { 
+	global $bugz;
+	foreach ($bugz as $bugnum => $data) { 
+		$html = https_file("https://bugs.eclipse.org/bugs/votes.cgi?action=show_bug&bug_id=$bugnum"); //wArr($html);
+		foreach ($html as $line) { 
+			if (isIn($line,"Total votes:")) {
+				//echo $line;
+				$bugz[$bugnum]["Votes"] = trim(preg_replace("/<p>Total votes: (\d+)<\/p>/","$1",$line));
+				break;
+			}
+		}
+
+	}
+}
+
 function displayXML() {
 	global $bugz,$columns,$additional_columns,$column_order,$debug;
 	if (!$debug) { header('Content-type: text/xml'); }
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.6 2005/03/01 20:32:03 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.7 2005/03/01 23:22:53 nickb Exp $ -->
 <plan>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
