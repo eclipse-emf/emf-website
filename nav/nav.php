@@ -109,10 +109,12 @@
 	foreach ($files as $i => $file) { 
 		preg_match("/release-notes(.*)\.html/",$file,$m);
 		$vver = $m[1];
-		if ($i>0) { $out .= ', '; }
+		if ($i>0) { 
+			$out .= ', '; 
+			if ($i%3==0) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
+		}
 		$out .= '<a class="nav" href="'.$pre.'news-release-notes.php?ver='.$vver.'">'.$vver.'</a>';
-		if ($i%3==2) { $out .= '<br>&#160; &#160; &#160; '."\n"; }
-		if (!$stored_ver) { $stored_ver=$vver; }
+		if (!$stored_ver) { $stored_ver=(($vver-0)>($stored_ver-0)?$stored_ver; } // get largest
 	}
 	?>
       <p>&#160; <a href="news-release-notes.php?ver=<?php echo $vver; ?>" class="nav">Release Notes</a><br>
@@ -133,7 +135,7 @@
 		<a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="nav">Search</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
- target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
+ target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a><br>
 &#160; &#160; &#160;  <a href="<?php echo $pre; ?>mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="nav">Archives</a>
 		</small>
 		</p>
@@ -151,7 +153,7 @@
 		<a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="nav">Search</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
- target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwd Req.</a><br>
+ target="_self" class="nav">Web</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="nav">Pwds</a><br>
 &#160; &#160; &#160;  <a href="<?php echo $pre; ?>mailing-list.php" class="nav" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="nav">Archives</a>
 		
 		</small>
@@ -206,7 +208,7 @@
       <p>&#160; <a href="faq.php" class="nav">FAQs</a><br>
 		<small class="nav"> 
 		
-		&#160; &#160; &#160;  <a class="nav" href="faq.php?FAQ=EMF">EMF</a>, <a class="nav" href="faq.php?FAQ=SDO">SDO</a>, <a class="nav" href="faq.php?FAQ=XSD">XSD</a> <br>
+		&#160; &#160; &#160;  <a class="nav" href="faq.php?FAQ=EMF">EMF</a> | <a class="nav" href="faq.php?FAQ=SDO">SDO</a> | <a class="nav" href="faq.php?FAQ=XSD">XSD</a> <br>
 		&#160; &#160; &#160;  <a href="../../eclipse/faq/eclipse-faq.html" class="nav">Eclipse FAQ</a>
 		
 		</small>
