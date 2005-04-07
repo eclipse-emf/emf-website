@@ -43,7 +43,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+        <img src="http://www.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
       </td>
 
     </tr>
@@ -56,4 +56,4 @@
 <td align="LEFT" Valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
-<!-- $Id: header.php,v 1.4 2005/04/07 19:19:52 nickb Exp $ -->
+<!-- $Id: header.php,v 1.5 2005/04/07 22:37:09 nickb Exp $ -->

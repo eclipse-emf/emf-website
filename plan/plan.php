@@ -208,7 +208,7 @@ function getPlanItems($extrafields=array()) {
 				$bugnum="n/a";
 			}
 			//w("<b>BUG: $bugnum</b>",1);
-		} else if (sizeof($extrafields)>0 && isIn($line,"<b>") && isIn($line,"</b>&nbsp;")) {
+		} else if (sizeof($extrafields)>0 && isIn($line,"<b>") && isIn($line,"</b>&#160;")) {
 			//w($line,1);
 			if (preg_match("/\<b\>(.+)\:\<\/b\>\&nbsp\;(.+)/",$line,$m)) {
 				$key = $m[1];
@@ -282,7 +282,7 @@ function displayXML() {
 	if (!$debug) { header('Content-type: text/xml'); }
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.php,v 1.7 2005/03/01 23:22:53 nickb Exp $ -->
+<!-- $Id: plan.php,v 1.8 2005/04/07 22:37:09 nickb Exp $ -->
 <plan>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>

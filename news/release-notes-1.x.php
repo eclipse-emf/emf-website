@@ -44,7 +44,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://dev.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+        <img src="http://www.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
       </td>
 
     </tr>
@@ -62,8 +62,8 @@
 <table border="0" cellpadding="2" width="100%" >
 <tr>
 <td align="left" valign="TOP"><b>
-&nbsp; &nbsp; <a href="release-notes.php?version=2.1">EMF 2.1.x</a> :: <a href="release-notes.php?version=2.0">EMF 2.0.x</a> :: <a href="#emf_111">EMF 1.1.1</a> :: <a href="#emf_110">EMF 1.1.0</a> :: <a href="#emf_102">EMF 1.0.2</a> :: <a href="#emf_101">EMF 1.0.1</a> <br>
-&nbsp; &nbsp; <a href="release-notes.php?version=2.1&project=xsd">XSD 2.1.x</a> :: <a href="release-notes.php?version=2.0&project=xsd">XSD 2.0.x</a> :: <a href="#xsd_111">XSD 1.1.1</a> :: <a href="#xsd_110">XSD 1.1.0</a> :: <a href="#xsd_102">XSD 1.0.2</a> :: <a href="#xsd_101">XSD 1.0.1</a>
+&#160; &#160; <a href="release-notes.php?version=2.1">EMF 2.1.x</a> :: <a href="release-notes.php?version=2.0">EMF 2.0.x</a> :: <a href="#emf_111">EMF 1.1.1</a> :: <a href="#emf_110">EMF 1.1.0</a> :: <a href="#emf_102">EMF 1.0.2</a> :: <a href="#emf_101">EMF 1.0.1</a> <br>
+&#160; &#160; <a href="release-notes.php?version=2.1&project=xsd">XSD 2.1.x</a> :: <a href="release-notes.php?version=2.0&project=xsd">XSD 2.0.x</a> :: <a href="#xsd_111">XSD 1.1.1</a> :: <a href="#xsd_110">XSD 1.1.0</a> :: <a href="#xsd_102">XSD 1.0.2</a> :: <a href="#xsd_101">XSD 1.0.1</a>
 </b></td>
 <td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
 </tr>
@@ -85,7 +85,7 @@ Fixes and Improvements</a></b>
 build, some of which are described below. Where the description
 applies to a fix for a bug reported through Bugzilla, the Bugzilla
 number is included after the description.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>Better JET encoding support has been added. UTF-8 encoded
@@ -157,7 +157,7 @@ Fixes and Improvements</a></b>
 some of which are described below. Where the description applies to
 a bug reported through Bugzilla, the Bugzilla number is included
 after the description.<br />
- &nbsp;</p>
+ &#160;</p>
 
 <ul>
 <li>The eBasicSetContainer(InternalEObject newContainer, int
@@ -196,7 +196,7 @@ Fixes and Improvements</a></b>
 some of which are described below. Where the description applies to
 a bug reported through Bugzilla, the Bugzilla number is included
 after the description.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The org.eclipse.emf.ecore.util.EcontentAdapter.java class has
@@ -290,14 +290,14 @@ name="emf_110">What's new in EMF 1.1.0?</a></b></td>
 <p>As with EMF 1.0.2, the EMF 1.1.0 drivers will only work well
 with Eclipse 2.1 or Eclipse 2.1.1. They should work with 2.0.2, but
 they won't get the CLASSPATH correct for .editor projects.<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 
 <li><b><a name="emf110_2">Migration from 1.0.2</a></b> 
 
 <p>Code regeneration of 1.0.2 projects is recommended, but not
 required. (See "Bug Fixes and Improvements" below.)<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 
 <li><b><a name="emf110_3">New Mapping Plugins</a></b>
@@ -310,7 +310,7 @@ is provided by the two xsd2ecore plugins
 (org.eclipse.emf.mapping.xsd2ecore and
 org.eclipse.emf.mapping.xsd2ecore.editor) in the XSD (XML Schema
 Infoset Model) Eclipse Technology Subproject, Version 1.1.0.<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 </ol>
 
@@ -318,7 +318,7 @@ Infoset Model) Eclipse Technology Subproject, Version 1.1.0.<br />
 build, some of which are described below. Where the description
 applies to a fix for a bug reported through Bugzilla, the Bugzilla
 number is included after the description.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>XMI files created by the org.eclipse.emf.ecore.xmi plugin are
@@ -371,7 +371,7 @@ build, some of which are described below. Where the description
 applies to a fix for a bug reported through Bugzilla, the Bugzilla
 number is included after the description. You can link directly to
 the Bugzilla bug using this number.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The method URI.createDeviceURI is deprecated in favor of using
@@ -447,7 +447,7 @@ support disappearing.</li>
 
 <p>There are numerous bug fixes and improvements included with this
 build, some of which are described below.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The following now applies to the xsd2ecore mapping: 
@@ -486,7 +486,7 @@ already.</li>
 
 <p>There are some bug fixes and improvements included with this
 build, some of which are described below.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The prepare() method in ReplaceCommand has been corrected to
@@ -528,7 +528,7 @@ the model.</li>
 
 <p>There are some bug fixes and improvements included with this
 build, some of which are described below.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>In the org.eclipse.emf.ecore.util package, the following
@@ -559,14 +559,14 @@ public to protected.</li>
 
 <p>There are some bug fixes and improvements included with this
 build, some of which are described below.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The change that made the org.eclipse.emf.ecore.util.ECoreUtil
 class noninstantiable has been reversed.</li>
 
 <li style="list-style: none"><br />
- &nbsp;</li>
+ &#160;</li>
 </ul>
 </li>
 
@@ -575,7 +575,7 @@ class noninstantiable has been reversed.</li>
 
 <p>There are some bug fixes and improvements included with this
 build, some of which are described below.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The setSelectionToWidget((List list, boolean reveal) method in
@@ -599,7 +599,7 @@ href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=38217">38217</a>)</li>
 
 <p>There are some bug fixes and improvements included with this
 build, some of which are described below.<br />
-&nbsp;</p>
+&#160;</p>
 
 <ul>
 <li>The value of FEEDBACK_INSERT_AFTER has been changed in the
@@ -644,7 +644,7 @@ Fixes and Improvements</a></b>
 
 <p>This build is a refresh of EMF being delivered with the
 corresponding build of XSD.<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 
 <!--- end of copy -->
@@ -674,7 +674,7 @@ based</a></b>
 <p>The EMF 1.0.2 drivers will only work well with Eclipse 2.1. They
 should work with 2.0.2, but they won't get the CLASSPATH correct
 for .editor projects. Sorry.<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 </ol>
 
@@ -685,13 +685,13 @@ from EStructuralFeature to EReference.</li>
 <li>New icons for EMF.Edit, Ecore, and GenModel.</li>
 
 <li>Bug fixes...<br />
-&nbsp;</li>
+&#160;</li>
 </ul>
 </li>
 
 <li><b><a id="emf_102a" name="emf_102a">Build
 20030310_0656VL</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Eliminated unneeded imports in generated files</li>
@@ -707,7 +707,7 @@ based implementation</li>
 
 <li><b><a id="emf_102c" name="emf_102c">Build
 20030322_1237VL</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Bug fixes...</li>
@@ -716,7 +716,7 @@ based implementation</li>
 
 <li><b><a id="emf_102d" name="emf_102d">Build
 20030326_0335VL</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Doc fixes...</li>
@@ -739,7 +739,7 @@ name="emf_101">What's new in EMF 1.0.1?</a></b></td>
 
 <li><b><a id="emf_101b" name="emf_101b">Build 20021023_1900TL
 additions</a></b><br />
-&nbsp; 
+&#160; 
 
 <ol type="I">
 <li><b><a id="emf_101b_1" name="emf_101b_1">1.0.0
@@ -757,7 +757,7 @@ delete old 1.0.0 plugin.xml's and regenerate them for 1.0.1. We
 also recommend deleting 1.0.0 genmodels, and recreating them in
 1.0.1, because they now support proper reload with persistent
 genmodel settings, while the 1.0.0 versions do not.<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 
 <li><b><a id="emf_101b_2" name="emf_101b_2">Documentation
@@ -771,11 +771,11 @@ increased by more than 2M. We're thinking about moving it into the
 Source zip, or maybe into its own zip file, in the future. If you
 have an opinion, please feel free to post it to the emf
 newsgroup.<br />
-&nbsp;</p>
+&#160;</p>
 </li>
 
 <li><b><a id="emf_101b_3" name="emf_101b_3">Bug Fixes</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Importing a Rose model with nested packages, where the parent
@@ -795,13 +795,13 @@ whereby the import from annotation wasn't finding any classes
 because of the formatting of the comments.</li>
 
 <li>Other minor bug fixes. Details available upon request.<br />
-&nbsp;</li>
+&#160;</li>
 </ul>
 </li>
 
 <li><b><a id="emf_101b_4" name="emf_101b_4">Generator
 Enhancements</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>The Ecore Model Project wizard now lets you create a genmodel
@@ -830,7 +830,7 @@ If the model had new properties, you needed to manually add them,
 or delete the old plugin.properties file before regenerating.
 Plugin.xml's still need to be deleted if you want to regenerate
 them.<br />
-&nbsp;</li>
+&#160;</li>
 </ul>
 </li>
 
@@ -929,7 +929,7 @@ callable on generated Plugin classes.</li>
 
 <li><b><a id="emf_101c" name="emf_101c">Build 20021127_0721VL
 additions</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Code is now compiled with debug information (-g).</li>
@@ -952,7 +952,7 @@ development.</li>
 
 <li><b><a id="emf_101d" name="emf_101d">Build 20021219_1544VL
 additions</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Generated editors now include property editing for multi-valued
@@ -965,7 +965,7 @@ features.</li>
 
 <li><b><a id="emf_101e" name="emf_101e">Build 20030225_1207VL
 additions</a></b><br />
-&nbsp; 
+&#160; 
 
 <ul>
 <li>Unsettable reference support. The unsettable feature has been
@@ -1156,7 +1156,7 @@ to reflect this build (i.e., the latest release).</li>
 			<li><b><a name="xsd_110a_1">New Plugins</a></b>
           <p>
            The xsd2ecore plugins (org.eclipse.emf.mapping.xsd2ecore and org.eclipse.emf.mapping.xsd2ecore.editor) have been added.  They illustrate how to use the mapping framework, and the editor can be used to view the mapping produced during XSD to Ecore conversion.  Documentation will be forthcoming soon.
-           <br>&nbsp;
+           <br>&#160;
         </li>
 
 			<br>
@@ -1201,7 +1201,7 @@ to reflect this build (i.e., the latest release).</li>
             We have refreshed the cached version of XMLSchema.xsd to the latest version on the web in order to pick up the errata changes to that version.
             </li>            
           </ul>
-           &nbsp;<br>
+           &#160;<br>
         <li>
 	<b><a name="xsd_110c">Build 20030519_0521VL: Bug Fixes and Improvements</a></b>
         </li>
@@ -1223,14 +1223,14 @@ to reflect this build (i.e., the latest release).</li>
              XSDMainTest has been upgraded to support -validate for validating a schema from the command line.
             </li>                        
           </ul>
-          &nbsp;<br>
+          &#160;<br>
 
         <li>
 	<b><a name="xsd_110d">Build 20030527_0913VL: Bug Fixes and Improvements</a></b>
         </li>
          <p>
           Minor bug fixes and improvements.  
-          &nbsp;<br>
+          &#160;<br>
           <br>
 
         <li>
@@ -1238,7 +1238,7 @@ to reflect this build (i.e., the latest release).</li>
         </li>
          <p>
           This build is a refresh of XSD being delivered with the corresponding build of EMF.  
-          &nbsp;<br>
+          &#160;<br>
           <br>
 
         <li>
@@ -1246,7 +1246,7 @@ to reflect this build (i.e., the latest release).</li>
         </li>
          <p>
           This build is a refresh of XSD being delivered with the corresponding build of EMF.  
-          &nbsp;<br>
+          &#160;<br>
           <br>
 
         <li>
@@ -1288,7 +1288,7 @@ to reflect this build (i.e., the latest release).</li>
              (Bugzilla <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=38174">38174</a>)
             </li>                       
           </ul>
-          &nbsp;<br>
+          &#160;<br>
 
         <li>
 	<b><a name="xsd_110h">Build 20030616_1530VL: Bug Fixes and Improvements</a></b>
@@ -1318,7 +1318,7 @@ to reflect this build (i.e., the latest release).</li>
             </li>
     
           </ul>
-          &nbsp;<br>
+          &#160;<br>
 
         <li>
 	<b><a name="xsd_110i">Build 20030620_1105VL: Bug Fixes and Improvements</a></b>
@@ -1331,7 +1331,7 @@ to reflect this build (i.e., the latest release).</li>
             </li>
 
           </ul>
-          &nbsp;<br>
+          &#160;<br>
 
       </ol>
 
@@ -1355,14 +1355,14 @@ to reflect this build (i.e., the latest release).</li>
       <ol>
         <li>
           <b>Bug Fixes...</b>
-          <br>&nbsp;
+          <br>&#160;
         </li>
         <li>
           <b>Validation Support</b>
           <p>
             A schema can be validated to determine whether it is a fully valid instance according to the 1.0 specification;
             since this had been working for several months, it isn't really all that new.
-          <br>&nbsp;
+          <br>&#160;
         </li>
       </ol>
     </td>
@@ -1379,7 +1379,7 @@ to reflect this build (i.e., the latest release).</li>
       <ol>
         <li>
          <b>Bug Fixes...</b>
-          <br>&nbsp;
+          <br>&#160;
         </li>
         <li>
           <b>Documentation Plugin</b>
@@ -1391,7 +1391,7 @@ to reflect this build (i.e., the latest release).</li>
             We're thinking about moving it into the Source zip,
             or maybe into its own zip file, in the future. If you have an
             opinion, please feel free to post it to the XSD newsgroup. 
-          <br>&nbsp;
+          <br>&#160;
         </li>
       </ol>
     </td>
@@ -1400,4 +1400,4 @@ to reflect this build (i.e., the latest release).</li>
 </table>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.3 2005/04/07 19:19:51 nickb Exp $ -->
+<!-- $Id: release-notes-1.x.php,v 1.4 2005/04/07 22:37:09 nickb Exp $ -->

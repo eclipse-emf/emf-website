@@ -13,24 +13,24 @@
 		<tr class="light-row" valign="top">
 			<td colspan="3" class="">
 				<b style="font-size:16px">Submit A Review</b>
-				<br>&nbsp;&nbsp;&nbsp;<b class="red">*</b> - required fields<br>&nbsp;
+				<br>&#160;&#160;&#160;<b class="red">*</b> - required fields<br>&#160;
 			</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Contribution Name &amp; ID</h4></td>
-			<td><input style="color:#7f7f7f" readonly type="text" value="<?php echo $_GET["name"]; ?>" name="c_Model_Name">&nbsp;&nbsp;<input style="color:#7f7f7f" readonly type="text" value="<?php echo $_GET["ModelID"]; ?>" name="c_Model_ID"></td>
-			<td>&nbsp;</td>
+			<td><input style="color:#7f7f7f" readonly type="text" value="<?php echo $_GET["name"]; ?>" name="c_Model_Name">&#160;&#160;<input style="color:#7f7f7f" readonly type="text" value="<?php echo $_GET["ModelID"]; ?>" name="c_Model_ID"></td>
+			<td>&#160;</td>
 		</tr>
 
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Review Title</h4></td>
 			<td><input type="text" name="c_Review_Title" size="54" value="<?php echo $_GET["name"]; ?> Review"></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Review Text</h4></td>
 			<td><textarea name="c_Text" rows="3" cols="40"></textarea></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Rating</h4></td>
@@ -47,32 +47,32 @@
 				<option value="2">2</option>
 				<option value="1">1</option>
 			</select></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Reviewer Name</h4></td>
 			<td><input type="text" name="c_Name" size="40"></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Reviewer Email</h4></td>
 			<td><input type="text" name="c_Email" size="40"><br><small>Required to send confirmation of submission and for clarification<br>or followup of submission, if necessary. Email <b>NOT</b> posted to site.</small></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Reviewer Website</h4></td>
 			<td><input type="text" value="http://" name="c_Reviewer_Website" size="40"></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 
 		<tr class="dark-row2" valign="top">
-			<td colspan="1" class="">&nbsp;</td>
+			<td colspan="1" class="">&#160;</td>
 			<td><input type="submit" onclick="return doModelReviewSubmit();" value="Submit Review" name="Submit"></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 		</form>
 	</table>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: models-review.php,v 1.5 2005/01/05 20:39:10 nickb Exp $ -->
+<!-- $Id: models-review.php,v 1.6 2005/04/07 22:37:09 nickb Exp $ -->

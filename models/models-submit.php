@@ -13,19 +13,19 @@
 		<tr class="light-row" valign="top">
 			<td colspan="3" class="">
 				<b style="font-size:16px">Submit A Model, Framework, Tool, Utility, Example...</b>
-				<br>&nbsp;&nbsp;&nbsp;<b class="red">*</b> - required fields<br>&nbsp;
+				<br>&#160;&#160;&#160;<b class="red">*</b> - required fields<br>&#160;
 			</td>
 		</tr>
 
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Contribution Name</h4></td>
 			<td><input type="text" name="c_Model_Name" size="40"></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Contribution Description</h4></td>
 			<td><textarea name="c_Text" rows="3" cols="40"></textarea></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Category</h4></td>
@@ -34,7 +34,7 @@
 				<option value="SDO">SDO</option>
 				<option value="XSD">XSD</option>
 				<option value="General">General</option>
-			</select>&nbsp;&nbsp;<select name="c_Category2" onchange="if(this.selectedIndex==5){ document.forms[0].c_Category1.selectedIndex=3; }">
+			</select>&#160;&#160;<select name="c_Category2" onchange="if(this.selectedIndex==5){ document.forms[0].c_Category1.selectedIndex=3; }">
 				<option value="model">Model</option>
 				<option value="framework">Framework</option>
 				<option value="tool">Tool</option>
@@ -43,48 +43,48 @@
 				<option value="discussion">Discussion</option>
 				<option value="other">Other</option>
 			</select></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Contribution URL</h4></td>
 			<td><input type="text" value="http://" name="c_Model_URL" size="40"><br><small>Path to your model, plugin or tool's site, for download or <br>more information</small></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;&nbsp;<!--<a href="models-sample.xml">Sample XML</a>--></td>
+			<td>&#160;<b class="red">*</b>&#160;&#160;<!--<a href="models-sample.xml">Sample XML</a>--></td>
 		</tr>
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Contribution Screenshot URL</h4></td>
 			<td><input type="text" value="http://" name="c_Model_Screenshot_URL" size="40"><br><small>Path to a screenshot, if available</small></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 		<tr class="dark-row2" valign="top">
 			<td colspan="1" class=""><h4>Contribution Thumbnail URL</h4></td>
 			<td><input type="text" value="http://" name="c_Model_Thumbnail_URL" size="40"><br><small>Path to a screenshot thumbnail, if available</small></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Submitter Name</h4></td>
 			<td><input type="text" name="c_Name" size="40"></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Submitter Email</h4></td>
 			<td><input type="text" name="c_Email" size="40"><br><small>Required to send confirmation of submission and for clarification<br>or followup of submission, if necessary. Email <b>NOT</b> posted to site.</small></td>
-			<td>&nbsp;<b class="red">*</b>&nbsp;</td>
+			<td>&#160;<b class="red">*</b>&#160;</td>
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Submitter Website</h4></td>
 			<td><input type="text" value="http://" name="c_Submitter_Website" size="40"></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 	
 		<tr class="dark-row2" valign="top">
-			<td colspan="1" class="">&nbsp;</td>
+			<td colspan="1" class="">&#160;</td>
 			<td><input type="submit" onclick="return doModelSubmit();" value="Submit" name="Submit"></td>
-			<td>&nbsp;</td>
+			<td>&#160;</td>
 		</tr>
 		</form>
 	</table>
 
 <?php include "../includes/footer.html"; ?>
-<!-- $Id: models-submit.php,v 1.5 2005/01/05 20:39:10 nickb Exp $ -->
+<!-- $Id: models-submit.php,v 1.6 2005/04/07 22:37:09 nickb Exp $ -->
