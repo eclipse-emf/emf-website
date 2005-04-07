@@ -13,7 +13,15 @@
 <project-def project="xsd" label="XSD Release Notes" />
 
 <entry version="2.1.0" build="I200504070700" project="emf">
-<note>No new Bugzillas closed or revised in this build.</note>
+<bug id="86481">Extending models &amp; generated editor enhancements</bug>
+<bug id="87800">Batch reload</bug>
+<bug id="89453">emf.core forces loading of org.eclipse.core.resources</bug>
+<bug id="89680">Support for URI fragment "queries"</bug>
+<bug id="89879">Make JET templates more composeable</bug>
+<bug id="89948">Unable to use dynamic model.tests templates</bug>
+<bug id="89978">Generate Model command in a genmodel document silently</bug>
+<bug id="90184">NPE in codegen causes missing .classpath</bug>
+<bug id="90214">Enable GenModel to be used as a factory</bug>
 </entry>
 
 <entry version="2.1.0" build="I200503310700" project="emf">
@@ -1538,4 +1546,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.43 2005/04/07 15:27:48 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.44 2005/04/07 17:29:47 nickb Exp $ -->
