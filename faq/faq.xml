@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2005/01/14 18:16:07 $</modified>
+  <modified>$Date: 2005/04/07 20:22:39 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -319,7 +319,7 @@ How do I install EMF or XSD 1.x for Eclipse 2.x?
     </question>
     <answer>
 
-<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/downloads/dl.html">Download</a>
+<a href="http://www.eclipse.org/emf/downloads/dl-emf1x.html">Download</a>
 the version of EMF and/or XSD that matches your installation of Eclipse. Exit Eclipse, 
 then unzip into your Eclipse directory.
     </answer>
@@ -1798,6 +1798,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.6 2005/01/14 18:16:07 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.7 2005/04/07 20:22:39 nickb Exp $ -->
 
 </faq>

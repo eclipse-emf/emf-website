@@ -68,7 +68,7 @@
 
       </td>
       <td width="40%">
-			<img src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/reference.gif" hspace="50" align="right"/>
+			<img src="http://www.eclipse.org/emf/images/reference.gif" hspace="50" align="right"/>
       </td>
 
     </tr>
@@ -288,4 +288,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.10 2005/04/07 19:19:51 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.11 2005/04/07 20:22:39 nickb Exp $ -->
