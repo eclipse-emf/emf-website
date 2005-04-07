@@ -271,22 +271,22 @@
 												</xsl:choose>
 												-->
 												<xsl:if test="number(@rating) > 9">
-													<img alt=" {@rating} of 10" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
+													<img alt=" {@rating} of 10" src="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
 												</xsl:if>
 												<xsl:if test="number(@rating) > 7">
-													<img alt=" {@rating} of 10" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
+													<img alt=" {@rating} of 10" src="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
 												</xsl:if>
 												<xsl:if test="number(@rating) > 5">
-													<img alt=" {@rating} of 10" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
+													<img alt=" {@rating} of 10" src="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
 												</xsl:if>
 												<xsl:if test="number(@rating) > 3">
-													<img alt=" {@rating} of 10" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
+													<img alt=" {@rating} of 10" src="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
 												</xsl:if>
 												<xsl:if test="number(@rating) > 1">
-													<img alt=" {@rating} of 10" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
+													<img alt=" {@rating} of 10" src="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32_16x16.gif" width="16" height="16"/>
 												</xsl:if>
 												<xsl:if test="number(@rating) mod 2 = 1">
-													<img alt=" {@rating} of 10" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32_16x8.gif" width="8" height="16"/>
+													<img alt=" {@rating} of 10" src="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32_16x8.gif" width="8" height="16"/>
 												</xsl:if>
 											</td>
 										</tr>
@@ -359,4 +359,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.12 2005/04/07 19:19:52 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.13 2005/04/07 21:48:14 nickb Exp $ -->

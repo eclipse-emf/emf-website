@@ -185,7 +185,7 @@
 									<xsl:value-of select="@id" />
 								</a>&#160;
 								<xsl:if test="number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
-									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>&#160;
+									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>&#160;
 								</xsl:if>
 								<xsl:if test="position() mod 10 = 0"><br/></xsl:if>
 							</xsl:for-each>
@@ -246,7 +246,7 @@
 										<td><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id" /></a></td>
 										<xsl:if test="number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
 											<td>&#160;</td>
-											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/emf-home/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
+											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
 										</xsl:if>
 										<td>&#160;</td>
 										<td><xsl:value-of select="." /></td>
@@ -288,4 +288,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.11 2005/04/07 20:22:39 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.12 2005/04/07 21:48:14 nickb Exp $ -->
