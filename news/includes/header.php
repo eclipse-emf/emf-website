@@ -1,9 +1,9 @@
 	<html>
 	<head>
     <title>EMF, SDO, XSD Release Notes</title>
-    <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
-	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
-	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
+    <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
+	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
+	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("release-notes.css");</style>
 	</head>
 	<body>
@@ -33,4 +33,4 @@
 
 		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
 &#160;
-<!-- $Id: header.php,v 1.2 2005/02/07 22:48:21 nickb Exp $ -->
+<!-- $Id: header.php,v 1.3 2005/04/07 19:19:52 nickb Exp $ -->

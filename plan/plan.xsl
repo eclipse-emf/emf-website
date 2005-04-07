@@ -17,9 +17,9 @@
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
     <title>Eclipse Tools - EMF, SDO and XSD - Development Plan</title>
-    <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
-	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
-	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
+    <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
+	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
+	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("plan.css");</style>
 	</head>
 	<body>
@@ -233,4 +233,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.6 2005/03/16 21:46:21 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.7 2005/04/07 19:19:51 nickb Exp $ -->

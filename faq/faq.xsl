@@ -61,9 +61,9 @@
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<title><xsl:copy-of select="$pageTitle" /></title>
-    <link REL="SHORTCUT ICON" HREF="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/images/eclipse-icons/eclipse32.ico"/>
-	<script type="text/javascript" src="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/nav.js"></script>
-	<link rel="stylesheet" href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/scripts/includes/style.css" type="text/css"/>
+    <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
+	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
+	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("faq.css");</style>
 	</head>
 	<body>
@@ -414,4 +414,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.12 2005/02/07 22:48:21 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.13 2005/04/07 19:19:52 nickb Exp $ -->
