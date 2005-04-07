@@ -12,6 +12,10 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200504070700" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.0" build="I200503310700" project="emf">
 <bug id="83876">Possible problem with clock overrun in EcoreUtil.UUID</bug>
 <bug id="84327">Support &quot;archive:&quot; URL scheme to access zip files nested in zip files</bug>
@@ -112,6 +116,10 @@
 </entry>
 
 <entry version="2.1.0" build="I200501190800" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200504070700" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -323,6 +331,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200504070700" project="xsd">
+<bug id="90300">XSDWildcard not cloning processContents</bug>
 </entry>
 
 <entry version="2.1.0" build="I200503310700" project="xsd">
@@ -1526,4 +1538,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.42 2005/03/31 16:39:36 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.43 2005/04/07 15:27:48 nickb Exp $ -->
