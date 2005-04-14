@@ -12,6 +12,19 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200504141117" project="emf">
+<bug id="87452">Generated doSwitch fails with concrete subtype in separate package</bug>
+<bug id="87828">Need enhanced SAVE_TYPE_INFORMATION option</bug>
+<bug id="88248">EMF models should take advantage of boolean flags</bug>
+<bug id="90561">java.util.ConcurrentModificationException on reload</bug>
+<bug id="90598">Generated resource factories should always extend ResourceFactoryImpl</bug>
+<bug id="90735">Currently failing to load documents with namespace aware parser</bug>
+<bug id="90854">Perf: serialization can be improved by caching EPackage</bug>
+<bug id="91022">DataGraph (serialization): use default namespace...</bug>
+<bug id="91190">Allow BasicExtendedMetaData to lookup/save annotations in a side map.</bug>
+<bug id="91325">Threads &amp; EPackageImpl.getEClassifier()</bug>
+</entry>
+
 <entry version="2.1.0" build="I200504070700" project="emf">
 <bug id="86481">Extending models &amp; generated editor enhancements</bug>
 <bug id="87800">Batch reload</bug>
@@ -125,6 +138,10 @@
 
 <entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200504141117" project="sdo">
+<bug id="91022">DataGraph (serialization): use default namespace...</bug>
 </entry>
 
 <entry version="2.1.0" build="I200504070700" project="sdo">
@@ -339,6 +356,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200504141117" project="xsd">
+<bug id="88248">EMF models should take advantage of boolean flags</bug>
 </entry>
 
 <entry version="2.1.0" build="I200504070700" project="xsd">
@@ -1546,4 +1567,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.44 2005/04/07 17:29:47 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.45 2005/04/14 16:13:48 nickb Exp $ -->
