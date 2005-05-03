@@ -26,7 +26,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="March 28, 2005" showOn="whatsnew">
-	New NLS packs based on EMF 2.0.2 are available for <a href="downloads.php#NLS">download</a>.
+	New NLS packs based on EMF/XSD 2.0.2 are available for <a href="downloads.php#NLS">download</a>.
 </news>
 <news date="March 24, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
@@ -270,6 +270,9 @@
 <news date="August 31, 2004" showOn="docs,whatsnew">
 	Link to new <a href="../../../tools/emf/scripts/docs.php#tutorials">Kent OCL Library tutorial</a> added.
 </news>
+<news date="August 31, 2004" showOn="docs,whatsnew">
+	XSD <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=XSD">FAQ</a> updated.
+</news>
 <news date="August 26, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
 	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#M200408261626">M200408261626</a>) is available
@@ -415,6 +418,9 @@
 	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200k">I200405131028</a>) is available
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
+<news date="May 07, 2004" showOn="docs,whatsnew">
+	<a href="docs.php#dWdocuments">Two new developerWorks XSD reprints</a> are available.
+</news>
 <news date="May 06, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
 	(<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200j">I200405060858</a>) is available
@@ -507,6 +513,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.41 2005/04/28 14:56:51 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.42 2005/05/03 22:26:02 nickb Exp $ -->
 
 </doc>
