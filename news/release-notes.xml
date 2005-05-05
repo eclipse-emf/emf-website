@@ -12,6 +12,19 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200505050300" project="emf">
+<bug id="75923">Provide extension points for other model importers</bug>
+<bug id="83463">unions of enumerations are causing confusion so that the wrong convertToString method ends up being called</bug>
+<bug id="86634">Performance enhancement to BasicExtendedMetaData</bug>
+<bug id="93143">Recording single  feature with default value</bug>
+<bug id="93186">ValidateAction.handleDiagnostic crashes when getFile returns null</bug>
+<bug id="93205">FeatureMaps, addAll and duplicates</bug>
+<bug id="93300">Support EClass.getFeatureCount and EClass.getFeatureID.</bug>
+<bug id="93465">Improve control over platform-resource URI encoding</bug>
+<bug id="93513">Improve copy and equals performance by avoiding iterators.</bug>
+<bug id="93531">Performance Suite Tunning</bug>
+</entry>
+
 <entry version="2.1.0" build="I200504280300" project="emf">
 <bug id="58976">[EditorMgmt] (regression) Editor drop-down is missing asterisk</bug>
 <bug id="85974">Option to not generate any child creation icons</bug>
@@ -162,6 +175,12 @@
 
 <entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200505050300" project="sdo">
+<bug id="93300">Support EClass.getFeatureCount and EClass.getFeatureID.</bug>
+<bug id="93513">Improve copy and equals performance by avoiding iterators.</bug>
+<bug id="93723">Casting to EPropertyImpl gives performance boost</bug>
 </entry>
 
 <entry version="2.1.0" build="I200504280300" project="sdo">
@@ -388,6 +407,10 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200505050300" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="I200504280300" project="xsd">
@@ -1607,4 +1630,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.47 2005/04/28 14:56:51 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.48 2005/05/05 14:00:05 nickb Exp $ -->
