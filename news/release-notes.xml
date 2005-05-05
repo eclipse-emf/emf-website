@@ -23,6 +23,8 @@
 <bug id="93465">Improve control over platform-resource URI encoding</bug>
 <bug id="93513">Improve copy and equals performance by avoiding iterators.</bug>
 <bug id="93531">Performance Suite Tunning</bug>
+<bug id="93722">Refactoring AbstractTreeIterator::hasNext() gives performance boost</bug>
+<bug id="93726">Casting to EStructuralFeatureImpl gives performance boost</bug>
 </entry>
 
 <entry version="2.1.0" build="I200504280300" project="emf">
@@ -1630,4 +1632,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.48 2005/05/05 14:00:05 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.49 2005/05/05 14:50:04 nickb Exp $ -->
