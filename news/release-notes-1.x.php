@@ -1399,5 +1399,5 @@ to reflect this build (i.e., the latest release).</li>
 </tbody>            
 </table>
 
-<?php include "../includes/footer.html"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.4 2005/04/07 22:37:09 nickb Exp $ -->
+<?php include "../includes/footer.php"; ?>
+<!-- $Id: release-notes-1.x.php,v 1.5 2005/05/06 23:05:38 nickb Exp $ -->

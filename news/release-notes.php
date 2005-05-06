@@ -92,5 +92,5 @@
 
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
-<?php include "../includes/footer.html"; ?>
-<!-- $Id: release-notes.php,v 1.2 2005/01/24 20:10:42 nickb Exp $ -->
+<?php include "../includes/footer.php"; ?>
+<!-- $Id: release-notes.php,v 1.3 2005/05/06 23:05:38 nickb Exp $ -->
