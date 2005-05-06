@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="docs.xsl"?>
+<body>
+  <table border="0" cellpadding="3" cellspacing="0"
+  style="border-collapse: collapse;" bordercolor="#111111"
+  width="100%">
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>Service Data Objects (SDO) Documents</u>
+        </b>
+
+        <a name="sdo">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www-106.ibm.com/developerworks/java/library/j-sdo/">
+      Introduction to Service Data Objects</a>
+	  </td>
+
+      <td>Sep 28
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">
+        Tutorial: Using the SDO Data Graph Editor</a>
+      </td>
+
+      <td>October 12
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>SDO Reference:
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www-106.ibm.com/developerworks/java/library/j-commonj-sdowmt/">
+      announcement</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">
+      whitepaper</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.doc">
+      1.0 specification</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://download.eclipse.org/tools/emf/sdo/javadoc/">
+      javadoc</a>
+      </td>
+
+      <td>November 25
+      <sup>th</sup>
+
+      2003</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">
+        Redbook: WebSphere Studio 5.1.2 JavaServer Faces and
+        Service Data Objects</a>
+      </td>
+
+      <td>July 1<sup>st</sup> 2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">
+      Enterprise Information Integration Technology</a>
+
+      (usage)</td>
+
+      <td>July 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.sys-con.com/story/?storyid=46652&amp;DE=1">
+      Integrating relational data into Web applications</a>
+
+      (an introduction to SDO)</td>
+
+      <td>Oct 6
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>XML Schema Infoset Model (XSD) Documents</u>
+        </b>
+
+        <a name="xsd">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">
+        Analyzing XML schemas with the Schema Infoset Model</a>
+      </td>
+
+      <td>July 2002</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">
+        Diagrams and Animations of the internals of XSD models</a>
+      </td>
+
+      <td>July 31
+      <sup>st</sup>
+
+      2002</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>developerWorks Documents</u>
+        </b>
+
+        <a name="dWdocuments">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td>
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
+      Infoset Model, Part 1</a>
+
+      <br />
+
+      First published by IBM developerWorks at
+      <a href="http://www.ibm.com/developerWorks" target="_dw">
+      http://www.ibm.com/developerWorks</a>
+
+      , November 4
+      <sup>th</sup>
+
+      2003
+      <br />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
+      HTML</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
+      PDF</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
+      Examples</a>
+
+      (zipped eclipse plugin project)</td>
+
+      <td>May 7
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      XML Schema Infoset Model, Part 2</a>
+
+      <br />
+
+      First published by IBM developerWorks at
+      <a href="http://www.ibm.com/developerWorks" target="_dw">
+      http://www.ibm.com/developerWorks</a>
+
+      , February 17
+      <sup>th</sup>
+
+      2004
+      <br />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      HTML</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
+      PDF</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
+      Examples</a>
+
+      (zipped eclipse plugin project)</td>
+
+      <td>May 7
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td width="60%">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+	<tr>
+      <td colspan="2">
+        <b>
+          <u>EMF Overview Papers</u>
+        </b>
+
+        <a name="overviews">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=references/overview/EMF.html">
+        The Eclipse Modeling Framework Overview</a>
+      </td>
+
+      <td>June 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>EMF Book:
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">
+      Eclipse Modeling Framework</a>
+
+      (Overview and Developer's Guide)
+      <br />
+
+      Sample, Chapter 2:
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">
+      PDF</a>
+      </td>
+
+      <td>Aug 12
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">
+        The EMF Edit Framework Overview</a>
+      </td>
+
+      <td>June 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>EMF Feature Maps:
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a href="images/../overviews/FeatureMap.doc">Word Doc</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a href="images/../overviews/FeatureMap.pdf">PDF</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <i>(draft)</i>
+      </td>
+
+      <td>June 28
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>XML Schema to Ecore Mapping:
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a href="images/../overviews/XMLSchemaToEcoreMapping.doc">
+      Word Doc</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a href="images/../overviews/XMLSchemaToEcoreMapping.pdf">
+      PDF</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <i>(draft)</i>
+      </td>
+
+      <td>June 24
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>EMF 2.0 Tutorials</u>
+        </b>
+
+        <a name="tutorials">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=tutorials/clibmod/clibmod.html">
+        Tutorial: Generating an EMF Model</a>
+      </td>
+
+      <td>June 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=tutorials/slibmod/slibmod.html">
+        Tutorial: Generating an Extended EMF Model</a>
+      </td>
+
+      <td>June 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">
+        Tutorial: Generating an EMF Model using XML Schema</a>
+      </td>
+
+      <td>June 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-JET/jet_tutorial1.html">
+      JET Tutorial Part 1 (Introduction to JET)</a>
+
+      Contributed by Remko Popma</td>
+
+      <td>May 27
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-JET2/jet_tutorial2.html">
+      JET Tutorial Part 2 (Write Code that Writes Code)</a>
+
+      Contributed by Remko Popma</td>
+
+      <td>May 27
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
+        Tutorial: Generating a Rich Client Platform (RCP)
+        Application Using EMF</a>
+      </td>
+
+      <td>Oct 12
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=tutorials/rosepkg/rosepkg.html">
+        Specifying Package Information in Rose</a>
+      </td>
+
+      <td>June 2
+      <sup>nd</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">
+        Getting EMF Source Files from CVS</a>
+      </td>
+
+      <td>March 16
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">
+        Using Eclipse Update Manager to Update EMF/SDO/XSD</a>
+      </td>
+
+      <td>Sept 30
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+<!-- new May 2004 -->
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>Contributed Articles</u>
+        </b>
+
+        <a name="contributions">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td>
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.zurich.ibm.com/~wah/doc/emf-ocl/index.html">
+      Kent OCL Library Tutorial (Using OCL to Interrogate Your EMF
+      Model)</a>
+
+      Contributed by Michael Wahler</td>
+
+      <td>August 31
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www-106.ibm.com/developerworks/opensource/library/os-ecemf1/">
+      Model with the Eclipse Modeling Framework, Part 1</a>:
+
+      Create UML models and generate code
+      <br />
+
+      Published by
+      <a href="http://www.ibm.com/developerWorks" target="_dw">IBM
+      developerWorks</a>, April 15
+      <sup>th</sup>
+
+      2004</td>
+
+      <td>May 26
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www-106.ibm.com/developerworks/opensource/library/os-ecemf2/">
+      Model with the Eclipse Modeling Framework, Part 2</a>:
+
+      Create UML models and generate code
+      <br />
+
+      Published by
+      <a href="http://www.ibm.com/developerWorks" target="_dw">IBM
+      developerWorks</a>, April 27
+      <sup>th</sup>
+
+      2004</td>
+
+      <td>May 26
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www-106.ibm.com/developerworks/library/os-ecemf3/">
+      Model with the Eclipse Modeling Framework, Part 3</a>:
+
+      Customize generated models and editors with Eclipse's JMerge
+      <br />
+
+      Published by
+      <a href="http://www.ibm.com/developerWorks" target="_dw">IBM
+      developerWorks</a>, May 13
+      <sup>th</sup>
+
+      2004</td>
+
+      <td>Dec 13
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">
+        Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)
+
+        by Chaur G. Wu</td>
+
+      <td>November 30
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
+        EMF goes RCP</a> (Eclipse Corner article)
+
+        by Marcelo Paternostro</td>
+
+      <td>October 12
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://eclipse.org/articles/Article-Using%20EMF/using-emf.html">
+      Using EMF</a> (Eclipse Corner article)
+
+      by Catherine Griffin</td>
+
+      <td>December 9
+      <sup>th</sup>
+
+      2002</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td width="60%">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>Presentations and Interviews</u>
+        </b>
+
+        <a name="presentations">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>JavaOne 2004 EMF Presentation:
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="images/../JavaOnePresentation/JavaOnePresentation.ppt">
+      Powerpoint</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="images/../JavaOnePresentation/JavaOnePresentation.pdf">
+      PDF</a>
+      </td>
+
+      <td>July 13
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">
+        EclipseCon 2004 EMF Presentation</a>
+      </td>
+
+      <td>February 6
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.codegeneration.net/tiki-read_article.php?articleId=38&amp;PHPSESSID=486dd711535b0c474ace05c9a2f1128a">
+      EMF Interview</a>
+
+      with David Steinberg</td>
+
+      <td>December 2
+      <sup>nd</sup>
+
+      2003</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td width="60%">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>Planning Documents</u>
+        </b>
+
+        <a name="plandocs">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
+        EMF 2.1 Development Plan</a>
+      </td>
+
+      <td>January 11
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+
+        EMF 2.1 Plan Summary: <a
+        href="images/../dev-plans/plan_summary.doc">Word Doc</a>
+      </td>
+
+      <td>January 11
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>Books, Guides, and Reference Materials</u>
+        </b>
+
+        <a name="references">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>EMF Book:
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.awprofessional.com/titles/0131425420">
+      Eclipse Modeling Framework</a>
+
+      (Overview and Developer's Guide)</td>
+
+      <td>August 11
+      <sup>th</sup>
+
+      2003 (Date Published)</td>
+    </tr>
+
+    <tr>
+<!-- new version extracted from recent builds on download -->
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://download.eclipse.org/tools/emf/javadoc/">
+        EMF Javadoc</a>
+
+        <img src="images/c.gif" width="1" height="8" />
+
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://download.eclipse.org/tools/emf/sdo/javadoc/">
+        SDO Javadoc</a>
+
+        <img src="images/c.gif" width="1" height="8" />
+
+		<a target="_out"
+        href="http://download.eclipse.org/tools/emf/xsd/javadoc/">
+        XSD Javadoc</a>
+
+      </td>
+
+      <td>
+        <i>see most recent build date</i>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg246302.html">
+        GEF EMF Redbook</a>
+      </td>
+
+      <td>April 29
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a href="http://www.eclipse.org/emf/faq/faq.php">EMF, SDO &amp; XSD
+        Frequently Asked Questions (FAQ)</a>
+      </td>
+
+      <td>May 27
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>Eclipse.org Newsgroups - Offline Searching with
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">
+      Mozilla</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">
+      Outlook Express</a>
+      </td>
+
+      <td>Sept 23
+      <sup>rd</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>EMF 1.x Documents</u>
+        </b>
+
+        <a name="emf1xdocs">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">
+        EMF 1.0 Users' Guide</a>
+      </td>
+
+      <td>May 27
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/JarDepsExternal/JarDepsExternal.html">
+        EMF 1.0 Jar Dependencies for Running Standalone as a Java
+        Application Outside Eclipse</a>
+      </td>
+
+      <td>May 27
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/clibmod/clibmod_emf1.1.html">
+        Tutorial: Generating an EMF 1.1 Model</a>
+      </td>
+
+      <td>May 19
+      <sup>th</sup>
+
+      2003</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/slibmod/slibmod_emf1.1.html">
+        Tutorial: Generating an Extended EMF 1.1 Model</a>
+      </td>
+
+      <td>May 1
+      <sup>st</sup>
+
+      2003</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/xlibmod/xlibmod_emf1.1.html">
+        Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
+      </td>
+
+      <td>May 22
+      <sup>nd</sup>
+
+      2003</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/glibmod/glibmod_emf1.1.html">
+        Tutorial: Creating an EMF 1.1 Model using a Graphical
+        Editor</a>
+      </td>
+
+      <td>August 20
+      <sup>th</sup>
+
+      2003</td>
+    </tr>
+  </table>
+</body>
+
+<!-- $Id: docs.xml,v 1.1 2005/05/06 22:32:45 nickb Exp $ -->
+

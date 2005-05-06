@@ -74,7 +74,9 @@
 	// check doc plugin first, then check emf-home
 
 	ini_set("display_errors","0"); // suppress file not found errors
-	if (strstr($doc,"http://") || strstr($doc,"https://")) {
+	if ($doc=="docs/docs.xml")) { 
+		$CVSpreUsed = "";			$f = file($doc); 			// on www
+	} else if (strstr($doc,"http://") || strstr($doc,"https://")) {
 		$CVSpreUsed = "";					$f = file($doc); 						// emf-home (or other remote)
 	} else if (false!==strpos($doc,"org.eclipse.xsd.doc/")) { // xsd docs
 		$doc = str_replace("org.eclipse.xsd.doc/","",$doc);
@@ -158,4 +160,4 @@
 include_once $pre."includes/footer.php"; 
 //if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
 
-<!-- $Id: docs.php,v 1.5 2005/05/06 22:28:45 nickb Exp $ -->
+<!-- $Id: docs.php,v 1.6 2005/05/06 22:32:45 nickb Exp $ -->
