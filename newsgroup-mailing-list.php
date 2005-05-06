@@ -3,9 +3,9 @@
 	$pre = ""; 
 	$HTMLTitle = "Eclipse Tools - EMF, SDO &amp; XSD Mailing Lists";
 		$ProjectName = array(
-			"EMF &amp; XSD Mailing Lists",
-			'EMF &amp; XSD Mailing Lists',
-			'EMF &amp; XSD Mailing Lists',
+			"EMF/SDO &amp; XSD ",
+			'Newsgroups &amp; Mailing Lists',
+			'Newsgroups &amp; Mailing Lists',
 			"images/mail.gif"
 			);
 		include $pre."includes/header.php"; ?>
@@ -23,9 +23,13 @@
 
 	The reasons for this are twofold as well:
 	
-	<ol><li>The best place for support for EMF, SDO, and XSD is in the newsgroups.
+	<ol><li><u>The best place for support for EMF, SDO, and XSD is in the EMF newsgroups.</u>
+	
+	<br><br>
+	<b>NOTE:</b> XSD support used to reside in its own newsgroup, but since XSD has become a subproject of EMF, efforts are being made to streamline and simplify. You can still search or browse the old XSD newsgroup, but please post to the EMF newsgroup to have your questions answered. The XSD newsgroup may be removed at some point in the future.<br><br>
+
 	If you post to the mailing list, you will most likely be told "Please post 
-	this to the newsgroup."</li>
+	this to the newsgroup."</li><br>
 	<li>Chances are your question has already been answered in the newsgroup, 
 	and will save you time in not having to ask it again, and us in not having 
 	to answer it again. You can also browse (<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">EMF &amp; SDO</a>, <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd">XSD</a>) or <a href="http://www.eclipse.org/search/search.cgi">search</a> the
@@ -42,7 +46,7 @@
 
 	<br><br>
 
-	After that, just point your newsreader at the eclipse news server, <b>news.eclipse.org</b> and subscribe to <b>eclipse.tools.emf</b> and/or <b>eclipse.technology.xsd</b>.
+	After that, just point your newsreader at the eclipse news server, <b>news.eclipse.org</b> and subscribe to <b>eclipse.tools.emf</b> for support of EMF and any of its subprojects, including SDO and XSD.
 
 </td><td>&#160;&#160;</td><td>
 
@@ -54,7 +58,7 @@ Newsgroups:<br><br>
 		<td>&#160;&#160;</td>
 		<td><b>EMF, SDO</b></td>
 		<td>&#160;&#160;</td>
-		<td><b>XSD</b></td>
+		<td align="left">&#160;&#160;&#160;&#160;<b>XSD</b></td>
 	</tr>
 	<tr valign="top">
 		<td valign="middle"><img src="http://www.eclipse.org/emf/images/news.gif"></td>
@@ -67,10 +71,9 @@ Newsgroups:<br><br>
 		</td>
 		<td>&#160;&#160;</td>
 		<td>
-<a href="news://news.eclipse.org/eclipse.technology.xsd" style="color:gray" target="_top">Newsgroup</a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small><br>
+<a href="news://news.eclipse.org/eclipse.technology.xsd" style="color:#999999" target="_top">Newsgroup</a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small><br>
 :&#160;<a href="http://www.eclipse.org/search/search.cgi" target="_self">Search</a><br>
-:&#160;<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd" target="_self">Browse</a><br>
-:&#160;<a href="http://eclipse.org/newsgroups/index.html">Password</a><br>:&#160;<a href="http://eclipse.org/newsgroups/index.html">Request</a>
+:&#160;<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd" target="_self">Browse</a>
 		</td>
 	</tr>
 	</table>
@@ -108,4 +111,4 @@ Newsgroups:<br><br>
 </table>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: newsgroup-mailing-list.php,v 1.2 2005/05/06 22:11:12 nickb Exp $ -->
+<!-- $Id: newsgroup-mailing-list.php,v 1.3 2005/05/06 22:23:09 nickb Exp $ -->
