@@ -196,6 +196,7 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to EMF, 
 				<br />
 					- <a href="http://eclipse.org/uml2">UML2</a><br /><br />
 					- <a href="docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
+					- <a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a><br/><br/>
 					- <a href="../newsgroups">Eclipse newsgroups</a><br /><br />
 
 				</ul>
@@ -215,13 +216,13 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to EMF, 
 </table>
 
 <p>
-	<a href="/emf/home.php?page=emf">EMF Home</a> |
+	<a href="/emf/home.php">EMF Home</a> |
 	<a href="/emf/home.php?page=sdo">SDO Home</a> | 
 	<a href="/emf/home.php?page=xsd">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.6 2005/05/06 21:44:37 nickb Exp $ -->
+<!-- $Id: home.php,v 1.7 2005/05/06 22:28:45 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
