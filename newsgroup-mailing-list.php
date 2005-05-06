@@ -67,7 +67,7 @@ Newsgroups:<br><br>
 		</td>
 		<td>&#160;&#160;</td>
 		<td>
-<a href="news://news.eclipse.org/eclipse.technology.xsd" target="_top">Newsgroup</a><br>
+<a href="news://news.eclipse.org/eclipse.technology.xsd" style="color:gray" target="_top">Newsgroup</a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small><br>
 :&#160;<a href="http://www.eclipse.org/search/search.cgi" target="_self">Search</a><br>
 :&#160;<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd" target="_self">Browse</a><br>
 :&#160;<a href="http://eclipse.org/newsgroups/index.html">Password</a><br>:&#160;<a href="http://eclipse.org/newsgroups/index.html">Request</a>
@@ -108,4 +108,4 @@ Newsgroups:<br><br>
 </table>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: newsgroup-mailing-list.php,v 1.1 2005/05/06 22:06:22 nickb Exp $ -->
+<!-- $Id: newsgroup-mailing-list.php,v 1.2 2005/05/06 22:11:12 nickb Exp $ -->

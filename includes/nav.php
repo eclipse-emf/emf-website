@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.3 2005/05/06 22:06:22 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.4 2005/05/06 22:11:12 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -50,7 +50,7 @@
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
  target="_self" class="subcategory">Web
 Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
-<a href="newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF/SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory">XSD</a> <em class="subcategory" style="font-style:italic"> (deprecated)</em>
+<a href="newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF/SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:gray">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
  </td>
 			</tr>
 			<tr><td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=1 height=3></td></tr>
@@ -127,7 +127,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 <?php if ($isEMFserver) { ?>
 <a href="<?php echo $pre; ?>news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self" class="subcategory">Regenerate</a> <br>
 <?php } else { ?>
-<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a><em class="subcategory" style="font-style:italic"> (weekly delta)</em><br>
+<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a><small class="subcategory"><em style="font-style:italic"> (weekly delta)</em></small><br>
 <?php } ?>
  <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" target="_self" class="subcategory">EMF</a>, 
  <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/" target="_self" class="subcategory">SDO</a>,
