@@ -38,6 +38,9 @@ h1 {  font-family: arial, helvetica, geneva; font-size: 28px; font-weight: bold}
 .indextop { font-size: x-large;; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold}
 .indexsub { font-size: xx-small;; font-family: Arial, Helvetica, sans-serif; color: #8080FF}
 
+	.head_section { background-color: #0080c0; color: #ffffff; font-family: arial, helvetica, geneva; font-size: 10pt; }
+	.box	{ background-color: #f0f0f0; color: #000000; font-family: arial, helvetica, geneva; font-size: 8pt; }
+
 /* emf styles */
 
 body { 
