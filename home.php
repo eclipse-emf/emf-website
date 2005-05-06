@@ -2,122 +2,228 @@
 <?php 
 		$pre = "";
 		$HTMLTitle = "Eclipse Tools - EMF, XSD, SDO - Home";
+		$noHeader=true;
 		include $pre."includes/header.php"; ?>
 
+<!-- wrapper for left nav -->
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tr valign="top"><td colspan="1" align="left" width="100%">
+    <table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" BGCOLOR="#006699" >
 
+     <tr>
+          <td BGCOLOR="#000000" width="116" ><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
+          <td WIDTH="637"><img SRC="http://www.eclipse.org/images/gradient.jpg" border="0" height="50" width="282"/></td>
+          <td WIDTH="250"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0">
+	<tr valign=top>
+		<td align=left width=115 bgcolor="#6699CC"><?php include_once $pre."includes/nav.xml"; ?></td>
+		<td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width="3" height="1"></td><td align="left" width="100%">
+&#160;
 <table border="0" cellpadding="2" width="100%">
-<tr valign=top>
-<td>
-EMF is a modeling framework and code generation facility for building
-tools and other applications based on a structured data model. From a model
-specification described in XMI, EMF provides tools and runtime support
-to produce a set of Java classes for the model, a
-set of adapter classes that enable viewing and command-based editing of
-the model, and a basic editor. Models can be specified using
-annotated Java, XML documents, or modeling tools like Rational Rose, then
-imported into EMF. Most important of all, EMF provides the foundation for
-interoperability with other EMF-based tools and applications.
-<br><br>EMF includes an EMF-based implementation of Service Data Objects (SDO). SDO is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices.
-</td>
-<td>&#160;</td>
-<td><a href="http://www.eclipse.org/emf/models/"><img src="http://www.eclipse.org/emf/images/eclipse-icons/emf_corner.gif" width="52" height="52" border="0" alt=""></a></td>
-<td width="50%">
-<?php		if (strtotime("Sept 30, 2004")>strtotime("-3 weeks")) { 
-				echo '<b>Sept&#160;30<sup>th</sup></b> &#160;-&#160; <img src="http://www.eclipse.org/images/new.gif" width="31" height="14">';
-			} ?> The <a href="http://www.eclipse.org/emf/models/">EMF Corner site</a> is now live! For everyone who's wanted to contribute models, projects, files, ideas, utilities, code, or discussion but haven't had a way to do so, now you can. You can contribute anything related to EMF, SDO, or XSD.<br/><br/>
-			Have a look, post your comments, submit your models, or just read what others have written. Enjoy! <img src="http://www.eclipse.org/emf/images/smileys/NBcool.gif" width="18" height="18" border="0" alt="">
-		<br><br>
-		To provide comments about this prototype community project, you can email <a href="mailto:codeslave@ca.ibm.com?Subject=EMF Corner Comments">codeslave@ca.ibm.com</a>, post to the <a href="news://news.eclipse.org/eclipse.tools.emf">EMF newsgroup</a> or <a href="news://news.eclipse.org/eclipse.technology.xsd">XSD newsgroup</a>, or <a href="http://www.eclipse.org/emf/models/models-submit.php">start a thread</a> under the 'General Discussion' category.
-</td>
+  <tbody>
+
+    <tr>
+      <td align="left" width="60%">
+        <font class="indextop"><?php if (!$ProjectName[0]) { echo "EMF"; } else { echo $ProjectName[0]; } ?></font><br>
+        <font class="indexsub"><?php if (!$ProjectName[1]) { echo "Eclipse Modeling Framework"; } else { echo $ProjectName[1]; } ?></font>
+      </td>
+      <td width="40%">
+        <img src="<?php if (!$ProjectName[3]) { echo "http://www.eclipse.org/images/Idea.jpg"; } else { echo (strstr($ProjectName[3],$WWWpreEMF)?$ProjectName[3]:$WWWpreEMF.$ProjectName[3]); } ?>" hspace="50" align="right"/>
+      </td>
+
+    </tr>
+  </tbody>            
+</table>
+
+<table BORDER=0 CELLPADDING=2 WIDTH="100%" >
+<tr>
+<td ALIGN=right VALIGN=TOP><b><font face="Arial,Helvetica"><small><a href="#quicknav">Quick Nav</a></small></td>
 </tr>
 </table>
 
+
+<!-- main content starts here -->
+<table border=0 cellpadding=2 width="100%" >
+<tr valign="top">
+
+<?php if ($page=="" || $page=="emf") { ?>
+
+	<td width="<?php echo ($page == "emf" ? 100 : 40); ?>%"> <!-- EMF --> 
+	<table cellpadding="2" cellspacing="2" border="0">
+		<tr>
+			<td nowrap class="head_section"><b>Eclipse Modeling Framework (EMF)</b><a name="top">&#160;</a></td>
+		</tr>
+		<tr>
+			<td class="box-9pt" width="100%">
+				<?php include_once "emf.php"; displayEMFIntro(); 
+						if ($page == "emf") { 
+							echo "<br/><br/><b>What is EMF?</b><br/><br/>\n\n"; displayEMFIntro2(); 
+						} else { 
+							doMoreLink("home.php?page=emf"); 
+						} ?>
+			</td>
+		</tr>
+	</table>
+	</td> 
+
+<?php } ?>
+<?php if ($page=="" || $page=="sdo") { ?>
+
+	<td width="<?php echo ($page == "sdo" ? 100 : 20); ?>%"> <!-- SDO --> 
+	<table cellpadding="2" cellspacing="2" border="0">
+		<tr>
+			<td nowrap class="head_section"><b>Service Data Objects (SDO)</b><a name="top">&#160;</a></td>
+		</tr>
+		<tr>
+			<td class="box-9pt" width="100%">
+				<?php include_once "sdo.php"; displaySDOIntro(); 
+						if ($page == "sdo") { 
+							echo "<br/><br/><b>What is SDO?</b><br/><br/>\n\n"; displaySDOIntro2(); 
+						} else {
+							doMoreLink("home.php?page=sdo"); 
+						} ?>
+			</td>
+		</tr>
+	</table>
+	</td> 
+
+<?php } ?>
+<?php if ($page=="" || $page=="xsd") { ?>
+
+	<td width="<?php echo ($page == "xsd" ? 100 : 20); ?>%"> <!-- XSD --> 
+	<table cellpadding="2" cellspacing="2" border="0">
+		<tr>
+			<td nowrap class="head_section"><b>XML Schema Infoset Model (XSD)</b><a name="top">&#160;</a></td>
+		</tr>
+		<tr>
+			<td class="box-9pt" width="100%">
+				<?php include_once "xsd.php"; displayXSDIntro(); 
+						if ($page == "xsd") { 
+							echo "<br/><br/><b>What is XSD?</b><br/><br/>\n\n"; displayXSDIntro2();
+							echo "<br/><br/>\n\n"; displayXSDModelImage(); 
+						} else {
+							doMoreLink("home.php?page=xsd"); 
+						} ?>
+			</td>
+		</tr>
+	</table>
+	</td> 
+
+<?php } ?>
+
+	<td rowspan="2" width="20%" valign="top">
+
+	<table width="212" cellpadding="2" cellspacing="2" border="0">
+		<tr>
+
+			<td colspan="3" class="head_section">
+				<b>News</b>
+			</td>
+		</tr>
+		<tr>
+			<td class="box">	
+				<br />
+					<table>
+					<?php getNews(3,"whatsnew","vert"); ?>
+					</table>
+				<br/>
+
+				- <a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
+
+				- <a href="http://www.eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
+
+				
+			</td>
+		</tr>
+	</table>
+
+	<br />
+
+	<table width="212" cellpadding="2" cellspacing="2" border="0">
+		<tr>
+
+			<td colspan="3" class="head_section">
+				<b>Eclipse Modeling Corner</b>
+			</td>
+		</tr>
+		<tr>
+			<td class="box">	<br/>
+Wanted to contribute models, projects, files, ideas, utilities, or code to EMF, SDO, or XSD? Now you can!<br/><br/>
+			Have a look, post your comments, submit your models, or just read what others have written. 
+		<br><br>
+		Comments or feedback to <a href="mailto:codeslave(at)ca!ibm!com?Subject=EMF Corner Comments">codeslave(at)ca.ibm.com</a>.<br><br>
+		</td>
+		</tr></table>
+
+	<br/>
+
+<!--	<table width="212" cellpadding="2" cellspacing="2" border="0">
+		<tr>
+
+			<td colspan="3" class="head_section">
+				<b>Subprojects</b>
+			</td>
+		</tr>
+		<tr>
+			<td class="box">	
+				<br />
+				- <a href="/emf/emf.php">Eclipse Modeling Framework (EMF)</a><br /><br />
+
+				- <a href="/emf/sdo.php">Service Data Objects (SDO)</a><br /><br />
+
+				- <a href="/emf/xsd.php">XML Schema Infoset Model (XSD)</a><br /><br />
+				
+			</td>
+		</tr>
+	</table>
+
+	<br /> -->
+
+	<table width="212" cellpadding="2" cellspacing="2" border="0">
+		<tr>
+			<td colspan="3" class="head_section">
+				<b>Related links</b>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="box">	
+				<br />
+					- <a href="http://eclipse.org/uml2">UML2</a><br /><br />
+					- <a href="docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
+					- <a href="../newsgroups">Eclipse newsgroups</a><br /><br />
+
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+	</td>
+
+</tr>
+
+<tr><td colspan="<?php echo ($page == "" ? 3 : 1); ?>">
 <?php include $pre."includes/nav.php"; ?>
 
-<table border="0" cellpadding="2" width="100%">
-<tr>
-<td align="LEFT" valign="TOP" bgcolor="#0070A0"><b><font face=
-"Arial,Helvetica" color="#FFFFFF"><a name="emf_components">What is
-EMF?</a></font></b> </td>
-</tr>
+</td></tr>
 
-<tr>
-<td>EMF consists of three fundamental pieces: 
-
-<ul>
-<li><b>EMF</b> - The core EMF framework includes a <a href="<?php echo $pre; ?>../javadoc/org/eclipse/emf/ecore/package-summary.html#details">meta
-model (Ecore)</a> for describing models and runtime support for the
-models including change notification, persistence support with
-default XMI serialization, and a very efficient reflective API for
-manipulating EMF objects generically.</li>
-
-<li><b>EMF.Edit -</b> The EMF.Edit framework includes generic
-reusable classes for building editors for EMF models. It
-provides</li>
-
-<li style="list-style: none">
-<ol>
-<li>Content and label provider classes, property source support,
-and other convenience classes that allow EMF models to be displayed
-using standard desktop (JFace) viewers and property sheets.</li>
-
-<li>A command framework, including a set of generic command
-implementation classes for building editors that support fully
-automatic undo and redo.</li>
-</ol>
-</li>
-
-<li><b>EMF.Codegen</b> - The EMF code generation facility is
-capable of generating everything needed to build a complete editor
-for an EMF model. It includes a GUI from which generation options
-can be specified, and generators can be invoked. The generation
-facility leverages the JDT (Java Development Tooling) component of
-Eclipse.</li>
-</ul>
-
-Three levels of code generation are supported: 
-
-<ol>
-<li><b>Model</b> - provides Java interfaces and implementation
-classes for all the classes in the model, plus a factory and
-package (meta data) implementation class.</li>
-
-<li><b>Adapters</b> - generates implementation classes (called
-ItemProviders) that adapt the model classes for editing and
-display.</li>
-
-<li><b>Editor</b> - produces a properly structured editor that
-conforms to the recommended style for Eclipse EMF model editors and
-serves as a starting point from which to start customizing.</li>
-</ol>
-
-All generators support regeneration of code while preserving user
-modifications. The generators can be invoked either through the GUI
-or&#160; headless from a command line. 
-
-<br/><br/>
-Want to learn more about how easy it is to use this exciting new
-technology to help you boost your Java programming productivity,
-application compatibility and integration? Start by reading the <a
-href="<?php echo $pre; ?>docs.php">overview documents and the tutorial</a>,
-followed by <a href="<?php echo $pre; ?>downloads.php">downloading the driver</a>,
-and then sit back and watch your applications write themselves!
-Well, not completely, but this wouldn't be a sales pitch if there
-weren't a little bit of exaggeration.
-
-<br/><br/>
-One thing that isn't an exaggeration: since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD.
-</td>
-</tr>
 </table>
 
 <p>
-	<a href="../../../tools/emf/scripts/home.php">EMF Home</a> |
-	<a href="../../../technology/xsd/scripts/home.php">XSD Home</a> | 
+	<a href="/emf/home.php?page=emf">EMF Home</a> |
+	<a href="/emf/home.php?page=sdo">SDO Home</a> | 
+	<a href="/emf/home.php?page=xsd">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.5 2005/05/06 19:27:33 nickb Exp $ -->
+<!-- $Id: home.php,v 1.6 2005/05/06 21:44:37 nickb Exp $ -->
 </body></html>
 
-
+<?php function doMoreLink($url) { 
+	echo '<a href="'.$url.'">More...</a>';
+} ?>

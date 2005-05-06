@@ -1,12 +1,12 @@
-<!-- $Id: nav.php,v 1.1 2005/05/06 19:27:33 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.2 2005/05/06 21:44:37 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
-		<table border="0">
+		<table border="0" width="100%">
 			<tr>
-			<td ALIGN=LEFT VALIGN=TOP BGCOLOR="#0070A0" colspan=3><b><font face="Arial,Helvetica"><font color="#FFFFFF">Quick Nav</font></font></b><a name="quicknav">&#160;</a></td>
+			<td class="head_section" colspan=3><b>Quick Nav</b><a name="quicknav">&#160;</a></td>
 			</tr>
 		<tr>
-      <td width="65%" valign="top">
+      <td width="100%" valign="top">
 
 		<table width="100%" id="AutoNumber1" border="0" bordercolor="#111111"
  style="border-collapse: collapse;" cellspacing="0" cellpadding="0">
@@ -154,44 +154,6 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
         </tbody>
 
       </table>
-      </td>
-      <td width="14" valign="top">&#160;</td>
-      <td width="35%" valign="top">
-		<!-- right column tables start -->
-      <table cellspacing="0" cellpadding="0" width="100%" border="0">
-	       <tr>
-            <td rowspan="2" height="15" bgcolor="#8ABDBF"><span style="color: #ffffff; font-weight:bold; font-size: 11px; font-family: Verdana,Arial,Helvetica;">&#160;&#160;&#160;What's New</span></td>
-            <td width="60%">&#160;</td>
-          </tr>
-          <tr>
-            <td height="3" bgcolor="#8ABDBF"><img src="http://www.eclipse.org/emf/images/c.gif" width=1 height=10></td>
-          </tr>
-      </table>
-      <table cellspacing="0" cellpadding="0" width="100%" border="0">
-          <tr>
-				<td bgcolor="#8ABDBF"><img src="http://www.eclipse.org/emf/images/c.gif" width=2 height=1></td>
-				<td bgcolor="white"><img src="http://www.eclipse.org/emf/images/c.gif" width=5 height=1></td>
-            <td width="100%">
-
-<?php getNews(3,"whatsnew"); ?>
-
-      <table cellspacing="0" cellpadding="0" width="100%" border="0">
-          <tr><td><p class="normal">
-<a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
-
-<a href="http://www.eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
-</td></tr></table>
-
-            </td>
-				<td bgcolor="white"><img src="http://www.eclipse.org/emf/images/c.gif" width=5 height=1></td>
-				<td bgcolor="#8ABDBF"><img src="http://www.eclipse.org/emf/images/c.gif" width=2 height=1></td>
-          </tr>
-          <tr>
-				<td bgcolor="#8ABDBF" colspan=5><img src="http://www.eclipse.org/emf/images/c.gif" width=1 height=2></td>
-			</tr>
-      </table>
-		<!-- end right column tables -->
-
       </td>
     </tr>
   </tbody>
