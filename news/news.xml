@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="May 06, 2005" showOn="whatsnew">
+	The XSD Technology project has moved to Tools, and has become a subproject of EMF. At the same time, the combined site is being migrated from download to www to improve performance. Please report any broken links or errors to <a href="mailto:codeslave(at)ca.ibm.com">codeslave(at)ca.ibm.com</a>.
+</news>
 <news date="May 05, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">I200505050300</a>) is available 
@@ -518,6 +521,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.43 2005/05/05 14:00:05 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.44 2005/05/06 23:23:00 nickb Exp $ -->
 
 </doc>
