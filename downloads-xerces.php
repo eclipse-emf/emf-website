@@ -7,14 +7,6 @@
 			""
 			);
 		include $pre."includes/header.php"; ?>
-	<?php 	if (false!==strpos($_SERVER["HTTP_HOST"],"fullmoon.") || $_SERVER["HTTP_HOST"]=="emf.torolab.ibm.com" || $_SERVER["HTTP_HOST"]=="emf") { // internal
-		$downloadScript = "../../../tools/emf/scripts/download.php?dropFile=";
-		$downloadPre = "../../..";
-	} else { // all others
-		$downloadScript = "http://www.eclipse.org/downloads/download.php?file=";
-		$downloadPre = "";
-	} ?>
-
 <style>
 	.header {
 		font-size: 14px; color: #0080C0; font-weight: bold;
@@ -36,7 +28,7 @@
 		</tr>
 		<tr valign=top bgcolor="#FFFFFF">
 		<td><img src="http://www.eclipse.org/emf/images/eclipse-icons/newhov_obj.gif"></td>
-		<td><b>First-time users</b> can get started quickly by simply downloading the combined <b style="color:#B51464">ALL</b> SDK bundle (includes Source, Runtime and Docs for <b style="color:#BF5FBF">EMF</b>, <b style="color:#18187D">XSD</b>, and <b style="color:#C7568E">SDO</b>). <a href="../../../tools/emf/scripts/downloads-build-types.php">What Build Type do I want?</a>
+		<td><b>First-time users</b> can get started quickly by simply downloading the combined <b style="color:#B51464">ALL</b> SDK bundle (includes Source, Runtime and Docs for <b style="color:#BF5FBF">EMF</b>, <b style="color:#18187D">XSD</b>, and <b style="color:#C7568E">SDO</b>). <a href="http://eclipse.org/emf/downloads-build-types.php">What Build Type do I want?</a>
 		<br/>		<br/>		<br/>
 		</td>
 		</tr>
@@ -110,4 +102,4 @@
 </TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000'><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: downloads-xerces.php,v 1.3 2005/05/06 23:05:02 nickb Exp $ -->
+<!-- $Id: downloads-xerces.php,v 1.4 2005/05/06 23:08:59 nickb Exp $ -->
