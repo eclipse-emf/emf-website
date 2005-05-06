@@ -19,7 +19,7 @@
   <tr><td bgcolor="#CFFFFF" width="116" height="1"></td></tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php" class="nav">Installation</a>
+      &#160; <a href="http://eclipse.org/emf/downloads-xerces.php" class="nav">Installation</a>
 		
     </td>
 
@@ -37,7 +37,7 @@
   </tr>
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/docs.php" class="nav">Documentation</a><br/>
+      &#160; <a href="http://eclipse.org/emf/docs.php" class="nav">Documentation</a><br/>
 		
     </td>
   </tr>
@@ -126,7 +126,7 @@
 
   <tr valign="CENTER"> 
     <td valign="CENTER" height="21"> 
-      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew.php" class="nav">Site News</a>
+      &#160; <a href="http://eclipse.org/emf/news-whatsnew.php" class="nav">Site News</a>
     </td>
   </tr>
 	
@@ -295,4 +295,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.8 2005/03/14 22:29:55 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.9 2005/05/06 23:04:43 nickb Exp $ -->
