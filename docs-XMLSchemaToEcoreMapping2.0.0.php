@@ -5,10 +5,10 @@
 	<link rel="stylesheet" href="http://www.eclipse.org/default_style.css"
  type="text/css">
 </head>
-<body onload="setTimeout('document.location.href=\'http://www.eclipse.org/docs/overviews/XMLSchemaToEcoreMapping.pdf\';',1)">
+<body onload="setTimeout('document.location.href=\'http://www.eclipse.org/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf\';',1)">
 <noscript>
 <p>&#160;</p>
-<a href="http://www.eclipse.org/docs/overviews/XMLSchemaToEcoreMapping.pdf">click here</a>
+<a href="http://www.eclipse.org/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf">click here</a>
 </noscript>
 </body>
 </html>
