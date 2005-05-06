@@ -187,7 +187,7 @@ echo "</span>";
 echo "<p><a href=\"models.xml\">Back to EMF Corner</a></p>\n\n";
 echo '</td></tr></table>';
 
-		include "../includes/footer.php"; 
+		$pre="../"; include "../includes/footer.php"; 
 
 // send receipt to customer, from form
 if ($sender && strstr($sender,"@")) { 
@@ -221,5 +221,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.8 2005/05/06 23:05:38 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.9 2005/05/06 23:11:54 nickb Exp $ -->
 ?>

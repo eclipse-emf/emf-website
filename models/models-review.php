@@ -74,5 +74,5 @@
 		</form>
 	</table>
 
-<?php include "../includes/footer.php"; ?>
-<!-- $Id: models-review.php,v 1.7 2005/05/06 23:05:38 nickb Exp $ -->
+<?php $pre="../"; include "../includes/footer.php"; ?>
+<!-- $Id: models-review.php,v 1.8 2005/05/06 23:11:54 nickb Exp $ -->
