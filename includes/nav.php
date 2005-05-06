@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.2 2005/05/06 21:44:37 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.3 2005/05/06 22:06:22 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -12,13 +12,13 @@
  style="border-collapse: collapse;" cellspacing="0" cellpadding="0">
           <tr>
             <td> <a
- href="<?php echo $pre; ?>downloads.php"><img
+ href="http://download.eclipse.org/tools/emf/scripts/downloads.php"><img
  src="http://www.eclipse.org/emf/images/download.gif" border="0"></a></td>
 
 <td height="42"> 
 
-	<a href="<?php echo $pre; ?>downloads.php" target="_self" class="category">Downloads</a>
-	:: <a href="../../../tools/emf/updates" target="_self" class="category">UM Site</a>
+	<a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" target="_self" class="category">Downloads</a>
+	:: <a href="http://download.eclipse.org/tools/emf/updates" target="_self" class="category">UM Site</a>
 	<?php if ($isEMFserver) { ?>
 	:: <a href="http://emf.torolab.ibm.com/emf/build.php" target="_self" class="category">New Build</a>
 	:: <a href="http://emf.torolab.ibm.com/emf/secure/promo.php" target="_self" class="category">Promo</a>
@@ -26,12 +26,12 @@
 
 	<?php } ?>
 	<br>
-	<a name="over2" class="category">v2.x:</a> <a href="<?php echo $pre; ?>downloads.php" target="_self" class="subcategory">EMF,	SDO &amp; XSD</a>, 
+	<a name="over2" class="category">v2.x:</a> <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" target="_self" class="subcategory">EMF,	SDO &amp; XSD</a>, 
 	<a name="over1" class="category">v1.x:</a> <a href="http://www.eclipse.org/emf/downloads/dl-emf1x.html" class="subcategory">EMF &amp; XSD</a> 
 
 	<?php if ($isEMFserver) { ?>
 		<br>
-		<a name="testResults" class="category">Test Results:</a> <a href="http://emf.torolab.ibm.com/tests/results-jdk13.php" target="_self" class="category">1.3</a>, <a href="http://emf.torolab.ibm.com/tests/results-jdk14.php" target="_self" class="category">1.4</a>, <a href="http://emf.torolab.ibm.com/tests/results-jdk50.php" target="_self" class="category">5.0</a>, <a href="http://emf.torolab.ibm.com/tests/results.php" target="_self" class="category">BVT, FVT, SVT</a>, <a href="http://emf.torolab.ibm.com/tests/results-perf.php" target="_self" class="category">Perf</a>
+		<a name="testResults" class="category">Test Results:</a> <a href="http://emf.torolab.ibm.com/tests/results-jdk13.php" target="_self" class="category">1.3</a>, <a href="http://emf.torolab.ibm.com/tests/results-jdk14.php" target="_self" class="category">1.4</a>, <a href="http://emf.torolab.ibm.com/tests/results-jdk50.php" target="_self" class="category">5.0</a>, <a href="http://emf.torolab.ibm.com/tests/results.php" target="_self" class="category">BVT, FVT, SVT</a>, <a href="http://emf.torolab.ibm.com/tests/results-perf.php" target="_self" class="category">Perf</a>, <a href="http://emftest03.torolab.ibm.com/tests/results-perf.php" target="_self" class="category">Perf2</a>
 		<br>
 		<a href="http://emf.torolab.ibm.com/emf/secure/patch.php" target="_self" class="category">New Test</a> <i><small class="subcategory">(with optional patch or continuous perf)</small></i> <!--:: <a href="http://emf.torolab.ibm.com/emf/secure/performance/" target="_self" class="category">Perf</a> :: <a href="http://emf.torolab.ibm.com/emf/secure/junit-results.php" target="_self" class="category">JUnit</a> -->
 	<?php } ?>
@@ -50,7 +50,7 @@
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
  target="_self" class="subcategory">Web
 Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
-<a href="<?php echo $pre; ?>mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives</a>
+<a href="newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF/SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory">XSD</a> <em class="subcategory" style="font-style:italic"> (deprecated)</em>
  </td>
 			</tr>
 			<tr><td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=1 height=3></td></tr>
@@ -127,7 +127,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 <?php if ($isEMFserver) { ?>
 <a href="<?php echo $pre; ?>news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self" class="subcategory">Regenerate</a> <br>
 <?php } else { ?>
-<a href="<?php echo $pre; ?>news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a><em class="subcategory" style="font-style:italic"> (weekly delta)</em><br>
+<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a><em class="subcategory" style="font-style:italic"> (weekly delta)</em><br>
 <?php } ?>
  <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" target="_self" class="subcategory">EMF</a>, 
  <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/" target="_self" class="subcategory">SDO</a>,
