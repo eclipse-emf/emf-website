@@ -1,9 +1,22 @@
-<!-- $Id: nav.php,v 1.7 2005/05/11 18:28:59 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.8 2005/05/11 19:47:23 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
 			<tr>
-			<td class="head_section" colspan=3><b>Quick Nav</b><a name="quicknav">&#160;</a></td>
+			<td class="head_section" colspan=1><b>Quick Nav</b><a name="quicknav">&#160;</a></td>
+		<?php if (!$newsInSidebar) { ?>
+			<td>
+			</td>
+			<td width="20%" valign="top">
+				<table width="212" cellpadding="2" cellspacing="2" border="0">
+					<tr>
+					<td colspan="1" class="head_section">
+						<b>News</b>
+					</td>
+					</tr>
+				</table>
+			</td>
+		<?php } ?>
 			</tr>
 		<tr>
       <td width="100%" valign="top">
@@ -158,29 +171,21 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
       </td>
 
 		<?php if (!$newsInSidebar) { ?>
-		<td>
+		<td></td>
+		<td width="20%" valign="top">
 			<table width="212" cellpadding="2" cellspacing="2" border="0">
-			<tr>
+				<tr>
+					<td class="box" width="212">	
+						<br />
+							<table>
+							<?php getNews(3,"whatsnew","vert"); ?>
+							</table>
+						<br/>
+						- <a href="http://www.eclipse.org/emf/news-whatsnew.php">What's New</a> [<a href="http://www.eclipse.org/emf/news-whatsnew.php">more</a>]</a><br><br>
 
-				<td colspan="3" class="head_section">
-					<b>News</b>
-				</td>
-			</tr>
-			<tr>
-				<td class="box">	
-					<br />
-						<table>
-						<?php getNews(3,"whatsnew","vert"); ?>
-						</table>
-					<br/>
-
-					- <a href="http://www.eclipse.org/emf/news-whatsnew.php">What's New</a> [<a href="http://www.eclipse.org/emf/news-whatsnew.php">more</a>]</a><br><br>
-
-					- <a href="http://www.eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
-
-					
-				</td>
-			</tr>
+						- <a href="http://www.eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
+					</td>
+				</tr>
 			</table>
 		</td>
 		<?php } ?>
