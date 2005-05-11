@@ -1,9 +1,9 @@
 <?php include $pre."includes/nav.php"; ?>
 
 <p>
-	<a href="/emf/home.php">EMF Home</a> |
-	<a href="/emf/home.php?page=sdo">SDO Home</a> | 
-	<a href="/emf/home.php?page=xsd">XSD Home</a> | 
+	<a href="/emf/emf.php">EMF Home</a> |
+	<a href="/emf/sdo.php">SDO Home</a> | 
+	<a href="/emf/xsd.php">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 </p>
 
