@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <?php 
-		$pre = "";
-		$HTMLTitle = "Eclipse Tools - EMF, XSD, SDO - Home";
+		$HTMLTitle = "Eclipse Tools - EMF, SDO, XSD - Home";
 		$noHeader=true;
 		include $pre."includes/header.php"; ?>
 
@@ -60,7 +59,7 @@
 		</tr>
 		<tr>
 			<td class="box-9pt" width="100%">
-				<?php include_once "emf.php"; displayEMFIntro(); 
+				<?php include_once "emf-contents.php"; displayEMFIntro(); 
 						if ($page == "emf") { 
 							echo "<br/><br/><b>What is EMF?</b><br/><br/>\n\n"; displayEMFIntro2(); 
 						} else { 
@@ -81,7 +80,7 @@
 		</tr>
 		<tr>
 			<td class="box-9pt" width="100%">
-				<?php include_once "sdo.php"; displaySDOIntro(); 
+				<?php include_once "sdo-contents.php"; displaySDOIntro(); 
 						if ($page == "sdo") { 
 							echo "<br/><br/><b>What is SDO?</b><br/><br/>\n\n"; displaySDOIntro2(); 
 						} else {
@@ -102,7 +101,7 @@
 		</tr>
 		<tr>
 			<td class="box-9pt" width="100%">
-				<?php include_once "xsd.php"; displayXSDIntro(); 
+				<?php include_once "xsd-contents.php"; displayXSDIntro(); 
 						if ($page == "xsd") { 
 							echo "<br/><br/><b>What is XSD?</b><br/><br/>\n\n"; displayXSDIntro2();
 							echo "<br/><br/>\n\n"; displayXSDModelImage(); 
@@ -216,13 +215,13 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to EMF, 
 </table>
 
 <p>
-	<a href="/emf/home.php">EMF Home</a> |
-	<a href="/emf/home.php?page=sdo">SDO Home</a> | 
-	<a href="/emf/home.php?page=xsd">XSD Home</a> | 
+	<a href="/emf/emf.php">EMF Home</a> |
+	<a href="/emf/sdo.php">SDO Home</a> | 
+	<a href="/emf/xsd.php">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.7 2005/05/06 22:28:45 nickb Exp $ -->
+<!-- $Id: home.php,v 1.8 2005/05/11 16:12:19 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
