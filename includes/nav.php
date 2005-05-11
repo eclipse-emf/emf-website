@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.5 2005/05/06 22:23:09 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.6 2005/05/11 15:32:23 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -115,6 +115,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
  href="<?php echo $pre; ?>docs.php" class="category"
  target="_self">Documentation</a><br>
 
+<a class="category" href="http://www.awprofessional.com/titles/0131425420">EMF Book</a>: <a class="subcategory" href="http://www.awprofessional.com/titles/0131425420">Overview and Developer's Guide</a><br>
 <a name="overview11" class="category">Overviews:</a> <a class="subcategory" href="<?php echo $pre; ?>docs.php?doc=references/overview/EMF.html">EMF</a>, 
 <a class="subcategory" href="<?php echo $pre; ?>docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="subcategory" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a><br>
 	<a class="subcategory" href="http://www.eclipse.org/emf/docs/xsd/XSD.mdl">UML model</a>, 
