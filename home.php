@@ -152,7 +152,7 @@
 		</tr>
 		<tr>
 			<td class="box">	<br/>
-Wanted to contribute models, projects, files, ideas, utilities, or code to EMF, SDO, or XSD? Now you can!<br/><br/>
+Wanted to contribute models, projects, files, ideas, utilities, or code to <a href="http://eclipse.org/emf/emf.php">EMF</a>, <a href="http://eclipse.org/emf/sdo.php">SDO</a>, or <a href="http://eclipse.org/emf/xsd.php">XSD</a>? Now you can!<br/><br/>
 			Have a look, post your comments, submit your models, or just read what others have written. 
 		<br><br>
 		Comments or feedback to <a href="mailto:codeslave(at)ca!ibm!com?Subject=EMF Corner Comments">codeslave(at)ca.ibm.com</a>.<br><br>
@@ -221,7 +221,7 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to EMF, 
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.8 2005/05/11 16:12:19 nickb Exp $ -->
+<!-- $Id: home.php,v 1.9 2005/05/11 16:18:51 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
