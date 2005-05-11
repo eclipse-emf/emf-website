@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.6 2005/05/11 15:32:23 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.7 2005/05/11 18:28:59 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -112,12 +112,12 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
             <td rowspan=1 valign=top> <img src="http://www.eclipse.org/emf/images/reference.gif"
  border="0"></td>
             <td height="42" rowspan=1> <a
- href="<?php echo $pre; ?>docs.php" class="category"
+ href="http://www.eclipse.org/emf/docs.php" class="category"
  target="_self">Documentation</a><br>
 
 <a class="category" href="http://www.awprofessional.com/titles/0131425420">EMF Book</a>: <a class="subcategory" href="http://www.awprofessional.com/titles/0131425420">Overview and Developer's Guide</a><br>
-<a name="overview11" class="category">Overviews:</a> <a class="subcategory" href="<?php echo $pre; ?>docs.php?doc=references/overview/EMF.html">EMF</a>, 
-<a class="subcategory" href="<?php echo $pre; ?>docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="subcategory" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a><br>
+<a name="overview11" class="category">Overviews:</a> <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.html">EMF</a>, 
+<a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="subcategory" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a><br>
 	<a class="subcategory" href="http://www.eclipse.org/emf/docs/xsd/XSD.mdl">UML model</a>, 
 
    <a class="subcategory" href="http://download.eclipse.org/technology/xsd/javadoc/org/eclipse/xsd/package-summary.html#details">UML diagrams</a>
@@ -126,7 +126,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
             <img src="http://www.eclipse.org/emf/images/cvs.gif" border="0"></a></td>
             <td> <a name="cvs2" class="category">CVS Repositories</a><br>
 <?php if ($isEMFserver) { ?>
-<a href="<?php echo $pre; ?>news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self" class="subcategory">Regenerate</a> <br>
+<a href="http://www.eclipse.org/emf/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self" class="subcategory">Regenerate</a> <br>
 <?php } else { ?>
 <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a><small class="subcategory"><em style="font-style:italic"> (weekly delta)</em></small><br>
 <?php } ?>
@@ -156,6 +156,35 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 
       </table>
       </td>
+
+		<?php if (!$newsInSidebar) { ?>
+		<td>
+			<table width="212" cellpadding="2" cellspacing="2" border="0">
+			<tr>
+
+				<td colspan="3" class="head_section">
+					<b>News</b>
+				</td>
+			</tr>
+			<tr>
+				<td class="box">	
+					<br />
+						<table>
+						<?php getNews(3,"whatsnew","vert"); ?>
+						</table>
+					<br/>
+
+					- <a href="http://www.eclipse.org/emf/news-whatsnew.php">What's New</a> [<a href="http://www.eclipse.org/emf/news-whatsnew.php">more</a>]</a><br><br>
+
+					- <a href="http://www.eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
+
+					
+				</td>
+			</tr>
+			</table>
+		</td>
+		<?php } ?>
+
     </tr>
   </tbody>
 </table>

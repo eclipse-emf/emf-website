@@ -28,8 +28,8 @@
    <title><?php if (!$HTMLTitle) { echo "Eclipse Tools - EMF Project - $scn"; } else { echo $HTMLTitle; } ?></title>
    <link REL="SHORTCUT ICON" HREF="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico">
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
-	<link rel="stylesheet" href="/emf/includes/style.css" type="text/css">
-<!-- $Id: header.php,v 1.4 2005/05/06 21:44:37 nickb Exp $ -->
+	<link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css">
+<!-- $Id: header.php,v 1.5 2005/05/11 18:28:59 nickb Exp $ -->
 <!-- PHP version: <?php echo phpversion(); ?> -->
 </head>
 <body>

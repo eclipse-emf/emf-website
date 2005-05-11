@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <?php 
 		$HTMLTitle = "Eclipse Tools - EMF, SDO, XSD - Home";
-		$noHeader=true;
+		$noHeader=true; 
+		$newsInSidebar=true; // don't include news in footer
 		include $pre."includes/header.php"; ?>
 
 <!-- wrapper for left nav -->
@@ -219,7 +220,7 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to <a hr
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.10 2005/05/11 16:21:34 nickb Exp $ -->
+<!-- $Id: home.php,v 1.11 2005/05/11 18:28:59 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
