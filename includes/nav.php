@@ -1,10 +1,10 @@
-<!-- $Id: nav.php,v 1.9 2005/05/11 19:53:02 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.10 2005/05/11 19:55:58 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
 			<tr>
 			<td width="80%" valign="top">
-				<table width="212" cellpadding="2" cellspacing="2" border="0">
+				<table width="100%" cellpadding="2" cellspacing="2" border="0">
 					<tr>
 					<td colspan="1" class="head_section">
 						<b>Quick Nav</b>
