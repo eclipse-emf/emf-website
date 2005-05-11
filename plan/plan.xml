@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.xml,v 1.7 2005/04/19 21:06:00 nickb Exp $ -->
+<!-- $Id: plan.xml,v 1.8 2005/05/11 15:56:59 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/04/19 21:06:00 $</modified>
+	<modified>$Date: 2005/05/11 15:56:59 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
@@ -38,7 +38,7 @@
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
@@ -59,7 +59,7 @@
 		<assignee>frankb&#64;ca.ibm.com</assignee>
 
 		<votes>2</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
@@ -80,7 +80,7 @@
 		<assignee>frankb&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
@@ -458,7 +458,7 @@
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 
 		<votes>1</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority>1</plan-priority>
@@ -466,27 +466,6 @@
 
 		<plan-comments></plan-comments>
 		<summary>JMerger:  Move from JDOM to AST</summary>
-	</bug>
-	<bug>
-		<id>79089</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-
-		<ver>2.0.1</ver>
-		<targetm>---</targetm>
-		<opened>2004-11-19 12:26</opened>
-		<reporter>ire0&#64;us.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P4</pri>
-		<stat>NEW</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>1d</plan-estimate>
-
-		<plan-comments></plan-comments>
-		<summary>Modify computeFeatureKind to return kind to avoid HashMap.gets</summary>
 	</bug>
 	<bug>
 		<id>79768</id>
@@ -580,7 +559,7 @@
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-11 18:35</opened>
-		<reporter>jtaylor&#64;nextance.com</reporter>
+		<reporter>deepa&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
@@ -601,7 +580,7 @@
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-13 20:49</opened>
-		<reporter>jtaylor&#64;nextance.com</reporter>
+		<reporter>deepa&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
@@ -643,7 +622,7 @@
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-17 22:15</opened>
-		<reporter>jtaylor&#64;nextance.com</reporter>
+		<reporter>deepa&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
@@ -678,31 +657,10 @@
 		<summary>WrappedException should use the new &quot;cause&quot; in Exception.</summary>
 	</bug>
 	<bug>
-		<id>83463</id>
-		<product>EMF</product>
-
-		<comp>XML/XMI</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-01-21 17:15</opened>
-		<reporter>iriss&#64;us.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority>3</plan-priority>
-		<plan-estimate>2d</plan-estimate>
-
-		<plan-comments></plan-comments>
-		<summary>unions of enumerations are causing confusion so that the wrong convertToString method ends up being called</summary>
-	</bug>
-	<bug>
 		<id>83591</id>
 		<product>EMF</product>
-		<comp>Doc</comp>
 
+		<comp>Doc</comp>
 		<ver>2.0.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-25 03:59</opened>
@@ -790,7 +748,7 @@
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-01-27 20:27</opened>
-		<reporter>jtaylor&#64;nextance.com</reporter>
+		<reporter>deepa&#64;nextance.com</reporter>
 		<assignee>merks&#64;ca.ibm.com</assignee>
 
 		<votes>0</votes>
@@ -909,131 +867,47 @@
 		<summary>Show load errors as markers when opening generated editor</summary>
 	</bug>
 	<bug>
-		<id>85974</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-02-21 13:13</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>khussey&#64;ca.ibm.com</assignee>
-
-		<votes>0</votes>
-		<sev>enhancement</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-
-		<summary>Option to not generate any child creation icons</summary>
-	</bug>
-	<bug>
-		<id>85975</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-
-		<targetm>---</targetm>
-		<opened>2005-02-21 13:18</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>khussey&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-
-		<sev>enhancement</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>GenClass.image should be false by default for abstract classes</summary>
-
-	</bug>
-	<bug>
-		<id>85976</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-02-21 13:23</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>khussey&#64;ca.ibm.com</assignee>
-		<votes>1</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>GenFeature attribute(s) for property category/filter flags</summary>
-	</bug>
-
-	<bug>
 		<id>85982</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
+
 		<ver>2.1</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-02-21 13:43</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+
 		<votes>0</votes>
 		<sev>enhancement</sev>
-
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
+
 		<summary>Optional localization</summary>
 	</bug>
-
 	<bug>
 		<id>86623</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
-		<targetm>---</targetm>
 
+		<targetm>---</targetm>
 		<opened>2005-02-25 09:24</opened>
 		<reporter>jcheuoua&#64;wanadoo.fr</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<votes>1</votes>
-		<sev>enhancement</sev>
+		<votes>3</votes>
 
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Providing a Registry for ItemProviderAdapterFactories</summary>
+
 	</bug>
-
-	<bug>
-		<id>86634</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-02-25 10:03</opened>
-		<reporter>mlovett&#64;uk.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Performance enhancement to BasicExtendedMetaData</summary>
-	</bug>
-
 	<bug>
 		<id>87679</id>
 		<product>EMF</product>
@@ -1077,27 +951,6 @@
 	</bug>
 
 	<bug>
-		<id>90735</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-04-07 18:05</opened>
-		<reporter>elitani&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Currently failing to load documents with namespace aware parser</summary>
-	</bug>
-
-	<bug>
 		<id>90756</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
@@ -1119,27 +972,6 @@
 	</bug>
 
 	<bug>
-		<id>90843</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-04-08 14:53</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Unused imports in generated unit tests</summary>
-	</bug>
-
-	<bug>
 		<id>91036</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
@@ -1158,6 +990,69 @@
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Generated EMF model classes should use externalized strings</summary>
+	</bug>
+
+	<bug>
+		<id>93194</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-04-28 17:20</opened>
+		<reporter>stefan.vaillant&#64;gmx.de</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>XML Schema generation does not take ExtendedMetaData into account.</summary>
+	</bug>
+
+	<bug>
+		<id>93531</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-05-03 10:09</opened>
+		<reporter>bportier&#64;ca.ibm.com</reporter>
+		<assignee>bportier&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Performance Suite Tunning</summary>
+	</bug>
+
+	<bug>
+		<id>93679</id>
+		<product>XSD</product>
+		<comp>Build / Web</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-05-04 13:06</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Migrate XSD website materials into EMF site under Tools</summary>
 	</bug>
 
 	<bug>
@@ -1287,36 +1182,15 @@
 
 	</bug>
 	<bug>
-		<id>91444</id>
+		<id>93628</id>
 		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-04-14 15:24</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Need factory method in FeatureChangeImpl</summary>
-	</bug>
-
-	<bug>
-		<id>90700</id>
-		<product>EMF</product>
-		<comp>Edit</comp>
+		<comp>Mapping</comp>
 		<ver>2.1</ver>
 		<targetm>2.1</targetm>
 
-		<opened>2005-04-07 14:46</opened>
-		<reporter>bhunt&#64;mac.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<opened>2005-05-04 06:31</opened>
+		<reporter>vince.chien&#64;symbio.com.tw</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
 		<sev>normal</sev>
 
@@ -1325,19 +1199,40 @@
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>plugin.properties strings incorrectly generated</summary>
+		<summary>DBCS3.1:Can not create an ecore2xml when the ecore2ecore file has a double byte string name</summary>
 	</bug>
 
 	<bug>
-		<id>91491</id>
+		<id>93914</id>
 		<product>EMF</product>
-		<comp>Runtime</comp>
+		<comp>Tools</comp>
+		<ver>2.0.1</ver>
+		<targetm>2.1</targetm>
+
+		<opened>2005-05-06 10:32</opened>
+		<reporter>vivkong&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Duplicated getter for boolean</summary>
+	</bug>
+
+	<bug>
+		<id>94114</id>
+		<product>EMF</product>
+		<comp>Mapping</comp>
 		<ver>2.1</ver>
 		<targetm>2.1</targetm>
 
-		<opened>2005-04-15 03:00</opened>
-		<reporter>bjzhanghao&#64;21cn.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<opened>2005-05-09 09:44</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
 		<sev>minor</sev>
 
@@ -1346,49 +1241,7 @@
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
-		<summary>Sample ecore model editor reports error(s) on datatype with default value</summary>
-	</bug>
-
-	<bug>
-		<id>91595</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-04-15 15:21</opened>
-		<reporter>merks&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Enhance JET to allow greater extensibility and reuse</summary>
-	</bug>
-
-	<bug>
-		<id>91870</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-04-19 08:08</opened>
-		<reporter>merks&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>XMLHandler.EClassFeatureNamePair.equals is wrong</summary>
+		<summary>Ecore2Ecore editor has two menus</summary>
 	</bug>
 
 </plan>

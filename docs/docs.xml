@@ -1046,7 +1046,26 @@
       </td>
     </tr>
 
-    <tr>
+	<tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/plan/plan.xml">
+        EMF 2.1 Development Prioritized Plan Items (Bugzilla List)</a>
+      </td>
+
+      <td>May 11
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+	<tr>
       <td>
         <img src="images/c.gif" width="1" height="8" />
 
@@ -1059,7 +1078,7 @@
         EMF 2.1 Development Plan</a>
       </td>
 
-      <td>January 11
+      <td>May 11
       <sup>th</sup>
 
       2005</td>
@@ -1073,12 +1092,11 @@
       </td>
 
       <td>
-
-        EMF 2.1 Plan Summary: <a
-        href="images/../dev-plans/plan_summary.doc">Word Doc</a>
+        <a
+        href="images/../dev-plans/plan_summary_2.1.html">EMF 2.1 Plan Summary</a>
       </td>
 
-      <td>January 11
+      <td>May 11
       <sup>th</sup>
 
       2005</td>
@@ -1376,5 +1394,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.2 2005/05/06 22:40:18 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.3 2005/05/11 15:56:59 nickb Exp $ -->
 
