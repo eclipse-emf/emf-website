@@ -1,9 +1,18 @@
-<!-- $Id: nav.php,v 1.8 2005/05/11 19:47:23 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.9 2005/05/11 19:53:02 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
 			<tr>
-			<td class="head_section" colspan=1><b>Quick Nav</b><a name="quicknav">&#160;</a></td>
+			<td width="80%" valign="top">
+				<table width="212" cellpadding="2" cellspacing="2" border="0">
+					<tr>
+					<td colspan="1" class="head_section">
+						<b>Quick Nav</b>
+						<a name="quicknav">&#160;</a>
+					</td>
+					</tr>
+				</table>
+			</td>
 		<?php if (!$newsInSidebar) { ?>
 			<td>
 			</td>
