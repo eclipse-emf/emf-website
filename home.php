@@ -61,7 +61,7 @@
 		<tr>
 			<td class="box-9pt" width="100%">
 				<?php include_once "emf-contents.php"; displayEMFIntro(); 
-						if ($page == "emf") { 
+						if ($page == "" || $page == "emf") { 
 							echo "<br/><br/><b>What is EMF?</b><br/><br/>\n\n"; displayEMFIntro2(); 
 						} else { 
 							doMoreLink("home.php?page=emf"); 
@@ -220,7 +220,7 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to <a hr
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.12 2005/05/13 16:22:14 nickb Exp $ -->
+<!-- $Id: home.php,v 1.13 2005/05/13 16:28:59 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
