@@ -72,7 +72,7 @@
 	</td> 
 
 <?php } ?>
-<?php if ($page=="" || $page=="sdo") { ?>
+<?php if ($page=="sdo") { ?>
 
 	<td width="<?php echo ($page == "sdo" ? 100 : 20); ?>%"> <!-- SDO --> 
 	<table cellpadding="2" cellspacing="2" border="0">
@@ -93,7 +93,7 @@
 	</td> 
 
 <?php } ?>
-<?php if ($page=="" || $page=="xsd") { ?>
+<?php if ($page=="xsd") { ?>
 
 	<td width="<?php echo ($page == "xsd" ? 100 : 20); ?>%"> <!-- XSD --> 
 	<table cellpadding="2" cellspacing="2" border="0">
@@ -206,7 +206,7 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to <a hr
 
 </tr>
 
-<tr><td colspan="<?php echo ($page == "" ? 3 : 1); ?>">
+<tr><td colspan="1">
 <?php include $pre."includes/nav.php"; ?>
 
 </td></tr>
@@ -214,13 +214,13 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to <a hr
 </table>
 
 <p>
-	<a href="/emf/emf.php">EMF Home</a> |
-	<a href="/emf/sdo.php">SDO Home</a> | 
-	<a href="/emf/xsd.php">XSD Home</a> | 
+	<a href="<?php if ($isWWWserver) { ?>/emf<?php } else { ?>/tools/emf/scripts<?php } ?>/emf.php">EMF Home</a> |
+	<a href="<?php if ($isWWWserver) { ?>/emf<?php } else { ?>/tools/emf/scripts<?php } ?>/sdo.php">SDO Home</a> | 
+	<a href="<?php if ($isWWWserver) { ?>/emf<?php } else { ?>/tools/emf/scripts<?php } ?>/xsd.php">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.11 2005/05/11 18:28:59 nickb Exp $ -->
+<!-- $Id: home.php,v 1.12 2005/05/13 16:22:14 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 

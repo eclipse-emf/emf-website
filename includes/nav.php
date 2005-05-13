@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.11 2005/05/11 20:00:10 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.12 2005/05/13 16:22:14 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -33,13 +33,13 @@
  style="border-collapse: collapse;" cellspacing="0" cellpadding="0">
           <tr>
             <td> <a
- href="http://download.eclipse.org/tools/emf/scripts/downloads.php"><img
+ href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/scripts/downloads.php"><img
  src="http://www.eclipse.org/emf/images/download.gif" border="0"></a></td>
 
 <td height="42"> 
 
-	<a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" target="_self" class="category">Downloads</a>
-	:: <a href="http://download.eclipse.org/tools/emf/updates" target="_self" class="category">UM Site</a>
+	<a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/scripts/downloads.php" target="_self" class="category">Downloads</a>
+	:: <a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/updates" target="_self" class="category">UM Site</a>
 	<?php if ($isEMFserver) { ?>
 	:: <a href="http://emf.torolab.ibm.com/emf/build.php" target="_self" class="category">New Build</a>
 	:: <a href="http://emf.torolab.ibm.com/emf/secure/promo.php" target="_self" class="category">Promo</a>
@@ -47,7 +47,7 @@
 
 	<?php } ?>
 	<br>
-	<a name="over2" class="category">v2.x:</a> <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" target="_self" class="subcategory">EMF,	SDO &amp; XSD</a>, 
+	<a name="over2" class="category">v2.x:</a> <a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/scripts/downloads.php" target="_self" class="subcategory">EMF,	SDO &amp; XSD</a>, 
 	<a name="over1" class="category">v1.x:</a> <a href="http://www.eclipse.org/emf/downloads/dl-emf1x.html" class="subcategory">EMF &amp; XSD</a> 
 
 	<?php if ($isEMFserver) { ?>
@@ -71,7 +71,7 @@
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
  target="_self" class="subcategory">Web
 Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
-<a href="newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF/SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
+<a href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF/SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
  </td>
 			</tr>
 			<tr><td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=1 height=3></td></tr>
@@ -141,13 +141,13 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="subcategory" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a><br>
 	<a class="subcategory" href="http://www.eclipse.org/emf/docs/xsd/XSD.mdl">UML model</a>, 
 
-   <a class="subcategory" href="http://download.eclipse.org/technology/xsd/javadoc/org/eclipse/xsd/package-summary.html#details">UML diagrams</a>
+   <a class="subcategory" href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/technology/xsd/javadoc/org/eclipse/xsd/package-summary.html#details">UML diagrams</a>
 				</td>
             <td> <a name="cvs1" class="category">
             <img src="http://www.eclipse.org/emf/images/cvs.gif" border="0"></a></td>
             <td> <a name="cvs2" class="category">CVS Repositories</a><br>
 <?php if ($isEMFserver) { ?>
-<a href="http://www.eclipse.org/emf/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self" class="subcategory">Regenerate</a> <br>
+<a href="/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self" class="subcategory">Regenerate</a> <br>
 <?php } else { ?>
 <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self" class="subcategory">What's New, CVS?</a><small class="subcategory"><em style="font-style:italic"> (weekly delta)</em></small><br>
 <?php } ?>
@@ -186,7 +186,10 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 					<td class="box" width="212">	
 						<br />
 							<table>
-							<?php getNews(3,"whatsnew","vert"); ?>
+							<?php 
+								ini_set("display_errors","1"); 
+								getNews(3,"whatsnew","vert"); 
+								ini_set("display_errors","0"); ?>
 							</table>
 						<br/>
 						- <a href="http://www.eclipse.org/emf/news-whatsnew.php">What's New</a> [<a href="http://www.eclipse.org/emf/news-whatsnew.php">more</a>]</a><br><br>
