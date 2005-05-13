@@ -16,6 +16,7 @@ interoperability with other EMF-based tools and applications.
 }
 
 function displayEMFIntro2() {
+	global $isEMFserver;
 	echo '
 EMF consists of three fundamental pieces: 
 
@@ -116,7 +117,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.3 2005/05/13 16:38:25 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.4 2005/05/13 16:56:57 nickb Exp $ -->
 </body></html>
 
 <?php } 

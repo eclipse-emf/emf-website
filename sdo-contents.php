@@ -7,6 +7,7 @@ Service Data Objects (SDO) is a framework that simplifies and unifies data appli
 }
 
 function displaySDOIntro2() {
+	global $isEMFserver;
 	echo '
 Unlike some of the other data integration models, Service Data Objects don\'t stop at data abstraction. The Service Data Objects framework also incorporates a good number of J2EE patterns and best practices. SDO supports a disconnected programming model. The SDO programming model prescribes patterns of usage that allow clean separation of each of these concerns.
 <br><br>
@@ -57,7 +58,7 @@ SDO?</a></font></b> </td>
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: sdo-contents.php,v 1.4 2005/05/13 16:38:25 nickb Exp $ -->
+<!-- $Id: sdo-contents.php,v 1.5 2005/05/13 16:56:55 nickb Exp $ -->
 </body></html>
 
 <?php } 
