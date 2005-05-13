@@ -53,7 +53,7 @@
 
 <?php if ($page=="" || $page=="emf") { ?>
 
-	<td width="<?php echo ($page == "emf" ? 100 : 40); ?>%"> <!-- EMF --> 
+	<td width="100%"> <!-- EMF --> 
 	<table cellpadding="2" cellspacing="2" border="0">
 		<tr>
 			<td nowrap class="head_section"><b>Eclipse Modeling Framework (EMF)</b><a name="top">&#160;</a></td>
@@ -74,7 +74,7 @@
 <?php } ?>
 <?php if ($page=="sdo") { ?>
 
-	<td width="<?php echo ($page == "sdo" ? 100 : 20); ?>%"> <!-- SDO --> 
+	<td width="100%"> <!-- SDO --> 
 	<table cellpadding="2" cellspacing="2" border="0">
 		<tr>
 			<td nowrap class="head_section"><b>Service Data Objects (SDO)</b><a name="top">&#160;</a></td>
@@ -95,7 +95,7 @@
 <?php } ?>
 <?php if ($page=="xsd") { ?>
 
-	<td width="<?php echo ($page == "xsd" ? 100 : 20); ?>%"> <!-- XSD --> 
+	<td width="100%"> <!-- XSD --> 
 	<table cellpadding="2" cellspacing="2" border="0">
 		<tr>
 			<td nowrap class="head_section"><b>XML Schema Infoset Model (XSD)</b><a name="top">&#160;</a></td>
@@ -220,7 +220,7 @@ Wanted to contribute models, projects, files, ideas, utilities, or code to <a hr
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.13 2005/05/13 16:28:59 nickb Exp $ -->
+<!-- $Id: home.php,v 1.14 2005/05/13 16:54:33 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
