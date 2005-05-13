@@ -74,8 +74,10 @@ or&#160; headless from a command line.
 Want to learn more about how easy it is to use this exciting new
 technology to help you boost your Java programming productivity,
 application compatibility and integration? Start by reading the <a
-href="docs.php">overview documents and the tutorial</a>,
-followed by <a href="downloads.php">downloading the driver</a>,
+href="http://www.eclipse.org/emf/docs.php">overview documents and the tutorial</a>,
+followed by <a href="'.
+(!$isEMFserver?'http://download.eclipse.org':'').
+'/tools/emf/scripts/downloads.php">downloading the driver</a>,
 and then sit back and watch your applications write themselves!
 Well, not completely, but this wouldn\'t be a sales pitch if there
 weren\'t a little bit of exaggeration.
@@ -114,7 +116,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.2 2005/05/12 14:40:38 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.3 2005/05/13 16:38:25 nickb Exp $ -->
 </body></html>
 
 <?php } 

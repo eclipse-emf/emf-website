@@ -12,7 +12,15 @@ Unlike some of the other data integration models, Service Data Objects don\'t st
 <br><br>
 Put simply, Service Data Objects is a framework for data application development, which includes an architecture and API. Service Data Objects simplify the J2EE data programming model and abstract data in a service oriented architecture (SOA). SDO unifies data application development, supports, and integrates XML. Service Data Objects incorporate J2EE patterns and best practices.
 <br><br>
-To learn more about Service Data Objects, check out the <a label="Service Data Object (SDO) Overview" id="Service Data Object (SDO) Overview" href="/emf/docs.php#overviews">Overview</a> <a label="Service Data Object (SDO) Overview" id="Service Data Object (SDO) Overview" href="/emf/docs.php#overviews"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Overview"></a>, <a label="Service Data Object (SDO) Documentation" id="Service Data Object (SDO) Documentation" href="/emf/docs.php">Documentation</a> <a label="Service Data Object (SDO) Documentation" id="Service Data Object (SDO) Documentation" href="/emf/docs.php"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Documentation"></a>, <a label="Service Data Object (SDO) Javadoc" id="Service Data Object (SDO) Javadoc" href="http://download.eclipse.org/tools/emf/sdo/javadoc/">Javadoc</a> <a label="Service Data Object (SDO) Javadoc" id="Service Data Object (SDO) Javadoc" href="http://download.eclipse.org/tools/emf/sdo/javadoc/"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Javadoc"></a>, or <a label="Service Data Object (SDO) Downloads" id="Service Data Object (SDO) Downloads" href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Downloads</a> <a label="Service Data Object (SDO) Downloads" id="Service Data Object (SDO) Downloads" href="http://download.eclipse.org/tools/emf/scripts/downloads.php"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Downloads"></a> pages.
+To learn more about Service Data Objects, check out the <a label="Service Data Object (SDO) Overview" id="Service Data Object (SDO) Overview" href="http://www.eclipse.org/emf/docs.php#overviews">Overview</a> <a label="Service Data Object (SDO) Overview" id="Service Data Object (SDO) Overview" href="http://www.eclipse.org/emf/docs.php#overviews"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Overview"></a>, <a label="Service Data Object (SDO) Documentation" id="Service Data Object (SDO) Documentation" href="http://www.eclipse.org/emf/docs.php">Documentation</a> <a label="Service Data Object (SDO) Documentation" id="Service Data Object (SDO) Documentation" href="http://www.eclipse.org/emf/docs.php"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Documentation"></a>, <a label="Service Data Object (SDO) Javadoc" id="Service Data Object (SDO) Javadoc" href="'.
+(!$isEMFserver?'http://download.eclipse.org':'').
+'/tools/emf/sdo/javadoc/">Javadoc</a> <a label="Service Data Object (SDO) Javadoc" id="Service Data Object (SDO) Javadoc" href="'.
+(!$isEMFserver?'http://download.eclipse.org':'').
+'/tools/emf/sdo/javadoc/"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Javadoc"></a>, or <a label="Service Data Object (SDO) Downloads" id="Service Data Object (SDO) Downloads" href="'.
+(!$isEMFserver?'http://download.eclipse.org':'').
+'/tools/emf/scripts/downloads.php">Downloads</a> <a label="Service Data Object (SDO) Downloads" id="Service Data Object (SDO) Downloads" href="'.
+(!$isEMFserver?'http://download.eclipse.org':'').
+'/tools/emf/scripts/downloads.php"><img src="http://www.eclipse.org/emf/images/misc/page.png" width="9" height="8" border="0" alt="Service Data Object (SDO) Downloads"></a> pages.
 ';
 }
 function displaySDOHome() {
@@ -49,7 +57,7 @@ SDO?</a></font></b> </td>
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: sdo-contents.php,v 1.3 2005/05/12 14:40:38 nickb Exp $ -->
+<!-- $Id: sdo-contents.php,v 1.4 2005/05/13 16:38:25 nickb Exp $ -->
 </body></html>
 
 <?php } 
