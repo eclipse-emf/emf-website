@@ -12,6 +12,27 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200505191347" project="emf">
+<bug id="72215">Locate dependant genmodels using PDE src extension mechanism</bug>
+<bug id="75923">Provide extension points for other model importers</bug>
+<bug id="83612">Move ImportManager to org.eclipse.emf.codegen plugin</bug>
+<bug id="86623">Providing a Registry for ItemProviderAdapterFactories</bug>
+<bug id="93531">Performance Suite Tunning</bug>
+<bug id="93628">DBCS3.1:Can not create an ecore2xml when the ecore2ecore file has a double byte string name</bug>
+<bug id="93722">Refactoring AbstractTreeIterator::hasNext() gives performance boost</bug>
+<bug id="93726">Casting to EStructuralFeatureImpl gives performance boost</bug>
+<bug id="93914">Duplicated getter for boolean</bug>
+<bug id="94114">Ecore2Ecore editor has two menus</bug>
+<bug id="95009">Editor.javajet has some spaces that screw up formatting</bug>
+<bug id="95120">Use bin, not runtime, for output location and move jar out of runtime to the root</bug>
+<bug id="95310">PropertyMerger does not handle all line conventions</bug>
+<bug id="95564">Extend all structural features guard variable usage to getEAllStructuralFeaturesGen()</bug>
+<bug id="95577">Option to be less strict about feature kind on load</bug>
+<bug id="95614">Greater GenModel customizability</bug>
+<bug id="95804">Date encoding/decoding breaks for classes inheriting from Date.</bug>
+<bug id="95809">ESuperAdapter holds onto references forever == memory leak</bug>
+</entry>
+
 <entry version="2.1.0" build="I200505050300" project="emf">
 <bug id="75923">Provide extension points for other model importers</bug>
 <bug id="83463">unions of enumerations are causing confusion so that the wrong convertToString method ends up being called</bug>
@@ -177,6 +198,13 @@
 
 <entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200505191347" project="sdo">
+<bug id="72215">Locate dependant genmodels using PDE src extension mechanism</bug>
+<bug id="86623">Providing a Registry for ItemProviderAdapterFactories</bug>
+<bug id="95120">Use bin, not runtime, for output location and move jar out of runtime to the root</bug>
+<bug id="95564">Extend all structural features guard variable usage to getEAllStructuralFeaturesGen()</bug>
 </entry>
 
 <entry version="2.1.0" build="I200505050300" project="sdo">
@@ -409,6 +437,15 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200505191347" project="xsd">
+<bug id="72215">Locate dependant genmodels using PDE src extension mechanism</bug>
+<bug id="75923">Provide extension points for other model importers</bug>
+<bug id="83612">Move ImportManager to org.eclipse.emf.codegen plugin</bug>
+<bug id="86623">Providing a Registry for ItemProviderAdapterFactories</bug>
+<bug id="95120">Use bin, not runtime, for output location and move jar out of runtime to the root</bug>
+<bug id="95537">Redefining issue with simpleContent returning emptyContent</bug>
 </entry>
 
 <entry version="2.1.0" build="I200505050300" project="xsd">
@@ -1632,4 +1669,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.49 2005/05/05 14:50:04 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.50 2005/05/19 19:00:19 nickb Exp $ -->
