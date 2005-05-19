@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.3 2005/05/06 19:27:33 nickb Exp $ 
+	// $Id: scripts.php,v 1.4 2005/05/19 19:33:13 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -195,7 +195,7 @@
 
 	function getNews($lim,$key,$style="horiz",$divider="") {
 
-		global $CVSpre,$WWWpreEMF,$pre; // $CVSpreDocEMF,
+		global $CVSpre,$WWWpreEMF,$pre,$isWWWserver; // $CVSpreDocEMF,
 		$xml = file($WWWpreEMF."news/news.xml"); // moved to www.eclipse (not dev.eclipse)
 		if (!$xml) {
 			$xml = array();
@@ -223,7 +223,9 @@
 				//$line = preg_replace("/href=\"\#(emf\_3)/","href=\"whatsnew.php?ver=3.x#emf_3",$line);
 				//$line = preg_replace("/href=\"\#([IMNRS]\d{12})/","href=\""."news-release-notes.php?ver=2.0.0#$1",$line); // not needed
 				$line = preg_replace("/href=\"\#emf\_((\d)(\d)(\d))/","href=\""."news-release-notes.php?ver=$2.$3.$4#emf_$1",$line);
-				if (preg_match("/href=\".+\.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
+				if (preg_match("/href=\"downloads.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
+					$line = preg_replace("/href=\"/","href=\"".($isWWWserver?"http://download.eclipse.org/":"").$pre,$line);
+				} else if (preg_match("/href=\".+\.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
 					$line = preg_replace("/href=\"/","href=\"$pre",$line);
 				} else if (preg_match("/href=\".+\.php\?.+\=.+\.html(#[a-zA-Z0-9\_\.]+|#|)\"/",$line) && !preg_match("/href=\"http/",$line)) { 
 					// a link such as docs.php?doc=docs/../faq/index.html - no moleste!
