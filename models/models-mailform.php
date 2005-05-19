@@ -65,12 +65,14 @@ $siteName = $info["Site Name"];
 $subject = $title.", ".$date;
 
 /* message */
-$message = '
+$message = '';
+$messagePre = '
 '.$title.', '.$date.'
 
 The following '.$title.' was received from '.$siteName.':
 
 ';
+
 /*for ($i=0;$i<sizeof($fields);$i++) {
 	if ($i>0) { $message .= ","; }
 	$message .=$fields[$i];
@@ -139,51 +141,37 @@ if ($debug>0) { echo "<pre>".preg_replace("/\</","&lt;",$XML)."</pre>"; }
 $senderN = $fields["Name"];
 $sender = $fields["Email"];
 
+$headers = "";
 $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
 $headers .= "MIME-Version: 1.0\n";
 $headers .= "X-Sender: <".$sender.">\n";
-//$headers .= "X-Mailer: PHP/".phpversion()."\n"; //mailer - Notes seems to think this is spam.
+
+	// spoofing to avoid spam assassin filtering
+	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\n";
+	$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\n";
+	$headers .= "User-Agent: Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101\n";
+
 $headers .= "X-Priority: 3\n"; //1 Urgent Message, 3 Normal
 $headers .= "X-MSMail-Priority: High\n"; // fix for hotmail spam filters? 
 $headers .= "Return-Path: <".$sender.">\n";
 $headers .= "Reply-To: \"$senderN\" <".$sender.">\n";
 $headers .= "From: \"$senderN\" <".$sender.">\n";
 
-if ($sendMail) { mail($to, $subject, $message, $headers, "-f$yourEmail"); }
+if ($sendMail) { mail($to, $subject, $messagePre.$message, $headers, "-f$yourEmail"); }
 
 /* message */
-$message = '
-
-<html>
-<head>
- <title>'.$title.', '.$date.'</title>
-</head>
-<body>
-<p>
-
+$messagePre = '
 Thanks for your submission! 
-<br><br>
+
 Your submission will be processed shortly - watch the EMF Corner site
 for updates. Note that submissions are approved by the same people 
 developing EMF, SDO and XSD, so please be patient!
-<br><br>
-If you don\'t hear from us or see your submission posted, please send your information to <b><a href="mailto:codeslave(at)ca.ibm.com">codeslave(at)ca.ibm.com</a></b>.
-<br><br>
+
+If you don\'t hear from us or see your submission posted, please send your information to codeslave(at)ca.ibm.com.
+
+
 Here\'s what you sent:
-<br><br>
-';
-foreach ($fields as $field => $data) {
-	$message .="<b>".$field.":</b> ".preg_replace("/(\\\\(\'|\"))/","\\2",$data)."<br>\n";
-}
-$message .='
 
-<hr noshade="noshade" size="1"/>
-
-<pre>'.
-preg_replace("/\</","&lt;","<!-- begin XML -->"."\n".$XML."\n"."<!-- end XML -->").'
-</pre>
-</body>
-</html>
 ';
 
 		$pre="../"; include "../includes/header.php"; 
@@ -191,7 +179,7 @@ preg_replace("/\</","&lt;","<!-- begin XML -->"."\n".$XML."\n"."<!-- end XML -->
 echo '	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<tr><td>';
 echo "<span>";
-echo $message;
+echo "<pre>".$messagePre."</pre>".$message;
 echo "</span>";
 echo "<p><a href=\"models.xml\">Back to EMF Corner</a></p>\n\n";
 echo '</td></tr></table>';
@@ -200,18 +188,25 @@ echo '</td></tr></table>';
 
 // send receipt to customer, from form
 if ($sender && strstr($sender,"@")) { 
-		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-		$headers .= "MIME-Version: 1.0\n";
-		$headers .= "X-Sender: <".$yourEmail.">\n";
-		//$headers .= "X-Mailer: PHP/".phpversion()."\n"; //mailer - Notes seems to think this is spam.
-		$headers .= "X-Priority: 3\n"; //1 Urgent Message, 3 Normal
-		$headers .= "X-MSMail-Priority: High\n"; // fix for hotmail spam filters? 
-		$headers .= "Return-Path: <".$yourEmail.">\n";
-		$headers .= "Reply-To: $to\n";
-		$headers .= "From: $to\n";
+	$headers = "";
+	//$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+	$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+	$headers .= "MIME-Version: 1.0\n";
+	$headers .= "X-Sender: <".$yourEmail.">\n";
 
-		$to = "".$senderN." <".$sender.">";
-		if ($sendMail) { mail($to, $subject, $message, $headers,"-f$sender"); }
+	// spoofing to avoid spam assassin filtering
+	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\n";
+	$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\n";
+	$headers .= "User-Agent: Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101\n";
+
+	$headers .= "X-Priority: 3\n"; //1 Urgent Message, 3 Normal
+	$headers .= "X-MSMail-Priority: High\n"; // fix for hotmail spam filters? 
+	$headers .= "Return-Path: <".$yourEmail.">\n";
+	$headers .= "Reply-To: $to\n";
+	$headers .= "From: $to\n";
+
+	$to = "".$senderN." <".$sender.">";
+	if ($sendMail) { mail($to, $subject, $messagePre.$message, $headers,"-f$sender"); }
 }
 
 // write data to file as well: OMITTED
@@ -230,5 +225,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.16 2005/05/19 21:21:14 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.17 2005/05/19 21:55:49 nickb Exp $ -->
 ?>
