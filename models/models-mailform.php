@@ -178,7 +178,7 @@ Here\'s what you sent:
 echo '	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<tr><td>';
 echo "<span>";
-echo "<pre>".$messagePre.$message."</pre>";
+echo "<pre>".$messagePre.preg_replace("/\</","&lt;",$message)."</pre>";
 echo "</span>";
 echo "<p><a href=\"models.xml\">Back to EMF Corner</a></p>\n\n";
 echo '</td></tr></table>';
@@ -208,21 +208,9 @@ if ($sender && strstr($sender,"@")) {
 	if ($sendMail) { mail($to, $subject, $messagePre.$message, $headers,"-f$sender"); }
 }
 
-// write data to file as well: OMITTED
-/* $fileOut = "";
-$i=0;
-foreach ($fields as $field => $data) {
-	if ($i>0) { $fileOut .= "\t"; }
-	$fileOut .= preg_replace("/(\\\\(\'|\"))/","\\2",$data);
-	$i++;
-}
-$f = fopen("./data/".$info["Data Name"].".txt","a");
-fputs($f,$fileOut."\n");
-fclose($f); */
-
 function strip($in) { 
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.18 2005/05/19 21:57:58 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.19 2005/05/19 22:11:38 nickb Exp $ -->
 ?>
