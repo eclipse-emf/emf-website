@@ -57,7 +57,7 @@ if ($debug) {
 
 // emf-models@eclipse.org no longer working?
 $yourEmail = "codeslave@ca.ibm.com"; 
-$to  = "Nick Boldt"." <".$yourEmail.">";
+$to  = "EMF Models "." <".$yourEmail.">";
 
 /* subject */
 $title = $info["Email Title"];
@@ -173,7 +173,7 @@ Here\'s what you sent:
 <br><br>
 ';
 foreach ($fields as $field => $data) {
-	$message .="<b>".$field.":</b> ".preg_replace("/(\\\\(\'|\"))/","\\2",$data)."<br>";
+	$message .="<b>".$field.":</b> ".preg_replace("/(\\\\(\'|\"))/","\\2",$data)."<br>\n";
 }
 $message .='
 
@@ -230,5 +230,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.15 2005/05/19 20:50:48 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.16 2005/05/19 21:21:14 nickb Exp $ -->
 ?>
