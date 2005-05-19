@@ -163,7 +163,7 @@ Your submission will be processed shortly - watch the EMF Corner site
 for updates. Note that submissions are approved by the same people 
 developing EMF, SDO and XSD, so please be patient!
 <br><br>
-Once approved, your submission should appear within 24 hrs.
+If you don\' hear from us or see your submission posted, please send your information to <b><a href="mailto:codeslave(at)ca.ibm.com">codeslave(at)ca.ibm.com</a></b>.
 <br><br>
 Here\'s what you sent:
 <br><br>
@@ -221,5 +221,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.10 2005/05/19 19:52:38 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.11 2005/05/19 20:27:22 nickb Exp $ -->
 ?>
