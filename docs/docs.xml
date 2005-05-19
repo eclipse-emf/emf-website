@@ -1226,6 +1226,23 @@
         <img src="images/c.gif" width="5" height="1" />
       </td>
 
+      <td>
+        <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
+      </td>
+
+      <td>May 19
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
       <td>Eclipse.org Newsgroups - Offline Searching with
       <img src="images/c.gif" width="1" height="8" />
 
@@ -1394,5 +1411,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.3 2005/05/11 15:56:59 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.4 2005/05/19 19:22:12 nickb Exp $ -->
 
