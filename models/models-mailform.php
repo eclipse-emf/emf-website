@@ -179,10 +179,9 @@ $message .='
 
 <hr noshade="noshade" size="1"/>
 
-<!-- begin XML -->';
-echo "<pre>".preg_replace("/\</","&lt;",$XML)."</pre>"; 
-echo '<!-- end XML -->
-
+<pre>'.
+preg_replace("/\</","&lt;","<!-- begin XML -->"."\n".$XML."\n"."<!-- end XML -->").'
+</pre>
 </body>
 </html>
 ';
@@ -231,5 +230,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.14 2005/05/19 20:47:09 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.15 2005/05/19 20:50:48 nickb Exp $ -->
 ?>
