@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.4 2005/05/19 19:33:13 nickb Exp $ 
+	// $Id: scripts.php,v 1.5 2005/05/19 19:38:40 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -224,7 +224,7 @@
 				//$line = preg_replace("/href=\"\#([IMNRS]\d{12})/","href=\""."news-release-notes.php?ver=2.0.0#$1",$line); // not needed
 				$line = preg_replace("/href=\"\#emf\_((\d)(\d)(\d))/","href=\""."news-release-notes.php?ver=$2.$3.$4#emf_$1",$line);
 				if (preg_match("/href=\"downloads.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
-					$line = preg_replace("/href=\"/","href=\"".($isWWWserver?"http://download.eclipse.org/":"").$pre,$line);
+					$line = preg_replace("/href=\"/","href=\"".($isWWWserver?"http://download.eclipse.org/tools/emf/scripts/":$pre),$line);
 				} else if (preg_match("/href=\".+\.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
 					$line = preg_replace("/href=\"/","href=\"$pre",$line);
 				} else if (preg_match("/href=\".+\.php\?.+\=.+\.html(#[a-zA-Z0-9\_\.]+|#|)\"/",$line) && !preg_match("/href=\"http/",$line)) { 
