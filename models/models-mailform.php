@@ -2,13 +2,13 @@
 
 // check submitted data, then write back to browser that it's all good.
 
-$debug=0;
+$debug=1;
 $sendMail=1;
 
 $fields = array();
 $info = array();
 
-$date = date('M d/Y H:i:s',strtotime("+3 hours") );
+$date = date('M d/Y H:i:s');
 $fields["Date"] = $date; 
 
 foreach ($HTTP_POST_VARS as $k => $v) {
@@ -175,7 +175,9 @@ $message .='
 
 <hr noshade="noshade" size="1"/>
 
+<!-- begin XML -->
 '.$XML.'
+<!-- end XML -->
 
 </body>
 </html>
@@ -225,5 +227,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.12 2005/05/19 20:35:48 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.13 2005/05/19 20:40:48 nickb Exp $ -->
 ?>
