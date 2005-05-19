@@ -46,7 +46,8 @@
 				"images/reference.gif"
 				);
 		}
-		include "includes/header.php"; 
+		$pre = "../";
+		include "../includes/header.php"; 
 		
 		if (!$doc) { 
 			$XMLfile = "../faq/faq.xml";
@@ -150,4 +151,4 @@
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.7 2005/05/06 23:11:54 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.8 2005/05/19 19:52:38 nickb Exp $ -->

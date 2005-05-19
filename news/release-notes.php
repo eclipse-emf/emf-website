@@ -5,7 +5,8 @@
 			"EMF, SDO, XSD Release Notes",
 			"images/reference.gif"
 			);
-		include "includes/header.php"; 
+		$pre = "../";
+		include "../includes/header.php"; 
 		
 		if (!$doc) { 
 			$XMLfile = "../news/release-notes.xml";
@@ -93,4 +94,4 @@
 <p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.4 2005/05/06 23:11:54 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.5 2005/05/19 19:52:38 nickb Exp $ -->

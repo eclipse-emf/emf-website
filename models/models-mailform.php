@@ -177,7 +177,7 @@ $message .='
 </html>
 ';
 
-		include "includes/header.php"; 
+		$pre="../"; include "../includes/header.php"; 
 
 echo '	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<tr><td>';
@@ -221,5 +221,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.9 2005/05/06 23:11:54 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.10 2005/05/19 19:52:38 nickb Exp $ -->
 ?>

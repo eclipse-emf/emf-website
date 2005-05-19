@@ -1,4 +1,4 @@
-<?php include "includes/header.php"; ?>
+<?php $pre="../"; include "../includes/header.php"; ?>
 
 <style>@import url("models.css");</style>
 <script type="text/javascript" src="models.js"></script>
@@ -87,4 +87,4 @@
 	</table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: models-submit.php,v 1.8 2005/05/06 23:11:54 nickb Exp $ -->
+<!-- $Id: models-submit.php,v 1.9 2005/05/19 19:52:38 nickb Exp $ -->
