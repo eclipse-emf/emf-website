@@ -2,7 +2,7 @@
 
 // check submitted data, then write back to browser that it's all good.
 
-$debug=1;
+$debug=0;
 $sendMail=1;
 
 $fields = array();
@@ -46,14 +46,18 @@ if ($debug) {
 /* recipients */
 
 //live
-$yourEmail = $info["Email Recipient Email"]; 
-$to  = $info["Email Recipient Name"]." <".$yourEmail.">";
+//$yourEmail = $info["Email Recipient Email"]; 
+//$to  = $info["Email Recipient Name"]." <".$yourEmail.">";
 
 // test
-if ($debug) {
-	$yourEmail = "codeslave@emf.torolab.ibm.com";
-	$to  = "Test <".$yourEmail.">";
-}
+//if ($debug) {
+//	$yourEmail = "codeslave@emf.torolab.ibm.com";
+//	$to  = "Test <".$yourEmail.">";
+//}
+
+// emf-models@eclipse.org no longer working?
+$yourEmail = "codeslave@ca.ibm.com"; 
+$to  = "Nick Boldt"." <".$yourEmail.">";
 
 /* subject */
 $title = $info["Email Title"];
@@ -175,9 +179,9 @@ $message .='
 
 <hr noshade="noshade" size="1"/>
 
-<!-- begin XML -->
-'.$XML.'
-<!-- end XML -->
+<!-- begin XML -->';
+echo "<pre>".preg_replace("/\</","&lt;",$XML)."</pre>"; 
+echo '<!-- end XML -->
 
 </body>
 </html>
@@ -227,5 +231,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.13 2005/05/19 20:40:48 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.14 2005/05/19 20:47:09 nickb Exp $ -->
 ?>
