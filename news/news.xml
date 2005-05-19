@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="May 19, 2005" showOn="whatsnew">
+	EMF Corner submission/review forms working again (email address was disabled).
+	If you've tried to submit or review and never heard back from us, please try again.
+</news>
 <news date="May 19, 2005" showOn="whatsnew,docs">
 	EMF Build 2.1.0.I200505191347 contains important and potentially breaking changes. <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">Details here</a>.
 </news>
@@ -529,6 +533,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.47 2005/05/19 19:43:02 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.48 2005/05/19 22:16:11 nickb Exp $ -->
 
 </doc>
