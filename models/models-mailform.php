@@ -163,7 +163,7 @@ Your submission will be processed shortly - watch the EMF Corner site
 for updates. Note that submissions are approved by the same people 
 developing EMF, SDO and XSD, so please be patient!
 <br><br>
-If you don\' hear from us or see your submission posted, please send your information to <b><a href="mailto:codeslave(at)ca.ibm.com">codeslave(at)ca.ibm.com</a></b>.
+If you don\'t hear from us or see your submission posted, please send your information to <b><a href="mailto:codeslave(at)ca.ibm.com">codeslave(at)ca.ibm.com</a></b>.
 <br><br>
 Here\'s what you sent:
 <br><br>
@@ -172,6 +172,10 @@ foreach ($fields as $field => $data) {
 	$message .="<b>".$field.":</b> ".preg_replace("/(\\\\(\'|\"))/","\\2",$data)."<br>";
 }
 $message .='
+
+<hr noshade="noshade" size="1"/>
+
+'.$XML.'
 
 </body>
 </html>
@@ -221,5 +225,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.11 2005/05/19 20:27:22 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.12 2005/05/19 20:35:48 nickb Exp $ -->
 ?>
