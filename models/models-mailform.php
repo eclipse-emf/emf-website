@@ -147,9 +147,9 @@ $headers .= "MIME-Version: 1.0\n";
 $headers .= "X-Sender: <".$sender.">\n";
 
 	// spoofing to avoid spam assassin filtering
-	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\n";
-	$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\n";
-	$headers .= "User-Agent: Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101\n";
+//	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\n";
+//	$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\n";
+//	$headers .= "User-Agent: Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101\n";
 
 $headers .= "X-Priority: 3\n"; //1 Urgent Message, 3 Normal
 $headers .= "X-MSMail-Priority: High\n"; // fix for hotmail spam filters? 
@@ -194,9 +194,9 @@ if ($sender && strstr($sender,"@")) {
 	$headers .= "X-Sender: <".$yourEmail.">\n";
 
 	// spoofing to avoid spam assassin filtering
-	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\n";
-	$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\n";
-	$headers .= "User-Agent: Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101\n";
+//	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\n";
+//	$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\n";
+//	$headers .= "User-Agent: Mozilla/5.001 (windows; U; NT4.0; en-us) Gecko/25250101\n";
 
 	$headers .= "X-Priority: 3\n"; //1 Urgent Message, 3 Normal
 	$headers .= "X-MSMail-Priority: High\n"; // fix for hotmail spam filters? 
@@ -212,5 +212,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.19 2005/05/19 22:11:38 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.20 2005/05/20 22:45:04 nickb Exp $ -->
 ?>
