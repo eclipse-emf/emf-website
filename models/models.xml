@@ -2,6 +2,18 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+  <review
+     reviewName="Great .jet editor"
+     date="2005-04-06"
+     rating="8"
+     modelID="JoelCheuoua20041210164245"
+     reviewID="J366rgvonFrantzius20050406052500">
+    <text>The included .jet editor has very good syntax highlighting and some code completion, better than JETEditor. Works
+    with Eclipse 3.1 M5 (0.4.6 unfortunately is broken with 3.1 M6).</text>
+    <reviewer>J366rg von Frantzius</reviewer>
+    <reviewerURL>http://www.artnology.com</reviewerURL>
+  </review>
+
   <model
   modelName="IBM Model Transformation Framework"
   date="2005-01-05"
@@ -272,16 +284,16 @@ documentation.</text>
     <submitterURL></submitterURL>
   </model>
 
-  <model 
-     modelName="Welcome To EMF Corner" 
-     date="2004-09-13" 
-     category="General discussion" 
+  <model
+     modelName="Welcome To EMF Corner"
+     date="2004-09-13"
+     category="General discussion"
      modelID="NickBoldt20040913165614">
     <text>Welcome, everyone. If you have any suggestions or comments, please post them into this thread or start your own under the General Discussion category.</text>
     <modelURL>http://www.eclipse.org/emf/models.xml</modelURL>
     <thumbnailURL></thumbnailURL>
     <screenshotURL></screenshotURL>
-    <submitter>Nick Boldt</submitter> 
+    <submitter>Nick Boldt</submitter>
     <submitterURL>http://www.divbyzero.com/v-web/b2/index.php?cat=2</submitterURL>
   </model>
 
@@ -310,4 +322,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.4 2005/01/05 16:53:06 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.5 2005/05/20 21:13:23 nickb Exp $ -->
