@@ -29,18 +29,18 @@
 		</tr>
 		<tr class="dark-row" valign="top">
 			<td colspan="1" class=""><h4>Category</h4></td>
-			<td><select name="c_Category1" onchange="if(this.selectedIndex==3){ document.forms[0].c_Category2.selectedIndex=5; }">
+			<td><select name="c_Category1" onchange="if(false && this.selectedIndex==3){ document.forms[0].c_Category2.selectedIndex=5; }">
 				<option value="EMF">EMF</option>
 				<option value="SDO">SDO</option>
 				<option value="XSD">XSD</option>
-				<option value="General">General</option>
-			</select>&#160;&#160;<select name="c_Category2" onchange="if(this.selectedIndex==5){ document.forms[0].c_Category1.selectedIndex=3; }">
+<!--				<option value="General">General</option> -->
+			</select>&#160;&#160;<select name="c_Category2" onchange="if(false && this.selectedIndex==5){ document.forms[0].c_Category1.selectedIndex=3; }">
 				<option value="model">Model</option>
 				<option value="framework">Framework</option>
 				<option value="tool">Tool</option>
 				<option value="utility">Utility</option>
 				<option value="example">Example</option>
-				<option value="discussion">Discussion</option>
+<!--				<option value="discussion">Discussion</option> -->
 				<option value="other">Other</option>
 			</select></td>
 			<td>&#160;</td>
@@ -87,4 +87,4 @@
 	</table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: models-submit.php,v 1.9 2005/05/19 19:52:38 nickb Exp $ -->
+<!-- $Id: models-submit.php,v 1.10 2005/05/25 19:07:06 nickb Exp $ -->

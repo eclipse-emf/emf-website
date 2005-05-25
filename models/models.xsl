@@ -12,7 +12,7 @@
 <xsl:for-each select="data">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-    <title>Eclipse Tools - EMF and SDO - EMF Corner</title>
+    <title>Eclipse Tools - EMF Corner</title>
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<script type="text/javascript" language="javascript" src="models.js"> </script>
@@ -74,7 +74,7 @@
 </tr>
 </table>
 
-<p><a href="models-submit.php">Submit an EMF or SDO model, plugin or tool</a></p>
+<p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
 
 
 	<!-- table of contents -->
@@ -106,10 +106,7 @@
 					We welcome your feedback about this idea, as well as your feedback about contributions on this page. If enough people comment favourably about the code provided here, it may one day make its way into the EMF code base. Or into our test suite. Or something. 
 					</p>
 					<p class="normal" style="font-weight:normal">
-					If you would like to update or revise an existing entry, please submit a new entry (and include some mention of the original post to be replaced). Since contributions and reviews are moderated by the EMF Team, we`ll be able to process your request easily.
-					</p>
-					<p class="normal" style="font-weight:normal">
-					To provide comments about this prototype community project, please email <a href="mailto:codeslave@ca.ibm.com?Subject=EMF Corner Comments">codeslave@ca.ibm.com</a>, or <a href="models-submit.php">start a thread</a> under the 'General Discussion' category.
+					If you would like to update or revise an existing entry, please submit a new entry or review. Comments, feedback:  <a href="mailto:codeslave(at)ca.ibm.com?Subject=EMF Corner Comments">codeslave(at)ca.ibm.com</a>.
 					</p>
 						</td>
 					</tr>
@@ -340,7 +337,7 @@
 	</xsl:for-each>
 	</table>
 
-<p><a href="models-submit.php">Submit an EMF or SDO model, plugin or tool</a></p>
+<p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
 
 <p>
 	<a name="quicknav">
@@ -359,4 +356,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.14 2005/04/07 22:37:09 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.15 2005/05/25 19:07:06 nickb Exp $ -->

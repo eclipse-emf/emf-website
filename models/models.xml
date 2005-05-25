@@ -322,7 +322,7 @@ documentation.</text>
     <submitterURL></submitterURL>
   </model>
 
-  <model
+<!--  <model
      modelName="Welcome To EMF Corner"
      date="2004-09-13"
      category="General discussion"
@@ -333,9 +333,9 @@ documentation.</text>
     <screenshotURL></screenshotURL>
     <submitter>Nick Boldt</submitter>
     <submitterURL>http://www.divbyzero.com/v-web/b2/index.php?cat=2</submitterURL>
-  </model>
+  </model> -->
 
-   <category-def category="General discussion"  label="General Discussion" />
+<!--   <category-def category="General discussion"  label="General Discussion" /> -->
 
    <category-def category="EMF model"     label="EMF Models" />
    <category-def category="EMF framework" label="EMF Frameworks" />
@@ -360,4 +360,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.6 2005/05/25 18:48:29 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.7 2005/05/25 19:07:06 nickb Exp $ -->
