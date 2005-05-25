@@ -341,8 +341,9 @@
 
 <p>
 	<a name="quicknav">
-	<a href="../">EMF Home</a> |
-	<a href="../../xsd">XSD Home</a> | 
+	<a href="/emf/emf.php">EMF Home</a> |
+	<a href="/emf/sdo.php">SDO Home</a> | 
+	<a href="/emf/xsd.php">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 	</a>
 </p>
@@ -356,4 +357,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.15 2005/05/25 19:07:06 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.16 2005/05/25 19:09:40 nickb Exp $ -->
