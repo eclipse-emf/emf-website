@@ -2,6 +2,44 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model
+modelName="Open ArchitectureWare for EMF"
+date="2005-05-25"
+category="EMF framework"
+modelID="SvenEfftinge20050525060503">
+<text>The open ArchitectureWare framework for EMF consists of the
+following parts:
+    <br/><br/>
+<b>Workflow engine:</b> You could think of it as an
+Ant for MDSD processes. [<a href="http://architecturware.sourceforge.net/doc.html">more</a>]
+    <br/><br/>
+<b>Xpand ported to EMF:</b> Xpand is a template language created for code generators, only.
+Therefore it's very simple and effective. It provides:
+<ul>
+<li>expressions on core model level (not Java level)</li>
+<li>operations for ELists (filter, union, intersection, complement)</li>
+<li>invocation of features on ELists (e.g "package.classifiers.name" will
+return a list of ecore:EString instances) - simple constructs (FOREACH, IF,
+LET)</li>
+<li>a FILE construct (define which files to generate inside the templates)</li>
+<li>Call to Helpers (static Java-Methods)</li>
+</ul>
+<br/>
+<b>Xpandeditor ported to EMF:</b>
+syntax highlighting
+* code completion
+* syntax validation
+* outline view
+    <br/><br/>
+An example and basic documentation is included.</text>
+
+<modelURL>https://sourceforge.net/project/showfiles.php?group_id=88344&amp;package_id=152833</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Sven Efftinge</submitter>
+<submitterURL>http://www.openarchitectureware.org</submitterURL>
+</model>
+
   <review
      reviewName="Great .jet editor"
      date="2005-04-06"
@@ -322,4 +360,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.5 2005/05/20 21:13:23 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.6 2005/05/25 18:48:29 nickb Exp $ -->
