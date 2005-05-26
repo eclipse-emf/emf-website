@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="May 26, 2005" showOn="whatsnew">
+	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">I200505261142</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="May 19, 2005" showOn="whatsnew">
 	EMF Corner submission/review forms working again (email address was disabled).
 	If you've tried to submit or review and never heard back from us, please try again.
@@ -533,6 +538,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.48 2005/05/19 22:16:11 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.49 2005/05/26 17:15:21 nickb Exp $ -->
 
 </doc>

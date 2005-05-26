@@ -12,6 +12,28 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200505261142" project="emf">
+<bug id="75921">Handle multiplicity changes to ETypedElement</bug>
+<bug id="91695">Search index building in docs</bug>
+<bug id="93531">Performance Suite Tunning</bug>
+<bug id="95680">JET: Request ability to update newline for template instances at runtime</bug>
+<bug id="95739">Importing plug-ins as source does not work - plugin.xml of source projects mangled</bug>
+<bug id="96033">Add a sash to the packages page</bug>
+<bug id="96132">Unsetting a many containment</bug>
+<bug id="96156">InvocationTargetException while executing EMF JET Tutorial # 2</bug>
+<bug id="96242">Guard against dangling EReference that's created when both ends of an association are non-navigable</bug>
+<bug id="96295">Importing an Ecore file doesn't copy the file to the workspace</bug>
+<bug id="96389">Attribute saved as an element instead of attribute when the value is set to null</bug>
+<bug id="96480">massageFiles.pl no longer needs to massage .ecore and .genmodel files</bug>
+<bug id="96481">Locate cat files</bug>
+<bug id="96485">Test plugin generation fails when model has nested packages</bug>
+<bug id="96488">RoseTree class is not used and should be removed.</bug>
+<bug id="96608">ecore file name collision</bug>
+<bug id="96613">XSD and ECore are not letting multiple models to be selected</bug>
+<bug id="96614">Use proper icons for model importer work</bug>
+<bug id="96699">*.mdl can't find *.cat files</bug>
+</entry>
+
 <entry version="2.1.0" build="I200505191347" project="emf">
 <bug id="72215">Locate dependant genmodels using PDE src extension mechanism</bug>
 <bug id="75923">Provide extension points for other model importers</bug>
@@ -198,6 +220,13 @@
 
 <entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200505261142" project="sdo">
+<bug id="91695">Search index building in docs</bug>
+<bug id="95739">Importing plug-ins as source does not work - plugin.xml of source projects mangled</bug>
+<bug id="96106">Error getting SDO Object with concurrent mediations</bug>
+<bug id="96481">Locate cat files</bug>
 </entry>
 
 <entry version="2.1.0" build="I200505191347" project="sdo">
@@ -437,6 +466,16 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200505261142" project="xsd">
+<bug id="91695">Search index building in docs</bug>
+<bug id="95739">Importing plug-ins as source does not work - plugin.xml of source projects mangled</bug>
+<bug id="96480">massageFiles.pl no longer needs to massage .ecore and .genmodel files</bug>
+<bug id="96481">Locate cat files</bug>
+<bug id="96608">ecore file name collision</bug>
+<bug id="96614">Use proper icons for model importer work</bug>
+<bug id="96699">*.mdl can't find *.cat files</bug>
 </entry>
 
 <entry version="2.1.0" build="I200505191347" project="xsd">
@@ -1669,4 +1708,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.50 2005/05/19 19:00:19 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.51 2005/05/26 17:15:21 nickb Exp $ -->
