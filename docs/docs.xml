@@ -1074,7 +1074,7 @@
 
       <td>
         <a
-        href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
+        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
         EMF 2.1 Development Plan</a>
       </td>
 
@@ -1093,7 +1093,7 @@
 
       <td>
         <a
-        href="images/../dev-plans/plan_summary_2.1.html">EMF 2.1 Plan Summary</a>
+        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/plan-summary_2.1.html">EMF 2.1 Plan Summary</a>
       </td>
 
       <td>May 11
@@ -1411,5 +1411,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.4 2005/05/19 19:22:12 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.5 2005/05/27 03:42:50 nickb Exp $ -->
 
