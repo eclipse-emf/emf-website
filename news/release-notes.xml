@@ -624,6 +624,10 @@ mixin features inherited from interface</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
 </entry>
 
+<entry version="2.0.3" build="2.0.3RC1" project="emf">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.0.2" build="2.0.2" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -663,6 +667,10 @@ mixin features inherited from interface</bug>
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.0.3" build="2.0.3RC1" project="sdo">
+<bug id="96106">Error getting SDO Object with concurrent mediations</bug>
+</entry>
+
 <entry version="2.0.2" build="2.0.2" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -699,6 +707,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.2" build="M200501191212" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.0.3" build="2.0.3RC1" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
@@ -1709,4 +1721,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.52 2005/05/27 19:46:09 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.53 2005/05/27 20:31:14 nickb Exp $ -->
