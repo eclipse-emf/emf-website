@@ -4,6 +4,7 @@
 
 <version-def version="2.1.0" label="2.1.0" />
 <version-def version="2.1" label="2.1.x" />
+<version-def version="2.0.3" label="2.0.3" />
 <version-def version="2.0.2" label="2.0.2" />
 <version-def version="2.0.1" label="2.0.1" />
 <version-def version="2.0" label="2.0.x" />
@@ -1708,4 +1709,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.51 2005/05/26 17:15:21 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.52 2005/05/27 19:46:09 nickb Exp $ -->
