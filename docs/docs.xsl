@@ -62,9 +62,12 @@
 <xsl:if test="$showFiltersOrHeaderFooter!='1'">
 
 <p>
-	<a href="../">EMF Home</a> |
-	<a href="../../xsd">XSD Home</a> | 
+	<a name="quicknav">
+	<a href="/emf/emf.php">EMF Home</a> |
+	<a href="/emf/sdo.php">SDO Home</a> | 
+	<a href="/emf/xsd.php">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
+	</a>
 </p>
 
 <!-- wrapper for left nav -->
@@ -79,4 +82,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: docs.xsl,v 1.1 2005/05/06 22:32:45 nickb Exp $ -->
+<!-- $Id: docs.xsl,v 1.2 2005/05/27 03:49:01 nickb Exp $ -->
