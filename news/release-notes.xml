@@ -13,6 +13,39 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200506020944" project="emf">
+<bug id="75617">Make Actions reusable in IViewParts</bug>
+<bug id="75921">Handle multiplicity changes to ETypedElement</bug>
+<bug id="82597">Confusing default drag and drop behaviour</bug>
+<bug id="83714">Allow special URI fragments for eAnnotations.</bug>
+<bug id="83873">[Change Model] Proper support FeatureMap changes</bug>
+<bug id="84563">[Deprecated code] Change the generated code to use TreeColumn</bug>
+<bug id="84564">[Deprecated code] The generated RCP plugin.xml is using deprecated extension points.</bug>
+<bug id="85982">Optional localization</bug>
+<bug id="87679">Reload context menu action on genmodel file doesn't do update when file is locked by revision control</bug>
+<bug id="91325">Threads &amp; EPackageImpl.getEClassifier()</bug>
+<bug id="93531">Performance Suite Tunning</bug>
+<bug id="95078">Filtering out what is copied to the plugin jar</bug>
+<bug id="96041">Users to override default impl &amp; util package names for EMF code generation</bug>
+<bug id="96833">Error when creating the Property View category NL entry</bug>
+<bug id="96869">NPE when creating an ecore and genmodel from annotated Java</bug>
+<bug id="97013">Refactor the way EContentAdapter attaches/detaches itself</bug>
+<bug id="97015">subpackages lose their names in genmodels</bug>
+<bug id="97017">Ecore2Ecore usability</bug>
+<bug id="97025">[ECoreUtil] Convenience method to resolve all proxies</bug>
+<bug id="97049">Rose cat finder algorithm should consider the plugin version</bug>
+<bug id="97053">2 mdls file are not being massaged</bug>
+<bug id="97140">Global elements that match local elements should not be considered delegated features</bug>
+<bug id="97141">Support ecore:many=&quot;true&quot; on an attribute use for a list-typed attribute</bug>
+<bug id="97353">EPackage file name collision algorithm should check for sub packages</bug>
+<bug id="97354">ModelImporter.adjustEPackages should consider the current values of the attrbitues it manipulates</bug>
+<bug id="97358">The model importer wizards don't have title</bug>
+<bug id="97360">Don't generate Editor and New Wizard for packages without concrete classes</bug>
+<bug id="97501">Provide better support for running standalone</bug>
+<bug id="97871">Provide a simple example of how to save and load instances of a model</bug>
+<bug id="98046">The examples and readme.html in org.eclipse.emf.ant has references to Rose and XSD tasks</bug>
+</entry>
+
 <entry version="2.1.0" build="I200505261142" project="emf">
 <bug id="75921">Handle multiplicity changes to ETypedElement</bug>
 <bug id="91695">Search index building in docs</bug>
@@ -221,6 +254,14 @@
 
 <entry version="2.1.0" build="I200501190800" project="emf">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.0" build="I200506020944" project="sdo">
+<bug id="83873">[Change Model] Proper support FeatureMap changes</bug>
+<bug id="94851">&quot;Evaluate Path...&quot; menu action appears on every EDataObject</bug>
+<bug id="95078">Filtering out what is copied to the plugin jar</bug>
+<bug id="96106">Error getting SDO Object with concurrent mediations</bug>
+<bug id="97053">2 mdls file are not being massaged</bug>
 </entry>
 
 <entry version="2.1.0" build="I200505261142" project="sdo">
@@ -467,6 +508,16 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200506020944" project="xsd">
+<bug id="82626">removed schema directives continue to appear in XSDSchema.referencingDirectives list</bug>
+<bug id="95078">Filtering out what is copied to the plugin jar</bug>
+<bug id="96773">Problem When generating XML Schema from Ecore Model</bug>
+<bug id="97068">The item providers have issues with property descriptors with duplicate IDs</bug>
+<bug id="97141">Support ecore:many=&quot;true&quot; on an attribute use for a list-typed attribute</bug>
+<bug id="97354">ModelImporter.adjustEPackages should consider the current values of the attrbitues it manipulates</bug>
+<bug id="98046">The examples and readme.html in org.eclipse.emf.ant has references to Rose and XSD tasks</bug>
 </entry>
 
 <entry version="2.1.0" build="I200505261142" project="xsd">
@@ -1733,4 +1784,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.54 2005/06/01 23:21:32 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.55 2005/06/02 15:09:52 nickb Exp $ -->
