@@ -6,8 +6,8 @@
 	<table border="0" cellspacing="1" cellpadding="3" width="560">
 		<form action="models-mailform.php" method="post">
 			<input type=hidden name="h_Email_Title" value="Eclipse EMF Corner Review">
-			<input type=hidden name="h_Email_Recipient_Name" value="EMFCornerReview">
-			<input type=hidden name="h_Email_Recipient_Email" value="emf-models@eclipse.org">
+			<input type=hidden name="h_Email_Recipient_Name" value="EMF Corner Review">
+			<input type=hidden name="h_Email_Recipient_Email" value="emf@divbyzero.com">
 			<input type=hidden name="h_Site_Name" value="<?php echo $_SERVER["SERVER_NAME"]; ?>">
 			<input type="hidden" name="h_Submission_Type" value="Review">
 		<tr class="light-row" valign="top">
@@ -75,4 +75,4 @@
 	</table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: models-review.php,v 1.9 2005/05/19 19:52:38 nickb Exp $ -->
+<!-- $Id: models-review.php,v 1.10 2005/06/03 16:06:46 nickb Exp $ -->

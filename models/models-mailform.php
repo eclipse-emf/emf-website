@@ -46,18 +46,14 @@ if ($debug) {
 /* recipients */
 
 //live
-//$yourEmail = $info["Email Recipient Email"]; 
-//$to  = $info["Email Recipient Name"]." <".$yourEmail.">";
+$yourEmail = $info["Email Recipient Email"]; 
+$to  = $info["Email Recipient Name"]." <".$yourEmail.">";
 
 // test
 //if ($debug) {
 //	$yourEmail = "codeslave@emf.torolab.ibm.com";
 //	$to  = "Test <".$yourEmail.">";
 //}
-
-// emf-models@eclipse.org no longer working?
-$yourEmail = "codeslave@ca.ibm.com"; 
-$to  = "EMF Corner Submissions "." <".$yourEmail.">,";
 
 /* subject */
 $title = $info["Email Title"];
@@ -157,7 +153,7 @@ $headers .= "Return-Path: <".$sender.">\n";
 $headers .= "Reply-To: \"$senderN\" <".$sender.">\n";
 $headers .= "From: \"$senderN\" <".$sender.">\n";
 
-if ($sendMail) { mail("$yourEmail,nick@divbyzero.com", $subject, $messagePre.$message, $headers, "-f$yourEmail"); }
+if ($sendMail) { mail("$yourEmail", $subject, $messagePre.$message, $headers, "-f$yourEmail"); }
 
 /* message */
 $messagePre = '
@@ -212,5 +208,5 @@ function strip($in) {
 	return preg_replace("/(\\\\(\'|\"))/","\\2",trim($in));
 }
 
-// <!-- $Id: models-mailform.php,v 1.21 2005/05/20 22:51:47 nickb Exp $ -->
+// <!-- $Id: models-mailform.php,v 1.22 2005/06/03 16:06:46 nickb Exp $ -->
 ?>
