@@ -2,6 +2,17 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<review
+reviewName="Dynamic JET Generator Review"
+date="2005-06-01"
+rating="9"
+modelID="JoelCheuoua20041210164245"
+reviewID="EdMerks20050601083256">
+<text>I highly recommend the JET editor if you are doing editing of JET templates.  It's cool!</text>
+<reviewer>Ed Merks</reviewer>
+<reviewerURL>http://www.eclipse.org/emf</reviewerURL>
+</review>
+
 <model
 modelName="Open ArchitectureWare for EMF"
 date="2005-05-25"
@@ -360,4 +371,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.7 2005/05/25 19:07:06 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.8 2005/06/03 15:59:20 nickb Exp $ -->
