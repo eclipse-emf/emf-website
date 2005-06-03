@@ -959,8 +959,26 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a
+      href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.html">
+      HTML</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/text0.html">
+      text</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
       href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.ppt">
       Powerpoint</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.sxi">
+      OpenOffice</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
@@ -969,10 +987,10 @@
       PDF</a>
       </td>
 
-      <td>July 13
-      <sup>th</sup>
+      <td>June 3
+      <sup>rd</sup>
 
-      2004</td>
+      2005 (new formats)</td>
     </tr>
 
     <tr>
@@ -1411,5 +1429,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.6 2005/06/03 20:04:16 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.7 2005/06/03 20:24:59 nickb Exp $ -->
 
