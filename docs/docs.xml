@@ -212,7 +212,7 @@
       <td>
         <a
         href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">
-        Diagrams and Animations of the internals of XSD models</a>
+        Diagrams and Animations of the internals of XSD models</a> (Powerpoint, OpenOffice, HTML)
       </td>
 
       <td>June 3
@@ -1429,5 +1429,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.8 2005/06/03 21:48:44 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.9 2005/06/03 21:54:10 nickb Exp $ -->
 
