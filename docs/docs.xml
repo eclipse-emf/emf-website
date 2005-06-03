@@ -959,13 +959,13 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a
-      href="images/../JavaOnePresentation/JavaOnePresentation.ppt">
+      href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.ppt">
       Powerpoint</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
       <a
-      href="images/../JavaOnePresentation/JavaOnePresentation.pdf">
+      href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.pdf">
       PDF</a>
       </td>
 
@@ -1411,5 +1411,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.5 2005/05/27 03:42:50 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.6 2005/06/03 20:04:16 nickb Exp $ -->
 
