@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="June 03, 2005" showOn="whatsnew,docs">
+	Accessible (HTML/text) versions of 
+	<a href="http://eclipse.org/emf/docs.php#xsd">XSD</a> 
+	and 
+	<a href="http://eclipse.org/emf/docs.php#presentations">EMF</a> 
+	Powerpoint presentations now available.
+</news>
 <news date="June 02, 2005" showOn="whatsnew">
 	<!-- "#M200506021148" -->
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">Version 2.0.3</a> Maintenance build
@@ -561,6 +568,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.55 2005/06/02 16:41:52 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.56 2005/06/03 21:52:59 nickb Exp $ -->
 
 </doc>
