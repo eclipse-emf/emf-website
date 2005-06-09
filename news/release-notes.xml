@@ -15,7 +15,6 @@
 
 <entry version="2.1.0" build="I200506091102" project="emf">
 <bug id="81752">Attr with &quot;xs:date&quot;  desiralization is failed by exception</bug>
-<bug id="91325">Threads &amp; EPackageImpl.getEClassifier()</bug>
 <bug id="93531">Performance Suite Tunning</bug>
 <bug id="98140">Support for generating new manifest.mf</bug>
 <bug id="98180">The EMF plugins should be bundles.</bug>
@@ -27,8 +26,6 @@
 <bug id="98842">&#64;model problems in operations</bug>
 <bug id="98874">Migrate license from CPL to EPL</bug>
 <bug id="98875">Migrate license from CPL to EPL</bug>
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="98927">The projects created by EMF should use the JRE container</bug>
 <bug id="99020">notice.html missing from EMF zips</bug>
 <bug id="99021">notice.html missing from XSD zips</bug>
@@ -285,8 +282,6 @@
 <bug id="98180">The EMF plugins should be bundles.</bug>
 <bug id="98874">Migrate license from CPL to EPL</bug>
 <bug id="98875">Migrate license from CPL to EPL</bug>
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="99020">notice.html missing from EMF zips</bug>
 <bug id="99021">notice.html missing from XSD zips</bug>
 </entry>
@@ -549,8 +544,6 @@ mixin features inherited from interface</bug>
 <bug id="98180">The EMF plugins should be bundles.</bug>
 <bug id="98874">Migrate license from CPL to EPL</bug>
 <bug id="98875">Migrate license from CPL to EPL</bug>
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="99020">notice.html missing from EMF zips</bug>
 <bug id="99021">notice.html missing from XSD zips</bug>
 <bug id="99146">Polish labels in tools</bug>
@@ -1863,4 +1856,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.59 2005/06/09 16:32:42 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.60 2005/06/09 16:52:37 nickb Exp $ -->
