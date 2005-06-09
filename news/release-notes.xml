@@ -676,29 +676,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.3" build="2.0.3" project="emf">
-<bug id="81752">Attr with &quot;xs:date&quot;  desiralization is failed by exception</bug>
-<bug id="85982">Optional localization</bug>
-<bug id="91325">Threads &amp; EPackageImpl.getEClassifier()</bug>
-<bug id="93531">Performance Suite Tunning</bug>
-<bug id="98046">The examples and readme.html in org.eclipse.emf.ant has references to Rose and XSD tasks</bug>
-<bug id="98140">Support for generating new manifest.mf</bug>
-<bug id="98180">The EMF plugins should be bundles.</bug>
-<bug id="98360">Compiler warnings in generated code</bug>
-<bug id="98462">Activities example doesn't filter out the model importer wizards.</bug>
-<bug id="98649">Change Model item providers need to be regenerated</bug>
-<bug id="98739">Make GenModel.getExtendedMetaData public.</bug>
-<bug id="98751">Make it easier to reuse BasicExtendedMetaData's wildcard encoding algorithm</bug>
-<bug id="98842">&#64;model problems in operations</bug>
-<bug id="98874">Migrate license from CPL to EPL</bug>
-<bug id="98875">Migrate license from CPL to EPL</bug>
 <bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="98927">The projects created by EMF should use the JRE container</bug>
 <bug id="99020">notice.html missing from EMF zips</bug>
 <bug id="99021">notice.html missing from XSD zips</bug>
-<bug id="99053">Each file type should have a different header</bug>
-<bug id="99055">EMF should generate 'JARed plugins ready' projects</bug>
-<bug id="99146">Polish labels in tools</bug>
 </entry>
 
 <entry version="2.0.3" build="2.0.3RC2a" project="emf">
@@ -753,10 +734,6 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.3" build="2.0.3" project="sdo">
-<bug id="81752">Attr with &quot;xs:date&quot;  desiralization is failed by exception</bug>
-<bug id="98180">The EMF plugins should be bundles.</bug>
-<bug id="98874">Migrate license from CPL to EPL</bug>
-<bug id="98875">Migrate license from CPL to EPL</bug>
 <bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="99020">notice.html missing from EMF zips</bug>
@@ -815,15 +792,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.3" build="2.0.3" project="xsd">
-<bug id="98046">The examples and readme.html in org.eclipse.emf.ant has references to Rose and XSD tasks</bug>
-<bug id="98180">The EMF plugins should be bundles.</bug>
-<bug id="98874">Migrate license from CPL to EPL</bug>
-<bug id="98875">Migrate license from CPL to EPL</bug>
 <bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="99020">notice.html missing from EMF zips</bug>
 <bug id="99021">notice.html missing from XSD zips</bug>
-<bug id="99146">Polish labels in tools</bug>
 </entry>
 
 <entry version="2.0.3" build="2.0.3RC2a" project="xsd">
@@ -1845,4 +1817,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.57 2005/06/09 15:45:32 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.58 2005/06/09 16:19:16 nickb Exp $ -->
