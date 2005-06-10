@@ -3,7 +3,7 @@
 function displayXSDIntro() {
 	echo '
 The XML Schema Infoset Model is a reference library that provides an 
-<a href="http://download.eclipse.org/tools/emf/xsd/latest/javadoc/org/eclipse/xsd/package-summary.html#details">API</a> for use with any code that
+<a href="http://download.eclipse.org/tools/emf/xsd/javadoc?org/eclipse/xsd/package-summary.html#details">API</a> for use with any code that
 examines, creates or modifies <a href="http://www.w3.org/TR/XMLSchema-0">W3C XML Schema</a> (standalone or as part of
 other artifacts, such as XForms or WSDL documents).
 ';
@@ -12,7 +12,7 @@ other artifacts, such as XForms or WSDL documents).
 function displayXSDIntro2() {
 	echo '
 XSD is a library that provides an 
-<a href="http://download.eclipse.org/tools/emf/xsd/latest/javadoc/org/eclipse/xsd/package-summary.html#details">API</a>
+<a href="http://download.eclipse.org/tools/emf/xsd/javadoc?org/eclipse/xsd/package-summary.html#details">API</a>
 for manipulating the components of an XML
 Schema as described by 
 the <a href="http://www.w3.org/TR/XMLSchema-0">W3C XML Schema</a>
@@ -82,7 +82,7 @@ Since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD.
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: xsd-contents.php,v 1.3 2005/06/10 15:18:31 nickb Exp $ -->
+<!-- $Id: xsd-contents.php,v 1.4 2005/06/10 21:54:02 nickb Exp $ -->
 </body></html>
 
 <?php } 

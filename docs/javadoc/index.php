@@ -1,12 +1,26 @@
 <?php 
 	/* if on www.eclipse.org, redirect to download; if on download or mirror, present a list of avail javadoc versions available */
+	/* if querystring value, pick latest version of javadoc and serve up that page */
 
 	$isWWWserver = $WWWserver!="false"&&($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
 
 	$pre = false!==strpos($SCRIPT_NAME,"sdo") || false!==strpos($SCRIPT_NAME,"xsd") ? "../../../" : "../../"; // or ../../../ for sdo/xsd
+	$folder = substr($SCRIPT_NAME,0,strrpos($SCRIPT_NAME,"/"));
 	
 	if ($isWWWserver) { 
 		header("Location: http://download.eclipse.org/tools/emf/javadoc/");
+		exit;
+	} else if ($QUERY_STRING) {
+		// given http://emf.torolab.ibm.com/tools/emf/xsd/javadoc?org/eclipse/xsd/package-summary.html#details
+		// serve http://emf.torolab.ibm.com/tools/emf/xsd/2.1.0/javadoc/org/eclipse/xsd/package-summary.html#details
+		$vers = loadDirSimple("../","(\d\.\d|\d\.\d\.\d+)","d");
+		if (sizeof($vers)>0) { 
+			rsort($vers);
+			//echo "Location: ".str_replace("javadoc",$vers[0]."/javadoc",$folder)."/".$QUERY_STRING; // test w/o redirect
+			header("Location: ".str_replace("javadoc",$vers[0]."/javadoc",$folder)."/".$QUERY_STRING);
+		} else {
+			header("Location: http://download.eclipse.org/tools/emf/javadoc/");
+		}
 		exit;
 	} else {
 		$vers = loadDirSimple("../","(\d\.\d|\d\.\d\.\d+)","d");
