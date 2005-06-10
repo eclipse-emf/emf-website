@@ -21,7 +21,7 @@ function displayEMFIntro2() {
 EMF consists of three fundamental pieces: 
 
 <ul>
-<li><b>EMF</b> - The core EMF framework includes a <a href="http://download.eclipse.org/tools/emf/javadoc/org/eclipse/emf/ecore/package-summary.html#details">meta
+<li><b>EMF</b> - The core EMF framework includes a <a href="http://download.eclipse.org/tools/emf/latest/javadoc/org/eclipse/emf/ecore/package-summary.html#details">meta
 model (Ecore)</a> for describing models and runtime support for the
 models including change notification, persistence support with
 default XMI serialization, and a very efficient reflective API for
@@ -117,7 +117,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.4 2005/05/13 16:56:57 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.5 2005/06/10 15:08:36 nickb Exp $ -->
 </body></html>
 
 <?php } 
