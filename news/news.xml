@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="June 13, 2005" showOn="docs">
+	'Getting EMF Source Files from CVS' and 'Using Eclipse Update Manager to Update EMF/SDO/XSD' updated:
+	XSD is now an EMF subproject, rather than a Technology project.
+</news>
 <news date="June 09, 2005" showOn="whatsnew">
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
-	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">I200506091102</a>) is available 
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">I200506091102</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="June 09, 2005" showOn="whatsnew">
 	<!-- "#R200506091052" -->
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">Version 2.0.3</a> Release build
-	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">2.0.3</a>) is available 
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">2.0.3</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="June 03, 2005" showOn="whatsnew,docs">
-	Accessible (HTML/text) versions of 
-	<a href="http://eclipse.org/emf/docs.php#xsd">XSD</a> 
-	and 
-	<a href="http://eclipse.org/emf/docs.php#presentations">EMF</a> 
+	Accessible (HTML/text) versions of
+	<a href="http://eclipse.org/emf/docs.php#xsd">XSD</a>
+	and
+	<a href="http://eclipse.org/emf/docs.php#presentations">EMF</a>
 	Powerpoint presentations now available.
 </news>
 <news date="June 02, 2005" showOn="whatsnew">
 	<!-- "#M200506021148" -->
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">Version 2.0.3</a> Maintenance build
-	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">2.0.3RC2a</a>) is available 
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0.3">2.0.3RC2a</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="June 02, 2005" showOn="whatsnew">
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
-	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">I200506020944</a>) is available 
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">I200506020944</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="June 1, 2005" showOn="whatsnew">
@@ -579,6 +583,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.58 2005/06/09 16:32:42 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.59 2005/06/13 14:40:18 nickb Exp $ -->
 
 </doc>

@@ -309,7 +309,7 @@ these new plugins will be forthcoming soon. A sample of their use
 is provided by the two xsd2ecore plugins
 (org.eclipse.emf.mapping.xsd2ecore and
 org.eclipse.emf.mapping.xsd2ecore.editor) in the XSD (XML Schema
-Infoset Model) Eclipse Technology Subproject, Version 1.1.0.<br />
+Infoset Model) Eclipse Tools Subproject, Version 1.1.0.<br />
 &#160;</p>
 </li>
 </ol>
@@ -1400,4 +1400,4 @@ to reflect this build (i.e., the latest release).</li>
 </table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.6 2005/05/06 23:11:54 nickb Exp $ -->
+<!-- $Id: release-notes-1.x.php,v 1.7 2005/06/13 14:40:18 nickb Exp $ -->

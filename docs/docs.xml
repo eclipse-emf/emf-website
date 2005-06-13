@@ -695,10 +695,10 @@
         Getting EMF Source Files from CVS</a>
       </td>
 
-      <td>March 16
+      <td>June 13
       <sup>th</sup>
 
-      2004</td>
+      2005</td>
     </tr>
 
     <tr>
@@ -714,10 +714,10 @@
         Using Eclipse Update Manager to Update EMF/SDO/XSD</a>
       </td>
 
-      <td>Sept 30
+      <td>June 13
       <sup>th</sup>
 
-      2004</td>
+      2005</td>
     </tr>
 
     <tr>
@@ -1429,5 +1429,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.9 2005/06/03 21:54:10 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.10 2005/06/13 14:40:18 nickb Exp $ -->
 
