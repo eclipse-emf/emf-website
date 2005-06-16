@@ -13,6 +13,27 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200506160200" project="emf">
+<bug id="98172">Suppress adding testcases with no tests to test suites</bug>
+<bug id="99255">Confusing showGenModel() logic in ModelDetailPage</bug>
+<bug id="99276">Weird behavior when playing with the Next and Back button of the importer wizard</bug>
+<bug id="99302">Reloading the genmodel from ecore is broken because GenOperationImpl .initialize has index out of bounds error</bug>
+<bug id="99333">Use Boolean.TRUE instead of ExtendedMetaData.INSTANCE in generated resource factory</bug>
+<bug id="99359">Remove duplicate namespace declarations</bug>
+<bug id="99377">Movie the Ant jar to a specific directory</bug>
+<bug id="99415">EMF plugins should be deployed as jars</bug>
+<bug id="99452">Support GenericXMLResourceFactoryImpl in a first class way.</bug>
+<bug id="99532">Eliminate unused variable warnings.</bug>
+<bug id="99615">ChangeRecorder should implement Adapter.Internal</bug>
+<bug id="99649">org.eclipse.xsd.tests is an example</bug>
+<bug id="99663">Java.edit icons looked up with wrong case name</bug>
+<bug id="99884">Remove deprecation of EditingDomainViewerDropAdapter</bug>
+<bug id="99896">NPE in ChangeSummary.getOldContainer</bug>
+<bug id="100061">SDO and Change plugins don't have plugin classes.</bug>
+<bug id="100158">EMFPlugin's baseURL calculation produces jar:...!//, i.e., too many /.</bug>
+<bug id="100311">Allow one to create EMF Resource from DOM</bug>
+</entry>
+
 <entry version="2.1.0" build="I200506091102" project="emf">
 <bug id="81752">Attr with &quot;xs:date&quot;  desiralization is failed by exception</bug>
 <bug id="93531">Performance Suite Tunning</bug>
@@ -277,6 +298,14 @@
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.1.0" build="I200506160200" project="sdo">
+<bug id="99415">EMF plugins should be deployed as jars</bug>
+<bug id="99532">Eliminate unused variable warnings.</bug>
+<bug id="99615">ChangeRecorder should implement Adapter.Internal</bug>
+<bug id="100008">For SDOUtil.configureResourceSet, register &quot;*&quot; only if there is no global registration for &quot;*&quot;.</bug>
+<bug id="100061">SDO and Change plugins don't have plugin classes.</bug>
+</entry>
+
 <entry version="2.1.0" build="I200506091102" project="sdo">
 <bug id="81752">Attr with &quot;xs:date&quot;  desiralization is failed by exception</bug>
 <bug id="98180">The EMF plugins should be bundles.</bug>
@@ -538,6 +567,18 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200506160200" project="xsd">
+<bug id="99227">References fail to resolve in a scenario involving importing of a schema with includes</bug>
+<bug id="99255">Confusing showGenModel() logic in ModelDetailPage</bug>
+<bug id="99377">Movie the Ant jar to a specific directory</bug>
+<bug id="99415">EMF plugins should be deployed as jars</bug>
+<bug id="99452">Support GenericXMLResourceFactoryImpl in a first class way.</bug>
+<bug id="99457">Web/Plugin Documentation Accessibility Testing</bug>
+<bug id="99532">Eliminate unused variable warnings.</bug>
+<bug id="99615">ChangeRecorder should implement Adapter.Internal</bug>
+<bug id="99649">org.eclipse.xsd.tests is an example</bug>
 </entry>
 
 <entry version="2.1.0" build="I200506091102" project="xsd">
@@ -1856,4 +1897,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.60 2005/06/09 16:52:37 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.61 2005/06/16 07:13:05 nickb Exp $ -->

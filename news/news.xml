@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="June 16, 2005" showOn="whatsnew">
+	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">I200506160200</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="June 13, 2005" showOn="docs">
 	'Getting EMF Source Files from CVS' and 'Using Eclipse Update Manager to Update EMF/SDO/XSD' updated:
 	XSD is now an EMF subproject, rather than a Technology project.
@@ -583,6 +588,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.59 2005/06/13 14:40:18 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.60 2005/06/16 07:13:05 nickb Exp $ -->
 
 </doc>
