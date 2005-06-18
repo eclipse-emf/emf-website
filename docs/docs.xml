@@ -406,10 +406,10 @@
         The Eclipse Modeling Framework Overview</a>
       </td>
 
-      <td>June 1
-      <sup>st</sup>
+      <td>June 16
+      <sup>th</sup>
 
-      2004</td>
+      2005 (accessibility)</td>
     </tr>
 
     <tr>
@@ -531,7 +531,7 @@
     <tr>
       <td colspan="2">
         <b>
-          <u>EMF 2.0 Tutorials</u>
+          <u>EMF Tutorials</u>
         </b>
 
         <a name="tutorials">
@@ -556,13 +556,12 @@
       <td>
         <a
         href="http://eclipse.org/emf/docs.php?doc=tutorials/clibmod/clibmod.html">
-        Tutorial: Generating an EMF Model</a>
+        Tutorial: Generating an EMF 2.1 Model</a>
       </td>
 
-      <td>June 1
-      <sup>st</sup>
-
-      2004</td>
+      <td>June 17
+      <sup>th</sup>
+      2005</td>
     </tr>
 
     <tr>
@@ -575,13 +574,12 @@
       <td>
         <a
         href="http://eclipse.org/emf/docs.php?doc=tutorials/slibmod/slibmod.html">
-        Tutorial: Generating an Extended EMF Model</a>
+        Tutorial: Generating an Extended EMF 2.1 Model</a>
       </td>
 
-      <td>June 1
-      <sup>st</sup>
-
-      2004</td>
+      <td>June 17
+      <sup>th</sup>
+      2005</td>
     </tr>
 
     <tr>
@@ -594,13 +592,12 @@
       <td>
         <a
         href="http://eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">
-        Tutorial: Generating an EMF Model using XML Schema</a>
+        Tutorial: Generating an EMF 2.1 Model using XML Schema</a>
       </td>
 
-      <td>June 1
-      <sup>st</sup>
-
-      2004</td>
+      <td>June 17
+      <sup>th</sup>
+      2005</td>
     </tr>
 
     <tr>
@@ -612,15 +609,14 @@
 
       <td>
       <a target="_out"
-      href="http://www.eclipse.org/articles/Article-JET/jet_tutorial1.html">
+      href="http://eclipse.org/emf/docs.php?doc=tutorials/jet1/jet_tutorial1.html">
       JET Tutorial Part 1 (Introduction to JET)</a>
 
-      Contributed by Remko Popma</td>
+      Contributed by Remko Popma [EMF 2.1]</td>
 
-      <td>May 27
+      <td>June 17
       <sup>th</sup>
-
-      2004</td>
+      2005</td>
     </tr>
 
     <tr>
@@ -632,14 +628,13 @@
 
       <td>
       <a target="_out"
-      href="http://www.eclipse.org/articles/Article-JET2/jet_tutorial2.html">
+      href="http://eclipse.org/emf/docs.php?doc=tutorials/jet2/jet_tutorial2.html">
       JET Tutorial Part 2 (Write Code that Writes Code)</a>
 
-      Contributed by Remko Popma</td>
+      Contributed by Remko Popma [EMF 2.x]</td>
 
-      <td>May 27
-      <sup>th</sup>
-
+      <td>May 31
+      <sup>st</sup>
       2004</td>
     </tr>
 
@@ -1296,6 +1291,124 @@
     <tr>
       <td colspan="2">
         <b>
+          <u>EMF 2.0 Documents</u>
+        </b>
+
+        <a name="emf20xdocs">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">
+        Tutorial: Generating an EMF 2.0 Model</a>
+      </td>
+
+      <td>June 29
+      <sup>th</sup>
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">
+        Tutorial: Generating an Extended EMF 2.0 Model</a>
+      </td>
+
+      <td>June 29
+      <sup>th</sup>
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">
+        Tutorial: Generating an EMF 2.0 Model using XML Schema</a>
+      </td>
+
+      <td>June 29
+      <sup>th</sup>
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">
+      JET Tutorial Part 1 (Introduction to JET)</a>
+      Contributed by Remko Popma [EMF 2.0]</td>
+
+      <td>May 31
+      <sup>st</sup>
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">
+      JET Tutorial Part 2 (Write Code that Writes Code)</a>
+      Contributed by Remko Popma [EMF 2.0]</td>
+
+      <td>May 31
+      <sup>st</sup>
+      2004</td>
+    </tr>
+
+	<tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
           <u>EMF 1.x Documents</u>
         </b>
 
@@ -1359,7 +1472,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/clibmod/clibmod_emf1.1.html">
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">
         Tutorial: Generating an EMF 1.1 Model</a>
       </td>
 
@@ -1378,7 +1491,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/slibmod/slibmod_emf1.1.html">
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">
         Tutorial: Generating an Extended EMF 1.1 Model</a>
       </td>
 
@@ -1397,7 +1510,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/xlibmod/xlibmod_emf1.1.html">
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">
         Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
       </td>
 
@@ -1416,7 +1529,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/glibmod/glibmod_emf1.1.html">
+        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">
         Tutorial: Creating an EMF 1.1 Model using a Graphical
         Editor</a>
       </td>
@@ -1429,5 +1542,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.10 2005/06/13 14:40:18 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.11 2005/06/18 05:18:08 nickb Exp $ -->
 
