@@ -2,6 +2,19 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model
+modelName="EMF / GEF Shapes Example"
+date="2005-06-17"
+category="EMF other"
+modelID="ChrisAniszczyk20050617153859">
+<text>This takes the GEF Shapes example and replaces its custom model with an EMF based one.</text>
+<modelURL>http://www.eclipse.org/articles/Article-GEF-EMF/files/shapesemf.zip</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Chris Aniszczyk</submitter>
+<submitterURL>http://blog.mea-culpa.net</submitterURL>
+</model>
+
 <review
 reviewName="Dynamic JET Generator Review"
 date="2005-06-01"
@@ -371,4 +384,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.8 2005/06/03 15:59:20 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.9 2005/06/18 06:03:31 nickb Exp $ -->
