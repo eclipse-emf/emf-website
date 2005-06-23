@@ -2,6 +2,28 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+ <model
+modelName="Tefkat"
+date="2005-06-22"
+category="EMF tool" 
+modelID="michaellawley20050622221007">
+    <text>Tefkat is an implementation of a fullt-declarative model transformation language for EMF.<br/><br/>
+Tefkat features include:
+<ul>
+<li>support for multiple source and target models,</li>
+<li>models based on ECore, MOF2, UML2, and those derived from XML Schema,</li>
+<li>a built-in editor,</li>
+<li>a source-level debugger, and</li>
+<li>generation of trace models linking source and target elements.</li>
+</ul>
+</text>
+<modelURL>http://www.dstc.edu.au/tefkat/</modelURL>
+<thumbnailURL>http://www.dstc.edu.au/Research/Projects/Pegamento/images/TefkatLogo.gif</thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>michael lawley</submitter> 
+<submitterURL></submitterURL>
+</model>
+
 <model
 modelName="EMF / GEF Shapes Example"
 date="2005-06-17"
@@ -384,4 +406,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.9 2005/06/18 06:03:31 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.10 2005/06/23 14:55:41 nickb Exp $ -->
