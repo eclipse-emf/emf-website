@@ -13,6 +13,18 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="I200506230200" project="emf">
+<bug id="93531">Performance Suite Tunning</bug>
+<bug id="97019">Ecore2XML usability</bug>
+<bug id="99456">Web/Plugin Documentation Accessibility Testing</bug>
+<bug id="100391">EPackage.Registry Javadoc Should Be Updated to Clarify Its Contract</bug>
+<bug id="100426">Having a main method in Generator is misleading</bug>
+<bug id="100840">Use Boolean.TRUE as default in code gen instead of new Boolean(true)</bug>
+<bug id="100952">Problem loading platform resource with space in name</bug>
+<bug id="101142">XMLHandler should handle processing instructions</bug>
+<bug id="101300">Problems with JavaEcoreBuilder</bug>
+</entry>
+
 <entry version="2.1.0" build="I200506160200" project="emf">
 <bug id="98172">Suppress adding testcases with no tests to test suites</bug>
 <bug id="99255">Confusing showGenModel() logic in ModelDetailPage</bug>
@@ -298,6 +310,10 @@
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.1.0" build="I200506230200" project="sdo">
+<bug id="101300">Problems with JavaEcoreBuilder</bug>
+</entry>
+
 <entry version="2.1.0" build="I200506160200" project="sdo">
 <bug id="99415">EMF plugins should be deployed as jars</bug>
 <bug id="99532">Eliminate unused variable warnings.</bug>
@@ -567,6 +583,11 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="I200506230200" project="xsd">
+<bug id="101300">Problems with JavaEcoreBuilder</bug>
+<bug id="101304">Fix JDK5.0 compiler errors</bug>
 </entry>
 
 <entry version="2.1.0" build="I200506160200" project="xsd">
@@ -1897,4 +1918,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.61 2005/06/16 07:13:05 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.62 2005/06/23 14:02:14 nickb Exp $ -->
