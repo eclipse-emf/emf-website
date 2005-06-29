@@ -73,7 +73,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_out"
-      href="http://www-106.ibm.com/developerworks/java/library/j-commonj-sdowmt/">
+      href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">
       announcement</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -85,8 +85,14 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_out"
-      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.doc">
+      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">
       1.0 specification</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">
+      2.0 specification</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
@@ -95,10 +101,10 @@
       javadoc</a>
       </td>
 
-      <td>November 25
+      <td>June 29
       <sup>th</sup>
 
-      2003</td>
+      2005</td>
     </tr>
 
     <tr>
@@ -1561,5 +1567,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.12 2005/06/23 20:01:07 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.13 2005/06/29 18:55:15 nickb Exp $ -->
 
