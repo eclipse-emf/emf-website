@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="June 30, 2005" showOn="whatsnew">
+	<!-- "#S200506300200" -->
+	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Stable build
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">2.1.0RC1</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="June 23, 2005" showOn="whatsnew,docs">
 	New <a href="http://eclipse.org/emf/docs.php?doc=references/overview/EMF.Validation.html">EMF Validation Framework Overview</a> available on <a href="http://eclipse.org/emf/docs.php#overviews">docs page</a>.
 </news>
@@ -600,6 +606,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.63 2005/06/23 20:20:41 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.64 2005/06/30 13:51:03 nickb Exp $ -->
 
 </doc>
