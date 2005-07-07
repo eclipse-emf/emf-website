@@ -89,7 +89,7 @@
 
 </div>
 
-<p><a href="view-source:<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+<p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.6 2005/07/07 06:37:39 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.7 2005/07/07 06:47:02 nickb Exp $ -->
