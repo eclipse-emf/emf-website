@@ -52,45 +52,48 @@
 		</td>
 
 		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
-&#160;
-<table border="0" cellpadding="2" width="100%">
-  <tbody>
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+		&#160;
+		<table border="0" cellpadding="2" width="100%">
+		  <tbody>
 
-    <tr>
-      <td align="left" width="60%">
-        <font class="indextop">
-		Release Notes<xsl:if test="$project!='' or $version!=''">:
-			<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
-			<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
-		</xsl:if>
-		</font><br/>
-        <font class="indexsub">Eclipse Modeling Framework</font>
+			<tr>
+			  <td align="left" width="60%">
+				<font class="indextop">
+				Release Notes<xsl:if test="$project!='' or $version!=''">:
+					<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
+					<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
+				</xsl:if>
+				</font><br/>
+				<font class="indexsub">Eclipse Modeling Framework</font>
 
-      </td>
-      <td width="40%">
-			<img src="http://www.eclipse.org/emf/images/reference.gif" hspace="50" align="right"/>
-      </td>
+			  </td>
+			  <td width="40%">
+					<img src="http://www.eclipse.org/emf/images/reference.gif" hspace="50" align="right"/>
+			  </td>
 
-    </tr>
-  </tbody>            
-</table>
+			</tr>
+		  </tbody>            
+		</table>
 
-<table border="0" cellpadding="2" width="100%" >
-<tr>
+		<table border="0" cellpadding="2" width="100%" >
+		<tr>
 
-<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">
-	Release Notes<xsl:if test="$project!='' or $version!=''">:
-		<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
-		<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
+		<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">
+			Release Notes<xsl:if test="$project!='' or $version!=''">:
+				<xsl:if test="$project!=''"><xsl:value-of select="$project" />&#160;</xsl:if>
+				<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
+			</xsl:if>
+		</font></font></b><a name="top">&#160;</a></td>
+		</tr>
+		</table>
 	</xsl:if>
-</font></font></b><a name="top">&#160;</a></td>
-</tr>
-</table>
-<table border="0" cellpadding="2" width="100%" >
-<tr>
-<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
-</tr>
-</table>
+
+	<table border="0" cellpadding="2" width="100%" >
+	<tr>
+	<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
+	</tr>
+	</table>
 
 	<!-- form controls -->
 	<form action="release-notes.php" method="get" name="mainform">
@@ -289,4 +292,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.13 2005/05/27 03:49:01 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.14 2005/07/07 06:31:01 nickb Exp $ -->

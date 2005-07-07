@@ -96,32 +96,35 @@
 			</td>
 
 			<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
-	&#160;
-	<table border="0" cellpadding="2" width="100%">
-	  <tbody>
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+		&#160;
+		<table border="0" cellpadding="2" width="100%">
+		  <tbody>
 
+			<tr>
+			  <td align="left" width="60%">
+				<font class="indextop">FAQ</font>
+
+			  </td>
+			  <td width="40%">
+				<img src="http://www.eclipse.org/emf/images/reference.gif" hspace="50" align="right"/>
+			  </td>
+
+			</tr>
+		  </tbody>            
+		</table>
+
+		<table border="0" cellpadding="2" width="100%" >
 		<tr>
-		  <td align="left" width="60%">
-			<font class="indextop">FAQ</font>
 
-		  </td>
-		  <td width="40%">
-			<img src="http://www.eclipse.org/emf/images/reference.gif" hspace="50" align="right"/>
-		  </td>
-
+		<td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
+		<b><font face="Arial,Helvetica"><font color="#FFFFFF">
+		<xsl:copy-of select="$pageTitle" />
+		</font></font></b></td>
 		</tr>
-	  </tbody>            
-	</table>
+		</table>
+	</xsl:if>
 
-	<table border="0" cellpadding="2" width="100%" >
-	<tr>
-
-	<td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
-	<b><font face="Arial,Helvetica"><font color="#FFFFFF">
-	<xsl:copy-of select="$pageTitle" />
-	</font></font></b></td>
-	</tr>
-	</table>
 	<table border="0" cellpadding="2" width="100%" >
 	<tr>
 	<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/><br/></xsl:if></font>
@@ -132,6 +135,13 @@
 	</tr>
 	</table>
 
+	<table border="0" cellpadding="2" width="100%" >
+	<tr>
+	<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
+	</tr>
+	</table>
+
+	<!-- form controls -->
 	<form action="faq.php" method="get" name="mainform">
 	<table width="100%">
 			<tr>
@@ -415,4 +425,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.15 2005/05/27 03:49:01 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.16 2005/07/07 06:31:01 nickb Exp $ -->
