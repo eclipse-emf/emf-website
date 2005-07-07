@@ -1093,7 +1093,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
+        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
       </td>
 
       <td>July 6
@@ -1110,7 +1110,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
+        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
       </td>
 
       <td>July 6
@@ -1668,5 +1668,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.14 2005/07/07 05:18:26 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.15 2005/07/07 05:50:52 nickb Exp $ -->
 
