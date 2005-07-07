@@ -30,7 +30,7 @@ the <a href="http://www.w3.org/TR/XMLSchema-0">W3C XML Schema</a>
 specifications, as well as an API for
 manipulating the DOM-accessible representation of XML Schema as a series
 of XML documents, and for keeping these representations in agreement as
-schemas are modified. <a href="http://eclipse.org/emf/xsd.php">More...</a>
+schemas are modified. [<a href="http://eclipse.org/emf/xsd.php">more</a>]
 
 <br><br>
 
@@ -38,7 +38,7 @@ schemas are modified. <a href="http://eclipse.org/emf/xsd.php">More...</a>
 
 <br><br>
 
-Service Data Objects (SDO) is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices. <a href="http://eclipse.org/emf/sdo.php">More...</a>
+Service Data Objects (SDO) is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices. [<a href="http://eclipse.org/emf/sdo.php">more</a>]
 ';
 }
 
@@ -144,7 +144,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.7 2005/07/07 05:18:26 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.8 2005/07/07 16:09:04 nickb Exp $ -->
 </body></html>
 
 <?php } 
