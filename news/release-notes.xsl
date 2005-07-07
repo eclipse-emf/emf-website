@@ -89,12 +89,6 @@
 		</table>
 	</xsl:if>
 
-	<table border="0" cellpadding="2" width="100%" >
-	<tr>
-	<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
-	</tr>
-	</table>
-
 	<!-- form controls -->
 	<form action="release-notes.php" method="get" name="mainform">
 	<table width="60%">
@@ -292,4 +286,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.14 2005/07/07 06:31:01 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.15 2005/07/07 06:37:39 nickb Exp $ -->

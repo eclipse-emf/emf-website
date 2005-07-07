@@ -135,12 +135,6 @@
 	</tr>
 	</table>
 
-	<table border="0" cellpadding="2" width="100%" >
-	<tr>
-	<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
-	</tr>
-	</table>
-
 	<!-- form controls -->
 	<form action="faq.php" method="get" name="mainform">
 	<table width="100%">
@@ -425,4 +419,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.16 2005/07/07 06:31:01 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.17 2005/07/07 06:37:39 nickb Exp $ -->

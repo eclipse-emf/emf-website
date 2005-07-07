@@ -11,6 +11,7 @@ td.spacer {padding-bottom: 0px; padding-top: 0px;}
 .header {background:#99AADD}
 .content-header {background:#CCCCCC; }
 #indent {word-wrap : break-word;width :300px;text-indent:10px;}
+.red { color:red; }
 
 pre.code { color: #4444CC; }
 tt.code { color: #4444CC; }
@@ -19,6 +20,6 @@ tt.code { color: #4444CC; }
 .details {font-family: sans-serif; font-style: normal; font-weight: lighter; font-size: 9pt; color:black;}
 .datestamp { font-family: sans-serif; color: purple; font-size: 9pt}
 
-/* $Id: release-notes.css,v 1.1 2005/01/24 19:24:07 nickb Exp $ */
+/* $Id: release-notes.css,v 1.2 2005/07/07 06:37:39 nickb Exp $ */
 
 </STYLE>

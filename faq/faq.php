@@ -138,8 +138,6 @@
 </script>
 <body onload="init();">
 
-<p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
-
 <div id="data">
 <!-- this is where the transformed XML data goes -->
 			<p><b class="big-header">XML now loading...</b></p> 
@@ -148,7 +146,7 @@
 
 </div>
 
-<p><a href="<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+<p><a href="view-source:<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.8 2005/05/19 19:52:38 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.9 2005/07/07 06:37:39 nickb Exp $ -->
