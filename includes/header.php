@@ -30,11 +30,14 @@
    <link REL="SHORTCUT ICON" HREF="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico">
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css">
-<!-- $Id: header.php,v 1.7 2005/07/07 05:18:26 nickb Exp $ -->
+<!-- $Id: header.php,v 1.8 2005/07/07 06:05:45 nickb Exp $ -->
 <!-- PHP version: <?php echo phpversion(); ?> -->
 </head>
 <body>
 <?php if (!$noHeader) { ?>
+	<link rel="stylesheet" href="http://eclipse.org/emf/includes/tooltip.css" type="text/css"/>
+	<div id="dhtmltooltip"></div>
+	<script type="text/javascript" src="http://eclipse.org/emf/includes/tooltip.js"></script>
 <!-- wrapper for left nav -->
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr valign="top"><td colspan="1" align="left" width="100%">
