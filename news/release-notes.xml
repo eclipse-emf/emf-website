@@ -1388,30 +1388,30 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry version="2.0.0" build="I200403250631" project="sdo">
-<bug id="54077">Handle CTabFolder changes for new UI look&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54201">Change EMF templates to be able to use JETNature for build&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54367">NPE when accessing bogus feature name in SDO&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55379">Ant targets dialog rendering error&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55462">EDataGraphImpl needs to implement writeReplace for when it is serialized directly&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55463">Performance improvements can help speed up SDO data accessors&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55587">Serialize DataGraph as spelled out in the SDO spec&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55955">Dirty Conflict in Generated Editor&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="54077">Handle CTabFolder changes for new UI look</bug>
+<bug id="54201">Change EMF templates to be able to use JETNature for build</bug>
+<bug id="54367">NPE when accessing bogus feature name in SDO</bug>
+<bug id="55379">Ant targets dialog rendering error</bug>
+<bug id="55462">EDataGraphImpl needs to implement writeReplace for when it is serialized directly</bug>
+<bug id="55463">Performance improvements can help speed up SDO data accessors</bug>
+<bug id="55587">Serialize DataGraph as spelled out in the SDO spec</bug>
+<bug id="55955">Dirty Conflict in Generated Editor</bug>
 </entry>
 
 <entry version="2.0.0" build="I200403250631" project="emf">
-<bug id="47434">refresh capability for model editors&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54077">Handle CTabFolder changes for new UI look&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54079">Use new code formatter constants in GenModelEditor.&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54080">Update of not unsettable to unsettable in rose not copied to ecore&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54201">Change EMF templates to be able to use JETNature for build&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54271">JavaEcoreBuilder should ignore interface in @extends&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54702">Provide a way to block unused imports from being merged in&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="54706">EMF Editor Crashes&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55152">java name problems&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55263">ClassCastException during init() of user-defined Registry class&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55276">Provide support for blocking properties from being merged in&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55463">Performance improvements can help speed up SDO data accessors&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
-<bug id="55955">Dirty Conflict in Generated Editor&lt;!-- bugzilla [rn] comments (flush next few lines left) --&gt;</bug>
+<bug id="47434">refresh capability for model editors</bug>
+<bug id="54077">Handle CTabFolder changes for new UI look</bug>
+<bug id="54079">Use new code formatter constants in GenModelEditor.</bug>
+<bug id="54080">Update of not unsettable to unsettable in rose not copied to ecore</bug>
+<bug id="54201">Change EMF templates to be able to use JETNature for build</bug>
+<bug id="54271">JavaEcoreBuilder should ignore interface in @extends</bug>
+<bug id="54702">Provide a way to block unused imports from being merged in</bug>
+<bug id="54706">EMF Editor Crashes</bug>
+<bug id="55152">java name problems</bug>
+<bug id="55263">ClassCastException during init() of user-defined Registry class</bug>
+<bug id="55276">Provide support for blocking properties from being merged in</bug>
+<bug id="55463">Performance improvements can help speed up SDO data accessors</bug>
+<bug id="55955">Dirty Conflict in Generated Editor</bug>
 </entry>
 
 <entry version="2.0.0" build="I200403081633" project="emf">
@@ -1950,4 +1950,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.63 2005/06/30 13:51:03 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.64 2005/07/07 07:01:52 nickb Exp $ -->
