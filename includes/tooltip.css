@@ -1,0 +1,13 @@
+
+#dhtmltooltip{
+	position: absolute;
+	/*width: 90px;*/
+	border: 1px solid black;
+	padding: 3px;
+	background-color: #EEEEFF;
+	visibility: hidden;
+	z-index: 100;
+	font-size: 9pt; 
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+/* $Id: tooltip.css,v 1.1 2005/07/07 05:59:33 nickb Exp $ */
