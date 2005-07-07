@@ -146,7 +146,7 @@
 
 </div>
 
-<p><a href="view-source:<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+<p><a href="view-source:http://eclipse.org/emf/faq/<?php echo $XMLfile; ?>" class="red">View formatted XML document</a> (then right-click to view source)</p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.9 2005/07/07 06:37:39 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.10 2005/07/07 06:44:11 nickb Exp $ -->
