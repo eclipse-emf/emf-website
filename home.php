@@ -133,7 +133,7 @@
 					</table>
 				<br/>
 
-	- <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> Overview <br><br>
+	- <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
 
 	- <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review Presentation</a> <br><br>
 
@@ -225,7 +225,7 @@ Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> mode
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.15 2005/07/07 05:18:26 nickb Exp $ -->
+<!-- $Id: home.php,v 1.16 2005/07/07 06:09:56 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 

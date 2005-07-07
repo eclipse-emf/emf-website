@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.14 2005/07/07 05:49:40 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.15 2005/07/07 06:09:56 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -194,9 +194,14 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 								ini_set("display_errors","0"); ?>
 							</table>
 						<br/>
-						- <a href="http://www.eclipse.org/emf/news-whatsnew.php">What's New</a> [<a href="http://www.eclipse.org/emf/news-whatsnew.php">more</a>]</a><br><br>
+	- <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
 
-						- <a href="http://www.eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
+	- <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review Presentation</a> <br><br>
+
+	- <a href="http://eclipse.org/emf/news/release-notes.xml">EMF Release Notes</a><br><br>
+
+	- <a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
+
 					</td>
 				</tr>
 			</table>
