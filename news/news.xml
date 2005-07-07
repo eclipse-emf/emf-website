@@ -10,6 +10,9 @@
 	<a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> overview published.
 </news>
 <news date="July 06, 2005" showOn="whatsnew,docs">
+	<a href="http://www.eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1 vs. EMF 2.0.1</a> performance results published.
+</news>
+<news date="July 06, 2005" showOn="whatsnew,docs">
 	<a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review</a> presentation published.
 </news>
 <news date="June 30, 2005" showOn="whatsnew">
@@ -618,6 +621,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.66 2005/07/07 07:28:12 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.67 2005/07/07 16:07:49 nickb Exp $ -->
 
 </doc>
