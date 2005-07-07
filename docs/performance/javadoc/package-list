@@ -1,0 +1,8 @@
+org.eclipse.emf.test.performance
+org.eclipse.emf.test.performance.deserialization
+org.eclipse.emf.test.performance.sdo
+org.eclipse.emf.test.performance.sdo.accessor
+org.eclipse.emf.test.performance.sdo.deserialization
+org.eclipse.emf.test.performance.sdo.extendedMetaData
+org.eclipse.emf.test.performance.sdo.serialization
+org.eclipse.emf.test.performance.serialization

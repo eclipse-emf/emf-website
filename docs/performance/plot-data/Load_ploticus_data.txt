@@ -1,0 +1,17 @@
+5 amicIpoLoad#testLoad	1766.5	7.8351061823621	1711.5	10.554093465992
+6 #testLoadParserCache	708.5	5.2967495273569	633.5	7.0906824620609
+7 erAndFeatureMapCache	581.5	3.3747427885528	538.5	8.1819584724224
+8 aticIpoLoad#testLoad	1745.5	5.5025246730731	1699.5	5.5025246730731
+9 #testLoadParserCache	690.5	4.9721446300588	630	6.2360956446232
+10 erAndFeatureMapCache	571	4.5946829173634	538	5.3748384988657
+15 st#loadWithNoOptions	1788	9.7752521990768	1798.5	9.1439111495635
+16 #loadWithParserCache	693.5	7.4721705904866	697	6.3245553203368
+17 erAndFeatureMapCache	582	4.8304589153965	603	8.5634883857768
+18 st#loadWithNoOptions	1767.5	10.069204977995	1786	9.0676470058236
+19 #loadWithParserCache	673	7.8881063774662	687	5.8689389538863
+20 erAndFeatureMapCache	567.5	4.249182927994	595.5	7.619419633775
+
+
+# To create this plot, execute the following commands:
+$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
+$ /opt/ploticus/pl -png -o /tmp/perf-plots/Load.png -prefab vbars data=/tmp/perf-plots/Load_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1

@@ -1,0 +1,9 @@
+50 orTest#getByProperty	6.8277777777778	0.39266008766418	5.0605	0.18265708612345
+51 orTest#setByProperty	26.85	1.8644331876233	28.344444444444	2.8195128617862
+52 rTest#getByShortPath	13.083333333333	0.505234941071	10.441666666667	1.2080603139836
+53 rTest#setByShortPath	27.697142857143	0.6498491016192	26.931746031746	1.2333747005381
+
+
+# To create this plot, execute the following commands:
+$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
+$ /opt/ploticus/pl -png -o /tmp/perf-plots/DynamicIPOAccess.png -prefab vbars data=/tmp/perf-plots/DynamicIPOAccess_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1

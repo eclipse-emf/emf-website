@@ -1,0 +1,11 @@
+34 st#setObjectWithESet	0.196375	0.018900170242228	0.16583333333333	0.011834727030603
+36 #setObjectByProperty	0.1905625	0.01398613524769	0.166	0.0077066439590208
+38 est#setObjectByIndex	0.2014375	0.013385477464194	0.15996527777778	0.0098492599217883
+57 st#setObjectWithESet	0.033194444444444	0.0019764235376052	0.033148148148148	0.00021960261528947
+59 #setObjectByProperty	0.055625	0.0056184858113641	0.055972222222222	0.0016933091882301
+61 est#setObjectByIndex	0.070625	0.0033145630368119	0.050763888888889	0.0013176156917368
+
+
+# To create this plot, execute the following commands:
+$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
+$ /opt/ploticus/pl -png -o /tmp/perf-plots/Setters.png -prefab vbars data=/tmp/perf-plots/Setters_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1

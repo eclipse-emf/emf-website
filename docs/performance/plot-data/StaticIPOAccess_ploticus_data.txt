@@ -1,0 +1,11 @@
+75 rTest#getByGenerated	0.04246	0.00064670103001481	0.04062	0.0025094488106621
+76 rTest#setByGenerated	5.1736666666667	0.27600970639579	5.073	0.37629923081387
+77 orTest#getByProperty	1.8719444444444	0.10886328709798	1.3827777777778	0.025013885033006
+78 orTest#setByProperty	5.1488888888889	0.33780336160422	5.2755555555556	0.37226036288837
+79 rTest#getByShortPath	4.7429166666667	0.25960744641587	3.487037037037	0.50147977400347
+80 rTest#setByShortPath	13.675	0.27973201461399	13.256666666667	0.44051106683033
+
+
+# To create this plot, execute the following commands:
+$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
+$ /opt/ploticus/pl -png -o /tmp/perf-plots/StaticIPOAccess.png -prefab vbars data=/tmp/perf-plots/StaticIPOAccess_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1

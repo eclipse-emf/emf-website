@@ -1,0 +1,11 @@
+33 st#getObjectWithEGet	0.11756944444444	0.017446575663641	0.10015625	0.002593467605109
+35 #getObjectByProperty	0.23977777777778	0.016233859505504	0.1688	0.0074225631990873
+37 est#getObjectByIndex	0.2679	0.01620022290656	0.15488888888889	0.0075261119518056
+56 st#getObjectWithEGet	0.02703125	0.00020833333333333	0.027828125	0.00018706546870904
+58 #getObjectByProperty	0.14152777777778	0.0082381016893726	0.094111111111111	0.0077268920732149
+60 est#getObjectByIndex	0.16505555555556	0.011081923469226	0.098361111111111	0.0017638342073764
+
+
+# To create this plot, execute the following commands:
+$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
+$ /opt/ploticus/pl -png -o /tmp/perf-plots/Getters.png -prefab vbars data=/tmp/perf-plots/Getters_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1
