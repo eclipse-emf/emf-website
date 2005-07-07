@@ -3,7 +3,25 @@
 <table border="0" cellspacing="0" cellpadding="0" BGCOLOR="#90C8FF" width="116">
   <!-- common links - both projects -->
   <tr>
-    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org/emf/" target="_top" class="navhead">emf/sdo/xsd</a></td>
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://eclipse.org/emf/emf.php" target="_top" class="navhead">EMF home</a></td>
+
+  </tr>
+
+  <tr><td bgcolor="#CFFFFF" width="116" height="1"></td></tr>
+  <tr valign="CENTER">
+    <td valign="CENTER" height="21">
+      &#160; <a href="http://eclipse.org/emf/sdo.php" target="_top" class="nav">SDO</a>
+
+    </td>
+
+  </tr>
+
+  <tr><td bgcolor="#CFFFFF" width="116" height="1"></td></tr>
+  <tr valign="CENTER">
+    <td valign="CENTER" height="21">
+      &#160; <a href="http://eclipse.org/emf/xsd.php" target="_top" class="nav">XSD</a>
+
+    </td>
 
   </tr>
 
@@ -81,17 +99,6 @@
   </tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" class="nav">CVS</a>
-
-    </td>
-  </tr>
-
-  <tr>
-    <td bgcolor="#CFFFFF" width="116" height="1"></td>
-
-  </tr>
-  <tr valign="CENTER">
-    <td valign="CENTER" height="21">
       &#160; <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" class="nav">What&#39;s New, CVS?</a>
     </td>
   </tr>
@@ -117,16 +124,6 @@
       &#160; <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf" class="nav">Newsgroup</a>
 
-    </td>
-  </tr>
-
-  <tr>
-    <td bgcolor="#CFFFFF" width="116" height="1"></td>
-  </tr>
-
-  <tr valign="CENTER">
-    <td valign="CENTER" height="21">
-      &#160; <a href="http://eclipse.org/emf/news-whatsnew.php" class="nav">Site News</a>
     </td>
   </tr>
 
@@ -231,7 +228,7 @@
 <table border="0" cellspacing="0" cellpadding="0" width="116" BGCOLOR="#90C8FF" >
   <tr>
     <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org" target="_top" class="navhead">
-      eclipse home</a></td>
+      Eclipse home</a></td>
   </tr>
   <tr valign="CENTER">
     <td height="21">&#160; <a href="http://www.eclipse.org/org/index.html" class="nav" target="_top">about us</a></td>
@@ -295,4 +292,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.10 2005/05/19 22:18:21 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.11 2005/07/07 05:18:26 nickb Exp $ -->

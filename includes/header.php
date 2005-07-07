@@ -30,7 +30,7 @@
    <link REL="SHORTCUT ICON" HREF="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico">
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css">
-<!-- $Id: header.php,v 1.6 2005/05/13 16:22:14 nickb Exp $ -->
+<!-- $Id: header.php,v 1.7 2005/07/07 05:18:26 nickb Exp $ -->
 <!-- PHP version: <?php echo phpversion(); ?> -->
 </head>
 <body>
@@ -63,7 +63,7 @@
         <font class="indexsub"><?php if (!$ProjectName[1]) { echo "Eclipse Modeling Framework"; } else { echo $ProjectName[1]; } ?></font>
       </td>
       <td width="40%">
-        <img src="<?php if (!$ProjectName[3]) { echo "http://www.eclipse.org/images/Idea.jpg"; } else { echo (strstr($ProjectName[3],$WWWpreEMF)?$ProjectName[3]:$WWWpreEMF.$ProjectName[3]); } ?>" hspace="50" align="right"/>
+        <img src="<?php if (!$ProjectName[3]) { echo "http://eclipse.org/emf/images/c.gif"; } else { echo (strstr($ProjectName[3],$WWWpreEMF)?$ProjectName[3]:$WWWpreEMF.$ProjectName[3]); } ?>" align="right"/>
       </td>
 
     </tr>

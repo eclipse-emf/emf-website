@@ -4,382 +4,6 @@
   <table border="0" cellpadding="3" cellspacing="0"
   style="border-collapse: collapse;" bordercolor="#111111"
   width="100%">
-    <tr>
-      <td colspan="2">
-        <b>
-          <u>Service Data Objects (SDO) Documents</u>
-        </b>
-
-        <a name="sdo">
-          <img src="images/c.gif" width="1" height="8" />
-        </a>
-      </td>
-
-      <td colspan="1">
-        <b>
-          <u>Last Update:</u>
-        </b>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-      <a target="_out"
-      href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">
-      Introduction to Service Data Objects</a>
-	  </td>
-
-      <td>Sep 28
-      <sup>th</sup>
-
-      2004</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        <a
-        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">
-        Tutorial: Using the SDO Data Graph Editor</a>
-      </td>
-
-      <td>October 12
-      <sup>th</sup>
-
-      2004</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>SDO Reference:
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_out"
-      href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">
-      announcement</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_out"
-      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">
-      whitepaper</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_out"
-      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">
-      1.0 specification</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_out"
-      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">
-      2.0 specification</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_out"
-      href="http://download.eclipse.org/tools/emf/sdo/javadoc/">
-      javadoc</a>
-      </td>
-
-      <td>June 29
-      <sup>th</sup>
-
-      2005</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        <a target="_out"
-        href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">
-        Redbook: WebSphere Studio 5.1.2 JavaServer Faces and
-        Service Data Objects</a>
-      </td>
-
-      <td>July 1<sup>st</sup> 2004</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-      <a target="_out"
-      href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">
-      Enterprise Information Integration Technology</a>
-
-      (usage)</td>
-
-      <td>July 1
-      <sup>st</sup>
-
-      2004</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-      <a target="_out"
-      href="http://www.sys-con.com/story/?storyid=46652&amp;DE=1">
-      Integrating relational data into Web applications</a>
-
-      (an introduction to SDO)</td>
-
-      <td>Oct 6
-      <sup>th</sup>
-
-      2004</td>
-    </tr>
-
-    <tr>
-      <td width="60%" colspan="2">
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <b>
-          <u>XML Schema Infoset Model (XSD) Documents</u>
-        </b>
-
-        <a name="xsd">
-          <img src="images/c.gif" width="1" height="8" />
-        </a>
-      </td>
-
-      <td colspan="1">
-        <b>
-          <u>Last Update:</u>
-        </b>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        <a
-        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">
-        Analyzing XML schemas with the Schema Infoset Model</a>
-      </td>
-
-      <td>July 2002</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        <a
-        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">
-        Diagrams and Animations of the internals of XSD models</a> (Powerpoint, OpenOffice, HTML)
-      </td>
-
-      <td>June 3
-      <sup>rd</sup>
-
-      2005 (new formats)</td>
-    </tr>
-
-    <tr>
-      <td width="60%" colspan="2">
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <b>
-          <u>developerWorks Documents</u>
-        </b>
-
-        <a name="dWdocuments">
-          <img src="images/c.gif" width="1" height="8" />
-        </a>
-      </td>
-
-      <td>
-        <b>
-          <u>Last Update:</u>
-        </b>
-      </td>
-    </tr>
-
-    <tr valign="top">
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
-      Infoset Model, Part 1</a>
-
-      <br />
-
-      First published by IBM developerWorks at
-      <a href="http://www.ibm.com/developerWorks" target="_dw">
-      http://www.ibm.com/developerWorks</a>
-
-      , November 4
-      <sup>th</sup>
-
-      2003
-      <br />
-
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
-      HTML</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
-      PDF</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
-      Examples</a>
-
-      (zipped eclipse plugin project)</td>
-
-      <td>May 7
-      <sup>th</sup>
-
-      2004</td>
-    </tr>
-
-    <tr valign="top">
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
-      XML Schema Infoset Model, Part 2</a>
-
-      <br />
-
-      First published by IBM developerWorks at
-      <a href="http://www.ibm.com/developerWorks" target="_dw">
-      http://www.ibm.com/developerWorks</a>
-
-      , February 17
-      <sup>th</sup>
-
-      2004
-      <br />
-
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
-      HTML</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
-      PDF</a>
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <img src="images/c.gif" width="1" height="8" />
-
-      <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
-      Examples</a>
-
-      (zipped eclipse plugin project)</td>
-
-      <td>May 7
-      <sup>th</sup>
-
-      2004</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-
-      <td width="60%">
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-      </td>
-    </tr>
 
 	<tr>
       <td colspan="2">
@@ -951,6 +575,383 @@
     <tr>
       <td colspan="2">
         <b>
+          <u>Service Data Objects (SDO) Documents</u>
+        </b>
+
+        <a name="sdo">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">
+      Introduction to Service Data Objects</a>
+	  </td>
+
+      <td>Sep 28
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">
+        Tutorial: Using the SDO Data Graph Editor</a>
+      </td>
+
+      <td>October 12
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>SDO Reference:
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">
+      announcement</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">
+      whitepaper</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">
+      1.0 specification</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">
+      2.0 specification</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_out"
+      href="http://download.eclipse.org/tools/emf/sdo/javadoc/">
+      javadoc</a>
+      </td>
+
+      <td>June 29
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a target="_out"
+        href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">
+        Redbook: WebSphere Studio 5.1.2 JavaServer Faces and
+        Service Data Objects</a>
+      </td>
+
+      <td>July 1<sup>st</sup> 2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">
+      Enterprise Information Integration Technology</a>
+
+      (usage)</td>
+
+      <td>July 1
+      <sup>st</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://www.sys-con.com/story/?storyid=46652&amp;DE=1">
+      Integrating relational data into Web applications</a>
+
+      (an introduction to SDO)</td>
+
+      <td>Oct 6
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>XML Schema Infoset Model (XSD) Documents</u>
+        </b>
+
+        <a name="xsd">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">
+        Analyzing XML schemas with the Schema Infoset Model</a>
+      </td>
+
+      <td>July 2002</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">
+        Diagrams and Animations of the internals of XSD models</a> (Powerpoint, OpenOffice, HTML)
+      </td>
+
+      <td>June 3
+      <sup>rd</sup>
+
+      2005 (new formats)</td>
+    </tr>
+
+    <tr>
+      <td width="60%" colspan="2">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>developerWorks Documents</u>
+        </b>
+
+        <a name="dWdocuments">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td>
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
+      Infoset Model, Part 1</a>
+
+      <br />
+
+      First published by IBM developerWorks at
+      <a href="http://www.ibm.com/developerWorks" target="_dw">
+      http://www.ibm.com/developerWorks</a>
+
+      , November 4
+      <sup>th</sup>
+
+      2003
+      <br />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
+      HTML</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
+      PDF</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
+      Examples</a>
+
+      (zipped eclipse plugin project)</td>
+
+      <td>May 7
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      XML Schema Infoset Model, Part 2</a>
+
+      <br />
+
+      First published by IBM developerWorks at
+      <a href="http://www.ibm.com/developerWorks" target="_dw">
+      http://www.ibm.com/developerWorks</a>
+
+      , February 17
+      <sup>th</sup>
+
+      2004
+      <br />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      HTML</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
+      PDF</a>
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a target="_dw"
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
+      Examples</a>
+
+      (zipped eclipse plugin project)</td>
+
+      <td>May 7
+      <sup>th</sup>
+
+      2004</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td width="60%">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+	<tr>
+      <td colspan="2">
+        <b>
           <u>Presentations and Interviews</u>
         </b>
 
@@ -1069,7 +1070,73 @@
     <tr>
       <td colspan="2">
         <b>
-          <u>Planning Documents</u>
+          <u>EMF Performance</u>
+        </b>
+
+        <a name="perf">
+          <img src="images/c.gif" width="1" height="8" />
+        </a>
+      </td>
+
+      <td colspan="1">
+        <b>
+          <u>Last Update:</u>
+        </b>
+      </td>
+    </tr>
+
+	<tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a href="http://eclipse.org/emf/docs.php?doc=docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
+      </td>
+
+      <td>July 6
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+	<tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a href="http://eclipse.org/emf/docs.php?doc=docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
+      </td>
+
+      <td>July 6
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td width="60%">
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <b>
+          <u>Project Management Documents</u>
         </b>
 
         <a name="plandocs">
@@ -1092,12 +1159,46 @@
       </td>
 
       <td>
+        <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> Overview
+      </td>
+
+      <td>July 6
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+	<tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        EMF 2.1 <a href="http://eclipse.org/org/processes/release-review.html">Release Review</a> Presentation: <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">PDF</a>
+      </td>
+
+      <td>July 6
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+	<tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
         <a
         href="http://eclipse.org/emf/plan/plan.xml">
         EMF 2.1 Development Prioritized Plan Items (Bugzilla List)</a>
       </td>
 
-      <td>May 11
+      <td>July 7
       <sup>th</sup>
 
       2005</td>
@@ -1567,5 +1668,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.13 2005/06/29 18:55:15 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.14 2005/07/07 05:18:26 nickb Exp $ -->
 

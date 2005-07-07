@@ -11,7 +11,34 @@ the model, and a basic editor. Models can be specified using
 annotated Java, XML documents, or modeling tools like Rational Rose, then
 imported into EMF. Most important of all, EMF provides the foundation for
 interoperability with other EMF-based tools and applications.
-<br><br>EMF includes an EMF-based implementation of Service Data Objects (SDO). SDO is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices.
+
+<br><br>
+
+EMF includes the <a href="http://eclipse.org/emf/xsd.php">XML Schema Infoset Model (XSD) project</a> and an <a href="http://eclipse.org/emf/sdo.php">EMF-based implementation of Service Data Objects (SDO)</a>.
+
+<br><br>
+
+<b>XML Schema Infoset Model (XSD)</b>
+
+<br><br>
+
+XSD is a library that provides an 
+<a href="http://download.eclipse.org/tools/emf/xsd/javadoc?org/eclipse/xsd/package-summary.html#details">API</a>
+for manipulating the components of an XML
+Schema as described by 
+the <a href="http://www.w3.org/TR/XMLSchema-0">W3C XML Schema</a>
+specifications, as well as an API for
+manipulating the DOM-accessible representation of XML Schema as a series
+of XML documents, and for keeping these representations in agreement as
+schemas are modified. <a href="http://eclipse.org/emf/xsd.php">More...</a>
+
+<br><br>
+
+<b>Service Data Objects (SDO)</b>
+
+<br><br>
+
+Service Data Objects (SDO) is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices. <a href="http://eclipse.org/emf/sdo.php">More...</a>
 ';
 }
 
@@ -117,7 +144,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.6 2005/06/10 21:54:02 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.7 2005/07/07 05:18:26 nickb Exp $ -->
 </body></html>
 
 <?php } 

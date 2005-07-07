@@ -44,7 +44,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://www.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+        <img src="http://www.eclipse.org/emf/images/c.gif" align="right"/>
       </td>
 
     </tr>
@@ -1400,4 +1400,4 @@ to reflect this build (i.e., the latest release).</li>
 </table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.7 2005/06/13 14:40:18 nickb Exp $ -->
+<!-- $Id: release-notes-1.x.php,v 1.8 2005/07/07 05:18:26 nickb Exp $ -->

@@ -55,7 +55,7 @@
 
       </td>
       <td width="40%">
-        <img src="http://www.eclipse.org/images/Idea.jpg" hspace="50" align="right"/>
+        <img src="http://www.eclipse.org/emf/images/c.gif" align="right"/>
       </td>
 
     </tr>
@@ -357,4 +357,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.16 2005/05/25 19:09:40 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.17 2005/07/07 05:18:26 nickb Exp $ -->
