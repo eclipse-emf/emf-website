@@ -13,6 +13,27 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
+<entry version="2.1.0" build="2.1.0" project="emf">
+<bug id="83591">Add a section on model validation in to the EMF Overview document</bug>
+<bug id="93531">Performance Suite Tunning</bug>
+<bug id="101424">EMF class ExtendedImageRegistry not found by PDE</bug>
+<bug id="101458">[UpdateManager] Update Manager jar builder doesn't (properly) support jarred plugins</bug>
+<bug id="101735">Copyright in branding plug-ins needs to be updated</bug>
+<bug id="101739">Copyright in branding plug-ins needs to be updated</bug>
+<bug id="101866">XMLTypeUtil.compareCalendar compare second argument to itself</bug>
+<bug id="101877">XMLHandler.handleFeature Fails to Load Certain EReferences When Using ExtendedMetadata</bug>
+<bug id="101896">NPE when reloading a genmodel</bug>
+<bug id="102078">anyURI values should not be automatically encoded to US-ASCII</bug>
+<bug id="102107">The genModel.usedGenPackages list is not properly computed</bug>
+<bug id="102108">Packages wizard page initial state is wrong when the reloaded genmodel has a problem</bug>
+<bug id="102110">Ecore importer could compute all the used genPackages</bug>
+<bug id="102115">Provide icon for feature map entry change</bug>
+<bug id="102209">Merging doesn't respect changed return type of modeled feature accessor</bug>
+<bug id="102217">Generate Schema isn't working in Generator</bug>
+<bug id="102337">Replace old Eclipse 3.0 icons w/ new ones for 3.1</bug>
+<bug id="102464">Fix icon for ViewPane drop down</bug>
+</entry>
+
 <entry version="2.1.0" build="2.1.0RC1" project="emf">
 <bug id="83591">Add a section on model validation in to the EMF Overview document</bug>
 <bug id="93531">Performance Suite Tunning</bug>
@@ -329,6 +350,13 @@
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
+<entry version="2.1.0" build="2.1.0" project="sdo">
+<bug id="101458">[UpdateManager] Update Manager jar builder doesn't (properly) support jarred plugins</bug>
+<bug id="101735">Copyright in branding plug-ins needs to be updated</bug>
+<bug id="101919">Avoid NPE in case root element is not valid</bug>
+<bug id="102337">Replace old Eclipse 3.0 icons w/ new ones for 3.1</bug>
+</entry>
+
 <entry version="2.1.0" build="2.1.0RC1" project="sdo">
 <bug id="101458">[UpdateManager] Jarred Plugins' features contain wrong version of referenced plugins</bug>
 <bug id="101735">Copyright in branding plug-ins needs to be updated</bug>
@@ -608,6 +636,15 @@ mixin features inherited from interface</bug>
 <entry version="2.1.0" build="I200410141127" project="sdo">
 <bug id="75416">Issue with containment and deleted objects</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry version="2.1.0" build="2.1.0" project="xsd">
+<bug id="101458">[UpdateManager] Update Manager jar builder doesn't (properly) support jarred plugins</bug>
+<bug id="101739">Copyright in branding plug-ins needs to be updated</bug>
+<bug id="101744">Use InputSource instead of InputStream when parsing</bug>
+<bug id="101761">A complex type containing an element with anonymous type that extends that type doesn't work</bug>
+<bug id="102337">Replace old Eclipse 3.0 icons w/ new ones for 3.1</bug>
+<bug id="102758">duplicates in this type definition</bug>
 </entry>
 
 <entry version="2.1.0" build="2.1.0RC1" project="xsd">
@@ -1950,4 +1987,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.64 2005/07/07 07:01:52 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.65 2005/07/07 07:28:12 nickb Exp $ -->
