@@ -178,13 +178,14 @@
 						</td>
 						<td class="normal" width="70%">
 							<xsl:for-each select="bug">
+								<xsl:if test="@id &lt; 100000">&#160;&#160;</xsl:if>
 								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
 									<xsl:value-of select="@id" />
 								</a>&#160;
-								<xsl:if test="number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
+								<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
 									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>&#160;
 								</xsl:if>
-								<xsl:if test="position() mod 10 = 0"><br/></xsl:if>
+								<xsl:if test="position() mod 8 = 0"><br/></xsl:if>
 							</xsl:for-each>
 						</td>
 						<td class="normal" valign="bottom">
@@ -286,4 +287,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.15 2005/07/07 06:37:39 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.16 2005/07/08 21:25:27 nickb Exp $ -->
