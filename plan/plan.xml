@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan.xml,v 1.13 2005/07/07 05:18:58 nickb Exp $ -->
+<!-- $Id: plan.xml,v 1.14 2005/07/08 21:13:00 nickb Exp $ -->
 <plan>
-	<modified>$Date: 2005/07/07 05:18:58 $</modified>
+	<modified>$Date: 2005/07/08 21:13:00 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
@@ -88,27 +88,6 @@
 
 		<plan-comments></plan-comments>
 		<summary>Flattening redundant ChangeRecorder information</summary>
-	</bug>
-	<bug>
-		<id>61639</id>
-		<product>EMF</product>
-		<comp>Edit</comp>
-
-		<ver>1.1</ver>
-		<targetm>---</targetm>
-		<opened>2004-05-10 14:46</opened>
-		<reporter>josh.allen&#64;zerog.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-
-		<votes>3</votes>
-		<sev>enhancement</sev>
-		<pri>P2</pri>
-		<stat>NEW</stat>
-		<plan-priority>2</plan-priority>
-		<plan-estimate>2d</plan-estimate>
-
-		<plan-comments></plan-comments>
-		<summary>Provide a Command which removes objects from all structural features in the model.</summary>
 	</bug>
 	<bug>
 		<id>61751</id>
@@ -678,6 +657,48 @@
 	</bug>
 
 	<bug>
+		<id>103038</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-07-07 13:04</opened>
+		<reporter>iriss&#64;us.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>unique capitalized constants</summary>
+	</bug>
+
+	<bug>
+		<id>61639</id>
+		<product>EMF</product>
+		<comp>Edit</comp>
+		<ver>1.1</ver>
+		<targetm>2.2</targetm>
+
+		<opened>2004-05-10 14:46</opened>
+		<reporter>josh.allen&#64;zerog.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>3</votes>
+		<sev>enhancement</sev>
+
+		<pri>P2</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority>2</plan-priority>
+		<plan-estimate>2d</plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Provide a Command which removes objects from all structural features in the model.</summary>
+
+	</bug>
+	<bug>
 		<id>102557</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
@@ -691,242 +712,11 @@
 		<sev>normal</sev>
 
 		<pri>P3</pri>
-		<stat>NEW</stat>
+		<stat>ASSIGNED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Enum with default value reported as error by validator</summary>
-	</bug>
-
-	<bug>
-		<id>82610</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-01-11 17:36</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P4</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>4w</plan-estimate>
-		<plan-comments>This is just the estimate for investigation</plan-comments>
-		<summary>[Theme] J2SE 5 Support for EMF/SDO</summary>
-
-	</bug>
-	<bug>
-		<id>82614</id>
-		<product>XSD</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-01-11 17:41</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P4</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>1w</plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>[Theme] J2SE 5 Support for XSD</summary>
-
-	</bug>
-	<bug>
-		<id>101458</id>
-		<product>EMF</product>
-		<comp>Build/Web</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-06-23 10:45</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>[UpdateManager] Update Manager jar builder doesn`t (properly) support jarred plugins</summary>
-	</bug>
-
-	<bug>
-		<id>102337</id>
-		<product>EMF</product>
-		<comp>Doc</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-06-30 11:26</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Replace old Eclipse 3.0 icons w/ new ones for 3.1</summary>
-	</bug>
-
-	<bug>
-		<id>82613</id>
-		<product>XSD</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-01-11 17:39</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P4</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority>4</plan-priority>
-		<plan-estimate>4w</plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>[Theme] Performance Enhancements For XSD</summary>
-
-	</bug>
-	<bug>
-		<id>70862</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2004-07-26 17:55</opened>
-		<reporter>aspyker&#64;us.ibm.com</reporter>
-		<assignee>frankb&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P1</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority>1</plan-priority>
-		<plan-estimate>12w</plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>[Theme] Performance Enhancements For EMF/SDO</summary>
-
-	</bug>
-	<bug>
-		<id>82611</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-01-11 17:38</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P1</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority>1</plan-priority>
-		<plan-estimate>1w</plan-estimate>
-		<plan-comments>This size reflects unanticipated things not already covered by the bugzillas this depends on</plan-comments>
-		<summary>[Theme] Generator Reusability, EMF/SDO</summary>
-
-	</bug>
-	<bug>
-		<id>82615</id>
-		<product>EMF</product>
-		<comp>SDO</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-01-11 17:43</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P1</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority>1</plan-priority>
-		<plan-estimate>26w</plan-estimate>
-		<plan-comments>This will depend on what is all in the next version of the spec</plan-comments>
-		<summary>[Theme] SDO 1.1 (aka SDO 2.0) Support</summary>
-
-	</bug>
-	<bug>
-		<id>93531</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-05-03 10:09</opened>
-		<reporter>bportier&#64;ca.ibm.com</reporter>
-		<assignee>bportier&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Performance Suite Tunning</summary>
-	</bug>
-
-	<bug>
-		<id>102464</id>
-		<product>EMF</product>
-		<comp>Edit</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-07-01 08:00</opened>
-		<reporter>merks&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>Fix icon for ViewPane drop down</summary>
-	</bug>
-
-	<bug>
-		<id>102758</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-		<ver>2.1</ver>
-		<targetm>2.1</targetm>
-
-		<opened>2005-07-05 13:42</opened>
-		<reporter>iriss&#64;us.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-comments></plan-comments>
-		<summary>duplicates in this type definition</summary>
 	</bug>
 
 </plan>
