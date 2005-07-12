@@ -1,9 +1,9 @@
 <?php $pre = ""; 
-		$HTMLTitle = "Eclipse Tools - EMF, XSD, SDO - Download an EMF, XSD, or SDO Build";
+		$HTMLTitle = "Eclipse Tools - EMF Installation";
 		$ProjectName = array(
-			"EMF, XSD, SDO",
-			'Eclipse Modeling Framework, including XSD & SDO',
-			'Downloading EMF, XSD & SDO',
+			"EMF Installation",
+			'Eclipse Modeling Framework',
+			'EMF Installation',
 			""
 			);
 		include $pre."includes/header.php"; ?>
@@ -37,7 +37,7 @@
 		<td>
 			EMF, SDO and XSD 2.x require <a href="http://eclipse.org/downloads/" target="_eclipse">Eclipse 3.x</a> and <b>JDK 1.4</b>.<br>
 			<br>
-			Note that the full Eclipse SDK is only required <i>if you intend to use the EMF/SDO or XSD graphical interfaces</i>, (ie., views, wizards, extensions) which are built for Eclipse. For <i>runtime-only applications</i>, only a JDK is required.
+			Note that the full Eclipse SDK is only required <i>if you intend to use the EMF, SDO or XSD graphical interfaces</i>, (ie., views, wizards, extensions) which are built for Eclipse. For <i>runtime-only applications</i>, only a JDK is required.
 			<br><br>
 			EMF, SDO and XSD are built against the latest Eclipse SDKs, eg., EMF 2.1.0 with Eclipse 3.1.0, and is thus as compatible with Eclipse 3.0 as Eclipse 3.1 is with 3.0. 
 
@@ -102,4 +102,4 @@
 </TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000'><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: downloads-xerces.php,v 1.4 2005/05/06 23:08:59 nickb Exp $ -->
+<!-- $Id: downloads-xerces.php,v 1.5 2005/07/12 22:22:56 nickb Exp $ -->

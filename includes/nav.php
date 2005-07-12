@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.15 2005/07/07 06:09:56 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.16 2005/07/12 22:22:56 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -71,7 +71,7 @@
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
  target="_self" class="subcategory">Web
 Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
-<a href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF/SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
+<a href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF &amp; SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
  </td>
 			</tr>
 			<tr><td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=1 height=3></td></tr>
@@ -96,7 +96,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 	$collist = "%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0";
 	foreach ($statuses as $statusLabel => $statusString) { 
 		$bugzLinks = array(
-			"EMF/SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id".$collist,
+			"EMF &amp; SDO" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id".$collist,
 			"XSD" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id".$collist,
 			"All" => "https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD".$statusString."%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id".$collist
 		);
@@ -112,7 +112,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 
 <!-- new sep 27 -->
 <a name="Component_Owners" class="category">Component Owners:</a> 
-		<a href="https://bugs.eclipse.org/bugs/describecomponents.cgi?product=EMF" target="_bugz" class="subcategory">EMF/SDO</a>, 
+		<a href="https://bugs.eclipse.org/bugs/describecomponents.cgi?product=EMF" target="_bugz" class="subcategory">EMF &amp; SDO</a>, 
 		<a href="https://bugs.eclipse.org/bugs/describecomponents.cgi?product=XSD" target="_bugz" class="subcategory">XSD</a>
 <br>
 

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type"
     content="text/html; charset=utf-8" />
 
-    <title>Eclipse EMF/SDO and XSD - DRAFT 2.1.0 Plan</title>
+    <title>Eclipse EMF, SDO and XSD - DRAFT 2.1.0 Plan</title>
 
     <link rel="stylesheet" href="images/../../book.css"
     type="text/css" />
@@ -54,19 +54,19 @@
 // -->
 </script>
    <div class="Section1">
-      <h1>Eclipse EMF/SDO and XSD 
+      <h1>Eclipse EMF, SDO and XSD 
       <br />
 
       DRAFT 2.1.0 Plan</h1>
 
-      <p>Last revised <tt>$Date: 2005/05/11 15:56:59 $</tt> ( 
+      <p>Last revised <tt>$Date: 2005/07/12 22:22:56 $</tt> ( 
       <img width="12" height="12" src="images/../../../images/green-box.gif"
       border="0" />
 
       marks interesting changes over a previous revision of this
       document) 
 <!-- the 
-      <a href="EMF/SDO and XSD_project_plan_2.1.20041129.html">previous plan
+      <a href="EMF_project_plan_2.1.20041129.html">previous plan
       revision</a>
 
       ) -->
@@ -87,7 +87,7 @@
       </p>
 
       <p>This document lays out the feature and API set for the
-      next feature release of the Eclipse EMF/SDO and XSD projects
+      next feature release of the Eclipse EMF, SDO and XSD projects
       after 2.0.1, designated release 2.1.</p>
 
       <ul type="disc">
@@ -110,7 +110,7 @@
         </li>
 
         <li>
-          <a href="#Project">EMF/SDO and XSD project</a>
+          <a href="#Project">EMF, SDO and XSD project</a>
         </li>
       </ul>
 
@@ -127,7 +127,7 @@
       even if no features were to change.&nbsp;</p>
 
       <p>The remainder of the plan consists of plan items for the
-      projects under the Eclipse EMF/SDO and XSD projects. Each
+      projects under the Eclipse EMF, SDO and XSD projects. Each
       plan item covers a feature or API that is to be added, or
       some aspect that is to be improved. Each plan item has its
       own entry in the 
@@ -167,7 +167,7 @@
       <p>The release deliverables are:</p>
 
       <ul type="disc">
-        <li>Source code release for Eclipse EMF/SDO and XSD,
+        <li>Source code release for Eclipse EMF, SDO and XSD,
         available as versions tagged "HEAD" in the eclipse.org 
         <a href="http://dev.eclipse.org/viewcvs/">CVS
         repositories</a>
@@ -189,10 +189,10 @@
 
         .</li>
 
-        <li>EMF/SDO and XSD runtime binaries and SDK distributions
+        <li>EMF, SDO and XSD runtime binaries and SDK distributions
         (downloadable).</li>
 
-        <li>EMF/SDO and XSD runtime binaries and SDK features on
+        <li>EMF, SDO and XSD runtime binaries and SDK features on
         eclipse.org update site (install via Eclipse update
         manager).</li>
       </ul>
@@ -203,7 +203,7 @@
 
       Release milestones</h2>
 
-      <p>EMF/SDO and XSD builds are available weekly as Integration
+      <p>EMF, SDO and XSD builds are available weekly as Integration
       builds. Occasionally, these builds may be renamed as
       Milestone builds, aligned with Eclipse's Milestones.
       Eclipse's Release Milestones occur at roughly 6 week
@@ -237,7 +237,7 @@
       system. The chief dependence is on the Eclipse Platform, and
       on the Java 2 Platform that runs it.</p>
 
-      <p>The EMF/SDO and XSD 2.1.0 releases depend on the
+      <p>The EMF, SDO and XSD 2.1.0 releases depend on the
       following:</p>
 
       <ul type="disc">
@@ -260,7 +260,7 @@
         <li>XML4J</li>
       </ul>
 
-      <p>The 2.1.0 releases of EMF/SDO and XSD are designed to run
+      <p>The 2.1.0 releases of EMF, SDO and XSD are designed to run
       on any configuration supporting the above components.</p>
 
       <p>The Eclipse Platform runs in a variety of operating
@@ -289,7 +289,7 @@
       <p>Eclipse is designed as the basis for internationalized
       products. The user interface elements provided by the various
       Eclipse projects, including dialogs and error messages, are
-      externalized. The English strings for EMF/SDO and XSD are
+      externalized. The English strings for EMF, SDO and XSD are
       provided as the default resource bundles. Translations are
       not provided with this release. However, the plug-in fragment
       mechanism provides the means by which translations into any
@@ -303,24 +303,24 @@
 
       <h3>Compatibility of Release 2.1.0 with 2.0.1</h3>
 
-      <p>Eclipse EMF/SDO and XSD 2.1.0 will be compatible with
-      EMF/SDO and XSD 2.0.1.</p>
+      <p>Eclipse EMF, SDO and XSD 2.1.0 will be compatible with
+      EMF, SDO and XSD 2.0.1.</p>
 
       <p>
       <b>API Contract Compatibility:</b>
 
-      EMF/SDO and XSD 2.1.0 will be upwards contract-compatible
-      with EMF/SDO and XSD 2.0.1 except in those areas noted in the
+      EMF, SDO and XSD 2.1.0 will be upwards contract-compatible
+      with EMF, SDO and XSD 2.0.1 except in those areas noted in the
       
       <a href="#MigrationGuide">
-        <em>EMF/SDO and XSD 2.1.0 Migration Guide.</em>
+        <em>EMF, SDO and XSD 2.1.0 Migration Guide.</em>
       </a>
 
       Programs that use affected APIs and extension points will
-      need to be ported to EMF/SDO and XSD 2.1.0 APIs. Downward
+      need to be ported to EMF, SDO and XSD 2.1.0 APIs. Downward
       contract compatibility is not supported. There is no
-      guarantee that compliance with EMF/SDO and XSD 2.1.0 APIs
-      would ensure compliance with EMF/SDO and XSD 1.x APIs. Refer
+      guarantee that compliance with EMF, SDO and XSD 2.1.0 APIs
+      would ensure compliance with EMF, SDO and XSD 1.x APIs. Refer
       to 
       <em>
         <a
@@ -334,15 +334,15 @@
       <p>
       <b>Binary (plug-in) Compatibility:</b>
 
-      EMF/SDO and XSD 2.1.0 will be upwards binary-compatible with
-      EMF/SDO and XSD 2.0.1 except in those areas noted in the 
+      EMF, SDO and XSD 2.1.0 will be upwards binary-compatible with
+      EMF, SDO and XSD 2.0.1 except in those areas noted in the 
       <a href="#MigrationGuide">
-        <em>EMF/SDO and XSD 2.1.0 Migration Guide.</em>
+        <em>EMF, SDO and XSD 2.1.0 Migration Guide.</em>
       </a>
 
       Downward plug-in compatibility is not supported: plug-ins
-      compiled against EMF/SDO and XSD 2.1.0 will likely be
-      unusable with EMF/SDO and XSD 1.x. Refer to 
+      compiled against EMF, SDO and XSD 2.1.0 will likely be
+      unusable with EMF, SDO and XSD 1.x. Refer to 
       <em>
         <a
         href="http://eclipse.org/eclipse/development/java-api-evolution.html">
@@ -355,8 +355,8 @@
       <p>
       <b>Source Compatibility:</b>
 
-      Source files written to use EMF/SDO and XSD 2.0.1 APIs will
-      usually compile and run successfully against EMF/SDO and XSD
+      Source files written to use EMF, SDO and XSD 2.0.1 APIs will
+      usually compile and run successfully against EMF, SDO and XSD
       2.1.0 APIs, although this cannot be guaranteed. In some
       cases, it may be necessary to make minor changes to the
       source code to disambiguate things like imports or overloaded
@@ -367,11 +367,11 @@
       <p>
       <b>Workspace Compatibility:</b>
 
-      Eclipse EMF/SDO and XSD 2.1.0 will be upwards
-      workspace-compatible with EMF/SDO and XSD 2.0.1 unless noted.
+      Eclipse EMF, SDO and XSD 2.1.0 will be upwards
+      workspace-compatible with EMF, SDO and XSD 2.0.1 unless noted.
       This means that workspaces and projects created by an Eclipse
-      with EMF/SDO and XSD 2.0.1 installed can be successfully
-      opened by an Eclipse with EMF/SDO and XSD 2.1.0 installed.
+      with EMF, SDO and XSD 2.0.1 installed can be successfully
+      opened by an Eclipse with EMF, SDO and XSD 2.1.0 installed.
       This includes both hidden metadata, which is localized to a
       particular workspace, as well as metadata files found within
       a workspace project, which may propagate between workspaces
@@ -404,7 +404,7 @@
       <a name="MigrationGuide">
       </a>
 
-      EMF/SDO and XSD 2.1.0 Migration Guide</h3>
+      EMF, SDO and XSD 2.1.0 Migration Guide</h3>
 
       <p>At this time, there are no known issues migrating from
       2.0.1 to 2.1.0. Should this change, this document will be
@@ -418,19 +418,19 @@
       Themes</h2>
 
       <p>The changes under consideration for the next release of
-      Eclipse EMF/SDO and XSD address a few major themes:</p>
+      Eclipse EMF, SDO and XSD address a few major themes:</p>
 
       <ul type="disc">
         <li>
         <b>Built To Last</b>
 
-        - EMF/SDO and XSD has always been a framework for
+        - EMF, SDO and XSD has always been a framework for
         delivering integrated modeling tools. With a growing base
-        of both free and commercial offerings based on EMF/SDO and
+        of both free and commercial offerings based on EMF, SDO and
         XSD, it's critical for continued success to maintain API
         stability and ensure that the framework scales well. This
         theme includes work to measure and improve the performance
-        and scalability of EMF/SDO and XSD resources. This theme
+        and scalability of EMF, SDO and XSD resources. This theme
         also includes consolidation activities where groundwork was
         laid in 2.0 but needs to be completed and brought into full
         use.</li>
@@ -438,11 +438,11 @@
         <li>
         <b>Simple To Use</b>
 
-        - The EMF/SDO and XSD framework needs to not only provide
+        - The EMF, SDO and XSD framework needs to not only provide
         the features that advanced developers demand, but also be
         something that most developers find simple to use. This
         theme includes ease-of-use reviews of existing features,
-        and work that helps make EMF/SDO and XSD-based products
+        and work that helps make EMF, SDO and XSD-based products
         simple to use for developers with widely-varying
         backgrounds and skill sets.</li>
 
@@ -450,7 +450,7 @@
         <b>Release Currency</b>
 
         - Tools projects will maintain release currency concurrent
-        with 3.x releases. For EMF/SDO and XSD 2.1.0, this means
+        with 3.x releases. For EMF, SDO and XSD 2.1.0, this means
         currency with Eclipse 3.1.</li>
 
         <li>
@@ -464,14 +464,14 @@
         <b>Java 2 Standard Edition 5 Support</b>
 
         - While unclear at time of writing what this will entail,
-        it is hoped that the next release of EMF/SDO can exploit
+        it is hoped that the next EMF release can exploit
         the new J2SE version 5 to some extent.</li>
 
         <li>
         <b>SDO 1.1 Support</b>
 
         - While unclear at time of writing what this will entail,
-        it is expected that the next release of EMF/SDO will
+        it is expected that the next EMF release will
         support the new SDO 1.1 standard to some extent.</li>
       </ul>
 
@@ -517,9 +517,9 @@
       <a name="Project">
       </a>
 
-      EMF/SDO and XSD project</h2>
+      EMF, SDO and XSD project</h2>
 
-      <p>Plan items reflect new features of the EMF/SDO and XSD
+      <p>Plan items reflect new features of the EMF, SDO and XSD
       project, or areas where existing features will be
       significantly reworked. 
 <!-- ( 
@@ -543,7 +543,7 @@
       <a name="Committed">
       </a>
 
-      Committed Items (EMF/SDO and XSD project)</h4>
+      Committed Items (EMF, SDO and XSD project)</h4>
 
       <blockquote>
         <p>Bugzillas with a target release or milestone of 2.1 are
@@ -568,7 +568,7 @@
       <a name="Proposed">
       </a>
 
-      Proposed Items (EMF/SDO and XSD project)</h4>
+      Proposed Items (EMF, SDO and XSD project)</h4>
 
       <blockquote>
         <p>Bugzillas without a specific target release or milestone
@@ -594,7 +594,7 @@
       <a name="Deferred">
       </a>
 
-      Deferred Items (EMF/SDO and XSD projects)</h4>
+      Deferred Items (EMF, SDO and XSD projects)</h4>
 
       <blockquote>
         <p>Bugzillas assigned to the non-specific target of

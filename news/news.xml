@@ -39,7 +39,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="June 13, 2005" showOn="docs">
-	'Getting EMF Source Files from CVS' and 'Using Eclipse Update Manager to Update EMF/SDO/XSD' updated:
+	'Getting EMF Source Files from CVS' and 'Using Eclipse Update Manager to Update EMF, SDO or XSD' updated:
 	XSD is now an EMF subproject, rather than a Technology project.
 </news>
 <news date="June 09, 2005" showOn="whatsnew">
@@ -134,7 +134,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="March 28, 2005" showOn="whatsnew">
-	New NLS packs based on EMF/XSD 2.0.2 are available for <a href="downloads.php#NLS">download</a>.
+	New NLS packs based on EMF and XSD 2.0.2 are available for <a href="downloads.php#NLS">download</a>.
 </news>
 <news date="March 24, 2005" showOn="whatsnew">
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
@@ -245,7 +245,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="January 11, 2005" showOn="docs,whatsnew">
-	<a href="../../../tools/emf/scripts/docs.php#plandocs">EMF/SDO/XSD Plan Docs</a> added.
+	<a href="../../../tools/emf/scripts/docs.php#plandocs">EMF, SDO or XSD Plan Docs</a> added.
 </news>
 <news date="January 04, 2005" showOn="whatsnew">
 	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
@@ -621,6 +621,6 @@
 	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.67 2005/07/07 16:07:49 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.68 2005/07/12 22:22:56 nickb Exp $ -->
 
 </doc>

@@ -1,9 +1,9 @@
 <?php 
 
 	$pre = ""; 
-	$HTMLTitle = "Eclipse Tools - EMF, SDO &amp; XSD Mailing Lists";
+	$HTMLTitle = "Eclipse Tools - EMF Mailing List";
 		$ProjectName = array(
-			"EMF/SDO &amp; XSD ",
+			"EMF Mailing List",
 			'Newsgroups &amp; Mailing Lists',
 			'Newsgroups &amp; Mailing Lists',
 			"images/mail.gif"
@@ -111,4 +111,4 @@ Newsgroups:<br><br>
 </table>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: newsgroup-mailing-list.php,v 1.3 2005/05/06 22:23:09 nickb Exp $ -->
+<!-- $Id: newsgroup-mailing-list.php,v 1.4 2005/07/12 22:22:56 nickb Exp $ -->

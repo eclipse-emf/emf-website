@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2005/04/07 20:22:39 $</modified>
+  <modified>$Date: 2005/07/12 22:22:56 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -271,7 +271,7 @@ Just send a blank email with the subject 'readme submitter' to
 to that address) 
 and you will receive instructions on how to submit. 
 Your submissions will be checked for viability and 
-usefulness by the EMF/XSD support team. 
+usefulness by the EMF support team. 
     </answer>
   </entry> -->
 
@@ -335,7 +335,7 @@ then unzip into your Eclipse directory.
 How do I get EMF, SDO or XSD source from CVS?
     </question>
     <answer>
-See <a href="http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, XSD and SDO from CVS</a>.
+See <a href="http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, SDO and XSD from CVS</a>.
     </answer>
   </entry>
 
@@ -1683,14 +1683,15 @@ chosen.
   <entry date="2004/06/02 15:02" UNID="20040602-358549632">
     <category>newbie</category>
     <question>
-What version of Eclipse does EMF/SDO/XSD run on?
+What version of Eclipse do EMF, SDO and XSD run on?
     </question>
     <answer>
-EMF/SDO/XSD <b class="question">2.1.0</b> run on Eclipse <b class="question">3.1.0</b>.<br />
-EMF/SDO/XSD <b class="question">2.0.1</b> run on Eclipse <b class="question">3.0.1</b>.<br />
-EMF/SDO/XSD <b class="question">2.0</b> run on Eclipse <b class="question">3.0</b>.<br />
-EMF/XSD <b class="question">1.1</b> run on Eclipse <b class="question">2.1</b>.<br />
-EMF/XSD <b class="question">1.0</b> run on Eclipse <b class="question">2.0</b>.
+EMF, SDO and XSD <b class="question">2.1.0</b> run on Eclipse <b class="question">3.1.0</b>.<br />
+EMF, SDO and XSD <b class="question">2.0.2</b> and <b class="question">2.0.3</b> run on Eclipse <b class="question">3.0.2</b>.<br />
+EMF, SDO and XSD <b class="question">2.0.1</b> run on Eclipse <b class="question">3.0.1</b>.<br />
+EMF, SDO and XSD <b class="question">2.0</b> run on Eclipse <b class="question">3.0</b>.<br />
+EMF and XSD <b class="question">1.1</b> run on Eclipse <b class="question">2.1</b>.<br />
+EMF and XSD <b class="question">1.0</b> run on Eclipse <b class="question">2.0</b>.
     </answer>
   </entry>
 
@@ -1798,6 +1799,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.7 2005/04/07 20:22:39 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.8 2005/07/12 22:22:56 nickb Exp $ -->
 
 </faq>

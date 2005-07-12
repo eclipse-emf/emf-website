@@ -1,8 +1,8 @@
-<?php $HTMLTitle = "EMF, SDO, XSD Release Notes";
+<?php $HTMLTitle = "Eclipse Tools - EMF Release Notes";
 		$ProjectName = array(
-			"EMF, SDO, XSD Release Notes",
-			"EMF, SDO, XSD Release Notes",
-			"EMF, SDO, XSD Release Notes",
+			"Release Notes",
+			"Eclipse Modeling Framework",
+			"Release Notes",
 			"images/reference.gif"
 			);
 		$pre = "../";
@@ -92,4 +92,4 @@
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.7 2005/07/07 06:47:02 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.8 2005/07/12 22:22:56 nickb Exp $ -->

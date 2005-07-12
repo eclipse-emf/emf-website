@@ -355,7 +355,7 @@
       <td>
         <a
         href="http://eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">
-        Using Eclipse Update Manager to Update EMF/SDO/XSD</a>
+        Using Eclipse Update Manager to Update EMF, SDO &amp; XSD</a>
       </td>
 
       <td>June 13
@@ -1685,5 +1685,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.16 2005/07/07 22:48:25 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.17 2005/07/12 22:22:56 nickb Exp $ -->
 

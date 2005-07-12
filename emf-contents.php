@@ -113,7 +113,7 @@ weren\'t a little bit of exaggeration.
 }
 
 function displayEMFHome() {
-		$HTMLTitle = "Eclipse Tools - EMF - Home";
+		$HTMLTitle = "Eclipse Tools - EMF Home";
 		include $pre."includes/header.php"; ?>
 
 <table border="0" cellpadding="2" width="100%">
@@ -144,7 +144,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.8 2005/07/07 16:09:04 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.9 2005/07/12 22:22:56 nickb Exp $ -->
 </body></html>
 
 <?php } 
