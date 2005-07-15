@@ -282,8 +282,9 @@ function displayXML() {
 	if (!$debug) { header('Content-type: text/xml'); }
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan-2.2.xsl"?>
-<!-- $Id: plan.php,v 1.9 2005/07/15 16:30:37 elena Exp $ -->
 <plan>
+	<id>$Id: plan.xml,v 1.0 '.
+		date("Y/m/d H:i:s T").' Exp $'.'</id>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
 
