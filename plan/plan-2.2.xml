@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
 <plan>
-	<id>$Id: plan-2.2.xml,v 1.2 2005/07/15 19:22:02 nickb Exp $</id>
-	<modified>$Date: 2005/07/15 19:22:02 $</modified>
+	<id>$Id: plan-2.2.xml,v 1.3 2005/07/15 19:57:53 nickb Exp $</id>
+	<modified>$Date: 2005/07/15 19:57:53 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
 
 		<column-def column="id" label="ID"/>
-		<column-def column="product" label="Prod"/>
 
+		<column-def column="product" label="Prod"/>
 		<column-def column="comp" label="Comp"/>
 		<column-def column="ver" label="Ver"/>
 		<column-def column="targetm" label="TargetM"/>
@@ -18,8 +18,8 @@
 		<column-def column="assignee" label="Assigned To"/>
 		<column-def column="votes" label="Votes"/>
 		<column-def column="sev" label="Sev"/>
-		<column-def column="pri" label="Pri"/>
 
+		<column-def column="pri" label="Pri"/>
 		<column-def column="stat" label="Stat"/>
 		<column-def column="plan-priority" label="Plan Priority"/>
 		<column-def column="plan-estimate" label="Plan Estim"/>
@@ -28,30 +28,30 @@
 
 	<bug>
 		<id>43752</id>
-		<product>EMF</product>
 
+		<product>EMF</product>
 		<comp>Edit</comp>
 		<ver>1.0</ver>
 		<targetm>---</targetm>
 		<opened>2003-09-26 11:43</opened>
 		<reporter>richkulp&#64;us.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
 
+		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
-		<plan-estimate>2d</plan-estimate>
 
+		<plan-estimate>2d</plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>CommandFramework needs a ResetCommand</summary>
 	</bug>
 	<bug>
 		<id>51210</id>
 		<product>EMF</product>
-		<comp>Runtime</comp>
 
+		<comp>Runtime</comp>
 		<ver>1.0</ver>
 		<targetm>---</targetm>
 		<opened>2004-02-04 21:46</opened>
@@ -678,11 +678,116 @@
 	</bug>
 
 	<bug>
+		<id>103407</id>
+		<product>EMF</product>
+		<comp>Build/Web</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-07-11 17:38</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Split off 2.1.1 branch</summary>
+	</bug>
+
+	<bug>
+		<id>103743</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-07-13 20:05</opened>
+		<reporter>jeichar&#64;refractions.net</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Saving to an archive fails if rename is not allowed.</summary>
+	</bug>
+
+	<bug>
+		<id>103851</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.2</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-07-14 12:47</opened>
+		<reporter>rose&#64;rti.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>JET compiler ant task</summary>
+	</bug>
+
+	<bug>
+		<id>104005</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.2</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-07-15 10:08</opened>
+		<reporter>merks&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Define content types for file types we know about</summary>
+	</bug>
+
+	<bug>
+		<id>103929</id>
+		<product>EMF</product>
+		<comp>Doc</comp>
+		<ver>2.1</ver>
+		<targetm>2.1.1</targetm>
+
+		<opened>2005-07-14 18:41</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>[Tutorials] Problem with tutorial/TVT script</summary>
+	</bug>
+
+	<bug>
 		<id>61639</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
 		<ver>1.1</ver>
-		<targetm>2.2</targetm>
+		<targetm>2.2 M1</targetm>
 
 		<opened>2004-05-10 14:46</opened>
 		<reporter>josh.allen&#64;zerog.com</reporter>
@@ -703,7 +808,7 @@
 		<product>EMF</product>
 		<comp>Edit</comp>
 		<ver>2.1</ver>
-		<targetm>2.2</targetm>
+		<targetm>2.2 M1</targetm>
 
 		<opened>2005-07-02 15:27</opened>
 		<reporter>kvdijken&#64;juncus.nl</reporter>
@@ -717,6 +822,69 @@
 		<plan-estimate></plan-estimate>
 		<plan-comments></plan-comments>
 		<summary>Enum with default value reported as error by validator</summary>
+	</bug>
+
+	<bug>
+		<id>103356</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.2 M1</targetm>
+
+		<opened>2005-07-11 14:02</opened>
+		<reporter>davidms&#64;ca.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>major</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>JavaEcoreBuilder: Wrong multiplicity for java.util.Map</summary>
+	</bug>
+
+	<bug>
+		<id>103399</id>
+		<product>EMF</product>
+		<comp>Edit</comp>
+		<ver>2.1</ver>
+		<targetm>2.2 M1</targetm>
+
+		<opened>2005-07-11 16:56</opened>
+		<reporter>theivend&#64;ca.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>ComposedAdapterFactory.adapt(Notifier target, Object type) doesn`t find parent`s item provider</summary>
+	</bug>
+
+	<bug>
+		<id>103572</id>
+		<product>EMF</product>
+		<comp>Doc</comp>
+		<ver>2.1</ver>
+		<targetm>2.2 M1</targetm>
+
+		<opened>2005-07-12 18:39</opened>
+		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<assignee>codeslave&#64;ca.ibm.com</assignee>
+		<votes>0</votes>
+		<sev>normal</sev>
+
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-comments></plan-comments>
+		<summary>Update license.html (12 files) from notice.html</summary>
 	</bug>
 
 </plan>
