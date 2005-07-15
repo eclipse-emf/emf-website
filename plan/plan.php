@@ -283,7 +283,8 @@ function displayXML() {
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
 <plan>
-	<id>$Id: plan.php,v 1.12 2005/07/15 19:35:05 nickb Exp $'.'</id>
+	<id>$Id: plan.xml,v '.
+		' $'.'</id>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
 
