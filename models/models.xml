@@ -204,7 +204,7 @@ editor and a parser for the language. The Eclipse plug-ins add actions that
     to EMF.</text>
     <modelURL>http://www.omondo.com</modelURL>
     <thumbnailURL width="80" height="22">http://www.eclipsedownload.com/pictures/omondo-anime.gif</thumbnailURL>
-    <screenshotURL>http://download.eclipse.org/tools/emf/scripts/docs.php?doc=docs/glibmod/glibmod_emf1.1.html</screenshotURL>
+    <screenshotURL>http://eclipse.org/emf/docs.php?doc=docs/glibmod/glibmod_emf1.1.html</screenshotURL>
     <submitter>julien</submitter>
     <submitterURL>http://www.omondo.com</submitterURL>
   </model>
@@ -406,4 +406,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.10 2005/06/23 14:55:41 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.11 2005/07/15 20:08:07 nickb Exp $ -->

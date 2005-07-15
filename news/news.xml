@@ -245,7 +245,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="January 11, 2005" showOn="docs,whatsnew">
-	<a href="../../../tools/emf/scripts/docs.php#plandocs">EMF, SDO or XSD Plan Docs</a> added.
+	<a href="http://eclipse.org/emf/docs.php#plandocs">EMF, SDO or XSD Plan Docs</a> added.
 </news>
 <news date="January 04, 2005" showOn="whatsnew">
 	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
@@ -303,7 +303,7 @@
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="October 18, 2004" showOn="docs,whatsnew">
-	New SDO tutorial: <a href="../../../tools/emf/scripts/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="../../../tools/emf/scripts/docs.php?noHeader=true&amp;doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
+	New SDO tutorial: <a href="http://eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
 </news>
 <news date="October 18, 2004" showOn="whatsnew">
 	Since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD!
@@ -320,25 +320,25 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="October 13, 2004" showOn="docs,whatsnew">
-	New Eclipse Corner article: <a href="../../../tools/emf/scripts/docs.php?noHeader=true&amp;doc=http://eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
+	New Eclipse Corner article: <a href="http://eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
 </news>
 <news date="October 13, 2004" showOn="docs,whatsnew">
 	<a href="http://eclipse.org/emf/faq/faq.php?FAQ=SDO">SDO FAQ</a> split from <a href="http://eclipse.org/emf/faq/faq.php?FAQ=EMF">EMF FAQ</a> for ease of use. Now filterable!
 </news>
 <news date="October 07, 2004" showOn="docs,whatsnew">
-	Links to SDO <a href="../../../tools/emf/scripts/docs.php#sdo">articles</a> added.
+	Links to SDO <a href="http://eclipse.org/emf/docs.php#sdo">articles</a> added.
 </news>
 <news date="September 30, 2004" showOn="docs,whatsnew">
 	<a href="http://eclipse.org/emf/models/">EMF Corner launched</a>!
 </news>
 <news date="September 30, 2004" showOn="docs,whatsnew">
-	Link to SDO <a href="../../../tools/emf/scripts/docs.php#sdo">Overview</a> on developerWorks added.
+	Link to SDO <a href="http://eclipse.org/emf/docs.php#sdo">Overview</a> on developerWorks added.
 </news>
 <news date="September 24, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/downloads.php#NLS">NLS packs</a> for EMF, SDO, and XSD (SDK and Runtime) now available.
 </news>
 <news date="September 23, 2004" showOn="docs,whatsnew">
-	Added two new walkthroughs for <a href="../../../tools/emf/scripts/docs.php#references">offline newsgroup searching</a>.
+	Added two new walkthroughs for <a href="http://eclipse.org/emf/docs.php#references">offline newsgroup searching</a>.
 </news>
 <news date="September 17, 2004" showOn="whatsnew">
 	<!-- "#R200409171617" -->
@@ -353,7 +353,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="September 14, 2004" showOn="docs,whatsnew">
-	New <a href="../../../tools/emf/scripts/docs.php#downloads">Update Manager</a> article added.
+	New <a href="http://eclipse.org/emf/docs.php#downloads">Update Manager</a> article added.
 </news>
 <news date="September 08, 2004" showOn="whatsnew">
 	<!-- "#M200409081700" -->
@@ -376,7 +376,7 @@
 	EMF/SDO/XSD Update Manager site bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70176">70176</a> fixed - UM now actually works, as of Eclipse 3.0.1.M20040825 or Eclipse 3.1.0.N20040831.
 </news>
 <news date="August 31, 2004" showOn="docs,whatsnew">
-	Link to new <a href="../../../tools/emf/scripts/docs.php#tutorials">Kent OCL Library tutorial</a> added.
+	Link to new <a href="http://eclipse.org/emf/docs.php#tutorials">Kent OCL Library tutorial</a> added.
 </news>
 <news date="August 31, 2004" showOn="docs,whatsnew">
 	XSD <a href="http://eclipse.org/emf/faq/faq.php?FAQ=XSD">FAQ</a> updated.
@@ -402,7 +402,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="August 12, 2004" showOn="docs,whatsnew">
-	Link to EMF Book <a href="../../../tools/emf/scripts/docs.php#overviews">sample chapter</a> added.
+	Link to EMF Book <a href="http://eclipse.org/emf/docs.php#overviews">sample chapter</a> added.
 </news>
 <news date="August 04, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
@@ -440,7 +440,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="July 13, 2004" showOn="docs,whatsnew">
-	<a href="../../../tools/emf/scripts/docs.php#presentations">JavaOne 2004 Presentation</a> added.
+	<a href="http://eclipse.org/emf/docs.php#presentations">JavaOne 2004 Presentation</a> added.
 </news>
 <news date="June 28, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Release build
@@ -456,7 +456,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="June 24, 2004" showOn="docs,whatsnew">
-	<a href="../../../tools/emf/scripts/docs.php#overviews">Two new <i>draft</i> overview documents</a>: EMF FeatureMaps &amp; XML Schema to Ecore Mapping added.
+	<a href="http://eclipse.org/emf/docs.php#overviews">Two new <i>draft</i> overview documents</a>: EMF FeatureMaps &amp; XML Schema to Ecore Mapping added.
 </news>
 <news date="June 24, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -502,16 +502,16 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="June 1, 2004" showOn="docs,whatsnew">
-	Updated: <a href="http://eclipse.org/emf/faq/faq.php">FAQ</a>, <a href="../../../tools/emf/scripts/docs.php#overviews">Overviews</a>, <a href="../../../tools/emf/scripts/docs.php#tutorials">Tutorials</a>!
+	Updated: <a href="http://eclipse.org/emf/faq/faq.php">FAQ</a>, <a href="http://eclipse.org/emf/docs.php#overviews">Overviews</a>, <a href="http://eclipse.org/emf/docs.php#tutorials">Tutorials</a>!
 </news>
 <news date="May 26, 2004" showOn="docs,whatsnew">
-	Added links to <a href="../../../tools/emf/scripts/docs.php#contributions">two new developerWorks articles</a>.
+	Added links to <a href="http://eclipse.org/emf/docs.php#contributions">two new developerWorks articles</a>.
 </news>
 <news date="May 20, 2004" showOn="whatsnew">
 	<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=62422">In order to support Rich Client Platform</a>, the <tt>org.eclipse.emf.edit.ui</tt> plugin now optionally requires <tt>org.eclipse.core.resources</tt> and <tt>org.eclipse.ui.ide</tt> and <b style="background-color:yellow;color:black">no longer exports these imports</b>. <a href="../../../tools/emf/scripts/downloads.php">Details here</a>.
 </news>
 <news date="May 20, 2004">
-	To better meet the needs of our users, Runtime bundles no longer contain docs. See SDK bundles for Runtime, Source, and docs. <a href="../../../tools/emf/scripts/docs.php#references">Javadocs are still available online</a>, updated with every new build.
+	To better meet the needs of our users, Runtime bundles no longer contain docs. See SDK bundles for Runtime, Source, and docs. <a href="http://eclipse.org/emf/docs.php#references">Javadocs are still available online</a>, updated with every new build.
 </news>
 <news date="May 20, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -519,7 +519,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>.
 </news>
 <news date="May 17, 2004" showOn="docs,whatsnew">
-	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://eclipse.org/emf/faq/faq.php">EMF FAQ</a> &amp; <a href="../../../tools/emf/scripts/docs.php">EMF Docs page</a>
+	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://eclipse.org/emf/faq/faq.php">EMF FAQ</a> &amp; <a href="http://eclipse.org/emf/docs.php">EMF Docs page</a>
 </news>
 <news date="May 13, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -564,7 +564,7 @@
 	for <a href="../../../tools/emf/scripts/downloads.php">download</a>
 </news>
 <news date="March 16, 2004" showOn="docs,whatsnew">
-	Updated the <a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> document.
+	Updated the <a href="http://eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> document.
 </news>
 <news date="March 9, 2004" showOn="whatsnew">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -577,10 +577,10 @@
 	for <a href="downloads/dl.html#stable_builds">download</a>.
 </news>
 <news date="February 25, 2004" showOn="docs,whatsnew">
-	Added EMF development plan and links to SDO specification and white paper. <a href="../../../tools/emf/scripts/docs.php#overviews">link</a>
+	Added EMF development plan and links to SDO specification and white paper. <a href="http://eclipse.org/emf/docs.php#overviews">link</a>
 </news>
 <news date="February 12, 2004" showOn="docs,whatsnew">
-	Added EclipseCon Presentation and Steinberg Interview. <a href="../../../tools/emf/scripts/docs.php#presentations">link</a>
+	Added EclipseCon Presentation and Steinberg Interview. <a href="http://eclipse.org/emf/docs.php#presentations">link</a>
 </news>
 <news date="January 28, 2004">
 	<a href="../../../tools/emf/scripts/news-release-notes.php?ver=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -618,9 +618,9 @@
 	<a href="http://eclipse.org/articles/Article-JET/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a> is available.
 </news>
 <news date="July 15, 2003" showOn="docs">
-	<a href="../../../tools/emf/scripts/docs.php#references">Getting EMF Source Files from CVS</a> is available.
+	<a href="http://eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.68 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.69 2005/07/15 20:08:07 nickb Exp $ -->
 
 </doc>
