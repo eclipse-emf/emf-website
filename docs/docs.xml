@@ -1167,6 +1167,43 @@
         </b>
       </td>
     </tr>
+    
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
+      </td>
+
+      <td>July 14
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+    
+	<tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
+        EMF 2.2 Development Plan</a>
+      </td>
+
+      <td>July 14
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
 
 	<tr>
       <td>
@@ -1184,43 +1221,7 @@
 
       2005</td>
     </tr>
-
-	<tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        EMF 2.1 <a href="http://eclipse.org/org/processes/release-review.html">Release Review</a> Presentation: <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">PDF</a>
-      </td>
-
-      <td>July 6
-      <sup>th</sup>
-
-      2005</td>
-    </tr>
-
-	<tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        <a
-        href="http://eclipse.org/emf/plan/plan.xml">
-        EMF 2.1 Development Prioritized Plan Items (Bugzilla List)</a>
-      </td>
-
-      <td>July 7
-      <sup>th</sup>
-
-      2005</td>
-    </tr>
-
+    
 	<tr>
       <td>
         <img src="images/c.gif" width="1" height="8" />
@@ -1231,28 +1232,11 @@
       <td>
         <a
         href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
-        EMF 2.1 Development Plan</a>
+        EMF 2.1 Development Plan</a>; 
+        <a href="http://eclipse.org/org/processes/release-review.html">Release Review</a> Presentation: <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">PDF</a>
       </td>
 
-      <td>May 11
-      <sup>th</sup>
-
-      2005</td>
-    </tr>
-
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
-
-      <td>
-        <a
-        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/plan-summary_2.1.html">EMF 2.1 Plan Summary</a>
-      </td>
-
-      <td>May 11
+      <td>July 6
       <sup>th</sup>
 
       2005</td>
@@ -1685,5 +1669,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.18 2005/07/14 22:53:16 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.19 2005/07/15 16:32:01 elena Exp $ -->
 
