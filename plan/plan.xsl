@@ -4,8 +4,6 @@
 	<xsl:key name="bugEntry" match="bug" use="product"/>
 
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
-	<xsl:param name="product"></xsl:param> 
-	<xsl:param name="version"></xsl:param>
 
 <xsl:variable name="xx">
   <xsl:call-template name="show_plan_items">
@@ -14,9 +12,10 @@
 
 <xsl:template name="show_plan_items" match="/">
 <xsl:for-each select="plan">
+	<xsl:variable name="planversion"><xsl:value-of select="substring-before(substring-after(id,concat('$','Id: plan-')),'.xml,v')" /></xsl:variable>
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-    <title>Eclipse Tools - EMF, SDO and XSD - Development Plan</title>
+    <title>Eclipse Tools - EMF Development Plan <xsl:value-of select="$planversion" /></title>
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
@@ -61,10 +60,7 @@
     <tr>
       <td align="left" width="60%">
         <font class="indextop">
-		Development Plan<xsl:if test="$product!='' or $version!=''">:
-			<xsl:if test="$product!=''"><xsl:value-of select="$product" />&#160;</xsl:if>
-			<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
-		</xsl:if>
+		Development Plan <xsl:value-of select="$planversion" />
 		</font><br/>
         <font class="indexsub">Eclipse Modeling Framework</font>
 
@@ -81,10 +77,7 @@
 <tr>
 
 <td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">
-	Development Plan<xsl:if test="$product!='' or $version!=''">:
-		<xsl:if test="$product!=''"><xsl:value-of select="$product" />&#160;</xsl:if>
-		<xsl:if test="$version!=''"><xsl:value-of select="$version" />&#160;</xsl:if>
-	</xsl:if>
+	Development Plan <xsl:value-of select="$planversion" />
 </font></font></b><a name="top">&#160;</a></td>
 </tr>
 </table>
@@ -128,24 +121,23 @@
 	<!-- nav header table -->
 	<table border="0" cellspacing="1" cellpadding="5" width="100%">
 	<xsl:for-each select="product-def">
-		<xsl:if test="((count(key('bugEntry',@product)) != 0 and $product = product) or $product = '')">
-			<tr class="header">
-				<td colspan="10" class="sub-header">
-					<a name="{@product}"></a><xsl:value-of select="@label"/>: Summary (<xsl:value-of select="count(key('bugEntry',@product))" /> Bugs)
-				</td>
-			</tr>
-			<tr class="content-header">
-				<xsl:for-each select="//column-def">
-					<xsl:if test="@column != 'product' and @column != 'reporter' and @column != 'assignee' and @column != 'pri' and @column != 'stat' and @column != 'plan-comments'">
-						<td colspan="1" class="sub-header">
-							<xsl:value-of select="@label" />
-						</td>
-					</xsl:if>
-				</xsl:for-each>
-			</tr>
+		<tr class="header">
+			<td colspan="10" class="sub-header">
+				<a name="{@product}"></a><xsl:value-of select="@label"/>: Summary (<xsl:value-of select="count(key('bugEntry',@product))" /> Bugs)
+			</td>
+		</tr>
+		<tr class="content-header">
+			<xsl:for-each select="//column-def">
+				<xsl:if test="@column != 'product' and @column != 'reporter' and @column != 'assignee' and @column != 'pri' and @column != 'stat' and @column != 'plan-comments'">
+					<td colspan="1" class="sub-header">
+						<xsl:value-of select="@label" />
+					</td>
+				</xsl:if>
+			</xsl:for-each>
+		</tr>
+		<xsl:if test="count(key('bugEntry',@product)) != 0">
 			<xsl:for-each select="key('bugEntry',@product)">
 				<xsl:sort select="plan-priority" data-type="text" order="ascending" />
-				<xsl:if test="(starts-with(version,$version) or $version = '') and ($product = product or $product = '')">
 					<tr valign="top">
 						<xsl:choose>
 						<xsl:when test="(position() mod 2 = 1)">
@@ -202,13 +194,9 @@
 							</xsl:if>
 						</xsl:for-each>
 					</tr>
-				</xsl:if>
 			</xsl:for-each>
-			<tr><td class="spacer"><br/></td><td class="spacer"><br/></td></tr>
 		</xsl:if>
-		<xsl:if test="count(key('bugEntry',@product)) = 0">
-			<tr><td colspan="3" class="normal">n/a</td></tr>
-		</xsl:if>
+		<tr><td class="spacer"><br/></td><td class="spacer"><br/></td></tr>
 	</xsl:for-each>
 	</table>
 
@@ -234,4 +222,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.9 2005/05/27 03:49:01 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.10 2005/07/15 19:22:02 nickb Exp $ -->

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
-<!-- $Id: plan-2.2.xml,v 1.1 2005/07/15 16:30:37 elena Exp $ -->
 <plan>
-	<modified>$Date: 2005/07/15 16:30:37 $</modified>
+	<id>$Id: plan-2.2.xml,v 1.2 2005/07/15 19:22:02 nickb Exp $</id>
+	<modified>$Date: 2005/07/15 19:22:02 $</modified>
 
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />

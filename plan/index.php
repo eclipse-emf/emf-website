@@ -3,14 +3,12 @@
 	/* if querystring value, pick latest version of javadoc and serve up that page */
 
 	$isWWWserver = $WWWserver!="false"&&($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
-
-	$folder = substr($SCRIPT_NAME,0,strrpos($SCRIPT_NAME,"/"));
 	
 	if (!$isWWWserver) { 
 		header("Location: http://eclipse.org/emf/plan/");
 		exit;
 	} else {
-		$vers = loadDirSimple("./","(\d\.\d|\d\.\d\.\d+)","f");
+		$vers = loadDirSimple(".","plan-(\d\.\d|\d\.\d\.\d+)\.xml","f");
 		if (sizeof($vers)>0) { ?><!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
