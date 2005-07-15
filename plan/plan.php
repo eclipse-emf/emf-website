@@ -132,7 +132,9 @@ function getMetaAndBugList() {
 	global $bugz,$buglist,$usetmpfile,$createtmpfile;
 
 	if (!$usetmpfile) { 
-		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); // wArr($html);
+		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); 
+		
+		//wArr($html);
 		if ($createtmpfile) { 
 			$fh = fopen("/tmp/emf_plan.php_getMetaAndBugList.html","w");
 			foreach ($html as $line) { 
@@ -208,11 +210,11 @@ function getPlanItems($extrafields=array()) {
 				$bugnum="n/a";
 			}
 			//w("<b>BUG: $bugnum</b>",1);
-		} else if (sizeof($extrafields)>0 && isIn($line,"<b>") && isIn($line,"</b>&#160;")) {
+		} else if (sizeof($extrafields)>0 && isIn($line,"<b>") && (isIn($line,"</b>&#160;") || isIn($line,"</b>&nbsp;"))) {
 			//w($line,1);
-			if (preg_match("/\<b\>(.+)\:\<\/b\>\&nbsp\;(.+)/",$line,$m)) {
+			if (preg_match("/\<b\>(.+)\:\<\/b\>\&(nbsp|\#160)\;(.+)/",$line,$m)) {
 				$key = $m[1];
-				$val = $m[2];
+				$val = $m[3];
 				//w("<i>$key = $val</i>",1);
 				if (array_key_exists($key,$extrafields)) {
 					$bugz[$bugnum][$extrafields[$key]] = trim($val);
@@ -283,8 +285,8 @@ function displayXML() {
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan.xsl"?>
 <plan>
-	<id>$Id: plan.xml,v '.
-		' $'.'</id>
+	<id>$'.'Id'.': '.
+		'plan.xml,v Exp $'.'</id>
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
 
