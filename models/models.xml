@@ -18,7 +18,7 @@ modelName="Tefkat"
 date="2005-06-22"
 category="EMF tool" 
 modelID="michaellawley20050622221007">
-    <text>Tefkat is an implementation of a fullt-declarative model transformation language for EMF.<br/><br/>
+    <text>Tefkat is an implementation of a fully-declarative model transformation language for EMF.<br/><br/>
 Tefkat features include:
 <ul>
 <li>support for multiple source and target models,</li>
@@ -417,4 +417,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.12 2005/07/17 03:48:15 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.13 2005/07/17 03:48:47 nickb Exp $ -->
