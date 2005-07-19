@@ -74,7 +74,7 @@
 	$rs 	= mysql_query($query, $dbh);
 	
 	if(mysql_errno($dbh) > 0) {
-		echo "There was an error processing this request".
+		echo "There was an error processing the request:\n\n$query".
 		
 		# For debugging purposes - don't display this stuff in a production page.
 		# echo mysql_error($dbh);
