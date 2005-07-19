@@ -6,9 +6,9 @@
 	// but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
 	
 	// Load up the classfile - need to tell the WebMaster from which URL you are loading this class from, otherwise the connect() will fail.
-	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
+//	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
-	header("Content-Type: text/plain");
+//	header("Content-Type: text/plain");
 
 	$bug = $_GET["bug"];
 
