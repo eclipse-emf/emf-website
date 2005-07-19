@@ -12,10 +12,8 @@
 
 	header("Content-Type: text/html");
 
-	$bug = $_GET["bug"];
+	$bug = $_GET["bug"]; if ($bug) { echo "Data for bug $bug ...\n\n"; }
 	$query = $_POST["query"];
-
-	if ($bug) { echo "Data for bug $bug ...\n\n"; }
 	
 	$query = ($query?$query:"
 SELECT DISTINCT
@@ -31,16 +29,17 @@ WHERE
 	echo '
 <html>
 <head></head>
-<body><form method=post>
-	<textarea name=query rows=10 cols=40>'.$query.'</textarea>
+<body>
+<table><tr><td><form method=post>
+	<textarea style="font-size:10px" name=query rows=20 cols=50>'.$query.'</textarea>
 	<input type=submit>
-</form>
-<pre>';
+</form></td><td>&nbsp;&nbsp;</td>
+<td>';
 	
 	if ($query) { 
 
-		echo "Results for query: \n\n$query\n\n";
-
+		echo "<pre style=\"font-size:10px\">Results for query: \n\n$query</pre>";
+		echo "</td></tr><tr><td colspan=\"3\"><pre style=\"color:blue\">";
 		# Connect to database
 		$dbc 	= new DBConnectionBugs();
 		$dbh 	= $dbc->connect();
@@ -70,6 +69,7 @@ WHERE
 
 	echo '
 </pre>
+</td></tr></table>
 </body>
 </html>
 ';
