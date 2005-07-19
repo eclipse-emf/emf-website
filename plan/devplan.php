@@ -12,40 +12,37 @@
 
 	header("Content-Type: text/plain");
 
-	$bug = $_GET["bug"];
-	echo "Data for bug $bug ...\n";
+	$bug = $_GET["bug"]; if (!$bug) { $bug="61639"; }
+	$query = $_POST["query"];
+	
+	$query = ($query?$query:"SELECT DISTINCT
+  BUG.bug_id, 
+  PROD.name as PNAME, CMP.name as CNAME, 
+  PROF.realname, 
+  BUG.short_desc, 
+  BUG.priority, BUG.bug_severity, 
+  BUG.bug_status, BUG.resolution, 
+  BUG.creation_ts, BUG.lastdiffed, 
+  BUG.version, BUG.target_milestone, BUG.votes 
+FROM 
+  bugs as BUG, 
+  profiles as PROF, 
+  bugs_activity as ACT, 
+  products as PROD, 
+  components as CMP, 
+  longdescs as TXT 
+WHERE 
+  BUG.reporter = PROF.userid AND 
+  CMP.id = BUG.component_id AND 
+  PROD.id = BUG.product_id AND 
+  BUG.bug_id = TXT.bug_id AND 
+  BUG.bug_id = ACT.bug_id AND 
+  BUG.bug_id = $bug");
 
 	// Connect to database
 	$dbc 	= new DBConnectionBugs();
 	$dbh 	= $dbc->connect();
-
-	// Please note: some columns are not SELECTable, such as the password and e-mail address.
-	// They will return an error.
-	$query = "SELECT DISTINCT
-	BUG.bug_id,
-	BUG.short_desc,
-	BUG.bug_severity,
-	BUG.bug_status,
-	BUG.resolution,
-	BUG.creation_ts,
-	BUG.delta_ts,
-	BUG.lastdiffed,
-	BUG.estimated_time,
-	BUG.remaining_time,
-	BUG.priority,
-	BUG.version,
-	BUG.target_milestone,
-	BUG.votes,
-	PROF.realname
-FROM 
-	bugs as BUG,
-	profiles as PROF
-WHERE
-	BUG.reporter = PROF.userid AND
-	BUG.bug_id = $bug";
-
 	$rs 	= mysql_query($sql_info, $dbh);
-	
 	if(mysql_errno($dbh) > 0) {
 		echo "There was an error processing the request:\n\n$query".
 		// Mysql disconnects automatically, but I like my disconnects to be explicit.
