@@ -17,24 +17,38 @@
 	
 	$query = ($query?$query:"SELECT DISTINCT
   BUG.bug_id,
-  BUG.short_desc,
-  USR.realname AS somedude
+  PROD.name as PNAME, CMP.name as CNAME,
+  PROF.realname
+  BUG.short_desc, 
+  BUG.priority, BUG.bug_severity, 
+  BUG.bug_status, BUG.resolution,
+  BUG.creation_ts, BUG.lastdiffed,
+  BUG.version, BUG.target_milestone, BUG.votes,
 FROM 
-  bugs AS BUG
-  INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
+  bugs as BUG,
+  profiles as PROF,
+  bugs_activity as ACT,
+  products as PROD,
+  components as CMP,
+  longdescs as TXT
 WHERE
+  BUG.reporter = PROF.userid AND
+  CMP.id = BUG.component_id AND
+  PROD.id = BUG.product_id AND
+  BUG.bug_id = TXT.bug_id AND
+  BUG.bug_id = ACT.bug_id AND
   BUG.bug_id = $bug");
 
 	echo '
 <html>
 <head></head>
 <body>
-<table><tr><td align="right"><form method=post>
-	<pre>Results for query:</pre>
-	<textarea style="font-size:10px" name=query rows=30 cols=50>'.$query.'</textarea><br>
+<table><tr valign="top"><td align="right"><form method=post>
+	<pre>Query:</pre>
+	<textarea style="font-size:10px" name=query rows=30 cols=60>'.$query.'</textarea><br>
 	<input type=submit name="Submit" style="font-size:12px">
 </form></td><td>&nbsp;&nbsp;</td>
-<td>';
+<td><pre>Results:</pre>';
 	
 	if ($query) { 
 		echo "<pre style=\"color:blue\">";
