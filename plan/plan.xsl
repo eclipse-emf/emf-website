@@ -92,7 +92,7 @@
 	</b>
 	<p>
 	<table>
-		<tr><td>Development Plans: </td><td><a href="#EMF">EMF</a> :: <a href="#XSD">XSD</a></td></tr>
+		<tr><td>Development Plans: </td><td><a href="#EMF">EMF</a> :: <a href="#XSD">XSD</a> :: <a href="index.php">Other Plan Versions</a></td></tr>
 	</table>
 	</p>
 	<p>Plan Priorities are on a scale from 1 to 4 where 1 is most prioritized, 4 is least prioritized.<br/>
@@ -222,4 +222,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.10 2005/07/15 19:22:02 nickb Exp $ -->
+<!-- $Id: plan.xsl,v 1.11 2005/07/19 17:52:13 nickb Exp $ -->
