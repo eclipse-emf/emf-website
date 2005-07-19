@@ -38,38 +38,38 @@
 //						INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
 //				WHERE
 //						BUG.bug_id = $bug";
-	$query = "SELECT 
-						BUG.bug_id,
-						PROD.name,
-						CMP.name,
-						BUG.short_desc,
-						BUG.bug_severity,
-						BUG.bug_status,
-						BUG.resolution,
-						BUG.creation_ts,
-						BUG.delta_ts,
-						BUG.lastdiffed,
-						BUG.estimated_time,
-						BUG.remaining_time,
-						BUG.priority,
-						BUG.version,
-						BUG.target_milestone,
-						BUG.votes,
-						PROF.realname
-				FROM 
-						bugs AS BUG,
-						profiles AS PROF,
-						bugs_activity as ACT,
-						products as PROD,
-						components as CMP,
-						longdescs as TXT,
-				WHERE
-						BUG.reporter = PROF.userid AND
-						CMP.id = BUG.component_id AND
-						PROD.id = BUG.product_id AND
-						BUG.bug_id = TXT.bug_id AND
-						BUG.bug_id = ACT.bug_id AND
-						BUG.bug_id = $bug";
+$query = "SELECT 
+		BUG.bug_id,
+		PROD.name,
+		CMP.name,
+		BUG.short_desc,
+		BUG.bug_severity,
+		BUG.bug_status,
+		BUG.resolution,
+		BUG.creation_ts,
+		BUG.delta_ts,
+		BUG.lastdiffed,
+		BUG.estimated_time,
+		BUG.remaining_time,
+		BUG.priority,
+		BUG.version,
+		BUG.target_milestone,
+		BUG.votes,
+		PROF.realname
+FROM 
+		bugs AS BUG,
+		profiles AS PROF,
+		bugs_activity as ACT,
+		products as PROD,
+		components as CMP,
+		longdescs as TXT
+WHERE
+		BUG.reporter = PROF.userid AND
+		CMP.id = BUG.component_id AND
+		PROD.id = BUG.product_id AND
+		BUG.bug_id = TXT.bug_id AND
+		BUG.bug_id = ACT.bug_id AND
+		BUG.bug_id = $bug";
 	
 	$rs 	= mysql_query($query, $dbh);
 	
