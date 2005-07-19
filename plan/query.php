@@ -23,6 +23,8 @@
 	$query = $_GET["query"];
 	$bug = $_GET["bug"];
 
+	if ($bug) { echo "Data for bug $bug ...\n\n"; }
+	
 	$query = ($query?$query:"
 SELECT DISTINCT
 	BUG.bug_id,
@@ -43,35 +45,44 @@ WHERE
 </form>
 <pre>';
 	
-	# Connect to database
-	$dbc 	= new DBConnectionBugs();
-	$dbh 	= $dbc->connect();
+	if ($query) { 
 
-	$rs 	= mysql_query($query, $dbh);
-	
-	if(mysql_errno($dbh) > 0) {
-		echo "There was an error processing the request:\n\n$query\n\n".
+		echo "Results for query: \n\n$query\n\n";
+
+		# Connect to database
+		$dbc 	= new DBConnectionBugs();
+		$dbh 	= $dbc->connect();
+
+		$rs 	= mysql_query($query, $dbh);
 		
-		# For debugging purposes - don't display this stuff in a production page.
-		echo "Error: ".mysql_error($dbh)."\n";
-		
-		# Mysql disconnects automatically, but I like my disconnects to be explicit.
-		$dbc->disconnect();
-		exit;
-	}
-		
-	while($myrow = mysql_fetch_assoc($rs)) {
-		foreach ($myrow as $k => $v) { 
-			echo "$k => $v\n";
+		if(mysql_errno($dbh) > 0) {
+			echo "There was an error processing the request:\n\n$query\n\n".
+			
+			# For debugging purposes - don't display this stuff in a production page.
+			echo "Error: ".mysql_error($dbh)."\n";
+			
+			# Mysql disconnects automatically, but I like my disconnects to be explicit.
+			$dbc->disconnect();
+			exit;
 		}
-	}
-	
-	$dbc->disconnect();
+			
+		while($myrow = mysql_fetch_assoc($rs)) {
+			foreach ($myrow as $k => $v) { 
+				echo "$k => $v\n";
+			}
+		}
+		
+		$dbc->disconnect();
 
-	$rs 		= null;
-	$dbh 		= null;
-	$dbc 		= null;
-?>
+		$rs 		= null;
+		$dbh 		= null;
+		$dbc 		= null;
+	}
+
+	echo '
 </pre>
 </body>
 </html>
+';
+
+?>

@@ -21,6 +21,8 @@
 	header("Content-Type: text/plain");
 
 	$bug = $_GET["bug"];
+
+	echo "Data for bug $bug ...\n";
 	
 	# Connect to database
 	$dbc 	= new DBConnectionBugs();
@@ -45,8 +47,8 @@
 	BUG.votes,
 	PROF.realname
 FROM 
-	bugs AS BUG,
-	profiles AS PROF,
+	bugs as BUG,
+	profiles as PROF,
 	bugs_activity as ACT,
 	products as PROD,
 	components as CMP,
