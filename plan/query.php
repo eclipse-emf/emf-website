@@ -49,10 +49,6 @@ WHERE
 		
 		if(mysql_errno($dbh) > 0) {
 			echo "There was an error processing the request:\n\n$query\n\n".
-			
-			# For debugging purposes - don't display this stuff in a production page.
-			echo "Error: ".mysql_error($dbh)."\n";
-			
 			# Mysql disconnects automatically, but I like my disconnects to be explicit.
 			$dbc->disconnect();
 			$dbh = null;
