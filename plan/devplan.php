@@ -1,22 +1,12 @@
 <?php
-	# Props to Denis Roy (webmaster@eclipse.org) for the basecode from which this script grew.
-	# --
-	# Sample PHP code to issue a Bugzilla query.
-	# Logic, DB and Presentation lumped here for simplicity.
-	#
-	# Please avoid using aggregate functions (COUNT, SUM, MAX, MIN, etc) on busy web pages.
-	# For bugzilla this is not critical as the tables are small (<10,000,000 records)
-	# but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
-	#
-	# I use phpeclipse.de's PHP plugin for Eclipse.
-	#
-	# D.
-	# --
+	// Props to Denis Roy (webmaster@eclipse.org) for the basecode from which this script grew.
+	// Logic, DB and Presentation lumped here for simplicity.
+	// Please avoid using aggregate functions (COUNT, SUM, MAX, MIN, etc) on busy web pages.
+	// For bugzilla this is not critical as the tables are small (<10,000,000 records)
+	// but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
 	
-	# Load up the classfile
-	# You need to tell the WebMaster from which URL you are loading this class from, 
-	# otherwise the connect() will fail.
-//	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
+	// Load up the classfile - need to tell the WebMaster from which URL you are loading this class from, otherwise the connect() will fail.
+	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
 	header("Content-Type: text/plain");
 
@@ -24,7 +14,7 @@
 
 	echo "Data for bug $bug ...\n";
 	
-	# Connect to database
+	// Connect to database
 	$dbc 	= new DBConnectionBugs();
 	$dbh 	= $dbc->connect();
 
@@ -66,10 +56,10 @@ WHERE
 	if(mysql_errno($dbh) > 0) {
 		echo "There was an error processing the request:\n\n$query".
 		
-		# For debugging purposes - don't display this stuff in a production page.
+		// For debugging purposes - don't display this stuff in a production page.
 		echo "Error: ".mysql_error($dbh)."\n";
 		
-		# Mysql disconnects automatically, but I like my disconnects to be explicit.
+		// Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		exit;
 	}
@@ -82,7 +72,7 @@ WHERE
 	
 	$dbc->disconnect();
 
-	$rs 		= null;
-	$dbh 		= null;
-	$dbc 		= null;
+	$rs  = null;
+	$dbh = null;
+	$dbc = null;
 ?>
