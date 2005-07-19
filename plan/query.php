@@ -43,9 +43,9 @@ WHERE
 <html>
 <head></head>
 <body>
-<table><form method=post><tr valign="top"><td align="right">
+<table><form method=post><tr valign="top"><td align="left">
 	<pre>Query:</pre>
-	<textarea style="font-size:10px" name=query rows=30 cols=60>'.$query.'</textarea><br>
+	<textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br>
 	<input type=submit name="Submit" style="font-size:12px">
 </td><td>&nbsp;&nbsp;</td>
 <td><pre>Results:</pre>';
