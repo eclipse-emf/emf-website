@@ -39,8 +39,8 @@
 //				WHERE
 //						BUG.bug_id = $bug";
 	$query = "SELECT 
-						BUG.bug_id, 
-						BUG.product_id,
+						BUG.bug_id,
+						PROD.name,
 						CMP.name,
 						BUG.short_desc,
 						BUG.bug_severity,
@@ -60,9 +60,9 @@
 						bugs AS BUG,
 						profiles AS PROF,
 						bugs_activity as ACT,
-						products as PROD
-						components as CMP
-						longdescs as TXT
+						products as PROD,
+						components as CMP,
+						longdescs as TXT,
 				WHERE
 						BUG.reporter = PROF.userid AND
 						CMP.id = BUG.component_id AND
