@@ -18,6 +18,8 @@
 	# otherwise the connect() will fail.
 	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
+	header("Content-Type: text/plain");
+
 	$bug = $_GET["bug"];
 	
 	# Connect to database
@@ -51,7 +53,7 @@
 	}
 		
 	while($myrow = mysql_fetch_assoc($rs)) {
-		echo "Bug ID: " . $myrow['bug_id'] . " Description: " . $myrow['short_desc'] . " Reporter: " . $myrow['somedude'];
+		echo "Bug ID: " . $myrow['bug_id'] . "\n\tDescription: " . $myrow['short_desc'] . "\n\tReporter: " . $myrow['somedude']."\n";
 		
 	}
 	
