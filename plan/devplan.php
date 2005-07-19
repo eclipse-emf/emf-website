@@ -29,17 +29,49 @@
 
 	# Please note: some columns are not SELECTable, such as the password and e-mail address.
 	# They will return an error.
-	$sql_info = "SELECT 
+//	$query = "SELECT 
+//						BUG.bug_id, 
+//						BUG.short_desc,
+//						USR.realname AS somedude
+//				FROM 
+//						bugs AS BUG
+//						INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
+//				WHERE
+//						BUG.bug_id = $bug";
+	$query = "SELECT 
 						BUG.bug_id, 
+						BUG.product_id,
+						CMP.name,
 						BUG.short_desc,
-						USR.realname AS somedude
+						BUG.bug_severity,
+						BUG.bug_status,
+						BUG.resolution,
+						BUG.creation_ts,
+						BUG.delta_ts,
+						BUG.lastdiffed,
+						BUG.estimated_time,
+						BUG.remaining_time,
+						BUG.priority,
+						BUG.version,
+						BUG.target_milestone,
+						BUG.votes,
+						PROF.realname
 				FROM 
-						bugs AS BUG
-						INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
+						bugs AS BUG,
+						profiles AS PROF,
+						bugs_activity as ACT,
+						products as PROD
+						components as CMP
+						longdescs as TXT
 				WHERE
+						BUG.reporter = PROF.userid AND
+						CMP.id = BUG.component_id AND
+						PROD.id = BUG.product_id AND
+						BUG.bug_id = TXT.bug_id AND
+						BUG.bug_id = ACT.bug_id AND
 						BUG.bug_id = $bug";
 	
-	$rs 	= mysql_query($sql_info, $dbh);
+	$rs 	= mysql_query($query, $dbh);
 	
 	if(mysql_errno($dbh) > 0) {
 		echo "There was an error processing this request".
@@ -53,7 +85,10 @@
 	}
 		
 	while($myrow = mysql_fetch_assoc($rs)) {
-		echo "Bug ID: " . $myrow['bug_id'] . "\n\tDescription: " . $myrow['short_desc'] . "\n\tReporter: " . $myrow['somedude']."\n";
+		foreach ($myrow as $k => $v) { 
+			echo "$k => $v\n";
+		}
+		//echo "Bug ID: " . $myrow['bug_id'] . "\n\tDescription: " . $myrow['short_desc'] . "\n\tReporter: " . $myrow['realname']."\n";
 		
 	}
 	
