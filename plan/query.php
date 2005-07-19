@@ -12,8 +12,8 @@
 
 	header("Content-Type: text/html");
 
-	$query = $_GET["query"];
 	$bug = $_GET["bug"];
+	$query = $_POST["query"];
 
 	if ($bug) { echo "Data for bug $bug ...\n\n"; }
 	
