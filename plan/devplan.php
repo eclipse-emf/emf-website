@@ -42,7 +42,7 @@ WHERE
 	// Connect to database
 	$dbc 	= new DBConnectionBugs();
 	$dbh 	= $dbc->connect();
-	$rs 	= mysql_query($sql_info, $dbh);
+	$rs 	= mysql_query($query, $dbh);
 	if(mysql_errno($dbh) > 0) {
 		echo "There was an error processing the request:\n\n$query".
 		// Mysql disconnects automatically, but I like my disconnects to be explicit.
