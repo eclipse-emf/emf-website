@@ -16,7 +16,7 @@
 	# Load up the classfile
 	# You need to tell the WebMaster from which URL you are loading this class from, 
 	# otherwise the connect() will fail.
-	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
+//	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
 	header("Content-Type: text/plain");
 
