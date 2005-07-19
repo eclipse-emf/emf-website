@@ -26,19 +26,7 @@
 	$dbc 	= new DBConnectionBugs();
 	$dbh 	= $dbc->connect();
 
-
-	# Please note: some columns are not SELECTable, such as the password and e-mail address.
-	# They will return an error.
-//	$query = "SELECT 
-//						BUG.bug_id, 
-//						BUG.short_desc,
-//						USR.realname AS somedude
-//				FROM 
-//						bugs AS BUG
-//						INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
-//				WHERE
-//						BUG.bug_id = $bug";
-$query = "SELECT DISTINCT
+	$query = "SELECT DISTINCT
 	BUG.bug_id,
 	PROD.name as PNAME,
 	CMP.name as CNAME,
@@ -71,7 +59,7 @@ WHERE
 	BUG.bug_id = ACT.bug_id AND
 	BUG.bug_id = $bug";
 	
-	$rs 	= mysql_query($query, $dbh);
+	$rs = mysql_query($query, $dbh);
 	
 	if(mysql_errno($dbh) > 0) {
 		echo "There was an error processing the request:\n\n$query".
