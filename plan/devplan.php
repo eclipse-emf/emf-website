@@ -1,78 +1,65 @@
 <?php
-	// Props to Denis Roy (webmaster@eclipse.org) for the basecode from which this script grew.
-	// Logic, DB and Presentation lumped here for simplicity.
-	// Please avoid using aggregate functions (COUNT, SUM, MAX, MIN, etc) on busy web pages.
-	// For bugzilla this is not critical as the tables are small (<10,000,000 records)
-	// but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
+	# Props to Denis Roy (webmaster@eclipse.org) for the basecode from which this script grew.
+	# --
+	# Sample PHP code to issue a Bugzilla query.
+	# Logic, DB and Presentation lumped here for simplicity.
+	#
+	# Please avoid using aggregate functions (COUNT, SUM, MAX, MIN, etc) on busy web pages.
+	# For bugzilla this is not critical as the tables are small (<10,000,000 records)
+	# but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
+	#
+	# I use phpeclipse.de's PHP plugin for Eclipse.
+	#
+	# D.
+	# --
 	
-	// Load up the classfile - need to tell the WebMaster from which URL you are loading this class from, otherwise the connect() will fail.
-//	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
+	# Load up the classfile
+	# You need to tell the WebMaster from which URL you are loading this class from, 
+	# otherwise the connect() will fail.
+	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
-//	header("Content-Type: text/plain");
+	header("Content-Type: text/plain");
 
 	$bug = $_GET["bug"];
-
-	echo "Data for bug $bug ...\n";
 	
-	// Connect to database
+	# Connect to database
 	$dbc 	= new DBConnectionBugs();
 	$dbh 	= $dbc->connect();
 
-	$query = "SELECT DISTINCT
-	BUG.bug_id,
-	PROD.name as PNAME,
-	CMP.name as CNAME,
-	BUG.short_desc,
-	BUG.bug_severity,
-	BUG.bug_status,
-	BUG.resolution,
-	BUG.creation_ts,
-	BUG.delta_ts,
-	BUG.lastdiffed,
-	BUG.estimated_time,
-	BUG.remaining_time,
-	BUG.priority,
-	BUG.version,
-	BUG.target_milestone,
-	BUG.votes,
-	PROF.realname
-FROM 
-	bugs as BUG,
-	profiles as PROF,
-	bugs_activity as ACT,
-	products as PROD,
-	components as CMP,
-	longdescs as TXT
-WHERE
-	BUG.reporter = PROF.userid AND
-	CMP.id = BUG.component_id AND
-	PROD.id = BUG.product_id AND
-	BUG.bug_id = TXT.bug_id AND
-	BUG.bug_id = ACT.bug_id AND
-	BUG.bug_id = $bug";
+
+	# Please note: some columns are not SELECTable, such as the password and e-mail address.
+	# They will return an error.
+	$sql_info = "SELECT 
+						BUG.bug_id, 
+						BUG.short_desc,
+						USR.realname AS somedude
+				FROM 
+						bugs AS BUG
+						INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
+				WHERE
+						BUG.bug_id = $bug";
 	
-	$rs = mysql_query($query, $dbh);
+	$rs 	= mysql_query($sql_info, $dbh);
 	
 	if(mysql_errno($dbh) > 0) {
-		echo "There was an error processing the request:\n\n$query".
+		echo "There was an error processing this request".
 		
-		// For debugging purposes - don't display this stuff in a production page.
-		echo "Error: ".mysql_error($dbh)."\n";
+		# For debugging purposes - don't display this stuff in a production page.
+		# echo mysql_error($dbh);
 		
-		// Mysql disconnects automatically, but I like my disconnects to be explicit.
+		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		exit;
 	}
 		
 	while($myrow = mysql_fetch_assoc($rs)) {
-		foreach ($myrow as $k => $v) { 
-			echo "$k => $v\n";
-		}
+		echo "Bug ID: " . $myrow['bug_id'] . "\n\tDescription: " . $myrow['short_desc'] . "\n\tReporter: " . $myrow['somedude']."\n";
+		
 	}
 	
 	$dbc->disconnect();
 
-	$rs  = null;
-	$dbh = null;
-	$dbc = null;
+	$rs 		= null;
+	$dbh 		= null;
+	$dbc 		= null;
 ?>
