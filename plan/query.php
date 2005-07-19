@@ -21,11 +21,7 @@
 	$query = $_GET["query"];
 	$bug = $_GET["bug"];
 
-	echo '
-<html>
-<head></head>
-<body><form>
-	<textarea name=query rows=10 cols=40>'.($query?$query:'SELECT 
+	$query = ($query?$query:'SELECT 
 		BUG.bug_id, 
 		BUG.short_desc,
 		USR.realname AS somedude
@@ -33,8 +29,12 @@ FROM
 		bugs AS BUG
 		INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
 WHERE
-		BUG.bug_id = '.$bug).'
-</textarea>
+		BUG.bug_id = '.$bug);
+	echo '
+<html>
+<head></head>
+<body><form method=post>
+	<textarea name=query rows=10 cols=40>'.$query.'</textarea>
 	<input type=submit>
 </form>
 <pre>';
