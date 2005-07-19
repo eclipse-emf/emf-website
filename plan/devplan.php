@@ -38,38 +38,38 @@
 //						INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
 //				WHERE
 //						BUG.bug_id = $bug";
-$query = "SELECT 
-		BUG.bug_id,
-		PROD.name,
-		CMP.name,
-		BUG.short_desc,
-		BUG.bug_severity,
-		BUG.bug_status,
-		BUG.resolution,
-		BUG.creation_ts,
-		BUG.delta_ts,
-		BUG.lastdiffed,
-		BUG.estimated_time,
-		BUG.remaining_time,
-		BUG.priority,
-		BUG.version,
-		BUG.target_milestone,
-		BUG.votes,
-		PROF.realname
+$query = "SELECT DISTINCT
+	BUG.bug_id,
+	PROD.name as PNAME,
+	CMP.name as CNAME,
+	BUG.short_desc,
+	BUG.bug_severity,
+	BUG.bug_status,
+	BUG.resolution,
+	BUG.creation_ts,
+	BUG.delta_ts,
+	BUG.lastdiffed,
+	BUG.estimated_time,
+	BUG.remaining_time,
+	BUG.priority,
+	BUG.version,
+	BUG.target_milestone,
+	BUG.votes,
+	PROF.realname
 FROM 
-		bugs AS BUG,
-		profiles AS PROF,
-		bugs_activity as ACT,
-		products as PROD,
-		components as CMP,
-		longdescs as TXT
+	bugs AS BUG,
+	profiles AS PROF,
+	bugs_activity as ACT,
+	products as PROD,
+	components as CMP,
+	longdescs as TXT
 WHERE
-		BUG.reporter = PROF.userid AND
-		CMP.id = BUG.component_id AND
-		PROD.id = BUG.product_id AND
-		BUG.bug_id = TXT.bug_id AND
-		BUG.bug_id = ACT.bug_id AND
-		BUG.bug_id = $bug";
+	BUG.reporter = PROF.userid AND
+	CMP.id = BUG.component_id AND
+	PROD.id = BUG.product_id AND
+	BUG.bug_id = TXT.bug_id AND
+	BUG.bug_id = ACT.bug_id AND
+	BUG.bug_id = $bug";
 	
 	$rs 	= mysql_query($query, $dbh);
 	
@@ -77,7 +77,7 @@ WHERE
 		echo "There was an error processing the request:\n\n$query".
 		
 		# For debugging purposes - don't display this stuff in a production page.
-		# echo mysql_error($dbh);
+		echo "Error: ".mysql_error($dbh)."\n";
 		
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
@@ -88,8 +88,6 @@ WHERE
 		foreach ($myrow as $k => $v) { 
 			echo "$k => $v\n";
 		}
-		//echo "Bug ID: " . $myrow['bug_id'] . "\n\tDescription: " . $myrow['short_desc'] . "\n\tReporter: " . $myrow['realname']."\n";
-		
 	}
 	
 	$dbc->disconnect();

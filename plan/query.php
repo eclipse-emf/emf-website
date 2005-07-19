@@ -18,18 +18,22 @@
 	# otherwise the connect() will fail.
 	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
+	header("Content-Type: text/html");
+
 	$query = $_GET["query"];
 	$bug = $_GET["bug"];
 
-	$query = ($query?$query:'SELECT 
-		BUG.bug_id, 
-		BUG.short_desc,
-		USR.realname AS somedude
+	$query = ($query?$query:"
+SELECT DISTINCT
+	BUG.bug_id,
+	BUG.short_desc,
+	USR.realname AS somedude
 FROM 
-		bugs AS BUG
-		INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
+	bugs AS BUG
+	INNER JOIN profiles AS USR ON USR.userid = BUG.reporter
 WHERE
-		BUG.bug_id = '.$bug);
+	BUG.bug_id = $bug");
+
 	echo '
 <html>
 <head></head>
@@ -49,7 +53,7 @@ WHERE
 		echo "There was an error processing the request:\n\n$query\n\n".
 		
 		# For debugging purposes - don't display this stuff in a production page.
-		echo "Error: ".mysql_error($dbh);
+		echo "Error: ".mysql_error($dbh)."\n";
 		
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
@@ -60,8 +64,6 @@ WHERE
 		foreach ($myrow as $k => $v) { 
 			echo "$k => $v\n";
 		}
-		//echo "Bug ID: " . $myrow['bug_id'] . "\n\tDescription: " . $myrow['short_desc'] . "\n\tReporter: " . $myrow['realname']."\n";
-		
 	}
 	
 	$dbc->disconnect();
