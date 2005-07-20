@@ -63,7 +63,7 @@ ORDER BY
 ASC
 
 #--------#--------#--------#--------
-# get bug comments (Description and Additional Comments) for a given bug
+# get text (Description / Add. Comments) for a given bug
 
 SELECT DISTINCT
   PROF.realname, TXT.bug_when, TXT.thetext
@@ -80,7 +80,7 @@ ORDER BY
 ASC
 
 #--------#--------#--------#--------
-# get committer name/details for a given id, from comments
+# get committer name for a given id, from comments
 
 SELECT DISTINCT
   PROF.userid, PROF.realname
@@ -92,7 +92,7 @@ WHERE
   TXT.who = 2253
 
 #--------#--------#--------#--------
-# get committer name/details for a given id, from bug
+# get committer name for a given id, from bug
 
 SELECT DISTINCT
   PROF.userid, PROF.realname
