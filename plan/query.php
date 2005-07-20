@@ -20,7 +20,9 @@
 <body>
 <table><form method=post><tr valign="top"><td align="left">
 	<pre>Query:</pre>
-	<textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><pre style="font-size:12px;color:navy">
+	<textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea>
+	<input type=submit name="Submit" style="font-size:12px">
+	<pre style="font-size:12px;color:navy">
 
 #--------#--------#--------#--------
 # get bug details for a given bug
@@ -102,7 +104,6 @@ WHERE
   BUG.reporter = 2253
 
 </pre>
-	<input type=submit name="Submit" style="font-size:12px">
 </td><td>&nbsp;&nbsp;</td>
 <td>';
 	if ($query) { 
@@ -124,7 +125,7 @@ WHERE
 		}
 			
 		while($myrow = mysql_fetch_assoc($rs)) {
-			echo "<hr noshade size=1/>\n";
+			echo "<hr noshade size=1/>";
 			foreach ($myrow as $k => $v) { 
 				echo "$k => $v\n";
 			}
