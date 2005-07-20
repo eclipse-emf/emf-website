@@ -20,7 +20,7 @@
 <body>
 <table><form method=post><tr valign="top"><td align="left">
 	<pre>Query:</pre>
-	<textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea>
+	<textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br/>
 	<input type=submit name="Submit" style="font-size:12px">
 	<pre style="font-size:12px;color:navy">
 
@@ -48,14 +48,21 @@ WHERE
   BUG.bug_id = 61639
 
 #--------#--------#--------#--------
-# get activity for a given bug
+# get activity (changes) for a given bug
+# fielddefs gives field names/descs
 
 SELECT DISTINCT 
-  ACT.who, ACT.bug_when, ACT.fieldid, ACT.added, ACT.removed
+  ACT.bug_when, PROF.realname, 
+  FLD.name, FLD.description, 
+  ACT.removed, ACT.added
 FROM 
   bugs as BUG,
-  bugs_activity as ACT
+  bugs_activity as ACT,
+  profiles as PROF, 
+  fielddefs as FLD
 WHERE 
+  ACT.who = PROF.userid AND 
+  FLD.fieldid = ACT.fieldid AND
   BUG.bug_id = ACT.bug_id AND 
   BUG.bug_id = 61639
 ORDER BY
@@ -78,6 +85,18 @@ WHERE
 ORDER BY
   bug_when
 ASC
+
+#--------#--------#--------#--------
+# get committer name for a given id, from activity
+
+SELECT DISTINCT
+  PROF.userid, PROF.realname
+FROM 
+  profiles as PROF, 
+  bugs_activity as ACT
+WHERE 
+  ACT.who = PROF.userid AND 
+  ACT.who = 2253
 
 #--------#--------#--------#--------
 # get committer name for a given id, from comments
