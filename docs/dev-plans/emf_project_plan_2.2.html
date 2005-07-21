@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type"
     content="text/html; charset=utf-8" />
 
-    <title>Eclipse EMF (XSD and SDO) - DRAFT 2.1.0 Plan</title>
+    <title>Eclipse EMF, SDO and XSD - DRAFT 2.1.0 Plan</title>
 
     <link rel="stylesheet" href="images/../../book.css"
     type="text/css" />
@@ -18,6 +18,22 @@
 <script language="javascript">
 <!-- 
         function goTo(mile,stat) {
+				if (mile=='all')
+				{
+					mile='';
+				} else if (mile=='2.2')
+				{
+					mile='';
+					mile+='target_milestone%3D2.2%26';
+					mile+='target_milestone%3D2.2+M1%26';
+					mile+='target_milestone%3D2.2+M2%26';
+					mile+='target_milestone%3D2.2+M3%26';
+					mile+='target_milestone%3D2.2+M4%26';
+				} else
+				{
+					mile='target_milestone%3D'+mile+'%26';
+				}
+
             document.location.href='https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery='+
                 'product%3DEMF%2CXSD%26'+
                     (stat=='open'||stat=='all'
@@ -26,19 +42,20 @@
                           'bug_status%3DASSIGNED%26'
                         : ''
                     )+
-                    (stat=='closed'||stat=='all'
+                    (stat=='resolved'||stat=='all'
                         ? 'bug_status%3DUNCONFIRMED%26'+
                           'bug_status%3DRESOLVED%26'+
                           'bug_status%3DVERIFIED%26'+
                           'bug_status%3DCLOSED%26'
                         : ''
                     )+
-                (mile=='all'?'':'target_milestone%3D'+mile+'%26')+
+                mile+
                 'order%3D'+
                     'bugs.bug_status%2C'+
                     'bugs.target_milestone%2C'+
                     'bugs.bug_id'+
                 '%26query_format%3Dadvanced'+
+                '&column_opendate=on'+
                 '&column_changeddate=on'+
                 '&column_bug_severity=on'+
                 '&column_priority=on'+
@@ -59,7 +76,7 @@
  and Service Data Objects (SDO) frameworks</h3>
 
 
-      <p>Last revised <tt>$Date: 2005/07/15 16:32:01 $</tt> ( 
+      <p>Last revised <tt>$Date: 2005/07/21 23:02:12 $</tt> ( 
       <img width="12" height="12" src="images/../../../images/green-box.gif"
       border="0" />
 
@@ -106,7 +123,7 @@
         </li>
 
         <li>
-          <a href="#Project">EMF (XSD and SDO) feature plans</a>
+          <a href="#Project">EMF, SDO and XSD feature plans</a>
         </li>
       </ul>
 
@@ -185,10 +202,10 @@
 
         .</li>
 
-        <li>EMF (XSD and SDO) runtime binaries and SDK distributions
+        <li>EMF, SDO and XSD runtime binaries and SDK distributions
         (downloadable).</li>
 
-        <li>EMF (XSD and SDO) runtime binaries and SDK features on
+        <li>EMF, SDO and XSD runtime binaries and SDK features on
         eclipse.org update site (install via Eclipse update
         manager).</li>
       </ul>
@@ -199,7 +216,7 @@
 
       Release milestones</h2>
 
-      <p>EMF (XSD and SDO) builds are available weekly as <em>Integration
+      <p>EMF, SDO and XSD builds are available weekly as <em>Integration
       builds</em>. EMF Milestone Releases are <b>one week</b> after the <a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_2.html#Milestones">Eclipse Milestone Releases</a>.
       
       <h2>
@@ -220,7 +237,7 @@
       system. The chief dependence is on the Eclipse Platform, and
       on the Java 2 Platform that runs it.</p>
 
-      <p>The EMF (XSD and SDO) 2.2.0 releases depend on the
+      <p>The EMF, SDO and XSD 2.2.0 releases depend on the
       following:</p>
 
       <ul type="disc">
@@ -272,7 +289,7 @@
       <p>Eclipse is designed as the basis for internationalized
       products. The user interface elements provided by the various
       Eclipse projects, including dialogs and error messages, are
-      externalized. The English strings for EMF (XSD and SDO) are
+      externalized. The English strings for EMF, SDO and XSD are
       provided as the default resource bundles. Translations are
       not provided with this release. However, the plug-in fragment
       mechanism provides the means by which translations into any
@@ -286,24 +303,24 @@
 
       <h3>Compatibility of Release 2.2.0 with 2.1.0</h3>
 
-      <p>EMF (XSD and SDO) 2.2.0 will be compatible with
-      EMF (XSD and SDO) 2.1.0.</p>
+      <p>EMF, SDO and XSD 2.2.0 will be compatible with
+      EMF, SDO and XSD 2.1.0.</p>
 
       <p>
       <b>API Contract Compatibility:</b>
 
-      EMF (XSD and SDO) 2.2.0 will be upwards contract-compatible
-      with EMF (XSD and SDO) 2.1.0 except in those areas noted in the
+      EMF, SDO and XSD 2.2.0 will be upwards contract-compatible
+      with EMF, SDO and XSD 2.1.0 except in those areas noted in the
       
       <a href="#MigrationGuide">
-        <em>EMF (XSD and SDO) 2.2.0 Migration Guide.</em>
+        <em>EMF, SDO and XSD 2.2.0 Migration Guide.</em>
       </a>
 
       Programs that use affected APIs and extension points will
-      need to be ported to EMF (XSD and SDO) 2.2.0 APIs. Downward
+      need to be ported to EMF, SDO and XSD 2.2.0 APIs. Downward
       contract compatibility is not supported. There is no
-      guarantee that compliance with EMF (XSD and SDO) 2.2.0 APIs
-      would ensure compliance with EMF (XSD and SDO) 1.x APIs. Refer
+      guarantee that compliance with EMF, SDO and XSD 2.2.0 APIs
+      would ensure compliance with EMF, SDO and XSD 1.x APIs. Refer
       to 
       <em>
         <a
@@ -317,15 +334,15 @@
       <p>
       <b>Binary (plug-in) Compatibility:</b>
 
-      EMF (XSD and SDO) 2.2.0 will be upwards binary-compatible with
-      EMF (XSD and SDO) 2.1.0 except in those areas noted in the 
+      EMF, SDO and XSD 2.2.0 will be upwards binary-compatible with
+      EMF, SDO and XSD 2.1.0 except in those areas noted in the 
       <a href="#MigrationGuide">
-        <em>EMF (XSD and SDO) 2.2.0 Migration Guide.</em>
+        <em>EMF, SDO and XSD 2.2.0 Migration Guide.</em>
       </a>
 
       Downward plug-in compatibility is not supported: plug-ins
-      compiled against EMF (XSD and SDO) 2.2.0 will likely be
-      unusable with EMF (XSD and SDO) 1.x. Refer to 
+      compiled against EMF, SDO and XSD 2.2.0 will likely be
+      unusable with EMF, SDO and XSD 1.x. Refer to 
       <em>
         <a
         href="http://eclipse.org/eclipse/development/java-api-evolution.html">
@@ -338,8 +355,8 @@
       <p>
       <b>Source Compatibility:</b>
 
-      Source files written to use EMF (XSD and SDO) 2.1.0 APIs will
-      usually compile and run successfully against EMF (XSD and SDO)
+      Source files written to use EMF, SDO and XSD 2.1.0 APIs will
+      usually compile and run successfully against EMF, SDO and XSD
       2.2.0 APIs, although this cannot be guaranteed. In some
       cases, it may be necessary to make minor changes to the
       source code to disambiguate things like imports or overloaded
@@ -350,11 +367,11 @@
       <p>
       <b>Workspace Compatibility:</b>
 
-      EMF (XSD and SDO) 2.2.0 will be upwards
-      workspace-compatible with EMF (XSD and SDO) 2.1.0 unless noted.
+      EMF, SDO and XSD 2.2.0 will be upwards
+      workspace-compatible with EMF, SDO and XSD 2.1.0 unless noted.
       This means that workspaces and projects created by an Eclipse
-      with EMF (XSD and SDO) 2.1.0 installed can be successfully
-      opened by an Eclipse with EMF (XSD and SDO) 2.2.0 installed.
+      with EMF, SDO and XSD 2.1.0 installed can be successfully
+      opened by an Eclipse with EMF, SDO and XSD 2.2.0 installed.
       This includes both hidden metadata, which is localized to a
       particular workspace, as well as metadata files found within
       a workspace project, which may propagate between workspaces
@@ -387,7 +404,7 @@
       <a name="MigrationGuide">
       </a>
 
-      EMF (XSD and SDO) 2.2.0 Migration Guide</h3>
+      EMF, SDO and XSD 2.2.0 Migration Guide</h3>
 
       <p>At this time, there are no known issues migrating from
       2.1.0 to 2.2.0. Should this change, this document will be
@@ -436,9 +453,9 @@
       <a name="Project">
       </a>
 
-     EMF (XSD and SDO) feature plans</h2>
+     EMF, SDO and XSD feature plans</h2>
 
-      <p>Plan items reflect new features of the EMF (XSD and SDO)
+      <p>Plan items reflect new features of the EMF, SDO and XSD
       project, or areas where existing features will be
       significantly reworked. 
 
@@ -466,7 +483,7 @@
       <a name="Committed">
       </a>
 
-      Committed Items (EMF (XSD and SDO) project)</h4>
+      Committed Items (EMF, SDO and XSD project)</h4>
 
       <blockquote>
         <p>Bugzillas with a target release or milestone of 2.2 are
@@ -478,8 +495,8 @@
         href="javascript:void(goTo('2.2','open'))">All Open</a>
 
         | 
-        <a onclick="goTo('2.2','closed')"
-        href="javascript:void(goTo('2.2','closed'))">All Closed</a>
+        <a onclick="goTo('2.2','resolved')"
+        href="javascript:void(goTo('2.2','resolved'))">All Resolved</a>
 
         | 
         <a onclick="goTo('2.2','all')"
@@ -491,7 +508,7 @@
       <a name="Proposed">
       </a>
 
-      Proposed Items (EMF (XSD and SDO) project)</h4>
+      Proposed Items (EMF, SDO and XSD project)</h4>
 
       <blockquote>
         <p>Bugzillas without a specific target release or milestone
@@ -504,8 +521,8 @@
         href="javascript:void(goTo('---','open'))">All Open</a>
 
         | 
-        <a onclick="goTo('---','closed')"
-        href="javascript:void(goTo('---','closed'))">All Closed</a>
+        <a onclick="goTo('---','resolved')"
+        href="javascript:void(goTo('---','resolved'))">All Resolved</a>
 
         | 
         <a onclick="goTo('---','all')"
@@ -517,7 +534,7 @@
       <a name="Deferred">
       </a>
 
-      Deferred Items (EMF (XSD and SDO) projects)</h4>
+      Deferred Items (EMF, SDO and XSD projects)</h4>
 
       <blockquote>
         <p>Bugzillas assigned to the non-specific target of
@@ -530,9 +547,8 @@
         href="javascript:void(goTo('Future','open'))">All Open</a>
 
         | 
-        <a onclick="goTo('Future','closed')"
-        href="javascript:void(goTo('Future','closed'))">All
-        Closed</a>
+        <a onclick="goTo('Future','resolved')"
+        href="javascript:void(goTo('Future','resolved'))">All Resolved</a>
 
         | 
         <a onclick="goTo('Future','all')"
