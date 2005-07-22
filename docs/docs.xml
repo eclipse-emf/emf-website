@@ -296,7 +296,7 @@
 
       <td>
         <a target="_out"
-        href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
+        href="http://eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
         Tutorial: Generating a Rich Client Platform (RCP)
         Application Using EMF</a>
       </td>
@@ -507,7 +507,7 @@
 
       <td>
         <a target="_out"
-        href="http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">
+        href="http://eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">
         Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)
 
         by Chaur G. Wu</td>
@@ -527,7 +527,7 @@
 
       <td>
         <a target="_out"
-        href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
+        href="http://eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
         EMF goes RCP</a> (Eclipse Corner article)
 
         by Marcelo Paternostro</td>
@@ -832,7 +832,7 @@
 
       <td>
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
       Infoset Model, Part 1</a>
 
       <br />
@@ -848,7 +848,7 @@
       <br />
 
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
       HTML</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -858,7 +858,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
       PDF</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -868,7 +868,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
       Examples</a>
 
       (zipped eclipse plugin project)</td>
@@ -888,7 +888,7 @@
 
       <td>
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
       XML Schema Infoset Model, Part 2</a>
 
       <br />
@@ -904,7 +904,7 @@
       <br />
 
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
       HTML</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -914,7 +914,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
       PDF</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -924,7 +924,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
+      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
       Examples</a>
 
       (zipped eclipse plugin project)</td>
@@ -1177,10 +1177,10 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
+        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
       </td>
 
-      <td>July 14
+      <td>July 21
       <sup>th</sup>
 
       2005</td>
@@ -1195,11 +1195,11 @@
 
       <td>
         EMF 2.2 Project Plan: <a
-        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
+        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
         Overview</a>, 
         <a
         href="http://eclipse.org/emf/plan/plan-2.2.xml">
-        Prioritized Bugs</a>, 
+        Prioritized Bugs</a>
       </td>
 
       <td>July 21
@@ -1234,7 +1234,7 @@
 
       <td>
         EMF 2.1 Project Plan: <a
-        href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
+        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
         Overview</a>, 
         <a
         href="http://eclipse.org/emf/plan/plan-2.1.xml">
@@ -1355,7 +1355,7 @@
       </td>
 
       <td>
-        <a href="http://www.eclipse.org/emf/faq/faq.php">EMF, SDO &amp; XSD
+        <a href="http://eclipse.org/emf/faq/faq.php">EMF, SDO &amp; XSD
         Frequently Asked Questions (FAQ)</a>
       </td>
 
@@ -1675,5 +1675,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.20 2005/07/22 01:41:46 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.21 2005/07/22 01:46:59 nickb Exp $ -->
 
