@@ -1194,12 +1194,15 @@
       </td>
 
       <td>
-        <a
+        EMF 2.2 Project Plan: <a
         href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
-        EMF 2.2 Development Plan</a>
+        Overview</a>, 
+        <a
+        href="http://eclipse.org/emf/plan/plan-2.2.xml">
+        Prioritized Bugs</a>, 
       </td>
 
-      <td>July 14
+      <td>July 21
       <sup>th</sup>
 
       2005</td>
@@ -1230,13 +1233,16 @@
       </td>
 
       <td>
-        <a
+        EMF 2.1 Project Plan: <a
         href="http://eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
-        EMF 2.1 Development Plan</a>; 
-        <a href="http://eclipse.org/org/processes/release-review.html">Release Review</a> Presentation: <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">PDF</a>
+        Overview</a>, 
+        <a
+        href="http://eclipse.org/emf/plan/plan-2.1.xml">
+        Prioritized Bugs</a>, 
+        <a href="http://eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)
       </td>
 
-      <td>July 6
+      <td>July 21
       <sup>th</sup>
 
       2005</td>
@@ -1669,5 +1675,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.19 2005/07/15 16:32:01 elena Exp $ -->
+<!-- $Id: docs.xml,v 1.20 2005/07/22 01:41:46 nickb Exp $ -->
 
