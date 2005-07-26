@@ -13,7 +13,7 @@
 	header("Content-Type: text/html");
 
 	$bug = $_GET["bug"]; if (!$bug) { $bug="61639"; }
-	$query = $_POST["query"];
+	$query = stripslashes($_POST["query"]);
 	echo '
 <html>
 <head></head>
