@@ -140,8 +140,8 @@ WHERE
   BUG.reporter = PROF.userid AND 
   CMP.id = BUG.component_id AND 
   PROD.id = BUG.product_id AND 
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.priority ='P1'
+  (PROD.name = \'EMF\' OR PROD.name = \'XSD\') AND
+  BUG.priority =\'P1\'
 ORDER BY
   BUG.bug_id
 DESC
@@ -157,9 +157,9 @@ FROM
   products as PROD 
 WHERE 
   PROD.id = BUG.product_id AND 
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
+  (PROD.name = \'EMF\' OR PROD.name = \'XSD\') AND
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
 
 #--------#--------#--------#--------
 # count of P1 bugs entered between two dates 
@@ -172,12 +172,12 @@ FROM
   products as PROD 
 WHERE 
   PROD.id = BUG.product_id AND 
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
-    AND (BUG.bug_status != 'RESOLVED' AND
-      BUG.resolution != 'FIXED')
-    AND BUG.priority = 'P1'
+  (PROD.name = \'EMF\' OR PROD.name = \'XSD\') AND
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
+    AND (BUG.bug_status != \'RESOLVED\' AND
+      BUG.resolution != \'FIXED\')
+    AND BUG.priority = \'P1\'
 
 #--------#--------#--------#--------
 # count of bugs marked Fixed or Resolved 
@@ -194,13 +194,13 @@ WHERE
   FLD.fieldid = ACT.fieldid AND
   PROD.id = BUG.product_id AND 
   BUG.bug_id = ACT.bug_id AND 
-  ACT.bug_when >= '2004-07-01' AND
-  ACT.bug_when <= '2005-07-07' AND
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-    ( (FLD.description = 'Resolution' AND 
-       ACT.added = 'FIXED') OR
-      (FLD.description = 'Status' AND 
-       ACT.added = 'RESOLVED') 
+  ACT.bug_when >= \'2004-07-01\' AND
+  ACT.bug_when <= \'2005-07-07\' AND
+  (PROD.name = \'EMF\' OR PROD.name = \'XSD\') AND
+    ( (FLD.description = \'Resolution\' AND 
+       ACT.added = \'FIXED\') OR
+      (FLD.description = \'Status\' AND 
+       ACT.added = \'RESOLVED\') 
     )
 #--------#--------#--------#--------
 # other useful bug contraints for count()
@@ -216,29 +216,29 @@ WHERE
   BUG.reporter = PROF.userid AND 
   CMP.id = BUG.component_id AND 
   PROD.id = BUG.product_id AND 
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+  (PROD.name = \'EMF\' OR PROD.name = \'XSD\') AND
 
 ...
 
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
 
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
-    AND (BUG.bug_status = 'RESOLVED' OR 
-      BUG.resolution = 'FIXED')
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
+    AND (BUG.bug_status = \'RESOLVED\' OR 
+      BUG.resolution = \'FIXED\')
 
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
-    AND BUG.bug_severity = 'critical'
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
+    AND BUG.bug_severity = \'critical\'
 
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
-    AND BUG.bug_severity = 'blocker'
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
+    AND BUG.bug_severity = \'blocker\'
 
-  BUG.creation_ts >= '2004-07-01' 
-    AND BUG.creation_ts <= '2005-07-07'
-    AND BUG.priority = 'P1'
+  BUG.creation_ts >= \'2004-07-01\' 
+    AND BUG.creation_ts <= \'2005-07-07\'
+    AND BUG.priority = \'P1\'
 
 </pre>
 </td><td>&nbsp;&nbsp;</td>
