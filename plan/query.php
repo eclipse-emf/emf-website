@@ -19,8 +19,7 @@
 <head></head>
 <body>
 <table><form method=post><tr valign="top"><td align="left">
-   <pre style="font-size:12px">Query:
-	<pre style="font-size:10px">separate multiple queries with semi-colon (";")</pre></pre>
+   <pre style="font-size:12px">Query:<br><i style="font-size:11px">separate multiple queries with semi-colon (";")</i></pre>
    <textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br/>
    <input type=submit name="Submit" style="font-size:12px">
    <pre style="font-size:12px;color:navy">
@@ -290,7 +289,7 @@ WHERE
 		$queries = array($query);
 	}
 	$query=null;
-	foreach ($query as $i => $queries) { 
+	foreach ($queries as $i => $query) { 
 		if ($query) { 
 			echo "<pre>Results".(sizeof($queries)>1?"[".($i+1)."]":"").":</pre>\n";
 			echo "<pre style=\"color:blue\">";
