@@ -128,8 +128,7 @@ foreach ($queries as $label => $query) {
 
 	echo '
 <tr><td colspan="3">
-	<pre style="font-size:12px;color:red">'.$cnt.'. </pre>
-	<pre style="font-size:12px;color:blue">'.$label.'</pre></td></tr>
+	<pre style="font-size:12px;color:red">'.$cnt.'. </pre><pre style="font-size:12px;color:blue">'.$label.'</pre></td></tr>
 	
 <tr valign="top">
 	<td><pre style="font-size:12px;color:navy">'.$query.'</pre></td>
