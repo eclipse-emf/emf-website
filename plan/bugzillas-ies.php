@@ -60,6 +60,27 @@ WHERE
     AND (BUG.bug_status != 'RESOLVED' AND 
       BUG.resolution != 'FIXED')",
 
+"Defects Fixed or Resolved Between 2004-07-01 and 2005-07-07 (GA) (including older bugs)" =>
+"SELECT DISTINCT 
+   count(BUG.bug_id) as CNT
+FROM 
+  bugs as BUG,
+  bugs_activity as ACT,
+  products as PROD, 
+  fielddefs as FLD
+WHERE 
+  FLD.fieldid = ACT.fieldid AND
+  PROD.id = BUG.product_id AND 
+  BUG.bug_id = ACT.bug_id AND 
+  ACT.bug_when >= '2004-07-01' AND
+  ACT.bug_when <= '2005-07-07' AND
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+    ( (FLD.description = 'Resolution' AND 
+       ACT.added = 'FIXED') OR
+      (FLD.description = 'Status' AND 
+       ACT.added = 'RESOLVED') 
+    )",
+
 "Critical Defects NOT Fixed or Resolved of Those Entered, 2004-07-01 to 2005-07-07 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
@@ -103,37 +124,16 @@ WHERE
     AND BUG.creation_ts <= '2005-07-07'
     AND (BUG.bug_status != 'RESOLVED' AND
       BUG.resolution != 'FIXED')
-    AND BUG.priority = 'P1'",
-
-"Defects Fixed or Resolved Between 2004-07-01 and 2005-07-07 (GA) (including older bugs)" =>
-"SELECT DISTINCT 
-   count(BUG.bug_id) as CNT
-FROM 
-  bugs as BUG,
-  bugs_activity as ACT,
-  products as PROD, 
-  fielddefs as FLD
-WHERE 
-  FLD.fieldid = ACT.fieldid AND
-  PROD.id = BUG.product_id AND 
-  BUG.bug_id = ACT.bug_id AND 
-  ACT.bug_when >= '2004-07-01' AND
-  ACT.bug_when <= '2005-07-07' AND
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-    ( (FLD.description = 'Resolution' AND 
-       ACT.added = 'FIXED') OR
-      (FLD.description = 'Status' AND 
-       ACT.added = 'RESOLVED') 
-    )",
+    AND BUG.priority = 'P1'"
 
 );
 foreach ($queries as $label => $query) {
 
 	echo '
-<p><table><tr><td colspan=3><h3>'.$label.'</h3></td></tr>
+<p><table><tr><td colspan="3"><h3 style="font-size:12px;color:#009900">'.$label.'</h3></td></tr>
 	
-<tr>
-	<td>'.$query.'</td>
+<tr valign="top">
+	<td><pre style="font-size:12px;color:navy">'.$query.'</pre></td>
 	<td>&nbsp;&nbsp;</td>
 	<td>';
 	if ($query) { 
@@ -169,6 +169,7 @@ foreach ($queries as $label => $query) {
 	echo '
 	</td>
 </tr>
+<tr><td colspan="3"><hr noshade="noshade" size="1"/></td></tr>
 </table></p>
 ';
 }
