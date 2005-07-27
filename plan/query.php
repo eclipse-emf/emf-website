@@ -220,23 +220,23 @@ WHERE
   FLD.fieldid = ACT.fieldid AND
   PROD.id = BUG.product_id AND 
   BUG.bug_id = ACT.bug_id AND 
-  ACT.bug_when >= '2004-07-01' AND 
-    ACT.bug_when <= '2005-07-07' AND
-  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-    ( (FLD.description = 'Resolution' AND 
-        ACT.added = 'FIXED') OR
-      (FLD.description = 'Resolution' AND 
-        ACT.added = 'INVALID') OR
-      (FLD.description = 'Resolution' AND 
-        ACT.added = 'WONTFIX') OR
-      (FLD.description = 'Resolution' AND 
-        ACT.added = 'WORKSFORME') OR
-      (FLD.description = 'Status' AND 
-        ACT.added = 'RESOLVED') OR
-      (FLD.description = 'Status' AND 
-        ACT.added = 'VERIFIED') OR
-      (FLD.description = 'Status' AND 
-        ACT.added = 'CLOSED') 
+  ACT.bug_when >= \'2004-07-01\' AND 
+    ACT.bug_when <= \'2005-07-07\' AND
+  (PROD.name = \'EMF\' OR PROD.name = \'XSD\') AND
+    ( (FLD.description = \'Resolution\' AND 
+        ACT.added = \'FIXED\') OR
+      (FLD.description = \'Resolution\' AND 
+        ACT.added = \'INVALID\') OR
+      (FLD.description = \'Resolution\' AND 
+        ACT.added = \'WONTFIX\') OR
+      (FLD.description = \'Resolution\' AND 
+        ACT.added = \'WORKSFORME\') OR
+      (FLD.description = \'Status\' AND 
+        ACT.added = \'RESOLVED\') OR
+      (FLD.description = \'Status\' AND 
+        ACT.added = \'VERIFIED\') OR
+      (FLD.description = \'Status\' AND 
+        ACT.added = \'CLOSED\') 
     )
 ORDER BY
   lastdiffed
