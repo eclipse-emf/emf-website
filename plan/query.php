@@ -304,7 +304,11 @@ WHERE
       while($myrow = mysql_fetch_assoc($rs)) {
          echo "<hr noshade size=1/>";
          foreach ($myrow as $k => $v) { 
-            echo "$k => $v\n";
+				if ($k == "bug_id") { 
+	            echo "$k => <a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
+				} else {
+	            echo "$k => $v\n";
+				}
          }
       }
       
