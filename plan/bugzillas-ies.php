@@ -135,7 +135,7 @@ echo '
 foreach ($queries as $label => $query) {
 
 	echo '
-<tr><td colspan="1"><h3 style="font-size:12px;color:#009900">'.$label.'</h3></td></tr>
+<tr><td colspan="1"><pre style="font-size:12px;color:#009900">'.$label.'</pre></td></tr>
 	
 <tr valign="top">
 	<td><pre style="font-size:12px;color:navy">'.$query.'</pre></td>
