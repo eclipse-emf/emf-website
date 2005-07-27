@@ -122,6 +122,124 @@ WHERE
   BUG.reporter = PROF.userid AND 
   BUG.reporter = 2253
 
+#--------#--------#--------#--------
+# get bugs for a given project and priority
+
+SELECT DISTINCT
+  BUG.bug_id, PROD.name,
+  BUG.priority, BUG.bug_severity, 
+  BUG.bug_status, BUG.resolution, 
+  BUG.creation_ts, BUG.lastdiffed, 
+  BUG.version
+FROM 
+  bugs as BUG, 
+  profiles as PROF, 
+  products as PROD, 
+  components as CMP
+WHERE 
+  BUG.reporter = PROF.userid AND 
+  CMP.id = BUG.component_id AND 
+  PROD.id = BUG.product_id AND 
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+  BUG.priority ='P1'
+ORDER BY
+  BUG.bug_id
+DESC
+
+#--------#--------#--------#--------
+# count of  bugs entered between two dates
+# for a given product
+
+SELECT DISTINCT
+  count(BUG.bug_id) AS CNT
+FROM 
+  bugs as BUG, 
+  products as PROD 
+WHERE 
+  PROD.id = BUG.product_id AND 
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+
+#--------#--------#--------#--------
+# count of P1 bugs entered between two dates 
+# unresolved and unfixed, for a given product
+
+SELECT DISTINCT
+  count(BUG.bug_id) AS CNT
+FROM 
+  bugs as BUG, 
+  products as PROD 
+WHERE 
+  PROD.id = BUG.product_id AND 
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+    AND (BUG.bug_status != 'RESOLVED' AND
+      BUG.resolution != 'FIXED')
+    AND BUG.priority = 'P1'
+
+#--------#--------#--------#--------
+# count of bugs marked Fixed or Resolved 
+# between two dates, for a given product
+
+SELECT DISTINCT 
+   count(BUG.bug_id) as CNT
+FROM 
+  bugs as BUG,
+  bugs_activity as ACT,
+  products as PROD, 
+  fielddefs as FLD
+WHERE 
+  FLD.fieldid = ACT.fieldid AND
+  PROD.id = BUG.product_id AND 
+  BUG.bug_id = ACT.bug_id AND 
+  ACT.bug_when >= '2004-07-01' AND
+  ACT.bug_when <= '2005-07-07' AND
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+    ( (FLD.description = 'Resolution' AND 
+       ACT.added = 'FIXED') OR
+      (FLD.description = 'Status' AND 
+       ACT.added = 'RESOLVED') 
+    )
+#--------#--------#--------#--------
+# other useful bug contraints for count()
+
+SELECT DISTINCT
+  count(BUG.bug_id) AS CNT
+FROM 
+  bugs as BUG, 
+  profiles as PROF, 
+  products as PROD, 
+  components as CMP
+WHERE 
+  BUG.reporter = PROF.userid AND 
+  CMP.id = BUG.component_id AND 
+  PROD.id = BUG.product_id AND 
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+
+...
+
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+    AND (BUG.bug_status = 'RESOLVED' OR 
+      BUG.resolution = 'FIXED')
+
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+    AND BUG.bug_severity = 'critical'
+
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+    AND BUG.bug_severity = 'blocker'
+
+  BUG.creation_ts >= '2004-07-01' 
+    AND BUG.creation_ts <= '2005-07-07'
+    AND BUG.priority = 'P1'
+
 </pre>
 </td><td>&nbsp;&nbsp;</td>
 <td>';
