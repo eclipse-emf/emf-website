@@ -19,7 +19,8 @@
 <head></head>
 <body>
 <table><form method=post><tr valign="top"><td align="left">
-   <pre>Query:</pre>
+   <pre style="font-size:12px">Query:
+	<pre style="font-size:10px">separate multiple queries with semi-colon (";")</pre></pre>
    <textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br/>
    <input type=submit name="Submit" style="font-size:12px">
    <pre style="font-size:12px;color:navy">
@@ -283,43 +284,51 @@ WHERE
 </pre>
 </td><td>&nbsp;&nbsp;</td>
 <td>';
-   if ($query) { 
-      echo "<pre>Results:</pre>\n";
-      echo "<pre style=\"color:blue\">";
-      # Connect to database
-      $dbc  = new DBConnectionBugs();
-      $dbh  = $dbc->connect();
+	if (false!==strpos($query,";")) {
+		$queries = explode(";",$query);
+	} else {
+		$queries = array($query);
+	}
+	$query=null;
+	foreach ($query as $i => $queries) { 
+		if ($query) { 
+			echo "<pre>Results".(sizeof($queries)>1?"[".($i+1)."]":"").":</pre>\n";
+			echo "<pre style=\"color:blue\">";
+			# Connect to database
+			$dbc  = new DBConnectionBugs();
+			$dbh  = $dbc->connect();
 
-      $rs   = mysql_query($query, $dbh);
-      
-      if(mysql_errno($dbh) > 0) {
-         echo "There was an error processing the query.</pre>\n".
-         # Mysql disconnects automatically, but I like my disconnects to be explicit.
-         $dbc->disconnect();
-         $dbh = null;
-         $dbc = null;
-         exit;
-      }
-         
-      while($myrow = mysql_fetch_assoc($rs)) {
-         echo "<hr noshade size=1/>";
-         foreach ($myrow as $k => $v) { 
-				if ($k == "bug_id") { 
-	            echo "$k => <a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
-				} else {
-	            echo "$k => $v\n";
+			$rs   = mysql_query($query, $dbh);
+			
+			if(mysql_errno($dbh) > 0) {
+				echo "There was an error processing the query.</pre>\n".
+				# Mysql disconnects automatically, but I like my disconnects to be explicit.
+				$dbc->disconnect();
+				$dbh = null;
+				$dbc = null;
+				exit;
+			}
+				
+			while($myrow = mysql_fetch_assoc($rs)) {
+				echo "<hr noshade size=1/>";
+				foreach ($myrow as $k => $v) { 
+					if ($k == "bug_id") { 
+						echo "$k => <a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
+					} else {
+						echo "$k => $v\n";
+					}
 				}
-         }
-      }
-      
-      echo "</pre>";
-      $dbc->disconnect();
-      $rs  = null;
-      $dbh = null;
-      $dbc = null;
-   }
+			}
+			
+			echo "</pre>";
+			$dbc->disconnect();
+			$rs  = null;
+			$dbh = null;
+			$dbc = null;
+		}
+	}
 
-   echo '
+	echo '
 </td></tr></form></table>
 </body>
 </html>
