@@ -127,10 +127,15 @@ WHERE
     AND BUG.priority = 'P1'"
 
 );
+
+echo '
+<p><table>
+';
+
 foreach ($queries as $label => $query) {
 
 	echo '
-<p><table><tr><td colspan="3"><h3 style="font-size:12px;color:#009900">'.$label.'</h3></td></tr>
+<tr><td colspan="1"><h3 style="font-size:12px;color:#009900">'.$label.'</h3></td></tr>
 	
 <tr valign="top">
 	<td><pre style="font-size:12px;color:navy">'.$query.'</pre></td>
@@ -155,7 +160,7 @@ foreach ($queries as $label => $query) {
 			
 		while($myrow = mysql_fetch_assoc($rs)) {
 			foreach ($myrow as $k => $v) { 
-				echo "$v\n";
+				echo "$k => $v\n";
 			}
 		}
 		
@@ -170,10 +175,11 @@ foreach ($queries as $label => $query) {
 	</td>
 </tr>
 <tr><td colspan="3"><hr noshade="noshade" size="1"/></td></tr>
-</table></p>
 ';
 }
-echo '</body></html>
+echo '
+</table></p>
+</body></html>
 ';
 
 ?>
