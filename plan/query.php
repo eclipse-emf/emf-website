@@ -288,7 +288,6 @@ WHERE
 	} else {
 		$queries = array($query);
 	}
-	$query=null;
 	foreach ($queries as $i => $query) { 
 		if ($query) { 
 			echo "<pre>Results".(sizeof($queries)>1?"[".($i+1)."]":"").":</pre>\n";
@@ -305,25 +304,23 @@ WHERE
 				$dbc->disconnect();
 				$dbh = null;
 				$dbc = null;
-				exit;
-			}
-				
-			while($myrow = mysql_fetch_assoc($rs)) {
-				echo "<hr noshade size=1/>";
-				foreach ($myrow as $k => $v) { 
-					if ($k == "bug_id") { 
-						echo "$k => <a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
-					} else {
-						echo "$k => $v\n";
+			} else {
+				while($myrow = mysql_fetch_assoc($rs)) {
+					echo "<hr noshade size=1/>";
+					foreach ($myrow as $k => $v) { 
+						if ($k == "bug_id") { 
+							echo "$k => <a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
+						} else {
+							echo "$k => $v\n";
+						}
 					}
 				}
+				echo "</pre>";
+				$dbc->disconnect();
+				$rs  = null;
+				$dbh = null;
+				$dbc = null;
 			}
-			
-			echo "</pre>";
-			$dbc->disconnect();
-			$rs  = null;
-			$dbh = null;
-			$dbc = null;
 		}
 	}
 
