@@ -1,28 +1,28 @@
 <?php
-	# Props to Denis Roy (webmaster@eclipse.org) for the basecode from which this script grew.
-	# Logic, DB and Presentation lumped here for simplicity.
-	# Please avoid using aggregate functions (COUNT, SUM, MAX, MIN, etc) on busy web pages.
-	# For bugzilla this is not critical as the tables are small (<10,000,000 records)
-	# but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
-	# ** NOTE ** You need to tell the WebMaster from which URL you are loading this class from, 
-	# otherwise the connect() will fail.
-	
-	# Load up the classfile
-	require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
+   # Props to Denis Roy (webmaster@eclipse.org) for the basecode from which this script grew.
+   # Logic, DB and Presentation lumped here for simplicity.
+   # Please avoid using aggregate functions (COUNT, SUM, MAX, MIN, etc) on busy web pages.
+   # For bugzilla this is not critical as the tables are small (<10,000,000 records)
+   # but imagine if every project displays a COUNT(*) for their project's bugs right on the front page!
+   # ** NOTE ** You need to tell the WebMaster from which URL you are loading this class from, 
+   # otherwise the connect() will fail.
+   
+   # Load up the classfile
+   require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
-	header("Content-Type: text/html");
+   header("Content-Type: text/html");
 
-	$bug = $_GET["bug"]; if (!$bug) { $bug="61639"; }
-	$query = stripslashes($_POST["query"]);
-	echo '
+   $bug = $_GET["bug"]; if (!$bug) { $bug="61639"; }
+   $query = stripslashes($_POST["query"]);
+   echo '
 <html>
 <head></head>
 <body>
 <table><form method=post><tr valign="top"><td align="left">
-	<pre>Query:</pre>
-	<textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br/>
-	<input type=submit name="Submit" style="font-size:12px">
-	<pre style="font-size:12px;color:navy">
+   <pre>Query:</pre>
+   <textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br/>
+   <input type=submit name="Submit" style="font-size:12px">
+   <pre style="font-size:12px;color:navy">
 
 #--------#--------#--------#--------
 # get bug details for a given bug
@@ -147,7 +147,7 @@ ORDER BY
 DESC
 
 #--------#--------#--------#--------
-# count of  bugs entered between two dates
+# count of bugs entered between two dates
 # for a given product
 
 SELECT DISTINCT
@@ -202,6 +202,46 @@ WHERE
       (FLD.description = \'Status\' AND 
        ACT.added = \'RESOLVED\') 
     )
+
+#--------#--------#--------#--------
+# get list of bugs changed to a status of closed, 
+# resolved, verified, etc. within a given timeframe
+
+SELECT DISTINCT 
+  BUG.bug_id,  BUG.short_desc, BUG.priority,
+  BUG.bug_severity, BUG.bug_status, BUG.resolution,
+  BUG.lastdiffed
+FROM 
+  bugs as BUG,
+  bugs_activity as ACT,
+  products as PROD, 
+  fielddefs as FLD
+WHERE 
+  FLD.fieldid = ACT.fieldid AND
+  PROD.id = BUG.product_id AND 
+  BUG.bug_id = ACT.bug_id AND 
+  ACT.bug_when >= '2004-07-01' AND 
+    ACT.bug_when <= '2005-07-07' AND
+  (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
+    ( (FLD.description = 'Resolution' AND 
+        ACT.added = 'FIXED') OR
+      (FLD.description = 'Resolution' AND 
+        ACT.added = 'INVALID') OR
+      (FLD.description = 'Resolution' AND 
+        ACT.added = 'WONTFIX') OR
+      (FLD.description = 'Resolution' AND 
+        ACT.added = 'WORKSFORME') OR
+      (FLD.description = 'Status' AND 
+        ACT.added = 'RESOLVED') OR
+      (FLD.description = 'Status' AND 
+        ACT.added = 'VERIFIED') OR
+      (FLD.description = 'Status' AND 
+        ACT.added = 'CLOSED') 
+    )
+ORDER BY
+  lastdiffed
+DESC
+
 #--------#--------#--------#--------
 # other useful bug contraints for count()
 
@@ -243,39 +283,39 @@ WHERE
 </pre>
 </td><td>&nbsp;&nbsp;</td>
 <td>';
-	if ($query) { 
-		echo "<pre>Results:</pre>\n";
-		echo "<pre style=\"color:blue\">";
-		# Connect to database
-		$dbc 	= new DBConnectionBugs();
-		$dbh 	= $dbc->connect();
+   if ($query) { 
+      echo "<pre>Results:</pre>\n";
+      echo "<pre style=\"color:blue\">";
+      # Connect to database
+      $dbc  = new DBConnectionBugs();
+      $dbh  = $dbc->connect();
 
-		$rs 	= mysql_query($query, $dbh);
-		
-		if(mysql_errno($dbh) > 0) {
-			echo "There was an error processing the query.</pre>\n".
-			# Mysql disconnects automatically, but I like my disconnects to be explicit.
-			$dbc->disconnect();
-			$dbh = null;
-			$dbc = null;
-			exit;
-		}
-			
-		while($myrow = mysql_fetch_assoc($rs)) {
-			echo "<hr noshade size=1/>";
-			foreach ($myrow as $k => $v) { 
-				echo "$k => $v\n";
-			}
-		}
-		
-		echo "</pre>";
-		$dbc->disconnect();
-		$rs  = null;
-		$dbh = null;
-		$dbc = null;
-	}
+      $rs   = mysql_query($query, $dbh);
+      
+      if(mysql_errno($dbh) > 0) {
+         echo "There was an error processing the query.</pre>\n".
+         # Mysql disconnects automatically, but I like my disconnects to be explicit.
+         $dbc->disconnect();
+         $dbh = null;
+         $dbc = null;
+         exit;
+      }
+         
+      while($myrow = mysql_fetch_assoc($rs)) {
+         echo "<hr noshade size=1/>";
+         foreach ($myrow as $k => $v) { 
+            echo "$k => $v\n";
+         }
+      }
+      
+      echo "</pre>";
+      $dbc->disconnect();
+      $rs  = null;
+      $dbh = null;
+      $dbc = null;
+   }
 
-	echo '
+   echo '
 </td></tr></form></table>
 </body>
 </html>
