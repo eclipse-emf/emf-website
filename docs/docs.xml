@@ -402,6 +402,40 @@
 
       <td>
       <a target="_out"
+      href="http://www.ddj.com/documents/s=9825/ddj0508c/0508c.html">
+      EMF: Moving into model-driven development</a> (Dr. Dobb's Journal)
+
+      Contributed by Frank Budinsky</td>
+
+      <td>August 2005</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://www.eclipse.org/articles/Article-GEF-EMF/gef-emf.html">
+      Using GEF with EMF</a>
+
+      Contributed by Chris Aniszczyk</td>
+
+      <td>June 8<sup>th</sup> 2005</td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
       href="http://www.zurich.ibm.com/~wah/doc/emf-ocl/index.html">
       Kent OCL Library Tutorial (Using OCL to Interrogate Your EMF
       Model)</a>
@@ -1675,5 +1709,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.21 2005/07/22 01:46:59 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.22 2005/07/27 19:20:02 nickb Exp $ -->
 
