@@ -335,8 +335,7 @@ function trimTrail($in,$loading) {
 	}
 
 	function https_file($url) {
-
-		if (phpversion()>=4.3.1) { 
+		if (preg_replace("/[^0-9\.]+/","",phpversion())>=4.3.1) { 
 			$html = file($url); // only works in php 4.3.1 and later
 		} else {
 			ini_set("display_errors","0"); // suppress file not found errors
