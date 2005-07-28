@@ -335,16 +335,20 @@ function trimTrail($in,$loading) {
 	}
 
 	function https_file($url) {
-		ini_set("display_errors","0"); // suppress file not found errors
-		// $html = file("https://..."); // only works in php 4.3.1 and later
-		// new for PHP 4.1.2 with libcurl on emf.torolab.ibm.com
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-		$text = curl_exec($ch);
-		curl_close($ch);
-		$html = preg_split("/\n/",$text);
-		ini_set("display_errors","1"); // and turn 'em back on.
+
+		if (phpversion()>=4.3.1) { 
+			$html = file($url); // only works in php 4.3.1 and later
+		} else {
+			ini_set("display_errors","0"); // suppress file not found errors
+			// new for PHP 4.1.2 with libcurl on emf.torolab.ibm.com
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$text = curl_exec($ch);
+			curl_close($ch);
+			$html = preg_split("/\n/",$text);
+			ini_set("display_errors","1"); // and turn 'em back on.
+		}
 		return $html;
 	}
 
