@@ -2,6 +2,25 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model
+modelName="MetaDiff"
+date="2005-08-02"
+category="EMF framework"
+modelID="MarkKofman20050802121500">
+<text>MetaDiff is a generic model comparison solution. Generic, in a
+sense, that it should make possible to compare models based on
+different meta-models specified by EMF. It is important to point out
+that result is not a tool but a framework. In addition to model
+comparison functionality, framework should also give a possibility to
+extend available comparison algorithms, and provide practical way of
+working with different meta-models.</text>
+<modelURL>http://metadiff.sourceforge.net/</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Mark Kofman</submitter>
+<submitterURL>http://metadiff.sourceforge.net/</submitterURL>
+</model>
+
 <review
 reviewName="Way Cool"
 date="2005-07-16"
@@ -289,25 +308,6 @@ The plug-in is submitted as patch to EMF team. URL points to corresponding
     <reviewerURL></reviewerURL>
   </review>
 
-  <model
-  modelName="MetaDiff"
-  date="2004-10-06"
-  category="EMF framework"
-  modelID="MarkKofman20041006145812">
-    <text>MetaDiff is a generic model comparison solution. Generic, in a
-    sense, that it should make possible to compare models based on
-    different meta-models specified by EMF. It is important to point out
-    that result is not a tool but a framework. In addition to model
-    comparison functionality, framework should also give a possibility to
-    extend available comparison algorithms, and provide practical way of
-    working with different meta-models.</text>
-    <modelURL>http://dis.dsv.su.se/~emis-mak/metadiff/index.html</modelURL>
-    <thumbnailURL></thumbnailURL>
-    <screenshotURL></screenshotURL>
-    <submitter>Mark Kofman</submitter>
-    <submitterURL>http://dis.dsv.su.se/~emis-mak/metadiff/index.html</submitterURL>
-  </model>
-
   <review
   reviewName="Must have!"
   date="2004-10-05"
@@ -417,4 +417,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.14 2005/07/18 17:33:29 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.15 2005/08/02 16:16:40 nickb Exp $ -->
