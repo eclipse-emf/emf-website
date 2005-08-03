@@ -18,6 +18,8 @@ to parse out [plan] values and fields missing from above (cuz curl() loses cooki
 */
 
 $contentType = $_GET["Content-Type"] ? $_GET["Content-Type"] : "text/xml"; // default or qs value
+$votes = $_GET["votes"] ? $_GET["votes"] : 0; // default or qs value
+$debug = $_GET["debug"] ? $_GET["debug"] : 0; // default or qs value
 
 $usetmpfile=0; // defines whether or not to use pregen'd tmp files (1) or else to regen on the fly (0)
 $createtmpfile=0; // if not using tmpfiles, defines whether to create new tmpfiles for next time's run (1) or not (0)
@@ -48,6 +50,7 @@ $columns = array(
 $additional_columns = array(
 	"Plan Priority"=>"Plan-Priority",
 	"Plan Estimate"=>"Plan-Estimate",
+	"Plan Commit Date"=>"Plan-Committed",
 	"Plan Comments"=>"Plan-Comments"
 );
 
@@ -70,6 +73,7 @@ $column_order = array( // column label => field name (mixed case version)
 
 	"Plan Priority"=>"Plan-Priority",
 	"Plan Estim"=>"Plan-Estimate",
+	"Plan Commit Date"=>"Plan-Committed",
 	"Plan Comments"=>"Plan-Comments",
 
 	"Summary" => "Summary"
@@ -83,7 +87,7 @@ if ($contentType=="text/html" || $debug) {
 }
 getMetaAndBugList();
 getPlanItems($columns); 
-if ($votes=="true") { getVoteCounts(); }
+if ($votes) { getVoteCounts(); }
 if ($contentType=="text/html" || $debug) { 
 	w("\$bugz:"); wArr($bugz);
 	w("<br>\$buglist: $buglist");
@@ -119,6 +123,9 @@ function getCommitterList() {
 				$loading=1;
 			} else if ($loading>0 && isIn($line,"<table")) { // now we start collecting names
 				$loading=2;
+				if (isIn($line,"<td") && preg_match("/\<td[^\<\>]+\>\<b\>([^\<\>]+)\<\/b\>\<\/td\>/",$line,$m)) { // get the name
+					$committers[$m[1]]=$m[1];
+				}
 			} else if ($loading>1 && isIn($line,"<td") && preg_match("/\<td[^\<\>]+\>\<b\>([^\<\>]+)\<\/b\>\<\/td\>/",$line,$m)) { // get the name
 				$committers[$m[1]]=$m[1];
 			} else if ($loading>1 && isIn($line,"</table>")) { // done
@@ -132,7 +139,7 @@ function getMetaAndBugList() {
 	global $bugz,$buglist,$usetmpfile,$createtmpfile;
 
 	if (!$usetmpfile) { 
-		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); 
+		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); // TODO: want to include resolved bugs too
 		
 		//wArr($html);
 		if ($createtmpfile) { 
@@ -202,7 +209,8 @@ function getPlanItems($extrafields=array()) {
 
 	$loading=0;
 	$commenter = "";
-	foreach ($html as $line) { 
+	$commentDate = "";
+	foreach ($html as $linenum => $line) { 
 		if (isIn($line,"<font size=\"+3\">Bug ")) { // name of bug means start of a bug 
 			if (preg_match("/\<font size\=\"\+3\"\>Bug\ (\d+)/",$line,$m)) { 
 				$bugnum=$m[1];
@@ -225,6 +233,11 @@ function getPlanItems($extrafields=array()) {
 			}
 		} else if (isIn($line,"<a href=\"mailto:") && preg_match("/\"mailto\:([a-zA-Z0-9\_\-\.]+\&\#64\;[a-zA-Z0-9\_\-\.]+)\"\>([a-zA-Z\ ]+)\<\/a\>/",$line,$m)) { // <a href="mailto:merks&#64;ca.ibm.com">Ed Merks</a> -- trap for bug commenter
 			$commenter = $m[2]; //w("commenter = $commenter",1);
+			if (in_array($commenter,$committers)) { 
+				$commentDate = explode(" ",trim($html[$linenum+1])); $commentDate = $commentDate[0];
+			}
+		} else if (in_array($commenter,$committers) && isIn($line,"[committed/]")) { // get committed items
+			$bugz[$bugnum]["Plan-Committed"] = $commentDate;
 		} else if (in_array($commenter,$committers) && isIn($line,"[plan")) { // get plan items
 			//w($line,1);
 			if (!isIn($line,"/]")) { 
@@ -235,6 +248,9 @@ function getPlanItems($extrafields=array()) {
 			}
 			if (preg_match("/est=(\d+[dwm])/",$line,$m)) { // [plan pri=2 est=2w/]
 				$bugz[$bugnum]["Plan-Estimate"] = $m[1];
+			}
+			if (preg_match("/committed/",$line,$m)) { // [plan pri=2 est=2w committed/]
+				$bugz[$bugnum]["Plan-Committed"] = $commentDate;
 			}
 			if (preg_match("/](.+)\[\/plan\]/",$line,$m)) { // [plan pri=2 est=1d]This is mostly done already.[/plan]
 				$bugz[$bugnum]["Plan-Comments"] = $m[1];
@@ -256,7 +272,8 @@ function getPlanItems($extrafields=array()) {
 			} else { 
 				$bugz[$bugnum]["Plan-Comments"] .= " ".$line;
 			}
-			$ret = trimTrail($bugz[$bugnum]["Plan-Comments"],$loading); $bugz[$bugnum]["Plan-Comments"] = $ret[0]; $loading = $ret[1]; $ret = "";
+			$ret = trimTrail($bugz[$bugnum]["Plan-Comments"],$loading); 
+			$bugz[$bugnum]["Plan-Comments"] = $ret[0]; $loading = $ret[1]; $ret = "";
 			//w("\$bugz[$bugnum][Plan-Comments] = ".htmlentities($bugz[$bugnum]["Plan-Comments"]),1);
 		}
 	}
@@ -283,7 +300,7 @@ function displayXML() {
 	global $bugz,$columns,$additional_columns,$column_order,$debug;
 	if (!$debug) { header('Content-type: text/xml'); }
 	echo '<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="plan.xsl"?>
+<?xml-stylesheet type="text/xsl" href="plan2.2.xsl"?>
 <plan>
 	<id>$'.'Id'.': '.
 		'plan.xml,v Exp $'.'</id>
@@ -293,17 +310,38 @@ function displayXML() {
 	<product-def product="EMF" label="EMF Development Plan" />
 	<product-def product="XSD" label="XSD Development Plan" />
 
+	<catg-def category="plan" label="EMF/XSD Planned Items" />
+	<catg-def category="add" label="EMF/XSD Additional Items" />
+	<catg-def category="res" label="EMF/XSD Resolved Items" />
+	<catg-def category="m21x" label="EMF/XSD 2.1.x Maintenance Items" />
+	<catg-def category="m20x" label="EMF/XSD 2.0.x Maintenance Items" />
+
 '; ?><?php
 	foreach ($column_order as $label => $col) {
 		if (in_array($col,$columns)) {
-			echo "\t\t<column-def column=\"".strtolower($col)."\" label=\"".$label."\"/>\n";
+			echo "\t<column-def column=\"".strtolower($col)."\" label=\"".$label."\"/>\n";
 		} else if (in_array($col,$additional_columns)) {
-			echo "\t\t<column-def column=\"".strtolower($col)."\" label=\"".$label."\"/>\n";
+			echo "\t<column-def column=\"".strtolower($col)."\" label=\"".$label."\"/>\n";
 		}
 	}
 	echo "\n";
 	foreach ($bugz as $bugnum => $data) { 
 		echo "\t<bug>\n";
+		if (0===strpos($data["TargetM"],"2.1.") || 0===strpos($data["Ver"],"2.1.")) { 
+			echo "\t\t<catg>m21x</catg>\n";
+		} else if (0===strpos($data["TargetM"],"2.0.") || 0===strpos($data["Ver"],"2.0.")) { 
+			echo "\t\t<catg>m20x</catg>\n";
+		} else if ($data["Stat"] =="ASSIGNED") { 
+			echo "\t\t<catg>res</catg>\n";
+		} else if (
+			($data["TargetM"]!="---" && $data["TargetM"]!="Future") || 
+			false!==strpos($data["Summary"],"[Plan Item]") || 
+			$data["Plan-Committed"] || $data["Plan-Priority"] || $data["Plan-Estimate"]
+			) { // planned
+			echo "\t\t<catg>plan</catg>\n";
+		} else {
+			echo "\t\t<catg>add</catg>\n";
+		}
 		foreach ($column_order as $col) {
 			if (in_array($col,$columns)) {
 				echo "\t\t<".strtolower($col).">".str_replace("'","`",$data[$col])."</".strtolower($col).">\n";
@@ -335,7 +373,11 @@ function trimTrail($in,$loading) {
 	}
 
 	function https_file($url) {
-		if (preg_replace("/[^0-9\.]+/","",phpversion())>=4.3.1) { 
+		$v2 = preg_replace("/[^0-9\.]+/","",phpversion()); // 4.3.10-15 -> 4.3.1015
+		$v=$v2-0; // 4.3
+		$v2=substr($v2,strlen($v."")+1);
+		//echo $v." ".$v2."\n";
+		if ($v>4.3 || ($v==4.3 && $v2>=1)) { 
 			$html = file($url); // only works in php 4.3.1 and later
 		} else {
 			ini_set("display_errors","0"); // suppress file not found errors

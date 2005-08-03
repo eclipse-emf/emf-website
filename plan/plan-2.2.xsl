@@ -1,7 +1,7 @@
 <xsl:stylesheet version = '1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 <xsl:output method="html" encoding="ISO-8859-1"/>
 
-	<xsl:key name="bugEntry" match="bug" use="product"/>
+	<xsl:key name="bugEntry" match="bug" use="catg"/>
 
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 
@@ -91,13 +91,15 @@
 	<xsl:value-of select="substring-before(substring-after(modified,concat('$','Date',':')),'$')"/>
 	</b>
 	<p>
-	<table>
-		<tr><td>Development Plans: </td><td><a href="#EMF">EMF</a> :: <a href="#XSD">XSD</a> :: <a href="index.php">Other Plan Versions</a></td></tr>
-	</table>
+
+			<xsl:for-each select="catg-def">
+				<a href="#{@category}"><xsl:value-of select="substring(@label,8)" /></a> (<xsl:value-of select="count(key('bugEntry',@category))" />) :: 
+			</xsl:for-each>
+			<a href="index.php">Other Plan Versions</a>
 	</p>
 	<p>Plan Priorities are on a scale from 1 to 4 where 1 is most prioritized, 4 is least prioritized.<br/>
 	Plan Estimates are annotated in units of days (d), weeks (w), or months (m), where 1m = 4w = 20d.<br/>
-	This Plan is subject to change.
+	This Plan is subject to change. <!-- To view this plan as XML, <a href="view-source:http://eclipse.org/emf/plan/plan.xml">click here</a>. -->
 	</p>
 	<p>Note: anyone is always welcome to contribute a part or bit of code. More consideration, that is, a higher priority will be given to bugs with junit tests reproducing the problem/defect.
 	</p>
@@ -120,23 +122,24 @@
 	
 	<!-- nav header table -->
 	<table border="0" cellspacing="1" cellpadding="5" width="100%">
-	<xsl:for-each select="product-def">
+	<xsl:for-each select="catg-def">
 		<tr class="header">
 			<td colspan="10" class="sub-header">
-				<a name="{@product}"></a><xsl:value-of select="@label"/>: Summary (<xsl:value-of select="count(key('bugEntry',@product))" /> Bugs)
+				<a name="{@category}"></a><xsl:value-of select="@label"/>: <xsl:value-of select="count(key('bugEntry',@category))" /> Bugs
 			</td>
 		</tr>
 		<tr class="content-header">
 			<xsl:for-each select="//column-def">
-				<xsl:if test="@column != 'product' and @column != 'reporter' and @column != 'assignee' and @column != 'pri' and @column != 'stat' and @column != 'plan-comments'">
+				<xsl:if test="@column != 'catg' and @column != 'product' and @column != 'reporter' and @column != 'assignee' and @column != 'pri' and @column != 'stat' and @column != 'plan-comments' and @column != 'plan-committed'">
 					<td colspan="1" class="sub-header">
 						<xsl:value-of select="@label" />
 					</td>
 				</xsl:if>
 			</xsl:for-each>
 		</tr>
-		<xsl:if test="count(key('bugEntry',@product)) != 0">
-			<xsl:for-each select="key('bugEntry',@product)">
+		<xsl:if test="count(key('bugEntry',@category)) != 0">
+			<xsl:for-each select="key('bugEntry',@category)">
+				<xsl:sort select="opened" data-type="text" order="ascending" />
 				<xsl:sort select="plan-priority" data-type="text" order="ascending" />
 					<tr valign="top">
 						<xsl:choose>
@@ -148,8 +151,14 @@
 						</xsl:otherwise>
 						</xsl:choose>
 						<xsl:for-each select="./*">
-							<xsl:if test="name() != 'product' and name() != 'reporter' and name() != 'assignee' and name() != 'pri' and name() != 'stat' and name() != 'plan-comments'">
-								<td>
+							<xsl:if test="name() != 'catg' and name() != 'product' and name() != 'reporter' and name() != 'assignee' and name() != 'pri' and name() != 'stat' and name() != 'plan-comments' and name() != 'plan-committed'">
+								<td nowrap="nowrap">
+								<xsl:choose>
+									<xsl:when test="name() = 'id'">
+										<xsl:attribute name="align">right</xsl:attribute>
+									</xsl:when>
+									<xsl:otherwise><xsl:attribute name="align">left</xsl:attribute></xsl:otherwise>
+								</xsl:choose>
 								<xsl:choose>
 									<xsl:when test="name() = 'sev' and substring(../sev,1,3) = 'enh'">
 										<xsl:attribute name="class">italic</xsl:attribute>
@@ -161,7 +170,7 @@
 										<a onMouseover="ddrivetip('{../stat}: {../summary}'); return true;" onMouseout="hideddrivetip(); return true;" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={.}"><xsl:value-of select="." /></a>&#160;<xsl:value-of select="substring(../stat,1,1)" />
 									</xsl:when>
 									<xsl:when test="name() = 'comp'">
-										<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Assigned To: {../assignee}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="." /></a>
+										<xsl:value-of select="substring(../product,1,1)" />&#160;<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('[{../product}] Assigned To: {../assignee}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="." /></a>
 									</xsl:when>
 									<xsl:when test="name() = 'targetm' and ../targetm = '---'">
 										&#160;
@@ -180,7 +189,13 @@
 										<xsl:value-of select="substring(.,1,3)" />
 									</xsl:when>
 									<xsl:when test="name() = 'plan-priority'">
-										<xsl:value-of select="." />&#160; <i>(<xsl:value-of select="../pri" />)</i>
+										<xsl:choose>
+											<xsl:when test="../plan-committed = ''"><xsl:value-of select="." /></xsl:when>
+											<xsl:otherwise><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Committed on: {../plan-committed}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="." /></a></xsl:otherwise>
+										</xsl:choose>&#160;<i>(<xsl:choose>
+											<xsl:when test="../plan-committed = ''"><xsl:value-of select="../pri" /></xsl:when>
+											<xsl:otherwise><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Committed on: {../plan-committed}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="../pri" /></a></xsl:otherwise>
+										</xsl:choose>)</i>&#160;<xsl:if test="../plan-committed != ''"><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Committed on: {../plan-committed}'); return true;" onMouseout="hideddrivetip(); return true;"><img src="http://eclipse.org/emf/images/check.gif" border="0"/></a></xsl:if>
 									</xsl:when>
 									<xsl:when test="name() = 'plan-estimate' and ../plan-comments != ''">
 										<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('{../plan-comments}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="." />*</a>
@@ -222,4 +237,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan.xsl,v 1.11 2005/07/19 17:52:13 nickb Exp $ -->
+<!-- $Id: plan-2.2.xsl,v 1.3 2005/08/03 03:12:14 nickb Exp $ -->
