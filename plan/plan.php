@@ -139,13 +139,16 @@ function getMetaAndBugList() {
 	global $bugz,$buglist,$usetmpfile,$createtmpfile;
 
 	if (!$usetmpfile) { 
-		$html = https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced"); // TODO: want to include resolved bugs too
-		
+		$results = array(  https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&short_desc_type=substring&short_desc=%5BPlan+Item%5D&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id"), https_file("https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id") 
+		);
+
 		//wArr($html);
 		if ($createtmpfile) { 
 			$fh = fopen("/tmp/emf_plan.php_getMetaAndBugList.html","w");
-			foreach ($html as $line) { 
-				fputs($fh,$line."\n");
+			foreach ($results as $html) { 
+				foreach ($html as $line) { 
+					fputs($fh,$line."\n");
+				}
 			}
 			fclose($fh);
 		}
@@ -154,36 +157,38 @@ function getMetaAndBugList() {
 	}
 	//w(sizeof($html),1);
 
-	$loading=0;
-	$bugnum="";
 	//echo "<pre>";
 	// foreach ($html as $line) { echo $line; }
 	$cols = array(
 		"Severity", "Priority", "Platform", "Assignee", "Status", "Resolution", "Summary"
 	);
-	foreach ($html as $line) { 
-		// look for the following values: ID, Sev, Pri, Plt, Assignee, Status, Resolution, Summary
-		if (isIn($line,"show_bug.cgi?id=")) { // link to bug means start of a bug entry row
-			$loading=1;
-			if (preg_match("/id=(\d+)/",$line,$m)) { 
-				$bugnum=$m[1];
-				$bugz[$bugnum] = array("ID" => $bugnum);
-			} else {
-				$bugnum="n/a";
-				$bugz[$bugnum] = array("ID" => $bugnum);
+	foreach ($results as $html) { 
+		$loading=0;
+		$bugnum="";
+		foreach ($html as $line) { 
+			// look for the following values: ID, Sev, Pri, Plt, Assignee, Status, Resolution, Summary
+			if (isIn($line,"show_bug.cgi?id=")) { // link to bug means start of a bug entry row
+				$loading=1;
+				if (preg_match("/id=(\d+)/",$line,$m)) { 
+					$bugnum=$m[1];
+					if (!is_array($bugz[$bugnum])) { $bugz[$bugnum] = array("ID" => $bugnum); }
+				} else {
+					$bugnum="n/a";
+					if (!is_array($bugz[$bugnum])) { $bugz[$bugnum] = array("ID" => $bugnum); }
+				}
+			} else if (isIn($line,"</tr>")) { // end of a row
+				$loading=0;
+				$col=0; // reset column pointer
+			} else if ($loading && isIn($line,"<td>")) { 
+				//w($line);
+				if (!$bugz[$bugnum][$cols[$col]]) { $bugz[$bugnum][$cols[$col]] = trim(str_replace("<td>","",str_replace("<nobr>","",str_replace("</nobr>","",$line)))); }
+				//w("\$bugz[".$bugnum."][".$cols[$col]."] = ".$bugz[$bugnum][$cols[$col]],"\n");
+				$col++; // increment to next column pointer
+			} else if (isIn($line,"name=\"buglist\"")) { // also list of bugs
+				//w("<pre>$line</pre>");
+				$buglist.=($buglist?",":"").str_replace("\">","",str_replace("<input type=\"hidden\" name=\"buglist\" value=\"","",trim($line)));
+				//w($buglist);
 			}
-		} else if (isIn($line,"</tr>")) { // end of a row
-			$loading=0;
-			$col=0; // reset column pointer
-		} else if ($loading && isIn($line,"<td>")) { 
-			//w($line);
-			$bugz[$bugnum][$cols[$col]] = trim(str_replace("<td>","",str_replace("<nobr>","",str_replace("</nobr>","",$line))));
-			//w("\$bugz[".$bugnum."][".$cols[$col]."] = ".$bugz[$bugnum][$cols[$col]],"\n");
-			$col++; // increment to next column pointer
-		} else if (isIn($line,"name=\"buglist\"")) { // also list of bugs
-			//w("<pre>$line</pre>");
-			$buglist=str_replace("\">","",str_replace("<input type=\"hidden\" name=\"buglist\" value=\"","",trim($line)));
-			//w($buglist);
 		}
 	}
 	//echo "</pre>";
@@ -307,12 +312,10 @@ function displayXML() {
 	<modified>$'.'Date'.': '.
 		date("Y/m/d H:i:s T").' $'.'</modified>
 
-	<product-def product="EMF" label="EMF Development Plan" />
-	<product-def product="XSD" label="XSD Development Plan" />
-
 	<catg-def category="plan" label="EMF/XSD Planned Items" />
-	<catg-def category="add" label="EMF/XSD Additional Items" />
-	<catg-def category="res" label="EMF/XSD Resolved Items" />
+	<catg-def category="comm" label="EMF/XSD Committed Items" />
+	<catg-def category="prop" label="EMF/XSD Proposed Items" />
+	<catg-def category="reso" label="EMF/XSD Resolved Items" />
 	<catg-def category="m21x" label="EMF/XSD 2.1.x Maintenance Items" />
 	<catg-def category="m20x" label="EMF/XSD 2.0.x Maintenance Items" />
 
@@ -327,20 +330,18 @@ function displayXML() {
 	echo "\n";
 	foreach ($bugz as $bugnum => $data) { 
 		echo "\t<bug>\n";
-		if (0===strpos($data["TargetM"],"2.1.") || 0===strpos($data["Ver"],"2.1.")) { 
+		if (false!==strpos($data["Summary"],"[Plan Item]")) { // planned
+			echo "\t\t<catg>plan</catg>\n";
+		} else if (0===strpos($data["TargetM"],"2.2")) { 
+			echo "\t\t<catg>comm</catg>\n";
+		} else if (0===strpos($data["TargetM"],"2.1.") || 0===strpos($data["Ver"],"2.1.")) { 
 			echo "\t\t<catg>m21x</catg>\n";
 		} else if (0===strpos($data["TargetM"],"2.0.") || 0===strpos($data["Ver"],"2.0.")) { 
 			echo "\t\t<catg>m20x</catg>\n";
 		} else if ($data["Stat"] =="ASSIGNED") { 
-			echo "\t\t<catg>res</catg>\n";
-		} else if (
-			($data["TargetM"]!="---" && $data["TargetM"]!="Future") || 
-			false!==strpos($data["Summary"],"[Plan Item]") || 
-			$data["Plan-Committed"] || $data["Plan-Priority"] || $data["Plan-Estimate"]
-			) { // planned
-			echo "\t\t<catg>plan</catg>\n";
+			echo "\t\t<catg>reso</catg>\n";
 		} else {
-			echo "\t\t<catg>add</catg>\n";
+			echo "\t\t<catg>prop</catg>\n";
 		}
 		foreach ($column_order as $col) {
 			if (in_array($col,$columns)) {

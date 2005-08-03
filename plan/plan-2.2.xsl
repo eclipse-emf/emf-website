@@ -93,13 +93,17 @@
 	<p>
 
 			<xsl:for-each select="catg-def">
-				<a href="#{@category}"><xsl:value-of select="substring(@label,8)" /></a> (<xsl:value-of select="count(key('bugEntry',@category))" />) :: 
+				<a href="#{@category}"><xsl:value-of select="substring(@label,8)" /></a> (<xsl:value-of select="count(key('bugEntry',@category))" />)
+				<xsl:choose>
+					<xsl:when test="@category = 'reso'"><br/></xsl:when>
+					<xsl:otherwise> :: </xsl:otherwise>
+				</xsl:choose>
 			</xsl:for-each>
 			<a href="index.php">Other Plan Versions</a>
 	</p>
 	<p>Plan Priorities are on a scale from 1 to 4 where 1 is most prioritized, 4 is least prioritized.<br/>
 	Plan Estimates are annotated in units of days (d), weeks (w), or months (m), where 1m = 4w = 20d.<br/>
-	This Plan is subject to change. <!-- To view this plan as XML, <a href="view-source:http://eclipse.org/emf/plan/plan.xml">click here</a>. -->
+	This Plan is subject to change as bugs are closed and thus dropped from the plan. To view this plan as XML, <a href="index.php">click here</a>.
 	</p>
 	<p>Note: anyone is always welcome to contribute a part or bit of code. More consideration, that is, a higher priority will be given to bugs with junit tests reproducing the problem/defect.
 	</p>
@@ -203,7 +207,12 @@
 									<xsl:when test="name() = 'plan-estimate' and ../plan-comments = ''">
 										<xsl:value-of select="." />
 									</xsl:when>
-									<xsl:otherwise><xsl:value-of select="." /></xsl:otherwise>
+									<xsl:otherwise><xsl:choose>
+											<xsl:when test="string-length(.) &gt; 60">
+											<a onMouseover="ddrivetip('{../summary}'); return true;" onMouseout="hideddrivetip(); return true;" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={.}"><xsl:value-of select="substring(.,1,60)" />...</a>
+											</xsl:when>
+											<xsl:otherwise><xsl:value-of select="." /></xsl:otherwise>
+										</xsl:choose></xsl:otherwise>
 								</xsl:choose>
 								</td>
 							</xsl:if>
@@ -237,4 +246,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan-2.2.xsl,v 1.3 2005/08/03 03:12:14 nickb Exp $ -->
+<!-- $Id: plan-2.2.xsl,v 1.4 2005/08/03 20:41:44 nickb Exp $ -->

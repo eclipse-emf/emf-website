@@ -22,7 +22,7 @@
 			echo "<tr><td colspan=\"3\"><b>Choose plan version:</b></td></tr>";
 			rsort($vers);
 			foreach ($vers as $ver) { 
-				echo '<tr><td> &#149; <a href="/emf/plan/'.$ver.'">EMF Development Plan '.preg_replace("/plan-([\d\.]+)\.xml/","$1",$ver).'</td></tr>';
+				echo '<tr><td> &#149; <a href="/emf/plan/'.$ver.'">EMF Development Plan '.preg_replace("/plan-([\d\.]+)\.xml/","$1",$ver).'</a> (<a href="view-source:http://eclipse.org/emf/plan/'.$ver.'">XML Source</a>)</td></tr>';
 			}
 			echo "</table>\n";
 		} else {
