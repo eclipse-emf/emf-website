@@ -300,7 +300,7 @@ function displayXML() {
 	global $bugz,$columns,$additional_columns,$column_order,$debug;
 	if (!$debug) { header('Content-type: text/xml'); }
 	echo '<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="plan2.2.xsl"?>
+<?xml-stylesheet type="text/xsl" href="plan-2.2.xsl"?>
 <plan>
 	<id>$'.'Id'.': '.
 		'plan.xml,v Exp $'.'</id>
