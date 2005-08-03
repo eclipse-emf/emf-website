@@ -103,7 +103,7 @@
 	</p>
 	<p>Plan Priorities are on a scale from 1 to 4 where 1 is most prioritized, 4 is least prioritized.<br/>
 	Plan Estimates are annotated in units of days (d), weeks (w), or months (m), where 1m = 4w = 20d.<br/>
-	This Plan is subject to change as bugs are closed and thus dropped from the plan. To view this plan as XML, <a href="index.php">click here</a>.
+	This Plan is subject to change as bugs are closed and thus dropped from the plan. To view this plan as unformatted XML, <a href="index.php">click here</a>.
 	</p>
 	<p>Note: anyone is always welcome to contribute a part or bit of code. More consideration, that is, a higher priority will be given to bugs with junit tests reproducing the problem/defect.
 	</p>
@@ -134,7 +134,7 @@
 		</tr>
 		<tr class="content-header">
 			<xsl:for-each select="//column-def">
-				<xsl:if test="@column != 'catg' and @column != 'product' and @column != 'reporter' and @column != 'assignee' and @column != 'pri' and @column != 'stat' and @column != 'plan-comments' and @column != 'plan-committed'">
+				<xsl:if test="@column != 'catg' and @column != 'blocks' and @column != 'product' and @column != 'reporter' and @column != 'assignee' and @column != 'pri' and @column != 'stat' and @column != 'plan-comments' and @column != 'plan-committed'">
 					<td colspan="1" class="sub-header">
 						<xsl:value-of select="@label" />
 					</td>
@@ -155,7 +155,7 @@
 						</xsl:otherwise>
 						</xsl:choose>
 						<xsl:for-each select="./*">
-							<xsl:if test="name() != 'catg' and name() != 'product' and name() != 'reporter' and name() != 'assignee' and name() != 'pri' and name() != 'stat' and name() != 'plan-comments' and name() != 'plan-committed'">
+							<xsl:if test="name() != 'catg' and name() != 'blocks' and name() != 'product' and name() != 'reporter' and name() != 'assignee' and name() != 'pri' and name() != 'stat' and name() != 'plan-comments' and name() != 'plan-committed'">
 								<td nowrap="nowrap">
 								<xsl:choose>
 									<xsl:when test="name() = 'id'">
@@ -207,12 +207,26 @@
 									<xsl:when test="name() = 'plan-estimate' and ../plan-comments = ''">
 										<xsl:value-of select="." />
 									</xsl:when>
-									<xsl:otherwise><xsl:choose>
+									<xsl:when test="name() = 'summary' and starts-with(.,'[Plan Item]')">
+										<xsl:choose>
+											<xsl:when test="string-length(substring-after(.,'[Plan Item] ')) &gt; 60">
+											<a onMouseover="ddrivetip('{../summary}'); return true;" onMouseout="hideddrivetip(); return true;" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}"><xsl:value-of select="substring(substring-after(.,'[Plan Item] '),1,60)" />...</a>
+											</xsl:when>
+											<xsl:otherwise><xsl:value-of select="substring-after(.,'[Plan Item] ')" /></xsl:otherwise>
+										</xsl:choose>
+										<xsl:if test="name() = 'summary' and ../blocks != ''">
+											<br/>Blocked: <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Blocked bugs: {../blocks}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="../blocks" /></a>
+										</xsl:if>
+									</xsl:when>
+									<xsl:when test="name() = 'summary' and not(starts-with(.,'[Plan Item]'))">
+										<xsl:choose>
 											<xsl:when test="string-length(.) &gt; 60">
-											<a onMouseover="ddrivetip('{../summary}'); return true;" onMouseout="hideddrivetip(); return true;" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={.}"><xsl:value-of select="substring(.,1,60)" />...</a>
+											<a onMouseover="ddrivetip('{../summary}'); return true;" onMouseout="hideddrivetip(); return true;" href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}"><xsl:value-of select="substring(.,1,60)" />...</a>
 											</xsl:when>
 											<xsl:otherwise><xsl:value-of select="." /></xsl:otherwise>
-										</xsl:choose></xsl:otherwise>
+										</xsl:choose>
+									</xsl:when>
+									<xsl:otherwise><xsl:value-of select="." /></xsl:otherwise>
 								</xsl:choose>
 								</td>
 							</xsl:if>
@@ -246,4 +260,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan-2.2.xsl,v 1.4 2005/08/03 20:41:44 nickb Exp $ -->
+<!-- $Id: plan-2.2.xsl,v 1.5 2005/08/03 21:41:21 nickb Exp $ -->

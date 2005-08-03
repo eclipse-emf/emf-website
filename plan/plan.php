@@ -19,6 +19,7 @@ to parse out [plan] values and fields missing from above (cuz curl() loses cooki
 
 $contentType = $_GET["Content-Type"] ? $_GET["Content-Type"] : "text/xml"; // default or qs value
 $votes = $_GET["votes"] ? $_GET["votes"] : 0; // default or qs value
+$blocks = $_GET["blocks"] ? $_GET["blocks"] : 0; // default or qs value
 $debug = $_GET["debug"] ? $_GET["debug"] : 0; // default or qs value
 
 $usetmpfile=0; // defines whether or not to use pregen'd tmp files (1) or else to regen on the fly (0)
@@ -37,6 +38,7 @@ $columns = array(
 	"Reported By" => "Reporter",
 	"Assigned To" => "Assignee",
 
+	"Blocks" => "Blocks",
 	"Votes" => "Votes",
 	//"Changed Date" => "Changed",
 	//"Resolution" => "Resolution",
@@ -65,6 +67,7 @@ $column_order = array( // column label => field name (mixed case version)
 	"Reported By" => "Reporter",
 	"Assigned To" => "Assignee",
 
+	"Blocks" => "Blocks",
 	"Votes" => "Votes",
 
 	"Sev" => "Sev",
@@ -87,6 +90,7 @@ if ($contentType=="text/html" || $debug) {
 }
 getMetaAndBugList();
 getPlanItems($columns); 
+if ($blocks) { getBlocks(); }
 if ($votes) { getVoteCounts(); }
 if ($contentType=="text/html" || $debug) { 
 	w("\$bugz:"); wArr($bugz);
@@ -301,6 +305,29 @@ function getVoteCounts() {
 	}
 }
 
+function getBlocks() { // get list of bugs that are blocked by this bug
+	global $bugz;
+	foreach ($bugz as $bugnum => $data) { 
+		if (false!==strpos($data["Summary"],"[Plan Item]")) { 
+			//echo "<hr>$bugnum: ".$data["Summary"]."<br>\n";
+			$html = https_file("https://bugs.eclipse.org/bugs/showdependencytree.cgi?id=$bugnum"); //wArr($html);
+			foreach ($html as $line) { 
+				if (isIn($line,"<a href=\"show_bug.cgi?id=") && preg_match("/<a href\=\"show\_bug\.cgi\?id\=(\d+)\">/",$line,$m)) {
+					//echo $m[1].":"; 
+					if ($m[1] && $m[1]-0 != $bugnum-0) { 
+						$bugz[$bugnum]["Blocks"] .= ($bugz[$bugnum]["Blocks"]?",":"").$m[1]; 
+						//echo "good!";
+						//echo "<br>"; 
+						break;
+					}
+					//echo "<br>"; 
+				}
+			}
+		}
+
+	}
+}
+
 function displayXML() {
 	global $bugz,$columns,$additional_columns,$column_order,$debug;
 	if (!$debug) { header('Content-type: text/xml'); }
@@ -315,7 +342,6 @@ function displayXML() {
 	<catg-def category="plan" label="EMF/XSD Planned Items" />
 	<catg-def category="comm" label="EMF/XSD Committed Items" />
 	<catg-def category="prop" label="EMF/XSD Proposed Items" />
-	<catg-def category="reso" label="EMF/XSD Resolved Items" />
 	<catg-def category="m21x" label="EMF/XSD 2.1.x Maintenance Items" />
 	<catg-def category="m20x" label="EMF/XSD 2.0.x Maintenance Items" />
 
@@ -338,8 +364,6 @@ function displayXML() {
 			echo "\t\t<catg>m21x</catg>\n";
 		} else if (0===strpos($data["TargetM"],"2.0.") || 0===strpos($data["Ver"],"2.0.")) { 
 			echo "\t\t<catg>m20x</catg>\n";
-		} else if ($data["Stat"] =="ASSIGNED") { 
-			echo "\t\t<catg>reso</catg>\n";
 		} else {
 			echo "\t\t<catg>prop</catg>\n";
 		}
