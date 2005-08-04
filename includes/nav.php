@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.16 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.17 2005/08/04 20:57:17 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -163,7 +163,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 			<tr><td><img src="http://www.eclipse.org/emf/images/release-notes.gif" border="0"></td>
 	<td><a name="relnotes1" class="category">Release Notes:</a> 
 
-	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes-1.x.php">1.x</a></td>
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a>, <b><a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a>, </b><a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes-1.x.php">1.x</a></td>
 
             <td> <a href="http://www.eclipse.org/emf/faq/faq.php"><img
  src="http://www.eclipse.org/emf/images/faq.gif" border="0"></a></td>
