@@ -32,9 +32,6 @@
 <bug id="105712">TVT 3.1 - TCT 515 - Truncated button on Load Rose Class model.</bug>
 <bug id="105746">EAttribute annotated with ExtendedMetaData (kind-&gt;simple) does not load correctly at runtime</bug>
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
-<bug id="106020">method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
-<bug id="106043">EcoreUtil.Copier.copyReferences() is copying container features</bug>
-<bug id="106047">NPE in ChangeSummary.getOldValues(DataObject)</bug>
 </entry>
 
 <entry version="2.1.1" build="M200508040005" project="emf">
@@ -385,8 +382,6 @@
 <bug id="103572">Update license.html (12 files) from notice.html</bug>
 <bug id="104717">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732">Some SDO Properties should not be treated as containment</bug>
-<bug id="106020">method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
-<bug id="106047">NPE in ChangeSummary.getOldValues(DataObject)</bug>
 </entry>
 
 <entry version="2.1.1" build="M200508040005" project="sdo">
@@ -2038,4 +2033,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.68 2005/08/04 17:48:41 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.69 2005/08/04 17:51:33 nickb Exp $ -->
