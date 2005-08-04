@@ -19,30 +19,29 @@
 <project-def project="sdo" label="SDO Release Notes" />
 <project-def project="xsd" label="XSD Release Notes" />
 
-<entry version="2.1.1" build="M200508040005" project="emf">
+<entry version="2.2.0" build="I200508040200" project="emf">
 <bug id="61639">Provide a Command which removes objects from all structural features in the model.</bug>
-<bug id="98874">Migrate license from CPL to EPL</bug>
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="102557">Enum with default value reported as error by validator</bug>
 <bug id="103356">JavaEcoreBuilder: Wrong multiplicity for java.util.Map</bug>
 <bug id="103399">ComposedAdapterFactory.adapt(Notifier target, Object type) doesn't find parent's item provider</bug>
-<bug id="103407">Split off 2.1.1 branch</bug>
 <bug id="103572">Update license.html (12 files) from notice.html</bug>
-<bug id="103929">[Tutorials] Problem with tutorial/TVT script</bug>
 <bug id="104590">Problem creating ecore2xml mapping for documentation Annotation</bug>
 <bug id="104718">[Plan Item] Provide additional XML utilities to improve EMF ease-of-use</bug>
 <bug id="104823">ecore adapter factory always defaulted if it's registered, and factory not found for a type</bug>
 <bug id="104897">NPE when loading a rose model created with the lastest version of Rose</bug>
-<bug id="105533">[Dupe] ESuperAdapter holds onto references forever == memory leak</bug>
 <bug id="105712">TVT 3.1 - TCT 515 - Truncated button on Load Rose Class model.</bug>
 <bug id="105746">EAttribute annotated with ExtendedMetaData (kind-&gt;simple) does not load correctly at runtime</bug>
-<bug id="105796">[Duplicate] Problem creating ecore2xml mapping for documentation Annotation</bug>
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
-<bug id="105810">[Duplicate] TVT 3.1 - TCT 515 - Truncated button on Load Rose Class model.</bug>
 <bug id="106020">method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
 <bug id="106043">EcoreUtil.Copier.copyReferences() is copying container features</bug>
 <bug id="106047">NPE in ChangeSummary.getOldValues(DataObject)</bug>
-<bug id="183356"></bug>
+</entry>
+
+<entry version="2.1.1" build="M200508040005" project="emf">
+<bug id="103407">Split off 2.1.1 branch</bug>
+<bug id="103929">[Tutorials] Problem with tutorial/TVT script</bug>
+<bug id="105796">[Duplicate] Problem creating ecore2xml mapping for documentation Annotation</bug>
+<bug id="105810">[Duplicate] TVT 3.1 - TCT 515 - Truncated button on Load Rose Class model.</bug>
 </entry>
 
 <entry version="2.1.0" build="2.1.0" project="emf">
@@ -382,13 +381,16 @@
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
-<entry version="2.1.1" build="M200508040005" project="sdo">
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
+<entry version="2.2.0" build="I200508040200" project="sdo">
 <bug id="103572">Update license.html (12 files) from notice.html</bug>
 <bug id="104717">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732">Some SDO Properties should not be treated as containment</bug>
 <bug id="106020">method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
 <bug id="106047">NPE in ChangeSummary.getOldValues(DataObject)</bug>
+</entry>
+
+<entry version="2.1.1" build="M200508040005" project="sdo">
+<note>No new Bugzillas closed or revised in this build.</note>
 </entry>
 
 <entry version="2.1.0" build="2.1.0" project="sdo">
@@ -679,10 +681,12 @@ mixin features inherited from interface</bug>
 <bug id="75419">Delete operation should cascade through containment hieracrchy</bug>
 </entry>
 
+<entry version="2.2.0" build="I200508040200" project="xsd">
+<note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
 <entry version="2.1.1" build="M200508040005" project="xsd">
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="103572">Update license.html (12 files) from notice.html</bug>
-<bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
 </entry>
 
 <entry version="2.1.0" build="2.1.0" project="xsd">
@@ -2034,4 +2038,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.67 2005/08/04 17:31:07 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.68 2005/08/04 17:48:41 nickb Exp $ -->
