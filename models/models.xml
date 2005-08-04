@@ -3,6 +3,19 @@
 <data>
 
 <model
+modelName="EMF Persistency Layer"
+date="2005-08-02"
+category="EMF framework"
+modelID="MartinTaal20050802142757">
+<text>Elver EMF Store is a persistency solution for EMF, based on JDO 2.0. It supports automatic creation of EMF to Relational Mappings and the related database schemas. The solution also contains a runtime layer to support specific EMF features. EMF Objects can be stored and retrieved using JDO 2.0 advanced queries. EMF resource implementations are provided for integration with EMF Editors.</text>
+<modelURL>http://www.elver.org</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Martin Taal</submitter>
+<submitterURL>http://www.elver.org</submitterURL>
+</model>
+
+<model
 modelName="MetaDiff"
 date="2005-08-02"
 category="EMF framework"
@@ -417,4 +430,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.15 2005/08/02 16:16:40 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.16 2005/08/04 16:43:30 nickb Exp $ -->
