@@ -254,7 +254,7 @@
 								<xsl:for-each select="bug">
 									<xsl:sort select="@id" data-type="number" order="descending" />
 									<tr id="name{../@project}{../@build}{position()}" onMouseOver="rowOver('{../@project}{../@build}{position()}','#C0D8FF')" onMouseOut="rowOut('{../@project}{../@build}{position()}','{$rowColor}')">
-										<td>&#149;</td>
+										<td>&#160;</td>
 										<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
 											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
 											<td>&#160;</td>
@@ -302,4 +302,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.6 2005/08/09 01:05:34 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.7 2005/08/09 01:09:50 nickb Exp $ -->
