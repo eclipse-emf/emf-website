@@ -8,10 +8,19 @@
 		$pre = "../";
 		include "../includes/header.php"; 
 		
-		if (!$doc) { 
-			$XMLfile = "../news/release-notes.xml";
-		} else {
-			$XMLfile = $doc; 
+		if (!$XMLfile) { 
+			if (!$doc) { 
+				$XMLfile = "../news/release-notes.xml";
+			} else {
+				$XMLfile = $doc; 
+			}
+		}
+		if (!$XSLfile) { 
+			if (!$sheet) { 
+				$XSLfile = "../news/release-notes.xsl";
+			} else {
+				$XSLfile = $sheet; 
+			}
 		}
 
 		//$f = file ($XMLfile); foreach ($f as $row) { echo htmlspecialchars($row)."<br>"; }
@@ -34,7 +43,7 @@
 			xmlFile = document.implementation.createDocument("", "", null);
 			stylesheet = document.implementation.createDocument("", "", null);
 			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet.load("../news/release-notes.xsl");
+			stylesheet.load("<?php echo $XSLfile; ?>");
 			xmlFile.addEventListener("load", transform, false);
 			stylesheet.addEventListener("load", transform, false);
 		}
@@ -45,7 +54,7 @@
 			xmlFile.load("<?php echo $XMLfile; ?>");
 			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
 			stylesheet.async = false;
-			stylesheet.load("../news/release-notes.xsl");
+			stylesheet.load("<?php echo $XSLfile; ?>");
 			cache = new ActiveXObject("msxml2.XSLTemplate.3.0");
 			cache.stylesheet = stylesheet;
 			transformData();
@@ -92,4 +101,4 @@
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.8 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.9 2005/08/09 00:57:50 nickb Exp $ -->

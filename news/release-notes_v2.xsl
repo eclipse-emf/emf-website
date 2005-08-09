@@ -92,8 +92,9 @@
 	</xsl:if>
 
 	<!-- form controls -->
-	<form action="release-notes.php" method="get" name="mainform">
-	<input type="hidden" name="doc" value="release-notes_v2.xml"/>
+	<form action="http://eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
+	<input type="hidden" name="XMLfile" value="release-notes_v2.xml"/>
+	<input type="hidden" name="XSLfile" value="release-notes_v2.xsl"/>
 	<table width="60%">
 			<tr>
 				<td>
@@ -101,10 +102,10 @@
 						<span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b> 
 						Multiple terms are treated as an <b>OR</b> search.</span><br/>
 						<span class="log-text">You can also use these predefined filters: 
-						<a href="release-notes.php?doc=release-notes_v2.xml&amp;project=emf">EMF</a> :: 
-						<a href="release-notes.php?doc=release-notes_v2.xml&amp;project=sdo">SDO</a> :: 
-						<a href="release-notes.php?doc=release-notes_v2.xml&amp;project=xsd">XSD</a> :: 
-						<a href="release-notes.php?doc=release-notes_v2.xml">Complete 2.x Notes</a> :: 
+						<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl&amp;project=emf">EMF</a> :: 
+						<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl&amp;project=sdo">SDO</a> :: 
+						<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl&amp;project=xsd">XSD</a> :: 
+						<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl">Complete 2.x Notes</a> :: 
 						<a href="release-notes-1.x.php">Complete 1.x Notes</a></span>
 					<hr size="1" width="100%"/>
 					<select class="log-text" name="project" size="1">
@@ -302,4 +303,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.4 2005/08/09 00:49:44 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.5 2005/08/09 00:57:50 nickb Exp $ -->
