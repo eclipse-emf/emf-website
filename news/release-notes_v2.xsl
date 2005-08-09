@@ -177,12 +177,14 @@
 						<xsl:for-each select="//bug">
 							<xsl:sort select="@id" data-type="number" order="descending" />
 							<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">
-								<nobr><xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
+								<nobr>
+								<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
 									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a><img src="http://www.eclipse.org/images/c.gif" height="1" width="2"/>
 								</xsl:if>
 								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
 									<xsl:value-of select="@id" />
-								</a>,</nobr>
+								</a>,
+								</nobr>&#32;&#32;
 							</xsl:if>
 						</xsl:for-each> <a href="javascript:servOC('{@project}.{@version}',{string-length(matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
 						<br/><img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/>
@@ -300,4 +302,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.2 2005/08/09 00:42:43 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.3 2005/08/09 00:45:04 nickb Exp $ -->
