@@ -20,7 +20,6 @@
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
-	<script type="text/javascript" src="../includes/detaildiv.js"></script>
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("release-notes.css");</style>
 	</head>
@@ -303,4 +302,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.5 2005/08/09 00:57:50 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.6 2005/08/09 01:05:34 nickb Exp $ -->

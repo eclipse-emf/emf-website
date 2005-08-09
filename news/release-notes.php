@@ -28,6 +28,7 @@
 		?>
 
 <style>@import url("../news/release-notes.css");</style>
+<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
 <script type="text/javascript">
 	var returnval = 0;
 	var stylesheet, xmlFile, cache, doc;
@@ -101,4 +102,4 @@
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.9 2005/08/09 00:57:50 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.10 2005/08/09 01:05:34 nickb Exp $ -->
