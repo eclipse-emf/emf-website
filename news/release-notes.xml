@@ -34,6 +34,24 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 </entry>
 
+<entry version="2.1.1" build="M200508110300" project="emf">
+<bug id="43752">CommandFramework needs a ResetCommand</bug>
+<bug id="104722">[Duplicate] JavaEcoreBuilder: Wrong multiplicity for java.util.Map</bug>
+<bug id="104723">[Duplicate] Enum with default value reported as error by validator</bug>
+<bug id="104724">[Duplicate] ComposedAdapterFactory.adapt(Notifier target, Object type) doesn't find parent's item provider</bug>
+<bug id="104823">ecore adapter factory always defaulted if it's registered, and factory not found for a type</bug>
+<bug id="105061">[Duplicate] NPE when loading a rose model created with the lastest version of Rose</bug>
+<bug id="105921">Marking an EMap relation as Unsettable causes ClassCastExceptions in genreated code</bug>
+<bug id="106020">method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
+<bug id="106043">EcoreUtil.Copier.copyReferences() is copying container features</bug>
+<bug id="106047">NPE in ChangeSummary.getOldValues(DataObject)</bug>
+<bug id="106054">[Dup] NPE in ChangeSummary.getOldValues(DataObject)</bug>
+<bug id="106055">[Dup] method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
+<bug id="106103">[Duplicate] ecore adapter factory always defaulted if it's registered, and factory not found for a type</bug>
+<bug id="106235">Model Importer: Label should be &quot;Model URIs&quot; or &quot;Model URI&quot;.</bug>
+<bug id="106702">If BasicEList.validate fails, the entire EList is invalid</bug>
+</entry>
+
 <entry version="2.1.1" build="M200508040005" project="emf">
 <bug id="103407">Split off 2.1.1 branch</bug>
 <bug id="103929">[Tutorials] Problem with tutorial/TVT script</bug>
@@ -384,6 +402,13 @@
 <bug id="104732">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry version="2.1.1" build="M200508110300" project="sdo">
+<bug id="106020">method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
+<bug id="106047">NPE in ChangeSummary.getOldValues(DataObject)</bug>
+<bug id="106054">[Dup] NPE in ChangeSummary.getOldValues(DataObject)</bug>
+<bug id="106055">[Dup] method List getOldValues(DataObject dataObject) in ChangeSummaryImpl does'nt work fine</bug>
+</entry>
+
 <entry version="2.1.1" build="M200508040005" project="sdo">
 <note>No new Bugzillas closed or revised in this build.</note>
 </entry>
@@ -678,6 +703,10 @@ mixin features inherited from interface</bug>
 
 <entry version="2.2.0" build="I200508040200" project="xsd">
 <note>No new Bugzillas closed or revised in this build.</note>
+</entry>
+
+<entry version="2.1.1" build="M200508110300" project="xsd">
+<bug id="106143">NullPointerException</bug>
 </entry>
 
 <entry version="2.1.1" build="M200508040005" project="xsd">
@@ -2033,4 +2062,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.69 2005/08/04 17:51:33 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.70 2005/08/11 15:16:25 nickb Exp $ -->
