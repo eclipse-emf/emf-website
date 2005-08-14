@@ -2,6 +2,24 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model 
+modelName="Open Source IDE for Laszlo 2.1 / Eclipse 3.1" 
+date="2005-08-12" 
+category="EMF tool" 
+modelID="gham20050812185633">
+<text>IDE (Integrated Development Environment) for Laszlo is an 
+open source technology preview of an Eclipse-based development environment 
+for creating, editing, debugging, and testing applications based on the LZX 
+(an XML and JavaScript description language. Version 2.1 adds support for 
+Eclipse 3.1 and the Eclipse Web Tools project, as well as several different 
+bug fixes. [<a href="http://www.alphaworks.ibm.com/tech/ide4laszlo?open&amp;S_TACT=105AGX59&amp;S_CMP=GR&amp;ca=dgr-eclps07awide4laszlo">more</a>]</text>
+<modelURL>http://www.openlaszlo.org/</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL>http://www.alphaworks.ibm.com/screenshots/2663D94EE7E4711C88256FAC007D46DD/$FILE/ide4laszlo01.jpg</screenshotURL>
+<submitter>gham</submitter> 
+<submitterURL></submitterURL>
+</model>
+
 <model
 modelName="EMF Persistency Layer"
 date="2005-08-02"
@@ -430,4 +448,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.16 2005/08/04 16:43:30 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.17 2005/08/14 22:19:03 nickb Exp $ -->
