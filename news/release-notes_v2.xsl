@@ -176,10 +176,11 @@
 						<img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/><br/>
 						<xsl:for-each select="//bug">
 							<xsl:sort select="@id" data-type="number" order="descending" />
+							<xsl:variable name="source"><xsl:choose><xsl:when test="@sub = 'sdo'">sdo</xsl:when><xsl:otherwise><xsl:value-of select="../@project" /></xsl:otherwise></xsl:choose></xsl:variable>
 							<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">
 								<nobr>
 								<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
-									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a><img src="http://www.eclipse.org/images/c.gif" height="1" width="2"/>
+									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={$source}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a><img src="http://www.eclipse.org/images/c.gif" height="1" width="2"/>
 								</xsl:if>
 								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
 									<xsl:value-of select="@id" />
@@ -253,13 +254,20 @@
 								<table width="100%" cellspacing="0" cellpadding="2">
 								<xsl:for-each select="bug">
 									<xsl:sort select="@id" data-type="number" order="descending" />
+									<xsl:variable name="source"><xsl:choose><xsl:when test="@sub = 'sdo'">sdo</xsl:when><xsl:otherwise><xsl:value-of select="../@project" /></xsl:otherwise></xsl:choose></xsl:variable>
 									<tr id="name{../@project}{../@build}{position()}" onMouseOver="rowOver('{../@project}{../@build}{position()}','#C0D8FF')" onMouseOut="rowOut('{../@project}{../@build}{position()}','{$rowColor}')">
 										<td>&#160;</td>
 										<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
-											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
+											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={$source}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
 											<td>&#160;</td>
 										</xsl:if>
 										<td align="right"><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id" /></a></td>
+										<td>&#160;</td>
+										<td><xsl:choose>
+											<xsl:when test="@sub = 'emf,sdo'"><img src="../images/icon-emf.gif" border="0" alt="emf"/>&#160;<img src="../images/icon-sdo.gif" border="0" alt="sdo"/></xsl:when>
+											<xsl:when test="@sub = 'sdo'"><img src="../images/icon-sdo.gif" border="0" alt="sdo"/></xsl:when>
+											<xsl:otherwise><img src="../images/icon-{../@project}.gif" alt="{../@project}"/></xsl:otherwise>
+										</xsl:choose></td>
 										<td>&#160;</td>
 										<td width="100%"><xsl:value-of select="." /></td>
 									</tr>
@@ -302,4 +310,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.7 2005/08/09 01:09:50 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.8 2005/08/16 17:28:42 nickb Exp $ -->
