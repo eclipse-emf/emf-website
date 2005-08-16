@@ -19,6 +19,7 @@
     <title>Eclipse Tools - EMF, SDO and XSD - Release Notes</title>
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
+	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("release-notes.css");</style>
 	</head>
@@ -90,19 +91,23 @@
 	</xsl:if>
 
 	<!-- form controls -->
-	<form action="release-notes.php" method="get" name="mainform">
+	<form action="http://eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
+	<input type="hidden" name="XMLfile" value="release-notes.xml"/>
+	<input type="hidden" name="XSLfile" value="release-notes.xsl"/>
 	<table width="60%">
 			<tr>
 				<td>
-	
-					<hr size="1" width="100%"/>
+						<hr size="1" width="100%"/>
 						<span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b> 
 						Multiple terms are treated as an <b>OR</b> search.</span><br/>
 						<span class="log-text">You can also use these predefined filters: 
-						<a href="release-notes.php?project=emf">EMF</a> :: 
-						<a href="release-notes.php?project=sdo">SDO</a> :: 
-						<a href="release-notes.php?project=xsd">XSD</a> :: 
-						<a href="release-notes.php?project=">Complete 2.x Notes</a> :: 
+<img src="../images/icon-emf.gif" border="0" alt="emf"/> 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=emf">EMF</a> :: 
+<img src="../images/icon-sdo.gif" border="0" alt="sdo"/> 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=emf">SDO</a> :: 
+<img src="../images/icon-xsd.gif" border="0" alt="xsd"/> 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=xsd">XSD</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl">Complete 2.x Notes</a> :: 
 						<a href="release-notes-1.x.php">Complete 1.x Notes</a></span>
 					<hr size="1" width="100%"/>
 					<select class="log-text" name="project" size="1">
@@ -139,7 +144,6 @@
 				</td>
 			</tr>
 	</table>
-	</form>
 	
 	<!-- nav header table (release list) -->
 	<table border="0" cellspacing="1" cellpadding="3" width="100%">
@@ -147,51 +151,47 @@
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="header">
 				<td colspan="1" class="sub-header">
-					<a class="sub-header" style="text-decoration:none" href="#{@project}"><xsl:value-of select="@label" /></a> (<xsl:value-of select="count(key('entryProj',@project))" /> Builds)
+					<a class="sub-header" style="text-decoration:none" href="#{@project}"><xsl:value-of select="@label" /></a>
 				</td>
 				<td colspan="1" class="sub-header">
 					Bugs Closed
 				</td>
-				<td colspan="1" class="sub-header">
-					Count
-				</td>
 			</tr>
 			<xsl:for-each select="key('entryProj',@project)">
-				<xsl:if test="(starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
-					<tr valign="top">
-						<xsl:choose>
-						<xsl:when test="(position() mod 2 = 1)">
-							<xsl:attribute name="class">dark-row</xsl:attribute>
-						</xsl:when>
-						<xsl:otherwise>	
-							<xsl:attribute name="class">light-row</xsl:attribute>
-						</xsl:otherwise>
-						</xsl:choose>
-						<td class="normal" width="22%">
-							<a href="#{@project}.{@version}.{@build}">
-								<xsl:choose>
-									<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
-									<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
-									<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
-								</xsl:choose>
-							</a>
+				<xsl:if test="@build = @version and (starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
+				<xsl:variable name="thisVersion"><xsl:value-of select="@version" /></xsl:variable>
+				<xsl:variable name="thisProject"><xsl:value-of select="@project" /></xsl:variable>
+				<xsl:variable name="matchCount"><xsl:for-each select="//bug">
+					<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">1</xsl:if>
+				</xsl:for-each></xsl:variable>
+					<tr id="name{@project}.{@version}" valign="top" class="dark-row" onMouseOver="rowOver('{@project}.{@version}','#C0D8FF')" onMouseOut="rowOut('{@project}.{@version}','#EEEEFF')" >
+						<td class="normal" width="22%" onclick="document.location.href='#{@project}.{@version}';" onMouseOver="window.status='Click for detailed list of bugs';return true" onMouseOut="window.status='';return true">
+							<a href="javascript://" style="text-decoration:none"><xsl:choose>
+								<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
+								<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
+								<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
+							</xsl:choose></a>
 						</td>
-						<td class="normal" width="70%">
-							<xsl:for-each select="bug">
-								<xsl:if test="@id &lt; 100000">&#160;&#160;</xsl:if>
-								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
-									<xsl:value-of select="@id" />
-								</a>&#160;
-								<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
-									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a>&#160;
-								</xsl:if>
-								<xsl:if test="position() mod 8 = 0"><br/></xsl:if>
-							</xsl:for-each>
-						</td>
-						<td class="normal" valign="bottom">
-							<xsl:if test="count(bug)>0">&#160;<xsl:value-of select="count(bug)" />&#160;</xsl:if>
+						<td class="normal" width="70%" onClick="servOC('{@project}.{@version}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
 						</td>
 					</tr>
+					<tr style="display:none" id="ihtr{@project}.{@version}"><td bgcolor="#C0D8FF" colspan="2"><table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="white"><tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" width="100%" id="ihif{@project}.{@version}">
+						<img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/><br/>
+						<xsl:for-each select="//bug">
+							<xsl:sort select="@id" data-type="number" order="descending" />
+							<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">
+								<nobr>
+								<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
+									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a><img src="http://www.eclipse.org/images/c.gif" height="1" width="2"/>
+								</xsl:if>
+								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
+									<xsl:value-of select="@id" />
+								</a>,
+								</nobr>&#32;&#32;
+							</xsl:if>
+						</xsl:for-each> <a href="javascript:servOC('{@project}.{@version}',{string-length(matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
+						<br/><img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/>
+					</div></td><td width="10"></td></tr></table></td></tr>
 				</xsl:if>
 			</xsl:for-each>
 			<tr><td class="spacer"> </td></tr>
@@ -209,45 +209,68 @@
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="content-header">
 				<td colspan="1" class="sub-header">
-					<a name="{@project}"><xsl:value-of select="@label"/></a> (<xsl:value-of select="count(key('entryProj',@project))" /> Builds)
+					<a name="{@project}"><xsl:value-of select="@label"/></a>
 				</td>
 			</tr>
 			<xsl:for-each select="key('entryProj',@project)">
 				<xsl:if test="(starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
-					<tr valign="top">
+				<xsl:variable name="thisVersion"><xsl:value-of select="@version" /></xsl:variable>
+				<xsl:variable name="thisProject"><xsl:value-of select="@project" /></xsl:variable>
+				<xsl:variable name="matchCount"><xsl:for-each select="//bug">
+					<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">1</xsl:if>
+				</xsl:for-each></xsl:variable>
+
+					<xsl:if test="@build = @version">
+						<!-- {@project}.{@version} -->
+						<tr><td colspan="1" class="normal">&#160;</td></tr>
+						<tr class="content-header">
+							<td colspan="1" class="sub-header">
+								<a name="{@project}.{@version}"><xsl:value-of select="@build"/> Release</a>
+							<xsl:if test="string-length($matchCount)>1">&#160;(<xsl:value-of select="string-length($matchCount)" /> Bugs)</xsl:if>
+							</td>
+						</tr>
+					</xsl:if>
+
+					<xsl:variable name="rowColor">
 						<xsl:choose>
-						<xsl:when test="(position() mod 2 = 1)">
-							<xsl:attribute name="class">dark-row2</xsl:attribute>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:attribute name="class">light-row</xsl:attribute>
-						</xsl:otherwise>
+							<xsl:when test="(position() mod 2 = 1)">#EEEEEE</xsl:when>
+							<xsl:otherwise>#FFFFFF</xsl:otherwise>
 						</xsl:choose>
+					</xsl:variable>
+					<tr valign="top" bgcolor="{$rowColor}">
 						<td class="normal" align="left" width="100%">
 							
-							<a name="{@project}.{@version}.{@build}"><b class="title">
+							<a name="{@project}.{@version}"><b class="title">
 								<xsl:choose>
 									<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
 									<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
 									<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
 								</xsl:choose>
 							</b></a>
-							<xsl:if test="count(bug)>0">&#160;(<xsl:value-of select="count(bug)" /> Bugs)</xsl:if>
-							<xsl:if test="note!=''">
+							<xsl:if test="count(bug)>1">&#160;(<xsl:value-of select="count(bug)" /> Bugs)</xsl:if>
+
+							<!-- <xsl:if test="note!=''">
 								<br/><span class="details"><xsl:copy-of select="note" /></span>
-							</xsl:if>
+							</xsl:if> -->
 							<xsl:if test="count(bug)>0">
-								<table>
+								<table width="100%" cellspacing="0" cellpadding="2">
 								<xsl:for-each select="bug">
-									<tr>
-										<td>&#149;</td>
-										<td><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id" /></a></td>
-										<xsl:if test="number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
-											<td>&#160;</td>
-											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
-										</xsl:if>
+									<xsl:sort select="@id" data-type="number" order="descending" />
+									<tr id="name{../@project}{../@build}{position()}" onMouseOver="rowOver('{../@project}{../@build}{position()}','#C0D8FF')" onMouseOut="rowOut('{../@project}{../@build}{position()}','{$rowColor}')">
 										<td>&#160;</td>
-										<td><xsl:value-of select="." /></td>
+										<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
+											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
+											<td>&#160;</td>
+										</xsl:if>
+										<td align="right"><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id" /></a></td>
+										<td>&#160;</td>
+										<td><nobr><xsl:choose>
+											<xsl:when test="@sub = 'emf,sdo'"><img src="../images/icon-emf.gif" border="0" alt="emf"/>&#160;<img src="../images/icon-sdo.gif" border="0" alt="sdo"/></xsl:when>
+											<xsl:when test="@sub = 'sdo'"><img src="../images/icon-sdo.gif" border="0" alt="sdo"/></xsl:when>
+											<xsl:otherwise><img src="../images/icon-{../@project}.gif" alt="{../@project}"/></xsl:otherwise>
+										</xsl:choose></nobr></td>
+										<td>&#160;</td>
+										<td width="100%"><xsl:value-of select="." /></td>
 									</tr>
 								</xsl:for-each>
 								</table>
@@ -260,10 +283,11 @@
 			<tr><td class="spacer"><br/></td><td class="spacer"><br/></td></tr>
 		</xsl:if>
 		<xsl:if test="count(key('entryProj',@project)) = 0">
-			<tr><td colspan="3" class="normal">n/a</td></tr>
+			<tr><td colspan="1" class="normal">n/a</td></tr>
 		</xsl:if>
 	</xsl:for-each>
 	</table>
+	</form>
 
 <xsl:if test="$showFiltersOrHeaderFooter!='1'">
 
@@ -287,4 +311,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.16 2005/07/08 21:25:27 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.17 2005/08/16 21:13:15 nickb Exp $ -->
