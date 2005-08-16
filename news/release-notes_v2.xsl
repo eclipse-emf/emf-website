@@ -266,11 +266,11 @@
 										</xsl:if>
 										<td align="right"><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id" /></a></td>
 										<td>&#160;</td>
-										<td><xsl:choose>
+										<td><nobr><xsl:choose>
 											<xsl:when test="@sub = 'emf,sdo'"><img src="../images/icon-emf.gif" border="0" alt="emf"/>&#160;<img src="../images/icon-sdo.gif" border="0" alt="sdo"/></xsl:when>
 											<xsl:when test="@sub = 'sdo'"><img src="../images/icon-sdo.gif" border="0" alt="sdo"/></xsl:when>
 											<xsl:otherwise><img src="../images/icon-{../@project}.gif" alt="{../@project}"/></xsl:otherwise>
-										</xsl:choose></td>
+										</xsl:choose></nobr></td>
 										<td>&#160;</td>
 										<td width="100%"><xsl:value-of select="." /></td>
 									</tr>
@@ -313,4 +313,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.9 2005/08/16 17:49:40 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.10 2005/08/16 19:32:48 nickb Exp $ -->
