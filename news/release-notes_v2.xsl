@@ -92,8 +92,8 @@
 
 	<!-- form controls -->
 	<form action="http://eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
-	<input type="hidden" name="XMLfile" value="release-notes_v2.xml"/>
-	<input type="hidden" name="XSLfile" value="release-notes_v2.xsl"/>
+	<input type="hidden" name="XMLfile" value="release-notes.xml"/>
+	<input type="hidden" name="XSLfile" value="release-notes.xsl"/>
 	<table width="60%">
 			<tr>
 				<td>
@@ -102,12 +102,12 @@
 						Multiple terms are treated as an <b>OR</b> search.</span><br/>
 						<span class="log-text">You can also use these predefined filters: 
 <img src="../images/icon-emf.gif" border="0" alt="emf"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl&amp;project=emf">EMF</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=emf">EMF</a> :: 
 <img src="../images/icon-sdo.gif" border="0" alt="sdo"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl&amp;project=emf">SDO</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=emf">SDO</a> :: 
 <img src="../images/icon-xsd.gif" border="0" alt="xsd"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl&amp;project=xsd">XSD</a> :: 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes_v2.xml&amp;XSLfile=release-notes_v2.xsl">Complete 2.x Notes</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=xsd">XSD</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl">Complete 2.x Notes</a> :: 
 						<a href="release-notes-1.x.php">Complete 1.x Notes</a></span>
 					<hr size="1" width="100%"/>
 					<select class="log-text" name="project" size="1">
@@ -249,9 +249,9 @@
 							</b></a>
 							<xsl:if test="count(bug)>1">&#160;(<xsl:value-of select="count(bug)" /> Bugs)</xsl:if>
 
-							<!-- <xsl:if test="note!=''">
+							<xsl:if test="note!=''">
 								<br/><span class="details"><xsl:copy-of select="note" /></span>
-							</xsl:if> -->
+							</xsl:if>
 							<xsl:if test="count(bug)>0">
 								<table width="100%" cellspacing="0" cellpadding="2">
 								<xsl:for-each select="bug">
@@ -311,4 +311,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes_v2.xsl,v 1.11 2005/08/16 21:00:24 nickb Exp $ -->
+<!-- $Id: release-notes_v2.xsl,v 1.12 2005/08/16 21:20:57 nickb Exp $ -->

@@ -1588,7 +1588,6 @@ Tuned method BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature). S
 </entry>
 
 <entry build="I200403081633" project="xsd" version="2.0.0">
-<note>There are no code changes in this build.</note>
 </entry>
 
 <entry build="I200402251234SL" project="xsd" version="2.0.0">
@@ -1597,10 +1596,10 @@ Tuned method BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature). S
 </entry>
 
 <entry build="I200401271738SL" project="xsd" version="2.0.0">
-<note>There are no code changes in this build.</note>
 </entry>
 
 <entry build="I200312190637VL" project="xsd" version="2.0.0">
+<note>
 <p>
 There are few minor bug fixes and improvements included with this build.
 <ul>
@@ -1613,6 +1612,7 @@ Named components with equal name and namespace are sorted by hashCode.
 </li>
 </ul>
 </p>
+</note>
 </entry>
 
 <entry build="I200312101532XL" project="xsd" version="2.0.0">
@@ -1657,4 +1657,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.72 2005/08/16 21:13:15 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.73 2005/08/16 21:20:57 nickb Exp $ -->

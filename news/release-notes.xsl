@@ -249,9 +249,9 @@
 							</b></a>
 							<xsl:if test="count(bug)>1">&#160;(<xsl:value-of select="count(bug)" /> Bugs)</xsl:if>
 
-							<!-- <xsl:if test="note!=''">
+							<xsl:if test="note!=''">
 								<br/><span class="details"><xsl:copy-of select="note" /></span>
-							</xsl:if> -->
+							</xsl:if>
 							<xsl:if test="count(bug)>0">
 								<table width="100%" cellspacing="0" cellpadding="2">
 								<xsl:for-each select="bug">
@@ -311,4 +311,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.17 2005/08/16 21:13:15 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.18 2005/08/16 21:20:57 nickb Exp $ -->
