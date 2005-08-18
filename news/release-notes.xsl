@@ -181,7 +181,7 @@
 							<xsl:sort select="@id" data-type="number" order="descending" />
 							<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">
 								<nobr>
-								<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
+								<xsl:if test="(substring(../@build,1,5) = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202">
 									<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a><img src="http://www.eclipse.org/images/c.gif" height="1" width="2"/>
 								</xsl:if>
 								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
@@ -258,7 +258,7 @@
 									<xsl:sort select="@id" data-type="number" order="descending" />
 									<tr id="name{../@project}{../@build}{position()}" onMouseOver="rowOver('{../@project}{../@build}{position()}','#C0D8FF')" onMouseOut="rowOut('{../@project}{../@build}{position()}','{$rowColor}')">
 										<td>&#160;</td>
-										<xsl:if test="(../@build = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202 or contains(../@build,'RC')">
+										<xsl:if test="(substring(../@build,1,5) = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202">
 											<td><a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" border="0" alt="CVS Deltas - What's New, CVS?"/></a></td>
 											<td>&#160;</td>
 										</xsl:if>
@@ -311,4 +311,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.18 2005/08/16 21:20:57 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.19 2005/08/18 16:24:51 nickb Exp $ -->
