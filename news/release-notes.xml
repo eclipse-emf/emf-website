@@ -18,6 +18,14 @@
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
 <project-def label="XSD Release Notes" project="xsd"/>
 
+<entry build="2.2.0M1" project="emf" version="2.2.0">
+<bug id="84119">popup-action/toolbar-button in the Properties view</bug>
+<bug id="103743">Saving to an archive fails if rename is not allowed.</bug>
+<bug id="105746">EAttribute annotated with ExtendedMetaData (kind-&gt;simple) does not load correctly at runtime</bug>
+<bug id="106702">If BasicEList.validate fails, the entire EList is invalid</bug>
+<bug id="107218">Focus problem in generated editors</bug>
+</entry>
+
 <entry build="I200508111102" project="emf" version="2.2.0">
 <bug id="43752">CommandFramework needs a ResetCommand</bug>
 <bug id="104823">ecore adapter factory always defaulted if it's registered, and factory not found for a type</bug>
@@ -522,6 +530,10 @@ mixin features inherited from interface</bug>
 <bug id="75775">JET crashes on certain formats of the "imports" attribute.</bug>
 <bug id="75416" sub="sdo">Issue with containment and deleted objects</bug>
 <bug id="75419" sub="sdo">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry build="2.2.0M1" project="xsd" version="2.2.0">
+<bug id="107015">Unable to set empty Block attribute on complex type</bug>
 </entry>
 
 <entry build="I200508111102" project="xsd" version="2.2.0">
@@ -1657,4 +1669,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.73 2005/08/16 21:20:57 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.74 2005/08/18 15:43:25 nickb Exp $ -->
