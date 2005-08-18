@@ -6,6 +6,12 @@
 	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">2.2.0M1</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
+<news date="August 18, 2005" showOn="whatsnew">
+	<!-- "#S200508180200" -->
+	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Stable build
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">2.2.0M1</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="August 11, 2005" showOn="whatsnew">
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Integration build
 	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">I200508111102</a>) is available 
@@ -647,6 +653,6 @@
 	<a href="http://eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.78 2005/08/18 14:53:31 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.79 2005/08/18 15:03:10 nickb Exp $ -->
 
 </doc>
