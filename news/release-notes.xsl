@@ -2,6 +2,7 @@
 <xsl:output method="html" encoding="ISO-8859-1"/>
 
 	<xsl:key name="entryProj" match="entry" use="@project"/>
+	<xsl:key name="versionDefVer" match="version-def" use="@version"/>
 
 	<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
 	<xsl:param name="project"></xsl:param>
@@ -145,7 +146,7 @@
 			</tr>
 	</table>
 	
-	<!-- nav header table (release list) -->
+	<!-- nav header table (release/milestone list) -->
 	<table border="0" cellspacing="1" cellpadding="3" width="100%">
 	<xsl:for-each select="project-def">
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
@@ -157,25 +158,28 @@
 					Bugs Closed
 				</td>
 			</tr>
-			<xsl:for-each select="key('entryProj',@project)">
-				<xsl:if test="@build = @version and (starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
-				<xsl:variable name="thisVersion"><xsl:value-of select="@version" /></xsl:variable>
-				<xsl:variable name="thisProject"><xsl:value-of select="@project" /></xsl:variable>
-				<xsl:variable name="matchCount"><xsl:for-each select="//bug">
-					<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">1</xsl:if>
-				</xsl:for-each></xsl:variable>
-					<tr id="name{@project}.{@version}" valign="top" class="dark-row" onMouseOver="rowOver('{@project}.{@version}','#C0D8FF')" onMouseOut="rowOut('{@project}.{@version}','#EEEEFF')" >
-						<td class="normal" width="22%" onclick="document.location.href='#{@project}.{@version}';" onMouseOver="window.status='Click for detailed list of bugs';return true" onMouseOut="window.status='';return true">
+			<xsl:variable name="thisProject"><xsl:value-of select="@project" /></xsl:variable>
+			<xsl:for-each select="//version-def">
+				<xsl:if test="not(contains(@label,'.x')) and (starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
+					<xsl:variable name="thisVersion"><xsl:value-of select="@version" /></xsl:variable>
+					<xsl:variable name="matchCount"><xsl:for-each select="//bug">
+						<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">1</xsl:if>
+					</xsl:for-each></xsl:variable>
+
+					<!-- project: <xsl:value-of select="$thisProject" />, version: <xsl:value-of select="$thisVersion" /> -->
+					<tr id="name{$thisProject}.{$thisVersion}.{$thisVersion}" valign="top" class="dark-row" onMouseOver="rowOver('{$thisProject}.{$thisVersion}.{$thisVersion}','#C0D8FF')" onMouseOut="rowOut('{$thisProject}.{$thisVersion}.{$thisVersion}','#EEEEFF')" >
+						<td class="normal" width="22%" onclick="document.location.href='#{$thisProject}.{$thisVersion}.{$thisVersion}';" onMouseOver="window.status='Click for detailed list of bugs';return true" onMouseOut="window.status='';return true">
 							<a href="javascript://" style="text-decoration:none"><xsl:choose>
-								<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
-								<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
-								<xsl:otherwise><xsl:value-of select="@version" />&#160;<xsl:value-of select="@build" /></xsl:otherwise>
+								<xsl:when test="$thisVersion = $thisVersion"><b><xsl:value-of select="$thisVersion" /> Release</b></xsl:when>
+								<xsl:when test="starts-with($thisVersion,$thisVersion) and contains($thisVersion,'M')"><b><xsl:value-of select="$thisVersion" /> Milestone Builds</b></xsl:when>
+								<xsl:when test="starts-with($thisVersion,$thisVersion) and not(contains($thisVersion,'M'))"><b><xsl:value-of select="$thisVersion" /></b></xsl:when>
+								<xsl:otherwise><xsl:value-of select="$thisVersion" />&#160;<xsl:value-of select="$thisVersion" /></xsl:otherwise>
 							</xsl:choose></a>
 						</td>
-						<td class="normal" width="70%" onClick="servOC('{@project}.{@version}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
+						<td class="normal" width="70%" onClick="servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
 						</td>
 					</tr>
-					<tr style="display:none" id="ihtr{@project}.{@version}"><td bgcolor="#C0D8FF" colspan="2"><table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="white"><tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" width="100%" id="ihif{@project}.{@version}">
+					<tr style="display:none" id="ihtr{$thisProject}.{$thisVersion}.{$thisVersion}"><td bgcolor="#C0D8FF" colspan="2"><table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="white"><tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" width="100%" id="ihif{$thisProject}.{$thisVersion}.{$thisVersion}">
 						<img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/><br/>
 						<xsl:for-each select="//bug">
 							<xsl:sort select="@id" data-type="number" order="descending" />
@@ -189,7 +193,7 @@
 								</a>,
 								</nobr>&#32;&#32;
 							</xsl:if>
-						</xsl:for-each> <a href="javascript:servOC('{@project}.{@version}',{string-length(matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
+						</xsl:for-each> <a href="javascript:servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
 						<br/><img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/>
 					</div></td><td width="10"></td></tr></table></td></tr>
 				</xsl:if>
@@ -208,9 +212,10 @@
 	<xsl:for-each select="project-def">
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="content-header">
-				<td colspan="1" class="sub-header">
+				<td colspan="1" class="sub-header" width="100%">
 					<a name="{@project}"><xsl:value-of select="@label"/></a>
 				</td>
+				<td width="5" align="top" valign="right"><a class="bodyText" style="text-decoration:none" href="#top">^</a></td>
 			</tr>
 			<xsl:for-each select="key('entryProj',@project)">
 				<xsl:if test="(starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
@@ -221,13 +226,14 @@
 				</xsl:for-each></xsl:variable>
 
 					<xsl:if test="@build = @version">
-						<!-- {@project}.{@version} -->
+						<!-- {@project}.{@version}.{@build} -->
 						<tr><td colspan="1" class="normal">&#160;</td></tr>
 						<tr class="content-header">
-							<td colspan="1" class="sub-header">
-								<a name="{@project}.{@version}"><xsl:value-of select="@build"/> Release</a>
+							<td colspan="1" class="sub-header" width="100%">
+								<a name="{@project}.{@version}.{@build}"><xsl:value-of select="@build"/> Release</a>
 							<xsl:if test="string-length($matchCount)>1">&#160;(<xsl:value-of select="string-length($matchCount)" /> Bugs)</xsl:if>
 							</td>
+							<td width="5" align="top" valign="right"><a class="bodyText" style="text-decoration:none" href="#top">^</a></td>
 						</tr>
 					</xsl:if>
 
@@ -238,9 +244,9 @@
 						</xsl:choose>
 					</xsl:variable>
 					<tr valign="top" bgcolor="{$rowColor}">
-						<td class="normal" align="left" width="100%">
+						<td class="normal" align="left" width="100%" colspan="2">
 							
-							<a name="{@project}.{@version}"><b class="title">
+							<a name="{@project}.{@version}.{@build}"><b class="title">
 								<xsl:choose>
 									<xsl:when test="@build = @version"><b><xsl:value-of select="@build" /> Release</b></xsl:when>
 									<xsl:when test="starts-with(@build,@version)"><b><xsl:value-of select="@build" /></b></xsl:when>
@@ -275,7 +281,6 @@
 								</xsl:for-each>
 								</table>
 							</xsl:if>
-							
 						</td>
 					</tr>
 				</xsl:if>
@@ -311,4 +316,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.19 2005/08/18 16:24:51 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.20 2005/08/18 22:29:07 nickb Exp $ -->
