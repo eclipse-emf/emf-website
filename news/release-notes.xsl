@@ -166,15 +166,16 @@
 						<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">1</xsl:if>
 					</xsl:for-each></xsl:variable>
 
+					<xsl:variable name="isReleaseBuild"><xsl:for-each select="//entry"><xsl:if test="@build = @version and @version = $thisVersion">1</xsl:if></xsl:for-each></xsl:variable>
+					<xsl:variable name="linkAnchorSuffix"><xsl:if test="string-length($isReleaseBuild) &gt; 0">.<xsl:value-of select="$thisVersion" />.<xsl:value-of select="$thisVersion" /></xsl:if></xsl:variable>
+
 					<!-- project: <xsl:value-of select="$thisProject" />, version: <xsl:value-of select="$thisVersion" /> -->
 					<tr id="name{$thisProject}.{$thisVersion}.{$thisVersion}" valign="top" class="dark-row" onMouseOver="rowOver('{$thisProject}.{$thisVersion}.{$thisVersion}','#C0D8FF')" onMouseOut="rowOut('{$thisProject}.{$thisVersion}.{$thisVersion}','#EEEEFF')" >
-						<td class="normal" width="22%" onclick="document.location.href='#{$thisProject}.{$thisVersion}.{$thisVersion}';" onMouseOver="window.status='Click for detailed list of bugs';return true" onMouseOut="window.status='';return true">
-							<a href="javascript://" style="text-decoration:none"><xsl:choose>
-								<xsl:when test="$thisVersion = $thisVersion"><b><xsl:value-of select="$thisVersion" /> Release</b></xsl:when>
-								<xsl:when test="starts-with($thisVersion,$thisVersion) and contains($thisVersion,'M')"><b><xsl:value-of select="$thisVersion" /> Milestone Builds</b></xsl:when>
-								<xsl:when test="starts-with($thisVersion,$thisVersion) and not(contains($thisVersion,'M'))"><b><xsl:value-of select="$thisVersion" /></b></xsl:when>
-								<xsl:otherwise><xsl:value-of select="$thisVersion" />&#160;<xsl:value-of select="$thisVersion" /></xsl:otherwise>
-							</xsl:choose></a>
+						<td class="normal" width="22%" onclick="document.location.href='#{$thisProject}{$linkAnchorSuffix}';" onMouseOver="window.status='Click for detailed list of bugs';return true" onMouseOut="window.status='';return true">
+							<a href="javascript://" style="text-decoration:none">
+								<b><xsl:value-of select="$thisVersion" /> Release</b>
+								<xsl:if test="string-length($isReleaseBuild) &lt; 1"> (In Progress)</xsl:if>
+							</a>
 						</td>
 						<td class="normal" width="70%" onClick="servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
 						</td>
@@ -316,4 +317,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.20 2005/08/18 22:29:07 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.21 2005/08/19 02:15:46 nickb Exp $ -->
