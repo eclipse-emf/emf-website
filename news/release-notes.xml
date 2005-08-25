@@ -18,6 +18,7 @@
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
 <project-def label="XSD Release Notes" project="xsd"/>
 
+<entry build="I200508251028" project="emf" version="2.2.0"/>
 <entry build="2.2.0M1" project="emf" version="2.2.0">
 <bug id="84119">popup-action/toolbar-button in the Properties view</bug>
 <bug id="103743">Saving to an archive fails if rename is not allowed.</bug>
@@ -532,6 +533,7 @@ mixin features inherited from interface</bug>
 <bug id="75419" sub="sdo">Delete operation should cascade through containment hieracrchy</bug>
 </entry>
 
+<entry build="I200508251028" project="xsd" version="2.2.0"/>
 <entry build="2.2.0M1" project="xsd" version="2.2.0">
 <bug id="107015">Unable to set empty Block attribute on complex type</bug>
 </entry>
@@ -1669,4 +1671,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.74 2005/08/18 15:43:25 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.75 2005/08/25 15:34:17 marcelop Exp $ -->
