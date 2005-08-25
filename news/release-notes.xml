@@ -19,15 +19,15 @@
 <project-def label="XSD Release Notes" project="xsd"/>
 
 <entry build="I200508251028" project="emf" version="2.2.0">
-<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
-<bug id="107922">createFromString for xsd:union types might report an error on valid data</bug>
-<bug id="107838">EditorPart.setInput is deprecated in Eclipse 3.2</bug>
-<bug id="107727">Typo in Javadoc for feature count ID</bug>
-<bug id="107519">missing image resource for propertysheetpage</bug>
-<bug id="107144">xsd:union/MemberTypes not properly validated</bug>
-<bug id="106909">Use proper icon for LocateValueAction</bug>
-<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
 <bug id="104716">noNamespace schemas and GenericXMLResourceImpl</bug>
+<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
+<bug id="106909">Use proper icon for LocateValueAction</bug>
+<bug id="107144">xsd:union/MemberTypes not properly validated</bug>
+<bug id="107519">missing image resource for propertysheetpage</bug>
+<bug id="107727">Typo in Javadoc for feature count ID</bug>
+<bug id="107838">EditorPart.setInput is deprecated in Eclipse 3.2</bug>
+<bug id="107922">createFromString for xsd:union types might report an error on valid data</bug>
+<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
 </entry>
 
 <entry build="2.2.0M1" project="emf" version="2.2.0">
@@ -545,9 +545,12 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry build="I200508251028" project="xsd" version="2.2.0">
-<bug id="107593">generated namespace collision</bug>
-<bug id="106252">Problem With Removing Default Namespace Reference From qNamePrefixToNamespaceMap</bug>
+<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
 <bug id="106225">Reloaded XSD files don't validate</bug>
+<bug id="106252">Problem With Removing Default Namespace Reference From qNamePrefixToNamespaceMap</bug>
+<bug id="107593">generated namespace collision</bug>
+<bug id="107727">Typo in Javadoc for feature count ID</bug>
+<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
 </entry>
 
 <entry build="2.2.0M1" project="xsd" version="2.2.0">
@@ -1687,4 +1690,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.76 2005/08/25 18:19:02 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.77 2005/08/25 19:02:34 nickb Exp $ -->
