@@ -392,6 +392,31 @@
         </b>
       </td>
     </tr>
+    
+        <tr valign="top">
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+      <a target="_out"
+      href="http://www.devx.com/Java/Article/29093/0/page/1">
+      Discover the Eclipse Modeling Framework (EMF) and Its Dynamic Capabilities</a>
+      <br />
+
+      Published by
+      <a href="http://www.devx.com/" target="_out">DevX.com</a>, August 26
+      <sup>th</sup>
+
+      2005</td>
+
+      <td>August 29
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
 
     <tr>
       <td>
@@ -1709,5 +1734,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.23 2005/07/27 19:52:47 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.24 2005/08/29 18:21:34 elena Exp $ -->
 
