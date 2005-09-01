@@ -70,6 +70,10 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="M200509011153" project="emf" version="2.1.1">
+<bug id="108572">[DUP] EAttribute annotated with ExtendedMetaData (kind-&gt;simple) does not load correctly at runtime</bug>
+</entry>
+
 <entry build="M200508110300" project="emf" version="2.1.1">
 <bug id="104722">[Duplicate] JavaEcoreBuilder: Wrong multiplicity for java.util.Map</bug>
 <bug id="104723">[Duplicate] Enum with default value reported as error by validator</bug>
@@ -571,6 +575,7 @@ mixin features inherited from interface</bug>
 
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
+<entry build="M200509011153" project="xsd" version="2.1.1"/>
 <entry build="M200508110300" project="xsd" version="2.1.1" />
 
 <entry build="M200508040005" project="xsd" version="2.1.1">
@@ -1698,4 +1703,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.78 2005/09/01 13:56:32 marcelop Exp $ -->
+<!-- $Id: release-notes.xml,v 1.79 2005/09/01 17:08:11 marcelop Exp $ -->
