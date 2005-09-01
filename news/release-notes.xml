@@ -18,6 +18,10 @@
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
 <project-def label="XSD Release Notes" project="xsd"/>
 
+<entry build="I200509010200" project="emf" version="2.2.0">
+<bug id="107834">Cannot load XML resource twice using same ExtendedMetaData</bug>
+</entry>
+
 <entry build="I200508251028" project="emf" version="2.2.0">
 <bug id="104716">noNamespace schemas and GenericXMLResourceImpl</bug>
 <bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
@@ -542,6 +546,10 @@ mixin features inherited from interface</bug>
 <bug id="75775">JET crashes on certain formats of the "imports" attribute.</bug>
 <bug id="75416" sub="sdo">Issue with containment and deleted objects</bug>
 <bug id="75419" sub="sdo">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry build="I200509010200" project="xsd" version="2.2.0">
+<bug id="106099">Unexplained error about content containing subset from base type</bug>
 </entry>
 
 <entry build="I200508251028" project="xsd" version="2.2.0">
@@ -1690,4 +1698,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.77 2005/08/25 19:02:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.78 2005/09/01 13:56:32 marcelop Exp $ -->
