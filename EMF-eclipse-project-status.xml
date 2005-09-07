@@ -11,7 +11,6 @@
   <shipping url="http://download.eclipse.org/tools/emf/scripts/downloads.php"
             aname="Latest Releases"/>
 
-  <!-- TODO -->
   <project-ip-log url="http://eclipse.org/emf/EMF-eclipse-project-ip-log.csv"/>
 
   <community>
