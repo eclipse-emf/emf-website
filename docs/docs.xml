@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="docs.xsl"?>
 <body>
+  
+  <table border="0" cellpadding="3" cellspacing="0">
+	<tr>
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#overviews">EMF Overview Papers</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#sdo">Service Data Objects (SDO) Documents</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#plandocs">Project Management Documents</a></td>
+	</tr>
+
+	<tr>
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#tutorials">EMF Tutorials</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#xsd">XML Schema Infoset Model (XSD) Documents</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#perf">EMF Performance</a></td>
+	</tr>
+
+	<tr>
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#contributions">Contributed Articles</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#presentations">Presentations and Interviews</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#emf20xdocs">EMF 2.0 Documents</a></td>
+	</tr>
+
+	<tr>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#dWdocuments">developerWorks Documents</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#references">Books, Guides, and Reference Materials</a></td>
+
+		<td><img src="images/c.gif" width="5" height="1" /></td>
+		<td><a style="font-size:11px" href="#emf1xdocs">EMF 1.x Documents</a></td>
+	</tr>
+  </table>
+
+  <hr noshade="noshade" size="1"/>
+
   <table border="0" cellpadding="3" cellspacing="0"
   style="border-collapse: collapse;" bordercolor="#111111"
   width="100%">
@@ -1751,5 +1801,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.25 2005/09/07 22:58:07 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.26 2005/09/07 23:26:52 nickb Exp $ -->
 
