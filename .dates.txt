@@ -1,11 +1,5 @@
 EMF
 http://www.eclipse.org/emf
-1.0.2 03/2003 Completed http://eclipse.org/emf/downloads/dl-emf1x.html
-1.1.0 06/2003 Completed http://eclipse.org/emf/downloads/dl-emf1x.html
-1.1.1 10/2003 Completed http://eclipse.org/emf/downloads/dl-emf1x.html
-1.1.1.1 11/2003 Completed http://eclipse.org/emf/downloads/dl-emf1x.html
-2.0.0 06/2004 Completed http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0/R200406280827
-2.0.1 09/2004 Completed http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.1/R200409171617
 2.0.2 03/2005 Completed http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.2/R200503151315
 2.0.3 06/2005 Completed http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.3/R200506091052
 2.1.0 07/2005 Completed http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.0/R200507070200
