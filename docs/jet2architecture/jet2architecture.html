@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta name="GENERATOR" content="IBM Software Development Platform">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css">
+	<title>JET Enhancement Proposal (JET2)</title>
+</head>
+
+<body>
+<h1>JET Enhancement Proposal (JET2)</h1>
+<h3>Introduction</h3><p>This document proposes enhancements for JET (Java Emitter Templates), the templating tool that is part of the <a href="http://www.eclipse.org/emf/">Eclipse Modeling Framework</a>. The enhancement work is tracked by <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=105966">Bugzilla
+105966</a>.</p>
+<h3>Revision History</h3>
+<table border="1" cellpadding="3" cellspacing="0">
+	<tbody>
+		<tr>
+			<td><b>Date</b></td>
+			<td><b>Version</b></td>
+			<td><b>Description</b></td>
+			<td><b>Author</b></td>
+		</tr>
+		<tr>
+			<td>Aug 26, 2005</td>
+			<td>0.1</td>
+			<td>Initial Version</td>
+			<td>Paul Elder</td>
+		</tr>
+		<tr>
+			<td>Aug 30, 2005</td>
+			<td>0.2</td>
+			<td>Added Introduction and Overview sections, plus minor edits</td>
+			<td>Paul Elder</td>
+		</tr>
+		<tr>
+			<td>Aug 31, 2005</td>
+			<td>0.3</td>
+			<td>Fix typos</td>
+			<td>Paul Elder</td>
+		</tr>
+		<tr>
+			<td>Sep 6, 2005</td>
+			<td>0.4</td>
+			<td>Minor edits in response to review meeting</td>
+			<td>Paul Elder</td>
+		</tr>
+	</tbody>
+</table>
+<h3>Background</h3>
+<p>JET is typically used in the implementation of a "code generator". A
+code-generator is an important component of Model Driven Development
+(MDD). The goal of MDD is to describe a software system using abstract
+models (such as EMF/ECORE models or UML models), and then refine and
+transform these models into code. Although is possible to create
+abstract models, and manually transform them into code, the real power
+of MDD comes from automating this process. Such <b>transformations</b>
+accelerate the MDD process, and result in better code quality. The
+transformations can capture the "best practices" of experts, and can
+ensure that a project consistently employes these practices.</p>
+<p>However, transformations are not always perfect. Best practices are
+often dependent on context - what is optimal in one context may be
+suboptimal in another. Transformations can
+address this issue by including some mechanism for end-user
+modification
+of the code generator. This is frequently done by using
+"templates" to create artifacts, and allowing users to
+substitute their own implementations of these templates if necessary.
+This is the role of JET.</p>
+<p>Even though JET solves a significant problem in transformations, it has a number of limitations:</p>
+<ul>
+	<li>JET operates in the context of a Java program. While many
+users EMF is quite Java-centric, MDD and transformations can be applied
+in many domains. Forcing transformations creators and customizers to
+work in Java represents a barrier to using JET in non-Java contexts.</li>
+	<li>Building
+a JET-based transformation in Eclipse involves knowledge of more than
+just JET. Transformation developers must typically understand the
+Eclipse Resource and UI APIs. Again, this represents a barrier to
+transformation creation.</li>
+	<li>JET, although inspired on Java
+Server Pages (JSP), lacks an equivalent to JSP custom tags and tag
+libraries. Current JSP best practice encourages the use of custom tags
+over embedded Java within templates. Use of such tags helps separate
+presentation concerns (such as how a generated class is formatted) from
+process concerns (such as how a Java "getter" method is derived from a
+field name). (In the JSP context, process concerns are often described
+as business concerns.)</li>
+</ul><h3>Overview</h3>
+<p>This document proposes enhancing JET in the following ways:</p>
+<ul>
+	<li>Expand the JET language to support custom tags (which are
+distributed in "tag libraries). (The language specification will be
+described in a separate document.)</li>
+	<li>Define Java interfaces and Eclipse Extension points for declaring custom tag libraries.</li>
+	<li>Provide
+Standard JET tag libraries that make it possible to create entire
+transformations without recourse to Java and the Eclipse APIs. (These
+tag libraries will be described in a separate document.)</li>
+	<li>Provide Eclipse API and UI for invoking such transformations.</li>
+	<li>Provide a JET template editor</li>
+</ul>
+<p>The scope of the changes proposed are extensive. For this reason, it
+is suggested that, if implemented, the resulting tool be given a new
+name. JET2 is proposed, and used throughout the remainder of this
+document.</p>
+
+<h2>Architectural Specifications</h2>
+<p>This section describes the central architectural features of the JET2 proposal.</p>
+<p>The proposed architecture is divided into five parts:</p>
+<ul>
+	<li>Compiling the JET2 language to Java</li>
+	<li>Tag Library interfaces, classes and extension points</li>
+	<li>JET2 Parser</li><li>JET2 Project structure and builders</li>
+	<li>Loading and executing JET2 templates within the development workspace</li>
+	
+</ul>
+<p>Note that this document does not prescribe interface, class or
+method names. The purpose of this document is to describe key classes
+in JET2, and how they interact. The implementer is free to change the
+names to more appropriate names. However, this document should be
+updated to reflect such changes.</p>
+<h3>Compiling the JET2 language to Java</h3>
+<p>Each JET2 template is compiled into a Java class. This section
+describes the structure of the resulting Java class, and how JET2 tags
+interact with template-embedded Java code and template text. Although
+JET2 is similar to JSP, the JSP compilation practices are not always
+followed. This is because:</p>
+<ul>
+	<li>JSP operates in a different environment that JET2. In
+particular, JSP must contend with the possibility of many near
+simultaneous invocations of a JSP. This is an unlikely scenario for
+JET2.</li>
+	<li>JSP runs in a web servlet context, while JET2 does not.</li>
+	<li>JET2
+development cannot make use of the JSP Specification, as the license
+agreement explicitly denies the right to use the specification for the
+realization of anything less than a compile JSP implementation. JET2
+cannot be a complete JSP implementation because JET2 does not operate
+in servlet context, which is an explicit requirement of JSP.</li>
+</ul>
+<p>JET2 templates can be parsed into the following Abstract sytnax tree (AST):</p>
+<p><img src="images/JET2AST.gif" border="0" height="464" width="566"></p>
+<p>The following sections describe how individual nodes in such an AST are compiled into Java code.</p>
+<h4>Rules for emitting Templates as a whole</h4>
+<ol>
+	<li>Emit one Java class per template.</li>
+	<li>The java class
+must have a public 'generate' that accepts the templates arguments and
+produces the result of template expansion. </li>
+	<li>The method includes some initialization code, and then the body of the template is emitted to within this method.</li>
+	<li>The content of the template is written to this method.</li>
+	</ol>
+
+<p>The current JET 'generate' method has the signature "String
+	generate(Object argument)",
+and has the following structure:</p>
+<blockquote>
+<blockquote>
+<p><code>public String generate(Object argument) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;StringBuffer stringBuffer = new StringBuffer();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<i>emitted code for contained nodes...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</i>return stringBuffer.toString();<br>
+}</code></p>
+</blockquote>
+</blockquote>
+<p>It is proposed that JET2 templates using tags have the following structure:</p>
+<blockquote>
+<blockquote>
+<p><code>public void generate(JET2Context context, JET2Writer out) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<i>emitted code for contained nodes...<br>
+</i>}</code></p>
+</blockquote>
+</blockquote>
+<p>Each JET2Context represents an instance of a template execution (or
+a group of related templates). It contains data associated with
+theexecution, including the input arguments. The JET2Context is
+proposed for the following reasons:</p>
+<ul>
+	<li>Some tags need to store and share information amongst themselves -
+	the JET2Context can provided a mechanism for doing this.</li>
+</ul>
+
+<p>The JET2Writer is a generalized stream of characters. It will likely
+be a specialization of java.io.Writer. The JET2Writer is proposed for
+the following reasons:</p>
+<ul>
+	<li>Some tags need to record positions in the writer for
+subsequent processing, including replacement. JET2Writer allows the
+creation and consistent maintenance of these positions (and
+StringBuffer does not). The intension is to implement a facility such
+as is found in org.eclipse.java.text.IDocument and
+org.eclipse.java.text.Position.</li></ul><h4>Rules for emitting text</h4>
+<ol>
+	<li>Template text can be written directly to the current writer.</li>
+	
+</ol>
+<p>The following is an example:</p>
+<blockquote>
+<blockquote>
+<p><code>out.write("some text");</code></p>
+</blockquote>
+</blockquote>
+
+<p>Note that JET currently emits text as final fields in the template
+class, and then references these fields in calls to write(). However,
+it is unclear whether this results in any significant benefit in terms
+of performance (whether in memory usage or speed).</p>
+<h4>Rules for emitting Java Expressions and Scriplets</h4>
+<ol>
+	<li>Java Expressions and Scriptlets must all me emitted within
+the 'generate' method. (Variables defined in a scriptlet must be
+visible to subsequent scriptlets and expressions.)</li>
+	
+</ol><h4>Standard prolog for emitting Tags</h4>
+<ol>
+	<li>Emit a variable of type tag type, and assign it a new instance of the tag class.</li>
+	<li>Call the setParent method, passing the parent tag variable, or null if the tag has no parent.</li>
+	<li>Call the setContext method, passing the tag the current template context.</li>
+	<li>Initialize tag attributes by calling appropriate tag setXXX() methods.</li>
+	<li>Call
+the tag doStartTag() method, and saving the result in local variable.
+doStartTag() can return one of the following enumerated values
+EVAL_BODY, SKIP_BODY or EVAL_BODY_BUFFERED.</li>
+	
+
+	</ol>
+<p>The following code illustrates this rules:</p>
+<blockquote>
+<blockquote>
+<p><code><i>TagType tag = new TagType();<br>tag<b>.</b></i>setParent(<i>parentTag</i>);<br><i>tag<b>.</b></i>setContext(<i>context</i>);<i>
+</i></code></p>
+</blockquote>
+</blockquote>
+<h4>Rules for emitting tags without a body</h4>
+<ol>
+	<li>Use the standard prolog for emitting Tags.</li>
+	<li>Emit a call to the tag's doStartTag() method.</li>
+	<li>Emit a call to the tag's doEndTag() method.</li>
+	
+</ol>
+<blockquote>
+<blockquote>
+<p><code><i>standard prolog</i><br>
+<i> tag</i>.doStartTag();<br>
+<i> tag</i>.doEndTag();</code></p>
+</blockquote>
+</blockquote>
+<h4>Rules for standard tag with a body</h4>
+<p>A standard tag with a body neither iterates, nor processes the
+contents from its body. That is, it can emit content at the start of
+the tag, and the end of the tag, and it can determine whether is body
+is written or not.</p>
+<ol>
+	<li>Use the standard prolog for Tags. doStartTag() will return EVAL_BODY or SKIP_BODY.</li>
+	<li>Emit an if statement testing that doStartTag() did not return SKIP_BODY.</li>
+	<li>Within the if statement, emit the code to process the body content.</li>
+	<li>After the if statement, emit a call to doEndTag().</li>
+</ol>
+<blockquote>
+<blockquote>
+
+<p><code><i>standard prolog</i><br>
+<i> </i>StartResult <i>tagStartResult = tag</i>.doStartTag();<br>
+if( <i>tagStartResult != </i>StartResult.SKIP_BODY ) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<i>emitted code for body content...</i>
+<br>
+}<br>
+<i> tag</i>.doEndTag();</code></p>
+
+</blockquote>
+</blockquote>
+<h4>Rules for tags that process the body content</h4>
+<ol>
+	<li>Use the standard prolog for Tags. doStartTag() will return one of EVAL_BODY, SKIP_BODY or EVAL_BODY_BUFFERED.</li>
+	<li>Emit an if statement testing that doStartTag() did not return SKIP_BODY.</li>
+	<li>With the if statement, emit a second if statement to test if doStartTag() returned EVAL_BODY_BUFFERED.</li>
+	<li>Within the second if, allocate a buffered writer, and inform the tag by calling setBufferedWriter() and doInitBody().</li>
+	<li>Close the second if.</li>
+	<li>Emit the code for the body</li>
+	<li>Emit a third if (still with-in the first), which pops the buffered writer if one was pushed earlier.</li>
+</ol>
+<blockquote>
+<blockquote>
+
+
+<p><code><i>standard prolog</i><br>
+<i> </i>StartResult <i>tagStartResult = tag</i>.doStartTag();<br>
+if( <i>tagStartResult != </i>StartResult.SKIP_BODY ) {<br><i>&nbsp;&nbsp;&nbsp;&nbsp;if( tagStartResult ==
+StartResult.EVAL_BODY_BUFFERED ) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out = context.pushBufferedWriter();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag.setBufferedWriter((</i>BufferedWriter<i>)out);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag.doInitBody();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;emitted code for body content...</i> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;if( tagStartResult ==
+StartResult.EVAL_BODY_BUFFERED ) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>out</i> = context.popBufferedWriter();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<i> tag</i>.doEndTag();</code></p>
+
+
+</blockquote>
+</blockquote>
+<h4>Rules for iterating tags</h4>
+<ol>
+	<li>Same as above, except that the code emitted by for the body
+is enclosed in a do {...} while() statement. The while condition calls
+the tag's doAfterBody() message, and continues if the result is
+DO_BODY_AGAIN.</li>
+	
+</ol>
+<blockquote>
+<blockquote>
+
+
+<p><code><i>standard prolog</i><br>
+<i> </i>StartResult <i>tagStartResult = tag</i>.doStartTag();<br>
+if( <i>tagStartResult != </i>StartResult.SKIP_BODY ) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if( tagStartResult ==
+StartResult.EVAL_BODY_BUFFERED ) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><b></b>out = context.newBufferedWriter()</i>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>tag</i>.setBodyWriter(<i></i>(BodyWriter)out);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tag.doInitBody();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>&nbsp;&nbsp;&nbsp;&nbsp;emitted code for body
+content...</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} while(tag.doAfterBody()
+!= AfterResult.DO_BODY_AGAIN);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if( tagStartResult ==
+StartResult.EVAL_BODY_BUFFERED ) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>out</i> = context.popWriter();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<i> tag</i>.doEndTag();</code></p>
+
+
+</blockquote>
+</blockquote>
+<h4>Notes on emitting code for tags</h4>
+<p>The above rules can result in deeply nested code should a template
+contain deeply nested tags. Note that the code emitted for any given
+tag can be refactored into a function call, <b>provided that tag contains not nested Java Scriptlet or Expression</b>. The extracted method could have the following structure:</p>
+<blockquote>
+<blockquote>
+
+
+<p><code>
+private void <i>tag(</i>JET2Context context, JET2Writer out, Tag parentTag) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<i>emitted code for the tag<br></i>}</code></p>
+
+
+</blockquote>
+</blockquote>
+
+<p>In code emitted for a tag with its enclosing body would be simply:</p>
+<blockquote>
+<blockquote>
+
+
+<p><code> <i>tag(</i>context, out,
+<i>parentTag</i>);</code></p>
+
+
+</blockquote>
+</blockquote>
+
+<p></p>
+<h3>Tag Library Interfaces and Classes</h3>
+<p>The above discussion suggests tags have the following associated interfaces.</p>
+<p><img src="images/JET2TagClasses.gif" border="0" height="721" width="939"></p>
+<h3>JET2 Parser</h3>
+<p>The current JET parser classes appear to be flexible enough to
+handle the expansion of the JET2 language to contain additional
+directives and most importantly, tag. The proposal is to:</p>
+<ul>
+	<li>Add a new nested static classes "Tag" , "EndTag" and
+"NoContentTag" to JETParser. These represent &lt;xxx attributes&gt;,
+&lt;/xxx&gt; and &lt;xxx attributes/&gt;, respectively.</li>
+	<li>JETReader
+may need minor modifications to getNextContext() to always consider
+'&lt;' as the potential start of a JET2 language element, even when an
+@page startTag has been processed. (Because JET2 will include a
+directive (@taglib) for specifying tag library namespaces, it is
+unnecessary to remap these characters.)</li>
+	<li>Implement an
+enhanced JETCompiler class. At least initially, this will be done by
+cloning JETCompiler into JET2Compiler so as not to destablize the
+current compiler. </li>
+	
+</ul>
+<p><b>TODO</b>: Some mechanism to select between the compilers by some
+sort of runtime parameter is desireable, much the way this is possible
+with the JDT. Details to be worked out.</p>
+<h3>JET2 Project Structure</h3>
+<p>It is proposed that as much as possible, JET2 rely on existing
+Eclipse infrastructure to compile generated Java classes into code. In
+the subsequent section, it is proposed that JET2 dynamic template
+loading be accomplished by using the OSGi dynamic loading/unloading of
+Bundles. This implies that the JET2 project builder must ultimately
+produce a valid OSGI bundle. </p>
+<p>It is proposed that projects containing dynamicly loadable templates
+(such as those that customize the behaviour of the EMF code generator,
+and the proposed transformations) have a specific Eclipse Nature that
+builds the JET2 templates into a loadable bundle. Such a nature would
+require the following builders:</p>
+<ul>
+	<li>the JETBuilder</li>
+	<li>the JDT Java Builder</li>
+	<li>the PDE Manifest Builder</li>
+	<li>A
+custom builder to JAR the variously build objects into Bundle jar. This
+has been simulated using a simple ANT script and the ANT builder.</li>
+	
+</ul>
+<p>This has a number of advantages over the current practice of creating a .JETEmitters project:</p>
+<ul>
+	<li>Configuration of extra plug-in dependencies can be done using standard mechanisms (the bundle manifest).</li>
+	<li>Concurrent
+(and incompatible) writing to the .JETEmitters project is no longer a
+concern. (This was not likely a concern with the EMF code generator,
+but it is in transformations, where creating new transformations by
+composing others is a common use case.</li>
+	<li>The dynamic templates
+can reference Java classes created in the dynamic template project.
+This could be in the form of helper classes called directly from the
+JET2 template using Java, or as newly defined customer tags.</li>
+</ul>
+<p>The main disadvantage of this approach is that builder artifacts
+(including generated .java and .class files) will appear in the project
+containing the templates. However, this can be mitigated by the use of
+filters, much as the Package Explorer filters out 'bin' directories by
+default.</p>
+<h3>Loading and executing JET2 templates within the development
+workspace</h3>
+<p>As the previous section alluded, it is proposed that the dynamic
+loading of JET2 templates be accomplished via the OSGi framework. This
+section docments the details of doing this.</p>
+<ul>
+	<li>In order to load a bundle with OSGi, a BundleContext is
+required. On plugin start-up,
+org.eclipse.core.runtime.Plugin.startup(BundleContext) is called. The
+JET2 plugin responsible for dynamic plugin loading would store this
+bundle context for subsequent dynamic loading of a JET2 bundle.</li>
+	<li>Once
+a BundleContext is in hand (it is, in fact, a system singleton), a
+bundle may be loaded calling org.osgi.framework.installBundle(String).
+This returns an org.osgi.framework.Bundle.</li>
+	<li>Upon successful loading, the bundle be started by calling org.osgi.framework.Bundle.start().</li>
+	<li>A
+bundle may be uninstalled by calling
+org.osgi.framework.Bundle.uninstall(), which implies stopping the
+bundle (org.osgi.framework.Bundle.stop()).</li>
+	<li>The easiest way
+for the JET2 dynamic loader to load classes out of the loaded bundle is
+to have the bundle implement an extension to an extension point defined
+by the JET2 dynamic loader plugin. The extension would contain
+Configuration Elements that included the names of the template classes.
+It would then suffice to call
+org.eclipse.core.runtime.IConfigurationElement.createExecutableExtension(String).</li>
+</ul>
+</body></html>

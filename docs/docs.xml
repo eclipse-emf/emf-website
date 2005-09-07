@@ -1236,6 +1236,23 @@
 
       <td>
         <a
+        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/jet2architecture/jet2architecture.html">JET Enhancement Proposal (JET2)</a>
+      </td>
+
+      <td>Sept 7
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+        <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
         href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
       </td>
 
@@ -1734,5 +1751,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.24 2005/08/29 18:21:34 elena Exp $ -->
+<!-- $Id: docs.xml,v 1.25 2005/09/07 22:58:07 nickb Exp $ -->
 
