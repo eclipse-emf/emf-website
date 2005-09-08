@@ -77,6 +77,10 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="M200509081004" project="emf" version="2.1.1">
+<bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
+</entry>
+
 <entry build="M200509011153" project="emf" version="2.1.1">
 <bug id="108572">[DUP] EAttribute annotated with ExtendedMetaData (kind-&gt;simple) does not load correctly at runtime</bug>
 </entry>
@@ -585,6 +589,10 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
+
+<entry build="M200509081004" project="xsd" version="2.1.1">
+<bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
+</entry>
 
 <entry build="M200509011153" project="xsd" version="2.1.1"/>
 <entry build="M200508110300" project="xsd" version="2.1.1" />
@@ -1714,4 +1722,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.81 2005/09/08 15:08:19 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.82 2005/09/08 15:12:20 nickb Exp $ -->
