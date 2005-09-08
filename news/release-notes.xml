@@ -30,7 +30,6 @@
 </entry>
 
 <entry build="I200508251028" project="emf" version="2.2.0">
-<<<<<<< release-notes.xml
 <bug id="104716">noNamespace schemas and GenericXMLResourceImpl</bug>
 <bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
 <bug id="106909">Use proper icon for LocateValueAction</bug>
@@ -39,20 +38,6 @@
 <bug id="107727">Typo in Javadoc for feature count ID</bug>
 <bug id="107838">EditorPart.setInput is deprecated in Eclipse 3.2</bug>
 <bug id="107922">createFromString for xsd:union types might report an error on valid data</bug>
-<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
-</entry>
-
-<entry build="I200508251028" project="emf" version="2.2.0">
-=======
-<bug id="104716">noNamespace schemas and GenericXMLResourceImpl</bug>
-<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
-<bug id="106909">Use proper icon for LocateValueAction</bug>
-<bug id="107144">xsd:union/MemberTypes not properly validated</bug>
-<bug id="107519">missing image resource for propertysheetpage</bug>
-<bug id="107727">Typo in Javadoc for feature count ID</bug>
-<bug id="107838">EditorPart.setInput is deprecated in Eclipse 3.2</bug>
-<bug id="107922">createFromString for xsd:union types might report an error on valid data</bug>
->>>>>>> 1.79
 <bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
 </entry>
 
@@ -583,21 +568,9 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry build="I200508251028" project="xsd" version="2.2.0">
-<<<<<<< release-notes.xml
 <bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
 <bug id="106225">Reloaded XSD files don't validate</bug>
 <bug id="106252">Problem With Removing Default Namespace Reference From qNamePrefixToNamespaceMap</bug>
-<bug id="107593">generated namespace collision</bug>
-<bug id="107727">Typo in Javadoc for feature count ID</bug>
-<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
-</entry>
-
-<entry build="I200508251028" project="xsd" version="2.2.0">
-=======
-<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
-<bug id="106225">Reloaded XSD files don't validate</bug>
-<bug id="106252">Problem With Removing Default Namespace Reference From qNamePrefixToNamespaceMap</bug>
->>>>>>> 1.79
 <bug id="107593">generated namespace collision</bug>
 <bug id="107727">Typo in Javadoc for feature count ID</bug>
 <bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
@@ -1741,4 +1714,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.80 2005/09/08 14:22:00 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.81 2005/09/08 15:08:19 nickb Exp $ -->
