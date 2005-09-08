@@ -9,6 +9,7 @@
 <version-def label="2.1.0" version="2.1.0"/>
 <version-def label="2.1.x" version="2.1"/>
 
+<version-def label="2.0.4" version="2.0.4"/>
 <version-def label="2.0.3" version="2.0.3"/>
 <version-def label="2.0.2" version="2.0.2"/>
 <version-def label="2.0.1" version="2.0.1"/>
@@ -18,12 +19,7 @@
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
 <project-def label="XSD Release Notes" project="xsd"/>
 
-<entry build="M200509081011" project="emf" version="2.0.4">
-<bug id="93531">Performance Suite Tunning</bug>
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="99020">notice.html missing from EMF zips</bug>
-<bug id="105533">[Dupe] ESuperAdapter holds onto references forever == memory leak</bug>
-</entry>
+<!-- 2.2.0 -->
 
 <entry build="I200509080200" project="emf" version="2.2.0">
 <bug id="108750">import Rational Rose model ends in NullPointerException</bug>
@@ -84,6 +80,35 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200509080200" project="xsd" version="2.2.0">
+<bug id="108887">Missing Help Index for EMF plugins</bug>
+</entry>
+
+<entry build="I200509010200" project="xsd" version="2.2.0">
+<bug id="106099">Unexplained error about content containing subset from base type</bug>
+</entry>
+
+<entry build="I200508251028" project="xsd" version="2.2.0">
+<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
+<bug id="106225">Reloaded XSD files don't validate</bug>
+<bug id="106252">Problem With Removing Default Namespace Reference From qNamePrefixToNamespaceMap</bug>
+<bug id="107593">generated namespace collision</bug>
+<bug id="107727">Typo in Javadoc for feature count ID</bug>
+<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
+</entry>
+
+<entry build="2.2.0M1" project="xsd" version="2.2.0">
+<bug id="107015">Unable to set empty Block attribute on complex type</bug>
+</entry>
+
+<entry build="I200508111102" project="xsd" version="2.2.0">
+<bug id="106143">NullPointerException</bug>
+</entry>
+
+<entry build="I200508040200" project="xsd" version="2.2.0"/>
+
+<!-- 2.1.1 -->
+
 <entry build="M200509081004" project="emf" version="2.1.1">
 <bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
 </entry>
@@ -108,6 +133,19 @@
 <bug id="105796">[Duplicate] Problem creating ecore2xml mapping for documentation Annotation</bug>
 <bug id="105810">[Duplicate] TVT 3.1 - TCT 515 - Truncated button on Load Rose Class model.</bug>
 </entry>
+
+<entry build="M200509081004" project="xsd" version="2.1.1">
+<bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
+</entry>
+
+<entry build="M200509011153" project="xsd" version="2.1.1"/>
+<entry build="M200508110300" project="xsd" version="2.1.1" />
+
+<entry build="M200508040005" project="xsd" version="2.1.1">
+<bug id="103572">Update license.html (12 files) from notice.html</bug>
+</entry>
+
+<!-- 2.1.0 -->
 
 <entry build="2.1.0" project="emf" version="2.1.0">
 <bug id="83591">Add a section on model validation in to the EMF Overview document</bug>
@@ -570,50 +608,6 @@ mixin features inherited from interface</bug>
 <bug id="75419" sub="sdo">Delete operation should cascade through containment hieracrchy</bug>
 </entry>
 
-<entry build="M200509081011" project="xsd" version="2.0.4">
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="99020">notice.html missing from EMF zips</bug>
-<bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
-</entry>
-
-<entry build="I200509080200" project="xsd" version="2.2.0">
-<bug id="108887">Missing Help Index for EMF plugins</bug>
-</entry>
-
-<entry build="I200509010200" project="xsd" version="2.2.0">
-<bug id="106099">Unexplained error about content containing subset from base type</bug>
-</entry>
-
-<entry build="I200508251028" project="xsd" version="2.2.0">
-<bug id="106149">EditorPlugin should use AbstractUIPlugin</bug>
-<bug id="106225">Reloaded XSD files don't validate</bug>
-<bug id="106252">Problem With Removing Default Namespace Reference From qNamePrefixToNamespaceMap</bug>
-<bug id="107593">generated namespace collision</bug>
-<bug id="107727">Typo in Javadoc for feature count ID</bug>
-<bug id="107989">org.eclipse.platform.doc.isv changed to jarred plugin, build failing</bug>
-</entry>
-
-<entry build="2.2.0M1" project="xsd" version="2.2.0">
-<bug id="107015">Unable to set empty Block attribute on complex type</bug>
-</entry>
-
-<entry build="I200508111102" project="xsd" version="2.2.0">
-<bug id="106143">NullPointerException</bug>
-</entry>
-
-<entry build="I200508040200" project="xsd" version="2.2.0"/>
-
-<entry build="M200509081004" project="xsd" version="2.1.1">
-<bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
-</entry>
-
-<entry build="M200509011153" project="xsd" version="2.1.1"/>
-<entry build="M200508110300" project="xsd" version="2.1.1" />
-
-<entry build="M200508040005" project="xsd" version="2.1.1">
-<bug id="103572">Update license.html (12 files) from notice.html</bug>
-</entry>
-
 <entry build="2.1.0" project="xsd" version="2.1.0">
 <bug id="101458">[UpdateManager] Update Manager jar builder doesn't (properly) support jarred plugins</bug>
 <bug id="101739">Copyright in branding plug-ins needs to be updated</bug>
@@ -794,6 +788,19 @@ mixin features inherited from interface</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
 </entry>
 
+<!-- 2.0.4 -->
+
+<entry build="M200509081011" project="emf" version="2.0.4">
+<bug id="105533">[Dupe] ESuperAdapter holds onto references forever == memory leak</bug>
+<bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
+</entry>
+
+<entry build="M200509081011" project="xsd" version="2.0.4">
+<bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
+</entry>
+
+<!-- 2.0.3 -->
+
 <entry build="2.0.3" project="emf" version="2.0.3">
 <bug id="98876" sub="emf,sdo">Migrate license from CPL to EPL [2.0.3]</bug>
 <bug id="98877" sub="emf,sdo">Migrate license from CPL to EPL [2.0.3]</bug>
@@ -809,6 +816,18 @@ mixin features inherited from interface</bug>
 <entry build="2.0.3RC1" project="emf" version="2.0.3">
 <bug id="96106" sub="sdo">Error getting SDO Object with concurrent mediations</bug>
 </entry>
+
+<entry build="2.0.3" project="xsd" version="2.0.3">
+<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
+<bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
+<bug id="99020">notice.html missing from EMF zips</bug>
+<bug id="99021">notice.html missing from XSD zips</bug>
+</entry>
+<entry build="2.0.3RC2a" project="xsd" version="2.0.3"/>
+<entry build="2.0.3RC2" project="xsd" version="2.0.3"/>
+<entry build="2.0.3RC1" project="xsd" version="2.0.3"/>
+
+<!-- 2.0.2 -->
 
 <entry build="2.0.2" project="emf" version="2.0.2"/>
 <entry build="2.0.2RC3" project="emf" version="2.0.2"/>
@@ -840,16 +859,7 @@ mixin features inherited from interface</bug>
 </entry>
 
 <entry build="M200501191212" project="emf" version="2.0.2"/>
-<entry build="2.0.3" project="xsd" version="2.0.3">
-<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="98877">Migrate license from CPL to EPL [2.0.3]</bug>
-<bug id="99020">notice.html missing from EMF zips</bug>
-<bug id="99021">notice.html missing from XSD zips</bug>
-</entry>
 
-<entry build="2.0.3RC2a" project="xsd" version="2.0.3"/>
-<entry build="2.0.3RC2" project="xsd" version="2.0.3"/>
-<entry build="2.0.3RC1" project="xsd" version="2.0.3"/>
 <entry build="2.0.2" project="xsd" version="2.0.2"/>
 <entry build="2.0.2RC3" project="xsd" version="2.0.2"/>
 <entry build="M200503081329" project="xsd" version="2.0.2"/>
@@ -862,6 +872,9 @@ mixin features inherited from interface</bug>
 <entry build="M200502030700" project="xsd" version="2.0.2"/>
 <entry build="M200501270700" project="xsd" version="2.0.2"/>
 <entry build="M200501191212" project="xsd" version="2.0.2"/>
+
+<!-- 2.0.1 -->
+
 <entry build="2.0.1" project="emf" version="2.0.1">
 <bug id="72967">Implementation of XMLSave does not scale</bug>
 <bug id="73004" sub="emf,sdo">Support for backup/secondary/multiple Update URL(s)</bug>
@@ -993,6 +1006,8 @@ mixin features inherited from interface</bug>
 <entry build="M200407150937" project="xsd" version="2.0.1">
 <bug id="69081">Resolution mechanism for schemas does not use the resolved schema</bug>
 </entry>
+
+<!-- 2.0.0 -->
 
 <entry build="2.0.0" project="emf" version="2.0.0"/>
 <entry build="I200406250129" project="emf" version="2.0.0"/>
@@ -1596,7 +1611,7 @@ Tuned method BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature). S
 <bug id="48417">JETEmitter generated class not found by URLClassLoader</bug>
 <bug id="48447">Resource creation should only be successful if file was opened</bug>
 </entry>
-<!-- here -->
+
 <entry build="2.0.0" project="xsd" version="2.0.0"/>
 <entry build="I200406250129" project="xsd" version="2.0.0"/>
 <entry build="I200406211000" project="xsd" version="2.0.0">
@@ -1735,4 +1750,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.83 2005/09/08 15:34:05 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.84 2005/09/08 15:55:56 nickb Exp $ -->
