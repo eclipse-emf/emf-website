@@ -18,6 +18,13 @@
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
 <project-def label="XSD Release Notes" project="xsd"/>
 
+<entry build="M200509081011" project="emf" version="2.0.4">
+<bug id="93531">Performance Suite Tunning</bug>
+<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
+<bug id="99020">notice.html missing from EMF zips</bug>
+<bug id="105533">[Dupe] ESuperAdapter holds onto references forever == memory leak</bug>
+</entry>
+
 <entry build="I200509080200" project="emf" version="2.2.0">
 <bug id="108750">import Rational Rose model ends in NullPointerException</bug>
 <bug id="108857">Genmodel gives unnecessary error</bug>
@@ -561,6 +568,12 @@ mixin features inherited from interface</bug>
 <bug id="75775">JET crashes on certain formats of the "imports" attribute.</bug>
 <bug id="75416" sub="sdo">Issue with containment and deleted objects</bug>
 <bug id="75419" sub="sdo">Delete operation should cascade through containment hieracrchy</bug>
+</entry>
+
+<entry build="M200509081011" project="xsd" version="2.0.4">
+<bug id="98876">Migrate license from CPL to EPL [2.0.3]</bug>
+<bug id="99020">notice.html missing from EMF zips</bug>
+<bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
 </entry>
 
 <entry build="I200509080200" project="xsd" version="2.2.0">
@@ -1722,4 +1735,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.82 2005/09/08 15:12:20 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.83 2005/09/08 15:34:05 nickb Exp $ -->
