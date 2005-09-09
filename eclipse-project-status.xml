@@ -105,7 +105,7 @@
     </release>
   </releases>
 
-  <project-ip-log url="http://eclipse.org/emf/EMF-eclipse-project-ip-log.csv"/>
+  <project-ip-log url="http://eclipse.org/emf/eclipse-project-ip-log.csv"/>
 
   <community>
     <mailing-list>emf-dev@eclipse.org</mailing-list>
