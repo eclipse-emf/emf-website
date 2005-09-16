@@ -130,12 +130,9 @@
     <bugzilla>XSD:Mapping</bugzilla>
     <bugzilla>XSD:Runtime</bugzilla>
 
-    <!-- Is the format of these correct ("CVS repository path")? -->
-    <cvs>http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/</cvs>
-    <cvs>http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/</cvs>
-    <!-- Should this be included?
-    <cvs>http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.releng.build/</cvs>
-    -->
-    <cvs>http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.xsd/</cvs>   
+    <cvs>/home/data/cvs/tools:org.eclipse.emf</cvs>
+    <cvs>/home/data/cvs/tools:org.eclipse.emf.ecore.sdo</cvs>
+    <cvs>/home/data/cvs/tools:org.eclipse.emf.releng.build</cvs>
+    <cvs>/home/data/cvs/tools:org.eclipse.xsd</cvs>
   </community>
 </project>
