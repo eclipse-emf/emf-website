@@ -21,6 +21,15 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200509161514" project="emf" version="2.2.0">
+<bug id="101808">Bundle Provider name is incorrect</bug>
+<bug id="107125">EditingDomainActionBarContributor#deactivate doesn't check to see if selection provider is null</bug>
+<bug id="109169">ECoreUtil.Copier needs to option to not resolve proxies.</bug>
+<bug id="109205">Tutorial 'Generating and EMF Model Using XSD' contains wrong XML</bug>
+<bug id="109396">Rename some methods in XMLOptions</bug>
+<bug id="109539">Generated createFooFromString() and convertFooToString() methods could be improved</bug>
+</entry>
+
 <entry build="I200509080200" project="emf" version="2.2.0">
 <bug id="108750">import Rational Rose model ends in NullPointerException</bug>
 <bug id="108857">Genmodel gives unnecessary error</bug>
@@ -78,6 +87,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200509161514" project="xsd" version="2.2.0">
+<bug id="109547">ClassCastException in EcoreUtil.ProxyCrossReferencer</bug>
 </entry>
 
 <entry build="I200509080200" project="xsd" version="2.2.0">
@@ -1750,4 +1763,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.84 2005/09/08 15:55:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.85 2005/09/16 20:11:16 nickb Exp $ -->
