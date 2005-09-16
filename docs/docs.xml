@@ -1302,8 +1302,8 @@
       </td>
 
       <td>
-        <a
-        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
+        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
+
       </td>
 
       <td>July 21
@@ -1311,7 +1311,7 @@
 
       2005</td>
     </tr>
-    
+        
 	<tr>
       <td>
         <img src="images/c.gif" width="1" height="8" />
@@ -1369,6 +1369,26 @@
       </td>
 
       <td>July 27
+      <sup>th</sup>
+
+      2005</td>
+    </tr>
+
+        <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TXT),
+        <a href="http://eclipse.org/emf/eclipse-project-ip-log.csv">IP Log</a> (CSV),
+		<a href="http://eclipse.org/emf/eclipse-project-status.xml">Status</a> (XML)
+
+      </td>
+
+      <td>Sept 16
       <sup>th</sup>
 
       2005</td>
@@ -1801,5 +1821,5 @@
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.26 2005/09/07 23:26:52 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.27 2005/09/16 15:49:46 nickb Exp $ -->
 
