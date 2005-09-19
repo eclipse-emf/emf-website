@@ -851,11 +851,10 @@ in addition to Rose or annotated Java. To enable this support, you
 need to download and install the <a
 href="http://www.eclipse.org/xsd">XML Schema Project</a> plugins
 first. Here is <a target="_code"
-href="images/../docs/clibmod/library.xsd">library.xsd</a>,
+href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/xlibmod/library.xsd">library.xsd</a>,
 the Library model expressed in XML Schema. To use it, run the Ecore
 Model Project wizard and choose "Load from XML Schema" when
-prompted. This is essentially a third option for step 1 (i.e., 1c)
-in the <a href="docs/clibmod/clibmod.html">tutorial</a>. Give
+prompted. This is documented in this <a href="http://eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">tutorial</a>. Give
 it a try.</p>
 
 <p>One very important difference (advantage) to using XML Schema to
@@ -1400,4 +1399,4 @@ to reflect this build (i.e., the latest release).</li>
 </table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.8 2005/07/07 05:18:26 nickb Exp $ -->
+<!-- $Id: release-notes-1.x.php,v 1.9 2005/09/19 18:00:49 nickb Exp $ -->

@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.17 2005/08/04 20:57:17 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.18 2005/09/19 18:00:51 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -141,7 +141,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">EMF.Edit</a>, <a class="subcategory" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">SDO</a><br>
 	<a class="subcategory" href="http://www.eclipse.org/emf/docs/xsd/XSD.mdl">UML model</a>, 
 
-   <a class="subcategory" href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/technology/xsd/javadoc/org/eclipse/xsd/package-summary.html#details">UML diagrams</a><br/>
+   <a class="subcategory" href="http://download.eclipse.org/tools/emf/xsd/javadoc?org/eclipse/xsd/package-summary.html#details">XSD UML diagrams</a><br/>
 	<a name="overview12" class="category">Performance:</a> <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1</a>
 
 				</td>

@@ -198,7 +198,7 @@ Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> mode
 			<td class="box">	
 				<br />
 					- <a href="http://eclipse.org/uml2">UML2</a><br /><br />
-					- <a href="docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
+					- <a href="http://eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
 					- <a href="http://eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a><br/><br/>
 					- <a href="../newsgroups">Eclipse newsgroups</a><br /><br />
 
@@ -225,7 +225,7 @@ Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> mode
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.17 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: home.php,v 1.18 2005/09/19 18:00:51 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 

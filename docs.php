@@ -39,7 +39,7 @@
     <tr>
       <td>
         <a name="documents">
-          <img src="images/images/c.gif" width="1" border="0"
+          <img src="http://eclipse.org/emf/images/c.gif" width="1" border="0"
           height="5" />
         </a>
       </td>
@@ -62,7 +62,7 @@
   '<table>
     <tr>
       <td>
-          <img src="images/images/c.gif" width="1" border="0"
+          <img src="http://eclipse.org/emf/images/c.gif" width="1" border="0"
           height="8" />
       </td>
     </tr>
@@ -160,4 +160,4 @@
 include_once $pre."includes/footer.php"; 
 //if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
 
-<!-- $Id: docs.php,v 1.7 2005/05/06 22:40:18 nickb Exp $ -->
+<!-- $Id: docs.php,v 1.8 2005/09/19 18:00:49 nickb Exp $ -->
