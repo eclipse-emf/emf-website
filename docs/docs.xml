@@ -1322,13 +1322,10 @@
       <td>
         EMF 2.2 Project Plan: <a
         href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
-        Overview</a>, 
-        <a
-        href="http://eclipse.org/emf/plan/plan-2.2.xml">
-        Prioritized Bugs</a>
+        Overview</a>
       </td>
 
-      <td>July 21
+      <td>September 19
       <sup>th</sup>
 
       2005</td>
@@ -1821,5 +1818,5 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.27 2005/09/16 15:49:46 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.28 2005/09/19 18:29:46 elena Exp $ -->
 
