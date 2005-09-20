@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.19 2005/09/20 17:14:12 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.20 2005/09/20 17:38:02 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -82,9 +82,10 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 
             <td height="42"> <a href="http://bugs.eclipse.org/bugs" class="category">Bugzilla</a>
 
-				<?php if ($isEMFserver) { ?>
-				:: <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0" class="subcategory">Assigned</a>
-				<?php } ?>
+<?php if ($isEMFserver) { ?>
+:: <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0" class="subcategory">Assigned</a>
+:: <a href="javascript://" class="subcategory" style="color:red" onclick="if (confirm('To regenerate plan-*.xml, follow this link, wait about 30 seconds\nfor the page to display, then view-source (CTRL-U) and copy that\nsource into the appropriate www/emf/plan/plan-*.xml document\nand it commit to CVS. Content should refresh on public site\n(http://eclipse.org/emf/plan/plan-*.xml) within a minute or two.')) { document.location.href='/emf/plan/plan.php?votes=true&blocks=true'; }"> Regenerate Prioritized Bug List</a>
+<?php } ?>
 				<br>
 
 <?php
@@ -163,7 +164,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 			<tr><td><img src="http://www.eclipse.org/emf/images/release-notes.gif" border="0"></td>
 	<td><a name="relnotes1" class="category">Release Notes:</a> 
 
-	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a>, <b><a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a>, </b><a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes-1.x.php">1.x</a></td>
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes-1.x.php">1.x</a></td>
 
             <td> <a href="http://www.eclipse.org/emf/faq/faq.php"><img
  src="http://www.eclipse.org/emf/images/faq.gif" border="0"></a></td>
