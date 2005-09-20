@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.18 2005/09/19 18:00:51 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.19 2005/09/20 17:14:12 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -12,7 +12,7 @@
 					</tr>
 				</table>
 			</td>
-		<?php if (!$newsInSidebar) { ?>
+		<?php if (!isset($newsInSidebar) || !$newsInSidebar) { ?>
 			<td>
 			</td>
 			<td width="20%" valign="top">
@@ -180,7 +180,7 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
       </table>
       </td>
 
-		<?php if (!$newsInSidebar) { ?>
+		<?php if (!isset($newsInSidebar) || !$newsInSidebar) { ?>
 		<td></td>
 		<td width="20%" valign="top">
 			<table width="212" cellpadding="2" cellspacing="2" border="0">
