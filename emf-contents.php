@@ -10,7 +10,8 @@ set of adapter classes that enable viewing and command-based editing of
 the model, and a basic editor. Models can be specified using
 annotated Java, XML documents, or modeling tools like Rational Rose, then
 imported into EMF. Most important of all, EMF provides the foundation for
-interoperability with other EMF-based tools and applications.
+interoperability with other EMF-based tools and applications. For more detailed 
+information see the <a href="http://eclipse.org/emf/docs.php#overviews">EMF Overviews</a> and <a href="http://eclipse.org/emf/docs.php#plandocs">Project Plan</a>.
 
 <br><br>
 
@@ -144,7 +145,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.9 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.10 2005/09/20 16:59:23 nickb Exp $ -->
 </body></html>
 
 <?php } 
