@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan-2.2.xsl"?>
 <plan>
-	<id>$Id: plan-2.2.xml,v 1.7 2005/09/20 17:01:14 nickb Exp $</id>
-	<modified>$Date: 2005/09/20 17:01:14 $</modified>
+	<id>$Id: plan-2.2.xml,v 1.8 2005/09/20 17:07:59 nickb Exp $</id>
+	<modified>$Date: 2005/09/20 17:07:59 $</modified>
 
 	<catg-def category="plan" label="EMF/XSD Planned Items" />
 	<catg-def category="comm" label="EMF/XSD Committed Items" />
@@ -165,7 +165,7 @@
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 
-		<blocks></blocks>
+		<blocks>101607</blocks>
 		<votes>7</votes>
 		<sev>enhancement</sev>
 		<pri>P1</pri>
@@ -213,61 +213,61 @@
 		<opened>2004-10-08 13:40</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>1</votes>
+		<blocks>104727</blocks>
 
+		<votes>1</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
-		<plan-committed></plan-committed>
 
+		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Define constraints on valid Ecore models and diagnose violations of them</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>104727</id>
-		<product>EMF</product>
 
+		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.2</ver>
 		<targetm>2.2 M6</targetm>
 		<opened>2005-07-21 15:47</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
 
-		<blocks></blocks>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<blocks>75933</blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
+
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
-
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Improve code generation error reporting and handling</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
-		<id>105966</id>
 
+		<id>105966</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.2</ver>
 		<targetm>2.2 M6</targetm>
 		<opened>2005-08-03 15:57</opened>
-		<reporter>davidms&#64;ca.ibm.com</reporter>
 
+		<reporter>davidms&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P1</pri>
-		<stat>NEW</stat>
 
+		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
@@ -275,103 +275,103 @@
 		<summary>[Plan Item] JET Enhancements</summary>
 	</bug>
 	<bug>
-		<catg>plan</catg>
 
+		<catg>plan</catg>
 		<id>76538</id>
 		<product>EMF</product>
 		<comp>XML/XMI</comp>
 		<ver>2.1</ver>
 		<targetm>2.2</targetm>
-		<opened>2004-10-18 23:10</opened>
 
+		<opened>2004-10-18 23:10</opened>
 		<reporter>khussey&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
+		<blocks>83740</blocks>
 		<votes>3</votes>
+
 		<sev>enhancement</sev>
 		<pri>P1</pri>
-
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
 		<plan-committed></plan-committed>
+
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] EMF should support XMI &quot;2.1&quot;</summary>
-
 	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>104893</id>
 		<product>XSD</product>
+
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
-
 		<targetm>2.2 M2</targetm>
 		<opened>2005-07-22 17:32</opened>
 		<reporter>elitani&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>2</votes>
 
+		<blocks>93194</blocks>
+		<votes>2</votes>
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
+
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-
 		<summary>[Plan Item] Improve XSD generation</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>77518</id>
+
 		<product>EMF</product>
 		<comp>SDO</comp>
-
 		<ver>2.0.1</ver>
 		<targetm>Future</targetm>
 		<opened>2004-11-02 14:35</opened>
 		<reporter>kjwillia&#64;us.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
 
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P4</pri>
 		<stat>NEW</stat>
-		<plan-priority>2</plan-priority>
 
+		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Lack of privileged markers can lead to security exceptions</summary>
 	</bug>
 	<bug>
-		<catg>plan</catg>
 
+		<catg>plan</catg>
 		<id>79768</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
 		<targetm>Future</targetm>
-		<opened>2004-11-30 07:43</opened>
 
+		<opened>2004-11-30 07:43</opened>
 		<reporter>merks&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>2</votes>
 		<sev>enhancement</sev>
-		<pri>P3</pri>
 
+		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority>3</plan-priority>
 		<plan-estimate>4w</plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Investigate support for Java 5.0</summary>
-	</bug>
 
+	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>105920</id>
@@ -456,19 +456,19 @@
 
 		<reporter>elitani&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
+		<blocks>109396</blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
-		<pri>P3</pri>
 
+		<pri>P3</pri>
 		<stat>RESOLVED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed>2005-07-22</plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Provide additional XML utilities to improve EMF ease-of-use</summary>
-	</bug>
 
+	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>105964</id>
@@ -480,25 +480,25 @@
 		<opened>2005-08-03 15:30</opened>
 		<reporter>davidms&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
+		<blocks>43752</blocks>
 
+		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>RESOLVED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>[Plan Item] EMF.Edit Enhancements</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>104731</id>
 		<product>EMF</product>
-		<comp>Tools</comp>
 
+		<comp>Tools</comp>
 		<ver>2.2</ver>
 		<targetm>---</targetm>
 		<opened>2005-07-21 16:17</opened>
