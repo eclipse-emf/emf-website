@@ -35,7 +35,7 @@
 		<tr valign=top bgcolor="#EEEEEE">
 		<td><img src="http://www.eclipse.org/emf/images/eclipse-icons/featureshov_obj.gif"></td>
 		<td>
-			EMF, SDO and XSD 2.x require <a href="http://eclipse.org/downloads/" target="_eclipse">Eclipse 3.x</a> and <b>JDK 1.4</b>.<br>
+			EMF, SDO and XSD 2.x require <a href="http://eclipse.org/downloads/" target="_eclipse">Eclipse 3.x</a> and <b>JDK 1.4</b>. As of Eclipse 3.2, you can also use a <b>JDK 1.5 / 5.0</b>, since this bug only exists in the <b>Sun JDK 1.4</b>.<br>
 			<br>
 			Note that the full Eclipse SDK is only required <i>if you intend to use the EMF, SDO or XSD graphical interfaces</i>, (ie., views, wizards, extensions) which are built for Eclipse. For <i>runtime-only applications</i>, only a JDK is required.
 			<br><br>
@@ -53,15 +53,15 @@
 		<td><b class="header">XSD Model Loading: Crimson DOM Bug, Workaround & Download</b>
 
 				<ul>
-				<li>If you use the <b>IBM JDK 1.4</b> instead of the <b>SUN JDK 1.4</b>, this workaround does not apply. <br><br>
+				<li>If you use the <b>IBM JDK 1.4</b> or a <b>1.5 / 5.0 JDK</b> instead of the <b>SUN JDK 1.4</b>, this workaround is not required. <br><br>
 				</li>
 
-				<li><b>If you <b style="color:red">will NOT</b> be loading or importing model(s) from XML Schema</b>, or do not plan to use the XSD plugin, but intend to generate models from Rose, annotated java code, or using pre-existing ecore file(s), this workaround does not apply to you. EMF & SDO will work fine without Xerces. <br><br>
+				<li><b>If you <b style="color:red">will NOT</b> be loading or importing model(s) from XML Schema</b>, or do not plan to use the XSD plugin, but intend to generate models from Rose, annotated java code, or using pre-existing ecore file(s), this workaround is also not required. EMF & SDO will work fine without Xerces. <br><br>
 				</li>
 
 				<li><b>If you <b style="color:green">will be</b> loading or importing model(s) from XML Schema</b>, you need to be aware of the following bug & its workaround.<br><br>
 
-				The Crimson DOM implementation in (some versions of) the Sun JDK has a bug in the implementation of<br>
+				The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of<br>
 				<tt>hasAttributeNS</tt>. This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 					<ul>
 					<li>a null pointer exception, or
@@ -102,4 +102,4 @@
 </TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000'><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: downloads-xerces.php,v 1.5 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: downloads-xerces.php,v 1.6 2005/09/21 17:32:01 nickb Exp $ -->
