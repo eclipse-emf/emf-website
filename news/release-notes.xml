@@ -21,6 +21,11 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200509220200" project="emf" version="2.2.0">
+<bug id="109437">Perf: Optimize basicExtendedMetaData.getType</bug>
+<bug id="109672">Codegen should not generate unneeded cast.</bug>
+</entry>
+
 <entry build="I200509161514" project="emf" version="2.2.0">
 <bug id="101808">Bundle Provider name is incorrect</bug>
 <bug id="107125">EditingDomainActionBarContributor#deactivate doesn't check to see if selection provider is null</bug>
@@ -87,6 +92,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200509220200" project="xsd" version="2.2.0">
+<bug id="106616">abstract=&quot;true&quot; not generated in XML Schema</bug>
 </entry>
 
 <entry build="I200509161514" project="xsd" version="2.2.0">
@@ -1763,4 +1772,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.85 2005/09/16 20:11:16 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.86 2005/09/22 14:52:40 nickb Exp $ -->
