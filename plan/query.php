@@ -19,8 +19,8 @@
 <head></head>
 <body>
 <table><form method=post><tr valign="top"><td align="left">
-   <pre style="font-size:12px">Query:<br><i style="font-size:11px">separate multiple queries with semi-colon (";")</i>
-	<a href="https://dev.eclipse.org/committers/committertools/dbo_bugs_schema.php">database schema</a> (fields, tables, constraints)</pre>
+   <pre style="font-size:12px">Query:<br><i style="font-size:11px">separate multiple queries with semi-colon (";")
+  -&gt; <a href="https://dev.eclipse.org/committers/committertools/dbo_bugs_schema.php">database schema</a> (fields, tables, constraints)</i></pre>
    <textarea style="font-size:12px" name=query rows=40 cols=60>'.$query.'</textarea><br/>
    <input type=submit name="Submit" style="font-size:12px">
    <pre style="font-size:12px;color:navy">
