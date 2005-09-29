@@ -21,6 +21,7 @@
 
 <!-- 2.2.0 -->
 
+<entry build="2.2.0M2" project="emf" version="2.2.0"/>
 <entry build="I200509290200" project="emf" version="2.2.0">
 <bug id="110340">Address the changes in the XML namespace schema.</bug>
 <bug id="110366">Need a way to override eIsSet</bug>
@@ -104,6 +105,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="2.2.0M2" project="xsd" version="2.2.0"/>
 <entry build="I200509290200" project="xsd" version="2.2.0">
 <bug id="110340">Address the changes in the XML namespace schema.</bug>
 </entry>
@@ -1790,4 +1792,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.89 2005/09/29 21:47:25 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.90 2005/09/29 22:06:27 nickb Exp $ -->
