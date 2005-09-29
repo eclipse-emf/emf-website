@@ -21,6 +21,16 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200509290200" project="emf" version="2.2.0">
+<bug id="110340">Address the changes in the XML namespace schema.</bug>
+<bug id="110366">Need a way to override eIsSet</bug>
+<bug id="110500">INFO diagnostics reported as problems by validate action</bug>
+<bug id="110503">Expose Package registry and extendedMetaData from XMLProcessor</bug>
+<bug id="110829">Dialog title not set for information status</bug>
+<bug id="110999">Please add a GenClass#getInvariantGenOperations() method</bug>
+<bug id="111000">Variable 'uri' not used in generated package class</bug>
+</entry>
+
 <entry build="I200509220200" project="emf" version="2.2.0">
 <bug id="109437">Perf: Optimize basicExtendedMetaData.getType</bug>
 <bug id="109672">Codegen should not generate unneeded cast.</bug>
@@ -92,6 +102,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200509290200" project="xsd" version="2.2.0">
+<bug id="110340">Address the changes in the XML namespace schema.</bug>
 </entry>
 
 <entry build="I200509220200" project="xsd" version="2.2.0">
@@ -1774,4 +1788,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.87 2005/09/29 15:33:14 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.88 2005/09/29 17:20:39 nickb Exp $ -->
