@@ -131,6 +131,7 @@
 
 <!-- 2.1.1 -->
 
+<entry build="2.1.1RC1" project="emf" version="2.1.1"/>
 <entry build="M200509081004" project="emf" version="2.1.1">
 <bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
 </entry>
@@ -156,6 +157,7 @@
 <bug id="105810">[Duplicate] TVT 3.1 - TCT 515 - Truncated button on Load Rose Class model.</bug>
 </entry>
 
+<entry build="2.1.1RC1" project="xsd" version="2.1.1"/>
 <entry build="M200509081004" project="xsd" version="2.1.1">
 <bug id="105836">[Duplicate] Missing Help Index for EMF plugins</bug>
 </entry>
@@ -1772,4 +1774,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.86 2005/09/22 14:52:40 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.87 2005/09/29 15:33:14 nickb Exp $ -->
