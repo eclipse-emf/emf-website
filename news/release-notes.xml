@@ -830,11 +830,13 @@ mixin features inherited from interface</bug>
 
 <!-- 2.0.4 -->
 
+<entry build="2.0.4" project="emf" version="2.0.4"/>
 <entry build="M200509081011" project="emf" version="2.0.4">
 <bug id="105533">[Dupe] ESuperAdapter holds onto references forever == memory leak</bug>
 <bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
 </entry>
 
+<entry build="2.0.4" project="xsd" version="2.0.4"/>
 <entry build="M200509081011" project="xsd" version="2.0.4">
 <bug id="105538">[Dupe] Fix JDK5.0 compiler errors</bug>
 </entry>
@@ -1790,4 +1792,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.92 2005/09/30 15:25:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.93 2005/09/30 16:23:00 nickb Exp $ -->
