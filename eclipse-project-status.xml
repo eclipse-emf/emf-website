@@ -130,9 +130,9 @@
     <bugzilla>XSD:Mapping</bugzilla>
     <bugzilla>XSD:Runtime</bugzilla>
 
-    <cvs>/home/data/cvs/tools:org.eclipse.emf</cvs>
-    <cvs>/home/data/cvs/tools:org.eclipse.emf.ecore.sdo</cvs>
-    <cvs>/home/data/cvs/tools:org.eclipse.emf.releng.build</cvs>
-    <cvs>/home/data/cvs/tools:org.eclipse.xsd</cvs>
+    <cvs>/cvsroot/tools:org.eclipse.emf</cvs>
+    <cvs>/cvsroot/tools:org.eclipse.emf.ecore.sdo</cvs>
+    <cvs>/cvsroot/tools:org.eclipse.emf.releng.build</cvs>
+    <cvs>/cvsroot/tools:org.eclipse.xsd</cvs>
   </community>
 </project>
