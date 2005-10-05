@@ -21,11 +21,16 @@ bug fixes. [<a href="http://www.alphaworks.ibm.com/tech/ide4laszlo?open&amp;S_TA
 </model>
 
 <model
-modelName="EMF Persistency Layer"
-date="2005-08-02"
-category="EMF framework"
-modelID="MartinTaal20050802142757">
-<text>Elver EMF Store is a persistency solution for EMF, based on JDO 2.0. It supports automatic creation of EMF to Relational Mappings and the related database schemas. The solution also contains a runtime layer to support specific EMF features. EMF Objects can be stored and retrieved using JDO 2.0 advanced queries. EMF resource implementations are provided for integration with EMF Editors.</text>
+modelName="EMF Persistency Layer using Hibernate or JDO/JPOX"
+date="2005-10-05"
+category="EMF model"
+modelID="MartinTaal20051005073815">
+<text>Elver EMF Store is a persistency solution for EMF using Hibernate
+or JPOX/JDO 2.0. It supports automatic creation of EMF to Relational
+Mappings and the related database schemas. The solution also contains a
+runtime layer to support specific EMF features. EMF Objects can be stored
+and retrieved using advanced queries (HQL or JDOQL). EMF resource
+implementations are provided for integration with EMF Editors.</text>
 <modelURL>http://www.elver.org</modelURL>
 <thumbnailURL></thumbnailURL>
 <screenshotURL></screenshotURL>
@@ -448,4 +453,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.17 2005/08/14 22:19:03 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.18 2005/10/05 17:16:42 nickb Exp $ -->
