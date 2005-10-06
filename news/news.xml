@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="October 06, 2005" showOn="whatsnew">
+	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Integration build
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">I200510060200</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="September 30, 2005" showOn="whatsnew">
 	<a href="http://download.eclipse.org/tools/emf/updates/site.xml">Update Manager</a> site now supports
 	<a href="http://eclipse.org/downloads/download.php?file=/tools/emf/updates/site.xml&amp;format=xml">mirrors</a>.
@@ -715,6 +720,6 @@
 	<a href="http://eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.99 2005/09/30 21:15:25 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.100 2005/10/06 12:51:08 nickb Exp $ -->
 
 </doc>
