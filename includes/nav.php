@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.20 2005/09/20 17:38:02 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.21 2005/10/06 21:57:35 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -190,9 +190,11 @@ Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" 
 						<br />
 							<table>
 							<?php 
-								ini_set("display_errors","1"); 
-								getNews(3,"whatsnew","vert"); 
-								ini_set("display_errors","0"); ?>
+								if (function_exists("getNews")) {
+									ini_set("display_errors","1"); 
+									getNews(3,"whatsnew","vert"); 
+									ini_set("display_errors","0"); 
+								} ?>
 							</table>
 						<br/>
 	- <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
