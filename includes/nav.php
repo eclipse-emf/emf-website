@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.22 2005/10/12 22:05:38 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.23 2005/10/12 22:13:47 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -66,11 +66,12 @@
             <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"
  class="category" target="_top">EMF &amp; XSD newsgroups</a><br>
 
-            <a href="http://www.eclipse.org/search/search.cgi"
+<a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a>, <a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="subcategory">Search</a>, <a
- href="http://eclipse.org/emf/newsgroup-mailing-list.php"
- target="_self" class="subcategory">Web
-Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
+ target="_self" class="subcategory">Browse: EMF &amp; SDO</a>, <a
+ href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
+ target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small><br>
 <a href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF &amp; SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
  </td>
 			</tr>
