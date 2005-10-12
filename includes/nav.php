@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.23 2005/10/12 22:13:47 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.24 2005/10/12 22:16:27 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -64,9 +64,9 @@
  <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"> <img
  src="http://www.eclipse.org/emf/images/news.gif" border="0"></a></td>
             <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"
- class="category" target="_top">EMF &amp; XSD newsgroups</a><br>
+ class="category" target="_top">EMF &amp; XSD newsgroups</a> :: <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
 
-<a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a>, <a href="http://www.eclipse.org/search/search.cgi"
+<a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="subcategory">Search</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
  target="_self" class="subcategory">Browse: EMF &amp; SDO</a>, <a
