@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2005/07/21 22:29:28 $</modified>
+  <modified>$Date: 2005/10/12 22:05:38 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -257,23 +257,6 @@ You can buy an electronic copy of the book here: <a
 href="http://www.awprofessional.com/titles/0131425420">http://www.awprofessional.com/titles/0131425420</a>.
     </answer>
   </entry>
-
-<!--  <entry date="2004/01/07 00:00" UNID="20040207-1527768436">
-    <category>unc</category>
-    <question>
-How can I get my question into the FAQ?
-    </question>
-    <answer>
-Just send a blank email with the subject 'readme submitter' to 
-<a href="mailto:emf-faq@eclipse.org?Subject=readme submitter"><tt class="code">emf-faq@eclipse.org</tt></a> 
-(or cc:/bcc: a 
-<a target="_ng" href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">newsgroup post</a> 
-to that address) 
-and you will receive instructions on how to submit. 
-Your submissions will be checked for viability and 
-usefulness by the EMF support team. 
-    </answer>
-  </entry> -->
 
   <entry date="2004/04/02 00:00" UNID="20040402-751483936">
     <category>dev</category>
@@ -1799,6 +1782,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.10 2005/07/21 22:29:28 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.11 2005/10/12 22:05:38 nickb Exp $ -->
 
 </faq>

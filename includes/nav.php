@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.21 2005/10/06 21:57:35 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.22 2005/10/12 22:05:38 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -61,14 +61,14 @@
 
 	<td width="10" rowspan="7"><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=10 height=1></td>
 
- <td> <a href="news://news.eclipse.org/eclipse.tools.emf"> <img
+ <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"> <img
  src="http://www.eclipse.org/emf/images/news.gif" border="0"></a></td>
-            <td> <a href="news://news.eclipse.org/eclipse.tools.emf"
- class="category" target="_top">EMF newsgroup</a><br>
+            <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"
+ class="category" target="_top">EMF &amp; XSD newsgroups</a><br>
 
             <a href="http://www.eclipse.org/search/search.cgi"
  target="_self" class="subcategory">Search</a>, <a
- href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf"
+ href="http://eclipse.org/emf/newsgroup-mailing-list.php"
  target="_self" class="subcategory">Web
 Interface</a>, <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
 <a href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF &amp; SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
