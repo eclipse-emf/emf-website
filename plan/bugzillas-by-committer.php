@@ -14,13 +14,15 @@
 
    $bug = $_GET["bug"]; if (!$bug) { $bug="61639"; }
    $query = stripslashes($_POST["query"]);
+
    if (!$query) { //default query
    	 $STARTDATE = "2005-01-01";
    	 $committers = array("Ed Merks", "Elena Litani", "Marcelo Paternostro", "Dave Steinberg","Nick Boldt");
    	 foreach ($committers as $COMMITTER) { 
    	   $NAME = str_replace(" ","_",$COMMITTER);
    	   if ($query) { $query .= ";\n"; }
-	   $query .= 'SELECT DISTINCT count(TXT.bug_id) as '.$NAME.' 
+	   $query .= '
+SELECT DISTINCT count(TXT.bug_id) as '.$NAME.' 
 FROM 
   bugs as BUG, profiles as PROF, 
   products as PROD, longdescs as TXT
@@ -37,7 +39,6 @@ WHERE
   AND TXT.bug_when >= "'.$STARTDATE.'"';
      }
    }
-   
    
    echo '
 <html>
