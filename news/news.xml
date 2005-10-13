@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="October 13, 2005" showOn="whatsnew">
+	<a href="http://eclipse.org/org/processes/dashboard/dashboard_detail.php?project=EMF">EMF</a>
+	has the highest
+	<a href="http://eclipse.org/org/processes/dashboard/dashboard.php?sort=liveness">liveness</a>
+	of any project at Eclipse.org!
+</news>
 <news date="October 06, 2005" showOn="whatsnew">
 	<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Integration build
-	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">I200510060200</a>) is available 
+	(<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2.0">I200510060200</a>) is available
 	for <a href="downloads.php">download</a>.
 </news>
 <news date="September 30, 2005" showOn="whatsnew">
@@ -720,6 +726,6 @@
 	<a href="http://eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.100 2005/10/06 12:51:08 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.101 2005/10/13 17:23:08 nickb Exp $ -->
 
 </doc>
