@@ -21,6 +21,12 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200510131245" project="emf" version="2.2.0">
+<bug id="109499">NPE when generating model with missing ecore file</bug>
+<bug id="111537">basicGet/Set generated even though model's reflectiveDelegation == true</bug>
+<bug id="112055">typo in NotificationImpl.toString()</bug>
+</entry>
+
 <entry build="I200510060200" project="emf" version="2.2.0">
 <bug id="108360">Package names that use keywords cause problems</bug>
 <bug id="110167">Annotations are not generated in the &#64;model for a package</bug>
@@ -117,6 +123,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200510131245" project="xsd" version="2.2.0">
+<bug id="109499">NPE when generating model with missing ecore file</bug>
 </entry>
 
 <entry build="I200510060200" project="xsd" version="2.2.0">
@@ -1811,4 +1821,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.94 2005/10/06 12:51:08 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.95 2005/10/13 17:48:02 nickb Exp $ -->
