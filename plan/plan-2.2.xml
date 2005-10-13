@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan-2.2.xsl"?>
 <plan>
-	<id>$Id: plan-2.2.xml,v 1.9 2005/10/01 19:39:37 nickb Exp $</id>
-	<modified>$Date: 2005/10/01 19:39:37 $</modified>
+	<id>$Id: plan-2.2.xml,v 1.10 2005/10/13 17:58:26 nickb Exp $</id>
+	<modified>$Date: 2005/10/13 17:58:26 $</modified>
 
 	<catg-def category="plan" label="EMF/XSD Planned Items" />
 	<catg-def category="comm" label="EMF/XSD Committed Items" />
@@ -976,7 +976,7 @@
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-		<summary>unique capitalized constants</summary>
+		<summary>Need more flexible EEnumLiteral support.</summary>
 	</bug>
 	<bug>
 		<catg>prop</catg>
@@ -1319,184 +1319,184 @@
 	</bug>
 	<bug>
 		<catg>prop</catg>
-		<id>108360</id>
-
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-08-30 09:37</opened>
-		<reporter>merks&#64;ca.ibm.com</reporter>
-
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Package names that use keywords cause problems</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-
-		<id>108384</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-08-30 11:40</opened>
-
-		<reporter>sean_garagan&#64;versata.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Duplicate member variables generated when similar names are used</summary>
-	</bug>
-	<bug>
-
-		<catg>prop</catg>
 		<id>108470</id>
+
 		<product>EMF</product>
 		<comp>Edit</comp>
 		<ver>2.2</ver>
 		<targetm>---</targetm>
-
 		<opened>2005-08-31 10:51</opened>
 		<reporter>stepper&#64;esc-net.de</reporter>
+
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>enhancement</sev>
-
 		<pri>P3</pri>
 		<stat>NEW</stat>
+
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>Reusable Generic Editor</summary>
-
 	</bug>
 	<bug>
 		<catg>prop</catg>
+
 		<id>108501</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.2</ver>
-
 		<targetm>---</targetm>
 		<opened>2005-08-31 15:03</opened>
+
 		<reporter>richkulp&#64;us.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
-
 		<sev>enhancement</sev>
 		<pri>P2</pri>
+
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-
 		<summary>Codgened Packages shouldn`t access impl classes of other packages except when subclassing from such package</summary>
 	</bug>
 	<bug>
+
 		<catg>prop</catg>
 		<id>109127</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
-
 		<ver>2.2</ver>
 		<targetm>---</targetm>
+
 		<opened>2005-09-09 06:42</opened>
 		<reporter>merks&#64;ca.ibm.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
-
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>enhancement</sev>
+
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
-
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>Support a mechanism to determine a library`s build version at runtime</summary>
+
 	</bug>
 	<bug>
 		<catg>prop</catg>
 		<id>109300</id>
-
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.2</ver>
+
 		<targetm>---</targetm>
 		<opened>2005-09-12 11:41</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
-
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
+
 		<sev>enhancement</sev>
 		<pri>P2</pri>
 		<stat>NEW</stat>
-
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-		<summary>Provide UI and extension point for XSD generation</summary>
+
+		<summary>Provide UI and extension point for Model Exporters</summary>
 	</bug>
 	<bug>
 		<catg>prop</catg>
-
 		<id>109412</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
+
 		<ver>2.2</ver>
 		<targetm>---</targetm>
 		<opened>2005-09-13 12:44</opened>
-
 		<reporter>SRobenalt&#64;dstinnovis.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
+
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
-
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
+
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>JET runtime includes</summary>
 	</bug>
 	<bug>
-
 		<catg>prop</catg>
 		<id>109472</id>
+
+		<product>EMF</product>
+		<comp>Edit</comp>
+		<ver>2.2</ver>
+		<targetm>---</targetm>
+		<opened>2005-09-14 02:26</opened>
+		<reporter>stepper&#64;esc-net.de</reporter>
+
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>Generated ItemProviderAdapter.collectNewChildDescriptors doesn`t recognize dependent models</summary>
+	</bug>
+	<bug>
+		<catg>prop</catg>
+
+		<id>110110</id>
+		<product>XSD</product>
+		<comp>Runtime</comp>
+		<ver>2.2</ver>
+		<targetm>---</targetm>
+		<opened>2005-09-20 18:06</opened>
+
+		<reporter>csalter&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+		<pri>P1</pri>
+
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>XSD model needs to provide improved support for caching</summary>
+	</bug>
+	<bug>
+
+		<catg>prop</catg>
+		<id>110233</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
 		<ver>2.2</ver>
 		<targetm>---</targetm>
 
-		<opened>2005-09-14 02:26</opened>
-		<reporter>stepper&#64;esc-net.de</reporter>
+		<opened>2005-09-21 15:06</opened>
+		<reporter>slavescu&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
@@ -1508,145 +1508,145 @@
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-		<summary>Generated ItemProviderAdapter.collectNewChildDescriptors doesn`t recognize dependent models</summary>
+		<summary>Generating RCP code doesn`t create a default product file</summary>
 
 	</bug>
 	<bug>
 		<catg>prop</catg>
-		<id>109499</id>
+		<id>110250</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
 
 		<targetm>---</targetm>
-		<opened>2005-09-14 10:23</opened>
-		<reporter>jspitman&#64;ca.ibm.com</reporter>
+		<opened>2005-09-21 16:48</opened>
+		<reporter>slavescu&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 
 		<sev>normal</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+
+		<summary>when instanceValue==null in convertToString IllegalArgumentException is thrown</summary>
+	</bug>
+	<bug>
+		<catg>prop</catg>
+		<id>110830</id>
+		<product>EMF</product>
+		<comp>Edit</comp>
+
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-09-27 12:31</opened>
+		<reporter>karen.moore&#64;oracle.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>EcoreEditor ClassCastException opening ecore from Jar</summary>
+	</bug>
+	<bug>
+		<catg>prop</catg>
+		<id>111207</id>
+
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-09-30 09:43</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>OPTION_LAX_FEATURE_PROCESSING improvement</summary>
+	</bug>
+	<bug>
+		<catg>prop</catg>
+
+		<id>111306</id>
+		<product>EMF</product>
+		<comp>Edit</comp>
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-10-02 18:11</opened>
+
+		<reporter>adrian.baker&#64;orion.co.nz</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>normal</sev>
+		<pri>P3</pri>
+
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>RemoveCommand: removing first item in container by equality is not undoable</summary>
+	</bug>
+	<bug>
+
+		<catg>prop</catg>
+		<id>112141</id>
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.2</ver>
+		<targetm>---</targetm>
+
+		<opened>2005-10-10 17:30</opened>
+		<reporter>subfraction&#64;hotmail.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>normal</sev>
+
 		<pri>P2</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
+		<summary>Poor xml character escape performance</summary>
 
-		<summary>NPE when generating model with missing ecore file</summary>
 	</bug>
 	<bug>
 		<catg>prop</catg>
-		<id>110110</id>
-		<product>XSD</product>
+		<id>112330</id>
+		<product>EMF</product>
 		<comp>Runtime</comp>
-
-		<ver>2.2</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-20 18:06</opened>
-		<reporter>csalter&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-		<pri>P1</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>XSD model needs to provide improved support for caching</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>110233</id>
-
-		<product>EMF</product>
-		<comp>Edit</comp>
-		<ver>2.2</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-21 15:06</opened>
-		<reporter>slavescu&#64;ca.ibm.com</reporter>
-
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Generating RCP code doesn`t create a default product file</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-
-		<id>110250</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-21 16:48</opened>
-
-		<reporter>slavescu&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>when instanceValue==null in convertToString IllegalArgumentException is thrown</summary>
-	</bug>
-	<bug>
-
-		<catg>prop</catg>
-		<id>110830</id>
-		<product>EMF</product>
-		<comp>Edit</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-09-27 12:31</opened>
-		<reporter>karen.moore&#64;oracle.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>EcoreEditor ClassCastException opening ecore from Jar</summary>
-
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>111207</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
 		<ver>2.1</ver>
 
 		<targetm>---</targetm>
-		<opened>2005-09-30 09:43</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<opened>2005-10-12 09:15</opened>
+		<reporter>Burkhard.Weber&#64;bextec.de</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 
-		<sev>enhancement</sev>
+		<sev>major</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
@@ -1654,14 +1654,14 @@
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 
-		<summary>OPTION_LAX_FEATURE_PROCESSING improvement</summary>
+		<summary>EcoreEList.contains(...) - problems if size &gt; 4</summary>
 	</bug>
 	<bug>
 		<catg>prop</catg>
 		<id>110283</id>
 		<product>EMF</product>
-		<comp>Runtime</comp>
 
+		<comp>Runtime</comp>
 		<ver>2.1</ver>
 		<targetm>Future</targetm>
 		<opened>2005-09-21 23:46</opened>
@@ -1679,223 +1679,5 @@
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>Renaming EMF project causes incorrect code generation  [G2X]</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>110167</id>
-
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-21 08:50</opened>
-		<reporter>merks&#64;ca.ibm.com</reporter>
-
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P2</pri>
-		<stat>ASSIGNED</stat>
-
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Annotations are not generated in the &#64;model for a package</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-
-		<id>110231</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-21 14:54</opened>
-
-		<reporter>slavescu&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P1</pri>
-
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>simpleType that extends hexBinary type generates java.lang.UnsupportedOperationException</summary>
-	</bug>
-	<bug>
-
-		<catg>prop</catg>
-		<id>110305</id>
-		<product>EMF</product>
-		<comp>Build/Web</comp>
-		<ver>2.2</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-09-22 08:21</opened>
-		<reporter>davidms&#64;ca.ibm.com</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Use new CVS repository locations on dev</summary>
-
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>110595</id>
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.2</ver>
-
-		<targetm>---</targetm>
-		<opened>2005-09-26 10:27</opened>
-		<reporter>merks&#64;ca.ibm.com</reporter>
-		<assignee>davidms&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-
-		<sev>normal</sev>
-		<pri>P1</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-
-		<summary>Generator problems for external interfaces</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>111123</id>
-		<product>EMF</product>
-		<comp>Build/Web</comp>
-
-		<ver>2.2</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-29 15:48</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Update Manager build fails after 09/27 (using HEAD)</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>111147</id>
-
-		<product>EMF</product>
-		<comp>Build/Web</comp>
-		<ver>2.2</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-29 17:13</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Newsgroup announcements contain redundant titles when branch and buildID similar</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-
-		<id>111153</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-09-29 17:33</opened>
-
-		<reporter>slavescu&#64;ca.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>small improvement on getURIFragmentRootSegment</summary>
-	</bug>
-	<bug>
-
-		<catg>prop</catg>
-		<id>111245</id>
-		<product>EMF</product>
-		<comp>Build/Web</comp>
-		<ver>2.2</ver>
-		<targetm>---</targetm>
-
-		<opened>2005-09-30 15:07</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-
-		<pri>P3</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Revise Update Manager site.xml content / add mirroring support</summary>
-
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>111268</id>
-		<product>EMF</product>
-		<comp>Build/Web</comp>
-		<ver>2.2</ver>
-
-		<targetm>---</targetm>
-		<opened>2005-09-30 17:32</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
-		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-
-		<sev>normal</sev>
-		<pri>P2</pri>
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-
-		<summary>renameBuild.sh doesn`t rename or replace text for aliased builds</summary>
 	</bug>
 </plan>
