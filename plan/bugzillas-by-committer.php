@@ -15,7 +15,7 @@
    $bug = $_GET["bug"]; if (!$bug) { $bug="61639"; }
    $query = stripslashes($_POST["query"]);
 
-/*   if (!$query) { //default query
+   if (!$query) { //default query
    	 $STARTDATE = "2005-01-01";
    	 $committers = array("Ed Merks", "Elena Litani", "Marcelo Paternostro", "Dave Steinberg","Nick Boldt");
    	 foreach ($committers as $COMMITTER) { 
@@ -38,7 +38,7 @@ WHERE
     TXT.thetext like "%in cvs%")
   AND TXT.bug_when >= "'.$STARTDATE.'"';
      }
-   } */
+   }
    
    echo '
 <html>
@@ -86,7 +86,7 @@ WHERE
 #  AND PROF.realname = "Ed Merks"
 #  AND PROF.realname = "Elena Litani"
 #  AND PROF.realname = "Marcelo Paternostro"
-#  AND PROF.realname ="Dave Steinberg"
+#  AND PROF.realname = "Dave Steinberg"
   AND PROF.realname = "Nick Boldt"
 
 #// check for "The fix is in CVS" / "Committed to CVS" since 2005-01-01
@@ -95,7 +95,7 @@ WHERE
     TXT.thetext like "%in cvs%")
   AND TXT.bug_when >= "2005-01-01"
 
-#// ORDER, LIMIT, and DESC don't work with count() functions
+#// ORDER, LIMIT, and DESC do not work with count() functions
 
 #ORDER BY
 #// use only one ordering field at a time
