@@ -16,31 +16,47 @@
    $query = stripslashes($_POST["query"]);
 
    if (!$query) { //default query
-   	 $STARTDATE = "2005-01-01";
-   	 $committers = array("Ed Merks", "Elena Litani", "Marcelo Paternostro", "Dave Steinberg","Nick Boldt");
-   	 foreach ($committers as $COMMITTER) { 
-   	   $NAME = str_replace(" ","_",$COMMITTER);
-   	   if ($query) { $query .= ";\n"; }
-	   $query .= '
-SELECT DISTINCT count(TXT.bug_id) as '.$NAME.' 
+	  $query .= '
+SELECT DISTINCT 
+  PROF.realname as "Developer",
+  count(*) as "Bugs fixed"
 FROM 
-  bugs as BUG, profiles as PROF, 
-  products as PROD, longdescs as TXT
+  bugs as BUG
+  ,profiles as PROF
+  ,products as PROD
+  ,longdescs as TXT
 WHERE 
   TXT.who = PROF.userid 
   AND TXT.bug_id = BUG.bug_id 
   AND PROD.id = BUG.product_id 
-  AND BUG.bug_status = "RESOLVED" 
-  AND (PROD.name = "EMF" OR PROD.name = "XSD")
-  AND PROF.realname = "'.$COMMITTER.'"
+  AND BUG.bug_status in (
+    "RESOLVED"
+    ,"VERIFIED"
+    ,"CLOSED"
+    ,"ASSIGNED")
+  AND PROD.name in (
+    "EMF"
+    ,"XSD"
+    ,"UML2")
   AND (
-    TXT.thetext like "%to cvs%" OR 
-    TXT.thetext like "%in cvs%")
-  AND TXT.bug_when >= "'.$STARTDATE.'"';
-     }
-   }
-   
-   echo '
+    TXT.thetext like "%to cvs%"
+    OR TXT.thetext like "%in cvs%")
+  AND TXT.bug_when >= "2005-01-01"
+  AND PROF.realname in (
+    "Dave Steinberg"
+    ,"Ed Merks"
+    ,"Elena Litani"
+    ,"Marcelo Paternostro"
+    ,"Nick Boldt"
+    ,"Kenn Hussey")
+GROUP BY
+  PROF.realname
+ORDER BY
+  "Bugs fixed"
+DESC
+';
+	}
+	echo '
 <html>
 <head></head>
 <body>
@@ -105,6 +121,46 @@ WHERE
 #DESC
 #LIMIT 10
 
+#--------#--------#--------#--------
+# get bug assignments (cvs commits) for a given committer [another way]
+
+SELECT DISTINCT 
+  PROF.realname as "Developer",
+  count(*) as "Bugs fixed"
+FROM 
+  bugs as BUG
+  ,profiles as PROF
+  ,products as PROD
+  ,longdescs as TXT
+WHERE 
+  TXT.who = PROF.userid 
+  AND TXT.bug_id = BUG.bug_id 
+  AND PROD.id = BUG.product_id 
+  AND BUG.bug_status in (
+    "RESOLVED"
+    ,"VERIFIED"
+    ,"CLOSED"
+    ,"ASSIGNED")
+  AND PROD.name in (
+    "EMF"
+    ,"XSD"
+    ,"UML2")
+  AND (
+    TXT.thetext like "%to cvs%"
+    OR TXT.thetext like "%in cvs%")
+  AND TXT.bug_when >= "2005-01-01"
+  AND PROF.realname in (
+    "Dave Steinberg"
+    ,"Ed Merks"
+    ,"Elena Litani"
+    ,"Marcelo Paternostro"
+    ,"Nick Boldt"
+    ,"Kenn Hussey")
+GROUP BY
+  PROF.realname
+ORDER BY
+  "Bugs fixed"
+DESC
 </pre>
 </td><td>&nbsp;&nbsp;</td>
 <td>';
