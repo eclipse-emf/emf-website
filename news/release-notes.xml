@@ -21,6 +21,11 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200510200124" project="emf" version="2.2.0">
+<bug id="112330">EcoreEList.contains(...) - problems if size &gt; 4</bug>
+<bug id="112930">Refactor org.eclipse.emf.importer.java to remove UI dependencies</bug>
+</entry>
+
 <entry build="I200510131245" project="emf" version="2.2.0">
 <bug id="109499">NPE when generating model with missing ecore file</bug>
 <bug id="111537">basicGet/Set generated even though model's reflectiveDelegation == true</bug>
@@ -125,6 +130,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200510200124" project="xsd" version="2.2.0"/>
 <entry build="I200510131245" project="xsd" version="2.2.0">
 <bug id="109499">NPE when generating model with missing ecore file</bug>
 </entry>
@@ -1821,4 +1827,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.95 2005/10/13 17:48:02 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.96 2005/10/20 06:48:36 nickb Exp $ -->
