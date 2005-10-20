@@ -917,7 +917,9 @@
     <tr>
       <td colspan="2">
         <b>
-          <u>developerWorks Documents</u>
+          <u>developerWorks Documents</u> :: <a target="_dw"
+        href="http://www-128.ibm.com/developerworks/search/searchResults.jsp?searchType=1&amp;searchSite=dW&amp;searchScope=dW&amp;query=emf">
+        Search developerWorks</a>
         </b>
 
         <a name="dWdocuments">
@@ -1821,5 +1823,5 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.29 2005/09/20 17:14:04 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.30 2005/10/20 22:31:46 nickb Exp $ -->
 
