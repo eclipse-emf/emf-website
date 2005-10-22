@@ -22,7 +22,9 @@
 			echo "<tr><td colspan=\"3\"><b>Choose:</b></td></tr>";
 			rsort($files);
 			foreach ($files as $file) { 
-				echo '<tr><td> &#149; <a href="/emf/docs/presentations/CASCON/'.$file.'">'.$file.'</a></td></tr>';
+				if (false===strpos($file,"CVS") && false===strpos($file,"index")) {
+					echo '<tr><td> &#149; <a href="/emf/docs/presentations/CASCON/'.$file.'">'.$file.'</a></td></tr>';
+				}
 			}
 			echo "</table>\n";
 		} else {
