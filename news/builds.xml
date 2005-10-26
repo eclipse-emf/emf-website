@@ -1,17 +1,45 @@
-<?xml version="1.0" encoding="ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
   <title>EMF Builds</title>
-  <link href="http://eclipse.org/emf/"/>
-  <updated>2005-09-28T13:10:00Z</updated>
+  <link/>
+  <updated>2005-10-26T16:08:45Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://eclipse.org/emf/</id>
-
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510200124 is available</title>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510200124</id>
+    <updated>2005-10-26T16:08:45Z</updated>
+    <summary>
+    | http://eclipse.org/emf/news/release-notes.php?version=2.2.0
+    | http://download.eclipse.org/tools/emf/scripts/downloads.php
+    | http://download.eclipse.org/tools/emf/updates/
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510131245 is available</title>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510131245</id>
+    <updated>2005-10-26T16:08:30Z</updated>
+    <summary>
+    | http://eclipse.org/emf/news/release-notes.php?version=2.2.0
+    | http://download.eclipse.org/tools/emf/scripts/downloads.php
+    | http://download.eclipse.org/tools/emf/updates/
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510060200 is available</title>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510060200</id>
+    <updated>2005-10-26T16:08:15Z</updated>
+    <summary>
+    | http://eclipse.org/emf/news/release-notes.php?version=2.2.0
+    | http://download.eclipse.org/tools/emf/scripts/downloads.php
+    | http://download.eclipse.org/tools/emf/updates/
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF 2.1.1 is available</title>
-    <link href="http://eclipse.org/emf/"/>
+    <link/>
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.1/R200509281310</id>
     <updated>2005-09-28T13:10:00Z</updated>
     <summary>
@@ -20,5 +48,4 @@
     | http://download.eclipse.org/tools/emf/updates/
     </summary>
   </entry>
-
 </feed>
