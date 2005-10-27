@@ -21,6 +21,20 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200510270200" project="emf" version="2.2.0">
+<bug id="81512">'href' attribute seems to be a reserved attribute</bug>
+<bug id="110250">when instanceValue==null in convertToString IllegalArgumentException is thrown</bug>
+<bug id="113212">BasicExtendedMetaData's classifier cache needs updating if a classifier's XML name is changed.</bug>
+<bug id="113425">RoseEcoreBuilder should allow &lt;&lt;javaclass&gt;&gt; even if &lt;&lt;interface&gt;&gt; isn't specified.</bug>
+<bug id="113426">We should treat enum as a keyword in the generator.</bug>
+<bug id="113427">A GenClass that is an external interface should be assumed not to be an EObject extension</bug>
+<bug id="113468">Reflective methods, like eGet, are generated in cases where they are redundant.</bug>
+<bug id="113552">NotifyingListImpl.removeAll handles a collection with duplicates poorly</bug>
+<bug id="113569">Eliminate deprecations and warnings new to the latest Eclipse 3.2</bug>
+<bug id="113778">Support BasicEObject.eSetDirectResource.</bug>
+<bug id="113906">Support the ability to override EcoreFactory.eINSTANCE</bug>
+</entry>
+
 <entry build="I200510200124" project="emf" version="2.2.0">
 <bug id="112330">EcoreEList.contains(...) - problems if size &gt; 4</bug>
 <bug id="112930">Refactor org.eclipse.emf.importer.java to remove UI dependencies</bug>
@@ -128,6 +142,11 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200510270200" project="xsd" version="2.2.0">
+<bug id="113569">Eliminate deprecations and warnings new to the latest Eclipse 3.2</bug>
+<bug id="113835">NPE in XSD validation code</bug>
 </entry>
 
 <entry build="I200510200124" project="xsd" version="2.2.0"/>
@@ -1827,4 +1846,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.96 2005/10/20 06:48:36 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.97 2005/10/27 12:48:07 nickb Exp $ -->
