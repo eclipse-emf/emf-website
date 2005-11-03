@@ -22,6 +22,19 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200511030200" project="emf" version="2.2.0">
+<bug id="81512">'href' attribute seems to be a reserved attribute</bug>
+<bug id="103038">Need more flexible EEnumLiteral support.</bug>
+<bug id="113963">Bad generated Java code from genmodel/ecore files</bug>
+<bug id="114249">NPE in JavaEcoreBuilder.analyseProject()</bug>
+<bug id="114297">Factor removeAdapter just like addAdapter in ChangeRecorder</bug>
+<bug id="114311">Reload in genmodel editor does not update genmodel editor</bug>
+<bug id="114352">EcorePlugin.resolvePlatformResourcePath has null pointer exception</bug>
+<bug id="114353">BasicEObjectImpl.eBasicSetContainer can be more efficient.</bug>
+<bug id="114577">popContext is not in synch with pushContext during XML save</bug>
+<bug id="114578">Allow default validation messages to be replaced</bug>
+</entry>
+
 <entry build="I200510270200" project="emf" version="2.2.0">
 <bug id="81512">'href' attribute seems to be a reserved attribute</bug>
 <bug id="110250">when instanceValue==null in convertToString IllegalArgumentException is thrown</bug>
@@ -143,6 +156,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200511030200" project="xsd" version="2.2.0">
+<bug id="112687">Invalid codegen for enumeration with multiple copies of same value</bug>
 </entry>
 
 <entry build="I200510270200" project="xsd" version="2.2.0">
@@ -1847,4 +1864,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.98 2005/11/01 20:23:04 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.99 2005/11/03 13:23:17 nickb Exp $ -->
