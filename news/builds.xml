@@ -14,6 +14,7 @@
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511030200</id>
     <updated>2005-11-03T08:10:20Z</updated>
     <summary>
+      <testresults platform="ALL">PASS</testresults>
       <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
@@ -26,6 +27,7 @@
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510270200</id>
     <updated>2005-10-27T20:41:31Z</updated>
     <summary>
+      <testresults platform="ALL">PASS</testresults>
       <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
@@ -38,6 +40,7 @@
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510200124</id>
     <updated>2005-10-26T16:08:45Z</updated>
     <summary>
+      <testresults platform="ALL">PASS</testresults>
       <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
@@ -50,6 +53,7 @@
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510131245</id>
     <updated>2005-10-26T16:08:30Z</updated>
     <summary>
+      <testresults platform="ALL">PASS</testresults>
       <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
@@ -62,6 +66,7 @@
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510060200</id>
     <updated>2005-10-26T16:08:15Z</updated>
     <summary>
+      <testresults platform="ALL">PASS</testresults>
       <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
@@ -74,6 +79,7 @@
     <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.1/R200509281310</id>
     <updated>2005-09-28T13:10:00Z</updated>
     <summary>
+      <testresults platform="ALL">PASS</testresults>
       <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.1.1</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
