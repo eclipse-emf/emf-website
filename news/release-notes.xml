@@ -26,9 +26,12 @@
 <bug id="75922">[Plan Item] Content adapter for managing reverse of 1-way references (reference map)</bug>
 <bug id="110250">when instanceValue==null in convertToString IllegalArgumentException is thrown</bug>
 <bug id="111306">RemoveCommand: removing first item in container by equality is not undoable</bug>
+<bug id="113007">XMLCalendar fails to parse datetime string</bug>
 <bug id="114078">Validating support for xsd:ID</bug>
+<bug id="114961">XMLprocessor loads XMI registration instead of XML registration when running under Eclipse</bug>
 <bug id="115119">Support improved factoring for EqualityHelper for easier reuse.</bug>
 <bug id="115120">Instead of using &quot;_&quot; for prefix of demand created package, generate a nice prefix from the namespace.</bug>
+<bug id="115287">XSDEcoreBuilder does not recognize ecore:reference annotation on element/attribute defined via ref</bug>
 <bug id="115389">Add ability to serialize an XMLResource to java.io.Writer</bug>
 <bug id="115396">Derived attributes in Ecore are not so marked</bug>
 <bug id="115465">Support the ability to turn off conversion to EEnum in XSDEcoreBuilder</bug>
@@ -1883,4 +1886,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.100 2005/11/10 08:14:53 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.101 2005/11/10 20:33:05 nickb Exp $ -->
