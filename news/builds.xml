@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://eclipse.org/emf/"/>
-  <updated>2005-11-03T09:41:46Z</updated>
+  <updated>2005-11-14T16:23:10Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://eclipse.org/emf/</id>
+  <entry>
+    <title>[announce] EMF 2.2.0M3 (S200511100200) is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/S200511100200"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/S200511100200</id>
+    <updated>2005-11-14T16:23:10Z</updated>
+    <summary>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M3-200511021600/eclipse-SDK-3.2M3-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF 2.2.0 I200511030200 is available</title>
     <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511030200"/>
