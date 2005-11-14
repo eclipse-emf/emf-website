@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="plan-2.2.xsl"?>
 <plan>
-	<id>$Id: plan-2.2.xml,v 1.11 2005/11/10 08:37:58 nickb Exp $</id>
-	<modified>$Date: 2005/11/10 08:37:58 $</modified>
+	<id>$Id: plan-2.2.xml,v 1.12 2005/11/14 18:23:25 nickb Exp $</id>
+	<modified>$Date: 2005/11/14 18:23:25 $</modified>
 
 	<catg-def category="plan" label="EMF/XSD Planned Items" />
 	<catg-def category="comm" label="EMF/XSD Committed Items" />
@@ -58,20 +58,117 @@
 	</bug>
 	<bug>
 		<catg>plan</catg>
+		<id>76538</id>
+
+		<product>EMF</product>
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>2.2</targetm>
+		<opened>2004-10-18 23:10</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<blocks>83740</blocks>
+		<votes>3</votes>
+		<sev>enhancement</sev>
+		<pri>P1</pri>
+		<stat>NEW</stat>
+
+		<plan-priority>2</plan-priority>
+		<plan-estimate>2w</plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>[Plan Item] EMF should support XMI &quot;2.1&quot;</summary>
+	</bug>
+	<bug>
+
+		<catg>plan</catg>
+		<id>78076</id>
+		<product>EMF</product>
+		<comp>Tools</comp>
+		<ver>2.1</ver>
+		<targetm>2.2 M4</targetm>
+
+		<opened>2004-11-08 10:45</opened>
+		<reporter>marcelop&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>1</votes>
+		<sev>enhancement</sev>
+
+		<pri>P1</pri>
+		<stat>NEW</stat>
+		<plan-priority>1</plan-priority>
+		<plan-estimate>4w</plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>[Plan Item] JMerger:  Move from JDOM to AST</summary>
+
+	</bug>
+	<bug>
+		<catg>plan</catg>
+		<id>104893</id>
+		<product>XSD</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+
+		<targetm>2.2 M4</targetm>
+		<opened>2005-07-22 17:32</opened>
+		<reporter>elitani&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+		<blocks>93194</blocks>
+
+		<votes>2</votes>
+		<sev>enhancement</sev>
+		<pri>P2</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+
+		<plan-comments></plan-comments>
+		<summary>[Plan Item] Improve XSD generation</summary>
+	</bug>
+	<bug>
+		<catg>plan</catg>
+		<id>105922</id>
+		<product>EMF</product>
+
+		<comp>XML/XMI</comp>
+		<ver>2.1</ver>
+		<targetm>2.2 M4</targetm>
+		<opened>2005-08-03 11:02</opened>
+		<reporter>elitani&#64;ca.ibm.com</reporter>
+		<assignee>elitani&#64;ca.ibm.com</assignee>
+
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>NEW</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>[Plan Item] Consider re-write of XMI plugin</summary>
+	</bug>
+	<bug>
+		<catg>plan</catg>
 		<id>105923</id>
 
 		<product>EMF</product>
 		<comp>Build/Web</comp>
 		<ver>2.1</ver>
-		<targetm>---</targetm>
+		<targetm>2.2 M4</targetm>
 		<opened>2005-08-03 11:04</opened>
 		<reporter>elitani&#64;ca.ibm.com</reporter>
 
 		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
+		<blocks>107617</blocks>
 		<votes>0</votes>
-		<sev>enhancement</sev>
-		<pri>P3</pri>
+		<sev>normal</sev>
+		<pri>P2</pri>
 		<stat>NEW</stat>
 
 		<plan-priority></plan-priority>
@@ -83,26 +180,26 @@
 	<bug>
 		<catg>plan</catg>
 
-		<id>76538</id>
+		<id>105937</id>
 		<product>EMF</product>
-		<comp>XML/XMI</comp>
+		<comp>Runtime</comp>
 		<ver>2.1</ver>
-		<targetm>2.2</targetm>
-		<opened>2004-10-18 23:10</opened>
+		<targetm>2.2 M4</targetm>
+		<opened>2005-08-03 11:52</opened>
 
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-		<blocks>83740</blocks>
-		<votes>3</votes>
+		<reporter>elitani&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<blocks>80312</blocks>
+		<votes>1</votes>
 		<sev>enhancement</sev>
 
 		<pri>P1</pri>
 		<stat>NEW</stat>
-		<plan-priority>2</plan-priority>
-		<plan-estimate>2w</plan-estimate>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-		<summary>[Plan Item] EMF should support XMI &quot;2.1&quot;</summary>
+		<summary>[Plan Item] Cross resource containment</summary>
 
 	</bug>
 	<bug>
@@ -110,104 +207,31 @@
 		<id>107617</id>
 		<product>EMF</product>
 		<comp>Build/Web</comp>
-		<ver>2.1</ver>
+		<ver>2.2</ver>
 
-		<targetm>2.2 M2</targetm>
+		<targetm>2.2 M4</targetm>
 		<opened>2005-08-22 11:05</opened>
 		<reporter>elitani&#64;ca.ibm.com</reporter>
 		<assignee>codeslave&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
+		<blocks>105923</blocks>
+
 		<votes>0</votes>
-
-		<sev>enhancement</sev>
+		<sev>major</sev>
 		<pri>P1</pri>
 		<stat>NEW</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
 
+		<plan-comments></plan-comments>
 		<summary>[Plan Item] EMFT build/web infrastructure and process</summary>
-	</bug>
-	<bug>
-		<catg>plan</catg>
-		<id>104893</id>
-		<product>XSD</product>
-		<comp>Runtime</comp>
-
-		<ver>2.1</ver>
-		<targetm>2.2 M3</targetm>
-		<opened>2005-07-22 17:32</opened>
-		<reporter>elitani&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-
-		<blocks>93194</blocks>
-		<votes>2</votes>
-		<sev>enhancement</sev>
-		<pri>P2</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>[Plan Item] Improve XSD generation</summary>
-	</bug>
-	<bug>
-		<catg>plan</catg>
-		<id>78076</id>
-
-		<product>EMF</product>
-		<comp>Tools</comp>
-		<ver>2.1</ver>
-		<targetm>2.2 M4</targetm>
-		<opened>2004-11-08 10:45</opened>
-		<reporter>marcelop&#64;ca.ibm.com</reporter>
-
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>1</votes>
-		<sev>enhancement</sev>
-		<pri>P1</pri>
-		<stat>NEW</stat>
-
-		<plan-priority>1</plan-priority>
-		<plan-estimate>4w</plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>[Plan Item] JMerger:  Move from JDOM to AST</summary>
-	</bug>
-	<bug>
-
-		<catg>plan</catg>
-		<id>105937</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>2.2 M4</targetm>
-
-		<opened>2005-08-03 11:52</opened>
-		<reporter>elitani&#64;ca.ibm.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks>80312</blocks>
-		<votes>1</votes>
-
-		<sev>enhancement</sev>
-		<pri>P1</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-
-		<summary>[Plan Item] Cross resource containment</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>75925</id>
 		<product>EMF</product>
-		<comp>Tools</comp>
 
+		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>2.2 M5</targetm>
 		<opened>2004-10-08 13:00</opened>
@@ -374,143 +398,119 @@
 	</bug>
 	<bug>
 		<catg>plan</catg>
-		<id>105922</id>
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
-
-		<ver>2.1</ver>
-		<targetm>Future</targetm>
-		<opened>2005-08-03 11:02</opened>
-		<reporter>elitani&#64;ca.ibm.com</reporter>
-		<assignee>elitani&#64;ca.ibm.com</assignee>
-
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>[Plan Item] Consider re-write of XMI plugin</summary>
-	</bug>
-	<bug>
-		<catg>plan</catg>
 		<id>104717</id>
-
 		<product>EMF</product>
 		<comp>SDO</comp>
+
 		<ver>2.1</ver>
 		<targetm>2.2 M1</targetm>
 		<opened>2005-07-21 15:08</opened>
 		<reporter>elitani&#64;ca.ibm.com</reporter>
-
 		<assignee>elitani&#64;ca.ibm.com</assignee>
+
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
 		<stat>RESOLVED</stat>
-
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
+
 		<plan-committed>2005-07-22</plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Support SDO 1.0 to load XML without schema</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
-
 		<id>104718</id>
+
 		<product>EMF</product>
 		<comp>XML/XMI</comp>
 		<ver>2.1</ver>
 		<targetm>2.2 M1</targetm>
 		<opened>2005-07-21 15:12</opened>
-
 		<reporter>elitani&#64;ca.ibm.com</reporter>
+
 		<assignee>elitani&#64;ca.ibm.com</assignee>
 		<blocks>109396</blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
-
 		<pri>P3</pri>
 		<stat>RESOLVED</stat>
+
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed>2005-07-22</plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Provide additional XML utilities to improve EMF ease-of-use</summary>
-
 	</bug>
 	<bug>
 		<catg>plan</catg>
+
 		<id>105964</id>
 		<product>EMF</product>
 		<comp>Edit</comp>
 		<ver>2.2</ver>
-
 		<targetm>2.2 M1</targetm>
 		<opened>2005-08-03 15:30</opened>
+
 		<reporter>davidms&#64;ca.ibm.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks>43752</blocks>
-
 		<votes>0</votes>
 		<sev>enhancement</sev>
+
 		<pri>P3</pri>
 		<stat>RESOLVED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
-
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] EMF.Edit Enhancements</summary>
+
 	</bug>
 	<bug>
 		<catg>plan</catg>
 		<id>75922</id>
 		<product>EMF</product>
-
 		<comp>Runtime</comp>
 		<ver>2.1</ver>
+
 		<targetm>2.2 M5</targetm>
 		<opened>2004-10-08 12:57</opened>
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
-
 		<blocks>85179</blocks>
+
 		<votes>7</votes>
 		<sev>enhancement</sev>
 		<pri>P1</pri>
 		<stat>RESOLVED</stat>
 		<plan-priority>2</plan-priority>
-
 		<plan-estimate>1w</plan-estimate>
+
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>[Plan Item] Content adapter for managing reverse of 1-way references (reference map)</summary>
 	</bug>
 	<bug>
 		<catg>plan</catg>
-
 		<id>104731</id>
+
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.2</ver>
 		<targetm>---</targetm>
 		<opened>2005-07-21 16:17</opened>
-
 		<reporter>marcelop&#64;ca.ibm.com</reporter>
+
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
-
 		<stat>CLOSED</stat>
+
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
@@ -518,30 +518,30 @@
 		<summary>[Plan Item] Improve code generation error reporting and handling</summary>
 	</bug>
 	<bug>
-
 		<catg>prop</catg>
+
 		<id>51210</id>
 		<product>EMF</product>
 		<comp>Runtime</comp>
 		<ver>1.0</ver>
 		<targetm>---</targetm>
-
 		<opened>2004-02-04 21:46</opened>
+
 		<reporter>ole_ersoy&#64;yahoo.com</reporter>
 		<assignee>elitani&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>4</votes>
 		<sev>enhancement</sev>
-
 		<pri>P3</pri>
+
 		<stat>NEW</stat>
 		<plan-priority>2</plan-priority>
 		<plan-estimate>2w</plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
 		<summary>XML Schema Choice Element Does Not Ensure Mutual Exclusiveness</summary>
-
 	</bug>
+
 	<bug>
 		<catg>prop</catg>
 		<id>61251</id>
@@ -1282,7 +1282,7 @@
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 
 		<blocks></blocks>
-		<votes>1</votes>
+		<votes>2</votes>
 		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>NEW</stat>
@@ -1658,22 +1658,46 @@
 	</bug>
 	<bug>
 		<catg>prop</catg>
-		<id>115664</id>
+		<id>110283</id>
 
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+		<targetm>Future</targetm>
+		<opened>2005-09-21 23:46</opened>
+		<reporter>hhenry&#64;symbio.com.tw</reporter>
+
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+		<pri>P4</pri>
+		<stat>NEW</stat>
+
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>Renaming EMF project causes incorrect code generation  [G2X]</summary>
+	</bug>
+	<bug>
+		<catg>prop</catg>
+
+		<id>115664</id>
 		<product>EMF</product>
 		<comp>Tools</comp>
 		<ver>2.1</ver>
 		<targetm>---</targetm>
 		<opened>2005-11-09 12:12</opened>
-		<reporter>JskudEcl&#64;Jskud.com</reporter>
 
+		<reporter>JskudEcl&#64;Jskud.com</reporter>
 		<assignee>davidms&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
 		<pri>P3</pri>
-		<stat>NEW</stat>
 
+		<stat>ASSIGNED</stat>
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
@@ -1681,93 +1705,69 @@
 		<summary>JET expansion can intermix ^M, ie CR (carriage return) in output</summary>
 	</bug>
 	<bug>
+
 		<catg>prop</catg>
-
-		<id>115697</id>
+		<id>115876</id>
 		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-11-09 15:51</opened>
-
-		<reporter>stjerman&#64;cisco.com</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>normal</sev>
-		<pri>P3</pri>
-
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>XMI Serialization of Pathmaps.</summary>
-	</bug>
-	<bug>
-
-		<catg>comm</catg>
-		<id>114922</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-		<targetm>2.2</targetm>
-
-		<opened>2005-11-03 10:27</opened>
-		<reporter>khussey&#64;ca.ibm.com</reporter>
-		<assignee>khussey&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-
-		<pri>P3</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>Virtual Delegation</summary>
-
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>110283</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-		<ver>2.1</ver>
-
-		<targetm>Future</targetm>
-		<opened>2005-09-21 23:46</opened>
-		<reporter>hhenry&#64;symbio.com.tw</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-
-		<sev>enhancement</sev>
-		<pri>P4</pri>
-		<stat>NEW</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-
-		<summary>Renaming EMF project causes incorrect code generation  [G2X]</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-		<id>113007</id>
-		<product>EMF</product>
-		<comp>Runtime</comp>
-
+		<comp>Doc</comp>
 		<ver>2.2</ver>
 		<targetm>---</targetm>
-		<opened>2005-10-18 17:32</opened>
-		<reporter>kvdijken&#64;juncus.nl</reporter>
+
+		<opened>2005-11-10 13:41</opened>
+		<reporter>marcelop&#64;ca.ibm.com</reporter>
 		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+		<sev>enhancement</sev>
+
+		<pri>P1</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+		<summary>New library example</summary>
+
+	</bug>
+	<bug>
+		<catg>prop</catg>
+		<id>115893</id>
+		<product>EMF</product>
+		<comp>Build/Web</comp>
+		<ver>2.2</ver>
+
+		<targetm>---</targetm>
+		<opened>2005-11-10 14:43</opened>
+		<reporter>marcelop&#64;ca.ibm.com</reporter>
+		<assignee>marcelop&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+
+		<sev>enhancement</sev>
+		<pri>P2</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+
+		<summary>Clean up the files to generate the plugin`s javadoc</summary>
+	</bug>
+	<bug>
+		<catg>prop</catg>
+		<id>116074</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+
+		<ver>2.1</ver>
+		<targetm>---</targetm>
+		<opened>2005-11-11 16:04</opened>
+		<reporter>slavescu&#64;ca.ibm.com</reporter>
+		<assignee>davidms&#64;ca.ibm.com</assignee>
 
 		<blocks></blocks>
 		<votes>0</votes>
-		<sev>normal</sev>
+		<sev>enhancement</sev>
 		<pri>P3</pri>
 		<stat>ASSIGNED</stat>
 		<plan-priority></plan-priority>
@@ -1775,55 +1775,31 @@
 
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-		<summary>XMLCalendar fails to parse datetime string</summary>
+		<summary>Provide a way to control interpretation of # characters in createResourceURI() encoding</summary>
 	</bug>
 	<bug>
 		<catg>prop</catg>
-		<id>114961</id>
+		<id>116083</id>
 
-		<product>EMF</product>
-		<comp>XML/XMI</comp>
+		<product>XSD</product>
+		<comp>Runtime</comp>
 		<ver>2.2</ver>
 		<targetm>---</targetm>
-		<opened>2005-11-03 13:36</opened>
-		<reporter>codeslave&#64;ca.ibm.com</reporter>
+		<opened>2005-11-11 17:00</opened>
+		<reporter>gangchen&#64;cn.ibm.com</reporter>
 
 		<assignee>elitani&#64;ca.ibm.com</assignee>
 		<blocks></blocks>
 		<votes>0</votes>
 		<sev>normal</sev>
-		<pri>P2</pri>
+		<pri>P3</pri>
 		<stat>ASSIGNED</stat>
 
 		<plan-priority></plan-priority>
 		<plan-estimate></plan-estimate>
 		<plan-committed></plan-committed>
 		<plan-comments></plan-comments>
-		<summary>XMLprocessor loads XMI registration instead of XML registration when running under Eclipse</summary>
-	</bug>
-	<bug>
-		<catg>prop</catg>
-
-		<id>115287</id>
-		<product>XSD</product>
-		<comp>Mapping</comp>
-		<ver>2.1</ver>
-		<targetm>---</targetm>
-		<opened>2005-11-07 05:50</opened>
-
-		<reporter>peter.ellsiepen&#64;vega.de</reporter>
-		<assignee>marcelop&#64;ca.ibm.com</assignee>
-		<blocks></blocks>
-		<votes>0</votes>
-		<sev>enhancement</sev>
-		<pri>P2</pri>
-
-		<stat>ASSIGNED</stat>
-		<plan-priority></plan-priority>
-		<plan-estimate></plan-estimate>
-		<plan-committed></plan-committed>
-		<plan-comments></plan-comments>
-		<summary>XSDEcoreBuilder does not recognize ecore:reference annotation on element/attribute defined via ref</summary>
+		<summary>xmlns=&quot;&quot; is not considered correctly when loading schema</summary>
 	</bug>
 	<bug>
 
@@ -1849,5 +1825,29 @@
 		<plan-comments></plan-comments>
 		<summary>[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</summary>
 
+	</bug>
+	<bug>
+		<catg>comm</catg>
+		<id>114922</id>
+		<product>EMF</product>
+		<comp>Runtime</comp>
+		<ver>2.1</ver>
+
+		<targetm>2.2</targetm>
+		<opened>2005-11-03 10:27</opened>
+		<reporter>khussey&#64;ca.ibm.com</reporter>
+		<assignee>khussey&#64;ca.ibm.com</assignee>
+		<blocks></blocks>
+		<votes>0</votes>
+
+		<sev>enhancement</sev>
+		<pri>P3</pri>
+		<stat>ASSIGNED</stat>
+		<plan-priority></plan-priority>
+		<plan-estimate></plan-estimate>
+		<plan-committed></plan-committed>
+		<plan-comments></plan-comments>
+
+		<summary>Virtual Delegation</summary>
 	</bug>
 </plan>
