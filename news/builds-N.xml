@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>EMF Builds</title>
+  <link href="http://eclipse.org/emf/"/>
+  <updated>2005-11-14T16:41:07Z</updated>
+  <author>
+    <name>EMF Build Team</name>
+  </author>
+  <id>http://eclipse.org/emf/</id>
+  <entry>
+    <title>[announce] EMF 2.2.0M3 (S200511100200) is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/S200511100200"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/S200511100200</id>
+    <updated>2005-11-14T16:41:07Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M3-200511021600/eclipse-SDK-3.2M3-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200511030200 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511030200"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511030200</id>
+    <updated>2005-11-03T08:10:20Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051102-0010/eclipse-SDK-I20051102-0010-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510270200 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510270200"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510270200</id>
+    <updated>2005-10-27T20:41:31Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051025-0800/eclipse-SDK-I20051025-0800-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510200124 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510200124"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510200124</id>
+    <updated>2005-10-26T16:08:45Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051018-0932/eclipse-SDK-I20051018-0932-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510131245 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510131245"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510131245</id>
+    <updated>2005-10-26T16:08:30Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051012-1200/eclipse-SDK-I20051012-1200-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200510060200 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510060200"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200510060200</id>
+    <updated>2005-10-26T16:08:15Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/I20050928-1300/eclipse-SDK-I20050928-1300-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF 2.1.1 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.1/R200509281310"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.1/R200509281310</id>
+    <updated>2005-09-28T13:10:00Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.1.1</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/downloads/drops/R-3.1.1-200509290840/eclipse-SDK-R-3.1.1-200509290840-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+</feed>
