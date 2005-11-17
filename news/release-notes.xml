@@ -26,6 +26,25 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="I200511162320" project="emf" version="2.2.0">
+<bug id="75922">[Plan Item] Content adapter for managing reverse of 1-way references (reference map)</bug>
+<bug id="111306">RemoveCommand: removing first item in container by equality is not undoable</bug>
+<bug id="114078">Validating support for xsd:ID</bug>
+<bug id="114922">Virtual Delegation</bug>
+<bug id="115119">Support improved factoring for EqualityHelper for easier reuse.</bug>
+<bug id="115120">Instead of using &quot;_&quot; for prefix of demand created package, generate a nice prefix from the namespace.</bug>
+<bug id="115389">Add ability to serialize an XMLResource to java.io.Writer</bug>
+<bug id="115396">Derived attributes in Ecore are not so marked</bug>
+<bug id="115465">Support the ability to turn off conversion to EEnum in XSDEcoreBuilder</bug>
+<bug id="115468">Regenerate models using the latest templates</bug>
+<bug id="115664">JET expansion can intermix ^M, ie CR (carriage return) in output</bug>
+<bug id="115876">New library example</bug>
+<bug id="115893">Clean up the files to generate the plugin's javadoc</bug>
+<bug id="116074">Provide a way to control interpretation of # characters in createResourceURI() encoding</bug>
+<bug id="116320">Support the ability to provide an overriding factory implementation for generated packages</bug>
+<bug id="116321">Support ability to control where generated XyzPackage and XyzFactory appear</bug>
+</entry>
+
 <entry build="2.2.0M3" project="emf" version="2.2.0">
 <bug id="75922">[Plan Item] Content adapter for managing reverse of 1-way references (reference map)</bug>
 <bug id="110250">when instanceValue==null in convertToString IllegalArgumentException is thrown</bug>
@@ -179,6 +198,14 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+<entry build="I200511162320" project="xsd" version="2.2.0">
+<bug id="115393">Add ability to load XSDResource from InputSource and serialize to a Writer</bug>
+<bug id="115465">Support the ability to turn off conversion to EEnum in XSDEcoreBuilder</bug>
+<bug id="115468">Regenerate models using the latest templates</bug>
+<bug id="115893">Clean up the files to generate the plugin's javadoc</bug>
+<bug id="116083">xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
+</entry>
+
 <entry build="2.2.0M3" project="xsd" version="2.2.0">
 <bug id="115393">Add ability to load XSDResource from InputSource and serialize to a Writer</bug>
 <bug id="115465">Support the ability to turn off conversion to EEnum in XSDEcoreBuilder</bug>
@@ -1891,4 +1918,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.102 2005/11/17 02:48:48 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.103 2005/11/17 05:11:30 nickb Exp $ -->
