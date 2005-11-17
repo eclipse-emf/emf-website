@@ -22,6 +22,10 @@
 
 <!-- 2.2.0 -->
 
+<entry build="M200511161952" project="emf" version="2.1.2">
+<bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
+</entry>
+
 <entry build="2.2.0M3" project="emf" version="2.2.0">
 <bug id="75922">[Plan Item] Content adapter for managing reverse of 1-way references (reference map)</bug>
 <bug id="110250">when instanceValue==null in convertToString IllegalArgumentException is thrown</bug>
@@ -174,6 +178,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="M200511161952" project="xsd" version="2.1.2"/>
 <entry build="2.2.0M3" project="xsd" version="2.2.0">
 <bug id="115393">Add ability to load XSDResource from InputSource and serialize to a Writer</bug>
 <bug id="115465">Support the ability to turn off conversion to EEnum in XSDEcoreBuilder</bug>
@@ -1886,4 +1891,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.101 2005/11/10 20:33:05 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.102 2005/11/17 02:48:48 nickb Exp $ -->
