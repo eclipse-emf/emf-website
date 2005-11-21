@@ -16,10 +16,18 @@
  * 	
  */
 
+// Process query string to $params array
+
+$vars = explode("&", $_SERVER['QUERY_STRING']);
+for ($i=0;$i<=count($vars);$i++) {
+ $var = explode("=", $vars[$i]);
+ $params[$var[0]] = $var[1];
+}
+
 $processor = xslt_create();
 $fileBase = 'file://' . getcwd () . '/';
 xslt_set_base ( $processor, $fileBase );
-$result = xslt_process($processor, $fileBase.'faq.xml', $fileBase.'faq.xsl');
+$result = xslt_process($processor, $fileBase.'faq.xml', $fileBase.'faq.xsl', NULL, array(), $params);
 
 if(!$result) echo xslt_errno($processor) . " : " . xslt_error($processor);
 echo $result;
