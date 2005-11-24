@@ -26,6 +26,21 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="I200511240817" project="emf" version="2.2.0">
+<bug id="105937">[Plan Item] Cross resource containment</bug>
+<bug id="116332">BundleException: The activator o.e.emf.test.performance.EMFTestPerformancePlugin for bundle o.e.e.t.performance is invalid</bug>
+<bug id="117022">Support standalone JET and GenModel</bug>
+<bug id="117045">PERF:isAttachedDetachedHelperRequired() routine should be modified to avoid expensive XMLResourceImpl.attached if it is not necessary.</bug>
+<bug id="117347">ECrossReferenceAdapter enhancements</bug>
+<bug id="117353">Literals Interface</bug>
+<bug id="117503">ClassCastException accessing EMap features on EStoreEObjectImpl-based objects generated with dynamic delegation</bug>
+<bug id="117547">Support feature ID based reflective methods</bug>
+<bug id="117555">Support Reader and Writer wrapped as an InputStream and OutputStream</bug>
+<bug id="117571">The Diagnostic interface should provide a getException method</bug>
+<bug id="117572">EcoreUtil.resolveAll(EObject) does not resolve argument's direct references</bug>
+<bug id="117654">Use Diagnostic and Monitor on the importer plugins</bug>
+</entry>
+
 <entry build="I200511162320" project="emf" version="2.2.0">
 <bug id="114922">Virtual Delegation</bug>
 <bug id="115664">JET expansion can intermix ^M, ie CR (carriage return) in output</bug>
@@ -189,6 +204,14 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+<entry build="I200511240817" project="xsd" version="2.2.0">
+<bug id="117231">XSD model doesn't provide a mechanism to control DTD resolution</bug>
+<bug id="117353">Literals Interface</bug>
+<bug id="117547">Support feature ID based reflective methods</bug>
+<bug id="117654">Use Diagnostic and Monitor on the importer plugins</bug>
+<bug id="117763">Improve memory and speed of loading/serializing XML Schemas</bug>
+</entry>
+
 <entry build="I200511162320" project="xsd" version="2.2.0">
 <bug id="115893">Clean up the files to generate the plugin's javadoc</bug>
 <bug id="116083">xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
@@ -1906,4 +1929,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.104 2005/11/17 05:23:41 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.105 2005/11/24 16:24:31 nickb Exp $ -->
