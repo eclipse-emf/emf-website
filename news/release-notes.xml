@@ -30,14 +30,18 @@
 <bug id="105937">[Plan Item] Cross resource containment</bug>
 <bug id="116332">BundleException: The activator o.e.emf.test.performance.EMFTestPerformancePlugin for bundle o.e.e.t.performance is invalid</bug>
 <bug id="117022">Support standalone JET and GenModel</bug>
+<bug id="117038">ModelImportApplication.handleReferencedEPackages() should use configured GenModelFactory</bug>
 <bug id="117045">PERF:isAttachedDetachedHelperRequired() routine should be modified to avoid expensive XMLResourceImpl.attached if it is not necessary.</bug>
 <bug id="117347">ECrossReferenceAdapter enhancements</bug>
+<bug id="117350">Virtual Delegation Enhancements</bug>
 <bug id="117353">Literals Interface</bug>
+<bug id="117398">UM not working after Eclipse 3.2M3 (after M2_32)</bug>
 <bug id="117503">ClassCastException accessing EMap features on EStoreEObjectImpl-based objects generated with dynamic delegation</bug>
 <bug id="117547">Support feature ID based reflective methods</bug>
 <bug id="117555">Support Reader and Writer wrapped as an InputStream and OutputStream</bug>
 <bug id="117571">The Diagnostic interface should provide a getException method</bug>
 <bug id="117572">EcoreUtil.resolveAll(EObject) does not resolve argument's direct references</bug>
+<bug id="117578">The Diagnostic interface should provide a getException method</bug>
 <bug id="117654">Use Diagnostic and Monitor on the importer plugins</bug>
 </entry>
 
@@ -1929,4 +1933,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.105 2005/11/24 16:24:31 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.106 2005/11/24 16:38:08 nickb Exp $ -->
