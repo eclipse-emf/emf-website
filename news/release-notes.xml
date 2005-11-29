@@ -224,6 +224,7 @@
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
 
 <entry build="I200511291121" project="xsd" version="2.2.0">
+<bug id="117938">Race conditions can occur during validation of XML Schemas</bug>
 <bug id="117944">Improve XSD performance by using XSDPackage.Literals</bug>
 <bug id="118048">Support an option to reduce the size of the reflective methods</bug>
 </entry>
@@ -1953,4 +1954,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.111 2005/11/29 19:11:59 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.112 2005/11/29 19:15:55 nickb Exp $ -->
