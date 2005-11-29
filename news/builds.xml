@@ -2,11 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://eclipse.org/emf/"/>
-  <updated>2005-11-24T11:13:44Z</updated>
+  <updated>2005-11-29T13:25:28Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://eclipse.org/emf/</id>
+  <entry>
+    <title>[announce] EMF 2.2.0 I200511291121 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511291121"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511291121</id>
+    <updated>2005-11-29T13:25:28Z</updated>
+    <summary>
+      <testresults platform="ALL">PASS</testresults>
+      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/emf/updates/</update>
+      <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051123-1200/eclipse-SDK-I20051123-1200-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF 2.2.0 I200511240817 is available</title>
     <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200511240817"/>
