@@ -40,20 +40,6 @@
 <bug id="118424">Support generating &quot;Pure APIs&quot; or no APIs at all</bug>
 </entry>
 
-<entry build="I200511291121" project="emf" version="2.2.0"/>
-<entry build="I200511291121" project="emf" version="2.2.0">
-<bug id="105508">Builds and tests fail (stall) sporadically using 32-bit JDK on 64-bit OS</bug>
-<bug id="108501">Codgened Packages shouldn't access impl classes of other packages except when subclassing from such package</bug>
-<bug id="117940">Fix typos in org.eclipse.emf.importer/schema/modelImporterDescriptors.exsd</bug>
-<bug id="117954">Further Virtual Delegation Enhancements</bug>
-<bug id="118048">Support an option to reduce the size of the reflective methods</bug>
-<bug id="118109" sub="1">SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
-<bug id="118117">Support GenClass.dynamic</bug>
-<bug id="118314">Using Literals on the importers</bug>
-<bug id="118410">BasicDiagnostic.Wrapper's DiagnosticException constructor should assign diagnostic field.</bug>
-<bug id="118424">Support generating &quot;Pure APIs&quot; or no APIs at all</bug>
-</entry>
-
 <entry build="I200511240817" project="emf" version="2.2.0">
 <bug id="105937">[Plan Item] Cross resource containment</bug>
 <bug id="116332">BundleException: The activator o.e.emf.test.performance.EMFTestPerformancePlugin for bundle o.e.e.t.performance is invalid</bug>
@@ -236,12 +222,7 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
-<entry build="I200511291121" project="xsd" version="2.2.0">
-<bug id="117944">Improve XSD performance by using XSDPackage.Literals</bug>
-<bug id="118048">Support an option to reduce the size of the reflective methods</bug>
-</entry>
 
-<entry build="I200511291121" project="xsd" version="2.2.0"/>
 <entry build="I200511291121" project="xsd" version="2.2.0">
 <bug id="117944">Improve XSD performance by using XSDPackage.Literals</bug>
 <bug id="118048">Support an option to reduce the size of the reflective methods</bug>
@@ -1972,4 +1953,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.110 2005/11/29 19:06:27 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.111 2005/11/29 19:11:59 nickb Exp $ -->
