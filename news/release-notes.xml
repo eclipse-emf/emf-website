@@ -24,6 +24,10 @@
 <!-- 2.2.0 -->
 
 <entry build="2.0.5RC1" project="emf" version="2.0.5"/>
+<entry build="2.1.2RC1" project="emf" version="2.1.2">
+<bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
+</entry>
+
 <entry build="M200511161952" project="emf" version="2.1.2">
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
@@ -224,6 +228,10 @@
 
 <entry build="2.0.5RC1" project="xsd" version="2.0.5">
 <bug id="118276">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
+</entry>
+
+<entry build="2.1.2RC1" project="xsd" version="2.1.2">
+<bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
@@ -1959,4 +1967,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.113 2005/11/29 20:13:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.114 2005/11/29 20:42:41 nickb Exp $ -->
