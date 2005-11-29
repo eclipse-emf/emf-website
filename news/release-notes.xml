@@ -23,6 +23,7 @@
 
 <!-- 2.2.0 -->
 
+<entry build="2.0.5RC1" project="emf" version="2.0.5"/>
 <entry build="M200511161952" project="emf" version="2.1.2">
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
@@ -219,6 +220,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="2.0.5RC1" project="xsd" version="2.0.5">
+<bug id="118276">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
@@ -1954,4 +1959,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.112 2005/11/29 19:15:55 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.113 2005/11/29 20:13:34 nickb Exp $ -->
