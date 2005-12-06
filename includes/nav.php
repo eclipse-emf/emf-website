@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.24 2005/10/12 22:16:27 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.25 2005/12/06 21:12:00 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -82,12 +82,16 @@
  src="http://www.eclipse.org/emf/images/bugzilla.gif" border="0"></a></td>
 
             <td height="42"> <a href="http://bugs.eclipse.org/bugs" class="category">Bugzilla</a>
-
 <?php if ($isEMFserver) { ?>
 :: <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0" class="subcategory">Assigned</a>
 :: <a href="javascript://" class="subcategory" style="color:red" onclick="if (confirm('To regenerate plan-*.xml, follow this link, wait about 30 seconds\nfor the page to display, then view-source (CTRL-U) and copy that\nsource into the appropriate www/emf/plan/plan-*.xml document\nand it commit to CVS. Content should refresh on public site\n(http://eclipse.org/emf/plan/plan-*.xml) within a minute or two.')) { document.location.href='/emf/plan/plan.php?votes=true&blocks=true'; }"> Regenerate Prioritized Bug List</a>
 <?php } ?>
 				<br>
+
+<a class="category">Submit New Bug:</a>
+<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EMF" target="_bugz" class="subcategory">EMF &amp; SDO</a>,
+<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=XSD" target="_bugz" class="subcategory">XSD</a>
+<br/>
 
 <?php
 	
