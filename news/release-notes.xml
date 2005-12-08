@@ -44,6 +44,7 @@
 <bug id="119429">Problem with mixin features and virtual delegation</bug>
 <bug id="119505">Unnecessary casts to EObject</bug>
 <bug id="119632">Missing NON-NLS in generated wizard</bug>
+<bug id="119667">GenModel.getStaticGenPackages() doesn't use registered GenPackages</bug>
 <bug id="119696">Deserialization performance of XML/XMI should be improved</bug>
 <bug id="119797">The Generator editor should not allow referenced genModels to be edited</bug>
 <bug id="119798">Show the EModelElement properties when selecting a GenBase element in the Generator View</bug>
@@ -1998,4 +1999,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.117 2005/12/08 09:30:35 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.118 2005/12/08 09:33:01 nickb Exp $ -->
