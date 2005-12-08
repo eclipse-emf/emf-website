@@ -32,6 +32,22 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="I200512080200" project="emf" version="2.2.0">
+<bug id="76538">[Plan Item] EMF should support XMI &quot;2.1&quot;</bug>
+<bug id="118671">ECore EPackage does not allow contained EClassifiers to be stored in a different Resource. Generally Class and Package defintions ( including Sub and super class relationships )  could be stored in a different Resource</bug>
+<bug id="118940">EOperation Upper Bound is lost in generated package class</bug>
+<bug id="119058">Provide support for fixing up the curly brace on an interface being messed up by JDOM during JMerge</bug>
+<bug id="119158">Extra parentheses in item provider template</bug>
+<bug id="119184">One of the EXTLibrary EClasses is Misspelled</bug>
+<bug id="119287">The GenModel should support annotations</bug>
+<bug id="119429">Problem with mixin features and virtual delegation</bug>
+<bug id="119505">Unnecessary casts to EObject</bug>
+<bug id="119632">Missing NON-NLS in generated wizard</bug>
+<bug id="119696">Deserialization performance of XML/XMI should be improved</bug>
+<bug id="119797">The Generator editor should not allow referenced genModels to be edited</bug>
+<bug id="119800">Open Ecore and GenModel actions in the Generator Editor</bug>
+</entry>
+
 <entry build="I200512011155" project="emf" version="2.2.0">
 <bug id="118685">Make eVirtual&lt;Get/Set/IsSet/Unset&gt; public on BasicEObjectImpl</bug>
 <bug id="118828">Colliding operation filter never catches isSet collisions</bug>
@@ -240,6 +256,10 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+
+<entry build="I200512080200" project="xsd" version="2.2.0">
+<bug id="118940">EOperation Upper Bound is lost in generated package class</bug>
+</entry>
 
 <entry build="I200512011155" project="xsd" version="2.2.0">
 <bug id="118621">Wrong ContentTypeCategory for a derived type</bug>
@@ -1976,4 +1996,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.115 2005/12/01 20:04:20 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.116 2005/12/08 09:21:29 nickb Exp $ -->
