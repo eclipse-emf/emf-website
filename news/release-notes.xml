@@ -33,6 +33,35 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="I200512151150" project="emf" version="2.2.0">
+<bug id="83223">WrappedException should use the new &quot;cause&quot; in Exception.</bug>
+<bug id="93194">XML Schema generation does not take ExtendedMetaData into account.</bug>
+<bug id="105925">Include an Unmodifiable EMap in the EMF API</bug>
+<bug id="107617">[Plan Item] EMFT build/web infrastructure and process</bug>
+<bug id="109300">Provide UI and extension point for Model Exporters</bug>
+<bug id="112141">Poor xml character escape performance</bug>
+<bug id="113369">XSD files in java output folders cannot be used for EMF generation when browsing from workspace</bug>
+<bug id="119239">Association edit problem</bug>
+<bug id="119497">Library Example Metamodel FeatureMap Not Correctly Defined</bug>
+<bug id="119851">Unnecessary casts to Object in generated validator</bug>
+<bug id="119859">Fix messed up brace positions produced by JMerger</bug>
+<bug id="119874">The Javadocs are broken in the last few builds</bug>
+<bug id="119919">Refactor org.eclipse.emf.edit.ui.EMFEditUIUtil</bug>
+<bug id="120149">Widget disposed exception on the Generator Editor</bug>
+<bug id="120224">Support various generator options to produce various styles of implementation</bug>
+<bug id="120508">BasicFeatureMap.ValueListIteratorImpl's previous() same as its next()</bug>
+<bug id="120622">EMF should provide a dialog to deal with the workspace resources</bug>
+<bug id="120717">Avoid possible memory leak for caching parsers/handlers</bug>
+<bug id="120815">Create a common infrastructure for the Importer and Exporter frameworks</bug>
+<bug id="120861">Replace Generate Schema action with the exporter support</bug>
+<bug id="120862">Exporter: The referenced genPackage information is not saved</bug>
+<bug id="120869" sub="1">SDO create followed by delete misrepresented in ChangeSummary</bug>
+<bug id="120964">GenAnnotations are lost when the GenModel is reloaded.</bug>
+<bug id="120967">The model export dialog should pre-select the last exporter used.</bug>
+<bug id="121074">Possible NPE in SAXWrapper</bug>
+<bug id="121079">CovnerterUtil.computeRequiredPackages(EPackage) problem</bug>
+</entry>
+
 <entry build="I200512080200" project="emf" version="2.2.0">
 <bug id="76538">[Plan Item] EMF should support XMI &quot;2.1&quot;</bug>
 <bug id="118671">ECore EPackage does not allow contained EClassifiers to be stored in a different Resource. Generally Class and Package defintions ( including Sub and super class relationships )  could be stored in a different Resource</bug>
@@ -264,6 +293,16 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+
+<entry build="I200512151150" project="xsd" version="2.2.0">
+<bug id="93194">XML Schema generation does not take ExtendedMetaData into account.</bug>
+<bug id="114822">XSDFeature.getResolvedFeature() not resolving after a TNS change</bug>
+<bug id="119874">The Javadocs are broken in the last few builds</bug>
+<bug id="120384">NPE on XSDResourceImpl</bug>
+<bug id="120815">Create a common infrastructure for the Importer and Exporter frameworks</bug>
+<bug id="120821">Provide an XSD exporter</bug>
+<bug id="120861">Replace Generate Schema action with the exporter support</bug>
+</entry>
 
 <entry build="I200512080200" project="xsd" version="2.2.0">
 <bug id="118940">EOperation Upper Bound is lost in generated package class</bug>
@@ -2004,4 +2043,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.119 2005/12/14 16:50:31 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.120 2005/12/15 18:19:50 nickb Exp $ -->
