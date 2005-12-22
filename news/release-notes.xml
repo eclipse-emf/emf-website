@@ -33,6 +33,28 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="2.2M4" project="emf" version="2.2.0">
+<bug id="110830">EcoreEditor ClassCastException opening ecore from Jar</bug>
+<bug id="111207">OPTION_LAX_FEATURE_PROCESSING improvement</bug>
+<bug id="121079">CovnerterUtil.computeRequiredPackages(EPackage) problem</bug>
+<bug id="121173">The file selection dialog is accepting a folder selection</bug>
+<bug id="121251">The ecore's genmodels XMLNamespace and XMLType should declare their exported schemas</bug>
+<bug id="121462">EXT Library example editor only saves 'main' resource</bug>
+<bug id="121511">The model importer should also declare a default source for GenAnnotations</bug>
+<bug id="121513">Cannot reused local artifact exported for a referenced package</bug>
+<bug id="121515">Packages are not properly filtered when the Export wizard is opened.</bug>
+<bug id="121520">The exporter's GenModel nested annotation should have better sources</bug>
+<bug id="121563">NPE in ValidateAction when validation fails on a model</bug>
+<bug id="121586">Update JavaDocs for OPTION_USE_DEPRECATED_METHODS</bug>
+<bug id="121587">Process schemaLocations at the root element</bug>
+<bug id="121600">[Duplicate] JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
+<bug id="121660">The XMI and XSD exporters should suggest different artifact names</bug>
+<bug id="121661">The same model is presented twice in the referenced package tree</bug>
+<bug id="121662">Add an internal isLoading flag</bug>
+<bug id="121719">Serializing models with multi line texts</bug>
+<bug id="121781">Package.dataConverters should generate converters for enums.</bug>
+</entry>
+
 <entry build="I200512151150" project="emf" version="2.2.0">
 <bug id="83223">WrappedException should use the new &quot;cause&quot; in Exception.</bug>
 <bug id="93194">XML Schema generation does not take ExtendedMetaData into account.</bug>
@@ -292,6 +314,12 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+
+<entry build="2.2M4" project="xsd" version="2.2.0">
+<bug id="121660">The XMI and XSD exporters should suggest different artifact names</bug>
+<bug id="121662">Add an internal isLoading flag</bug>
+<bug id="121765">ecore:unsettable for schemas</bug>
+</entry>
 
 <entry build="I200512151150" project="xsd" version="2.2.0">
 <bug id="93194">XML Schema generation does not take ExtendedMetaData into account.</bug>
@@ -2042,4 +2070,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.121 2005/12/15 20:46:47 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.122 2005/12/22 07:36:09 nickb Exp $ -->
