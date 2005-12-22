@@ -33,7 +33,7 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
-<entry build="2.2M4" project="emf" version="2.2.0">
+<entry build="2.2.0M4" project="emf" version="2.2.0">
 <bug id="110830">EcoreEditor ClassCastException opening ecore from Jar</bug>
 <bug id="111207">OPTION_LAX_FEATURE_PROCESSING improvement</bug>
 <bug id="121079">CovnerterUtil.computeRequiredPackages(EPackage) problem</bug>
@@ -315,7 +315,7 @@
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
 
-<entry build="2.2M4" project="xsd" version="2.2.0">
+<entry build="2.2.0M4" project="xsd" version="2.2.0">
 <bug id="121660">The XMI and XSD exporters should suggest different artifact names</bug>
 <bug id="121662">Add an internal isLoading flag</bug>
 <bug id="121765">ecore:unsettable for schemas</bug>
@@ -2070,4 +2070,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.122 2005/12/22 07:36:09 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.123 2005/12/22 16:10:13 marcelop Exp $ -->
