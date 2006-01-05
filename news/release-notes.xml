@@ -25,6 +25,13 @@
 
 <entry build="2.0.5" project="emf" version="2.0.5"/>
 <entry build="2.0.5RC1" project="emf" version="2.0.5"/>
+<entry build="M200601041804" project="emf" version="2.1.2">
+<bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
+<bug id="121590">JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
+<bug id="121597" sub="1">[dup] SDO create followed by delete misrepresented in ChangeSummary</bug>
+<bug id="121600">[Duplicate] JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
+</entry>
+
 <entry build="2.1.2RC1" project="emf" version="2.1.2">
 <bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
 </entry>
@@ -307,6 +314,10 @@
 
 <entry build="2.0.5RC1" project="xsd" version="2.0.5">
 <bug id="118276">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
+</entry>
+
+<entry build="M200601041804" project="xsd" version="2.1.2">
+<bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
 </entry>
 
 <entry build="2.1.2RC1" project="xsd" version="2.1.2">
@@ -2070,4 +2081,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.123 2005/12/22 16:10:13 marcelop Exp $ -->
+<!-- $Id: release-notes.xml,v 1.124 2006/01/05 00:07:47 nickb Exp $ -->
