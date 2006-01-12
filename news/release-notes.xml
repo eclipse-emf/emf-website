@@ -40,6 +40,13 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="I200601120200" project="emf" version="2.2.0">
+<bug id="123135">PackageClass.javajet: NonNLS markers in wrong place</bug>
+<bug id="123137">Generated Ecore2XML should support one-sided mappings</bug>
+<bug id="123301">Nested annotation initialization should ignore non-annotations</bug>
+<bug id="123306">Loading of .emof models fails with exception</bug>
+</entry>
+
 <entry build="I200601050100" project="emf" version="2.2.0">
 <bug id="110830">EcoreEditor ClassCastException opening ecore from Jar</bug>
 <bug id="111207">OPTION_LAX_FEATURE_PROCESSING improvement</bug>
@@ -351,6 +358,10 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+
+<entry build="I200601120200" project="xsd" version="2.2.0">
+<bug id="123336">Sun JRE does not support defer-node feature</bug>
+</entry>
 
 <entry build="I200601050100" project="xsd" version="2.2.0">
 <bug id="121660">The XMI and XSD exporters should suggest different artifact names</bug>
@@ -2113,4 +2124,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.125 2006/01/05 07:37:35 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.126 2006/01/12 13:15:51 nickb Exp $ -->
