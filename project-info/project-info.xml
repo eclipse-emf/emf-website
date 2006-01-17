@@ -14,7 +14,7 @@
   </cvs>
   <description url="/emf/docs.php#overviews" 
                paragraph-url="/emf/project-info/project-page-paragraph.html"/>
-  <summary url="/emf/project-info/summary.html"/>
+  <summary paragraph-url="/emf/project-info/summary.html"/>
   <getting-started url="/emf/docs.php#tutorials"/>
   <project-ip-log url="/emf/eclipse-project-ip-log.csv"/>
   <mailing-lists url="/emf/newsgroup-mailing-list.php">
