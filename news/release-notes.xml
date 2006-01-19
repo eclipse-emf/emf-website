@@ -40,6 +40,13 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="I200601190000" project="emf" version="2.2.0">
+<bug id="78076">[Plan Item] JMerger:  Decouple the JMerger implementation from JDOM</bug>
+<bug id="123809">DragAndDropCommand gives incorrect feedback for drop operations</bug>
+<bug id="123974">The javadoc for the Ant tasks are not generated during the build.</bug>
+<bug id="124324">genmodel dependencies broken (usedGenPackages issues?)</bug>
+</entry>
+
 <entry build="I200601120200" project="emf" version="2.2.0">
 <bug id="123135">PackageClass.javajet: NonNLS markers in wrong place</bug>
 <bug id="123137">Generated Ecore2XML should support one-sided mappings</bug>
@@ -358,6 +365,11 @@
 </entry>
 
 <entry build="M200511161952" project="xsd" version="2.1.2"/>
+
+<entry build="I200601190000" project="xsd" version="2.2.0">
+<bug id="123974">The javadoc for the Ant tasks are not generated during the build.</bug>
+<bug id="124394">NPE in XSDEcoreBuilder.computeEClass()</bug>
+</entry>
 
 <entry build="I200601120200" project="xsd" version="2.2.0">
 <bug id="123336">Sun JRE does not support defer-node feature</bug>
@@ -2124,4 +2136,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.126 2006/01/12 13:15:51 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.127 2006/01/19 07:16:04 nickb Exp $ -->
