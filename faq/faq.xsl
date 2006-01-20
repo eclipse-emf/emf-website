@@ -59,6 +59,7 @@
 	</xsl:variable>
 
 	<html xmlns="http://www.w3.org/1999/xhtml">
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<head>
 	<title><xsl:copy-of select="$pageTitle" /></title>
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
@@ -66,9 +67,7 @@
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("faq.css");</style>
 	</head>
-	<body>
 
-	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<!-- wrapper for left nav -->
 	<table cellspacing="0" cellpadding="0" border="0" width="100%">
 		<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
@@ -378,7 +377,6 @@
 
 </td></tr></table>
 
-</body>
 </html>
 
 </xsl:for-each>
@@ -419,4 +417,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.17 2005/07/07 06:37:39 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.18 2006/01/20 20:21:19 nickb Exp $ -->
