@@ -207,9 +207,8 @@
 			</xsl:variable>
 			<xsl:if test="$doRowHeader>='1'">
 				<tr class="header">
-					<td colspan="4" class="sub-header" width="60%">
-						<a name="{@category}"><xsl:value-of select="@label"/></a> 
-						(<xsl:value-of select="string-length($doRowHeader)"/>)
+					<td colspan="2" class="sub-header">
+						<a name="{@category}"><xsl:value-of select="@label"/></a> (<xsl:value-of select="string-length($doRowHeader)"/>)
 					</td>
 				</tr>
 				<xsl:variable name="catgKey"><xsl:value-of select="@category" /></xsl:variable>
@@ -252,10 +251,10 @@
 								<xsl:attribute name="class">light-row</xsl:attribute>
 							</xsl:otherwise>
 							</xsl:choose>
-							<td class="log-text" align="right">
+							<td class="log-text" align="right" width="1%">
 								<xsl:value-of select="position()"/>
 							</td>
-							<td class="log-text">
+							<td class="log-text" width="99%">
 								<xsl:choose>
 								<xsl:when test="question!=''">
 									<a style="text-decoration:none" href="#{$catg}{@UNID}">
@@ -420,4 +419,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.23 2006/01/20 20:53:16 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.24 2006/01/20 21:03:54 nickb Exp $ -->
