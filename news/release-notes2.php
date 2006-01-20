@@ -5,7 +5,9 @@ $pre = "../";
 // Process query string
 $vars = explode("&", $_SERVER['QUERY_STRING']);
 for ($i=0;$i<=count($vars);$i++) {
+  echo "\$vars[".$i."] = ".$vars[$i]." --> ";
   $var = explode("=", $vars[$i]);
+  echo sizeof($var). " --> ";
   $qs[$var[0]] = $var[1];
   echo "\$qs[".$vars[0]."] = ".$vars[1]."<br/>";
 }
@@ -38,16 +40,16 @@ include $pre . "includes/header.php";
  */
 
 // define XML and XSL sources 
-$qs["XMLfile"] = $qs["XMLfile"] ? $qs["XMLfile"] : ($qs["doc"] ? $qs["doc"] : "release-notes.xml");
-$qs["XSLfile"] = $qs["XSLfile"] ? $qs["XSLfile"] : ($qs["sheet"] ? $qs["sheet"] : "release-notes.xsl");
+$XMLfile = "release-notes.xml";
+$XSLfile = "release-notes.xsl";
 
 $processor = xslt_create();
 $fileBase = 'file://' . getcwd () . '/';
 xslt_set_base ( $processor, $fileBase );
-$result = xslt_process($processor, $fileBase.$qs["XMLfile"], $fileBase.$qs["XSLfile"], NULL, array(), $params);
+$result = xslt_process($processor, $fileBase.$XMLfile, $fileBase.$XSLfile, NULL, array(), $params);
 
 if(!$result) {
-	echo "Trying to parse ".$qs["XMLfile"]." with ".$qs["XSLfile"]."...<br/>";
+	echo "Trying to parse ".$XMLfile." with ".$XSLfile."...<br/>";
 	echo "ERROR #".xslt_errno($processor) . " : " . xslt_error($processor);
 }
 echo $result; ?>
@@ -55,4 +57,4 @@ echo $result; ?>
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes2.php,v 1.3 2006/01/20 22:03:26 nickb Exp $ -->
+<!-- $Id: release-notes2.php,v 1.4 2006/01/20 22:10:16 nickb Exp $ -->
