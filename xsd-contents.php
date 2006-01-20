@@ -40,6 +40,7 @@ function displayXSDModelImage() {
 }
 
 function displayXSDHome() {
+		global $pre;
 		$HTMLTitle = "Eclipse Tools - XSD Home";
 		$ProjectName = array(
 			"XML Schema Infoset Model",
@@ -82,7 +83,7 @@ Since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD.
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: xsd-contents.php,v 1.5 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: xsd-contents.php,v 1.6 2006/01/20 23:12:48 nickb Exp $ -->
 </body></html>
 
 <?php } 

@@ -153,6 +153,7 @@ function getCommitterList() { // not available in bugzilla, this is a CVS proper
 		//w(sizeof($html),1);
 
 		$loading=0;
+		$m=null;
 		foreach ($html as $line) { 
 			if (isIn($line,$project)) {
 				$loading=1;
@@ -244,6 +245,8 @@ function getMetaAndBugList() {
 	$cols = array(
 		"Severity", "Priority", "Platform", "Assignee", "Status", "Resolution", "Summary"
 	);
+	$m=null;
+	$col=0;
 	foreach ($html as $line) { 
 		// look for the following values: ID, Sev, Pri, Plt, Assignee, Status, Resolution, Summary
 		if (isIn($line,"show_bug.cgi?id=")) { // link to bug means start of a bug entry row
@@ -292,6 +295,8 @@ function getPlanItems($extrafields=array()) {
 
 	$loading=0;
 	$commenter = "";
+	$m=null;
+	$bugnum=null;
 	foreach ($html as $line) { 
 		if (isIn($line,"<font size=\"+3\">Bug ")) { // name of bug means start of a bug 
 			if (preg_match("/\<font size\=\"\+3\"\>Bug\ (\d+)/",$line,$m)) { 

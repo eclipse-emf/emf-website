@@ -25,6 +25,7 @@ To learn more about Service Data Objects, check out the <a label="Service Data O
 ';
 }
 function displaySDOHome() {
+		global $pre;
 		$HTMLTitle = "Eclipse Tools - SDO Home";
 		$ProjectName = array(
 			"Service Data Objects",
@@ -58,7 +59,7 @@ SDO?</a></font></b> </td>
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: sdo-contents.php,v 1.6 2005/07/12 22:22:56 nickb Exp $ -->
+<!-- $Id: sdo-contents.php,v 1.7 2006/01/20 23:12:48 nickb Exp $ -->
 </body></html>
 
 <?php } 

@@ -122,6 +122,7 @@ function getCommitterList() {
 		//w(sizeof($html),1);
 
 		$loading=0;
+		$m=null;
 		foreach ($html as $line) { 
 			if (isIn($line,$project)) {
 				$loading=1;
@@ -169,6 +170,8 @@ function getMetaAndBugList() {
 	foreach ($results as $html) { 
 		$loading=0;
 		$bugnum="";
+		$m=null;
+		$col=null;
 		foreach ($html as $line) { 
 			// look for the following values: ID, Sev, Pri, Plt, Assignee, Status, Resolution, Summary
 			if (isIn($line,"show_bug.cgi?id=")) { // link to bug means start of a bug entry row
@@ -219,6 +222,8 @@ function getPlanItems($extrafields=array()) {
 	$loading=0;
 	$commenter = "";
 	$commentDate = "";
+	$m=null;
+	$bugnum=null;
 	foreach ($html as $linenum => $line) { 
 		if (isIn($line,"<font size=\"+3\">Bug ")) { // name of bug means start of a bug 
 			if (preg_match("/\<font size\=\"\+3\"\>Bug\ (\d+)/",$line,$m)) { 
@@ -307,6 +312,7 @@ function getVoteCounts() {
 
 function getBlocks() { // get list of bugs that are blocked by this bug
 	global $bugz;
+	$m=null;
 	foreach ($bugz as $bugnum => $data) { 
 		if (false!==strpos($data["Summary"],"[Plan Item]")) { 
 			//echo "<hr>$bugnum: ".$data["Summary"]."<br>\n";

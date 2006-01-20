@@ -114,6 +114,7 @@ weren\'t a little bit of exaggeration.
 }
 
 function displayEMFHome() {
+		global $pre;
 		$HTMLTitle = "Eclipse Tools - EMF Home";
 		include $pre."includes/header.php"; ?>
 
@@ -145,7 +146,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.10 2005/09/20 16:59:23 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.11 2006/01/20 23:12:48 nickb Exp $ -->
 </body></html>
 
 <?php } 
