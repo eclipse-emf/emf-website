@@ -72,8 +72,8 @@
 	</head>
 
 	<!-- wrapper for left nav -->
-	<table cellspacing="0" cellpadding="0" border="0" width="95%">
-		<tr valign="top"><td colspan="1" align="left" width="95%"><table border="0" cellspacing="0" cellpadding="0" width="95%" BGCOLOR="#006699" >
+	<table cellspacing="0" cellpadding="0" border="0" width="99%">
+		<tr valign="top"><td colspan="1" align="left" width="99%"><table border="0" cellspacing="0" cellpadding="0" width="99%" BGCOLOR="#006699" >
 
 		 <tr>
 			  <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
@@ -95,10 +95,10 @@
 			</td>
 			</xsl:if>
 
-			<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="95%">
+			<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="99%">
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 		&#160;
-		<table border="0" cellpadding="2" width="95%">
+		<table border="0" cellpadding="2" width="99%">
 		  <tbody>
 
 			<tr>
@@ -114,7 +114,7 @@
 		  </tbody>            
 		</table>
 
-		<table border="0" cellpadding="2" width="95%" >
+		<table border="0" cellpadding="2" width="99%" >
 		<tr>
 
 		<td align="LEFT" valign="TOP" BGCOLOR="#0070A0">
@@ -125,7 +125,7 @@
 		</table>
 	</xsl:if>
 
-	<table border="0" cellpadding="2" width="95%" >
+	<table border="0" cellpadding="2" width="99%" >
 	<tr>
 	<td><font class="indexsub"><xsl:if test="($FAQ!='') or $filterVal1!='' or $filterVal2!='' or $filterVal3!=''"><em class="log-text" style="font-style:italic"> - - (A subset of the Eclipse Modeling Framework FAQ) - - </em><br/><br/></xsl:if></font>
 	<b class="big-header">Last modified: 
@@ -137,7 +137,7 @@
 
 	<!-- form controls -->
 	<form action="faq.php" method="get" name="mainform">
-	<table width="95%">
+	<table width="99%">
 			<tr>
 				<td width="75%">
 				<table>
@@ -187,7 +187,7 @@
 	</form>
 
 	<!-- table of contents -->
-	<table width="95%" border="0" cellspacing="1" cellpadding="3">
+	<table width="99%" border="0" cellspacing="1" cellpadding="3">
 <!-- 		<tr class="light-row" valign="bottom">
 			<td colspan="2" class="big-header" width="60%">
 				Category
@@ -291,7 +291,7 @@
 	</table>
 
 	<!-- content! -->
-	<table width="95%" border="0" cellspacing="1" cellpadding="5">
+	<table width="99%" border="0" cellspacing="1" cellpadding="5">
 	<xsl:for-each select="category-def">
 		<xsl:if test="count(key('ent',@category)) != 0">
 			<xsl:variable name="doRowHeader">
@@ -300,7 +300,7 @@
 			</xsl:variable>
 			<xsl:if test="$doRowHeader>='1'">
 				<tr class="content-header">
-					<td colspan="3" class="sub-header" width="95%">
+					<td colspan="3" class="sub-header" width="99%">
 						<a name="{@category}"><xsl:value-of select="@label"/></a> 
 						(<xsl:value-of select="string-length($doRowHeader)"/>)
 					</td>
@@ -420,4 +420,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.22 2006/01/20 20:48:59 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.23 2006/01/20 20:53:16 nickb Exp $ -->
