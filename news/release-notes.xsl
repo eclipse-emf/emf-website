@@ -16,6 +16,11 @@
 <xsl:template name="show_notes" match="/">
 <xsl:for-each select="data">
 	<html xmlns="http://www.w3.org/1999/xhtml">
+	<xsl:if test="$showFiltersOrHeaderFooter='1'">
+	<style>@import url("release-notes.css");</style>
+	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
+	</xsl:if>
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<head>
     <title>Eclipse Tools - EMF, SDO and XSD - Release Notes</title>
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
@@ -24,12 +29,10 @@
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 	<style>@import url("release-notes.css");</style>
 	</head>
-	<body>
 
-	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<!-- wrapper for left nav -->
-	<table cellspacing="0" cellpadding="0" border="0" width="100%">
-		<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
+	<table cellspacing="0" cellpadding="0" border="0" width="99%">
+		<tr valign="top"><td colspan="1" align="left" width="99%"><table border="0" cellspacing="0" cellpadding="0" width="99%" BGCOLOR="#006699" >
 
 		 <tr>
 			  <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
@@ -42,21 +45,19 @@
 	</table>
 	</xsl:if>
 
-<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<table cellspacing="0" cellpadding="0" border="0" width="99%">
 	<tr valign="top">
+		<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 		<td align="left" width="115" bgcolor="#6699CC">
-
 			<!-- left nav here -->
-			<xsl:if test="$showFiltersOrHeaderFooter!='1'">
-				<xsl:copy-of select="document('../includes/nav.xml')/div"/>
-			</xsl:if>
-
+			<xsl:copy-of select="document('../includes/nav.xml')/div"/>
 		</td>
+		</xsl:if>
 
-		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
+		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="99%">
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 		&#160;
-		<table border="0" cellpadding="2" width="100%">
+		<table border="0" cellpadding="2" width="99%">
 		  <tbody>
 
 			<tr>
@@ -78,7 +79,7 @@
 		  </tbody>            
 		</table>
 
-		<table border="0" cellpadding="2" width="100%" >
+		<table border="0" cellpadding="2" width="99%" >
 		<tr>
 
 		<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">
@@ -147,7 +148,7 @@
 	</table>
 	
 	<!-- nav header table (release/milestone list) -->
-	<table border="0" cellspacing="1" cellpadding="3" width="100%">
+	<table border="0" cellspacing="1" cellpadding="3" width="99%">
 	<xsl:for-each select="project-def">
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="header">
@@ -180,7 +181,7 @@
 						<td class="normal" width="70%" onClick="servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
 						</td>
 					</tr>
-					<tr style="display:none" id="ihtr{$thisProject}.{$thisVersion}.{$thisVersion}"><td bgcolor="#C0D8FF" colspan="2"><table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="white"><tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" width="100%" id="ihif{$thisProject}.{$thisVersion}.{$thisVersion}">
+					<tr style="display:none" id="ihtr{$thisProject}.{$thisVersion}.{$thisVersion}"><td bgcolor="#C0D8FF" colspan="2"><table width="99%" cellspacing="0" cellpadding="0" border="0" bgcolor="white"><tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" width="99%" id="ihif{$thisProject}.{$thisVersion}.{$thisVersion}">
 						<img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/><br/>
 						<xsl:for-each select="//bug">
 							<xsl:sort select="@id" data-type="number" order="descending" />
@@ -209,11 +210,11 @@
 	<p> </p>
 
 	<!-- content! -->
-	<table border="0" cellspacing="1" cellpadding="5" width="100%">
+	<table border="0" cellspacing="1" cellpadding="5" width="99%">
 	<xsl:for-each select="project-def">
 		<xsl:if test="((count(key('entryProj',@project)) != 0 and $project = @project) or $project = '')">
 			<tr class="content-header">
-				<td colspan="1" class="sub-header" width="100%">
+				<td colspan="1" class="sub-header" width="99%">
 					<a name="{@project}"><xsl:value-of select="@label"/></a>
 				</td>
 				<td width="5" align="top" valign="right"><a class="bodyText" style="text-decoration:none" href="#top">^</a></td>
@@ -230,7 +231,7 @@
 						<!-- {@project}.{@version}.{@build} -->
 						<tr><td colspan="1" class="normal">&#160;</td></tr>
 						<tr class="content-header">
-							<td colspan="1" class="sub-header" width="100%">
+							<td colspan="1" class="sub-header" width="99%">
 								<a name="{@project}.{@version}.{@build}"><xsl:value-of select="@build"/> Release</a>
 							<xsl:if test="string-length($matchCount)>1">&#160;(<xsl:value-of select="string-length($matchCount)" /> Bugs)</xsl:if>
 							</td>
@@ -245,7 +246,7 @@
 						</xsl:choose>
 					</xsl:variable>
 					<tr valign="top" bgcolor="{$rowColor}">
-						<td class="normal" align="left" width="100%" colspan="2">
+						<td class="normal" align="left" width="99%" colspan="2">
 							
 							<a name="{@project}.{@version}.{@build}"><b class="title">
 								<xsl:choose>
@@ -260,7 +261,7 @@
 								<br/><span class="details"><xsl:copy-of select="note" /></span>
 							</xsl:if>
 							<xsl:if test="count(bug)>0">
-								<table width="100%" cellspacing="0" cellpadding="2">
+								<table width="99%" cellspacing="0" cellpadding="2">
 								<xsl:for-each select="bug">
 									<xsl:sort select="@id" data-type="number" order="descending" />
 									<tr id="name{../@project}{../@build}{position()}" onMouseOver="rowOver('{../@project}{../@build}{position()}','#C0D8FF')" onMouseOut="rowOut('{../@project}{../@build}{position()}','{$rowColor}')">
@@ -277,7 +278,7 @@
 											<xsl:otherwise><img src="../images/icon-{../@project}.gif" alt="{../@project}"/></xsl:otherwise>
 										</xsl:choose></nobr></td>
 										<td>&#160;</td>
-										<td width="100%"><xsl:value-of select="." /></td>
+										<td width="99%"><xsl:value-of select="." /></td>
 									</tr>
 								</xsl:for-each>
 								</table>
@@ -311,10 +312,9 @@
 
 </td></tr></table>
 
-</body>
 </html>
 </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.21 2005/08/19 02:15:46 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.22 2006/01/20 21:48:32 nickb Exp $ -->
