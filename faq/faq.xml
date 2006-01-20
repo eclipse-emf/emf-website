@@ -4,11 +4,11 @@
 
   <blockquote>
   	<b>
-  		<a href="faq.php">Click here if this page is unreadable.</a>
+  		If this page is unreadable, please go to: <a href="http://www.eclipse.org/emf/faq/faq.php">http://www.eclipse.org/emf/faq/faq.php</a>.
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/01/20 21:07:43 $</modified>
+  <modified>$Date: 2006/01/20 21:09:37 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -1791,6 +1791,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.14 2006/01/20 21:07:43 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.15 2006/01/20 21:09:37 nickb Exp $ -->
 
 </faq>
