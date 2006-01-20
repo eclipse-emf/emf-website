@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2006/01/20 20:48:59 $</modified>
+  <modified>$Date: 2006/01/20 20:53:16 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -1458,7 +1458,8 @@ what do I do?
 As part of your initialization, for each extension that will contain
 schemas (shown as foo in this
 example), you should call <tt class="code">
-org.eclipse.emf.resource.Resource.Factory.Registry.INSTANCE.registerExtension("foo",
+org.eclipse.emf.resource.Resource.Factory.Registry
+&#160;&#160;.INSTANCE.registerExtension("foo",
 new XSDResourceFactoryImpl());</tt>
     </answer>
   </entry>
@@ -1783,6 +1784,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.12 2006/01/20 20:48:59 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.13 2006/01/20 20:53:16 nickb Exp $ -->
 
 </faq>

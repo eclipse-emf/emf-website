@@ -143,14 +143,14 @@
 				<table>
 					<tr><td colspan="13">
 	
-					<hr size="1" width="95%"/>
+					<hr size="1" width="100%"/>
 						<span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b> Multiple terms are treated as an <b>OR</b> search.</span><br/>
 						<span class="log-text">You can also use these predefined filters: 
 						<a href="faq.php?FAQ=EMF">EMF FAQ</a> :: 
 						<a href="faq.php?FAQ=SDO">SDO FAQ</a> :: 
 						<a href="faq.php?FAQ=XSD">XSD FAQ</a> :: 
 						<a href="faq.php?FAQ=">Complete FAQ</a></span>
-					<hr size="1" width="95%"/>
+					<hr size="1" width="100%"/>
 					</td></tr>
 					<tr>
 						<xsl:if test="$filterName1!=''"><td><b class="big-header"><xsl:copy-of select="$filterName1" />:</b></td>
@@ -420,4 +420,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.21 2006/01/20 20:48:23 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.22 2006/01/20 20:48:59 nickb Exp $ -->
