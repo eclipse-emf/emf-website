@@ -23,23 +23,6 @@
 
 <!-- 2.2.0 -->
 
-<entry build="2.0.5" project="emf" version="2.0.5"/>
-<entry build="2.0.5RC1" project="emf" version="2.0.5"/>
-<entry build="M200601041804" project="emf" version="2.1.2">
-<bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
-<bug id="121590">JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
-<bug id="121597" sub="1">[dup] SDO create followed by delete misrepresented in ChangeSummary</bug>
-<bug id="121600">[Duplicate] JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
-</entry>
-
-<entry build="2.1.2RC1" project="emf" version="2.1.2">
-<bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
-</entry>
-
-<entry build="M200511161952" project="emf" version="2.1.2">
-<bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
-</entry>
-
 <entry build="I200601190000" project="emf" version="2.2.0">
 <bug id="78076">[Plan Item] JMerger:  Decouple the JMerger implementation from JDOM</bug>
 <bug id="123809">DragAndDropCommand gives incorrect feedback for drop operations</bug>
@@ -349,23 +332,6 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
-<entry build="2.0.5" project="xsd" version="2.0.5">
-</entry>
-
-<entry build="2.0.5RC1" project="xsd" version="2.0.5">
-<bug id="118276">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
-</entry>
-
-<entry build="M200601041804" project="xsd" version="2.1.2">
-<bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
-</entry>
-
-<entry build="2.1.2RC1" project="xsd" version="2.1.2">
-<bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
-</entry>
-
-<entry build="M200511161952" project="xsd" version="2.1.2"/>
-
 <entry build="I200601190000" project="xsd" version="2.2.0">
 <bug id="123974">The javadoc for the Ant tasks are not generated during the build.</bug>
 <bug id="124394">NPE in XSDEcoreBuilder.computeEClass()</bug>
@@ -486,6 +452,33 @@
 </entry>
 
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
+
+<!-- 2.1.2 -->
+
+<entry build="M200601041804" project="emf" version="2.1.2">
+<bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
+<bug id="121590">JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
+<bug id="121597" sub="1">[dup] SDO create followed by delete misrepresented in ChangeSummary</bug>
+<bug id="121600">[Duplicate] JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
+</entry>
+
+<entry build="2.1.2RC1" project="emf" version="2.1.2">
+<bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
+</entry>
+
+<entry build="M200511161952" project="emf" version="2.1.2">
+<bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
+</entry>
+
+<entry build="M200601041804" project="xsd" version="2.1.2">
+<bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
+</entry>
+
+<entry build="2.1.2RC1" project="xsd" version="2.1.2">
+<bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
+</entry>
+
+<entry build="M200511161952" project="xsd" version="2.1.2"/>
 
 <!-- 2.1.1 -->
 
@@ -1170,6 +1163,16 @@ mixin features inherited from interface</bug>
 <bug id="74164">Updating the list XSDSimpleTypeDefinition.getFacets()</bug>
 <bug id="75139">Adding to redefine content has no effect</bug>
 <bug id="75278">Enumeration and document root features are not renamed</bug>
+</entry>
+
+<!-- 2.0.5 -->
+
+<entry build="2.0.5" project="emf" version="2.0.5"/>
+<entry build="2.0.5RC1" project="emf" version="2.0.5"/>
+
+<entry build="2.0.5" project="xsd" version="2.0.5"/>
+<entry build="2.0.5RC1" project="xsd" version="2.0.5">
+<bug id="118276">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
 </entry>
 
 <!-- 2.0.4 -->
@@ -2136,4 +2139,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.127 2006/01/19 07:16:04 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.128 2006/01/20 22:13:57 nickb Exp $ -->
