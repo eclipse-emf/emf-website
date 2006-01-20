@@ -107,7 +107,7 @@
 <img src="../images/icon-xsd.gif" border="0" alt="xsd"/> &#160; 
 <a href="http://eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> ::
 
-&#160; &#160; &#160; <a href="http://eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> :: 
 <a href="http://eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a> :: 
 <a href="http://eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a> :: 
 						<a href="release-notes-1.x.php">1.x</a></span>
@@ -318,4 +318,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.30 2006/01/20 23:30:31 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.31 2006/01/20 23:30:45 nickb Exp $ -->
