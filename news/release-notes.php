@@ -10,9 +10,12 @@ for ($i=0;$i<=count($vars);$i++) {
 }
 
 $params = array();
-$params["project"] = $qs["project"];
+$params["project"] = $qs["project"]; 
 $params["version"] = $qs["version"];
 $params["showFiltersOrHeaderFooter"] = 1;
+
+// default if no QS values
+if (!$params["project"] && !$qs["version"]) $params["version"] = "2.2";
 
 $HTMLTitle = "Eclipse Tools - EMF Release Notes";
 $ProjectName = array(
@@ -54,4 +57,4 @@ echo $result; ?>
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.11 2006/01/20 22:45:07 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.12 2006/01/20 23:27:15 nickb Exp $ -->
