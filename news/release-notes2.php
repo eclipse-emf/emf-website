@@ -45,10 +45,13 @@ $fileBase = 'file://' . getcwd () . '/';
 xslt_set_base ( $processor, $fileBase );
 $result = xslt_process($processor, $fileBase.$qs["XMLfile"], $fileBase.$qs["XSLfile"], NULL, array(), $params);
 
-if(!$result) echo xslt_errno($processor) . " : " . xslt_error($processor);
+if(!$result) {
+	echo "Trying to parse ".$qs["XMLfile"]." with ".$qs["XSLfile"]."...<br/>";
+	echo "ERROR #".xslt_errno($processor) . " : " . xslt_error($processor);
+}
 echo $result; ?>
 
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes2.php,v 1.1 2006/01/20 21:48:32 nickb Exp $ -->
+<!-- $Id: release-notes2.php,v 1.2 2006/01/20 21:55:23 nickb Exp $ -->
