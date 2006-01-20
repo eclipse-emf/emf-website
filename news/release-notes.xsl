@@ -99,17 +99,17 @@
 				<td>
 						<hr size="1" width="100%"/>
 						<span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b> 
-						Multiple terms are treated as an <b>OR</b> search.</span><br/>
-						<span class="log-text">You can also use these predefined filters: <br/>
-<img src="../images/icon-emf.gif" border="0" alt="emf"/> 
+						Multiple terms are treated as an <b>OR</b> search. You can also use these predefined filters: <br/>
+&#160; &#160; &#160; <img src="../images/icon-emf.gif" border="0" alt="emf"/> &#160; 
 <a href="http://eclipse.org/emf/news/release-notes.php?project=emf">EMF</a> :: 
-<img src="../images/icon-sdo.gif" border="0" alt="sdo"/> 
+<img src="../images/icon-sdo.gif" border="0" alt="sdo"/> &#160; 
 <a href="http://eclipse.org/emf/news/release-notes.php?project=emf">SDO</a> :: 
-<img src="../images/icon-xsd.gif" border="0" alt="xsd"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> <br/>
-<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2">2.2.x</a> :: 
-<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1">2.1.x</a> :: 
-<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0">2.0.x</a> :: 
+<img src="../images/icon-xsd.gif" border="0" alt="xsd"/> &#160; 
+<a href="http://eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> ::
+
+&#160; &#160; &#160; <a href="http://eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a> :: 
 						<a href="release-notes-1.x.php">1.x</a></span>
 					<hr size="1" width="100%"/>
 					<select class="log-text" name="project" size="1">
@@ -318,4 +318,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.29 2006/01/20 23:27:15 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.30 2006/01/20 23:30:31 nickb Exp $ -->
