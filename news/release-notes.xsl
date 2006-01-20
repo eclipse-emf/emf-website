@@ -159,7 +159,7 @@
 			</tr>
 			<xsl:variable name="thisProject"><xsl:value-of select="@project" /></xsl:variable>
 			<xsl:for-each select="//version-def">
-				<xsl:if test="not(contains(@label,'.x')) and (starts-with(@version,$version) or $version = '') and ($project = @project or $project = '')">
+				<xsl:if test="not(contains(@label,'.x')) and (starts-with(@version,$version) or $version = '') and ($project = $thisProject or $project = '')">
 					<xsl:variable name="thisVersion"><xsl:value-of select="@version" /></xsl:variable>
 					<xsl:variable name="matchCount"><xsl:for-each select="//bug">
 						<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">1</xsl:if>
@@ -315,4 +315,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.23 2006/01/20 21:58:42 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.24 2006/01/20 22:32:22 nickb Exp $ -->
