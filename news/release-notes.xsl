@@ -179,7 +179,8 @@
 						<td class="normal" width="70%" onClick="servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
 						</td>
 					</tr>
-					<tr style="display:none" id="ihtr{$thisProject}.{$thisVersion}.{$thisVersion}"><td bgcolor="#C0D8FF" colspan="2"><table cellspacing="0" cellpadding="0" border="0" bgcolor="white"><tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" id="ihif{$thisProject}.{$thisVersion}.{$thisVersion}">
+					<tr style="display:none" id="ihtr{$thisProject}.{$thisVersion}.{$thisVersion}"><td bgcolor="#C0D8FF" colspan="2"><table cellspacing="0" cellpadding="0" border="0" bgcolor="white" width="100%">
+						<tr><td width="10"></td><td style="border:0px solid #000000"><div frameborder="0" id="ihif{$thisProject}.{$thisVersion}.{$thisVersion}">
 						<img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/><br/>
 						<xsl:for-each select="//bug">
 							<xsl:sort select="@id" data-type="number" order="descending" />
@@ -315,4 +316,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.27 2006/01/20 22:42:30 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.28 2006/01/20 22:44:41 nickb Exp $ -->
