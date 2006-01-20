@@ -94,8 +94,6 @@
 
 	<!-- form controls -->
 	<form action="http://eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
-	<input type="hidden" name="XMLfile" value="release-notes.xml"/>
-	<input type="hidden" name="XSLfile" value="release-notes.xsl"/>
 	<table width="60%">
 			<tr>
 				<td>
@@ -104,12 +102,12 @@
 						Multiple terms are treated as an <b>OR</b> search.</span><br/>
 						<span class="log-text">You can also use these predefined filters: 
 <img src="../images/icon-emf.gif" border="0" alt="emf"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=emf">EMF</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?project=emf">EMF</a> :: 
 <img src="../images/icon-sdo.gif" border="0" alt="sdo"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=emf">SDO</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?project=emf">SDO</a> :: 
 <img src="../images/icon-xsd.gif" border="0" alt="xsd"/> 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl&amp;project=xsd">XSD</a> :: 
-<a href="http://eclipse.org/emf/news/release-notes.php?XMLfile=release-notes.xml&amp;XSLfile=release-notes.xsl">Complete 2.x Notes</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> :: 
+<a href="http://eclipse.org/emf/news/release-notes.php?">Complete 2.x Notes</a> :: 
 						<a href="release-notes-1.x.php">Complete 1.x Notes</a></span>
 					<hr size="1" width="100%"/>
 					<select class="log-text" name="project" size="1">
@@ -317,4 +315,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.22 2006/01/20 21:48:32 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.23 2006/01/20 21:58:42 nickb Exp $ -->

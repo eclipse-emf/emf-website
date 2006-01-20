@@ -7,6 +7,7 @@ $vars = explode("&", $_SERVER['QUERY_STRING']);
 for ($i=0;$i<=count($vars);$i++) {
   $var = explode("=", $vars[$i]);
   $qs[$var[0]] = $var[1];
+  echo "\$qs[".$vars[0]."] = ".$vars[1]."<br/>";
 }
 
 $params = array();
@@ -54,4 +55,4 @@ echo $result; ?>
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes2.php,v 1.2 2006/01/20 21:55:23 nickb Exp $ -->
+<!-- $Id: release-notes2.php,v 1.3 2006/01/20 22:03:26 nickb Exp $ -->
