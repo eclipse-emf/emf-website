@@ -191,7 +191,7 @@
 								<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz">
 									<xsl:value-of select="@id" />
 								</a>,
-								</nobr>&#160;&#160; 
+								</nobr> &#160; 
 							</xsl:if>
 						</xsl:for-each> <a href="javascript:servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
 						<br/><img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/>
@@ -315,4 +315,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.26 2006/01/20 22:41:09 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.27 2006/01/20 22:42:30 nickb Exp $ -->
