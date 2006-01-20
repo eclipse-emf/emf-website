@@ -154,7 +154,7 @@
 					<a class="sub-header" style="text-decoration:none" href="#{@project}"><xsl:value-of select="@label" /></a>
 				</td>
 				<td colspan="1" class="sub-header">
-					Bugs Closed
+					Bugs Closed <small>(click below to show bugs for a given release)</small>
 				</td>
 			</tr>
 			<xsl:variable name="thisProject"><xsl:value-of select="@project" /></xsl:variable>
@@ -315,4 +315,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.24 2006/01/20 22:32:22 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.25 2006/01/20 22:38:12 nickb Exp $ -->
