@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.5 2005/05/19 19:38:40 nickb Exp $ 
+	// $Id: scripts.php,v 1.6 2006/01/20 23:04:09 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -202,7 +202,9 @@
 		}
 		$xmlCollect=0;
 		$xmlItems = array();
+		$xmlCurrentDate="";
 		foreach ($xml as $line) { 
+			$m=null;
 			if (preg_match("/\<news date\=\"([^\"]+)\" showOn\=\"([^\"]+)\"\>/",$line,$m)) { // start of item, date
 				if (strstr($m[2],",")) {
 					$keys = explode(",",$m[2]);

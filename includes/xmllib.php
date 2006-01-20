@@ -104,6 +104,7 @@ class Node
 	{
 		// create new instance of this class
 		$params = ($nodeName == null) ? "();" : "(\$nodeName, \$nodeType);";
+		$n=null;
 		eval("\$n =& new ".get_class($this).$params);
 		$this->appendChild($n);
 		return $n;
@@ -853,6 +854,7 @@ class xmlParser
 	  */
 	function loadAttributes(&$node, $data)
 	{
+		$escapes=0;
 		if ($node->nodeType != 1)
 			return ;
 		$valid = array(	'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','-','_',':',
