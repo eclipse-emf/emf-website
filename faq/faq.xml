@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2006/01/20 20:53:16 $</modified>
+
+  <blockquote>
+  	<b>
+  		<a href="faq.php">Click here if this page is unreadable.</a>
+  	</b>
+  </blockquote>
+  
+  <modified>$Date: 2006/01/20 21:07:43 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -1784,6 +1791,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.13 2006/01/20 20:53:16 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.14 2006/01/20 21:07:43 nickb Exp $ -->
 
 </faq>
