@@ -59,6 +59,9 @@
 	</xsl:variable>
 
 	<html xmlns="http://www.w3.org/1999/xhtml">
+	<xsl:if test="$showFiltersOrHeaderFooter='1'">
+	<style>@import url("faq.css");</style>
+	</xsl:if>
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<head>
 	<title><xsl:copy-of select="$pageTitle" /></title>
@@ -417,4 +420,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.18 2006/01/20 20:21:19 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.19 2006/01/20 20:24:29 nickb Exp $ -->
