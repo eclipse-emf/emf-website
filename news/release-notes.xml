@@ -2,6 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="release-notes.xsl"?>
 <data>
 
+  <blockquote>
+  	<b>
+  		If this page is unreadable, please go to: <a href="http://www.eclipse.org/emf/news/release-notes.php">http://www.eclipse.org/emf/news/release-notes.php</a>.
+  	</b>
+  </blockquote>
+  
 <version-def label="2.2.0" version="2.2.0"/>
 <version-def label="2.2.x" version="2.2"/>
 
@@ -2139,4 +2145,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.128 2006/01/20 22:13:57 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.129 2006/01/20 22:56:15 nickb Exp $ -->
