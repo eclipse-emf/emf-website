@@ -88,14 +88,12 @@
 
 	<table cellspacing="0" cellpadding="0" border="0">
 		<tr valign="top">
-			<td align="left" width="115" bgcolor="#6699CC">
-
-			<!-- left nav here -->
 			<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+			<td align="left" width="115" bgcolor="#6699CC">
+			<!-- left nav here -->
 				<xsl:copy-of select="document('../includes/nav.xml')/div"/>
-			</xsl:if>
-
 			</td>
+			</xsl:if>
 
 			<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="95%">
 	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
@@ -422,4 +420,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: faq.xsl,v 1.20 2006/01/20 20:44:59 nickb Exp $ -->
+<!-- $Id: faq.xsl,v 1.21 2006/01/20 20:48:23 nickb Exp $ -->

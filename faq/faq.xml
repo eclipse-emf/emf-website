@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="faq.xsl"?>
 <faq>
-  <modified>$Date: 2005/10/12 22:05:38 $</modified>
+  <modified>$Date: 2006/01/20 20:48:59 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -744,7 +744,8 @@ When a model instance is saved with this option set, an xsi:schemaLocation attri
 The following code shows how to set the option in the resource associated with an SDO data graph:
 <br/><br/>
 <tt class="code">
-((XMLResource)eDataGraph.getDataGraphResource()).getDefaultSaveOptions().put(XMLResource.OPTION_SCHEMA_LOCATION_IMPLEMENTATION, Boolean.TRUE);
+((XMLResource)eDataGraph.getDataGraphResource()).getDefaultSaveOptions()
+&#160;&#160;.put(XMLResource.OPTION_SCHEMA_LOCATION_IMPLEMENTATION, Boolean.TRUE);
   </tt>
 <br/>
     </answer>
@@ -1782,6 +1783,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.11 2005/10/12 22:05:38 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.12 2006/01/20 20:48:59 nickb Exp $ -->
 
 </faq>
