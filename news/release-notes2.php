@@ -5,11 +5,8 @@ $pre = "../";
 // Process query string
 $vars = explode("&", $_SERVER['QUERY_STRING']);
 for ($i=0;$i<=count($vars);$i++) {
-  echo "\$vars[".$i."] = ".$vars[$i]." --> ";
   $var = explode("=", $vars[$i]);
-  echo sizeof($var). " --> ";
   $qs[$var[0]] = $var[1];
-  echo "\$qs[".$vars[0]."] = ".$vars[1]."<br/>";
 }
 
 $params = array();
@@ -57,4 +54,4 @@ echo $result; ?>
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes2.php,v 1.4 2006/01/20 22:10:16 nickb Exp $ -->
+<!-- $Id: release-notes2.php,v 1.5 2006/01/20 22:25:30 nickb Exp $ -->
