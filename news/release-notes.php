@@ -1,105 +1,57 @@
-<?php $HTMLTitle = "Eclipse Tools - EMF Release Notes";
-		$ProjectName = array(
-			"Release Notes",
-			"Eclipse Modeling Framework",
-			"Release Notes",
-			"images/reference.gif"
-			);
-		$pre = "../";
-		include "../includes/header.php"; 
-		
-		if (!$XMLfile) { 
-			if (!$doc) { 
-				$XMLfile = "../news/release-notes.xml";
-			} else {
-				$XMLfile = $doc; 
-			}
-		}
-		if (!$XSLfile) { 
-			if (!$sheet) { 
-				$XSLfile = "../news/release-notes.xsl";
-			} else {
-				$XSLfile = $sheet; 
-			}
-		}
+<?php 
 
-		//$f = file ($XMLfile); foreach ($f as $row) { echo htmlspecialchars($row)."<br>"; }
+$pre = "../";
 
-		?>
+// Process query string
+$vars = explode("&", $_SERVER['QUERY_STRING']);
+for ($i=0;$i<=count($vars);$i++) {
+  $var = explode("=", $vars[$i]);
+  $qs[$var[0]] = $var[1];
+}
 
-<style>@import url("../news/release-notes.css");</style>
-<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
-<script type="text/javascript">
-	var returnval = 0;
-	var stylesheet, xmlFile, cache, doc;
+$params = array();
+$params["project"] = $qs["project"];
+$params["version"] = $qs["version"];
+$params["showFiltersOrHeaderFooter"] = 1;
 
-	var project = "<?php echo $project; ?>";
-	var version = "<?php echo $version; ?>";
-	var showFiltersOrHeaderFooter = '1'; // set to '1' for YES, anything else for NO
+$HTMLTitle = "Eclipse Tools - EMF Release Notes";
+$ProjectName = array(
+	"Release Notes",
+	"Eclipse Modeling Framework",
+	"Release Notes",
+	"images/reference.gif"
+);
 
-	function init(){
-		// NSCP 7.1+ / Mozilla 1.4.1+
-		// Use the standard DOM Level 2 technique, if it is supported
-		if (document.implementation && document.implementation.createDocument) {
-			xmlFile = document.implementation.createDocument("", "", null);
-			stylesheet = document.implementation.createDocument("", "", null);
-			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet.load("<?php echo $XSLfile; ?>");
-			xmlFile.addEventListener("load", transform, false);
-			stylesheet.addEventListener("load", transform, false);
-		}
-		//IE 6.0+ solution
-		else if (window.ActiveXObject) {
-			xmlFile = new ActiveXObject("msxml2.DOMDocument.3.0");
-			xmlFile.async = false;
-			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
-			stylesheet.async = false;
-			stylesheet.load("<?php echo $XSLfile; ?>");
-			cache = new ActiveXObject("msxml2.XSLTemplate.3.0");
-			cache.stylesheet = stylesheet;
-			transformData();
-		}
-	}
-	// separate transformation function for IE 6.0+
-	function transformData(){
-		var processor = cache.createProcessor();
-		processor.input = xmlFile;
+include $pre . "includes/header.php"; 
 
-		processor.addParameter("project", project,"");
-		processor.addParameter("version", version,"");
-		processor.addParameter("showFiltersOrHeaderFooter", showFiltersOrHeaderFooter,"");
+/*
+ * To work, this script must be run with a version of PHP4 which
+ * includes the Sablotron XSLT extension compiled into it
+ * 
+ * Params in stylesheet:
+ *  
+ * 	<xsl:param name="project"></xsl:param>
+ * 	<xsl:param name="version"></xsl:param>
+ *  <xsl:param name="showFiltersOrHeaderFooter"></xsl:param>
+ * 	
+ */
 
-		processor.transform();
-		data.innerHTML = processor.output;
-	}
-	// separate transformation function for NSCP 7.1+ and Mozilla 1.4.1+ 
-	function transform(){
-		returnval+=1;
-		if (returnval==2){
-			var processor = new XSLTProcessor();
-			processor.importStylesheet(stylesheet); 
+// define XML and XSL sources 
+$XMLfile = "release-notes.xml";
+$XSLfile = "release-notes.xsl";
 
-			processor.setParameter("","project", project);
-			processor.setParameter("","version", version);
-			processor.setParameter("","showFiltersOrHeaderFooter", showFiltersOrHeaderFooter);
+$processor = xslt_create();
+$fileBase = 'file://' . getcwd () . '/';
+xslt_set_base ( $processor, $fileBase );
+$result = xslt_process($processor, $fileBase.$XMLfile, $fileBase.$XSLfile, NULL, array(), $params);
 
-			doc = processor.transformToDocument(xmlFile);
-			document.getElementById("data").innerHTML = doc.documentElement.innerHTML;
-		}
-	}
-</script>
-<body onload="init();">
-
-<div id="data">
-<!-- this is where the transformed XML data goes -->
-			<p><b class="big-header">XML now loading...</b></p> 
-			<p>Your browser must support XML & XSL.</p>
-			<p>Try <a target="_new" href="http://channels.netscape.com/ns/browsers/download.jsp">Netscape 7.1</a>, <a target="_new" href="http://mozilla.org/products/mozilla1.x/">Mozilla 1.7</a>, or <a target="_new" href="http://www.microsoft.com/windows/ie/default.asp">Internet Explorer 6.0</a>.</p>
-
-</div>
+if(!$result) {
+	echo "Trying to parse ".$XMLfile." with ".$XSLfile."...<br/>";
+	echo "ERROR #".xslt_errno($processor) . " : " . xslt_error($processor);
+}
+echo $result; ?>
 
 <p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
-<?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.10 2005/08/09 01:05:34 nickb Exp $ -->
+<?php include $pre . "includes/footer.php"; ?>
+<!-- $Id: release-notes.php,v 1.11 2006/01/20 22:45:07 nickb Exp $ -->
