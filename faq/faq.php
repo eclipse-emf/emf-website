@@ -1,152 +1,104 @@
-<?php if ($FAQ=="XSD") { 
-			$HTMLTitle = "XML Schema Infoset Model FAQ";
-			$ProjectName = array(
-				"XML Schema Infoset Model FAQ",
-				"XML Schema Infoset Model FAQ",
-				"XML Schema Infoset Model FAQ",
-				"images/reference.gif"
-				);
-				if (!$Question && !$Answer && !$Category) { 
-					$Question="XSD";
-					$Answer="XSD";
-					$Category="xsd";
-				}
-		} else if ($FAQ=="SDO") { 
-			$HTMLTitle = "Service Data Objects FAQ";
-			$ProjectName = array(
-				"Service Data Objects FAQ",
-				"Service Data Objects FAQ",
-				"Service Data Objects FAQ",
-				"images/reference.gif"
-				);
-				if (!$Question && !$Answer && !$Category) { 
-					$Question="SDO";
-					$Answer="SDO";
-					$Category="sdo";
-				}
-		} else if ($FAQ=="EMF") { 
-			$HTMLTitle = "Eclipse Modeling Framework FAQ";
-			$ProjectName = array(
-				"Eclipse Modeling Framework FAQ",
-				"Eclipse Modeling Framework FAQ",
-				"Eclipse Modeling Framework FAQ",
-				"images/reference.gif"
-				);
-				if (!$Question && !$Answer && !$Category) { 
-					$Question="EMF";
-					$Answer="EMF";
-					$Category="emf";
-				}
-		} else {
-			$HTMLTitle = "Eclipse Modeling Framework FAQ";
-			$ProjectName = array(
-				"Eclipse Modeling Framework FAQ",
-				"Eclipse Modeling Framework FAQ",
-				"Eclipse Modeling Framework FAQ",
-				"images/reference.gif"
-				);
-		}
-		$pre = "../";
-		include "../includes/header.php"; 
-		
-		if (!$doc) { 
-			$XMLfile = "../faq/faq.xml";
-		} else {
-			$XMLfile = $doc; 
-		}
-
-		//$f = file ($XMLfile); foreach ($f as $row) { echo htmlspecialchars($row)."<br>"; }
-
-		?>
-
-<style>@import url("../faq/faq.css");</style>
-<script type="text/javascript">
-	var returnval = 0;
-	var stylesheet, xmlFile, cache, doc;
-
-	var FAQ = "<?php echo $FAQ; ?>";
-	var showFiltersOrHeaderFooter = '1'; // set to '1' for YES, anything else for NO
 <?php 
-	$filterNames = array("",
-		"Category","Question","Answer"
-	);
-	for ($i=1;$i<=5;$i++) { 
-	$fv = $filterNames[$i];
-	echo "	var filterName$i= \"".$fv."\";\n";
-	echo "	var filterVal$i= \"".$$fv."\";\n";
-} ?>
 
-	function init(){
-		// NSCP 7.1+ / Mozilla 1.4.1+
-		// Use the standard DOM Level 2 technique, if it is supported
-		if (document.implementation && document.implementation.createDocument) {
-			xmlFile = document.implementation.createDocument("", "", null);
-			stylesheet = document.implementation.createDocument("", "", null);
-			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet.load("../faq/faq.xsl");
-			xmlFile.addEventListener("load", transform, false);
-			stylesheet.addEventListener("load", transform, false);
-		}
-		//IE 6.0+ solution
-		else if (window.ActiveXObject) {
-			xmlFile = new ActiveXObject("msxml2.DOMDocument.3.0");
-			xmlFile.async = false;
-			xmlFile.load("<?php echo $XMLfile; ?>");
-			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
-			stylesheet.async = false;
-			stylesheet.load("../faq/faq.xsl");
-			cache = new ActiveXObject("msxml2.XSLTemplate.3.0");
-			cache.stylesheet = stylesheet;
-			transformData();
-		}
-	}
-	// separate transformation function for IE 6.0+
-	function transformData(){
-		var processor = cache.createProcessor();
-		processor.input = xmlFile;
+$pre = "../";
 
-		processor.addParameter("FAQ", FAQ,"");
-		processor.addParameter("showFiltersOrHeaderFooter", showFiltersOrHeaderFooter,"");
+// Process query string
+$vars = explode("&", $_SERVER['QUERY_STRING']);
+for ($i=0;$i<=count($vars);$i++) {
+  $var = explode("=", $vars[$i]);
+  $qs[$var[0]] = $var[1];
+}
 
-<?php for ($i=1;$i<=5;$i++) { 
-	echo "		processor.addParameter(\"filterName$i\",filterName$i,\"\");\n";
-	echo "		processor.addParameter(\"filterVal$i\",filterVal$i,\"\");\n";
-} ?>
+$params = array();
+$params["FAQ"] = $qs["FAQ"];
+$params["showFiltersOrHeaderFooter"] = 1;
 
-		processor.transform();
-		data.innerHTML = processor.output;
-	}
-	// separate transformation function for NSCP 7.1+ and Mozilla 1.4.1+ 
-	function transform(){
-		returnval+=1;
-		if (returnval==2){
-			var processor = new XSLTProcessor();
-			processor.importStylesheet(stylesheet); 
+// simplified QS input for canned queries
+switch ($qs["FAQ"]) {
+	case "EMF":
+		$qs["Category"] = "emf";
+		$qs["Question"] = "EMF";
+		$qs["Answer"] = "EMF";
+		$HTMLTitle = "Eclipse Modeling Framework FAQ";
+		$ProjectName = array(
+			"Eclipse Modeling Framework FAQ",
+			"Eclipse Modeling Framework FAQ",
+			"Eclipse Modeling Framework FAQ",
+			"images/reference.gif"
+		);
+		break;
+	case "SDO":
+		$qs["Category"] = "sdo";
+		$qs["Question"] = "SDO";
+		$qs["Answer"] = "SDO";
+		$HTMLTitle = "Service Data Objects FAQ";
+		$ProjectName = array(
+			"Service Data Objects FAQ",
+			"Service Data Objects FAQ",
+			"Service Data Objects FAQ",
+			"images/reference.gif"
+		);
+		break;
+	case "XSD":
+		$qs["Category"] = "xsd";
+		$qs["Question"] = "XSD";
+		$qs["Answer"] = "XSD";
+		$HTMLTitle = "XML Schema Infoset Model FAQ";
+		$ProjectName = array(
+			"XML Schema Infoset Model FAQ",
+			"XML Schema Infoset Model FAQ",
+			"XML Schema Infoset Model FAQ",
+			"images/reference.gif"
+		);
+		break;
+	default:
+		$HTMLTitle = "Eclipse Modeling Framework FAQ";
+		$ProjectName = array(
+			"Eclipse Modeling Framework FAQ",
+			"Eclipse Modeling Framework FAQ",
+			"Eclipse Modeling Framework FAQ",
+			"images/reference.gif"
+		);
+		break;
+}
 
-			processor.setParameter("","FAQ", FAQ);
-			processor.setParameter("","showFiltersOrHeaderFooter", showFiltersOrHeaderFooter);
+// other mappings of filterNameX to filterNameValX
+$filterNames = array("","Category","Question","Answer");
+for ($i=1;$i<=3;$i++) { 
+  $fn = $filterNames[$i];
+  $params["filterName".$i] = $fn; // filterName1 = Category
+  $params["filterVal".$i] = $qs[$fn]; // filterVal1 = $qs["Category"]
+} 
+	
+include $pre . "includes/header.php"; 
+		
+/*
+ * To work, this script must be run with a version of PHP4 which
+ * includes the Sablotron XSLT extension compiled into it
+ * 
+ * Params in stylesheet:
+ *  
+ * 	<xsl:param name="FAQ"></xsl:param>
+ * 	<xsl:param name="filterName1">Category</xsl:param>
+ * 	<xsl:param name="filterVal1"></xsl:param>
+ * 	<xsl:param name="filterName2">Question</xsl:param>
+ * 	<xsl:param name="filterVal2"></xsl:param>
+ * 	<xsl:param name="filterName3">Answer</xsl:param>
+ * 	<xsl:param name="filterVal3"></xsl:param> 
+ * 	
+ */
 
-<?php for ($i=1;$i<=5;$i++) { 
-	echo "			processor.setParameter(\"\",\"filterName$i\",filterName$i);\n";
-	echo "			processor.setParameter(\"\",\"filterVal$i\",filterVal$i);\n";
-} ?>
 
-			doc = processor.transformToDocument(xmlFile);
-			document.getElementById("data").innerHTML = doc.documentElement.innerHTML;
-		}
-	}
-</script>
-<body onload="init();">
+$processor = xslt_create();
+$fileBase = 'file://' . getcwd () . '/';
+xslt_set_base ( $processor, $fileBase );
+$XMLfile = "faq.xml";
+$result = xslt_process($processor, $fileBase.$XMLfile, $fileBase.'faq.xsl', NULL, array(), $params);
 
-<div id="data">
-<!-- this is where the transformed XML data goes -->
-			<p><b class="big-header">XML now loading...</b></p> 
-			<p>Your browser must support XML & XSL.</p>
-			<p>Try <a target="_new" href="http://channels.netscape.com/ns/browsers/download.jsp">Netscape 7.1</a>, <a target="_new" href="http://mozilla.org/products/mozilla1.x/">Mozilla 1.7</a>, or <a target="_new" href="http://www.microsoft.com/windows/ie/default.asp">Internet Explorer 6.0</a>.</p>
-
-</div>
+if(!$result) echo xslt_errno($processor) . " : " . xslt_error($processor);
+echo $result; ?>
 
 <p><a href="view-source:http://eclipse.org/emf/faq/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
-<?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.11 2005/07/07 06:47:02 nickb Exp $ -->
+<?php include $pre . "includes/footer.php"; ?>
+<!-- $Id: faq.php,v 1.12 2006/01/20 21:13:27 nickb Exp $ -->
