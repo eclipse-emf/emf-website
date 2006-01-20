@@ -85,9 +85,9 @@ include $pre . "includes/header.php";
  * 	<xsl:param name="filterVal2"></xsl:param>
  * 	<xsl:param name="filterName3">Answer</xsl:param>
  * 	<xsl:param name="filterVal3"></xsl:param> 
+ *  <xsl:param name="showFiltersOrHeaderFooter"></xsl:param>
  * 	
  */
-
 
 $processor = xslt_create();
 $fileBase = 'file://' . getcwd () . '/';
@@ -101,4 +101,4 @@ echo $result; ?>
 <p><a href="view-source:http://eclipse.org/emf/faq/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.12 2006/01/20 21:13:27 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.13 2006/01/20 21:14:49 nickb Exp $ -->
