@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <?php 
-		$HTMLTitle = "Eclipse Tools - EMF Home";
+		$HTMLTitle = "Eclipse Tools - ".strtoupper($page)." Home";
 		$noHeader=true; 
 		$newsInSidebar=true; // don't include news in footer
 		include $pre."includes/header.php"; ?>
@@ -225,7 +225,7 @@ Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> mode
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.19 2006/01/20 22:56:15 nickb Exp $ -->
+<!-- $Id: home.php,v 1.20 2006/01/23 18:38:35 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 
