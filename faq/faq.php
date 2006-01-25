@@ -6,19 +6,19 @@ $pre = "../";
 $vars = explode("&", $_SERVER['QUERY_STRING']);
 for ($i=0;$i<=count($vars);$i++) {
   $var = explode("=", $vars[$i]);
-  $qs[$var[0]] = $var[1];
+  $qsvars[$var[0]] = $var[1];
 }
 
 $params = array();
-$params["FAQ"] = $qs["FAQ"];
+$params["FAQ"] = $qsvars["FAQ"];
 $params["showFiltersOrHeaderFooter"] = 1;
 
 // simplified QS input for canned queries
-switch ($qs["FAQ"]) {
+switch ($qsvars["FAQ"]) {
 	case "EMF":
-		$qs["Category"] = "emf";
-		$qs["Question"] = "EMF";
-		$qs["Answer"] = "EMF";
+		$qsvars["Category"] = "emf";
+		$qsvars["Question"] = "EMF";
+		$qsvars["Answer"] = "EMF";
 		$HTMLTitle = "Eclipse Modeling Framework FAQ";
 		$ProjectName = array(
 			"Eclipse Modeling Framework FAQ",
@@ -28,9 +28,9 @@ switch ($qs["FAQ"]) {
 		);
 		break;
 	case "SDO":
-		$qs["Category"] = "sdo";
-		$qs["Question"] = "SDO";
-		$qs["Answer"] = "SDO";
+		$qsvars["Category"] = "sdo";
+		$qsvars["Question"] = "SDO";
+		$qsvars["Answer"] = "SDO";
 		$HTMLTitle = "Service Data Objects FAQ";
 		$ProjectName = array(
 			"Service Data Objects FAQ",
@@ -40,9 +40,9 @@ switch ($qs["FAQ"]) {
 		);
 		break;
 	case "XSD":
-		$qs["Category"] = "xsd";
-		$qs["Question"] = "XSD";
-		$qs["Answer"] = "XSD";
+		$qsvars["Category"] = "xsd";
+		$qsvars["Question"] = "XSD";
+		$qsvars["Answer"] = "XSD";
 		$HTMLTitle = "XML Schema Infoset Model FAQ";
 		$ProjectName = array(
 			"XML Schema Infoset Model FAQ",
@@ -67,7 +67,7 @@ $filterNames = array("","Category","Question","Answer");
 for ($i=1;$i<=3;$i++) { 
   $fn = $filterNames[$i];
   $params["filterName".$i] = $fn; // filterName1 = Category
-  $params["filterVal".$i] = $qs[$fn]; // filterVal1 = $qs["Category"]
+  $params["filterVal".$i] = $qsvars[$fn]; // filterVal1 = $qsvars["Category"]
 } 
 	
 include $pre . "includes/header.php"; 
@@ -101,4 +101,4 @@ echo $result; ?>
 <p><a href="view-source:http://eclipse.org/emf/faq/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.13 2006/01/20 21:14:49 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.14 2006/01/25 19:22:28 nickb Exp $ -->
