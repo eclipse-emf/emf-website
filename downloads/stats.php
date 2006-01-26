@@ -4,9 +4,9 @@ require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads
 
 $queries = array(
 	"Zips" => "SELECT DOW.file as Zipfile, COUNT(*) AS Requests FROM downloads AS DOW WHERE
-                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file", 
+                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file LIMIT 100", 
 	"Countries" => "SELECT DOW.remote_host as Requester, COUNT(*) AS Requests FROM downloads AS DOW WHERE
-                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file"
+                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file LIMIT 100"
 );
 
 foreach ($queries as $title => $query) { 
