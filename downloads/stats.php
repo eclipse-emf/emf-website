@@ -1,4 +1,24 @@
- <?php
+<?php
+
+class Timer { 
+	/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
+	// Starts, Ends and Displays Page Creation Time
+	function getmicrotime() {
+		list($usec, $sec) = explode(" ", microtime());
+		return ((float)$usec + (float)$sec);
+	}    
+	    
+	function starttime() {
+		$this->st = $this->getmicrotime();
+	}
+	    
+	function displaytime() {
+	    $this->et = $this->getmicrotime();
+	    return round(($this->et - $this->st), 3);
+	}
+}
+
+$time = new Timer; $time->starttime();
 
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads_ro.class.php";
 
@@ -11,7 +31,6 @@ $queries = array(
 
 foreach ($queries as $title => $query) { 
 	$results = doQuery($query);
-	echo "<hr noshade=\"noshade\" size=\"1\"/>";
 	echo "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\">$title</td></tr>";
 	foreach ($results as $i => $data) {
    		if (!$i) { # do column header
@@ -28,7 +47,9 @@ foreach ($queries as $title => $query) {
 		echo "</tr>\n";
 	}
 	echo "</table></p>";
+	echo "<hr noshade=\"noshade\" size=\"1\"/>";
 }
+echo '<p align="right">Script took '.$time->displaytime().' seconds to execute.</p>';
         
 ##########################################################################################
         
