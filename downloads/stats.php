@@ -38,38 +38,49 @@ for ($i=0;$i<=count($vars);$i++) {
   $qsvars[$var[0]] = $var[1];
 }
 
+$user = $qsvars["user"];
+$pass = $qsvars["pass"];
+$gooduser = "emf-dev";
+$goodpass = "do-not-collect-200-dollars";
 $debug = $qsvars["debug"];
+
 if ($qsvars["ctype"] || $qsvars["Content-Type"]) {
 	$ctype=($qsvars["ctype"]?"text/".$qsvars["ctype"]:$qsvars["Content-Type"]);
 	header('Content-type: '.$ctype);
 }
 
-if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
-	if (false!==strpos($ctype,"xml")) { 
-		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-		echo "<data";
-		$results = doQuery($queries[$qsvars["table"]]);
-		echo " elapsed=\"".$time->displaytime()."s\">\n";
-		echo displayXMLResults($qsvars["table"],$results);
-		echo "</data>\n";
+if ($user == $gooduser && $pass == $goodpass) { 
+	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
+		if (false!==strpos($ctype,"xml")) { 
+			echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+			echo "<data";
+			$results = doQuery($queries[$qsvars["table"]]);
+			echo " elapsed=\"".$time->displaytime()."s\">\n";
+			echo displayXMLResults($qsvars["table"],$results);
+			echo "</data>\n";
+		} else {
+			include $pre . "includes/header.php";
+			echo "Querying ... ";
+			$results = doQuery($queries[$qsvars["table"]]);
+			echo "done (".$time->displaytime()." seconds).<br/><br/>";
+			echo displayHTMLResults($qsvars["table"],$results);
+			include $pre . "includes/footer.php";
+		}
 	} else {
 		include $pre . "includes/header.php";
-		echo "Querying ... ";
-		$results = doQuery($queries[$qsvars["table"]]);
-		echo "done (".$time->displaytime()." seconds).<br/><br/>";
-		echo displayHTMLResults($qsvars["table"],$results);
+		echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
+		foreach ($queries as $title => $query) {
+			echo "<li>" .
+				"$title: <a href=\"$PHP_SELF?table=$title\">HTML</a>, <a href=\"$PHP_SELF?table=$title&ctype=xml\">XML</a>" .
+				"</li>\n";
+		}
+		echo "</ul><p>&#160;</p>";
 		include $pre . "includes/footer.php";
 	}
 } else {
 	include $pre . "includes/header.php";
-	echo "<p>Choose a table to display. Query may take over 2 minutes.</p>\n<ul>";
-	foreach ($queries as $title => $query) {
-		echo "<li>" .
-			"HTML: <a href=\"$PHP_SELF?table=$title\">$title</a>; " .
-			"XML: <a href=\"$PHP_SELF?table=$title&ctype=xml\">$title</a>" .
-			"</li>\n";
-	}
-	echo "</ul><p>&#160;</p>";
+	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
+	echo "<p>&#160;</p>";
 	include $pre . "includes/footer.php";
 } 
 
@@ -139,4 +150,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.8 2006/01/26 23:13:49 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.9 2006/01/26 23:21:58 nickb Exp $ -->
