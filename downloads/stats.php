@@ -1,5 +1,7 @@
 <?php
 
+$pre = "../";
+
 class Timer { 
 	/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
 	// Starts, Ends and Displays Page Creation Time
@@ -29,30 +31,52 @@ $queries = array(
                 DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.remote_host LIMIT 100"
 );
 
-foreach ($queries as $title => $query) { 
-	$results = doQuery($query);
-	echo "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\">$title</td></tr>";
-	foreach ($results as $i => $data) {
-   		if (!$i) { # do column header
-   			echo "<tr bgcolor=\"navy\">\n";
-			foreach ($data as $label => $datum) { 
-    			echo "\t<td><b style=\"color:white\">$label</b></td>\n";
-    		}
-   			echo "</tr>\n";
-		}
-		echo "<tr bgcolor=\"".($i%2==1?"#EEEEEE":"#FFFFFF")."\">\n";
-		foreach ($data as $label => $datum) { 
-			echo "\t<td>$datum</td>\n";
-		}
-		echo "</tr>\n";
-	}
-	echo "</table></p>";
-	echo "<hr noshade=\"noshade\" size=\"1\"/>";
+// Process query string
+$vars = explode("&", $_SERVER['QUERY_STRING']);
+for ($i=0;$i<=count($vars);$i++) {
+  $var = explode("=", $vars[$i]);
+  $qsvars[$var[0]] = $var[1];
 }
-echo '<p align="right">Script took '.$time->displaytime().' seconds to execute.</p>';
+
+include $pre . "includes/header.php"; 
+
+if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
+	displayResults($qsvars["table"], $queries[$qsvars["table"]]);
+	echo '<p align="right">Query took '.$time->displaytime().' seconds.</p>';
+} else {
+	echo "<p>Choose a table to display. Query may take over 2 minutes.</p>\n<ul>";
+	foreach ($queries as $title => $query) {
+		echo "<li><a href=\"$PHP_SELF?table=$title\">$title</a></li>\n";
+	}
+	echo "</ul>";
+} 
+
+include $pre . "includes/footer.php";
         
 ##########################################################################################
-        
+
+function displayResults($title, $query) {
+	$out = "";
+	$results = doQuery($query);
+	$out .= "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\">$title</td></tr>";
+	foreach ($results as $i => $data) {
+   		if (!$i) { # do column header
+   			$out .= "<tr bgcolor=\"navy\">\n";
+			foreach ($data as $label => $datum) { 
+    			$out .= "\t<td><b style=\"color:white\">$label</b></td>\n";
+    		}
+   			$out .= "</tr>\n";
+		}
+		$out .= "<tr bgcolor=\"".($i%2==1?"#EEEEEE":"#FFFFFF")."\">\n";
+		foreach ($data as $label => $datum) { 
+			$out .= "\t<td>$datum</td>\n";
+		}
+		$out .= "</tr>\n";
+	}
+	$out .= "</table></p>";
+	$out .= "<hr noshade=\"noshade\" size=\"1\"/>";
+}   
+     
 # There are usually in excess of 30 million records.. watch your queries!!
 function doQuery($sql) {
 	$arr = array();
@@ -82,4 +106,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.5 2006/01/26 22:22:24 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.6 2006/01/26 22:33:14 nickb Exp $ -->
