@@ -26,9 +26,9 @@ require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads
 
 $queries = array(
 	"Zips" => "SELECT DOW.file as Zipfile, COUNT(*) AS Requests FROM downloads AS DOW WHERE
-                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file LIMIT 100", 
+                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file LIMIT 200", 
 	"Countries" => "SELECT DOW.remote_host as Requester, COUNT(*) AS Requests FROM downloads AS DOW WHERE
-                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.remote_host LIMIT 100"
+                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.remote_host LIMIT 200"
 );
 
 // Process query string
@@ -38,27 +38,58 @@ for ($i=0;$i<=count($vars);$i++) {
   $qsvars[$var[0]] = $var[1];
 }
 
-include $pre . "includes/header.php"; 
+$debug = $qsvars["debug"];
+if ($qsvars["ctype"] || $qsvars["Content-Type"]) {
+	$ctype=($qsvars["ctype"]?"text/".$qsvars["ctype"]:$qsvars["Content-Type"]);
+	header('Content-type: '.$ctype);
+}
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
-	displayResults($qsvars["table"], $queries[$qsvars["table"]]);
-	echo '<p align="right">Query took '.$time->displaytime().' seconds.</p>';
+	if (false!==strpos($ctype,"xml")) { 
+		echo "<data";
+		$results = doQuery($queries[$qsvars["table"]]);
+		echo " elapsed=\"".$time->displaytime()."s\">";
+		echo displayXMLResults($qsvars["table"],$results);
+		echo "</data>\n";
+	} else {
+		include $pre . "includes/header.php";
+		echo "<p>Querying ... ";
+		$results = doQuery($queries[$qsvars["table"]]);
+		echo "done (".$time->displaytime()." seconds).</p>";
+		echo displayHTMLResults($qsvars["table"],$results);
+		include $pre . "includes/footer.php";
+	}
 } else {
+	include $pre . "includes/header.php";
 	echo "<p>Choose a table to display. Query may take over 2 minutes.</p>\n<ul>";
 	foreach ($queries as $title => $query) {
-		echo "<li><a href=\"$PHP_SELF?table=$title\">$title</a></li>\n";
+		echo "<li>" .
+			"HTML: <a href=\"$PHP_SELF?table=$title\">$title</a>; " .
+			"XML: <a href=\"$PHP_SELF?table=$title&ctype=text/xml\">$title</a>" .
+			"</li>\n";
 	}
-	echo "</ul>";
+	echo "</ul><p>&#160;</p>";
+	include $pre . "includes/footer.php";
 } 
 
-include $pre . "includes/footer.php";
-        
 ##########################################################################################
 
-function displayResults($title, $query) {
+function displayXMLResults($title, $results) {
+	if ($title[strlen($title)-1] == "s") $title = substr($title,0,strlen($title)-1); 
 	$out = "";
-	$results = doQuery($query);
-	$out .= "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\">$title</td></tr>";
+	foreach ($results as $i => $data) {
+		$out .= "<$title>";
+		foreach ($data as $label => $datum) { 
+			$out .= "\t<$label>$datum</$label>\n";
+		}
+		$out .= "</$title>\n\n";
+	}
+	return $out;
+}   
+     
+function displayHTMLResults($title, $results) {
+	$out = "";
+	$out .= "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\"><b>$title</b></td></tr>";
 	foreach ($results as $i => $data) {
    		if (!$i) { # do column header
    			$out .= "<tr bgcolor=\"navy\">\n";
@@ -75,6 +106,7 @@ function displayResults($title, $query) {
 	}
 	$out .= "</table></p>";
 	$out .= "<hr noshade=\"noshade\" size=\"1\"/>";
+	return $out;
 }   
      
 # There are usually in excess of 30 million records.. watch your queries!!
@@ -106,4 +138,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.6 2006/01/26 22:33:14 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.7 2006/01/26 23:03:55 nickb Exp $ -->
