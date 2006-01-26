@@ -25,9 +25,9 @@ $time = new Timer; $time->starttime();
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads_ro.class.php";
 
 $queries = array(
-	"Zips" => "SELECT DOW.file as Zipfile, COUNT(*) AS Requests FROM downloads AS DOW WHERE
+	"Zips" => "SELECT COUNT(*) AS Hits, DOW.file as File FROM downloads AS DOW WHERE
                 DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file LIMIT 200", 
-	"Countries" => "SELECT DOW.remote_host as Requester, COUNT(*) AS Requests FROM downloads AS DOW WHERE
+	"Countries" => "SELECT COUNT(*) AS Hits, DOW.remote_host as Requester FROM downloads AS DOW WHERE
                 DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.remote_host LIMIT 200"
 );
 
@@ -46,16 +46,17 @@ if ($qsvars["ctype"] || $qsvars["Content-Type"]) {
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	if (false!==strpos($ctype,"xml")) { 
+		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		echo "<data";
 		$results = doQuery($queries[$qsvars["table"]]);
-		echo " elapsed=\"".$time->displaytime()."s\">";
+		echo " elapsed=\"".$time->displaytime()."s\">\n";
 		echo displayXMLResults($qsvars["table"],$results);
 		echo "</data>\n";
 	} else {
 		include $pre . "includes/header.php";
-		echo "<p>Querying ... ";
+		echo "Querying ... ";
 		$results = doQuery($queries[$qsvars["table"]]);
-		echo "done (".$time->displaytime()." seconds).</p>";
+		echo "done (".$time->displaytime()." seconds).<br/><br/>";
 		echo displayHTMLResults($qsvars["table"],$results);
 		include $pre . "includes/footer.php";
 	}
@@ -65,7 +66,7 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	foreach ($queries as $title => $query) {
 		echo "<li>" .
 			"HTML: <a href=\"$PHP_SELF?table=$title\">$title</a>; " .
-			"XML: <a href=\"$PHP_SELF?table=$title&ctype=text/xml\">$title</a>" .
+			"XML: <a href=\"$PHP_SELF?table=$title&ctype=xml\">$title</a>" .
 			"</li>\n";
 	}
 	echo "</ul><p>&#160;</p>";
@@ -78,11 +79,11 @@ function displayXMLResults($title, $results) {
 	if ($title[strlen($title)-1] == "s") $title = substr($title,0,strlen($title)-1); 
 	$out = "";
 	foreach ($results as $i => $data) {
-		$out .= "<$title>";
+		$out .= "\n\t<$title";
 		foreach ($data as $label => $datum) { 
-			$out .= "\t<$label>$datum</$label>\n";
+			$out .= " $label=\"$datum\"";
 		}
-		$out .= "</$title>\n\n";
+		$out .= "/>\n";
 	}
 	return $out;
 }   
@@ -138,4 +139,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.7 2006/01/26 23:03:55 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.8 2006/01/26 23:13:49 nickb Exp $ -->
