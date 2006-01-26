@@ -29,6 +29,22 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200601260027" project="emf" version="2.2.0">
+<bug id="118688">Provide generated editor support for containment proxies</bug>
+<bug id="121088">Mark the lists used in EMF with the RandonAccess interface</bug>
+<bug id="122422">Making ECrossReferenceEList overrides simpler</bug>
+<bug id="122989">ChangeRecorder throws NPE with EReference.upperbounds &gt;1</bug>
+<bug id="123137">Generated Ecore2XML should support one-sided mappings</bug>
+<bug id="124186">org.eclipse.emf.common.notify.NotifyingList#clear</bug>
+<bug id="124306">Date/time moves one hour when converting from date to string (ecoreutil.convertostring) and then to calendar</bug>
+<bug id="124441">Books disappear in EXTLibrary Model Editor</bug>
+<bug id="124670">Validator: problems validating required attributes</bug>
+<bug id="124858">EcoreUtil::Copier doesn't work properly with cross-resource containement proxy object</bug>
+<bug id="124907">cross-resource containement proxy object needs to be serialized properly alone</bug>
+<bug id="124933">ClasscastException in genmodel editor</bug>
+<bug id="125014">Support adding from an array in the basic list implementations.</bug>
+</entry>
+
 <entry build="I200601190000" project="emf" version="2.2.0">
 <bug id="78076">[Plan Item] JMerger:  Decouple the JMerger implementation from JDOM</bug>
 <bug id="123809">DragAndDropCommand gives incorrect feedback for drop operations</bug>
@@ -336,6 +352,11 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200601260027" project="xsd" version="2.2.0">
+<bug id="123407">Performance issue/bug in org.eclipse.xsd.impl.XSDNamedComponentImpl</bug>
+<bug id="125096">XSDEditPlugin in standalone should not use eclipse core</bug>
 </entry>
 
 <entry build="I200601190000" project="xsd" version="2.2.0">
@@ -2145,4 +2166,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.129 2006/01/20 22:56:15 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.130 2006/01/26 06:45:25 nickb Exp $ -->
