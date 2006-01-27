@@ -118,8 +118,17 @@ function doQS($replacements = array()) {
 }
 
 function displayXMLResults($title, $results) {
+	global $qsvars;
 	$count=0;
 	$out = "";
+	$out .= "\t<query>\n";
+	foreach ($qsvars as $label => $value) {
+		if ($label && $label!="pass") { 
+			$out .= "\t\t<".$label.">".$value."</".$label.">\n";
+		}
+	}
+	$out .= "\t</query>\n";
+	
 	foreach ($results as $i => $data) {
 		$out .= "\n\t<".strtolower($title);
 		foreach ($data as $label => $datum) { 
@@ -135,7 +144,6 @@ function displayXMLResults($title, $results) {
 function displayHTMLResults($title, $results) {
 	$count=0;
 	$out = "";
-	$out .= "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\"><b>$title</b></td></tr>";
 	foreach ($results as $i => $data) {
    		if (!$i) { # do column header
    			$out .= "<tr bgcolor=\"navy\">\n";
@@ -152,7 +160,11 @@ function displayHTMLResults($title, $results) {
 		$out .= "</tr>\n";
 	}
 	$out .= "</table></p>\n";
-	$out .= "<p>".$title."s: ".sizeof($results).", total count: ".$count."</p>\n";
+	
+	// prepend
+	$out = "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\"><b>".
+		sizeof($results)." $title, total: ".$count."</b></td></tr>".$out;
+
 	$out .= "<hr noshade=\"noshade\" size=\"1\"/>\n";
 	return $out;
 }   
@@ -186,4 +198,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.15 2006/01/27 19:45:06 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.16 2006/01/27 19:52:17 nickb Exp $ -->
