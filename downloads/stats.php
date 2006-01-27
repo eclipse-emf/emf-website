@@ -59,11 +59,11 @@ $queries = array(
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ".$limit
-	,"TLD" => // temporary solution for getting country codes
-		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.remote_host,'.',-1) as TLD FROM downloads AS DOW " .
+	,"Domain" => // temporary solution for getting country codes
+		"SELECT COUNT(*) AS Count, DOW.remote_host as Host, SUBSTRING_INDEX(DOW.remote_host,'.',-1) as Domain FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Domain ".$limit
 );
 
 if ($user == $gooduser && $pass == $goodpass) { 
@@ -221,4 +221,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.21 2006/01/27 20:32:41 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.22 2006/01/27 20:49:06 nickb Exp $ -->
