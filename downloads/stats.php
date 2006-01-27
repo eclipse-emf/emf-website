@@ -40,7 +40,7 @@ $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 
 // defaults
 $qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
-$qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? $qsvars["filename"] : "emf-sdo-xsd-SDK-2.2";
+$qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? urldecode($qsvars["filename"]) : "emf-sdo-xsd-SDK-2.2";
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
  
 $queries = array(
@@ -227,4 +227,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.28 2006/01/27 22:15:45 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.29 2006/01/27 22:18:51 nickb Exp $ -->
