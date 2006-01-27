@@ -84,7 +84,8 @@ if ($user == $gooduser && $pass == $goodpass) {
 		echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 		foreach ($queries as $title => $query) {
 			echo "<li>" .
-				"$title: <a href=\"$PHP_SELF?table=$title\">HTML</a>, <a href=\"$PHP_SELF?table=$title&ctype=xml\">XML</a>" .
+				"$title: <a href=\"$PHP_SELF?".doQS(array("table" => $title))."\">HTML</a>, " .
+						"<a href=\"$PHP_SELF?".doQS(array("table" => $title, "ctype", "xml"))."\">XML</a>" .
 				"</li>\n";
 		}
 		echo "</ul><p>&#160;</p>";
@@ -98,6 +99,20 @@ if ($user == $gooduser && $pass == $goodpass) {
 } 
 
 ##########################################################################################
+
+function doQS($replacements = array()) {
+	global $qsvars;
+	$qs = "";
+	foreach ($replacements as $label => $value) {
+		$qsvars[$label] = $value;
+	}
+	foreach ($qsvars as $label => $value) {
+		if ($qs) $qs .= "&";
+		$qs=$label."=".urlencode($value);
+	}
+	return $qs;
+	
+}
 
 function displayXMLResults($title, $results) {
 	$count=0;
@@ -168,4 +183,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.10 2006/01/27 19:29:36 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.11 2006/01/27 19:35:46 nickb Exp $ -->
