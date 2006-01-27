@@ -64,7 +64,7 @@ $queries = array(
 //	,
 	"Domain" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
-			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1 && SUBSTRING_INDEX(DOW.remote_host,'.',-1)<>0," .
+			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),4,' ')," .
 				"'????') " .
 			"as TLD " .
@@ -227,4 +227,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.30 2006/01/27 22:20:48 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.31 2006/01/27 22:22:11 nickb Exp $ -->
