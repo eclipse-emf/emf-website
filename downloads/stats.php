@@ -41,29 +41,29 @@ $pass = $qsvars["pass"];	$goodpass = "do-not-collect-200-dollars";
 // defaults
 $qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
 $qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? $qsvars["filename"] : "emf-sdo-xsd-SDK-2.2";
-$qsvars["limit"] = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
+$limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
  
 $queries = array(
 	"Download" => 
 		"SELECT COUNT(*) AS Count, DOW.file as File FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.file ".$qsvars["limit"] 
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.file ".$limit 
 	,"Group" => 
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as FileGroup FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY FileGroup ".$qsvars["limit"] 
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY FileGroup ".$limit 
 	,"Request" => 
 		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ".$qsvars["limit"]
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ".$limit
 	,"TLD" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.remote_host,'.',-1) as TLD FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$qsvars["limit"]
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
 );
 
 if ($user == $gooduser && $pass == $goodpass) { 
@@ -221,4 +221,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.20 2006/01/27 20:30:19 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.21 2006/01/27 20:32:41 nickb Exp $ -->
