@@ -54,7 +54,7 @@ $queries = array(
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 //	"Request" => 
 //		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
@@ -65,8 +65,8 @@ $queries = array(
 	"Domain" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
-				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),4,' ')," .
-				"'????') " .
+				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),5,' ')," .
+				"'?????') " .
 			"as TLD " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
@@ -227,4 +227,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.31 2006/01/27 22:22:11 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.32 2006/01/27 22:43:45 nickb Exp $ -->
