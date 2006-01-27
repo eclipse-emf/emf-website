@@ -482,6 +482,7 @@
 
 <!-- 2.1.2 -->
 
+<entry build="2.1.2" project="emf" version="2.1.2"/>
 <entry build="M200601041804" project="emf" version="2.1.2">
 <bug id="118115" sub="1">[Duplicate] SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
 <bug id="121590">JETEmitter should use a JRE container in the classpath of .JETEmitters project</bug>
@@ -497,6 +498,7 @@
 <bug id="115674">[Duplicate] Make UI dependencies in org.eclipse.emf.importer.java optional</bug>
 </entry>
 
+<entry build="2.1.2" project="xsd" version="2.1.2"/>
 <entry build="M200601041804" project="xsd" version="2.1.2">
 <bug id="118275">[Duplicate] xmlns=&quot;&quot; is not considered correctly when loading schema</bug>
 </entry>
@@ -2166,4 +2168,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.130 2006/01/26 06:45:25 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.131 2006/01/27 02:59:14 nickb Exp $ -->
