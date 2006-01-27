@@ -168,6 +168,7 @@ function displayXMLResults($title, $results) {
 }   
      
 function displayHTMLResults($title, $results) {
+	global $qsvars;
 	$count=0;
 	$out = "";
 	foreach ($results as $i => $data) {
@@ -189,7 +190,15 @@ function displayHTMLResults($title, $results) {
 	
 	// prepend
 	$out = "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\"><b>".
-		sizeof($results)." $title, total: ".$count."</b></td></tr>".$out;
+		sizeof($results)." ".$title."s, total: ".$count."</b></td></tr>".$out;
+
+	$out .= "<p><table>\n";
+	foreach ($qsvars as $label => $value) {
+		if ($label && $label!="pass" && $label!="ctype") { 
+			$out .= "\t<tr><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
+		}
+	}
+	$out .= "</table></p>\n";
 
 	$out .= "<hr noshade=\"noshade\" size=\"1\"/>\n";
 	return $out;
@@ -227,4 +236,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.17 2006/01/27 20:12:24 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.18 2006/01/27 20:18:40 nickb Exp $ -->
