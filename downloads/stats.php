@@ -1,8 +1,13 @@
 <?php
 
-$pre = "../";
+/*
+ * This script is to be used to collect stats from the database, 
+ * and produce XML data from which comparison statistics (eg., weekly trending)
+ * can be derived. There is also a simple HTML output UI which can be used 
+ * for single one-off daily queries.  
+ * */
 
-// TODO: add flags (html) and/or tld values (xml)
+$pre = "../";
 
 class Timer { 
 	/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -65,8 +70,8 @@ $queries = array(
 	"Domain" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
-				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),5,' ')," .
-				"'?????') " .
+				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
+				"'?') " .
 			"as TLD " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
@@ -227,4 +232,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.32 2006/01/27 22:43:45 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.33 2006/01/27 22:56:58 nickb Exp $ -->
