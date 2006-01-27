@@ -36,7 +36,7 @@ for ($i=0;$i<=count($vars);$i++) {
 $debug = $qsvars["debug"];
 
 $user = $qsvars["user"];	$gooduser = "emf-dev";
-$pass = $qsvars["pass"];	$goodpass = "do-not-collect-200-dollars";
+$pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 
 // defaults
 $qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
@@ -63,7 +63,7 @@ $queries = array(
 		"SELECT COUNT(*) AS Count, " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),4,' ')," .
-				"'??') " .
+				"'????') " .
 			"as Domain " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
@@ -78,7 +78,6 @@ if ($user == $gooduser && $pass == $goodpass) {
 			echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			echo "<data";
 			$results = doQuery($queries[$qsvars["table"]]);
-			echo " elapsed=\"".$time->displaytime()."s\">\n";
 			echo displayXMLResults($qsvars["table"],$results);
 			echo "</data>\n";
 		} else {
@@ -134,12 +133,12 @@ function doQS($replacements = array()) {
 }
 
 function displayXMLResults($title, $results) {
-	global $qsvars;
+	global $qsvars,$time;
 	$count=0;
 	$out = "";
-	$out .= "\t<query>\n";
+	$out .= "\t<query" ." elapsed=\"".$time->displaytime()."s\">\n";
 	foreach ($qsvars as $label => $value) {
-		if ($label && $label!="pass" && $label!="ctype") { 
+		if ($label && $label!="user" && $label!="pass" && $label!="ctype") { 
 			$out .= "\t\t<".$label.">".$value."</".$label.">\n";
 		}
 	}
@@ -184,7 +183,7 @@ function displayHTMLResults($title, $results) {
 
 	$out .= "<p><table>\n";
 	foreach ($qsvars as $label => $value) {
-		if ($label && $label!="pass" && $label!="ctype") { 
+		if ($label && $label!="user" && $label!="pass" && $label!="ctype") { 
 			$out .= "\t<tr><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
 		}
 	}
@@ -226,4 +225,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.24 2006/01/27 21:15:31 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.25 2006/01/27 21:54:55 nickb Exp $ -->
