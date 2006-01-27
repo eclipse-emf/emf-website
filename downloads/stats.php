@@ -38,36 +38,35 @@ $debug = $qsvars["debug"];
 $user = $qsvars["user"];	$gooduser = "emf-dev";
 $pass = $qsvars["pass"];	$goodpass = "do-not-collect-200-dollars";
 
-$interval = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
-$filename = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? $qsvars["filename"] : "emf-sdo-xsd-SDK-2.2";
-$limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
+// defaults
+$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
+$qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? $qsvars["filename"] : "emf-sdo-xsd-SDK-2.2";
+$qsvars["limit"] = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
  
 $queries = array(
 	"Download" => 
 		"SELECT COUNT(*) AS Count, DOW.file as File FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
-		"DOW.file LIKE \"%".$filename."%\" GROUP BY DOW.file ".$limit 
+		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.file ".$qsvars["limit"] 
 	,"Group" => 
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as FileGroup FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
-		"DOW.file LIKE \"%".$filename."%\" GROUP BY FileGroup ".$limit 
+		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY FileGroup ".$qsvars["limit"] 
 	,"Request" => 
 		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
-		"DOW.file LIKE \"%".$filename."%\" GROUP BY DOW.remote_host ".$limit
+		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ".$qsvars["limit"]
 	,"TLD" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.remote_host,'.',-1) as TLD FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
-		"DOW.file LIKE \"%".$filename."%\" GROUP BY TLD ".$limit
+		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$qsvars["limit"]
 );
 
-
 if ($user == $gooduser && $pass == $goodpass) { 
-
 	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 		if ($qsvars["ctype"]=="xml") { 
 			header('Content-type: text/xml');
@@ -79,9 +78,7 @@ if ($user == $gooduser && $pass == $goodpass) {
 			echo "</data>\n";
 		} else {
 			$HTMLTitle = "Eclipse Tools - EMF Download Stats";
-			$ProjectName = array(
-				"EMF","Eclipse Modeling Framework","Download Stats"
-			);
+			$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 			include $pre . "includes/header.php";
 			echo "Querying ... ";
 			$results = doQuery($queries[$qsvars["table"]]);
@@ -91,9 +88,7 @@ if ($user == $gooduser && $pass == $goodpass) {
 		}
 	} else {
 		$HTMLTitle = "Eclipse Tools - EMF Download Stats";
-		$ProjectName = array(
-			"EMF","Eclipse Modeling Framework","Download Stats"
-		);
+		$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 		include $pre . "includes/header.php";
 		echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 		foreach ($queries as $title => $query) {
@@ -108,9 +103,7 @@ if ($user == $gooduser && $pass == $goodpass) {
 	}
 } else {
 	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
-	$ProjectName = array(
-		"EMF","Eclipse Modeling Framework","Download Stats"
-	);
+	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 	include $pre . "includes/header.php";
 	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
 	echo "<p>&#160;</p>";
@@ -148,7 +141,7 @@ function displayXMLResults($title, $results) {
 	$out .= "\t</query>\n";
 	
 	foreach ($results as $i => $data) {
-		$out .= "\n\t<".strtolower($title);
+		$out .= "\t<".strtolower($title);
 		foreach ($data as $label => $datum) { 
 			if ($label=="Count") $count+=($datum-0);
 			$out .= " ".strtolower($label)."=\"$datum\"";
@@ -228,4 +221,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.19 2006/01/27 20:27:05 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.20 2006/01/27 20:30:19 nickb Exp $ -->
