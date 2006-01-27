@@ -126,7 +126,7 @@ function displayXMLResults($title, $results) {
 		}
 		$out .= "/>\n";
 	}
-	$out .= "<summary ".strtolower($title)."s=\"".sizeof($results)."\" count=\"".$count."\""."/>";
+	$out .= "\t<summary ".strtolower($title)."s=\"".sizeof($results)."\" count=\"".$count."\""."/>\n";
 	return $out;
 }   
      
@@ -184,4 +184,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.13 2006/01/27 19:41:51 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.14 2006/01/27 19:43:00 nickb Exp $ -->
