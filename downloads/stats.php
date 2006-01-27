@@ -44,31 +44,34 @@ $qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ?
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
  
 $queries = array(
-	"Download" => 
-		"SELECT COUNT(*) AS Count, DOW.file as File FROM downloads AS DOW " .
+//	"Path" => 
+//		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
+//		"FORCE INDEX(idx_downloads_date) WHERE " .
+//		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+//		"URL LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
+//	,
+	"File" => 
+		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.file ".$limit 
-	,"Group" => 
-		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as FileGroup FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY FileGroup ".$limit 
-	,"Request" => 
-		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ORDER BY DOW.remote_host DESC ".$limit
-	,"Domain" => // temporary solution for getting country codes
+		"URL LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
+	,
+//	"Request" => 
+//		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
+//		"FORCE INDEX(idx_downloads_date) WHERE " .
+//		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+//		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
+//	,
+	"Domain" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),4,' ')," .
 				"'????') " .
-			"as Domain " .
+			"as TLD " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Domain ".$limit
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
 );
 
 if ($user == $gooduser && $pass == $goodpass) { 
@@ -76,7 +79,7 @@ if ($user == $gooduser && $pass == $goodpass) {
 		if ($qsvars["ctype"]=="xml") { 
 			header('Content-type: text/xml');
 			echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-			echo "<data";
+			echo "<data>\n";
 			$results = doQuery($queries[$qsvars["table"]]);
 			echo displayXMLResults($qsvars["table"],$results);
 			echo "</data>\n";
@@ -225,4 +228,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.25 2006/01/27 21:54:55 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.26 2006/01/27 22:09:20 nickb Exp $ -->
