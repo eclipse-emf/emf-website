@@ -58,9 +58,14 @@ $queries = array(
 		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ".$limit
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY DOW.remote_host ORDER BY DOW.remote_host DESC ".$limit
 	,"Domain" => // temporary solution for getting country codes
-		"SELECT COUNT(*) AS Count, DOW.remote_host as Host, IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1,SUBSTRING_INDEX(DOW.remote_host,'.',-1),'???') as Domain FROM downloads AS DOW " .
+		"SELECT COUNT(*) AS Count, " .
+			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
+				"LPAD(LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),4,' ')," .
+				"'??') " .
+			"as Domain " .
+		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Domain ".$limit
@@ -221,4 +226,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.23 2006/01/27 21:08:07 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.24 2006/01/27 21:15:31 nickb Exp $ -->
