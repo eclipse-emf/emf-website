@@ -48,13 +48,13 @@ $queries = array(
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
 //		"FORCE INDEX(idx_downloads_date) WHERE " .
 //		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-//		"URL LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
+//		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
 //	,
 	"File" => 
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .
 		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-		"URL LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
+		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
 	,
 //	"Request" => 
 //		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
@@ -227,4 +227,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.27 2006/01/27 22:13:45 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.28 2006/01/27 22:15:45 nickb Exp $ -->
