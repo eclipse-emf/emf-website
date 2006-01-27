@@ -33,18 +33,19 @@ for ($i=0;$i<=count($vars);$i++) {
   $qsvars[$var[0]] = $var[1];
 }
 
-$user = $qsvars["user"];
-$pass = $qsvars["pass"];
-$gooduser = "emf-dev";
-$goodpass = "do-not-collect-200-dollars";
 $debug = $qsvars["debug"];
+
+$user = $qsvars["user"];	$gooduser = "emf-dev";
+$pass = $qsvars["pass"];	$goodpass = "do-not-collect-200-dollars";
+
 $interval = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
 $filename = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? $qsvars["filename"] : "emf-sdo-xsd-SDK-2.2";
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
  
 if ($qsvars["ctype"] || $qsvars["Content-Type"]) {
 	$ctype=($qsvars["ctype"]?"text/".$qsvars["ctype"]:$qsvars["Content-Type"]);
-	header('Content-type: '.$ctype);
+	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries))
+		header('Content-type: '.$ctype);
 }
 
 if ($user == $gooduser && $pass == $goodpass) { 
@@ -60,7 +61,11 @@ if ($user == $gooduser && $pass == $goodpass) {
 			"FORCE INDEX(idx_downloads_date) WHERE " .
 			"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
 			"DOW.file LIKE \"%".$filename."%\" GROUP BY DOW.remote_host ".$limit
-//		,"Custom" => $qsvars["query"]." LIMIT 200"              
+		,"TLD" => // temporary solution for getting country codes
+			"SELECT COUNT(*) AS Count, RIGHT(DOW.remote_host,3) as TLD FROM downloads AS DOW " .
+			"FORCE INDEX(idx_downloads_date) WHERE " .
+			"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
+			"DOW.file LIKE \"%".$filename."%\" GROUP BY TLD ".$limit
 	);
 	
 	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -72,6 +77,13 @@ if ($user == $gooduser && $pass == $goodpass) {
 			echo displayXMLResults($qsvars["table"],$results);
 			echo "</data>\n";
 		} else {
+			$HTMLTitle = "Eclipse Tools - EMF Download Stats";
+			$ProjectName = array(
+				"EMF",
+				"Eclipse Modeling Framework",
+				"Download Stats",
+				"images/reference.gif"
+			);
 			include $pre . "includes/header.php";
 			echo "Querying ... ";
 			$results = doQuery($queries[$qsvars["table"]]);
@@ -80,6 +92,13 @@ if ($user == $gooduser && $pass == $goodpass) {
 			include $pre . "includes/footer.php";
 		}
 	} else {
+		$HTMLTitle = "Eclipse Tools - EMF Download Stats";
+		$ProjectName = array(
+			"EMF",
+			"Eclipse Modeling Framework",
+			"Download Stats",
+			"images/reference.gif"
+		);
 		include $pre . "includes/header.php";
 		echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 		foreach ($queries as $title => $query) {
@@ -93,6 +112,13 @@ if ($user == $gooduser && $pass == $goodpass) {
 		include $pre . "includes/footer.php";
 	}
 } else {
+	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
+	$ProjectName = array(
+		"EMF",
+		"Eclipse Modeling Framework",
+		"Download Stats",
+		"images/reference.gif"
+	);
 	include $pre . "includes/header.php";
 	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
 	echo "<p>&#160;</p>";
@@ -123,7 +149,7 @@ function displayXMLResults($title, $results) {
 	$out = "";
 	$out .= "\t<query>\n";
 	foreach ($qsvars as $label => $value) {
-		if ($label && $label!="pass") { 
+		if ($label && $label!="pass" && $label!="ctype") { 
 			$out .= "\t\t<".$label.">".$value."</".$label.">\n";
 		}
 	}
@@ -171,8 +197,11 @@ function displayHTMLResults($title, $results) {
      
 # There are usually in excess of 30 million records.. watch your queries!!
 function doQuery($sql) {
+	
 	$arr = array();
 	
+	if (!$sql) return $arr; 
+
     # Connect to database & get results set
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
     
@@ -198,4 +227,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.16 2006/01/27 19:52:17 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.17 2006/01/27 20:12:24 nickb Exp $ -->
