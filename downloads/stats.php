@@ -2,6 +2,8 @@
 
 $pre = "../";
 
+// TODO: add flags (html) and/or tld values (xml)
+
 class Timer { 
 	/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
 	// Starts, Ends and Displays Page Creation Time
@@ -24,13 +26,6 @@ $time = new Timer; $time->starttime();
 
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads_ro.class.php";
 
-$queries = array(
-	"Zips" => "SELECT COUNT(*) AS Hits, DOW.file as File FROM downloads AS DOW WHERE
-                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.file LIMIT 200", 
-	"Countries" => "SELECT COUNT(*) AS Hits, DOW.remote_host as Requester FROM downloads AS DOW WHERE
-                DOW.file LIKE \"%emf-sdo-xsd-SDK-2.2.0M%\" GROUP BY DOW.remote_host LIMIT 200"
-);
-
 // Process query string
 $vars = explode("&", $_SERVER['QUERY_STRING']);
 for ($i=0;$i<=count($vars);$i++) {
@@ -43,13 +38,31 @@ $pass = $qsvars["pass"];
 $gooduser = "emf-dev";
 $goodpass = "do-not-collect-200-dollars";
 $debug = $qsvars["debug"];
-
+$interval = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
+$filename = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? $qsvars["filename"] : "emf-sdo-xsd-SDK-2.2";
+$limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
+ 
 if ($qsvars["ctype"] || $qsvars["Content-Type"]) {
 	$ctype=($qsvars["ctype"]?"text/".$qsvars["ctype"]:$qsvars["Content-Type"]);
 	header('Content-type: '.$ctype);
 }
 
 if ($user == $gooduser && $pass == $goodpass) { 
+
+	$queries = array(
+		"Download" => 
+			"SELECT COUNT(*) AS Count, DOW.file as File FROM downloads AS DOW " .
+			"FORCE INDEX(idx_downloads_date) WHERE " .
+			"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
+			"DOW.file LIKE \"%".$filename."%\" GROUP BY DOW.file ".$limit 
+		,"Request" => 
+			"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
+			"FORCE INDEX(idx_downloads_date) WHERE " .
+			"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$interval." DAY) AND " .
+			"DOW.file LIKE \"%".$filename."%\" GROUP BY DOW.remote_host ".$limit
+//		,"Custom" => $qsvars["query"]." LIMIT 200"              
+	);
+	
 	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 		if (false!==strpos($ctype,"xml")) { 
 			echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -87,19 +100,22 @@ if ($user == $gooduser && $pass == $goodpass) {
 ##########################################################################################
 
 function displayXMLResults($title, $results) {
-	if ($title[strlen($title)-1] == "s") $title = substr($title,0,strlen($title)-1); 
+	$count=0;
 	$out = "";
 	foreach ($results as $i => $data) {
-		$out .= "\n\t<$title";
+		$out .= "\n\t<".strtolower($title);
 		foreach ($data as $label => $datum) { 
-			$out .= " $label=\"$datum\"";
+			if ($label=="Count") $count+=($datum-0);
+			$out .= " ".strtolower($label)."=\"$datum\"";
 		}
 		$out .= "/>\n";
 	}
+	$out .= "<summary ".strtolower($title)."s=\"".sizeof($results)."\" count=\"".$count."\""."/>";
 	return $out;
 }   
      
 function displayHTMLResults($title, $results) {
+	$count=0;
 	$out = "";
 	$out .= "<p><table cellspacing=\"0\" cellpadding=\"2\"><tr><td colspan=\"\"><b>$title</b></td></tr>";
 	foreach ($results as $i => $data) {
@@ -112,12 +128,14 @@ function displayHTMLResults($title, $results) {
 		}
 		$out .= "<tr bgcolor=\"".($i%2==1?"#EEEEEE":"#FFFFFF")."\">\n";
 		foreach ($data as $label => $datum) { 
+			if ($label=="Count") $count+=($datum-0);
 			$out .= "\t<td>$datum</td>\n";
 		}
 		$out .= "</tr>\n";
 	}
-	$out .= "</table></p>";
-	$out .= "<hr noshade=\"noshade\" size=\"1\"/>";
+	$out .= "</table></p>\n";
+	$out .= "<p>".$title."s: ".sizeof($results).", total count: ".$count."</p>\n";
+	$out .= "<hr noshade=\"noshade\" size=\"1\"/>\n";
 	return $out;
 }   
      
@@ -150,4 +168,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.9 2006/01/26 23:21:58 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.10 2006/01/27 19:29:36 nickb Exp $ -->
