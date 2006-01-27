@@ -108,8 +108,10 @@ function doQS($replacements = array()) {
 		$qsvars[$label] = $value;
 	}
 	foreach ($qsvars as $label => $value) {
-		if ($qs) $qs .= "&";
-		if ($label) $qs.=$label."=".urlencode($value);
+		if ($label) { 
+			if ($qs) $qs .= "&";
+			$qs.=$label."=".urlencode($value);
+		}
 	}
 	return $qs;
 	
@@ -184,4 +186,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.14 2006/01/27 19:43:00 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.15 2006/01/27 19:45:06 nickb Exp $ -->
