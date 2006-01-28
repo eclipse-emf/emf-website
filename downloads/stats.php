@@ -111,7 +111,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.49 2006/01/28 07:41:13 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.50 2006/01/28 07:41:56 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -245,7 +245,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.49 2006/01/28 07:41:13 nickb Exp $'.
+			 '$Id: stats.php,v 1.50 2006/01/28 07:41:56 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -263,4 +263,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.49 2006/01/28 07:41:13 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.50 2006/01/28 07:41:56 nickb Exp $ -->
