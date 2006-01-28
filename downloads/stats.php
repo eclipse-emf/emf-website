@@ -78,8 +78,7 @@ if (!$qsvars["filenames"] || !is_array($qsvars["filenames"]) || sizeof($qsvars["
 }
 $filenames = "";
 foreach ($qsvars["filenames"] as $i => $fn) {
-	if (strlen($filename) >= 10) {
-//		if ($debug) echo "filenames[$i] = ".$filename."<br>";
+	if (strlen($fn) >= 10) {
 		if ($filenames) { $filenames .="OR "; }
 		$filenames .= "DOW.file LIKE \"%".$fn."%\" ";
 	}
@@ -111,7 +110,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.46 2006/01/28 07:08:59 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.47 2006/01/28 07:12:04 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -245,7 +244,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.46 2006/01/28 07:08:59 nickb Exp $'.
+			 '$Id: stats.php,v 1.47 2006/01/28 07:12:04 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -263,4 +262,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.46 2006/01/28 07:08:59 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.47 2006/01/28 07:12:04 nickb Exp $ -->
