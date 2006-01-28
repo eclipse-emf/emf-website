@@ -45,7 +45,19 @@ require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads
 $vars = explode("&", $_SERVER['QUERY_STRING']);
 for ($i=0;$i<=count($vars);$i++) {
   $var = explode("=", $vars[$i]);
-  $qsvars[$var[0]] = $var[1];
+  $var[1] = urldecode($var[1]);
+  if ($var[0]) {
+	  // support multiple entries for the same key - load an array instead of a string
+	  if ($qsvars[$var[0]]) {
+	  	if (!is_array($qsvars[$var[0]])) { 
+	  		$qsvars[$var[0]] = array($qsvars[$var[0]]); 
+	  	} else {
+	  		$qsvars[$var[0]][] = $var[1]; 
+	  	}
+	  } else {
+	  	$qsvars[$var[0]] = $var[1];
+	  }
+  }
 }
 
 $debug = $qsvars["debug"];
@@ -54,18 +66,42 @@ $user = $qsvars["user"];	$gooduser = "emf-dev";
 $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 
 // defaults
-$interval = $qsvars["interval"]=="month" ? "month" : ($qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7); 
-$qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? urldecode($qsvars["filename"]) : "emf-sdo-xsd-SDK-2.2";
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
-$interval = $interval == "month" ? 
+
+$interval = $qsvars["interval"]=="month" ? "month" : ($qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7); 
+$qsvars["interval"] = $interval == "month" ? 
 	"(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )" :
 	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
- 
+
+if (!$qsvars["filename"] || ($qsvars["filename"] && !is_array($qsvars["filename"]) && strlen($qsvars["filename"]) < 10)) {
+	$filenames = array();
+} else {
+	 if($qsvars["filename"] && !is_array($qsvars["filename"]) && strlen($qsvars["filename"]) >= 10) {
+	 	$filenames = array($qsvars["filename"]);
+	 } else { // an array: verify values are at least 10 chars long
+	 	$filenames = array();
+	 	foreach ($qsvars["filename"] as $filename) {
+	 		if (strlen($qsvars["filename"]) >= 10) {
+	 			$filenames[] = $filename;
+	 		}
+	 	}
+	 }
+}
+if (sizeof($filenames)<1) { // default value if all else fails
+	$filenames = array("emf-sdo-xsd-SDK-");
+}
+$qsvars["filename"] = "";
+foreach ($filenames as $filename) {
+	if ($qsvars["filename"]) { $qsvars["filename"] .="OR "; }
+	$qsvars["filename"] .="DOW.file LIKE \"%".$qsvars["filename"]."%\" ";
+}
+$qsvars["filename"] = "(".$qsvars["filename"].")";
+	  
 $queries = array(
 	"File" => 
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
+		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 	"Domain" => // temporary solution for getting country codes
@@ -76,7 +112,7 @@ $queries = array(
 				"'?') " .
 			"as TLD " .
 		"FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
+		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
 //		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
 );
@@ -234,4 +270,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.35 2006/01/28 05:33:09 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.36 2006/01/28 06:00:13 nickb Exp $ -->
