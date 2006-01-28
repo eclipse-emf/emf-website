@@ -93,14 +93,16 @@ $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] -
 
 $queries = array(
 	"File" => 
-//		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
-		"SELECT COUNT(*) AS Count, DATE_FORMAT(DOW.date, '%Y-%m-%d') as Date, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
+		"SELECT COUNT(*) AS Count, " .
+//			"DOW.file as URL " .
+			"SUBSTRING_INDEX(DOW.file,'/',-1) as URL " .
+		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		$filenames." GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 	"Domain" => // temporary solution for getting country codes
-//		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
-		"SELECT COUNT(*) AS Count, DATE_FORMAT(DOW.date, '%Y-%m-%d') as Date, " .
+		"SELECT COUNT(*) AS Count, " .
+//			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
 				"'?') " .
@@ -108,12 +110,12 @@ $queries = array(
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		$filenames." GROUP BY TLD ".$limit
-//		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
+//		$filenames." GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.52 2006/01/28 08:32:53 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.53 2006/01/28 08:55:52 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -247,7 +249,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.52 2006/01/28 08:32:53 nickb Exp $'.
+			 '$Id: stats.php,v 1.53 2006/01/28 08:55:52 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -265,4 +267,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.52 2006/01/28 08:32:53 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.53 2006/01/28 08:55:52 nickb Exp $ -->
