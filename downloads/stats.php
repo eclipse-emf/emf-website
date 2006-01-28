@@ -41,24 +41,7 @@ $time = new Timer; $time->starttime();
 
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads_ro.class.php";
 
-// Process query string
-$vars = explode("&", $_SERVER['QUERY_STRING']);
-for ($i=0;$i<=count($vars);$i++) {
-  $var = explode("=", $vars[$i]);
-  $var[1] = urldecode($var[1]);
-  if ($var[0]) {
-	  // support multiple entries for the same key - load an array instead of a string
-	  if ($qsvars[$var[0]]) {
-	  	if (!is_array($qsvars[$var[0]])) { 
-	  		$qsvars[$var[0]] = array($qsvars[$var[0]]); 
-	  	} else {
-	  		$qsvars[$var[0]][] = $var[1]; 
-	  	}
-	  } else {
-	  	$qsvars[$var[0]] = $var[1];
-	  }
-  }
-}
+$qsvars = $_GET;
 
 $debug = $qsvars["debug"];
 
@@ -73,26 +56,17 @@ $qsvars["interval"] = $interval == "month" ?
 	"(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )" :
 	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
 
-$filenames = array();
-if (!$qsvars["filename"] || ($qsvars["filename"] && !is_array($qsvars["filename"]) && strlen($qsvars["filename"]) < 10)) {
-} else {
-	 if($qsvars["filename"] && !is_array($qsvars["filename"]) && strlen($qsvars["filename"]) >= 10) {
-	 	$filenames = array($qsvars["filename"]);
-	 } else { // an array: verify values are at least 10 chars long
-	 	foreach ($qsvars["filename"] as $filename) {
-	 		if (strlen($filename) >= 10) {
-	 			$filenames[] = $filename;
-	 		}
-	 	}
-	 }
-}
+$filenames=$qsvars["filenames[]"];
 if (sizeof($filenames)<1) { // default value if all else fails
 	$filenames = array("emf-sdo-xsd-SDK-");
 }
 $qsvars["filename"] = "";
-foreach ($filenames as $filename) {
-	if ($qsvars["filename"]) { $qsvars["filename"] .="OR "; }
-	$qsvars["filename"] .="DOW.file LIKE \"%".$qsvars["filename"]."%\" ";
+foreach ($filenames as $i => $filename) {
+	if (strlen($filename) >= 10) {
+		if ($debug) echo "filenames[$i] = ".$filename."<br>";
+		if ($qsvars["filename"]) { $qsvars["filename"] .="OR "; }
+		$qsvars["filename"] .= "DOW.file LIKE \"%".$filename."%\" ";
+	}
 }
 $qsvars["filename"] = "(".$qsvars["filename"].")";
 	  
@@ -181,8 +155,10 @@ function displayXMLResults($title, $results) {
 	$count=0;
 	$out = "";
 	$out .= "\t<query" ." elapsed=\"".$time->displaytime()."s\">\n";
-	foreach ($qsvars as $label => $value) {
-		if ($label && $label!="user" && $label!="pass" && $label!="ctype") { 
+	$fieldsToShow = array("limit", "interval", "filename");
+	foreach ($fieldsToShow as $label) {
+		$value = $qsvars[$label];
+		if ($label && $value) { 
 			$out .= "\t\t<".$label.">".$value."</".$label.">\n";
 		}
 	}
@@ -254,7 +230,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.38 2006/01/28 06:07:51 nickb Exp $'.
+			 '$Id: stats.php,v 1.39 2006/01/28 06:23:51 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -272,4 +248,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.38 2006/01/28 06:07:51 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.39 2006/01/28 06:23:51 nickb Exp $ -->
