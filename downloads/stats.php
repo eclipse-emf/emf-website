@@ -66,7 +66,7 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 //	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)";  // get partial months (dec/jan)
 //	$interval = "(DOW.date >= '".date("Y-m-01",strtotime("-1 month"))." 00:00:00' AND " .
 //				"DOW.date <= '".date("Y-m-t",strtotime("-1 month"))." 23:59:59')";
-	$interval = "(EXTRACT(YEAR_MONTH) FROM DOW.date) - 0 = ".date("Ym",strtotime("-1 month"));
+	$interval = "EXTRACT(YEAR_MONTH FROM DOW.date) - ".date("Ym",strtotime("-1 month"))." = 0";
 } else {
 	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 1; // default
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
@@ -112,7 +112,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.56 2006/01/28 09:57:24 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.57 2006/01/28 10:03:22 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -239,14 +239,14 @@ function doQuery($sql) {
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
     
     if(mysql_errno($dbh) > 0) {
-		echo "<b>SQL error processing query:</b><br/><small>$sql</small>";
+		echo "<b>SQL error processing query:</b><br/><small>\n$sql\n</small>\n";
 		# For debugging purposes - don't display this stuff in a production page.
 		# echo mysql_error($dbh);
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
-		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.56 2006/01/28 09:57:24 nickb Exp $'.
-			 "</small></p>";
+		echo "<p align=\"right\"><small>\n".
+			 '$Id: stats.php,v 1.57 2006/01/28 10:03:22 nickb Exp $'.
+			 "\n</small></p>\n";
 		exit;
     }
     while($myrow = mysql_fetch_assoc($rs)) $arr[] = $myrow;
