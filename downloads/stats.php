@@ -4,8 +4,18 @@
  * This script is to be used to collect stats from the database, 
  * and produce XML data from which comparison statistics (eg., weekly trending)
  * can be derived. There is also a simple HTML output UI which can be used 
- * for single one-off daily queries.  
- * */
+ * for single one-off daily queries.
+ * 
+ * TODO: add support for multiple filename= values, to allow both emf and xsd in same dataset
+ * 	or to collect emftx4 w/o extra emft projects, or emft.transaction+emft.workbench, etc.
+ * TODO: cronjob to run query and store data - wget, move file to specific folder/filename
+ * TODO: script to convert raw XML into summary XML (php+XSLT - params = month/quarter/half filter)
+ * 	daily results trended over 1 month [filter by filename having given month]
+ *  weekly results trended over 6 mo [filter by filename having given month range]
+ * 	monthly results trended over several years [all data]
+ * TODO: get old data from 2005?
+ * 
+ **/
 
 $pre = "../";
 
@@ -47,6 +57,9 @@ $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 $qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
 $qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? urldecode($qsvars["filename"]) : "emf-sdo-xsd-SDK-2.2";
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
+$interval = $interval == "month" ? 
+	"(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )" :
+	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
  
 $queries = array(
 //	"Path" => 
@@ -57,8 +70,7 @@ $queries = array(
 //	,
 	"File" => 
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 //	"Request" => 
@@ -74,8 +86,7 @@ $queries = array(
 				"'?') " .
 			"as TLD " .
 		"FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .
-		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
+		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
 );
 
@@ -232,4 +243,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.33 2006/01/27 22:56:58 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.34 2006/01/28 05:26:48 nickb Exp $ -->
