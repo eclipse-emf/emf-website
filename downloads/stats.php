@@ -66,7 +66,8 @@ if ($user != $gooduser || $pass != $goodpass) {
 if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12) {
 	$interval = "MONTH(DOW.date) - 0 = ".$qsvars["month"];
 } else if ($qsvars["interval"]=="lastmonth") {
-	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) - 0 OR (MONTH(CURDATE()) - 0 = 1 AND MONTH(DOW.date)) - 0 = 12 )";
+//	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) - 0 OR (MONTH(CURDATE()) - 0 = 1 AND MONTH(DOW.date)) - 0 = 12 )";
+	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)"; 
 } else {
 	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 1; // default
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
@@ -110,7 +111,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.48 2006/01/28 07:32:44 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.49 2006/01/28 07:41:13 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -244,7 +245,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.48 2006/01/28 07:32:44 nickb Exp $'.
+			 '$Id: stats.php,v 1.49 2006/01/28 07:41:13 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -262,4 +263,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.48 2006/01/28 07:32:44 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.49 2006/01/28 07:41:13 nickb Exp $ -->
