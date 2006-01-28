@@ -253,6 +253,9 @@ function doQuery($sql) {
 		# echo mysql_error($dbh);
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
+		echo "<p align=\"right\"><small>".
+			 '$Id: stats.php,v 1.38 2006/01/28 06:07:51 nickb Exp $'.
+			 "</small></p>";
 		exit;
     }
             
@@ -269,4 +272,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.37 2006/01/28 06:05:39 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.38 2006/01/28 06:07:51 nickb Exp $ -->
