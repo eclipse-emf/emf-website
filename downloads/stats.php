@@ -53,14 +53,19 @@ $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 // defaults
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
 
-$interval = $qsvars["interval"]=="month" ? "month" : ($qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7); 
-$qsvars["interval"] = $interval == "month" ? 
-	"(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )" :
-	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
-
-$filenames=$qsvars["filenames"]; if (sizeof($filenames)<1) $filenames = array("emf-sdo-xsd-SDK-");
+if ($qsvars["month"] && $qsvars["month"]>=1 && $qsvars["month"]<=12) {
+	$qsvars["interval"] = "month(".$qsvars["month"].")"; 
+	$interval = "DOW.date = ".$qsvars["month"];
+} else if ($qsvars["interval"]=="lastmonth") {
+	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )";
+} else {
+	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7;
+	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
+}
+	  
+if (sizeof($qsvars["filenames"])<1) $qsvars["filenames"] = array("emf-sdo-xsd-SDK-");
 $qsvars["filename"] = "";
-foreach ($filenames as $i => $filename) {
+foreach ($qsvars["filenames"] as $i => $filename) {
 	if (strlen($filename) >= 10) {
 //		if ($debug) echo "filenames[$i] = ".$filename."<br>";
 		if ($qsvars["filename"]) { $qsvars["filename"] .="OR "; }
@@ -89,9 +94,9 @@ $queries = array(
 //		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
-$qsvarsToShow = array("sql", "generator");
+$qsvarsToShow = array("interval", "sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.42 2006/01/28 06:42:41 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.43 2006/01/28 06:53:06 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($user == $gooduser && $pass == $goodpass) { 
@@ -208,7 +213,7 @@ function displayHTMLResults($title, $results) {
 	foreach ($qsvarsToShow as $label) {
 		$value = $qsvars[$label];
 		if ($label && $value) { 
-			$out .= "\t<tr><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
+			$out .= "\t<tr valign=\"top\"><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
 		}
 	}
 	$out .= "</table></p>\n";
@@ -234,7 +239,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.42 2006/01/28 06:42:41 nickb Exp $'.
+			 '$Id: stats.php,v 1.43 2006/01/28 06:53:06 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -252,4 +257,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.42 2006/01/28 06:42:41 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.43 2006/01/28 06:53:06 nickb Exp $ -->
