@@ -6,8 +6,6 @@
  * can be derived. There is also a simple HTML output UI which can be used 
  * for single one-off daily queries.
  * 
- * TODO: add support for multiple filename= values, to allow both emf and xsd in same dataset
- * 	or to collect emftx4 w/o extra emft projects, or emft.transaction+emft.workbench, etc.
  * TODO: cronjob to run query and store data - wget, move file to specific folder/filename
  * TODO: script to convert raw XML into summary XML (php+XSLT - params = month/quarter/half filter)
  * 	daily results trended over 1 month [filter by filename having given month]
@@ -26,11 +24,9 @@ class Timer {
 		list($usec, $sec) = explode(" ", microtime());
 		return ((float)$usec + (float)$sec);
 	}    
-	    
 	function starttime() {
 		$this->st = $this->getmicrotime();
 	}
-	    
 	function displaytime() {
 	    $this->et = $this->getmicrotime();
 	    return round(($this->et - $this->st), 3);
@@ -115,7 +111,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.53 2006/01/28 08:55:52 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.54 2006/01/28 09:10:17 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -143,9 +139,9 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 	foreach ($queries as $title => $query) {
 		echo "<li>".$title."s: <a href=\"$PHP_SELF?".
-						doQS(array("table" => $title))."\">HTML</a>, " .
-					"<a href=\"$PHP_SELF?".
-						doQS(array("table" => $title, "ctype" => "xml"))."\">XML</a>" .
+			doQS(array("table" => $title))."\">HTML</a>, " .
+			"<a href=\"$PHP_SELF?".
+			doQS(array("table" => $title, "ctype" => "xml"))."\">XML</a>" .
 			"</li>\n";
 	}
 	echo "</ul><p>&#160;</p>";
@@ -173,24 +169,24 @@ function displayXMLResults($title, $results) {
 	global $qsvars,$qsvarsToShow,$time;
 	$count=0;
 	$out = "";
-	$out .= "\t<query" ." elapsed=\"".$time->displaytime()."s\">\n";
+	$out .= "  <query" ." elapsed=\"".$time->displaytime()."s\">\n";
 	foreach ($qsvarsToShow as $label) {
 		$value = $qsvars[$label];
 		if ($label && $value) { 
-			$out .= "\t\t<".$label.">".$value."</".$label.">\n";
+			$out .= "    <".$label.">".$value."</".$label.">\n";
 		}
 	}
-	$out .= "\t</query>\n";
+	$out .= "  </query>\n";
 	
 	foreach ($results as $i => $data) {
-		$out .= "\t<".strtolower($title);
+		$out .= "  <".strtolower($title);
 		foreach ($data as $label => $datum) { 
 			if ($label=="Count") $count+=($datum-0);
 			$out .= " ".strtolower($label)."=\"$datum\"";
 		}
 		$out .= "/>\n";
 	}
-	$out .= "\t<summary ".strtolower($title)."s=\"".sizeof($results)."\" count=\"".$count."\""."/>\n";
+	$out .= "  <summary ".strtolower($title)."s=\"".sizeof($results)."\" count=\"".$count."\""."/>\n";
 	return $out;
 }   
      
@@ -202,14 +198,14 @@ function displayHTMLResults($title, $results) {
    		if (!$i) { # do column header
    			$out .= "<tr bgcolor=\"navy\">\n";
 			foreach ($data as $label => $datum) { 
-    			$out .= "\t<td><b style=\"color:white\">$label</b></td>\n";
+    			$out .= "  <td><b style=\"color:white\">$label</b></td>\n";
     		}
    			$out .= "</tr>\n";
 		}
 		$out .= "<tr bgcolor=\"".($i%2==1?"#EEEEEE":"#FFFFFF")."\">\n";
 		foreach ($data as $label => $datum) { 
 			if ($label=="Count") $count+=($datum-0);
-			$out .= "\t<td>$datum</td>\n";
+			$out .= "  <td>$datum</td>\n";
 		}
 		$out .= "</tr>\n";
 	}
@@ -223,11 +219,10 @@ function displayHTMLResults($title, $results) {
 	foreach ($qsvarsToShow as $label) {
 		$value = $qsvars[$label];
 		if ($label && $value) { 
-			$out .= "\t<tr valign=\"top\"><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
+			$out .= "  <tr valign=\"top\"><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
 		}
 	}
 	$out .= "</table></p>\n";
-
 	$out .= "<hr noshade=\"noshade\" size=\"1\"/>\n";
 	return $out;
 }   
@@ -243,28 +238,22 @@ function doQuery($sql) {
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
     
     if(mysql_errno($dbh) > 0) {
-		echo "<b>SQL error processing query:<br/>$sql</b>";
+		echo "<b>SQL error processing query:</b><br/><small>$sql</small>";
 		# For debugging purposes - don't display this stuff in a production page.
 		# echo mysql_error($dbh);
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.53 2006/01/28 08:55:52 nickb Exp $'.
+			 '$Id: stats.php,v 1.54 2006/01/28 09:10:17 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
-            
-    while($myrow = mysql_fetch_assoc($rs)) { $arr[] = $myrow;
-       # echo "File: " . $myrow['file'] . " Count: " . $myrow['RecordCount'] . "<br>\n";
-    }
+    while($myrow = mysql_fetch_assoc($rs)) $arr[] = $myrow;
     
     # dsconnect and destroy objects
     $dbc->disconnect();
     $rs = null; $dbh = null; $dbc = null;
-    
     return $arr;
 }
 
 ?>
-
-<!-- $Id: stats.php,v 1.53 2006/01/28 08:55:52 nickb Exp $ -->
