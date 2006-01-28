@@ -92,13 +92,13 @@ $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] -
 $queries = array(
 	"File" => 
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
-		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
+		"SELECT COUNT(*) AS Count, EXTRACT(YEAR_MONTH FROM DOW.date) as YYYYMM, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		$filenames." GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 	"Domain" => // temporary solution for getting country codes
 //		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
-		"SELECT COUNT(*) AS Count, " .
+		"SELECT COUNT(*) AS Count, EXTRACT(YEAR_MONTH FROM DOW.date) as YYYYMM, " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
 				"'?') " .
@@ -111,7 +111,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.50 2006/01/28 07:41:56 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.51 2006/01/28 08:03:22 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -245,7 +245,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.50 2006/01/28 07:41:56 nickb Exp $'.
+			 '$Id: stats.php,v 1.51 2006/01/28 08:03:22 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -263,4 +263,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.50 2006/01/28 07:41:56 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.51 2006/01/28 08:03:22 nickb Exp $ -->
