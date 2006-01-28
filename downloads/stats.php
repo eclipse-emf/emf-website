@@ -64,8 +64,9 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 } else if ($qsvars["interval"]=="lastmonth") { // previous FULL month
 //	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) - 0 OR (MONTH(CURDATE()) - 0 = 1 AND MONTH(DOW.date)) - 0 = 12 )"; // nothing returned
 //	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)";  // get partial months (dec/jan)
-	$interval = "(DOW.date >= '".date("Y-m-01",strtotime("-1 month"))." 00:00:00' AND " .
-				"DOW.date <= '".date("Y-m-t",strtotime("-1 month"))." 23:59:59')";
+//	$interval = "(DOW.date >= '".date("Y-m-01",strtotime("-1 month"))." 00:00:00' AND " .
+//				"DOW.date <= '".date("Y-m-t",strtotime("-1 month"))." 23:59:59')";
+	$interval = "(EXTRACT(YEAR_MONTH) FROM DOW.date) - 0 = ".date("Ym",strtotime("-1 month"));
 } else {
 	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 1; // default
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
@@ -111,7 +112,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.55 2006/01/28 09:49:06 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.56 2006/01/28 09:57:24 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -244,7 +245,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.55 2006/01/28 09:49:06 nickb Exp $'.
+			 '$Id: stats.php,v 1.56 2006/01/28 09:57:24 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
