@@ -45,6 +45,8 @@ $qsvars = $_GET;
 
 $debug = $qsvars["debug"];
 
+if ($debug) { foreach ($qsvars as $k => $v) echo "$k => $v<br>\n"; }
+
 $user = $qsvars["user"];	$gooduser = "emf-dev";
 $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 
@@ -56,10 +58,7 @@ $qsvars["interval"] = $interval == "month" ?
 	"(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )" :
 	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
 
-$filenames=$qsvars["filenames[]"];
-if (sizeof($filenames)<1) { // default value if all else fails
-	$filenames = array("emf-sdo-xsd-SDK-");
-}
+$filenames=$qsvars["filenames[]"]; if (sizeof($filenames)<1) $filenames = array("emf-sdo-xsd-SDK-");
 $qsvars["filename"] = "";
 foreach ($filenames as $i => $filename) {
 	if (strlen($filename) >= 10) {
@@ -73,7 +72,7 @@ $qsvars["filename"] = "(".$qsvars["filename"].")";
 $queries = array(
 	"File" => 
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
-		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
+		"SELECT COUNT(*) AS Count, MONTH(DOW.date) as Month, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
 		$qsvars["filename"]." GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
@@ -230,7 +229,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.39 2006/01/28 06:23:51 nickb Exp $'.
+			 '$Id: stats.php,v 1.40 2006/01/28 06:30:33 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -248,4 +247,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.39 2006/01/28 06:23:51 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.40 2006/01/28 06:30:33 nickb Exp $ -->
