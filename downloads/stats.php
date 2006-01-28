@@ -63,10 +63,10 @@ if ($user != $gooduser || $pass != $goodpass) {
 ##########################################################################################
 
 // date filter
-if ($qsvars["month"] && $qsvars["month"]>=1 && $qsvars["month"]<=12) {
-	$interval = "DOW.date = ".$qsvars["month"];
+if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12) {
+	$interval = "MONTH(DOW.date) - 0 = ".$qsvars["month"];
 } else if ($qsvars["interval"]=="lastmonth") {
-	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )";
+	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) - 0 OR (MONTH(CURDATE()) - 0 = 1 AND MONTH(DOW.date)) - 0 = 12 )";
 } else {
 	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 1; // default
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
@@ -75,11 +75,11 @@ if ($qsvars["month"] && $qsvars["month"]>=1 && $qsvars["month"]<=12) {
 // filename filter
 if (sizeof($qsvars["filenames"])<1) $qsvars["filenames"] = array("emf-sdo-xsd-SDK-");
 $filenames = "";
-foreach ($qsvars["filenames"] as $i => $filename) {
+foreach ($qsvars["filenames"] as $i => $fn) {
 	if (strlen($filename) >= 10) {
 //		if ($debug) echo "filenames[$i] = ".$filename."<br>";
 		if ($filenames) { $filenames .="OR "; }
-		$filenames .= "DOW.file LIKE \"%".$filename."%\" ";
+		$filenames .= "DOW.file LIKE \"%".$fn."%\" ";
 	}
 }
 $filenames = "(".$filenames.")";
@@ -109,7 +109,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.44 2006/01/28 06:59:58 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.45 2006/01/28 07:06:45 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -243,7 +243,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.44 2006/01/28 06:59:58 nickb Exp $'.
+			 '$Id: stats.php,v 1.45 2006/01/28 07:06:45 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -261,4 +261,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.44 2006/01/28 06:59:58 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.45 2006/01/28 07:06:45 nickb Exp $ -->
