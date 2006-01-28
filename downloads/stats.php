@@ -62,13 +62,13 @@ $filenames=$qsvars["filenames"]; if (sizeof($filenames)<1) $filenames = array("e
 $qsvars["filename"] = "";
 foreach ($filenames as $i => $filename) {
 	if (strlen($filename) >= 10) {
-		if ($debug) echo "filenames[$i] = ".$filename."<br>";
+//		if ($debug) echo "filenames[$i] = ".$filename."<br>";
 		if ($qsvars["filename"]) { $qsvars["filename"] .="OR "; }
 		$qsvars["filename"] .= "DOW.file LIKE \"%".$filename."%\" ";
 	}
 }
 $qsvars["filename"] = "(".$qsvars["filename"].")";
-	  
+
 $queries = array(
 	"File" => 
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
@@ -88,6 +88,11 @@ $queries = array(
 		$qsvars["filename"]." GROUP BY TLD ".$limit
 //		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
 );
+
+$qsvarsToShow = array("sql", "generator");
+
+$qsvars["generator"] = '$Id: stats.php,v 1.42 2006/01/28 06:42:41 nickb Exp $';
+$qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($user == $gooduser && $pass == $goodpass) { 
 	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -150,12 +155,11 @@ function doQS($replacements = array()) {
 }
 
 function displayXMLResults($title, $results) {
-	global $qsvars,$time;
+	global $qsvars,$qsvarsToShow,$time;
 	$count=0;
 	$out = "";
 	$out .= "\t<query" ." elapsed=\"".$time->displaytime()."s\">\n";
-	$fieldsToShow = array("limit", "interval", "filename");
-	foreach ($fieldsToShow as $label) {
+	foreach ($qsvarsToShow as $label) {
 		$value = $qsvars[$label];
 		if ($label && $value) { 
 			$out .= "\t\t<".$label.">".$value."</".$label.">\n";
@@ -176,7 +180,7 @@ function displayXMLResults($title, $results) {
 }   
      
 function displayHTMLResults($title, $results) {
-	global $qsvars;
+	global $qsvars,$qsvarsToShow;
 	$count=0;
 	$out = "";
 	foreach ($results as $i => $data) {
@@ -201,8 +205,9 @@ function displayHTMLResults($title, $results) {
 		sizeof($results)." ".$title."s, ".$count." total</b></td></tr>".$out;
 
 	$out .= "<p><table>\n";
-	foreach ($qsvars as $label => $value) {
-		if ($label && $label!="user" && $label!="pass" && $label!="ctype") { 
+	foreach ($qsvarsToShow as $label) {
+		$value = $qsvars[$label];
+		if ($label && $value) { 
 			$out .= "\t<tr><td>".$label."</td><td>&#160</td><td>".$value."</td></tr>\n";
 		}
 	}
@@ -229,7 +234,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.41 2006/01/28 06:32:40 nickb Exp $'.
+			 '$Id: stats.php,v 1.42 2006/01/28 06:42:41 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -247,4 +252,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.41 2006/01/28 06:32:40 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.42 2006/01/28 06:42:41 nickb Exp $ -->
