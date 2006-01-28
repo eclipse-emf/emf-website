@@ -54,7 +54,7 @@ $user = $qsvars["user"];	$gooduser = "emf-dev";
 $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 
 // defaults
-$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7; 
+$interval = $qsvars["interval"]=="month" ? "month" : ($qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7); 
 $qsvars["filename"] = $qsvars["filename"] && strlen($qsvars["filename"]) >= 10 ? urldecode($qsvars["filename"]) : "emf-sdo-xsd-SDK-2.2";
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
 $interval = $interval == "month" ? 
@@ -62,24 +62,14 @@ $interval = $interval == "month" ?
 	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
  
 $queries = array(
-//	"Path" => 
-//		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
-//		"FORCE INDEX(idx_downloads_date) WHERE " .
-//		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-//		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ".$limit 
-//	,
 	"File" => 
+//		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
-//	"Request" => 
-//		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
-//		"FORCE INDEX(idx_downloads_date) WHERE " .
-//		"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY) AND " .
-//		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
-//	,
 	"Domain" => // temporary solution for getting country codes
+//		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
 		"SELECT COUNT(*) AS Count, " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
@@ -88,6 +78,7 @@ $queries = array(
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
+//		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
 if ($user == $gooduser && $pass == $goodpass) { 
@@ -243,4 +234,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.34 2006/01/28 05:26:48 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.35 2006/01/28 05:33:09 nickb Exp $ -->
