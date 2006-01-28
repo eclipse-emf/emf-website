@@ -50,36 +50,49 @@ $debug = $qsvars["debug"];
 $user = $qsvars["user"];	$gooduser = "emf-dev";
 $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 
-// defaults
-$limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
+if ($user != $gooduser || $pass != $goodpass) { 
+	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
+	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
+	include $pre . "includes/header.php";
+	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
+	echo "<p>&#160;</p>";
+	include $pre . "includes/footer.php";
+	exit;
+}
 
+##########################################################################################
+
+// date filter
 if ($qsvars["month"] && $qsvars["month"]>=1 && $qsvars["month"]<=12) {
-	$qsvars["interval"] = "month(".$qsvars["month"].")"; 
 	$interval = "DOW.date = ".$qsvars["month"];
 } else if ($qsvars["interval"]=="lastmonth") {
 	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )";
 } else {
-	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 7;
+	$qsvars["interval"] = $qsvars["interval"] && $qsvars["interval"] <= 30 ? $qsvars["interval"] - 0 : 1; // default
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
 }
-	  
+
+// filename filter
 if (sizeof($qsvars["filenames"])<1) $qsvars["filenames"] = array("emf-sdo-xsd-SDK-");
-$qsvars["filename"] = "";
+$filenames = "";
 foreach ($qsvars["filenames"] as $i => $filename) {
 	if (strlen($filename) >= 10) {
 //		if ($debug) echo "filenames[$i] = ".$filename."<br>";
-		if ($qsvars["filename"]) { $qsvars["filename"] .="OR "; }
-		$qsvars["filename"] .= "DOW.file LIKE \"%".$filename."%\" ";
+		if ($filenames) { $filenames .="OR "; }
+		$filenames .= "DOW.file LIKE \"%".$filename."%\" ";
 	}
 }
-$qsvars["filename"] = "(".$qsvars["filename"].")";
+$filenames = "(".$filenames.")";
+
+// results limit (optional)
+$limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
 
 $queries = array(
 	"File" => 
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
 		"SELECT COUNT(*) AS Count, MONTH(DOW.date) as Month, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
-		$qsvars["filename"]." GROUP BY URL ORDER BY Count DESC ".$limit 
+		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
+		$filenames." GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 	"Domain" => // temporary solution for getting country codes
 //		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
@@ -89,58 +102,49 @@ $queries = array(
 				"'?') " .
 			"as TLD " .
 		"FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
-		$qsvars["filename"]." GROUP BY TLD ".$limit
+		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
+		$filenames." GROUP BY TLD ".$limit
 //		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
-$qsvarsToShow = array("interval", "sql", "generator");
+$qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.43 2006/01/28 06:53:06 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.44 2006/01/28 06:59:58 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
-if ($user == $gooduser && $pass == $goodpass) { 
-	if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
-		if ($qsvars["ctype"]=="xml") { 
-			header('Content-type: text/xml');
-			echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-			echo "<data>\n";
-			$results = doQuery($queries[$qsvars["table"]]);
-			echo displayXMLResults($qsvars["table"],$results);
-			echo "</data>\n";
-		} else {
-			$HTMLTitle = "Eclipse Tools - EMF Download Stats";
-			$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
-			include $pre . "includes/header.php";
-			echo "Querying ... ";
-			$results = doQuery($queries[$qsvars["table"]]);
-			echo "done (".$time->displaytime()." seconds).<br/><br/>";
-			echo displayHTMLResults($qsvars["table"],$results);
-			include $pre . "includes/footer.php";
-		}
+if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
+	if ($qsvars["ctype"]=="xml") { 
+		header('Content-type: text/xml');
+		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		echo "<data>\n";
+		$results = doQuery($queries[$qsvars["table"]]);
+		echo displayXMLResults($qsvars["table"],$results);
+		echo "</data>\n";
 	} else {
 		$HTMLTitle = "Eclipse Tools - EMF Download Stats";
 		$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 		include $pre . "includes/header.php";
-		echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
-		foreach ($queries as $title => $query) {
-			echo "<li>".$title."s: <a href=\"$PHP_SELF?".
-							doQS(array("table" => $title))."\">HTML</a>, " .
-						"<a href=\"$PHP_SELF?".
-							doQS(array("table" => $title, "ctype" => "xml"))."\">XML</a>" .
-				"</li>\n";
-		}
-		echo "</ul><p>&#160;</p>";
+		echo "Querying ... ";
+		$results = doQuery($queries[$qsvars["table"]]);
+		echo "done (".$time->displaytime()." seconds).<br/><br/>";
+		echo displayHTMLResults($qsvars["table"],$results);
 		include $pre . "includes/footer.php";
 	}
 } else {
 	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
 	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 	include $pre . "includes/header.php";
-	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
-	echo "<p>&#160;</p>";
+	echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
+	foreach ($queries as $title => $query) {
+		echo "<li>".$title."s: <a href=\"$PHP_SELF?".
+						doQS(array("table" => $title))."\">HTML</a>, " .
+					"<a href=\"$PHP_SELF?".
+						doQS(array("table" => $title, "ctype" => "xml"))."\">XML</a>" .
+			"</li>\n";
+	}
+	echo "</ul><p>&#160;</p>";
 	include $pre . "includes/footer.php";
-} 
+}
 
 ##########################################################################################
 
@@ -239,7 +243,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>".
-			 '$Id: stats.php,v 1.43 2006/01/28 06:53:06 nickb Exp $'.
+			 '$Id: stats.php,v 1.44 2006/01/28 06:59:58 nickb Exp $'.
 			 "</small></p>";
 		exit;
     }
@@ -257,4 +261,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.43 2006/01/28 06:53:06 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.44 2006/01/28 06:59:58 nickb Exp $ -->
