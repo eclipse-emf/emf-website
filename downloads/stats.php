@@ -73,15 +73,14 @@ $qsvars["interval"] = $interval == "month" ?
 	"(MONTH(CURDATE()) - 1 = MONTH(DOW.date) OR (MONTH(CURDATE()) = 1 AND MONTH(DOW.date)) = 12 )" :
 	"DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)";
 
+$filenames = array();
 if (!$qsvars["filename"] || ($qsvars["filename"] && !is_array($qsvars["filename"]) && strlen($qsvars["filename"]) < 10)) {
-	$filenames = array();
 } else {
 	 if($qsvars["filename"] && !is_array($qsvars["filename"]) && strlen($qsvars["filename"]) >= 10) {
 	 	$filenames = array($qsvars["filename"]);
 	 } else { // an array: verify values are at least 10 chars long
-	 	$filenames = array();
 	 	foreach ($qsvars["filename"] as $filename) {
-	 		if (strlen($qsvars["filename"]) >= 10) {
+	 		if (strlen($filename) >= 10) {
 	 			$filenames[] = $filename;
 	 		}
 	 	}
@@ -102,7 +101,7 @@ $queries = array(
 //		"SELECT COUNT(*) AS Count, DOW.file as URL FROM downloads AS DOW " .
 		"SELECT COUNT(*) AS Count, SUBSTRING_INDEX(DOW.file,'/',-1) as URL FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY URL ORDER BY Count DESC ".$limit 
+		$qsvars["filename"]." GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
 	"Domain" => // temporary solution for getting country codes
 //		"SELECT COUNT(*) AS Count, DOW.remote_host as Host FROM downloads AS DOW " .
@@ -113,7 +112,7 @@ $queries = array(
 			"as TLD " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$qsvars["interval"]." AND " .
-		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY TLD ".$limit
+		$qsvars["filename"]." GROUP BY TLD ".$limit
 //		"DOW.file LIKE \"%".$qsvars["filename"]."%\" GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
@@ -249,7 +248,7 @@ function doQuery($sql) {
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
     
     if(mysql_errno($dbh) > 0) {
-		echo "<b>SQL error processing \"$sql\"</b>";
+		echo "<b>SQL error processing query:<br/>$sql</b>";
 		# For debugging purposes - don't display this stuff in a production page.
 		# echo mysql_error($dbh);
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
@@ -270,4 +269,4 @@ function doQuery($sql) {
 
 ?>
 
-<!-- $Id: stats.php,v 1.36 2006/01/28 06:00:13 nickb Exp $ -->
+<!-- $Id: stats.php,v 1.37 2006/01/28 06:05:39 nickb Exp $ -->
