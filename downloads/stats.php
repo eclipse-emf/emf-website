@@ -103,6 +103,7 @@ $queries = array(
 	"File" => 
 		"SELECT COUNT(*) AS Count, " .
 //			"DOW.file as URL " .
+			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week":"").
 			"SUBSTRING_INDEX(DOW.file,'/',-1) as URL " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
@@ -110,6 +111,7 @@ $queries = array(
 	,
 	"Domain" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
+			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week":"").
 //			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
@@ -123,7 +125,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.58 2006/01/29 03:36:32 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.59 2006/01/29 03:45:10 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -256,7 +258,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.58 2006/01/29 03:36:32 nickb Exp $'.
+			 '$Id: stats.php,v 1.59 2006/01/29 03:45:10 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
