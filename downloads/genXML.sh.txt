@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.5 2006/01/29 06:14:37 nickb Exp $
+# $Id: genXML.sh.txt,v 1.6 2006/01/29 06:21:16 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh; dos2unix genXML.sh
@@ -42,14 +42,14 @@ while [ "$#" -gt 0 ]; do
       echo "  $1 $2";
       shift 2;
       ;;
-    '-domain'|'-D')
-      tables=$tables" Domain";
-      echo "  $1";
-      shift 1;
-      ;;
     '-file'|'-F')
       tables=$tables" File";
       echo "  $1"
+      shift 1;
+      ;;
+    '-domain'|'-D')
+      tables=$tables" Domain";
+      echo "  $1";
       shift 1;
       ;;
     '-months'|'-m')
