@@ -125,8 +125,8 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.60 2006/01/29 04:20:53 nickb Exp $';
-$qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
+$qsvars["generator"] = '$Id: stats.php,v 1.61 2006/01/29 05:11:24 nickb Exp $';
+$qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	if ($qsvars["ctype"]=="xml") { 
@@ -258,7 +258,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.60 2006/01/29 04:20:53 nickb Exp $'.
+			 '$Id: stats.php,v 1.61 2006/01/29 05:11:24 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
