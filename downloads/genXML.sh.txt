@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.3 2006/01/29 05:37:22 nickb Exp $
+# $Id: genXML.sh.txt,v 1.4 2006/01/29 05:57:41 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh; dos2unix genXML.sh
@@ -102,7 +102,8 @@ genXML ()
     item=$1;
     xmlfile="$logdir/stats_"$table"_"$label"_"$item".xml"; touch $xmlfile;
     echo "[`date +%H:%M:%S`] $table, $label, $item: start.";
-    cmd="wget -O $xmlfile http://www.eclipse.org/emf/downloads/stats.php?user=$user&pass=$pass&table=$table&ctype=xml&$label=$item";
+    cmd="wget -O $xmlfile http://www.eclipse.org/emf/downloads/stats.php?user=$user&pass=$pass";
+    cmd=$cmd"&table=$table&ctype=xml&$label=$item&filenames[]=/emf-&filenames[]=/xsd-";
     #echo $cmd;
     $cmd 2>&1;
     head -10 $xmlfile; echo "..."; tail -5 $xmlfile;
