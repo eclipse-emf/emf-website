@@ -12,6 +12,8 @@
  *  weekly results trended over 6 mo [filter by filename having given month range]
  * 	monthly results trended over several years [all data]
  * TODO: get old data from 2005?
+ * 	+ got December 2005 data
+ *  + got partial January 2006 data
  * 
  **/
 
@@ -61,6 +63,15 @@ if ($user != $gooduser || $pass != $goodpass) {
 // date filter
 if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12) {
 	$interval = "MONTH(DOW.date) - 0 = ".$qsvars["month"];
+} else if ($qsvars["week"] && $qsvars["week"] - 0 >= 0 && $qsvars["week"] - 0 <= 53) {
+	$interval = "WEEK(DOW.date) - 0 = ".$qsvars["week"];
+} else if ($qsvars["date"]) {
+	$ts = strtotime($qsvars["date"]);
+	if ($ts!==-1 && $ts!==false) { // valid datestamp
+		$interval = "DATE(DOW.date) = '".date("Y-m-d",$ts)."'";
+	} else { // invalid datestamp, default to yesterday's data
+		$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+	} 
 } else if ($qsvars["interval"]=="lastmonth") { // previous FULL month
 //	$interval = "(MONTH(CURDATE()) - 1 = MONTH(DOW.date) - 0 OR (MONTH(CURDATE()) - 0 = 1 AND MONTH(DOW.date)) - 0 = 12 )"; // nothing returned
 //	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)";  // get partial months (dec/jan)
@@ -112,7 +123,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.57 2006/01/28 10:03:22 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.58 2006/01/29 03:36:32 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? $queries[$qsvars["table"]] : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -245,7 +256,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.57 2006/01/28 10:03:22 nickb Exp $'.
+			 '$Id: stats.php,v 1.58 2006/01/29 03:36:32 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
