@@ -1,11 +1,11 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.2 2006/01/29 05:31:08 nickb Exp $
+# $Id: genXML.sh.txt,v 1.3 2006/01/29 05:37:22 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh; dos2unix genXML.sh
 
 user=""; pass="";
-tables=""; weeks=""; months=""; days="";
+tables=""; weeks=""; months=""; dates="";
 logdir="./logs"; mkdir -p $logdir;
 
 if [ $# -lt 1 ]; then
@@ -76,13 +76,13 @@ while [ "$#" -gt 0 ]; do
       done
       echo "";
       ;;
-    '-days'|'-d')
+    '-dates'|'-d')
       echo -n "  $1";
       shift 1; 
       next=$1; rem=${next##*-*};
       while [ "x$rem" != "x" ]; do # found -, so result null
         echo -n " "$1;
-        days=$days" "$1;
+        dates=$dates" "$1;
         shift 1; 
         next=$1; rem=${next##*-*};
       done
