@@ -1,0 +1,120 @@
+#!/bin/bash
+# $Id: genXML.sh.txt,v 1.1 2006/01/29 05:07:00 nickb Exp $
+#
+# To use this script, do the following:
+# mv genXML.sh.txt genXML.sh; chmod o+x genXML.sh; dos2unix genXML.sh
+
+user=""; pass="";
+tables=""; weeks=""; months=""; days="";
+logdir="./logs"; mkdir -p $logdir;
+
+if [ $# -lt 1 ]; then
+  echo "usage:";
+  echo "  -user,   -u <REQUIRED: username for SQL access>";
+  echo "  -pass,   -p <REQUIRED: password for SQL access>";
+  echo "  -domain, -D <generate country data>";
+  echo "  -file,   -F <generate file data>";
+  echo "  -dates,  -d <list of dates to generate,  eg. -d 20060101 20060102>"
+  echo "  -weeks,  -w <list of weeks to generate,  eg. -w 51 52 01 02 03>"
+  echo "  -months, -m <list of months to generate, eg. -m 12 01>"
+  echo "  -logdir, -l <directory to store generated xml files; default = ./logs>"
+  echo "";
+  echo "example: genXML.sh -u foo -p bar -D -F -m 12 01 -w 48 49 50 51 52 01 \\"
+  echo "           -l ./xml 2>&1 | tee -a genXML.log.txt"
+  exit 1;
+fi
+
+echo "[`date +%H:%M:%S`] Executing with the following options:";
+while [ "$#" -gt 0 ]; do
+  case $1 in
+    '-user'|'-u')
+      user=$2;
+      echo "  $1 $2";
+      shift 2;
+      ;;
+    '-pass'|'-p')
+      pass=$2;
+      echo "  $1 $2";
+      shift 2;
+      ;;
+    '-logdir'|'-l')
+      logdir=$2; mkdir -p $logdir;
+      echo "  $1 $2";
+      shift 2;
+      ;;
+    '-domain'|'-D')
+      tables=$tables" Domain";
+      echo "  $1";
+      shift 1;
+      ;;
+    '-file'|'-F')
+      tables=$tables" File";
+      echo "  $1"
+      shift 1;
+      ;;
+    '-months'|'-m')
+      echo -n "  $1";
+      shift 1; 
+      next=$1; rem=${next##*-*};
+      while [ "x$rem" != "x" ]; do # found -, so result null
+        echo -n " "$1;
+        months=$months" "$1;
+        shift 1; 
+        next=$1; rem=${next##*-*};
+      done
+      echo "";
+      ;;
+    '-weeks'|'-w')
+      echo -n "  $1";
+      shift 1; 
+      next=$1; rem=${next##*-*};
+      while [ "x$rem" != "x" ]; do # found -, so result null
+        echo -n " "$1;
+        weeks=$weeks" "$1;
+        shift 1; 
+        next=$1; rem=${next##*-*};
+      done
+      echo "";
+      ;;
+    '-days'|'-d')
+      echo -n "  $1";
+      shift 1; 
+      next=$1; rem=${next##*-*};
+      while [ "x$rem" != "x" ]; do # found -, so result null
+        echo -n " "$1;
+        days=$days" "$1;
+        shift 1; 
+        next=$1; rem=${next##*-*};
+      done
+      echo "";
+      ;;
+  esac
+done
+
+genXML ()
+{
+  user=$1;
+  pass=$2;
+  table=$3;
+  label=$4;
+  shift 4;
+  while [ "$#" -gt 0 ]; do
+    item=$1;
+    xmlfile="$logdir/stats_"$table"_"$label"_"$item".xml"; touch $xmlfile;
+    echo "[`date +%H:%M:%S`] $table, $label, $item: start.";
+    cmd="wget -O $xmlfile http://www.eclipse.org/emf/downloads/stats.php?user=$user&pass=$pass&includedates=true&table=$table&ctype=xml&$label=$item";
+    #echo $cmd;
+    $cmd 2>&1;
+    head -10 $xmlfile; echo "..."; tail -5 $xmlfile;
+    echo "[`date +%H:%M:%S`] $table, $label, $item: done.";
+    shift 1;
+  done;
+}
+
+for table in $tables; do 
+  if [ "x$dates"  != "x" ]; then genXML $user $pass $table "date"  $dates;  fi
+  if [ "x$weeks"  != "x" ]; then genXML $user $pass $table "week"  $weeks;  fi
+  if [ "x$months" != "x" ]; then genXML $user $pass $table "month" $months; fi
+done;
+
+echo "[`date +%H:%M:%S`] Generation done."
