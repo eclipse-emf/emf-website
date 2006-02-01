@@ -1,8 +1,20 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.6 2006/01/29 06:21:16 nickb Exp $
+# $Id: genXML.sh.txt,v 1.7 2006/02/01 22:12:21 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh; dos2unix genXML.sh
+
+# To use this script as a cron entry, use something like this:
+# Min Hr Mday Month Wday Cmd
+
+# nightly stats (previous day) @ 6am, do yesterday's data
+# 00 6 * * * ~/crontab/genXML.sh -user $user -pass $pass -F -D -dates `date --date="$(date +%Y-%m-%d) -1 day" +%Y%m%d` -l /var/www/emf/downloads/xml/nightly 2>&1 | tee ~/crontab/genXML.N.log.txt
+
+# weekly (previous week, starting on Sunday) @ 6:10am on Sunday, do previous week's data
+# 10 6 * * 0 ~/crontab/genXML.sh -user $user -pass $pass -F -D -weeks `date --date="$(date +%Y-%m-%d) -1 week" +%U`    -l /var/www/emf/downloads/xml/weekly 2>&1  | tee ~/crontab/genXML.W.log.txt
+
+# monthly (previous full month) @ 6:20am on 1rst of the month, do prev month's data
+# 20 6 1 * * ~/crontab/genXML.sh -user $user -pass $pass -F -D -months `date --date="$(date +%Y-%m-15) -1 month" +%m`  -l /var/www/emf/downloads/xml/monthly 2>&1  | tee ~/crontab/genXML.M.log.txt
 
 user=""; pass="";
 tables=""; weeks=""; months=""; dates="";
@@ -12,14 +24,18 @@ if [ $# -lt 1 ]; then
   echo "usage:";
   echo "  -user,   -u <REQUIRED: username for SQL access>";
   echo "  -pass,   -p <REQUIRED: password for SQL access>";
-  echo "  -domain, -D <generate country data>";
   echo "  -file,   -F <generate file data>";
-  echo "  -dates,  -d <list of dates to generate,  eg. -d 20060101 20060102>"
+  echo "  -domain, -D <generate country data>";
+  echo "  -dates,  -d <list of dates to generate,  eg. -d 20051231 20060101>"
   echo "  -weeks,  -w <list of weeks to generate,  eg. -w 51 52 01 02 03>"
   echo "  -months, -m <list of months to generate, eg. -m 12 01>"
   echo "  -logdir, -l <directory to store generated xml files; default = ./logs>"
   echo "";
-  echo "example: genXML.sh -u foo -p bar -D -F -m 12 01 -w 48 49 50 51 52 01 \\"
+  echo -n "example: genXML.sh -u foo -p bar -F -D";
+  echo -n " -d "`date --date="$(date +%Y-%m-%d) -1 day" +%Y%m%d`; # yesterday
+  echo -n " -w "`date --date="$(date +%Y-%m-%d) -1 week" +%U`; # last week
+  echo -n " -m "`date --date="$(date +%Y-%m-15) -1 month" +%m`; # last month
+  echo " \\"
   echo "           -l ./xml 2>&1 | tee -a genXML.log.txt"
   exit 1;
 fi
