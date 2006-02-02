@@ -3,6 +3,10 @@
 <xsl:key name="modelCatg" match="model" use="@category"/>
 <xsl:key name="reviewmodelID" match="review" use="@modelID"/>
 
+<!-- show filter form inputs? by default, no. need HTML/PHP wrapper to enable this, -->
+<!-- since can't pass querystring params to XSL without HTML or PHP wrapper -->
+<xsl:param name="showFiltersOrHeaderFooter"></xsl:param> <!-- LEAVE BLANK - pass value of '1' into stylesheet via javascript -->
+
 <xsl:variable name="xx">
   <xsl:call-template name="show_models">
   </xsl:call-template>
@@ -11,70 +15,77 @@
 <xsl:template name="show_models" match="/">
 <xsl:for-each select="data">
 	<html xmlns="http://www.w3.org/1999/xhtml">
+	<xsl:if test="$showFiltersOrHeaderFooter='1'">
+	<style>@import url("models.css");</style>
+	</xsl:if>
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 	<head>
-    <title>Eclipse Tools - EMF Corner</title>
+	<title>Eclipse Modeling Framework Corner</title>
     <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
-	<script type="text/javascript" language="javascript" src="models.js"> </script>
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
+	<script type="text/javascript" language="javascript" src="models.js"> </script>
 	<style>@import url("models.css");</style>
 	</head>
-	<body>
 
-<!-- wrapper for left nav -->
-<table cellspacing="0" cellpadding="0" border="0" width="100%">
-	<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
-
-     <tr>
-          <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
-          <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
-          <td width="250" height="50"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
-     </tr>
-
-    </table></td>
-  </tr>
-</table>
+	<!-- wrapper for left nav -->
+	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+		<tr valign="top"><td colspan="1" align="left" width="100%"><table border="0" cellspacing="0" cellpadding="0" width="100%" BGCOLOR="#006699" >
+	
+	     <tr>
+	          <td BGCOLOR="#000000" width="116" height="50"><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
+	          <td width="637" height="50" style="background-repeat: repeat-y;" background="http://www.eclipse.org/images/gradient.jpg"></td>
+	          <td width="250" height="50"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
+	     </tr>
+	
+	    </table></td>
+	  </tr>
+	</table>
+	</xsl:if>
+	
 <table cellspacing="0" cellpadding="0" border="0">
 	<tr valign="top">
+		<xsl:if test="$showFiltersOrHeaderFooter!='1'">
 		<td align="left" width="115" bgcolor="#6699CC">
-
 		<!-- left nav here -->
-		<xsl:copy-of select="document('../includes/nav.xml')/div"/>
-
+			<xsl:copy-of select="document('../includes/nav.xml')/div"/>
 		</td>
+		</xsl:if>
 
-		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="100%">
-&#160;
-<table border="0" cellpadding="2" width="100%">
-  <tbody>
-
-    <tr>
-      <td align="left" width="60%">
-        <font class="indextop">EMF Corner</font><br/>
-        <font class="indexsub">Eclipse Modeling Framework</font>
-
-      </td>
-      <td width="40%">
-        <img src="http://www.eclipse.org/emf/images/c.gif" align="right"/>
-      </td>
-
-    </tr>
-  </tbody>            
-</table>
-
-<table border="0" cellpadding="2" width="100%" >
-<tr>
-
-<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
-</tr>
-</table>
-<table border="0" cellpadding="2" width="100%" >
-<tr>
-<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
-</tr>
-</table>
-
-<p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
+		<td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"/></td><td align="left" width="99%">
+	<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+		&#160;
+		<table border="0" cellpadding="2" width="100%">
+		  <tbody>
+		
+		    <tr>
+		      <td align="left" width="60%">
+		        <font class="indextop">EMF Corner</font><br/>
+		        <font class="indexsub">Eclipse Modeling Framework</font>
+		
+		      </td>
+		      <td width="40%">
+		        <img src="http://www.eclipse.org/emf/images/c.gif" align="right"/>
+		      </td>
+		
+		    </tr>
+		  </tbody>            
+		</table>
+	</xsl:if>
+	
+		<table border="0" cellpadding="2" width="100%" >
+		<tr>
+		
+		<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="2" width="100%" >
+		<tr>
+		<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
+		</tr>
+		</table>
+		
+		<p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
 
 
 	<!-- table of contents -->
@@ -117,7 +128,7 @@
 	</table>
 
 	<!-- hide header table if there's less than 10 models here - not a lot of point for #s less than that -->
-	<xsl:if test="count(model)>20">
+	<xsl:if test="count(model) &gt; 20">
 		<table border="0" cellspacing="1" cellpadding="3">
 			<tr class="light-row" valign="bottom">
 				<td colspan="2" class="big-header">
@@ -339,6 +350,8 @@
 
 <p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
 
+<xsl:if test="$showFiltersOrHeaderFooter!='1'">
+
 <p>
 	<a name="quicknav">
 	<a href="/emf/emf.php">EMF Home</a> |
@@ -349,12 +362,15 @@
 </p>
 
 <!-- wrapper for left nav -->
-</td></tr></table>
+</xsl:if>
 
-</body>
+</td>
+</tr>
+</table>
+
 </html>
 </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.17 2005/07/07 05:18:26 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.18 2006/02/02 16:19:41 nickb Exp $ -->
