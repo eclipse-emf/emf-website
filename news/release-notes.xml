@@ -29,6 +29,18 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200602020000" project="emf" version="2.2.0">
+<bug id="123616">new methods for EcoreUtil to find EObject referencers</bug>
+<bug id="125369">Use of deprecated SAXWrapper can cause NPE</bug>
+<bug id="125553">Improve performance of ESuperAdapter</bug>
+<bug id="125557">Improve the performance of EClassifier.getEPackage.</bug>
+<bug id="125563">Improve the performance of EModelElementImpl.eObjectForURIFragmentSegment</bug>
+<bug id="125565">Javadoc typo in EObject: conflect -&gt; conflict</bug>
+<bug id="125822">ModelImporter should handle edit directory being &quot;&quot;</bug>
+<bug id="125917">AdapterFactoryEditingDomain.isReadOnly() incorrectly returns false</bug>
+<bug id="126088">The generated code is not respecting the indentation defined in the Java preferences</bug>
+</entry>
+
 <entry build="I200601260027" project="emf" version="2.2.0">
 <bug id="118688">Provide generated editor support for containment proxies</bug>
 <bug id="121088">Mark the lists used in EMF with the RandonAccess interface</bug>
@@ -352,6 +364,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200602020000" project="xsd" version="2.2.0">
+<bug id="123829">Fix needed for multiple &quot;base&quot; entries in XMLDocumentRoot list</bug>
 </entry>
 
 <entry build="I200601260027" project="xsd" version="2.2.0">
@@ -2168,4 +2184,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.131 2006/01/27 02:59:14 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.132 2006/02/02 06:35:38 nickb Exp $ -->
