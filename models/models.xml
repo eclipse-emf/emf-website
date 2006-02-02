@@ -2,6 +2,22 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model 
+modelName="realMethods Framework" 
+date="2006-01-30" 
+category="EMF tool" 
+modelID="TylerWinston20060130205700">
+<text>Quickly generate multi-tier design pattern based J2EE 
+applications from one or more ECore files.  Includes complete support for 
+Struts, Hibernate, Ant, Axis Web Services, and more.  Portal and AJAX 
+support are coming soon.</text>
+<modelURL>http://www.realmethods.com</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL>http://www.realmethods.com/images/aib-full.jpg</screenshotURL>
+<submitter>Tyler Winston</submitter> 
+<submitterURL>http://www.realmethods.com</submitterURL>
+</model>
+
 <model
 modelName="EMF Persistency Layer using Hibernate or JDO/JPOX"
 date="2005-10-05"
@@ -453,4 +469,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.19 2005/10/05 23:24:41 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.20 2006/02/02 16:22:42 nickb Exp $ -->
