@@ -31,6 +31,7 @@
 
 <entry build="I200602020000" project="emf" version="2.2.0">
 <bug id="123616">new methods for EcoreUtil to find EObject referencers</bug>
+<bug id="123829">Fix needed for multiple "base" entries in XMLDocumentRoot list</bug>
 <bug id="125369">Use of deprecated SAXWrapper can cause NPE</bug>
 <bug id="125553">Improve performance of ESuperAdapter</bug>
 <bug id="125557">Improve the performance of EClassifier.getEPackage.</bug>
@@ -38,6 +39,8 @@
 <bug id="125565">Javadoc typo in EObject: conflect -&gt; conflict</bug>
 <bug id="125822">ModelImporter should handle edit directory being &quot;&quot;</bug>
 <bug id="125917">AdapterFactoryEditingDomain.isReadOnly() incorrectly returns false</bug>
+<bug id="126018">Errors reported while loading with OPTION_RECORD_UNKNOWN_FEATURE</bug>
+<bug id="126072">XMLHandler memory leak in reset()</bug>
 <bug id="126088">The generated code is not respecting the indentation defined in the Java preferences</bug>
 </entry>
 
@@ -2184,4 +2187,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.132 2006/02/02 06:35:38 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.133 2006/02/02 07:13:11 nickb Exp $ -->
