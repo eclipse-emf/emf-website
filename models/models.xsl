@@ -73,19 +73,7 @@
 		</table>
 	</xsl:if>
 	
-		<table border="0" cellpadding="2" width="100%" >
-		<tr>
-		
-		<td align="LEFT" valign="TOP" BGCOLOR="#0070A0"><b><font face="Arial,Helvetica"><font color="#FFFFFF">EMF Corner</font></font></b><a name="top">&#160;</a></td>
-		</tr>
-		</table>
-		<table border="0" cellpadding="2" width="100%" >
-		<tr>
-		<td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
-		</tr>
-		</table>
-		
-		<p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
+	<p><a href="models-submit.php">Submit an EMF, SDO, or XSD model, plugin, tool...</a></p>
 
 
 	<!-- table of contents -->
@@ -373,4 +361,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.18 2006/02/02 16:19:41 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.19 2006/02/02 16:24:50 nickb Exp $ -->
