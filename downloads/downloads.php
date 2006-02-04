@@ -1,13 +1,17 @@
 <?php
 	$pre = "../";
+	$doHeaderAndFooter=1;
 	
-	// TODO: need timeperiod-by-timeperiod comparision instead of merges; thus 
-	// compare JUST the overall numbers between 2 months, or 4 weeks, or daily within a week, etc.
-	// TODO: add plots
-		
-	// TODO: filter all .jar files into one group, all .zip in another
-	// TODO: filter by file version / release, with or without grouping by .zip/.jar
-	// TODO: filter if # hits < 100 
+	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
+	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
+	
+$TODOs = '<pre>
+// TODO: TREND ANALYSIS - need slice-by-slice comparision instead of merging 
+// data across group of slices, eg. 12 months in a year, 13 weeks in a quarter
+// TODO: TREND PLOTS (simple HTML bar charts)
+
+// TODO: add cookies to store selections so on return same options are again selected?
+</pre>';
 	
 	class Timer { 
 		/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -29,8 +33,8 @@
     
     require_once($pre."includes/xmllib.php");
 
-//    include ($pre."includes/header.php");
-    
+    $debug=$_GET["debug"]; if ($debug) $doHeaderAndFooter=0;
+
     $months=$_GET["month"]-0<0?date("m",strtotime("-1 month")):$_GET["month"]; 
     $weeks=$_GET["week"]-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$_GET["week"];
     $dates=$_GET["date"]-0<0?date("Ymd",strtotime("-1 day")):$_GET["date"];
@@ -38,6 +42,8 @@
     $range=$_GET["range"]?$_GET["range"]:'mm'; 
     $rangeLimit=$_GET["rangeLimit"]?$_GET["rangeLimit"]:-1;
     $sortBy=$_GET["sortBy"]?$_GET["sortBy"]:"Hits";
+    $groups=$_GET["groups"]?$_GET["groups"]:array(); if (!is_array($groups)) $groups = array($groups);
+    $thresh=$_GET["thresh"]?$_GET["thresh"]:100; // minimum grouping for "others"
     
     switch ($range) {
 		case "ym":
@@ -97,7 +103,7 @@
 				$rangeLimit = $rangeLimit-0<0?date("Ymd",strtotime("-1 day")):$rangeLimit;
 			}
 			for ($i=0;$i<=13;$i++) {
-				$dates[] = date("Ymd", strtotime($rangeLimit . " -".$i." day")); 
+				$dates[] = date("Ymd", strtotime("-".$i." day",strtotime($rangeLimit))); 
 			} 
 			break;
 		case "wd":
@@ -105,7 +111,7 @@
 				$rangeLimit = $rangeLimit-0<0?date("Ymd",strtotime("-1 day")):$rangeLimit;
 			}
 			for ($i=0;$i<=6;$i++) {
-				$dates[] = date("Ymd", strtotime($rangeLimit . " -".$i." day")); 
+				$dates[] = date("Ymd", strtotime("-".$i." day",strtotime($rangeLimit))); 
 			} 
 			break;
 		case "dd":
@@ -126,6 +132,10 @@
     	$months=array(date("m",strtotime("-1 month")));
     }
         
+    if (!$doHeaderAndFooter) {
+    	include_once $pre."includes/scripts.php";
+    }
+        
     $filenames = array();
     
     // yearly-by-month (12), half-by-month (6), quarterly-by-month (3), 
@@ -142,13 +152,15 @@
     }
    	$filenames = array_unique($filenames); 
    
-    /*
-	echo "type=$type, range=$range / rangeLimit=$rangeLimit <hr> ";
-    echo "month=";wArr($months); echo "<hr> week=";wArr($weeks); echo "<hr> date=";wArr($dates); echo "<hr>";
-    w(sizeof($filenames)." filenames found:",1);
-    wArr($filenames);
-    */
-    
+    if ($debug) {
+		echo "type=$type, range=$range / rangeLimit=$rangeLimit <hr> ";
+	    echo "month=";wArr($months); echo "<hr> week=";wArr($weeks); echo "<hr> date=";wArr($dates); echo "<hr>";
+	    w(sizeof($filenames)." filenames found:",1);
+	    wArr($filenames);
+    }
+            
+            
+    /** calculate data & summary values, and apply groupings if applicable **/
     $data = array();
     $summary = array();
     foreach ($filenames as $i => $filename) {
@@ -166,11 +178,45 @@
 				//echo $i.", ".$node->nodeName()."<br>";
 				if ($node->nodeName()==strtolower($type)) { // "<file />" or "<domain />" only
 					if (array_key_exists("url",$node->attributes)) {
-						$data[$node->getAttribute("url")] += $node->getAttribute("count");
+						if (in_array("groupSmall",$groups) && $node->getAttribute("count")<=$thresh) {
+							$data["Other Files Under $thresh Hits Each"] += $node->getAttribute("count");
+						} else {
+							$EMFOrXSD="";
+							if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
+								$url = $node->getAttribute("url");
+								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
+								$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
+							} else if (in_array("groupVersion",$groups)) {
+								$url = substr($node->getAttribute("url"),0,-4); // remove .jar or .zip
+								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
+								$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
+							} else if (in_array("groupType",$groups)) {
+								$url = substr($node->getAttribute("url"),-3);
+								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
+								$url = $EMFOrXSD.$url;
+							} else if (in_array("groupProject",$groups)) {
+								$url = getEMFOrXSD($node->getAttribute("url"));
+							} else {
+								$url = $node->getAttribute("url");
+							} 
+							$data[$url] += $node->getAttribute("count");
+						}
 						//echo "\$data[".$node->getAttribute("url")."] += ".$node->getAttribute("count")."; <br>\n";
 						$count++;
 					} else if (array_key_exists("tld",$node->attributes)) {
-						$data[$node->getAttribute("tld")] += $node->getAttribute("count");
+						if (in_array("groupSmall",$groups) && $node->getAttribute("count")<=$thresh) {
+							$data["Other Domains Under $thresh Hits Each"] += $node->getAttribute("count");
+						} else {
+							$tld = $node->getAttribute("tld");
+							if (in_array("groupTLD",$groups)) {
+								if (strlen($tld)<2) { 
+									$tld = "Other Unknown Domains (<2)";
+								} else if (strlen($tld)>4) {
+									$tld = "Other Non-Standard Domains (>4)";
+								}
+							}
+							$data[$tld] += $node->getAttribute("count");
+						}
 						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("count")."; <br>\n";
 						$count++;
 					}
@@ -193,49 +239,23 @@
     $summary["count"] += sizeof($data);
     if ($sortBy=="Hits") { arsort($data); } else { ksort($data); } reset($data); 
     
-    displayNav();
+    $data = adjustData($data);
     
+/**********************************************************/
+
+    if ($doHeaderAndFooter) { include ($pre."includes/header.php"); }
+
+    displayNav();
     displayResults($data, $summary);   
     
-    echo "<p align=\"right\"><small>".$time->displaytime()."s</small></p>";
+    if ($TODOs) echo "<p align=\"left\"><small>".$TODOs."</small></p>";
      
-//    include ($pre."includes/footer.php");
+	if ($doHeaderAndFooter) { include ($pre."includes/footer.php"); }
 
 /**********************************************************/
 
-function displayResults($data, $summary) { 
-	global $type;
-	
-	if ($summary) {
-
-		echo '<p>Total Hits: '.$summary["hits"].' for '.$summary["count"].' unique '.$summary["type"].'</p>'."\n";
-
-		$header= '<table width="600"><tr bgcolor="navy">' .
-			'<td colspan=2><b style="color:white">'.ucfirst($summary["type"]).'</b></td>' .
-			'<td><b style="color:white">Hits</b></td>' .
-			'</tr>'."\n";
-			
-		echo $header;
-		
-		$i=0;
-		foreach ($data as $hit => $count) {
-			if ($i && $i%200==0)
-				echo '</table>'."\n".$header;
-			
-			$i++;
-			echo '<tr bgcolor="'.($i%2==1?'#EEEEEE':'#FFFFFF').'">'."\n";
-			echo '  <td width="25">'.$i.'</td>'."\n";
-			echo '  <td width="550">'.$hit.'</td>'."\n";
-			echo '  <td width="25">'.$count.'</td>'."\n";
-			echo '</tr>'."\n";
-		}
-		echo "</table>\n";
-	}
-
-}
-
 function displayNav() { 
-	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy; 
+	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh; 
 ?>
 
 <table>
@@ -254,6 +274,28 @@ function displayNav() {
 		<input type="radio" <?php echo ($sortBy=='Hits'?'checked ':''); ?>value="Hits" name="sortBy"> Hits
 	</td>
 </tr>
+<tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
+<tr>
+	<td><b>Hit Grouping:</b></td>
+	<td>
+		<input type="checkbox" <?php echo (in_array("groupSmall",$groups)?'checked ':''); ?>value="groupSmall" name="groups[]"> If Hits Under <input type="text" size="5" value="<?php echo $thresh; ?>" name="thresh"/>
+	</td>
+</tr>
+<tr>
+	<td><b>File Grouping:</b></td>
+	<td>
+		<input type="checkbox" <?php echo (in_array("groupProject",$groups)?'checked ':''); ?>value="groupProject" name="groups[]"> Files By Project (EMF, XSD)<br/>
+		<input type="checkbox" <?php echo (in_array("groupVersion",$groups)?'checked ':''); ?>value="groupVersion" name="groups[]"> Files By Version (2.2.0, 2.1.2, etc.)<br/>
+		<input type="checkbox" <?php echo (in_array("groupType",$groups)?'checked ':''); ?>value="groupType" name="groups[]"> Files By Type (UM Jars vs. Zips)<br/>
+	</td>
+</tr>
+<tr>
+	<td><b>Domain Grouping:</b></td>
+	<td>
+		<input type="checkbox" <?php echo (in_array("groupTLD",$groups)?'checked ':''); ?>value="groupTLD" name="groups[]"> Domains By Type<br/>
+	</td>
+</tr>
+<tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
 <tr>
 	<td><b>Data Range:</b></td>
 	<td>
@@ -284,7 +326,7 @@ function displayNav() {
 		
 		&#160;
 <?php 
-			$vals = getDirContentsRange($type,$range,$rangeLimit,true); 
+			$vals = getDirContentsRange($type,$range,true); 
 			echo '		<select name="rangeLimit" onchange="document.statsForm.submit()">'."\n";
 			echo '			<option value="-1">Choose</option>'."\n";
 			foreach ($vals as $label) {
@@ -306,7 +348,98 @@ function displayNav() {
 	
 } 
 
-function getDirContentsRange($type,$range,$rangeLimit,$doTrim=false) { 
+// Files / Hits / Percent or Domains / Hits / Percent
+function displayResults($data, $summary) { 
+	global $type, $filenames,$time,$pre;
+	
+	if ($summary) {
+		$bgc = array('#FFFFFF','#EEEEEE'); $i=0;
+
+		$filelist = getFileList($filenames);
+		echo '<p><form name="filelist"><table border="0">'."\n".
+			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b></td></tr>'."\n".
+			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td colspan="2">Date'.(sizeof($filelist)>1?'s':'').' processed --&gt;</td>'.
+			 '<td rowspan="4">'.
+	 		 	'<select name="filelist" size="4">'."\n";
+		foreach ($filelist as $file) {
+			echo "<option>$file</option>\n"; 
+		}	
+	 	echo 
+	 		 '</select>' .
+	 		 '</td></tr>'."\n";
+			 
+		echo
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Hits</td><td>'.$summary["hits"].'</td></tr>'."\n".
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s</td><td>'.$summary["count"].'</td></tr>'."\n".
+			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time</td><td>'.$time->displaytime().'s</td></tr>'."\n".
+			 '</table></form></p>'."\n";
+
+		$header= '<table width="500"><tr bgcolor="navy">' .
+			'<td colspan=2><b style="color:white">'.ucfirst($summary["type"]).'</b></td>' .
+			'<td><b style="color:white">Hits</b></td>' .
+			'<td colspan="2"><b style="color:white">Percent</b></td>' .
+			'</tr>'."\n";
+			
+		echo $header;
+		
+		$i=0;
+		foreach ($data as $hit => $count) {
+			if ($i && $i%100==0) echo '</table>'."\n".$header;
+			echo '<tr bgcolor="'.$bgc[(++$i)%2].'">'."\n";
+			echo '  <td width="25">'.$i.'</td>'."\n";
+			echo '  <td width="100%">'.$hit.'</td>'."\n";
+			$pc = (round($count/$summary["hits"]*10000)/100);
+			$col = (false!==strpos($hit,"xsd")?"orange":(false!==strpos($hit,"emf")?"green":"purple"));
+			echo '  <td width="25" align="right">'.$count.'</td>'."\n";
+			echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
+			echo '  <td valign="middle" width="50" bgcolor="#FFFFFF">' .
+					'<img alt="'.$pc.'%" src="'.$pre.'images/misc/bar-' . $col .
+					'.png" width="'.(round($pc)*150/100).'" height="10"/></td>'."\n";
+			echo '</tr>'."\n";
+		}
+		echo "</table>\n";
+	}
+
+}
+
+// move the "Other..." entry to the bottom of the array
+function adjustData($data) {
+	global $type;
+	$last = array();
+	$out = array();
+	foreach ($data as $k => $v) {
+		if (false!==strpos($k,"Other")) {
+			$last[$k] = $v;
+		} else {
+			$out[$k] = $v;
+		}
+	}
+	if (sizeof($last)>0) foreach ($last as $k => $v) $out[$k] = $v;
+	return $out;
+}
+
+function getEMFOrXSD($url) {
+	return 
+		(false!==strpos($url,"xsd")&&false===strpos($url,"emf")?"xsd (only) ":
+		(false!==strpos($url,"emf")?"emf (incl. SDK) ":
+		""));
+}
+
+function getFileList() {
+	global $type,$range,$filenames; 
+	$r = substr($range,1); // "m", "w", or "d" //echo $r;
+	$r1 = array("m" => "monthly", "w" => "weekly", "d" => "nightly");
+	$r2 = array("m" => "month", "w" => "week", "d" => "date");
+	$dir = "./xml/".$r1[$r];
+	$pat = "stats_".$type."_".$r2[$r]."_";
+	$vals = array(); 
+	foreach ($filenames as $k => $value) {
+		$vals[$k] = str_replace(".xml","",substr($value,strlen($dir."/".$pat)));
+	}
+	return $vals;
+}
+
+function getDirContentsRange($type,$range,$doTrim=false) { 
 // for a given type, range, and limit, return ONLY the appropriate files 
 	$r = substr($range,1); // "m", "w", or "d" //echo $r;
 	$r1 = array("m" => "monthly", "w" => "weekly", "d" => "nightly");
@@ -323,7 +456,6 @@ function getDirContentsRange($type,$range,$rangeLimit,$doTrim=false) {
 		$vals = $vals2;
 	}
 	return $vals;
-	
 }
 
 function getDirContents($dir,$pat) { // array of files including dir prefix
@@ -342,51 +474,5 @@ if (is_dir($dir) && is_readable($dir)) {
 	}
 	return $stuff;
 }
-
-function wArr($arr) { // ie., wArr(array,separator,showKeys,trailingCharacter);
-// since PHP won't display an array's contents when you do echo($array), this returns the array like this:
-/* usage: wArr($array)		// 0:apple, 1:peach, 2:grapes\n
-		  wArr($array,"\n") (use "\n" as separator instead of ", ")
-		  wArr($array,"",false); (use default separator, but don't display keys 			
-		  wArr($array,"",false,false); (use default separator, but don't display keys and no trailing char	*/
-	$sep=(func_num_args()>1&&func_get_arg(1))?func_get_arg(1):"<br>"; 
-	$key=(func_num_args()>2)?func_get_arg(2):true;  // assume we want keys
-	$trail=(func_num_args()>3)?func_get_arg(3):"\n";  // assume we want a trailing newline
-	$i=0;
-	if (is_array($arr) && sizeof($arr)>0) { 
-		foreach ($arr as $ark => $arv) {
-			w(($key?$ark.": ":"")); 
-			if (is_array($arv)) { 
-				w("<ul>");
-				wArr($arv,$sep,$key,$trail);
-				w("</ul>");
-			} else {
-				w($arv);
-			}
-			$i++;
-			if ($i<sizeof($arr)) { w($sep); }
-		} 	
-		w($trail);
-	} else {
-		//w($arr.$trail);
-	}
-} 
-
-function w($s) { // shortcut for echo() with second parameter: "add break+newline"
-	if (func_num_args()<=1) { 
-		$br=""; // no break/newline
-	} else { 
-		$br=func_get_arg(1);
-		if (stristr($br,"b")) {
-			$br="<br>";
-		} else if (stristr($br,"n")) {
-			$br="\n";
-		} else if ($br) { 
-			$br="<br>\n"; 
-		}
-	}
-	echo($s.$br); 
-}
-
 
 ?>
