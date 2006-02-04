@@ -393,7 +393,7 @@ function displayResults($data, $summary) {
 			echo '  <td width="25" align="right">'.$count.'</td>'."\n";
 			echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
 			echo '  <td valign="middle" width="50" bgcolor="#FFFFFF">' .
-					'<img alt="'.$pc.'%" src="'.$pre.'images/misc/bar-' . $col .
+					'<img alt="'.$pc.'%" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
 					'.png" width="'.(round($pc)*150/100).'" height="10"/></td>'."\n";
 			echo '</tr>'."\n";
 		}
@@ -476,3 +476,4 @@ if (is_dir($dir) && is_readable($dir)) {
 }
 
 ?>
+<!-- $Id: downloads.php,v 1.3 2006/02/04 07:38:31 nickb Exp $ -->
