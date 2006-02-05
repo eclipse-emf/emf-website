@@ -191,9 +191,9 @@ $TODOs = '<pre>
 								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
 								$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
 							} else if (in_array("groupType",$groups)) {
-								$url = substr($node->getAttribute("url"),-3);
+								$url = $node->getAttribute("url");
 								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-								$url = $EMFOrXSD.$url;
+								$url = $EMFOrXSD.substr($url,-3);
 							} else if (in_array("groupProject",$groups)) {
 								$url = getEMFOrXSD($node->getAttribute("url"));
 							} else {
@@ -476,4 +476,4 @@ if (is_dir($dir) && is_readable($dir)) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.3 2006/02/04 07:38:31 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.4 2006/02/05 03:39:16 nickb Exp $ -->
