@@ -3,6 +3,19 @@
 <data>
 
 <model 
+modelName="Sympedia GenFw Generator Framework" 
+date="2006-02-04" 
+category="EMF model" 
+modelID="EikeStepper20060204144820">
+<text>Sympedia GenFw is a flexible and easy to use framework for software artifact generation. Input models can be associated with generators via extensible rule sets. Additional Content providers, generators and rules can be provided by Eclipse plugins.</text>
+<modelURL>http://genfw.berlios.de</modelURL>
+<thumbnailURL>http://genfw.berlios.de/screenshots/Thumbnail.gif</thumbnailURL>
+<screenshotURL>http://genfw.berlios.de/screenshots</screenshotURL>
+<submitter>Eike Stepper</submitter> 
+<submitterURL>http://www.sympedia.org</submitterURL>
+</model>
+
+<model 
 modelName="realMethods Framework" 
 date="2006-01-30" 
 category="EMF tool" 
@@ -469,4 +482,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.20 2006/02/02 16:22:42 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.21 2006/02/05 02:52:13 nickb Exp $ -->
