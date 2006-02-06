@@ -38,12 +38,18 @@ $TODOs = '<pre>
     $months=$_GET["month"]-0<0?date("m",strtotime("-1 month")):$_GET["month"]; 
     $weeks=$_GET["week"]-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$_GET["week"];
     $dates=$_GET["date"]-0<0?date("Ymd",strtotime("-1 day")):$_GET["date"];
-    $type=$_GET["type"]?$_GET["type"]:"Domain"; // Domain or File
+    $type=$_GET["type"]?$_GET["type"]:"File"; // Domain or File
     $range=$_GET["range"]?$_GET["range"]:'mm'; 
     $rangeLimit=$_GET["rangeLimit"]?$_GET["rangeLimit"]:-1;
     $sortBy=$_GET["sortBy"]?$_GET["sortBy"]:"Hits";
     $groups=$_GET["groups"]?$_GET["groups"]:array(); if (!is_array($groups)) $groups = array($groups);
     $thresh=$_GET["thresh"]?$_GET["thresh"]:100; // minimum grouping for "others"
+    $weighted=strlen($_GET["weighted"])>0?$_GET["weighted"]:true;
+    
+    $weights = array(
+		"zip" => 1, 
+		"jar" => array("2.0" => 51, "2.1" => 59, "2.2" => 65)
+	);
     
     switch ($range) {
 		case "ym":
@@ -176,11 +182,27 @@ $TODOs = '<pre>
 			for ($i=0;$i<count($doc->children());$i++) {
 				$node = $doc->children[$i];
 				//echo $i.", ".$node->nodeName()."<br>";
-				if ($node->nodeName()==strtolower($type)) { // "<file />" or "<domain />" only
+				if ($node->nodeName()==strtolower($type)) { // "<file />" only
 					if (array_key_exists("url",$node->attributes)) {
 						if (in_array("groupSmall",$groups) && $node->getAttribute("count")<=$thresh) {
 							$data["Other Files Under $thresh Hits Each"] += $node->getAttribute("count");
 						} else {
+							$weight = 1;
+							if ($weighted) {
+								$url = $node->getAttribute("url");
+								if (false!==strpos($url,".zip")) {
+									$weight = $weights["zip"];
+								} else if (false!==strpos($url,".jar")) {
+									$ver = 
+										(false!==strpos($url,"_2.2.") ? "2.2" : 
+											(false!==strpos($url,"_2.1.") ? "2.1" :
+												(false!==strpos($url,"_2.0.") ? "2.0" : null // no other option
+												) 
+											) 
+										);
+									$weight = $ver?$weights["jar"][$ver]:1;
+								}
+							} 
 							$EMFOrXSD="";
 							if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
 								$url = $node->getAttribute("url");
@@ -199,11 +221,12 @@ $TODOs = '<pre>
 							} else {
 								$url = $node->getAttribute("url");
 							} 
-							$data[$url] += $node->getAttribute("count");
+							$data[$url] += $node->getAttribute("count")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
 						}
 						//echo "\$data[".$node->getAttribute("url")."] += ".$node->getAttribute("count")."; <br>\n";
+						$summary["weightedhits"] += $node->getAttribute("count")/$weight;
 						$count++;
-					} else if (array_key_exists("tld",$node->attributes)) {
+					} else if (array_key_exists("tld",$node->attributes)) { // "<domain />" only
 						if (in_array("groupSmall",$groups) && $node->getAttribute("count")<=$thresh) {
 							$data["Other Domains Under $thresh Hits Each"] += $node->getAttribute("count");
 						} else {
@@ -218,16 +241,11 @@ $TODOs = '<pre>
 							$data[$tld] += $node->getAttribute("count");
 						}
 						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("count")."; <br>\n";
+						$summary["weightedhits"] += $node->getAttribute("count");
 						$count++;
 					}
 				} else if ($node->nodeName()=="summary") { // "<summary />" only
-					foreach ($node->attributes as $k => $v) {
-						if ($k=="count") { 
-							$summary["hits"] += $v;
-						} else {
-							$summary["type"] = $k;
-						}
-					}
+					foreach ($node->attributes as $k => $v) if ($k=="count") $summary["hits"] += $v;
 				}
 			}
 		}
@@ -237,6 +255,7 @@ $TODOs = '<pre>
     $node=null;
     
     $summary["count"] += sizeof($data);
+    $summary["weightedhits"] = round($summary["weightedhits"]);
     if ($sortBy=="Hits") { arsort($data); } else { ksort($data); } reset($data); 
     
     $data = adjustData($data);
@@ -244,6 +263,9 @@ $TODOs = '<pre>
 /**********************************************************/
 
     if ($doHeaderAndFooter) { include ($pre."includes/header.php"); }
+	
+	// include detaildiv javascript    
+    echo '<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>'."\n";
 
     displayNav();
     displayResults($data, $summary);   
@@ -255,49 +277,81 @@ $TODOs = '<pre>
 /**********************************************************/
 
 function displayNav() { 
-	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh; 
+	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh,$weighted,$weights; 
 ?>
 
-<table>
+<script language="javascript">
+
+function doOptions(field) { // hide or show the divs with options that apply ONLY to one type or the other
+	field.focus();
+	servOC('DomainOptions',0);	
+	servOC('FileOptions',0);
+}
+
+</script>
 <form method="get" name="statsForm">
+<table width="600">
 <tr>
-	<td><b>Data Type:</b></td>
+	<td width="150"><b>Data Type:</b></td>
 	<td>
-		<input type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain (Countries)
-		<input type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> File (Zips &amp; Jars)
+		<input onfocus="doOptions(this)" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain (Countries)
+		<input onfocus="doOptions(this)" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> File (Zips &amp; Jars)
 	</td>
 </tr>
+
 <tr>
 	<td><b>Data Sort:</b></td>
 	<td>
-		<input type="radio" <?php echo ($sortBy=='Key'?'checked ':''); ?>value="Key" name="sortBy"> Domain or File
+		<input type="radio" <?php echo ($sortBy=='Key'?'checked ':''); ?>value="Key" name="sortBy"> Domain or File 
 		<input type="radio" <?php echo ($sortBy=='Hits'?'checked ':''); ?>value="Hits" name="sortBy"> Hits
 	</td>
 </tr>
-<tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
+
 <tr>
 	<td><b>Hit Grouping:</b></td>
 	<td>
 		<input type="checkbox" <?php echo (in_array("groupSmall",$groups)?'checked ':''); ?>value="groupSmall" name="groups[]"> If Hits Under <input type="text" size="5" value="<?php echo $thresh; ?>" name="thresh"/>
 	</td>
 </tr>
-<tr>
-	<td><b>File Grouping:</b></td>
+<tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
+
+<tr valign="top" style="display:<?php echo $type=="File"?"show":"none"; ?>" id="ihtrFileOptions">
+	<td width="150"><b>File Grouping:</b></td>
 	<td>
 		<input type="checkbox" <?php echo (in_array("groupProject",$groups)?'checked ':''); ?>value="groupProject" name="groups[]"> Files By Project (EMF, XSD)<br/>
 		<input type="checkbox" <?php echo (in_array("groupVersion",$groups)?'checked ':''); ?>value="groupVersion" name="groups[]"> Files By Version (2.2.0, 2.1.2, etc.)<br/>
 		<input type="checkbox" <?php echo (in_array("groupType",$groups)?'checked ':''); ?>value="groupType" name="groups[]"> Files By Type (UM Jars vs. Zips)<br/>
+		<input type="radio" <?php echo ($weighted?'checked ':''); ?>value="1" name="weighted"> Files Weighted By Approx. # Files Per Release
+		<input type="radio" <?php echo (!$weighted?'checked ':''); ?>value="0" name="weighted"> Unweighted<br/>
+			&#160;&#160;&#160;&#160;&#160;&#160;[<?php 
+				$d=0;
+				foreach ($weights as $weight => $num) { 
+					if (++$d > 1) { echo ", "; }
+					echo "$weight = ".(!is_array($num)?$num:"");
+					if (is_array($num)) {
+						echo "{";
+						$c=0;
+						foreach ($num as $ver => $val) {
+							if (++$c > 1) { echo ", "; }
+							echo "EMF $ver = $val";
+						}
+						echo "}";
+					}
+				} ?>]<br/>
+
 	</td>
 </tr>
-<tr>
-	<td><b>Domain Grouping:</b></td>
+
+<tr style="display:<?php echo $type=="Domain"?"show":"none"; ?>" id="ihtrDomainOptions">
+	<td width="150"><b>Domain Grouping:</b></td>
 	<td>
 		<input type="checkbox" <?php echo (in_array("groupTLD",$groups)?'checked ':''); ?>value="groupTLD" name="groups[]"> Domains By Type<br/>
 	</td>
 </tr>
 <tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
+
 <tr>
-	<td><b>Data Range:</b></td>
+	<td width="150"><b>Data Range:</b></td>
 	<td>
 		<select name="range" onchange="document.statsForm.rangeLimit.selectedIndex=0;document.statsForm.submit()">
 <?php 
@@ -341,8 +395,8 @@ function displayNav() {
 				
 	</td>
 </tr>
-</form>
 </table> 
+</form>
 
 <?php
 	
@@ -350,17 +404,18 @@ function displayNav() {
 
 // Files / Hits / Percent or Domains / Hits / Percent
 function displayResults($data, $summary) { 
-	global $type, $filenames,$time,$pre;
+	global $type,$filenames,$time,$pre,$weighted;
 	
 	if ($summary) {
 		$bgc = array('#FFFFFF','#EEEEEE'); $i=0;
 
 		$filelist = getFileList($filenames);
+		$rowsp = ($weighted&&$summary["weightedhits"]!=$summary["hits"]?5:4);
 		echo '<p><form name="filelist"><table border="0">'."\n".
 			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b></td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td colspan="2">Date'.(sizeof($filelist)>1?'s':'').' processed --&gt;</td>'.
-			 '<td rowspan="4">'.
-	 		 	'<select name="filelist" size="4">'."\n";
+			 '<td valign="top" rowspan="'.$rowsp.'">'.
+	 		 	'<select name="filelist" size="'.$rowsp.'">'."\n";
 		foreach ($filelist as $file) {
 			echo "<option>$file</option>\n"; 
 		}	
@@ -369,13 +424,14 @@ function displayResults($data, $summary) {
 	 		 '</td></tr>'."\n";
 			 
 		echo
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Hits</td><td>'.$summary["hits"].'</td></tr>'."\n".
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s</td><td>'.$summary["count"].'</td></tr>'."\n".
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td>'.$summary["hits"].'</td></tr>'."\n".
+	 		 ($weighted&&$summary["weightedhits"]!=$summary["hits"]?'<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Weighted Hits</td><td>'.$summary["weightedhits"].'</td></tr>'."\n":'').
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td>'.$summary["count"].'</td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time</td><td>'.$time->displaytime().'s</td></tr>'."\n".
 			 '</table></form></p>'."\n";
 
-		$header= '<table width="500"><tr bgcolor="navy">' .
-			'<td colspan=2><b style="color:white">'.ucfirst($summary["type"]).'</b></td>' .
+		$header= '<table width="600"><tr bgcolor="navy">' .
+			'<td colspan=2><b style="color:white">'.$type.'s</b></td>' .
 			'<td><b style="color:white">Hits</b></td>' .
 			'<td colspan="2"><b style="color:white">Percent</b></td>' .
 			'</tr>'."\n";
@@ -383,14 +439,15 @@ function displayResults($data, $summary) {
 		echo $header;
 		
 		$i=0;
+		$hits = $weighted?$summary["weightedhits"]:$summary["hits"];
 		foreach ($data as $hit => $count) {
 			if ($i && $i%100==0) echo '</table>'."\n".$header;
 			echo '<tr bgcolor="'.$bgc[(++$i)%2].'">'."\n";
 			echo '  <td width="25">'.$i.'</td>'."\n";
 			echo '  <td width="100%">'.$hit.'</td>'."\n";
-			$pc = (round($count/$summary["hits"]*10000)/100);
+			$pc = (round($count/$hits*10000)/100);
 			$col = (false!==strpos($hit,"xsd")?"orange":(false!==strpos($hit,"emf")?"green":"purple"));
-			echo '  <td width="25" align="right">'.$count.'</td>'."\n";
+			echo '  <td width="25" align="right">'.round($count).'</td>'."\n";
 			echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
 			echo '  <td valign="middle" width="50" bgcolor="#FFFFFF">' .
 					'<img alt="'.$pc.'%" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
@@ -476,4 +533,4 @@ if (is_dir($dir) && is_readable($dir)) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.4 2006/02/05 03:39:16 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.5 2006/02/06 20:53:31 nickb Exp $ -->
