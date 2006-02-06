@@ -44,6 +44,7 @@ $TODOs = '<pre>
     $sortBy=$_GET["sortBy"]?$_GET["sortBy"]:"Hits";
     $groups=$_GET["groups"]?$_GET["groups"]:array(); if (!is_array($groups)) $groups = array($groups);
     $thresh=$_GET["thresh"]?$_GET["thresh"]:100; // minimum grouping for "others"
+    $threshType=$_GET["threshType"]?$_GET["threshType"]:"Hits"; 
     $weighted=strlen($_GET["weighted"])>0?$_GET["weighted"]:true;
     
     $weights = array(
@@ -184,62 +185,55 @@ $TODOs = '<pre>
 				//echo $i.", ".$node->nodeName()."<br>";
 				if ($node->nodeName()==strtolower($type)) { // "<file />" only
 					if (array_key_exists("url",$node->attributes)) {
-						if (in_array("groupSmall",$groups) && $node->getAttribute("count")<=$thresh) {
-							$data["Other Files Under $thresh Hits Each"] += $node->getAttribute("count");
-						} else {
-							$weight = 1;
-							if ($weighted) {
-								$url = $node->getAttribute("url");
-								if (false!==strpos($url,".zip")) {
-									$weight = $weights["zip"];
-								} else if (false!==strpos($url,".jar")) {
-									$ver = 
-										(false!==strpos($url,"_2.2.") ? "2.2" : 
-											(false!==strpos($url,"_2.1.") ? "2.1" :
-												(false!==strpos($url,"_2.0.") ? "2.0" : null // no other option
-												) 
+						$weight = 1;
+						if ($weighted) {
+							$url = $node->getAttribute("url");
+							if (false!==strpos($url,".zip")) {
+								$weight = $weights["zip"];
+							} else if (false!==strpos($url,".jar")) {
+								$ver = 
+									(false!==strpos($url,"_2.2.") ? "2.2" : 
+										(false!==strpos($url,"_2.1.") ? "2.1" :
+											(false!==strpos($url,"_2.0.") ? "2.0" : null // no other option
 											) 
-										);
-									$weight = $ver?$weights["jar"][$ver]:1;
-								}
-							} 
-							$EMFOrXSD="";
-							if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
-								$url = $node->getAttribute("url");
-								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-								$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
-							} else if (in_array("groupVersion",$groups)) {
-								$url = substr($node->getAttribute("url"),0,-4); // remove .jar or .zip
-								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-								$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
-							} else if (in_array("groupType",$groups)) {
-								$url = $node->getAttribute("url");
-								if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-								$url = $EMFOrXSD.substr($url,-3);
-							} else if (in_array("groupProject",$groups)) {
-								$url = getEMFOrXSD($node->getAttribute("url"));
-							} else {
-								$url = $node->getAttribute("url");
-							} 
-							$data[$url] += $node->getAttribute("count")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
-						}
+										) 
+									);
+								$weight = $ver?$weights["jar"][$ver]:1;
+							}
+						} 
+						$EMFOrXSD="";
+						if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
+							$url = $node->getAttribute("url");
+							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
+							$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
+						} else if (in_array("groupVersion",$groups)) {
+							$url = substr($node->getAttribute("url"),0,-4); // remove .jar or .zip
+							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
+							$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
+						} else if (in_array("groupType",$groups)) {
+							$url = $node->getAttribute("url");
+							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
+							$url = $EMFOrXSD.substr($url,-3);
+						} else if (in_array("groupProject",$groups)) {
+							$url = getEMFOrXSD($node->getAttribute("url"));
+						} else {
+							$url = $node->getAttribute("url");
+						} 
+						$data[$url] += $node->getAttribute("count")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
+
 						//echo "\$data[".$node->getAttribute("url")."] += ".$node->getAttribute("count")."; <br>\n";
 						$summary["weightedhits"] += $node->getAttribute("count")/$weight;
 						$count++;
 					} else if (array_key_exists("tld",$node->attributes)) { // "<domain />" only
-						if (in_array("groupSmall",$groups) && $node->getAttribute("count")<=$thresh) {
-							$data["Other Domains Under $thresh Hits Each"] += $node->getAttribute("count");
-						} else {
-							$tld = $node->getAttribute("tld");
-							if (in_array("groupTLD",$groups)) {
-								if (strlen($tld)<2) { 
-									$tld = "Other Unknown Domains (<2)";
-								} else if (strlen($tld)>4) {
-									$tld = "Other Non-Standard Domains (>4)";
-								}
+						$tld = $node->getAttribute("tld");
+						if (in_array("groupTLD",$groups)) {
+							if (strlen($tld)<2) { 
+								$tld = "Other Unknown Domains (<2)";
+							} else if (strlen($tld)>4) {
+								$tld = "Other Non-Standard Domains (>4)";
 							}
-							$data[$tld] += $node->getAttribute("count");
 						}
+						$data[$tld] += $node->getAttribute("count");
 						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("count")."; <br>\n";
 						$summary["weightedhits"] += $node->getAttribute("count");
 						$count++;
@@ -277,15 +271,16 @@ $TODOs = '<pre>
 /**********************************************************/
 
 function displayNav() { 
-	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh,$weighted,$weights; 
+	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh,$threshType,$weighted,$weights; 
 ?>
 
 <script language="javascript">
 
-function doOptions(field) { // hide or show the divs with options that apply ONLY to one type or the other
-	field.focus();
-	servOC('DomainOptions',0);	
-	servOC('FileOptions',0);
+// hide or show the divs with options that apply ONLY to one type or the other
+function doOptions(field) { 
+	if (!field.checked) {
+		servOC('DomainOptions',0); servOC('FileOptions',0);
+	}
 }
 
 </script>
@@ -311,6 +306,9 @@ function doOptions(field) { // hide or show the divs with options that apply ONL
 	<td><b>Hit Grouping:</b></td>
 	<td>
 		<input type="checkbox" <?php echo (in_array("groupSmall",$groups)?'checked ':''); ?>value="groupSmall" name="groups[]"> If Hits Under <input type="text" size="5" value="<?php echo $thresh; ?>" name="thresh"/>
+		<input type="radio" <?php echo ($threshType=='Hits'?'checked ':''); ?>value="Hits" name="threshType"> Hits 
+		<input type="radio" <?php echo ($threshType=='Percent'?'checked ':''); ?>value="Percent" name="threshType"> Percent
+		
 	</td>
 </tr>
 <tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
@@ -404,13 +402,14 @@ function doOptions(field) { // hide or show the divs with options that apply ONL
 
 // Files / Hits / Percent or Domains / Hits / Percent
 function displayResults($data, $summary) { 
-	global $type,$filenames,$time,$pre,$weighted;
+	global $type,$filenames,$time,$pre,$weighted,$thresh,$threshType,$groups;
 	
 	if ($summary) {
 		$bgc = array('#FFFFFF','#EEEEEE'); $i=0;
 
 		$filelist = getFileList($filenames);
 		$rowsp = ($weighted&&$summary["weightedhits"]!=$summary["hits"]?5:4);
+		$wid=600;
 		echo '<p><form name="filelist"><table border="0">'."\n".
 			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b></td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td colspan="2">Date'.(sizeof($filelist)>1?'s':'').' processed --&gt;</td>'.
@@ -430,7 +429,7 @@ function displayResults($data, $summary) {
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time</td><td>'.$time->displaytime().'s</td></tr>'."\n".
 			 '</table></form></p>'."\n";
 
-		$header= '<table width="600"><tr bgcolor="navy">' .
+		$header= '<table width="'.$wid.'"><tr bgcolor="navy">' .
 			'<td colspan=2><b style="color:white">'.$type.'s</b></td>' .
 			'<td><b style="color:white">Hits</b></td>' .
 			'<td colspan="2"><b style="color:white">Percent</b></td>' .
@@ -440,18 +439,43 @@ function displayResults($data, $summary) {
 		
 		$i=0;
 		$hits = $weighted?$summary["weightedhits"]:$summary["hits"];
+		$others = 0;
 		foreach ($data as $hit => $count) {
 			if ($i && $i%100==0) echo '</table>'."\n".$header;
+			$pc = (round($count/$hits*10000)/100);
+			if (in_array("groupSmall",$groups) && 
+				( ($count<=$thresh && $threshType=="Hits") || ($pc<=$thresh && $threshType=="Percent") )
+				) {
+				$others += $count;
+			} else { 
+				echo '<tr bgcolor="'.$bgc[(++$i)%2].'">'."\n";
+				echo '  <td width="25">'.$i.'</td>'."\n";
+				echo '  <td width="'.($wid-175).'">'.$hit.'</td>'."\n";
+				$col = (false!==strpos($hit,"xsd")?"orange":(false!==strpos($hit,"emf")?"green":"purple"));
+				echo '  <td width="25" align="right">'.round($count).'</td>'."\n";
+				echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
+				echo '  <td valign="middle" width="100" bgcolor="#FFFFFF">' .
+						'<img alt="'.$pc.'%" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
+						'.png" width="'.round($pc).'" height="10"/></td>'."\n";
+				echo '</tr>'."\n";
+			}
+		}
+
+		// extracted "others" :: Other Files Under $thresh Hits Each
+		if (in_array("groupSmall",$groups)) {
+			echo '</table>'."\n".$header;
+			$hit = "Other ".$type."s Under ".$thresh." ".$threshType." Each";
+			$count = $others;
 			echo '<tr bgcolor="'.$bgc[(++$i)%2].'">'."\n";
 			echo '  <td width="25">'.$i.'</td>'."\n";
-			echo '  <td width="100%">'.$hit.'</td>'."\n";
+			echo '  <td width="'.($wid-175).'">'.$hit.'</td>'."\n";
 			$pc = (round($count/$hits*10000)/100);
-			$col = (false!==strpos($hit,"xsd")?"orange":(false!==strpos($hit,"emf")?"green":"purple"));
+			$col = "purple";
 			echo '  <td width="25" align="right">'.round($count).'</td>'."\n";
 			echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
-			echo '  <td valign="middle" width="50" bgcolor="#FFFFFF">' .
+			echo '  <td valign="middle" width="100" bgcolor="#FFFFFF">' .
 					'<img alt="'.$pc.'%" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
-					'.png" width="'.(round($pc)*150/100).'" height="10"/></td>'."\n";
+					'.png" width="'.round($pc).'" height="10"/></td>'."\n";
 			echo '</tr>'."\n";
 		}
 		echo "</table>\n";
@@ -533,4 +557,4 @@ if (is_dir($dir) && is_readable($dir)) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.5 2006/02/06 20:53:31 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.6 2006/02/06 21:19:40 nickb Exp $ -->
