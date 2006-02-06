@@ -175,7 +175,7 @@
 								<xsl:if test="string-length($isReleaseBuild) &lt; 1"> (In Progress)</xsl:if>
 							</a>
 						</td>
-						<td class="normal" width="70%" onClick="servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
+						<td class="normal" width="70%" onClick="servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length($matchCount)})" onMouseOver="window.status='Click for list of bugs';return true" onMouseOut="window.status='';return true"><a href="javascript://" style="text-decoration:none"><xsl:if test="string-length($matchCount)>0"><xsl:value-of select="string-length($matchCount)" /> bugs</xsl:if></a>
 						</td>
 					</tr>
 					<tr style="display:none" id="ihtr{$thisProject}.{$thisVersion}.{$thisVersion}"><td bgcolor="#C0D8FF" colspan="2"><table cellspacing="0" cellpadding="0" border="0" bgcolor="white" width="100%">
@@ -193,7 +193,7 @@
 								</a>,
 								</nobr> &#160; 
 							</xsl:if>
-						</xsl:for-each> <a href="javascript:servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length(matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
+						</xsl:for-each> <a href="javascript:servOC('{$thisProject}.{$thisVersion}.{$thisVersion}',{string-length($matchCount)})" style="text-decoration:none;color:black">&#9632;</a>
 						<br/><img src="http://www.eclipse.org/images/c.gif" height="3" width="1"/>
 					</div></td><td width="10"></td></tr></table></td></tr>
 				</xsl:if>
@@ -315,4 +315,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.32 2006/01/20 23:32:04 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.33 2006/02/06 20:24:44 nickb Exp $ -->
