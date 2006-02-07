@@ -5,13 +5,9 @@
 	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
 	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 	
-$TODOs = '<pre>
-// TODO: TREND ANALYSIS - need slice-by-slice comparision instead of merging 
-// data across group of slices, eg. 12 months in a year, 13 weeks in a quarter
-// TODO: TREND PLOTS (simple HTML bar charts)
-
-// TODO: add cookies to store selections so on return same options are again selected?
-</pre>';
+	// TODO: add cookies to store selections so on return same options are again selected?
+	
+	//TODO remore plot labels and replace with mouseover effects
 	
 	class Timer { 
 		/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -83,6 +79,14 @@ $TODOs = '<pre>
 				$months = array($rangeLimit);
 			} 
 			break;
+		case "hw":
+			if (!$weeks) {
+				$rangeLimit = $rangeLimit-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$rangeLimit;
+			}
+			for ($i=0;$i<=25;$i++) {
+				$weeks[] = str_pad($rangeLimit-$i>0?$rangeLimit-$i:52+$rangeLimit-$i,2,"0",STR_PAD_LEFT); 
+			} 
+			break;
 		case "qw":
 			if (!$weeks) {
 				$rangeLimit = $rangeLimit-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$rangeLimit;
@@ -104,6 +108,14 @@ $TODOs = '<pre>
 				$rangeLimit = $rangeLimit-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$rangeLimit;
 				$weeks = array($rangeLimit);
 			}
+			break;
+		case "md":
+			if (!$dates) {
+				$rangeLimit = $rangeLimit-0<0?date("Ymd",strtotime("-1 day")):$rangeLimit;
+			}
+			for ($i=0;$i<=29;$i++) {
+				$dates[] = date("Ymd", strtotime("-".$i." day",strtotime($rangeLimit))); 
+			} 
 			break;
 		case "fd":
 			if (!$dates) {
@@ -145,11 +157,6 @@ $TODOs = '<pre>
         
     $filenames = array();
     
-    // yearly-by-month (12), half-by-month (6), quarterly-by-month (3), 
-    // [half-by-week (26)]?, quarterly-by-week (13), monthly-by-week (4 or 5),
-    // [monthly-by-day (28-31)]?, fortnight-by-day (14), weekly-by-day (7) 
-    // specific month, specific week, specific day 
-      
     if ($months) {
     	foreach ($months as $month)	$filenames = array_merge($filenames,getDirContents("./xml/monthly","stats_".$type."_month_".$month));
     } else if ($weeks) { 
@@ -166,11 +173,12 @@ $TODOs = '<pre>
 	    wArr($filenames);
     }
             
-            
     /** calculate data & summary values, and apply groupings if applicable **/
     $data = array();
-    $summary = array();
-    foreach ($filenames as $i => $filename) {
+    $summary = array();	$summary[0] = array();
+    $filelist = getFileList($filenames); // wArr($filelist);
+    foreach ($filenames as $f => $filename) {
+    	$FID = $filelist[$f];
 	    // open and read file
 	  	$xml =& new xmlParser($filename);
 		// parse document and return rootnode
@@ -222,7 +230,9 @@ $TODOs = '<pre>
 						$data[$url] += $node->getAttribute("count")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
 
 						//echo "\$data[".$node->getAttribute("url")."] += ".$node->getAttribute("count")."; <br>\n";
-						$summary["weightedhits"] += $node->getAttribute("count")/$weight;
+						$summary[0]["weightedhits"] += $node->getAttribute("count")/$weight;
+						if (!is_array($summary[$FID])) $summary[$FID] = array();
+						$summary[$FID]["weightedhits"] += $node->getAttribute("count")/$weight;
 						$count++;
 					} else if (array_key_exists("tld",$node->attributes)) { // "<domain />" only
 						$tld = $node->getAttribute("tld");
@@ -235,11 +245,19 @@ $TODOs = '<pre>
 						}
 						$data[$tld] += $node->getAttribute("count");
 						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("count")."; <br>\n";
-						$summary["weightedhits"] += $node->getAttribute("count");
+						if (!is_array($summary[$FID])) $summary[$FID] = array();
+						$summary[0]["weightedhits"] += $node->getAttribute("count");
+						$summary[$FID]["weightedhits"] += $node->getAttribute("count");
 						$count++;
 					}
 				} else if ($node->nodeName()=="summary") { // "<summary />" only
-					foreach ($node->attributes as $k => $v) if ($k=="count") $summary["hits"] += $v;
+					foreach ($node->attributes as $k => $v) {
+						if ($k=="count") {
+							$summary[0]["hits"] += $v;
+							if (!is_array($summary[$FID])) $summary[$FID] = array();
+							$summary[$FID]["hits"] += $v;
+						}
+					}
 				}
 			}
 		}
@@ -248,8 +266,13 @@ $TODOs = '<pre>
     $doc=null;
     $node=null;
     
-    $summary["count"] += sizeof($data);
-    $summary["weightedhits"] = round($summary["weightedhits"]);
+    $summary[0]["count"] += sizeof($data);
+    $summary[0]["weightedhits"] = round($summary[0]["weightedhits"]);
+    foreach ($filelist as $f) {
+    	$summary[$f]["weightedhits"] = round($summary[$f]["weightedhits"]);
+    } 
+    ksort($summary); reset($summary);
+    	
     if ($sortBy=="Hits") { arsort($data); } else { ksort($data); } reset($data); 
     
     $data = adjustData($data);
@@ -259,13 +282,15 @@ $TODOs = '<pre>
     if ($doHeaderAndFooter) { include ($pre."includes/header.php"); }
 	
 	// include detaildiv javascript    
-    echo '<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>'."\n";
+    echo '
+<script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
+';
 
     displayNav();
-    displayResults($data, $summary);   
+    displayResults($data, $summary);  
     
-    if ($TODOs) echo "<p align=\"left\"><small>".$TODOs."</small></p>";
-     
+    //echo '<p align=right><small style="font-size:8px">'.$time->displaytime().'s</small></p>'."\n";
+    
 	if ($doHeaderAndFooter) { include ($pre."includes/footer.php"); }
 
 /**********************************************************/
@@ -360,12 +385,14 @@ function doOptions(field) {
 		"1 quarter (monthly)" => "qm",
 		"1 month" => "mm",
 
-	    // [half-by-week (26)]?, quarterly-by-week (13), monthly-by-week (4 or 5), a specific week (1)
+	    // half-by-week (26), quarterly-by-week (13), monthly-by-week (4 or 5), a specific week (1)
+		"1 half (weekly)" => "hw",
 		"1 quarter (weekly)" => "qw",
 		"1 month (weekly)" => "mw",
 		"1 week" => "ww",
 
-	    // [monthly-by-day (28-31)]?, fortnight-by-day (14), weekly-by-day (7), a specific day (1)
+	    // monthly-by-day (30), fortnight-by-day (14), weekly-by-day (7), a specific day (1)
+	    "1 month (30 days)" => "md",
 		"1 fortnight (daily)" => "fd",
 		"1 week (daily)" => "wd",
 		"1 day" => "dd" 
@@ -375,7 +402,6 @@ function doOptions(field) {
 		echo '		<option '.($range==$value?'selected ':'').'value="'.$value.'">'.$label.'</option>'."\n";
 	} ?>
 		</select> 
-		
 		&#160;
 <?php 
 			$vals = getDirContentsRange($type,$range,true); 
@@ -386,11 +412,8 @@ function doOptions(field) {
 			}
 			echo '		</select>'."\n";
 ?>
-		
 		&#160;
-		
 		<input type="submit" value="Go!"/>
-				
 	</td>
 </tr>
 </table> 
@@ -402,13 +425,14 @@ function doOptions(field) {
 
 // Files / Hits / Percent or Domains / Hits / Percent
 function displayResults($data, $summary) { 
-	global $type,$filenames,$time,$pre,$weighted,$thresh,$threshType,$groups;
+	global $type,$filelist,$time,$pre,$weighted,$thresh,$threshType,$groups,$range;
 	
 	if ($summary) {
+		
+		/**** TOTALS ****/
+		
 		$bgc = array('#FFFFFF','#EEEEEE'); $i=0;
-
-		$filelist = getFileList($filenames);
-		$rowsp = ($weighted&&$summary["weightedhits"]!=$summary["hits"]?5:4);
+		$rowsp = ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?5:4);
 		$wid=600;
 		echo '<p><form name="filelist"><table border="0">'."\n".
 			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b></td></tr>'."\n".
@@ -423,11 +447,77 @@ function displayResults($data, $summary) {
 	 		 '</td></tr>'."\n";
 			 
 		echo
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td>'.$summary["hits"].'</td></tr>'."\n".
-	 		 ($weighted&&$summary["weightedhits"]!=$summary["hits"]?'<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Weighted Hits</td><td>'.$summary["weightedhits"].'</td></tr>'."\n":'').
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td>'.$summary["count"].'</td></tr>'."\n".
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td>'.$summary[0]["hits"].'</td></tr>'."\n".
+	 		 ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?'<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Weighted Hits</td><td>'.$summary[0]["weightedhits"].'</td></tr>'."\n":'').
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td>'.$summary[0]["count"].'</td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time</td><td>'.$time->displaytime().'s</td></tr>'."\n".
 			 '</table></form></p>'."\n";
+			 
+		/**** PLOTS ****/
+		
+		if ($range!="mm" && $range!="ww" && $range!="dd") { // nothing to plot
+			if ($weighted) {	
+				$plots = array("Weighted" => "weightedhits"); //,"Unweighted" => "hits");
+			} else {
+				$plots = array("Unweighted" => "hits");
+			}
+			
+			echo '<table><tr valign="bottom">'."\n";
+			foreach ($plots as $label => $plot) {
+				echo '<td><table>' . "\n";
+				echo '<tr valign="bottom">'."\n";
+				$cols = sizeof($summary)-1;
+				
+				$filelistR = $filelist; krsort($filelistR); reset($filelistR);
+				$hmax=0;
+				foreach ($filelistR as $num) { // $num = date stamp
+					foreach ($summary[$num] as $i => $j) { if ($i==$plot) {
+						$h = round($j/($summary[0][$i]-0)*10000)/100; $hmax=$hmax>$h?$hmax:$h;
+					} }
+				}
+				foreach ($filelistR as $num) { // $num = date stamp
+					$summ = $summary[$num]; 
+					$col = "blue";
+					foreach ($summ as $i => $j) {
+						if ($i==$plot) {
+							$h = round($j/($summary[0][$i]-0)*10000)/100;
+							echo '<td align="center"><small style="font-size:8px"">'.
+								//$j.", ".($summary[0][$i]-0).", ".$hmax.", ".
+								vert($h."%")."</small><br/>"; 
+							echo '<img alt="'.$j.'" src="/eclipse.org/emf/images/misc/bar-' . $col .
+								'-vert.png" height="'.round($h/$hmax*100).'" width="8"/>';
+							echo '</td>'."\n";
+						}
+					}
+				}
+				$r = substr($range,1);
+				echo '</tr>'."\n";
+				echo '<tr valign="top">'."\n";
+				foreach ($filelistR as $num) { // $num = date stamp
+					echo '<td colspan="1" align="center"><small style="font-size:8px"">'; 
+					switch ($r) {
+						case "d":
+							echo vert($num." ".date("D",strtotime($num))."");
+							break;
+						case "w":
+							echo $num;
+							break;
+						case "m":
+							echo $num."<br/>".getMonth($num);
+							break;
+						default:
+							break;
+					};
+					echo '</small></td>'."\n";
+				}
+				echo '</tr>'."\n".'<tr valign="top"><td align="center" colspan="'.$cols.'">'.$label.($r=='w'?' (weeks)':'').'</td>';
+				echo '</tr>'."\n";
+				echo '</tr></table></td>' . "\n";
+			}
+			echo "</tr></table>\n";
+		} 
+		
+		/**** DATA ****/
 
 		$header= '<table width="'.$wid.'"><tr bgcolor="navy">' .
 			'<td colspan=2><b style="color:white">'.$type.'s</b></td>' .
@@ -438,7 +528,7 @@ function displayResults($data, $summary) {
 		echo $header;
 		
 		$i=0;
-		$hits = $weighted?$summary["weightedhits"]:$summary["hits"];
+		$hits = $weighted?$summary[0]["weightedhits"]:$summary[0]["hits"];
 		$others = 0;
 		foreach ($data as $hit => $count) {
 			if ($i && $i%100==0) echo '</table>'."\n".$header;
@@ -556,5 +646,18 @@ if (is_dir($dir) && is_readable($dir)) {
 	return $stuff;
 }
 
+function vert($s,$sep="<br/>") { // return a column of letters from a string $s
+	foreach (preg_split('//', $s, -1, PREG_SPLIT_NO_EMPTY) as $k => $c) {
+		if ($k) $o .= $sep; 
+		$o .= $c;
+	}
+	return $o;
+}
+
+function getMonth($m) { 
+	$months = array("","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+	return $months[$m-0];
+}
+
 ?>
-<!-- $Id: downloads.php,v 1.6 2006/02/06 21:19:40 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.7 2006/02/07 00:29:51 nickb Exp $ -->
