@@ -484,7 +484,7 @@ function displayResults($data, $summary) {
 							echo '<td align="center"><small style="font-size:8px"">'.
 								//$j.", ".($summary[0][$i]-0).", ".$hmax.", ".
 								vert($h."%")."</small><br/>"; 
-							echo '<img alt="'.$j.'" src="/eclipse.org/emf/images/misc/bar-' . $col .
+							echo '<img alt="'.$j.'" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
 								'-vert.png" height="'.round($h/$hmax*100).'" width="8"/>';
 							echo '</td>'."\n";
 						}
@@ -660,4 +660,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.7 2006/02/07 00:29:51 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.8 2006/02/07 00:30:53 nickb Exp $ -->
