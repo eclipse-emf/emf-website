@@ -7,7 +7,7 @@
 	
 	// TODO: add cookies to store selections so on return same options are again selected?
 	
-	//TODO remore plot labels and replace with mouseover effects
+	// TODO remore plot labels and replace with mouseover effects
 	
 	class Timer { 
 		/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -79,14 +79,14 @@
 				$months = array($rangeLimit);
 			} 
 			break;
-		case "hw":
-			if (!$weeks) {
-				$rangeLimit = $rangeLimit-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$rangeLimit;
-			}
-			for ($i=0;$i<=25;$i++) {
-				$weeks[] = str_pad($rangeLimit-$i>0?$rangeLimit-$i:52+$rangeLimit-$i,2,"0",STR_PAD_LEFT); 
-			} 
-			break;
+//		case "hw":
+//			if (!$weeks) {
+//				$rangeLimit = $rangeLimit-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$rangeLimit;
+//			}
+//			for ($i=0;$i<=25;$i++) {
+//				$weeks[] = str_pad($rangeLimit-$i>0?$rangeLimit-$i:52+$rangeLimit-$i,2,"0",STR_PAD_LEFT); 
+//			} 
+//			break;
 		case "qw":
 			if (!$weeks) {
 				$rangeLimit = $rangeLimit-0<0?exec("date --date=\"\$(date +%Y-%m-%d) -1 week\" +%U"):$rangeLimit;
@@ -109,14 +109,14 @@
 				$weeks = array($rangeLimit);
 			}
 			break;
-		case "md":
-			if (!$dates) {
-				$rangeLimit = $rangeLimit-0<0?date("Ymd",strtotime("-1 day")):$rangeLimit;
-			}
-			for ($i=0;$i<=29;$i++) {
-				$dates[] = date("Ymd", strtotime("-".$i." day",strtotime($rangeLimit))); 
-			} 
-			break;
+//		case "md":
+//			if (!$dates) {
+//				$rangeLimit = $rangeLimit-0<0?date("Ymd",strtotime("-1 day")):$rangeLimit;
+//			}
+//			for ($i=0;$i<=29;$i++) {
+//				$dates[] = date("Ymd", strtotime("-".$i." day",strtotime($rangeLimit))); 
+//			} 
+//			break;
 		case "fd":
 			if (!$dates) {
 				$rangeLimit = $rangeLimit-0<0?date("Ymd",strtotime("-1 day")):$rangeLimit;
@@ -344,7 +344,7 @@ function doOptions(field) {
 		<input type="checkbox" <?php echo (in_array("groupProject",$groups)?'checked ':''); ?>value="groupProject" name="groups[]"> Files By Project (EMF, XSD)<br/>
 		<input type="checkbox" <?php echo (in_array("groupVersion",$groups)?'checked ':''); ?>value="groupVersion" name="groups[]"> Files By Version (2.2.0, 2.1.2, etc.)<br/>
 		<input type="checkbox" <?php echo (in_array("groupType",$groups)?'checked ':''); ?>value="groupType" name="groups[]"> Files By Type (UM Jars vs. Zips)<br/>
-		<input type="radio" <?php echo ($weighted?'checked ':''); ?>value="1" name="weighted"> Files Weighted By Approx. # Files Per Release
+		<input type="radio" <?php echo ($weighted?'checked ':''); ?>value="1" name="weighted"> Files Weighted By Approx. # Files Per Download
 		<input type="radio" <?php echo (!$weighted?'checked ':''); ?>value="0" name="weighted"> Unweighted<br/>
 			&#160;&#160;&#160;&#160;&#160;&#160;[<?php 
 				$d=0;
@@ -386,13 +386,13 @@ function doOptions(field) {
 		"1 month" => "mm",
 
 	    // half-by-week (26), quarterly-by-week (13), monthly-by-week (4 or 5), a specific week (1)
-		"1 half (weekly)" => "hw",
+//		"1 half (weekly)" => "hw", // server timeout - too much data
 		"1 quarter (weekly)" => "qw",
 		"1 month (weekly)" => "mw",
 		"1 week" => "ww",
 
 	    // monthly-by-day (30), fortnight-by-day (14), weekly-by-day (7), a specific day (1)
-	    "1 month (30 days)" => "md",
+//	    "1 month (30 days)" => "md", // server timeout - too much data
 		"1 fortnight (daily)" => "fd",
 		"1 week (daily)" => "wd",
 		"1 day" => "dd" 
@@ -463,7 +463,7 @@ function displayResults($data, $summary) {
 			}
 			
 			echo '<table><tr valign="bottom">'."\n";
-			foreach ($plots as $label => $plot) {
+			foreach ($plots as $l => $plot) {
 				echo '<td><table>' . "\n";
 				echo '<tr valign="bottom">'."\n";
 				$cols = sizeof($summary)-1;
@@ -494,23 +494,27 @@ function displayResults($data, $summary) {
 				echo '</tr>'."\n";
 				echo '<tr valign="top">'."\n";
 				foreach ($filelistR as $num) { // $num = date stamp
+					$label = "";
 					echo '<td colspan="1" align="center"><small style="font-size:8px"">'; 
 					switch ($r) {
 						case "d":
-							echo vert($num." ".date("D",strtotime($num))."");
+							echo vert(substr($num,-4)." ".substr(date("D",strtotime($num)),0,1));
+							$label = "Days";
 							break;
 						case "w":
 							echo $num;
+							$label = "Weeks";
 							break;
 						case "m":
 							echo $num."<br/>".getMonth($num);
+							$label = "Months";
 							break;
 						default:
 							break;
 					};
 					echo '</small></td>'."\n";
 				}
-				echo '</tr>'."\n".'<tr valign="top"><td align="center" colspan="'.$cols.'">'.$label.($r=='w'?' (weeks)':'').'</td>';
+				echo '</tr>'."\n".'<tr valign="top"><td align="center" colspan="'.$cols.'"><small style="font-size:9px"">'.$label.'</small></td>';
 				echo '</tr>'."\n";
 				echo '</tr></table></td>' . "\n";
 			}
@@ -660,4 +664,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.8 2006/02/07 00:30:53 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.9 2006/02/08 17:05:41 nickb Exp $ -->
