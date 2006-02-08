@@ -110,7 +110,7 @@ $queries = array(
 			"SUBSTRING_INDEX(DOW.file,'/',-1) as URL " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
-		$filenames." GROUP BY URL ORDER BY Count DESC ".$limit 
+		$filenames." GROUP BY URL" // ORDER BY Count DESC ".$limit 
 	,
 	"Country" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
@@ -135,13 +135,13 @@ $queries = array(
 			"as FQDN " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
-		$filenames." GROUP BY TLD ".$limit
+		$filenames." GROUP BY FQDN ".$limit
 //		$filenames." GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.65 2006/02/08 22:36:24 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.66 2006/02/08 23:07:52 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -274,7 +274,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.65 2006/02/08 22:36:24 nickb Exp $'.
+			 '$Id: stats.php,v 1.66 2006/02/08 23:07:52 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
