@@ -121,13 +121,11 @@ $queries = array(
 		"SELECT COUNT(*) AS Count, " .
 			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
 //			"DOW.remote_host as Host " .
-			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-3)<1," .
+			"IF(SUBSTRING_INDEX(SUBSTRING_INDEX(DOW.remote_host,'.',-2),'.',1)='co'," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-3))," .
 				"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-2)<1," .
 					"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-2))," .
-					"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
-						"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
-						"'?'))) " .
+					"'?')) " .
 			"as Domain " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
@@ -137,7 +135,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.70 2006/02/08 23:42:10 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.71 2006/02/08 23:45:38 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -270,7 +268,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.70 2006/02/08 23:42:10 nickb Exp $'.
+			 '$Id: stats.php,v 1.71 2006/02/08 23:45:38 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
