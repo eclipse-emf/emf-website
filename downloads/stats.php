@@ -74,7 +74,9 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 }
 
 // filename filter
-if (!$qsvars["filenames"] || !is_array($qsvars["filenames"]) || sizeof($qsvars["filenames"])<1 || !$qsvars["filenames"][0]) {
+if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) { 
+	$qsvars["filenames"] = array($qsvars["filenames"]);
+} else if (!$qsvars["filenames"] || (is_array($qsvars["filenames"]) && !$qsvars["filenames"][0])) {
 	$qsvars["filenames"] = array(
 		//"emf-sdo-xsd-SDK-"
 		"/tools/emf/"
@@ -135,7 +137,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.69 2006/02/08 23:24:39 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.70 2006/02/08 23:42:10 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -268,7 +270,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.69 2006/02/08 23:24:39 nickb Exp $'.
+			 '$Id: stats.php,v 1.70 2006/02/08 23:42:10 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
