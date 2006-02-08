@@ -112,7 +112,7 @@ $queries = array(
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		$filenames." GROUP BY URL ORDER BY Count DESC ".$limit 
 	,
-	"Domain" => // temporary solution for getting country codes
+	"Country" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS Count, " .
 			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
 //			"DOW.remote_host as Host " .
@@ -124,11 +124,24 @@ $queries = array(
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
 		$filenames." GROUP BY TLD ".$limit
 //		$filenames." GROUP BY Host ORDER BY Host DESC ".$limit
+	,
+	"Domain" => // FQDNs
+		"SELECT COUNT(*) AS Count, " .
+			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
+//			"DOW.remote_host as Host " .
+			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
+				"LOWER(DOW.remote_host)," .
+				"'?') " .
+			"as FQDN " .
+		"FROM downloads AS DOW " .
+		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
+		$filenames." GROUP BY TLD ".$limit
+//		$filenames." GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.64 2006/01/29 06:14:37 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.65 2006/02/08 22:36:24 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -261,7 +274,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.64 2006/01/29 06:14:37 nickb Exp $'.
+			 '$Id: stats.php,v 1.65 2006/02/08 22:36:24 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }

@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.8 2006/02/02 18:02:54 nickb Exp $
+# $Id: genXML.sh.txt,v 1.9 2006/02/08 22:36:45 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh genXML.?.sh; dos2unix genXML.sh gentXML.?.sh
@@ -10,17 +10,17 @@
 # nightly stats (previous day) @ 6am, do yesterday's data
 # 00 6 * * * ~/crontab/genXML.N.sh
 # where ~/crontab/genXML.N.sh is a script which contains
-# ~/crontab/genXML.sh -user $user -pass $pass -F -D -dates `date --date="$(date +%Y-%m-%d) -1 day" +%Y%m%d` -l /var/www/emf/downloads/xml/nightly 2>&1 | tee ~/crontab/genXML.N.log.txt
+# ~/crontab/genXML.sh -user $user -pass $pass -F -D -C -dates `date --date="$(date +%Y-%m-%d) -1 day" +%Y%m%d` -l /var/www/emf/downloads/xml/nightly 2>&1 | tee ~/crontab/genXML.N.log.txt
 
 # weekly (previous week, starting on Sunday) @ 6:10am on Sunday, do previous week's data
 # 10 6 * * 0 ~/crontab/genXML.W.sh
 # where ~/crontab/genXML.W.sh is
-# ~/crontab/genXML.sh -user $user -pass $pass -F -D -weeks `date --date="$(date +%Y-%m-%d) -1 week" +%U`    -l /var/www/emf/downloads/xml/weekly 2>&1  | tee ~/crontab/genXML.W.log.txt
+# ~/crontab/genXML.sh -user $user -pass $pass -F -D -C -weeks `date --date="$(date +%Y-%m-%d) -1 week" +%U`    -l /var/www/emf/downloads/xml/weekly 2>&1  | tee ~/crontab/genXML.W.log.txt
 
 # monthly (previous full month) @ 6:20am on 1rst of the month, do prev month's data
 # 20 6 1 * * ~/crontab/genXML.M.sh
 # where ~/crontab/genXML.M.sh is
-# ~/crontab/genXML.sh -user $user -pass $pass -F -D -months `date --date="$(date +%Y-%m-15) -1 month" +%m`  -l /var/www/emf/downloads/xml/monthly 2>&1  | tee ~/crontab/genXML.M.log.txt
+# ~/crontab/genXML.sh -user $user -pass $pass -F -D -C -months `date --date="$(date +%Y-%m-15) -1 month" +%m`  -l /var/www/emf/downloads/xml/monthly 2>&1  | tee ~/crontab/genXML.M.log.txt
 
 user=""; pass="";
 tables=""; weeks=""; months=""; dates="";
@@ -31,7 +31,8 @@ if [ $# -lt 1 ]; then
   echo "  -user,   -u <REQUIRED: username for SQL access>";
   echo "  -pass,   -p <REQUIRED: password for SQL access>";
   echo "  -file,   -F <generate file data>";
-  echo "  -domain, -D <generate country data>";
+  echo "  -domain, -D <generate FQDN data>";
+  echo "  -country,-C <generate country data>";
   echo "  -dates,  -d <list of dates to generate,  eg. -d 20051231 20060101>"
   echo "  -weeks,  -w <list of weeks to generate,  eg. -w 51 52 01 02 03>"
   echo "  -months, -m <list of months to generate, eg. -m 12 01>"
@@ -71,6 +72,11 @@ while [ "$#" -gt 0 ]; do
       ;;
     '-domain'|'-D')
       tables=$tables" Domain";
+      echo "  $1";
+      shift 1;
+      ;;
+    '-domain'|'-C')
+      tables=$tables" Country";
       echo "  $1";
       shift 1;
       ;;
