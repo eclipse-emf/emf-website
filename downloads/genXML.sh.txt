@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.10 2006/02/08 23:32:13 nickb Exp $
+# $Id: genXML.sh.txt,v 1.11 2006/02/08 23:34:59 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh genXML.?.sh; dos2unix genXML.sh gentXML.?.sh
@@ -70,7 +70,7 @@ while [ "$#" -gt 0 ]; do
       shift 2;
       ;;
     '-pattern'|'-P')
-      patern=$2;
+      pattern=$2;
       echo "  $1 $2";
       shift 2;
       ;;
