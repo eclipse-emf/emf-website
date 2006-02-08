@@ -5,16 +5,6 @@
  * and produce XML data from which comparison statistics (eg., weekly trending)
  * can be derived. There is also a simple HTML output UI which can be used 
  * for single one-off daily queries.
- * 
- * TODO: cronjob to run query and store data - wget, move file to specific folder/filename
- * TODO: script to convert raw XML into summary XML (php+XSLT - params = month/quarter/half filter)
- * 	daily results trended over 1 month [filter by filename having given month]
- *  weekly results trended over 6 mo [filter by filename having given month range]
- * 	monthly results trended over several years [all data]
- * TODO: get old data from 2005?
- * 	+ got December 2005 data
- *  + got partial January 2006 data
- * 
  **/
 
 $pre = "../";
@@ -145,7 +135,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.68 2006/02/08 23:22:08 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.69 2006/02/08 23:24:39 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -278,7 +268,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.68 2006/02/08 23:22:08 nickb Exp $'.
+			 '$Id: stats.php,v 1.69 2006/02/08 23:24:39 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
