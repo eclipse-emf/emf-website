@@ -192,10 +192,10 @@
 				$node = $doc->children[$i];
 				//echo $i.", ".$node->nodeName()."<br>";
 				if ($node->nodeName()==strtolower($type)) { // "<file />" only
-					if (array_key_exists("url",$node->attributes)) {
+					if (array_key_exists("f",$node->attributes)) {
 						$weight = 1;
 						if ($weighted) {
-							$url = $node->getAttribute("url");
+							$url = $node->getAttribute("f");
 							if (false!==strpos($url,".zip")) {
 								$weight = $weights["zip"];
 							} else if (false!==strpos($url,".jar")) {
@@ -211,33 +211,33 @@
 						} 
 						$EMFOrXSD="";
 						if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
-							$url = $node->getAttribute("url");
+							$url = $node->getAttribute("f");
 							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
 							$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
 						} else if (in_array("groupVersion",$groups)) {
-							$url = substr($node->getAttribute("url"),0,-4); // remove .jar or .zip
+							$url = substr($node->getAttribute("f"),0,-4); // remove .jar or .zip
 							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
 							$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
 						} else if (in_array("groupType",$groups)) {
-							$url = $node->getAttribute("url");
+							$url = $node->getAttribute("f");
 							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
 							$url = $EMFOrXSD.substr($url,-3);
 						} else if (in_array("groupProject",$groups)) {
-							$url = getEMFOrXSD($node->getAttribute("url"));
+							$url = getEMFOrXSD($node->getAttribute("f"));
 						} else {
-							$url = $node->getAttribute("url");
+							$url = $node->getAttribute("f");
 						} 
-						$data[$url] += $node->getAttribute("count")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
+						$data[$url] += $node->getAttribute("n")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
 
-						//echo "\$data[".$node->getAttribute("url")."] += ".$node->getAttribute("count")."; <br>\n";
-						$summary[0]["weightedhits"] += $node->getAttribute("count")/$weight;
+						//echo "\$data[".$node->getAttribute("f")."] += ".$node->getAttribute("n")."; <br>\n";
+						$summary[0]["weightedhits"] += $node->getAttribute("n")/$weight;
 						if (!is_array($summary[$FID])) $summary[$FID] = array();
-						$summary[$FID]["weightedhits"] += $node->getAttribute("count")/$weight;
+						$summary[$FID]["weightedhits"] += $node->getAttribute("n")/$weight;
 						$count++;
-					} else if (array_key_exists("tld",$node->attributes) || array_key_exists("domain",$node->attributes)) { // "<domain />" or "<country />" only
-						$tld = $node->getAttribute("tld")?$node->getAttribute("tld"):$node->getAttribute("domain");
+					} else if (array_key_exists("c",$node->attributes) || array_key_exists("d",$node->attributes)) { // "<domain />" or "<country />" only
+						$tld = $node->getAttribute("c")?$node->getAttribute("c"):$node->getAttribute("d");
 						if (in_array("groupTLD",$groups)) {
-							if (array_key_exists("tld",$node->attributes)) {
+							if (array_key_exists("c",$node->attributes)) {
 								if (strlen($tld)<2) $tld = "Other Unknown (<2)";
 								else if (strlen($tld)>4) $tld = "Other Non-Standard (>4)";
 							} else {
@@ -245,11 +245,11 @@
 								if ($last-0==0 && $last!="?") $tld = "$last|$tld"; else $tld = "?|?";
 							}
 						}
-						$data[$tld] += $node->getAttribute("count");
-						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("count")."; <br>\n";
+						$data[$tld] += $node->getAttribute("n");
+						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("n")."; <br>\n";
 						if (!is_array($summary[$FID])) $summary[$FID] = array();
-						$summary[0]["weightedhits"] += $node->getAttribute("count");
-						$summary[$FID]["weightedhits"] += $node->getAttribute("count");
+						$summary[0]["weightedhits"] += $node->getAttribute("n");
+						$summary[$FID]["weightedhits"] += $node->getAttribute("n");
 						$count++;
 					}
 				} else if ($node->nodeName()=="summary") { // "<summary />" only
@@ -691,4 +691,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.10 2006/02/09 20:15:28 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.11 2006/02/09 22:49:20 nickb Exp $ -->
