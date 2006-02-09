@@ -29,6 +29,21 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200602090000" project="emf" version="2.2.0">
+<bug id="125917">AdapterFactoryEditingDomain.isReadOnly() incorrectly returns false</bug>
+<bug id="126175">Exceptions are not removed when regenerating</bug>
+<bug id="126269">Improve the performance of EContentsEList</bug>
+<bug id="126281">Remove the isLocal check on URIConverterImpl.</bug>
+<bug id="126559">Ecore2XMLExtendedMetaData Causes Metamodel ExtendedMetaData Corruption</bug>
+<bug id="126633">BasicExtendedMetaData$EPackageExtendedMetaDataImpl#getType assumes never insertion</bug>
+<bug id="126639">Ecore ChangeRecorder records objects which are just being resolved</bug>
+<bug id="126647">problem with cross-resource containment reference</bug>
+<bug id="126650">Class.javajet template doesn't work so well with cross-resource single containement reference</bug>
+<bug id="126723">Text should be discarded if not mixed</bug>
+<bug id="126808">Commit proper cross-resource containment icons</bug>
+<bug id="126988">The file types used by EMF should be registered as text files for the team plugin</bug>
+</entry>
+
 <entry build="I200602020000" project="emf" version="2.2.0">
 <bug id="123616">new methods for EcoreUtil to find EObject referencers</bug>
 <bug id="123829">Fix needed for multiple "base" entries in XMLDocumentRoot list</bug>
@@ -369,6 +384,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200602090000" project="xsd" version="2.2.0"/>
 <entry build="I200602020000" project="xsd" version="2.2.0">
 <bug id="123829">Fix needed for multiple &quot;base&quot; entries in XMLDocumentRoot list</bug>
 </entry>
@@ -2187,4 +2203,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.133 2006/02/02 07:13:11 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.134 2006/02/09 06:39:50 nickb Exp $ -->
