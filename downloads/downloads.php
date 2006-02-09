@@ -6,8 +6,8 @@
 	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 	
 	// TODO: add cookies to store selections so on return same options are again selected?
-	
-	// TODO remore plot labels and replace with mouseover effects
+
+	ini_set("max_execution_time",300); // increase max duration of script
 	
 	class Timer { 
 		/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -234,13 +234,15 @@
 						if (!is_array($summary[$FID])) $summary[$FID] = array();
 						$summary[$FID]["weightedhits"] += $node->getAttribute("count")/$weight;
 						$count++;
-					} else if (array_key_exists("tld",$node->attributes)) { // "<domain />" only
-						$tld = $node->getAttribute("tld");
+					} else if (array_key_exists("tld",$node->attributes) || array_key_exists("domain",$node->attributes)) { // "<domain />" or "<country />" only
+						$tld = $node->getAttribute("tld")?$node->getAttribute("tld"):$node->getAttribute("domain");
 						if (in_array("groupTLD",$groups)) {
-							if (strlen($tld)<2) { 
-								$tld = "Other Unknown Domains (<2)";
-							} else if (strlen($tld)>4) {
-								$tld = "Other Non-Standard Domains (>4)";
+							if (array_key_exists("tld",$node->attributes)) {
+								if (strlen($tld)<2) $tld = "Other Unknown (<2)";
+								else if (strlen($tld)>4) $tld = "Other Non-Standard (>4)";
+							} else {
+								$last = explode(".",$tld); $last = $last[sizeof($last)-1];
+								if ($last-0==0 && $last!="?") $tld = "$last|$tld"; else $tld = "?|?";
 							}
 						}
 						$data[$tld] += $node->getAttribute("count");
@@ -281,15 +283,18 @@
 
     if ($doHeaderAndFooter) { include ($pre."includes/header.php"); }
 	
-	// include detaildiv javascript    
+	// include javascript, etc.  
     echo '
 <script type="text/javascript" src="http://www.eclipse.org/emf/includes/detaildiv.js"></script>
+<script type="text/javascript" src="http://www.eclipse.org/emf/includes/tooltip.js"></script>
+<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/tooltip.css" type="text/css"/>
+<div id="dhtmltooltip"></div>
 ';
 
     displayNav();
     displayResults($data, $summary);  
     
-    //echo '<p align=right><small style="font-size:8px">'.$time->displaytime().'s</small></p>'."\n";
+    //echo '<p align=right><small style="font-size:9px">'.$time->displaytime().'s</small></p>'."\n";
     
 	if ($doHeaderAndFooter) { include ($pre."includes/footer.php"); }
 
@@ -302,10 +307,16 @@ function displayNav() {
 <script language="javascript">
 
 // hide or show the divs with options that apply ONLY to one type or the other
-function doOptions(field) { 
-	if (!field.checked) {
+prevChecked='<?php echo $type; ?>';
+function doOptions(field,newVal) { 
+	if (!field.checked && newVal.indexOf(prevChecked)<0) {
+		prevChecked=newVal;
 		servOC('DomainOptions',0); servOC('FileOptions',0);
 	}
+}
+
+function doSort() { 
+	document.forms.statsForm.sortBy[0].checked = true;
 }
 
 </script>
@@ -314,8 +325,9 @@ function doOptions(field) {
 <tr>
 	<td width="150"><b>Data Type:</b></td>
 	<td>
-		<input onfocus="doOptions(this)" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain (Countries)
-		<input onfocus="doOptions(this)" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> File (Zips &amp; Jars)
+		<input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain
+		<input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Country'?'checked ':''); ?>value="Country" name="type"> Country
+		<input onfocus="doOptions(this,'File')" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> File (Zips &amp; Jars)
 	</td>
 </tr>
 
@@ -338,7 +350,7 @@ function doOptions(field) {
 </tr>
 <tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
 
-<tr valign="top" style="display:<?php echo $type=="File"?"show":"none"; ?>" id="ihtrFileOptions">
+<tr valign="top" style="display:<?php echo $type!="File"?"none":"show"; ?>" id="ihtrFileOptions">
 	<td width="150"><b>File Grouping:</b></td>
 	<td>
 		<input type="checkbox" <?php echo (in_array("groupProject",$groups)?'checked ':''); ?>value="groupProject" name="groups[]"> Files By Project (EMF, XSD)<br/>
@@ -365,10 +377,10 @@ function doOptions(field) {
 	</td>
 </tr>
 
-<tr style="display:<?php echo $type=="Domain"?"show":"none"; ?>" id="ihtrDomainOptions">
-	<td width="150"><b>Domain Grouping:</b></td>
+<tr style="display:<?php echo $type!="File"?"show":"none"; ?>" id="ihtrDomainOptions">
+	<td width="150"><b>Domain &amp; Country Grouping:</b></td>
 	<td>
-		<input type="checkbox" <?php echo (in_array("groupTLD",$groups)?'checked ':''); ?>value="groupTLD" name="groups[]"> Domains By Type<br/>
+		<input type="checkbox" <?php echo (in_array("groupTLD",$groups)?'checked ':''); ?>value="groupTLD" name="groups[]"> By TLD - best to <a href="javascript:doSort()">sort by Domain</a>, not Hits<br/>
 	</td>
 </tr>
 <tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
@@ -435,7 +447,7 @@ function displayResults($data, $summary) {
 		$rowsp = ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?5:4);
 		$wid=600;
 		echo '<p><form name="filelist"><table border="0">'."\n".
-			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b></td></tr>'."\n".
+			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b><a name="totals"></a></td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td colspan="2">Date'.(sizeof($filelist)>1?'s':'').' processed --&gt;</td>'.
 			 '<td valign="top" rowspan="'.$rowsp.'">'.
 	 		 	'<select name="filelist" size="'.$rowsp.'">'."\n";
@@ -447,10 +459,10 @@ function displayResults($data, $summary) {
 	 		 '</td></tr>'."\n";
 			 
 		echo
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td>'.$summary[0]["hits"].'</td></tr>'."\n".
-	 		 ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?'<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Weighted Hits</td><td>'.$summary[0]["weightedhits"].'</td></tr>'."\n":'').
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td>'.$summary[0]["count"].'</td></tr>'."\n".
-			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time</td><td>'.$time->displaytime().'s</td></tr>'."\n".
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td align="right">'.number_format($summary[0]["hits"]).'</td></tr>'."\n".
+	 		 ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?'<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Weighted Hits</td><td align="right">'.number_format($summary[0]["weightedhits"]).'</td></tr>'."\n":'').
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td align="right">'.number_format($summary[0]["count"]).'</td></tr>'."\n".
+			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time (s)</td><td align="right">'.$time->displaytime().'</td></tr>'."\n".
 			 '</table></form></p>'."\n";
 			 
 		/**** PLOTS ****/
@@ -462,7 +474,9 @@ function displayResults($data, $summary) {
 				$plots = array("Unweighted" => "hits");
 			}
 			
-			echo '<table><tr valign="bottom">'."\n";
+			echo '<table>' . '<tr bgcolor="navy"><td colspan="'.sizeof($plots).'"><b style="color:white">Trends &nbsp; &nbsp; &nbsp;</b><a name="plots"></a></td></tr>'."\n";
+			
+			echo '<tr valign="bottom">'."\n";
 			foreach ($plots as $l => $plot) {
 				echo '<td><table>' . "\n";
 				echo '<tr valign="bottom">'."\n";
@@ -481,11 +495,15 @@ function displayResults($data, $summary) {
 					foreach ($summ as $i => $j) {
 						if ($i==$plot) {
 							$h = round($j/($summary[0][$i]-0)*10000)/100;
-							echo '<td align="center"><small style="font-size:8px"">'.
+							echo '<td align="center">'
+//								.'<small style="font-size:9px"">'.
 								//$j.", ".($summary[0][$i]-0).", ".$hmax.", ".
-								vert($h."%")."</small><br/>"; 
-							echo '<img alt="'.$j.'" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
-								'-vert.png" height="'.round($h/$hmax*100).'" width="8"/>';
+//								vert($h."%").'</small><br/>'
+								;
+								 
+							echo '<a href="#plots" onMouseover="ddrivetip(\''.$j. '<br/>'.$h.'%\'); return true;" onMouseout="hideddrivetip(); return true;">' .
+								'<img border="0" alt="'.$j.'" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
+								'-vert.png" height="'.round($h/$hmax*100).'" width="8"/></a>';
 							echo '</td>'."\n";
 						}
 					}
@@ -495,7 +513,7 @@ function displayResults($data, $summary) {
 				echo '<tr valign="top">'."\n";
 				foreach ($filelistR as $num) { // $num = date stamp
 					$label = "";
-					echo '<td colspan="1" align="center"><small style="font-size:8px"">'; 
+					echo '<td colspan="1" align="center"><small style="font-size:9px"">'; 
 					switch ($r) {
 						case "d":
 							echo vert(substr($num,-4)." ".substr(date("D",strtotime($num)),0,1));
@@ -524,7 +542,7 @@ function displayResults($data, $summary) {
 		/**** DATA ****/
 
 		$header= '<table width="'.$wid.'"><tr bgcolor="navy">' .
-			'<td colspan=2><b style="color:white">'.$type.'s</b></td>' .
+			'<td colspan='.(in_array("groupTLD",$groups) && $type=="Domain"?3:2).'><b style="color:white">'.$type.'s</b></td>' .
 			'<td><b style="color:white">Hits</b></td>' .
 			'<td colspan="2"><b style="color:white">Percent</b></td>' .
 			'</tr>'."\n";
@@ -544,9 +562,18 @@ function displayResults($data, $summary) {
 			} else { 
 				echo '<tr bgcolor="'.$bgc[(++$i)%2].'">'."\n";
 				echo '  <td width="25">'.$i.'</td>'."\n";
-				echo '  <td width="'.($wid-175).'">'.$hit.'</td>'."\n";
+				if (false!==strpos($hit,"|")) {
+					$hit2 = explode("|",$hit);
+					echo '  <td width="10">'.
+						(strlen($hit2[0])==2?'<a href="http://www.iana.org/root-whois/'.$hit2[0].'.htm">'.$hit2[0].'</a>':$hit2[0]).
+						'</td><td width="'.($wid-185).'">'.$hit2[1].'</td>'."\n";
+				} else {
+					echo '  <td width="'.($wid-175).'">'.
+						(strlen($hit)==2?'<a href="http://www.iana.org/root-whois/'.$hit.'.htm">'.$hit.'</a>':$hit).
+						'</td>'."\n";
+				}
 				$col = (false!==strpos($hit,"xsd")?"orange":(false!==strpos($hit,"emf")?"green":"purple"));
-				echo '  <td width="25" align="right">'.round($count).'</td>'."\n";
+				echo '  <td width="25" align="right">'.number_format(round($count)).'</td>'."\n";
 				echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
 				echo '  <td valign="middle" width="100" bgcolor="#FFFFFF">' .
 						'<img alt="'.$pc.'%" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
@@ -565,7 +592,7 @@ function displayResults($data, $summary) {
 			echo '  <td width="'.($wid-175).'">'.$hit.'</td>'."\n";
 			$pc = (round($count/$hits*10000)/100);
 			$col = "purple";
-			echo '  <td width="25" align="right">'.round($count).'</td>'."\n";
+			echo '  <td width="25" align="right">'.number_format(round($count)).'</td>'."\n";
 			echo '  <td width="25" align="right">'.$pc.'%</td>' ."\n";
 			echo '  <td valign="middle" width="100" bgcolor="#FFFFFF">' .
 					'<img alt="'.$pc.'%" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
@@ -664,4 +691,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.9 2006/02/08 17:05:41 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.10 2006/02/09 20:15:28 nickb Exp $ -->
