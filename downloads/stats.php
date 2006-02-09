@@ -136,7 +136,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.75 2006/02/09 23:10:23 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.76 2006/02/09 23:15:37 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -211,7 +211,7 @@ function displayXMLResults($title, $results) {
 		}
 		$out .= "/>\n";
 	}
-	$out .= "  <summary n=\"".$count."\" ".strtolower($title)."=\"".sizeof($results)."\""."/>\n";
+	$out .= "  <summary n=\"".$count."\" ".strtolower(substr($title,0,1))."=\"".sizeof($results)."\""."/>\n";
 	return $out;
 }   
      
@@ -269,7 +269,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.75 2006/02/09 23:10:23 nickb Exp $'.
+			 '$Id: stats.php,v 1.76 2006/02/09 23:15:37 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
