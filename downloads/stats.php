@@ -58,7 +58,8 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 } else if ($qsvars["date"]) {
 	$ts = strtotime($qsvars["date"]);
 	if ($ts!==-1 && $ts!==false) { // valid datestamp
-		$interval = "DATE_FORMAT(DOW.date,'%Y%m%d') = '".date("Ymd",$ts)."'";
+		//$interval = "DATE_FORMAT(DOW.date,'%Y%m%d') = '".date("Ymd",$ts)."'";
+		$interval = "DOW.date = '".date("Y-m-d",$ts)."'"; // per Denis' suggestion
 	} else { // invalid datestamp, default to yesterday's data
 		$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
 	} 
@@ -96,29 +97,29 @@ $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] -
 
 $queries = array(
 	"File" => 
-		"SELECT COUNT(*) AS Count, " .
+		"SELECT COUNT(*) AS N, " .
 //			"DOW.file as URL " .
 			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
-			"SUBSTRING_INDEX(DOW.file,'/',-1) as URL " .
+			"SUBSTRING_INDEX(DOW.file,'/',-1) as F " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
-		$filenames." GROUP BY URL" // ORDER BY Count DESC ".$limit 
+		$filenames." GROUP BY F" // ORDER BY Count DESC ".$limit 
 	,
 	"Country" => // temporary solution for getting country codes
-		"SELECT COUNT(*) AS Count, " .
+		"SELECT COUNT(*) AS N, " .
 			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
 //			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
 				"'?') " .
-			"as TLD " .
+			"as C " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
-		$filenames." GROUP BY TLD ".$limit
+		$filenames." GROUP BY C ".$limit
 //		$filenames." GROUP BY Host ORDER BY Host DESC ".$limit
 	,
 	"Domain" => // FQDNs
-		"SELECT COUNT(*) AS Count, " .
+		"SELECT COUNT(*) AS N, " .
 			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
 //			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(SUBSTRING_INDEX(DOW.remote_host,'.',-2),'.',1)='co'," .
@@ -126,16 +127,16 @@ $queries = array(
 				"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-2)<1," .
 					"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-2))," .
 					"'?')) " .
-			"as Domain " .
+			"as D " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
-		$filenames." GROUP BY Domain ".$limit
+		$filenames." GROUP BY D ".$limit
 //		$filenames." GROUP BY Host ORDER BY Host DESC ".$limit
 );
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.71 2006/02/08 23:45:38 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.72 2006/02/09 22:49:07 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -205,12 +206,12 @@ function displayXMLResults($title, $results) {
 	foreach ($results as $i => $data) {
 		$out .= "  <".strtolower($title);
 		foreach ($data as $label => $datum) { 
-			if ($label=="Count") $count+=($datum-0);
+			if ($label=="N") $count+=($datum-0);
 			$out .= " ".strtolower($label)."=\"$datum\"";
 		}
 		$out .= "/>\n";
 	}
-	$out .= "  <summary ".strtolower($title)."s=\"".sizeof($results)."\" count=\"".$count."\""."/>\n";
+	$out .= "  <summary n=\"".$count."\" ".strtolower($title)."=\"".sizeof($results)."\""."/>\n";
 	return $out;
 }   
      
@@ -228,7 +229,7 @@ function displayHTMLResults($title, $results) {
 		}
 		$out .= "<tr bgcolor=\"".($i%2==1?"#EEEEEE":"#FFFFFF")."\">\n";
 		foreach ($data as $label => $datum) { 
-			if ($label=="Count") $count+=($datum-0);
+			if ($label=="N") $count+=($datum-0);
 			$out .= "  <td>$datum</td>\n";
 		}
 		$out .= "</tr>\n";
@@ -268,7 +269,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.71 2006/02/08 23:45:38 nickb Exp $'.
+			 '$Id: stats.php,v 1.72 2006/02/09 22:49:07 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
