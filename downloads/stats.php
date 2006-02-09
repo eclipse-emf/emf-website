@@ -59,7 +59,7 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 	$ts = strtotime($qsvars["date"]);
 	if ($ts!==-1 && $ts!==false) { // valid datestamp
 		//$interval = "DATE_FORMAT(DOW.date,'%Y%m%d') = '".date("Ymd",$ts)."'";
-		$interval = "DOW.date = '".date("Y-m-d",$ts)."'"; // per Denis' suggestion
+		$interval = "DATE(DOW.date) = '".date("Y-m-d",$ts)."'"; // per Denis' suggestion
 	} else { // invalid datestamp, default to yesterday's data
 		$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
 	} 
@@ -99,7 +99,7 @@ $queries = array(
 	"File" => 
 		"SELECT COUNT(*) AS N, " .
 //			"DOW.file as URL " .
-			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
+//			($debug||$qsvars["includedates"]?"DOW.date AS D, WEEK(DOW.date) AS W, ":"").
 			"SUBSTRING_INDEX(DOW.file,'/',-1) as F " .
 		"FROM downloads AS DOW " .
 		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
@@ -107,7 +107,7 @@ $queries = array(
 	,
 	"Country" => // temporary solution for getting country codes
 		"SELECT COUNT(*) AS N, " .
-			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
+//			($debug||$qsvars["includedates"]?"DOW.date AS D, WEEK(DOW.date) AS W, ":"").
 //			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
@@ -120,7 +120,7 @@ $queries = array(
 	,
 	"Domain" => // FQDNs
 		"SELECT COUNT(*) AS N, " .
-			($debug||$qsvars["includedates"]?"DOW.date as Date, WEEK(DOW.date) as Week, ":"").
+//			($debug||$qsvars["includedates"]?"DOW.date as D, WEEK(DOW.date) as W, ":"").
 //			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(SUBSTRING_INDEX(DOW.remote_host,'.',-2),'.',1)='co'," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-3))," .
@@ -136,7 +136,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.72 2006/02/09 22:49:07 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.73 2006/02/09 22:58:16 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -269,7 +269,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.72 2006/02/09 22:49:07 nickb Exp $'.
+			 '$Id: stats.php,v 1.73 2006/02/09 22:58:16 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
