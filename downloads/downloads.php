@@ -8,6 +8,7 @@
 	// TODO: add cookies to store selections so on return same options are again selected?
 
 	ini_set("max_execution_time",300); // increase max duration of script
+	ini_set("memory_limit", 8388608*4); // increase mem limit
 	
 	class Timer { 
 		/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -691,4 +692,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.11 2006/02/09 22:49:20 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.12 2006/02/09 23:06:25 nickb Exp $ -->

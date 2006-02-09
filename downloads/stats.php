@@ -59,7 +59,7 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 	$ts = strtotime($qsvars["date"]);
 	if ($ts!==-1 && $ts!==false) { // valid datestamp
 		//$interval = "DATE_FORMAT(DOW.date,'%Y%m%d') = '".date("Ymd",$ts)."'";
-		$interval = "DATE(DOW.date) = '".date("Y-m-d",$ts)."'"; // per Denis' suggestion
+		$interval = "(DOW.date >= '".date("Y-m-d",$ts)." 00:00:00' AND DOW.date <= '".date("Y-m-d",$ts)." 23:59:59')"; // per Denis' suggestion
 	} else { // invalid datestamp, default to yesterday's data
 		$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
 	} 
@@ -136,7 +136,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.73 2006/02/09 22:58:16 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.74 2006/02/09 23:06:25 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -269,7 +269,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.73 2006/02/09 22:58:16 nickb Exp $'.
+			 '$Id: stats.php,v 1.74 2006/02/09 23:06:25 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
