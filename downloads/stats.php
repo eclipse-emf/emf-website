@@ -109,7 +109,7 @@ $queries = array(
 		"SELECT COUNT(*) AS N, " .
 //			($debug||$qsvars["includedates"]?"DOW.date AS D, WEEK(DOW.date) AS W, ":"").
 //			"DOW.remote_host as Host " .
-			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)<1," .
+			"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)=0," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1))," .
 				"'?') " .
 			"as C " .
@@ -124,7 +124,7 @@ $queries = array(
 //			"DOW.remote_host as Host " .
 			"IF(SUBSTRING_INDEX(SUBSTRING_INDEX(DOW.remote_host,'.',-2),'.',1)='co'," .
 				"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-3))," .
-				"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-2)<1," .
+				"IF(SUBSTRING_INDEX(DOW.remote_host,'.',-2)=0," .
 					"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-2))," .
 					"'?')) " .
 			"as D " .
@@ -136,7 +136,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.74 2006/02/09 23:06:25 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.75 2006/02/09 23:10:23 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -269,7 +269,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.74 2006/02/09 23:06:25 nickb Exp $'.
+			 '$Id: stats.php,v 1.75 2006/02/09 23:10:23 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
