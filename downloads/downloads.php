@@ -6,9 +6,12 @@
 	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
 	
 	// TODO: add cookies to store selections so on return same options are again selected?
+	
+	// TODO: figure out another way to get at the data - Domain stats are killing the display engine
+		// if Domain, use for f in `find `; do cat|grep; done to get subset of data? filter by first letter?
 
 	ini_set("max_execution_time",300); // increase max duration of script
-	ini_set("memory_limit", 8388608*4); // increase mem limit
+	ini_set("memory_limit", 8388608*2); // increase mem limit
 	
 	class Timer { 
 		/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -223,6 +226,7 @@
 							$url = $node->getAttribute("f");
 							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
 							$url = $EMFOrXSD.substr($url,-3);
+							if ($url!="jar" && $url != "zip") $url = "Other Files";
 						} else if (in_array("groupProject",$groups)) {
 							$url = getEMFOrXSD($node->getAttribute("f"));
 						} else {
@@ -255,7 +259,7 @@
 					}
 				} else if ($node->nodeName()=="summary") { // "<summary />" only
 					foreach ($node->attributes as $k => $v) {
-						if ($k=="count") {
+						if ($k=="n") {
 							$summary[0]["hits"] += $v;
 							if (!is_array($summary[$FID])) $summary[$FID] = array();
 							$summary[$FID]["hits"] += $v;
@@ -325,12 +329,13 @@ function doSort() {
 <table width="600">
 <tr>
 	<td width="150"><b>Data Type:</b></td>
-	<td>
-		<input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain
-		<input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Country'?'checked ':''); ?>value="Country" name="type"> Country
-		<input onfocus="doOptions(this,'File')" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> File (Zips &amp; Jars)
-	</td>
+	<td><table>
+		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Country'?'checked ':''); ?>value="Country" name="type">By Country</td><td>[Fast!]</td></tr>
+		<tr><td><input onfocus="doOptions(this,'File')" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> By File (Zips &amp; Jars)</td><td>[Medium]</td></tr>
+		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain</td><td>[Very Slow! - Use Only 1 Week Of Data Or Less]</td></tr>
+	</table></td>
 </tr>
+<tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
 
 <tr>
 	<td><b>Data Sort:</b></td>
@@ -586,7 +591,7 @@ function displayResults($data, $summary) {
 		// extracted "others" :: Other Files Under $thresh Hits Each
 		if (in_array("groupSmall",$groups)) {
 			echo '</table>'."\n".$header;
-			$hit = "Other ".$type."s Under ".$thresh." ".$threshType." Each";
+			$hit = "Other ".$type." Under ".$thresh." ".$threshType." Each";
 			$count = $others;
 			echo '<tr bgcolor="'.$bgc[(++$i)%2].'">'."\n";
 			echo '  <td width="25">'.$i.'</td>'."\n";
@@ -692,4 +697,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.12 2006/02/09 23:06:25 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.13 2006/02/10 22:43:34 nickb Exp $ -->
