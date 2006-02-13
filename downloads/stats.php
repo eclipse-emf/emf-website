@@ -80,9 +80,7 @@ if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) {
 } else if (!$qsvars["filenames"] || (is_array($qsvars["filenames"]) && !$qsvars["filenames"][0])) {
 	$qsvars["filenames"] = array(
 		//"emf-sdo-xsd-SDK-"
-		"/tools/emf/",
-		"/updates/%/org.eclipse.emf",
-		"/updates/%/org.eclipse.xsd"
+		"/tools/emf/"
 	);
 }
 $filenames = "";
@@ -138,7 +136,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.77 2006/02/13 19:45:03 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.78 2006/02/13 20:26:02 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -271,7 +269,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.77 2006/02/13 19:45:03 nickb Exp $'.
+			 '$Id: stats.php,v 1.78 2006/02/13 20:26:02 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
