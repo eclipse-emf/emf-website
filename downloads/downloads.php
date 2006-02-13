@@ -324,6 +324,26 @@ function doSort() {
 	document.forms.statsForm.sortBy[0].checked = true;
 }
 
+function showXML(dateStamp,type,range) {
+	winTarg="_blank";
+	document.target=winTarg; 
+	range = range.substr(1,1); //alert(document.target+"\n"+dateStamp+","+type+","+range);
+	xmlfile = (range=="d" ? 
+				"nightly/stats_"+type+"_date_"+dateStamp+".xml" : 
+				(range=="w" ? 
+					"weekly/stats_"+type+"_week_"+dateStamp+".xml" : 
+					(range=="m" ? 
+						"monthly/stats_"+type+"_month_"+dateStamp+".xml" : 
+						""
+					)
+				)
+			);
+	if (xmlfile) { //alert(xmlfile);
+		window.open("./xml/"+xmlfile,winTarg);
+	}
+	document.target="_self"; 
+}
+
 </script>
 <form method="get" name="statsForm">
 <table width="600">
@@ -452,17 +472,18 @@ function displayResults($data, $summary) {
 		$bgc = array('#FFFFFF','#EEEEEE'); $i=0;
 		$rowsp = ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?5:4);
 		$wid=600;
-		echo '<p><form name="filelist"><table border="0">'."\n".
-			 '<tr bgcolor="navy"><td colspan="3"><b style="color:white">Totals</b><a name="totals"></a></td></tr>'."\n".
+		echo '<p><form name="filelistFrm"><table border="0">'."\n".
+			 '<tr bgcolor="navy"><td colspan="4"><b style="color:white">Totals</b><a name="totals"></a></td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td colspan="2">Date'.(sizeof($filelist)>1?'s':'').' processed --&gt;</td>'.
-			 '<td valign="top" rowspan="'.$rowsp.'">'.
+			 '<td valign="top" rowspan="'.$rowsp.'" bgcolor="#FFFFFF">'.
 	 		 	'<select name="filelist" size="'.$rowsp.'">'."\n";
-		foreach ($filelist as $file) {
-			echo "<option>$file</option>\n"; 
+		foreach ($filelist as $i => $file) {
+			echo '<option'.(!$i?' selected':'').'>'.$file.'</option>'."\n"; 
 		}	
 	 	echo 
-	 		 '</select>' .
-	 		 '</td></tr>'."\n";
+	 		 '</select></td>' ."\n".
+	 		 '<td bgcolor="#FFFFFF"><input name="showxml" value="Show XML" onclick="showXML(document.forms.filelistFrm.filelist.options[document.forms.filelistFrm.filelist.selectedIndex].text,\''.$type.'\',\''.$range.'\')" type="button"></td>' ."\n".
+	 		 '</tr>'."\n";
 			 
 		echo
 	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td align="right">'.number_format($summary[0]["hits"]).'</td></tr>'."\n".
@@ -548,7 +569,7 @@ function displayResults($data, $summary) {
 		/**** DATA ****/
 
 		$header= '<table width="'.$wid.'"><tr bgcolor="navy">' .
-			'<td colspan='.(in_array("groupTLD",$groups) && $type=="Domain"?3:2).'><b style="color:white">'.$type.'s</b></td>' .
+			'<td colspan='.(in_array("groupTLD",$groups) && $type=="Domain"?3:2).'><b style="color:white">'.$type.'</b></td>' .
 			'<td><b style="color:white">Hits</b></td>' .
 			'<td colspan="2"><b style="color:white">Percent</b></td>' .
 			'</tr>'."\n";
@@ -708,4 +729,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.14 2006/02/13 16:01:42 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.15 2006/02/13 16:30:46 nickb Exp $ -->
