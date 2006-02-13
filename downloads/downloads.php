@@ -558,6 +558,9 @@ function displayResults($data, $summary) {
 		$i=0;
 		$hits = $weighted?$summary[0]["weightedhits"]:$summary[0]["hits"];
 		$others = 0;
+		
+		$tldImages = array("ca", "de", "edu", "es", "fr", "gov", "it","jp","nl","uk","us");
+		
 		foreach ($data as $hit => $count) {
 			if ($i && $i%100==0) echo '</table>'."\n".$header;
 			$pc = (round($count/$hits*10000)/100);
@@ -570,13 +573,21 @@ function displayResults($data, $summary) {
 				echo '  <td width="25">'.$i.'</td>'."\n";
 				if (false!==strpos($hit,"|")) {
 					$hit2 = explode("|",$hit);
-					echo '  <td width="10">'.
+					echo '  <td width="10"><nobr>'.
+						(false!==strpos($hit2[1],"ibm.com")?
+							'<img border=0 valign=middle src="http://www.eclipse.org/emf/images/tld/i-ibm.gif" height=12 width=12><img border=0 valign=middle src="http://www.eclipse.org/emf/images/c.gif" height=1 width=4>':
+							(in_array($hit2[0],$tldImages)?
+								'<img border=0 valign=middle src="http://www.eclipse.org/emf/images/tld/'.$hit2[0].'.png" height=14 width=14><img border=0 valign=middle src="http://www.eclipse.org/emf/images/c.gif" height=1 width=2>':
+								'<img border=0 valign=middle src="http://www.eclipse.org/emf/images/c.gif" height=1 width=16>')).
 						(strlen($hit2[0])==2?'<a href="http://www.iana.org/root-whois/'.$hit2[0].'.htm">'.$hit2[0].'</a>':$hit2[0]).
-						'</td><td width="'.($wid-185).'">'.$hit2[1].'</td>'."\n";
+						'</nobr></td><td width="'.($wid-195).'">'.$hit2[1].'</td>'."\n";
 				} else {
-					echo '  <td width="'.($wid-175).'">'.
+					echo '  <td width="'.($wid-175).'"><nobr>'.
+						(in_array($hit,$tldImages)?
+								'<img border=0 valign=middle src="http://www.eclipse.org/emf/images/tld/'.$hit.'.png" height=14 width=14><img border=0 valign=middle src="http://www.eclipse.org/emf/images/c.gif" height=1 width=2>':
+								'<img border=0 valign=middle src="http://www.eclipse.org/emf/images/c.gif" height=1 width=16>').
 						(strlen($hit)==2?'<a href="http://www.iana.org/root-whois/'.$hit.'.htm">'.$hit.'</a>':$hit).
-						'</td>'."\n";
+						'</nobr></td>'."\n";
 				}
 				$col = (false!==strpos($hit,"xsd")?"orange":(false!==strpos($hit,"emf")?"green":"purple"));
 				echo '  <td width="25" align="right">'.number_format(round($count)).'</td>'."\n";
@@ -697,4 +708,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.13 2006/02/10 22:43:34 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.14 2006/02/13 16:01:42 nickb Exp $ -->
