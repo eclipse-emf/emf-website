@@ -78,16 +78,19 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) { 
 	$qsvars["filenames"] = array($qsvars["filenames"]);
 } else if (!$qsvars["filenames"] || (is_array($qsvars["filenames"]) && !$qsvars["filenames"][0])) {
-	$qsvars["filenames"] = array(
-		//"emf-sdo-xsd-SDK-"
-		"/tools/emf/"
+	$qsvars["filenames"] = array( //"/tools/emf/"
+		'%emf-sdo-xsd-Standalone-%.zip',
+		'%emf-sdo-xsd-SDK-%.zip',
+		'%emf-sdo-SDK-%.zip',
+		'%emf-sdo-runtime-%.zip',
+		'%org.eclipse.emf.ecore_%.jar'
 	);
 }
 $filenames = "";
 foreach ($qsvars["filenames"] as $i => $fn) {
 	if (strlen($fn) >= 10) {
-		if ($filenames) { $filenames .="OR "; }
-		$filenames .= "DOW.file LIKE '%".$fn."%' ";
+		if ($filenames) { $filenames .=" OR "; }
+		$filenames .= "DOW.file LIKE '".$fn."'";
 	}
 }
 $filenames = "(".$filenames.")";
@@ -136,7 +139,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.78 2006/02/13 20:26:02 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.79 2006/02/14 17:14:02 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -269,7 +272,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.78 2006/02/13 20:26:02 nickb Exp $'.
+			 '$Id: stats.php,v 1.79 2006/02/14 17:14:02 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }

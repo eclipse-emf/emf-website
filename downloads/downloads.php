@@ -45,12 +45,6 @@
     $groups=$_GET["groups"]?$_GET["groups"]:array(); if (!is_array($groups)) $groups = array($groups);
     $thresh=$_GET["thresh"]?$_GET["thresh"]:100; // minimum grouping for "others"
     $threshType=$_GET["threshType"]?$_GET["threshType"]:"Hits"; 
-    $weighted=strlen($_GET["weighted"])>0?$_GET["weighted"]:true;
-    
-    $weights = array(
-		"zip" => 1, 
-		"jar" => array("2.0" => 51, "2.1" => 59, "2.2" => 65)
-	);
     
     switch ($range) {
 		case "ym":
@@ -197,22 +191,6 @@
 				//echo $i.", ".$node->nodeName()."<br>";
 				if ($node->nodeName()==strtolower($type)) { // "<file />" only
 					if (array_key_exists("f",$node->attributes)) {
-						$weight = 1;
-						if ($weighted) {
-							$url = $node->getAttribute("f");
-							if (false!==strpos($url,".zip")) {
-								$weight = $weights["zip"];
-							} else if (false!==strpos($url,".jar")) {
-								$ver = 
-									(false!==strpos($url,"_2.2.") ? "2.2" : 
-										(false!==strpos($url,"_2.1.") ? "2.1" :
-											(false!==strpos($url,"_2.0.") ? "2.0" : null // no other option
-											) 
-										) 
-									);
-								$weight = $ver?$weights["jar"][$ver]:1;
-							}
-						} 
 						$EMFOrXSD="";
 						if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
 							$url = $node->getAttribute("f");
@@ -232,12 +210,7 @@
 						} else {
 							$url = $node->getAttribute("f");
 						} 
-						$data[$url] += $node->getAttribute("n")/$weight; // weight by dividing by weight so that an emf 2.1.x jar counts for 1/59th value
-
-						//echo "\$data[".$node->getAttribute("f")."] += ".$node->getAttribute("n")."; <br>\n";
-						$summary[0]["weightedhits"] += $node->getAttribute("n")/$weight;
-						if (!is_array($summary[$FID])) $summary[$FID] = array();
-						$summary[$FID]["weightedhits"] += $node->getAttribute("n")/$weight;
+						$data[$url] += $node->getAttribute("n");
 						$count++;
 					} else if (array_key_exists("c",$node->attributes) || array_key_exists("d",$node->attributes)) { // "<domain />" or "<country />" only
 						$tld = $node->getAttribute("c")?$node->getAttribute("c"):$node->getAttribute("d");
@@ -251,10 +224,6 @@
 							}
 						}
 						$data[$tld] += $node->getAttribute("n");
-						//echo "\$data[".$node->getAttribute("tld")."] += ".$node->getAttribute("n")."; <br>\n";
-						if (!is_array($summary[$FID])) $summary[$FID] = array();
-						$summary[0]["weightedhits"] += $node->getAttribute("n");
-						$summary[$FID]["weightedhits"] += $node->getAttribute("n");
 						$count++;
 					}
 				} else if ($node->nodeName()=="summary") { // "<summary />" only
@@ -274,10 +243,6 @@
     $node=null;
     
     $summary[0]["count"] += sizeof($data);
-    $summary[0]["weightedhits"] = round($summary[0]["weightedhits"]);
-    foreach ($filelist as $f) {
-    	$summary[$f]["weightedhits"] = round($summary[$f]["weightedhits"]);
-    } 
     ksort($summary); reset($summary);
     	
     if ($sortBy=="Hits") { arsort($data); } else { ksort($data); } reset($data); 
@@ -306,7 +271,7 @@
 /**********************************************************/
 
 function displayNav() { 
-	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh,$threshType,$weighted,$weights; 
+	global $range,$rangeLimit,$type,$dates,$weeks,$months,$sortBy,$groups,$thresh,$threshType; 
 ?>
 
 <script language="javascript">
@@ -382,24 +347,6 @@ function showXML(dateStamp,type,range) {
 		<input type="checkbox" <?php echo (in_array("groupProject",$groups)?'checked ':''); ?>value="groupProject" name="groups[]"> Files By Project (EMF, XSD)<br/>
 		<input type="checkbox" <?php echo (in_array("groupVersion",$groups)?'checked ':''); ?>value="groupVersion" name="groups[]"> Files By Version (2.2.0, 2.1.2, etc.)<br/>
 		<input type="checkbox" <?php echo (in_array("groupType",$groups)?'checked ':''); ?>value="groupType" name="groups[]"> Files By Type (UM Jars vs. Zips)<br/>
-		<input type="radio" <?php echo ($weighted?'checked ':''); ?>value="1" name="weighted"> Files Weighted By Approx. # Files Per Download
-		<input type="radio" <?php echo (!$weighted?'checked ':''); ?>value="0" name="weighted"> Unweighted<br/>
-			&#160;&#160;&#160;&#160;&#160;&#160;[<?php 
-				$d=0;
-				foreach ($weights as $weight => $num) { 
-					if (++$d > 1) { echo ", "; }
-					echo "$weight = ".(!is_array($num)?$num:"");
-					if (is_array($num)) {
-						echo "{";
-						$c=0;
-						foreach ($num as $ver => $val) {
-							if (++$c > 1) { echo ", "; }
-							echo "EMF $ver = $val";
-						}
-						echo "}";
-					}
-				} ?>]<br/>
-
 	</td>
 </tr>
 
@@ -463,14 +410,14 @@ function showXML(dateStamp,type,range) {
 
 // Files / Hits / Percent or Domains / Hits / Percent
 function displayResults($data, $summary) { 
-	global $type,$filelist,$time,$pre,$weighted,$thresh,$threshType,$groups,$range;
+	global $type,$filelist,$time,$pre,$thresh,$threshType,$groups,$range;
 	
 	if ($summary) {
 		
 		/**** TOTALS ****/
 		
 		$bgc = array('#FFFFFF','#EEEEEE'); $i=0;
-		$rowsp = ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?5:4);
+		$rowsp = 4;
 		$wid=600;
 		echo '<p><form name="filelistFrm"><table border="0">'."\n".
 			 '<tr bgcolor="navy"><td colspan="4"><b style="color:white">Totals</b><a name="totals"></a></td></tr>'."\n".
@@ -487,7 +434,6 @@ function displayResults($data, $summary) {
 			 
 		echo
 	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td align="right">'.number_format($summary[0]["hits"]).'</td></tr>'."\n".
-	 		 ($weighted&&$summary[0]["weightedhits"]!=$summary[0]["hits"]?'<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Weighted Hits</td><td align="right">'.number_format($summary[0]["weightedhits"]).'</td></tr>'."\n":'').
 	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td align="right">'.number_format($summary[0]["count"]).'</td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time (s)</td><td align="right">'.$time->displaytime().'</td></tr>'."\n".
 			 '</table></form></p>'."\n";
@@ -495,70 +441,63 @@ function displayResults($data, $summary) {
 		/**** PLOTS ****/
 		
 		if ($range!="mm" && $range!="ww" && $range!="dd") { // nothing to plot
-			if ($weighted) {	
-				$plots = array("Weighted" => "weightedhits"); //,"Unweighted" => "hits");
-			} else {
-				$plots = array("Unweighted" => "hits");
-			}
 			
-			echo '<table>' . '<tr bgcolor="navy"><td colspan="'.sizeof($plots).'"><b style="color:white">Trends &nbsp; &nbsp; &nbsp;</b><a name="plots"></a></td></tr>'."\n";
+			echo '<table>' . '<tr bgcolor="navy"><td colspan="1"><b style="color:white">Trends &nbsp; &nbsp; &nbsp;</b><a name="plots"></a></td></tr>'."\n";
 			
 			echo '<tr valign="bottom">'."\n";
-			foreach ($plots as $l => $plot) {
-				echo '<td><table>' . "\n";
-				echo '<tr valign="bottom">'."\n";
-				$cols = sizeof($summary)-1;
-				
-				$filelistR = $filelist; krsort($filelistR); reset($filelistR);
-				$hmax=0;
-				foreach ($filelistR as $num) { // $num = date stamp
-					foreach ($summary[$num] as $i => $j) { if ($i==$plot) {
-						$h = round($j/($summary[0][$i]-0)*10000)/100; $hmax=$hmax>$h?$hmax:$h;
-					} }
-				}
-				foreach ($filelistR as $num) { // $num = date stamp
-					$summ = $summary[$num]; 
-					$col = "blue";
-					foreach ($summ as $i => $j) {
-						if ($i==$plot) {
-							$h = round($j/($summary[0][$i]-0)*10000)/100;
-							echo '<td align="center">'
+			echo '<td><table>' . "\n";
+			echo '<tr valign="bottom">'."\n";
+			$cols = sizeof($summary)-1;
+			
+			$filelistR = $filelist; krsort($filelistR); reset($filelistR);
+			$hmax=0;
+			foreach ($filelistR as $num) { // $num = date stamp
+				foreach ($summary[$num] as $i => $j) { if ($i=="hits") {
+					$h = round($j/($summary[0][$i]-0)*10000)/100; $hmax=$hmax>$h?$hmax:$h;
+				} }
+			}
+			foreach ($filelistR as $num) { // $num = date stamp
+				$summ = $summary[$num]; 
+				$col = "blue";
+				foreach ($summ as $i => $j) {
+					if ($i=="hits") {
+						$h = round($j/($summary[0][$i]-0)*10000)/100;
+						echo '<td align="center">'
 //								.'<small style="font-size:9px"">'.
-								//$j.", ".($summary[0][$i]-0).", ".$hmax.", ".
+							//$j.", ".($summary[0][$i]-0).", ".$hmax.", ".
 //								vert($h."%").'</small><br/>'
-								;
-								 
-							echo '<a href="#plots" onMouseover="ddrivetip(\''.$j. '<br/>'.$h.'%\'); return true;" onMouseout="hideddrivetip(); return true;">' .
-								'<img border="0" alt="'.$j.'" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
-								'-vert.png" height="'.round($h/$hmax*100).'" width="8"/></a>';
-							echo '</td>'."\n";
-						}
+							;
+							 
+						echo '<a href="#plots" onMouseover="ddrivetip(\''.$j. '<br/>'.$h.'%\'); return true;" onMouseout="hideddrivetip(); return true;">' .
+							'<img border="0" alt="'.$j.'" src="http://www.eclipse.org/emf/images/misc/bar-' . $col .
+							'-vert.png" height="'.round($h/$hmax*100).'" width="8"/></a>';
+						echo '</td>'."\n";
 					}
 				}
-				$r = substr($range,1);
-				echo '</tr>'."\n";
-				echo '<tr valign="top">'."\n";
-				foreach ($filelistR as $num) { // $num = date stamp
-					$label = "";
-					echo '<td colspan="1" align="center"><small style="font-size:9px"">'; 
-					switch ($r) {
-						case "d":
-							echo vert(substr($num,-4)." ".substr(date("D",strtotime($num)),0,1));
-							$label = "Days";
-							break;
-						case "w":
-							echo $num;
-							$label = "Weeks";
-							break;
-						case "m":
-							echo $num."<br/>".getMonth($num);
-							$label = "Months";
-							break;
-						default:
-							break;
-					};
-					echo '</small></td>'."\n";
-				}
+			}
+			$r = substr($range,1);
+			echo '</tr>'."\n";
+			echo '<tr valign="top">'."\n";
+			foreach ($filelistR as $num) { // $num = date stamp
+				$label = "";
+				echo '<td colspan="1" align="center"><small style="font-size:9px"">'; 
+				switch ($r) {
+					case "d":
+						echo vert(substr($num,-4)." ".substr(date("D",strtotime($num)),0,1));
+						$label = "Days";
+						break;
+					case "w":
+						echo $num;
+						$label = "Weeks";
+						break;
+					case "m":
+						echo $num."<br/>".getMonth($num);
+						$label = "Months";
+						break;
+					default:
+						break;
+				};
+				echo '</small></td>'."\n";
 				echo '</tr>'."\n".'<tr valign="top"><td align="center" colspan="'.$cols.'"><small style="font-size:9px"">'.$label.'</small></td>';
 				echo '</tr>'."\n";
 				echo '</tr></table></td>' . "\n";
@@ -577,7 +516,7 @@ function displayResults($data, $summary) {
 		echo $header;
 		
 		$i=0;
-		$hits = $weighted?$summary[0]["weightedhits"]:$summary[0]["hits"];
+		$hits = $summary[0]["hits"];
 		$others = 0;
 		
 		$tldImages = array("ca", "de", "edu", "es", "fr", "gov", "it","jp","nl","uk","us");
@@ -729,4 +668,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.15 2006/02/13 16:30:46 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.16 2006/02/14 17:14:02 nickb Exp $ -->
