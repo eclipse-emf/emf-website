@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.11 2006/02/08 23:34:59 nickb Exp $
+# $Id: genXML.sh.txt,v 1.12 2006/02/14 17:26:20 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh genXML.?.sh; dos2unix genXML.sh gentXML.?.sh
@@ -25,7 +25,7 @@
 user=""; pass="";
 tables=""; weeks=""; months=""; dates="";
 logdir="./logs"; mkdir -p $logdir;
-pattern="/tools/emf/";
+patterns=""; # use default in stats.php
 
 if [ $# -lt 1 ]; then
   echo "usage:";
@@ -70,7 +70,7 @@ while [ "$#" -gt 0 ]; do
       shift 2;
       ;;
     '-pattern'|'-P')
-      pattern=$2;
+      patterns=$patterns"&filenames%5B%5D="$2;
       echo "  $1 $2";
       shift 2;
       ;;
@@ -140,7 +140,7 @@ genXML ()
     xmlfile="$logdir/stats_"$table"_"$label"_"$item".xml"; touch $xmlfile;
     echo "[`date +%H:%M:%S`] $table, $label, $item: start.";
     cmd="wget -O $xmlfile http://www.eclipse.org/emf/downloads/stats.php?user=$user&pass=$pass";
-    cmd=$cmd"&table=$table&ctype=xml&$label=$item&filenames=$pattern";
+    cmd=$cmd"&table=$table&ctype=xml&$label=$item"$patterns;
     #echo $cmd;
     $cmd 2>&1;
     head -10 $xmlfile; echo "..."; tail -5 $xmlfile;
