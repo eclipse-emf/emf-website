@@ -193,15 +193,14 @@
 					if (array_key_exists("f",$node->attributes)) {
 						$EMFOrXSD="";
 						if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
-							$url = $node->getAttribute("f");
-							$url = split('[-_]',$url); $url = $url[sizeof($url)-1];
+							$url = substr($node->getAttribute("f"),0,-4); // remove .jar or .zip
+							$url = split('[-_]',$url);
+							$url = $url[sizeof($url)-1]."|".getFileType($node->getAttribute("f"));
 						} else if (in_array("groupVersion",$groups)) {
 							$url = substr($node->getAttribute("f"),0,-4); // remove .jar or .zip
 							$url = split('[-_]',$url); $url = $url[sizeof($url)-1];
 						} else if (in_array("groupType",$groups)) {
-							$url = $node->getAttribute("f");
-							$url = substr($url,-3);
-							if ($url!="jar" && $url != "zip") $url = "Other Files";
+							$url = getFileType($node->getAttribute("f"));
 						} else {
 							$url = $node->getAttribute("f");
 						} 
@@ -259,7 +258,7 @@
     displayNav();
     displayResults($data, $summary);  
     
-    //echo '<p align=right><small style="font-size:9px">'.$time->displaytime().'s</small></p>'."\n";
+    echo '<p align=right><small style="font-size:9px">'.$time->displaytime().'s</small></p>'."\n";
     
 	if ($doHeaderAndFooter) { include ($pre."includes/footer.php"); }
 
@@ -312,7 +311,8 @@ function showXML(dateStamp,type,range) {
 	<td><table>
 		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Country'?'checked ':''); ?>value="Country" name="type">By Country</td><td>[Fast!]</td></tr>
 		<tr><td><input onfocus="doOptions(this,'File')" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> By File (Zips &amp; Jars)</td><td>[Medium]</td></tr>
-		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain</td><td>[Very Slow! - Use Only 1 Week Of Data Or Less]</td></tr>
+		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain</td><td>[Very Slow! 
+			- Use Only 1 Month Of Data Or Less]</td></tr>
 	</table></td>
 </tr>
 <tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
@@ -359,8 +359,8 @@ function showXML(dateStamp,type,range) {
 <?php 
 	$rangeOptions = array(
 		// yearly-by-month (12), half-by-month (6), quarterly-by-month (3), a specific month (1) 
-		"1 year (monthly)" => "ym",
-		"1 half (monthly)" => "hm",
+//		"1 year (monthly)" => "ym",
+//		"1 half (monthly)" => "hm",
 		"1 quarter (monthly)" => "qm",
 		"1 month" => "mm",
 
@@ -428,7 +428,7 @@ function displayResults($data, $summary) {
 			 
 		echo
 	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Total Hits</td><td align="right">'.number_format($summary[0]["hits"]).'</td></tr>'."\n".
-	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.'s / Groups</td><td align="right">'.number_format($summary[0]["count"]).'</td></tr>'."\n".
+	 		 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>'.$type.' Groups</td><td align="right">'.number_format($summary[0]["count"]).'</td></tr>'."\n".
 			 '<tr bgcolor="'.$bgc[(++$i)%2].'"><td>Elapsed Time (s)</td><td align="right">'.$time->displaytime().'</td></tr>'."\n".
 			 '</table></form></p>'."\n";
 			 
@@ -436,12 +436,10 @@ function displayResults($data, $summary) {
 		
 		if ($range!="mm" && $range!="ww" && $range!="dd") { // nothing to plot
 			
-			echo '<table>' . '<tr bgcolor="navy"><td colspan="1"><b style="color:white">Trends &nbsp; &nbsp; &nbsp;</b><a name="plots"></a></td></tr>'."\n";
+			$cols = sizeof($filelist);
+			echo '<table border="0" cellspacing="0" cellpadding="2">' . '<tr bgcolor="navy"><td colspan="'.$cols.'"><b style="color:white">Trends &nbsp; &nbsp; &nbsp;</b><a name="plots"></a></td></tr>'."\n";
 			
 			echo '<tr valign="bottom">'."\n";
-			echo '<td><table>' . "\n";
-			echo '<tr valign="bottom">'."\n";
-			$cols = sizeof($summary)-1;
 			
 			$filelistR = $filelist; krsort($filelistR); reset($filelistR);
 			$hmax=0;
@@ -492,17 +490,15 @@ function displayResults($data, $summary) {
 						break;
 				};
 				echo '</small></td>'."\n";
-				echo '</tr>'."\n".'<tr valign="top"><td align="center" colspan="'.$cols.'"><small style="font-size:9px"">'.$label.'</small></td>';
-				echo '</tr>'."\n";
-				echo '</tr></table></td>' . "\n";
 			}
-			echo "</tr></table>\n";
+			echo '</tr>'."\n".'<tr valign="top"><td align="center" colspan="'.$cols.'"><small style="font-size:9px"">'.$label.'</small></td>';
+			echo "</table>\n";
 		} 
 		
 		/**** DATA ****/
 
 		$header= '<table width="'.$wid.'"><tr bgcolor="navy">' .
-			'<td colspan='.(in_array("groupTLD",$groups) && $type=="Domain"?3:2).'><b style="color:white">'.$type.'</b></td>' .
+			'<td colspan='.((in_array("groupType",$groups) && $type=="File")||(in_array("groupTLD",$groups) && $type=="Domain")?3:2).'><b style="color:white">'.$type.'</b></td>' .
 			'<td><b style="color:white">Hits</b></td>' .
 			'<td colspan="2"><b style="color:white">Percent</b></td>' .
 			'</tr>'."\n";
@@ -591,11 +587,19 @@ function adjustData($data) {
 	return $out;
 }
 
-function getEMFOrXSD($url) {
-	return 
-		(false!==strpos($url,"xsd")&&false===strpos($url,"emf")?"xsd (only) ":
-		(false!==strpos($url,"emf")?"emf (incl. SDK) ":
-		""));
+function getFileType($url) {
+	$matches = array(
+		"Standalone Zip" => "emf-sdo-xsd-Standalone-",
+		"Full SDK Zip" 	 => "emf-sdo-xsd-SDK-",
+		"EMF SDK Zip" 	 => "emf-sdo-SDK-",
+		"EMF RT Zip" 	 => "emf-sdo-runtime-",
+		"EMF Update Manager Jar" 	 => "org.eclipse.emf.ecore", 
+		"XSD SDK Zip" 	 => "xsd-SDK-",
+		"XSD RT Zip" 	 => "xsd-runtime-",
+		"XSD Update Manager Jar" 	 => "org.eclipse.xsd");
+	foreach ($matches as $label => $match) {
+		if (false!==strpos($url,$match)) return $label;	
+	} 
 }
 
 function getFileList() {
@@ -662,4 +666,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.17 2006/02/14 18:03:54 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.18 2006/02/14 21:25:09 nickb Exp $ -->
