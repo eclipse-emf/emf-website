@@ -194,19 +194,14 @@
 						$EMFOrXSD="";
 						if (in_array("groupVersion",$groups) && in_array("groupType",$groups)) {
 							$url = $node->getAttribute("f");
-							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-							$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
+							$url = split('[-_]',$url); $url = $url[sizeof($url)-1];
 						} else if (in_array("groupVersion",$groups)) {
 							$url = substr($node->getAttribute("f"),0,-4); // remove .jar or .zip
-							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-							$url = split('[-_]',$url); $url = $EMFOrXSD.$url[sizeof($url)-1];
+							$url = split('[-_]',$url); $url = $url[sizeof($url)-1];
 						} else if (in_array("groupType",$groups)) {
 							$url = $node->getAttribute("f");
-							if (in_array("groupProject",$groups)) $EMFOrXSD = getEMFOrXSD($url);
-							$url = $EMFOrXSD.substr($url,-3);
+							$url = substr($url,-3);
 							if ($url!="jar" && $url != "zip") $url = "Other Files";
-						} else if (in_array("groupProject",$groups)) {
-							$url = getEMFOrXSD($node->getAttribute("f"));
 						} else {
 							$url = $node->getAttribute("f");
 						} 
@@ -344,7 +339,6 @@ function showXML(dateStamp,type,range) {
 <tr valign="top" style="display:<?php echo $type!="File"?"none":"show"; ?>" id="ihtrFileOptions">
 	<td width="150"><b>File Grouping:</b></td>
 	<td>
-		<input type="checkbox" <?php echo (in_array("groupProject",$groups)?'checked ':''); ?>value="groupProject" name="groups[]"> Files By Project (EMF, XSD)<br/>
 		<input type="checkbox" <?php echo (in_array("groupVersion",$groups)?'checked ':''); ?>value="groupVersion" name="groups[]"> Files By Version (2.2.0, 2.1.2, etc.)<br/>
 		<input type="checkbox" <?php echo (in_array("groupType",$groups)?'checked ':''); ?>value="groupType" name="groups[]"> Files By Type (UM Jars vs. Zips)<br/>
 	</td>
@@ -668,4 +662,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.16 2006/02/14 17:14:02 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.17 2006/02/14 18:03:54 nickb Exp $ -->
