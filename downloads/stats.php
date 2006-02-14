@@ -74,7 +74,7 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
 }
 
-$doXSDDefaults = $qs["xsd"];
+$doXSDDefaults = $qsvars["xsd"];
 
 // filename filter
 if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) { 
@@ -153,7 +153,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.82 2006/02/14 18:21:10 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.83 2006/02/14 18:26:23 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -286,7 +286,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.82 2006/02/14 18:21:10 nickb Exp $'.
+			 '$Id: stats.php,v 1.83 2006/02/14 18:26:23 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
