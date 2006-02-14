@@ -74,17 +74,31 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 	$interval = "DOW.date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
 }
 
+$doXSDDefaults = $qs["xsd"];
+
 // filename filter
 if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) { 
 	$qsvars["filenames"] = array($qsvars["filenames"]);
 } else if (!$qsvars["filenames"] || (is_array($qsvars["filenames"]) && !$qsvars["filenames"][0])) {
-	$qsvars["filenames"] = array( //"/tools/emf/"
-		'%/emf-sdo-xsd-Standalone-%.zip',
-		'%/emf-sdo-xsd-SDK-%.zip',
-		'%/emf-sdo-SDK-%.zip',
-		'%/emf-sdo-runtime-%.zip',
-		'%/org.eclipse.emf.ecore\_%.jar' // _ = any 1 char, % = 0 or more chars, so must escape the _
-	);
+	if (!$doXSDDefaults) { // for EMF numbers use these default queries
+		$qsvars["filenames"] = array( 
+			'%/emf-sdo-xsd-Standalone-%.zip',
+			'%/emf-sdo-xsd-SDK-%.zip',
+			'%/emf-sdo-SDK-%.zip',
+			'%/emf-sdo-runtime-%.zip',
+			'%/org.eclipse.emf.ecore\_%.jar' 
+			// _ = any 1 char, % = 0 or more chars, so must escape the _
+		);
+	} else { // for XSD numbers use these default queries
+		$qsvars["filenames"] = array( 
+			'%/emf-sdo-xsd-Standalone-%.zip', // overlap w/ EMF
+		 	'%/emf-sdo-xsd-SDK-%.zip', // overlap w/ EMF
+		 	'%/xsd-SDK-%.zip',
+		 	'%/xsd-runtime-%.zip',
+		 	'%/org.eclipse.xsd\_%.jar'
+			// _ = any 1 char, % = 0 or more chars, so must escape the _
+		);
+	}		
 }
 $filenames = "";
 foreach ($qsvars["filenames"] as $i => $fn) {
@@ -139,7 +153,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.81 2006/02/14 18:09:46 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.82 2006/02/14 18:21:10 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -272,7 +286,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.81 2006/02/14 18:09:46 nickb Exp $'.
+			 '$Id: stats.php,v 1.82 2006/02/14 18:21:10 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
