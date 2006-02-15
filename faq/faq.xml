@@ -8,7 +8,7 @@
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/01/20 21:09:37 $</modified>
+  <modified>$Date: 2006/02/15 22:57:39 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -294,7 +294,7 @@ How do I install EMF, SDO, or XSD 2.x (for Eclipse 3.x)?
 <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>
 the version of EMF, SDO and/or XSD that <b class="question">matches</b> your installation of Eclipse.
 Generally, the version of Eclipse is one version greater than that of EMF; 
-eg., EMF 2.1.0 is build against (and for) Eclipse 3.1.0. 
+eg., EMF 2.1.2 is build against (and for) Eclipse 3.1.2. 
 Exit Eclipse, then unzip into your Eclipse directory.
     </answer>
   </entry>
@@ -1675,15 +1675,20 @@ chosen.
   <entry date="2004/06/02 15:02" UNID="20040602-358549632">
     <category>newbie</category>
     <question>
-What version of Eclipse do EMF, SDO and XSD run on?
+What version of Eclipse do I need for EMF, SDO and XSD?<br/>
+Which EMF, SDO or XSD version will run on my Eclipse version?
     </question>
     <answer>
-EMF, SDO and XSD <b class="question">2.1.0</b> run on Eclipse <b class="question">3.1.0</b>.<br />
-EMF, SDO and XSD <b class="question">2.0.2</b> and <b class="question">2.0.3</b> run on Eclipse <b class="question">3.0.2</b>.<br />
-EMF, SDO and XSD <b class="question">2.0.1</b> run on Eclipse <b class="question">3.0.1</b>.<br />
-EMF, SDO and XSD <b class="question">2.0</b> run on Eclipse <b class="question">3.0</b>.<br />
-EMF and XSD <b class="question">1.1</b> run on Eclipse <b class="question">2.1</b>.<br />
-EMF and XSD <b class="question">1.0</b> run on Eclipse <b class="question">2.0</b>.
+    
+EMF, SDO and XSD <b class="question">2.2.0</b> run on Eclipse <b class="question">3.2.0</b>.<br />
+<br/>  
+EMF, SDO and XSD <b class="question">2.1.0</b>, <b class="question">2.1.1</b> &amp; <b class="question">2.1.2</b> run on Eclipse 
+	<b class="question">3.1.0</b>, <b class="question">3.1.1</b> &amp; <b class="question">3.1.2</b>, respectively.<br />
+<br/>
+EMF, SDO and XSD <b class="question">2.0.2</b> through <b class="question">2.0.5</b> run on Eclipse <b class="question">3.0.2</b>.<br />
+EMF, SDO and XSD <b class="question">2.0</b> &amp; <b class="question">2.0.1</b> run on Eclipse <b class="question">3.0</b> &amp; <b class="question">3.0.1</b>.<br />
+<br/>
+EMF and XSD <b class="question">1.0</b> &amp; <b class="question">1.1</b> run on Eclipse <b class="question">2.0</b> &amp; <b class="question">2.1</b>.
     </answer>
   </entry>
 
@@ -1791,6 +1796,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.15 2006/01/20 21:09:37 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.16 2006/02/15 22:57:39 nickb Exp $ -->
 
 </faq>
