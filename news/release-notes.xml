@@ -29,6 +29,18 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200602160000" project="emf" version="2.2.0">
+<bug id="126650">Class.javajet template doesn't work so well with cross-resource single containement reference</bug>
+<bug id="126766">Change codegen so that method  modifiers (public, etc) are not changed when merging to existing code</bug>
+<bug id="127038">Load Resource... from registered packages</bug>
+<bug id="127321">Improve the performance of feature maps</bug>
+<bug id="127328">Make the indexed-based reflective methods public in InternalEObject.</bug>
+<bug id="127330">Improve the performance of XMLTypeUtil.normalize.</bug>
+<bug id="127345">Cannot Reference Genmodel for Nested Packages</bug>
+<bug id="128082">Fix ItemPropertyDescriptor.canSetProperty for the case there is no editing domain</bug>
+<bug id="128089">Invalid code generated for a volatile isMany feature's array accessors</bug>
+</entry>
+
 <entry build="I200602090000" project="emf" version="2.2.0">
 <bug id="125917">AdapterFactoryEditingDomain.isReadOnly() incorrectly returns false</bug>
 <bug id="126175">Exceptions are not removed when regenerating</bug>
@@ -384,6 +396,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200602160000" project="xsd" version="2.2.0"/>
 <entry build="I200602090000" project="xsd" version="2.2.0"/>
 <entry build="I200602020000" project="xsd" version="2.2.0">
 <bug id="123829">Fix needed for multiple &quot;base&quot; entries in XMLDocumentRoot list</bug>
@@ -2203,4 +2216,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.134 2006/02/09 06:39:50 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.135 2006/02/16 07:05:34 nickb Exp $ -->
