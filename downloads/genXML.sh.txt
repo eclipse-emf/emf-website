@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.13 2006/02/14 18:21:34 nickb Exp $
+# $Id: genXML.sh.txt,v 1.14 2006/02/16 20:08:28 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh genXML.?.sh; dos2unix genXML.sh gentXML.?.sh
@@ -26,7 +26,7 @@ user=""; pass="";
 tables=""; weeks=""; months=""; dates="";
 logdir="./logs"; mkdir -p $logdir;
 patterns=""; # use default in stats.php
-doXSD="";
+doDefaults="";
 
 if [ $# -lt 1 ]; then
   echo "usage:";
@@ -42,6 +42,7 @@ if [ $# -lt 1 ]; then
   echo ""
   echo "  -emf        <use emf default queries (default behaviour if no -pattern)>"
   echo "  -xsd        <use xsd default queries (overridden by -pattern values)>"
+  echo "  -uml2       <use uml2 default queries (overridden by -pattern values)>"
   echo "  -pattern,-P <pattern to search for in downloads stats. NOTE: MUST BE"
   echo "               AT LEAST 10 chars long, and can include SQL wildcards,"
   echo "               eg., \"%/org.eclipse.emf.ecore\\\_%.jar\">"
@@ -75,7 +76,12 @@ while [ "$#" -gt 0 ]; do
       shift 2;
       ;;
     '-xsd')
-      doXSD="&xsd=1";
+      doDefaults="&xsd=1";
+      echo "  $1";
+      shift 1;
+      ;;
+    '-uml2')
+      doDefaults="&uml2=1";
       echo "  $1";
       shift 1;
       ;;
@@ -150,7 +156,7 @@ genXML ()
     xmlfile="$logdir/stats_"$table"_"$label"_"$item".xml"; touch $xmlfile;
     echo "[`date +%H:%M:%S`] $table, $label, $item: start.";
     cmd="wget -O $xmlfile http://www.eclipse.org/emf/downloads/stats.php?user=$user&pass=$pass";
-    cmd=$cmd"&table=$table&ctype=xml&$label=$item"$patterns""$doXSD;
+    cmd=$cmd"&table=$table&ctype=xml&$label=$item"$patterns""$doDefaults;
     #echo $cmd;
     $cmd 2>&1;
     head -10 $xmlfile; echo "..."; tail -5 $xmlfile;
