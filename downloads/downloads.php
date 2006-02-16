@@ -600,6 +600,7 @@ function getFileType($url) {
 	foreach ($matches as $label => $match) {
 		if (false!==strpos($url,$match)) return $label;	
 	} 
+	return "Other Files";
 }
 
 function getFileList() {
@@ -666,4 +667,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.18 2006/02/14 21:25:09 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.19 2006/02/16 21:50:34 nickb Exp $ -->
