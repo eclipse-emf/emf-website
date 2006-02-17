@@ -2,6 +2,19 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+  <model 
+     modelName="XPath Support for EMF" 
+     date="2006-02-16" 
+     category="EMF utility" 
+     modelID="PeterNehrer20060216004001">
+    <text>This software component provides support for using the XPath language to navigate arbitrary EMF models. Jaxen is used as the underlying XPath engine, with a custom document model adapter that allows it to navigate EMF object graphs using XPath constructs.</text>
+    <modelURL>http://www.eclipticalsoftware.com/emf/xpath/</modelURL>
+    <thumbnailURL></thumbnailURL>
+    <screenshotURL></screenshotURL>
+    <submitter>Peter Nehrer</submitter> 
+    <submitterURL>http://www.eclipticalsoftware.com</submitterURL>
+  </model>
+
 <model 
 modelName="Sympedia GenFw Generator Framework" 
 date="2006-02-04" 
@@ -482,4 +495,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.21 2006/02/05 02:52:13 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.22 2006/02/17 17:43:55 nickb Exp $ -->
