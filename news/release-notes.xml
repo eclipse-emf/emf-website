@@ -29,6 +29,26 @@
 
 <!-- 2.2.0 -->
 
+<entry build="2.2.0M5" project="emf" version="2.2.0">
+<bug id="126678">Proxy resolution in ECrossReferenceAdapter</bug>
+<bug id="128749">Remove invalid entries from build.properties</bug>
+<bug id="128752">Platform.resolve(url) is deprecated in Eclipse M5</bug>
+<bug id="128797">DataGraph wizard confused by nested packages</bug>
+<bug id="128799">BasicNotifierImpl#eNotify(Notification) calls eBasicAdapters() three times</bug>
+<bug id="128819">Code generator ClassNotFoundException when running standalone</bug>
+<bug id="128826">getGenClassType() used in the ResourceClass template was deprecated</bug>
+<bug id="128838">Eclipse M5 has changed the way the nature ID is computed</bug>
+<bug id="128878">The Workspace Browse Button should use the EMF's resource browse dialog</bug>
+<bug id="128914">Allow ant task to generate edit code independently of model code</bug>
+<bug id="128999">Converter Framework: pageActivated is called multiple times on one single ativativatio</bug>
+<bug id="129073">The method IExtension.getNamespace() is deprecated in M5</bug>
+<bug id="129186">Support XMLResource.OPTION_DEFER_ATTACHMENT</bug>
+<bug id="129187">The manifest version should include the buildId as the 4th field</bug>
+<bug id="129274">Changing the capabilities example</bug>
+<bug id="129357">&quot;Open Ecore&quot; action doesn't work if the path has spaces</bug>
+<bug id="129364">Update copyright dates in feature details</bug>
+</entry>
+
 <entry build="I200602160000" project="emf" version="2.2.0">
 <bug id="126650">Class.javajet template doesn't work so well with cross-resource single containement reference</bug>
 <bug id="126766">Change codegen so that method  modifiers (public, etc) are not changed when merging to existing code</bug>
@@ -394,6 +414,13 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="2.2.0M5" project="xsd" version="2.2.0">
+<bug id="128749">Remove invalid entries from build.properties</bug>
+<bug id="129187">The manifest version should include the buildId as the 4th field</bug>
+<bug id="129248">XSD model exporter icons do not show</bug>
+<bug id="129364">Update copyright dates in feature details</bug>
 </entry>
 
 <entry build="I200602160000" project="xsd" version="2.2.0"/>
@@ -2216,4 +2243,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.135 2006/02/16 07:05:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.136 2006/02/24 19:44:11 nickb Exp $ -->
