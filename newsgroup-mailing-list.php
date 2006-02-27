@@ -25,7 +25,11 @@
 	this to the newsgroup."</li><br>
 	<li>Chances are your question has already been answered in the newsgroup, 
 	and will save you time in not having to ask it again, and us in not having 
-	to answer it again. You can also browse (<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">EMF &amp; SDO</a>, <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd">XSD</a>) or <a href="http://www.eclipse.org/search/search.cgi">search</a> the
+	to answer it again. You can also browse (<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">EMF &amp; SDO</a>, 
+	<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd">XSD</a>) or 
+	search (<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.tools.emf&wm=wrd&t=News&t=Mail&q=emf">EMF &amp; SDO</a>,
+	<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&wm=wrd&t=News&t=Mail&q=xsd">XSD</a>)
+	 the
 	newsgroup archives online, if you prefer, but you will <a href="http://eclipse.org/newsgroups/index.html">require a password</a> first. 
 	
 	Frequently asked questions in the newsgroup will ultimately end up in the FAQs.
@@ -72,14 +76,14 @@ Newsgroups:<br><br>
 		<td>&#160;&#160;</td>
 		<td>
 <a href="news://news.eclipse.org/eclipse.tools.emf" target="_top">Newsgroup</a><br>
-:&#160;<a href="http://www.eclipse.org/search/search.cgi" target="_self">Search</a><br>
+:&#160;<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.tools.emf&wm=wrd&t=News&t=Mail&q=emf" target="_self">Search</a><br>
 :&#160;<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf" target="_self">Browse</a><br>
 :&#160;<a href="http://eclipse.org/newsgroups/index.html">Password</a><br>:&#160;<a href="http://eclipse.org/newsgroups/index.html">Request</a>
 		</td>
 		<td>&#160;&#160;</td>
 		<td>
 <a href="news://news.eclipse.org/eclipse.technology.xsd" style="color:#999999" target="_top">Newsgroup</a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small><br>
-:&#160;<a href="http://www.eclipse.org/search/search.cgi" target="_self">Search</a><br>
+:&#160;<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&wm=wrd&t=News&t=Mail&q=xsd" target="_self">Search</a><br>
 :&#160;<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd" target="_self">Browse</a>
 		</td>
 	</tr>
@@ -118,4 +122,4 @@ Newsgroups:<br><br>
 </table>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: newsgroup-mailing-list.php,v 1.6 2006/02/27 18:20:13 nickb Exp $ -->
+<!-- $Id: newsgroup-mailing-list.php,v 1.7 2006/02/27 18:27:19 nickb Exp $ -->
