@@ -1560,6 +1560,30 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
     </tr>
 
     <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>Eclipse.org Newsgroups - Online Searching with
+      <img src="images/c.gif" width="1" height="8" />
+
+      <img src="images/c.gif" width="1" height="8" />
+
+      <a
+      href="http://wiki.eclipse.org/index.php/Searching_Eclipse_Newsgroups_With_Firefox">
+      Firefox</a>
+
+      </td>
+
+      <td>Feb 27
+      <sup>th</sup>
+
+      2006</td>
+    </tr>
+
+    <tr>
       <td width="60%" colspan="2">
         <img src="images/c.gif" width="1" height="8" />
       </td>
@@ -1823,5 +1847,5 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.30 2005/10/20 22:31:46 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.31 2006/02/27 18:17:28 nickb Exp $ -->
 

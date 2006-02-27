@@ -43,7 +43,10 @@
 
 	<br><br>
 
-	In addition, should you want to search the newsgroups for old posts, you can do so offline in one of several ways. Here are two:
+	In addition, should you want to search the newsgroups for old posts, you can do so online or offline in one of several ways. 
+	Online, you can use Eclipse.org's <a
+      href="http://wiki.eclipse.org/index.php/Searching_Eclipse_Newsgroups_With_Firefox">search capabilities</a>.
+	Offline, here's two options:
       <a
       href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">
       with Mozilla</a>
@@ -115,4 +118,4 @@ Newsgroups:<br><br>
 </table>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: newsgroup-mailing-list.php,v 1.5 2005/10/12 22:00:12 nickb Exp $ -->
+<!-- $Id: newsgroup-mailing-list.php,v 1.6 2006/02/27 18:20:13 nickb Exp $ -->
