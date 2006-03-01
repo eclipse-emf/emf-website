@@ -53,11 +53,15 @@ $sqls = array(
 		
 foreach ($sqls as $l => $sql) {
 	$res = doQuery($sql);
-	echo "<>$l:</b><br/>\n";
+	echo "<html>\n";
+	echo "<b>$l:</b><br/>\n";
 	echo "<span>$sql</span><br/>\n";
 	echo "<hr/>\n\n";
-	foreach ($res as $k => $v) {
-		echo "<small>$k -- $v</small><br/>\n";
+	foreach ($res as $k => $a) {
+		echo "[$k]<br/>\n";
+		foreach ($a as $i => $v) {
+			echo "<small>$i: $v</small><br/>\n";
+		}
 	}
 	echo "<hr/>\n\n";
 }
@@ -195,7 +199,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.86 2006/03/01 23:55:11 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.87 2006/03/01 23:59:55 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -328,7 +332,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.86 2006/03/01 23:55:11 nickb Exp $'.
+			 '$Id: stats.php,v 1.87 2006/03/01 23:59:55 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
