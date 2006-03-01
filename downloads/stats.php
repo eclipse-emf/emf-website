@@ -195,7 +195,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.85 2006/03/01 23:50:04 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.86 2006/03/01 23:55:11 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -312,11 +312,11 @@ function displayHTMLResults($title, $results) {
 }   
      
 # There are usually in excess of 30 million records.. watch your queries!!
-function doQuery($sql) {
+function doQuery($sql,$isCSV=false) {
 	
-	$arr = array();
+	$out = $isCSV?"":array();
 	
-	if (!$sql) return $arr; 
+	if (!$sql) return $out; 
 
     # Connect to database & get results set
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
@@ -328,20 +328,26 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.85 2006/03/01 23:50:04 nickb Exp $'.
+			 '$Id: stats.php,v 1.86 2006/03/01 23:55:11 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
-    while($myrow = mysql_fetch_assoc($rs)) $arr[] = $myrow;
+    while($myrow = mysql_fetch_assoc($rs)) {
+    	if ($isCSV) {
+    		foreach ($myrow as $myr) $out .= ($out?",":"") . $myr;
+    	} else {
+    		$out[] = $myrow;
+    	}
+    }
     
     # dsconnect and destroy objects
     $dbc->disconnect();
     $rs = null; $dbh = null; $dbc = null;
-    return $arr;
+    return $out;
 }
 
 function doQueryCSV($sql) {
-	return implode(",",doQuery($sql));
+	return doQuery($sql,true);
 }
 	
 ?>
