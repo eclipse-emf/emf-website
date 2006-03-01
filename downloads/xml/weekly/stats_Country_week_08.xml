@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<b>SQL error processing query:</b><br/><small>
+SELECT COUNT(*) AS N, IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)=0,LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),'?') as C FROM downloads AS DOW FORCE INDEX(idx_downloads_date) WHERE WEEK(DOW.date) - 0 = 08 AND (DOW.file LIKE '%/emf-sdo-xsd-Standalone-%.zip' OR DOW.file LIKE '%/emf-sdo-xsd-SDK-%.zip' OR DOW.file LIKE '%/emf-sdo-SDK-%.zip' OR DOW.file LIKE '%/emf-sdo-runtime-%.zip' OR DOW.file LIKE '%/org.eclipse.emf.ecore\_%.jar') GROUP BY C 
+</small>
+<p align="right"><small>
+$Id: stats_Country_week_08.xml,v 1.1 2006/03/01 18:59:17 nickb Exp $
+</small></p>

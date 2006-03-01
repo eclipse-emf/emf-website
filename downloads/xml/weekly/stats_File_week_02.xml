@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <query elapsed="85.796s">
+    <sql>SELECT COUNT(*) AS N, SUBSTRING_INDEX(DOW.file,'/',-1) as F FROM downloads AS DOW FORCE INDEX(idx_downloads_date) WHERE WEEK(DOW.date) - 0 = 02 AND (DOW.file LIKE '%/emf-sdo-xsd-Standalone-%.zip' OR DOW.file LIKE '%/emf-sdo-xsd-SDK-%.zip' OR DOW.file LIKE '%/emf-sdo-SDK-%.zip' OR DOW.file LIKE '%/emf-sdo-runtime-%.zip' OR DOW.file LIKE '%/org.eclipse.emf.ecore\_%.jar') GROUP BY F</sql>
+    <generator>$Id: stats_File_week_02.xml,v 1.2 2006/03/03 21:01:24 nickb Exp $</generator>
+  </query>
+  <file n="38" f="emf-sdo-runtime-2.0.0.zip"/>
+  <file n="94" f="emf-sdo-runtime-2.0.1.zip"/>
+  <file n="40" f="emf-sdo-runtime-2.0.2.zip"/>
+  <file n="3" f="emf-sdo-runtime-2.0.3.zip"/>
+  <file n="3" f="emf-sdo-runtime-2.0.4.zip"/>
+  <file n="91" f="emf-sdo-runtime-2.0.5.zip"/>
+  <file n="8" f="emf-sdo-runtime-2.0.5RC1.zip"/>
+  <file n="1607" f="emf-sdo-runtime-2.1.0.zip"/>
+  <file n="661" f="emf-sdo-runtime-2.1.1.zip"/>
+  <file n="233" f="emf-sdo-runtime-2.1.2RC1.zip"/>
+  <file n="6" f="emf-sdo-runtime-2.2.0M3.zip"/>
+  <file n="1152" f="emf-sdo-runtime-2.2.0M4.zip"/>
+  <file n="1" f="emf-sdo-runtime-I200511291121.zip"/>
+  <file n="12" f="emf-sdo-runtime-I200512151150.zip"/>
+  <file n="15" f="emf-sdo-runtime-I200601050100.zip"/>
+  <file n="9" f="emf-sdo-runtime-I200601120200.zip"/>
+  <file n="34" f="emf-sdo-runtime-M200601041804.zip"/>
+  <file n="5" f="emf-sdo-SDK-2.0.0.zip"/>
+  <file n="10" f="emf-sdo-SDK-2.0.1.zip"/>
+  <file n="10" f="emf-sdo-SDK-2.0.2.zip"/>
+  <file n="8" f="emf-sdo-SDK-2.0.5.zip"/>
+  <file n="1" f="emf-sdo-SDK-2.0.5RC1.zip"/>
+  <file n="222" f="emf-sdo-SDK-2.1.0.zip"/>
+  <file n="193" f="emf-sdo-SDK-2.1.1.zip"/>
+  <file n="46" f="emf-sdo-SDK-2.1.2RC1.zip"/>
+  <file n="2" f="emf-sdo-SDK-2.2.0M3.zip"/>
+  <file n="65" f="emf-sdo-SDK-2.2.0M4.zip"/>
+  <file n="5" f="emf-sdo-SDK-I200601050100.zip"/>
+  <file n="1" f="emf-sdo-SDK-I200601120200.zip"/>
+  <file n="3" f="emf-sdo-SDK-M200601041804.zip"/>
+  <file n="41" f="emf-sdo-xsd-SDK-2.0.0.zip"/>
+  <file n="58" f="emf-sdo-xsd-SDK-2.0.1.zip"/>
+  <file n="24" f="emf-sdo-xsd-SDK-2.0.2.zip"/>
+  <file n="14" f="emf-sdo-xsd-SDK-2.0.3.zip"/>
+  <file n="2" f="emf-sdo-xsd-SDK-2.0.4.zip"/>
+  <file n="92" f="emf-sdo-xsd-SDK-2.0.5.zip"/>
+  <file n="11" f="emf-sdo-xsd-SDK-2.0.5RC1.zip"/>
+  <file n="650" f="emf-sdo-xsd-SDK-2.1.0.zip"/>
+  <file n="1590" f="emf-sdo-xsd-SDK-2.1.1.zip"/>
+  <file n="441" f="emf-sdo-xsd-SDK-2.1.2RC1.zip"/>
+  <file n="3" f="emf-sdo-xsd-SDK-2.2.0M1.zip"/>
+  <file n="6" f="emf-sdo-xsd-SDK-2.2.0M2.zip"/>
+  <file n="61" f="emf-sdo-xsd-SDK-2.2.0M3.zip"/>
+  <file n="825" f="emf-sdo-xsd-SDK-2.2.0M4.zip"/>
+  <file n="1" f="emf-sdo-xsd-SDK-I200512080200.zip"/>
+  <file n="1" f="emf-sdo-xsd-SDK-I200512151150.zip"/>
+  <file n="54" f="emf-sdo-xsd-SDK-I200601050100.zip"/>
+  <file n="49" f="emf-sdo-xsd-SDK-I200601120200.zip"/>
+  <file n="3" f="emf-sdo-xsd-SDK-M200511161952.zip"/>
+  <file n="68" f="emf-sdo-xsd-SDK-M200601041804.zip"/>
+  <file n="16" f="emf-sdo-xsd-Standalone-2.1.0.zip"/>
+  <file n="90" f="emf-sdo-xsd-Standalone-2.1.1.zip"/>
+  <file n="21" f="emf-sdo-xsd-Standalone-2.1.2RC1.zip"/>
+  <file n="49" f="emf-sdo-xsd-Standalone-2.2.0M4.zip"/>
+  <file n="6" f="emf-sdo-xsd-Standalone-I200601050100.zip"/>
+  <file n="3" f="emf-sdo-xsd-Standalone-M200601041804.zip"/>
+  <file n="369" f="org.eclipse.emf.ecore_2.0.0.jar"/>
+  <file n="413" f="org.eclipse.emf.ecore_2.0.1.jar"/>
+  <file n="55" f="org.eclipse.emf.ecore_2.0.2.jar"/>
+  <file n="1013" f="org.eclipse.emf.ecore_2.0.3.1.jar"/>
+  <file n="482" f="org.eclipse.emf.ecore_2.0.3.jar"/>
+  <file n="18840" f="org.eclipse.emf.ecore_2.1.0.jar"/>
+  <file n="4" f="org.eclipse.emf.ecore_2.2.0.S200511100200.jar"/>
+  <file n="75" f="org.eclipse.emf.ecore_2.2.0.S200512220106.jar"/>
+  <summary n="30008" f="64"/>
+</data>
