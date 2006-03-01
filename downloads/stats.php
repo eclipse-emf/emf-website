@@ -29,6 +29,44 @@ $time = new Timer; $time->starttime();
 
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads_ro.class.php";
 
+/////////////////////////////////////////////////////////////
+
+$dbc    = new DBConnectionDownloads();
+$dbh    = $dbc->connect();
+
+$sql = 	"SELECT IDX.file_id FROM download_file_index AS IDX " .
+		"INNER JOIN downloads AS DOW ON IDX.file_id = DOW.file_id WHERE " .
+		"IDX.file_name LIKE '%/org.eclipse.emf.ecore\_%.jar' " .
+		"GROUP BY IDX.file_id";
+$file_id_csv = doQueryCSV($sql);
+
+$sqls = array( 
+		"file" => 
+		"SELECT IDX.file_name, COUNT(DOW.file_id) AS RecordCount FROM download_file_index AS IDX " .
+		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE " .
+		"IDX.file_id in ($file_id_csv) AND DOW.download_date BETWEEN \"2006-02-21\" AND \"2006-02-28\" GROUP BY IDX.file_id",
+		"country" => 
+		"SELECT DOW.ccode, COUNT(DOW.ccode) AS RecordCount FROM download_file_index AS IDX " .
+		"INNER JOIN downloads AS DOW ON IDX.file_id = DOW.file_id WHERE " .
+		"IDX.file_id IN ($file_id_csv) AND DOW.download_date BETWEEN \"2006-02-21\" AND \"2006-02-28\" GROUP BY DOW.ccode"
+		);
+		
+foreach ($sqls as $l => $sql) {
+	$res = doQuery($sql);
+	echo "<>$l:</b><br/>\n";
+	echo "<span>$sql</span><br/>\n";
+	echo "<hr/>\n\n";
+	foreach ($res as $k => $v) {
+		echo "<small>$k -- $v</small><br/>\n";
+	}
+	echo "<hr/>\n\n";
+}
+                
+exit;
+
+/////////////////////////////////////////////////////////////
+
+
 $qsvars = $_GET;
 
 $debug = $qsvars["debug"];
@@ -157,7 +195,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.84 2006/02/16 20:08:29 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.85 2006/03/01 23:50:04 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -290,7 +328,7 @@ function doQuery($sql) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.84 2006/02/16 20:08:29 nickb Exp $'.
+			 '$Id: stats.php,v 1.85 2006/03/01 23:50:04 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
@@ -302,4 +340,8 @@ function doQuery($sql) {
     return $arr;
 }
 
+function doQueryCSV($sql) {
+	return implode(",",doQuery($sql));
+}
+	
 ?>
