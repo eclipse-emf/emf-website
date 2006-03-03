@@ -1,13 +1,11 @@
 <?php
-
 /*
  * This script is to be used to collect stats from the database, 
  * and produce XML data from which comparison statistics (eg., weekly trending)
  * can be derived. There is also a simple HTML output UI which can be used 
  * for single one-off daily queries.
  **/
-
-$pre = "../";
+$pre = "../"; // relative path marker
 
 class Timer { 
 	/* thanks to http://ca.php.net/microtime -> ed [at] twixcoding [dot] com */
@@ -31,9 +29,7 @@ require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_downloads
 
 $qsvars = $_GET;
 
-$debug = $qsvars["debug"];
-
-//if ($debug) { foreach ($qsvars as $k => $v) echo "$k => $v<br>\n"; }
+$debug = $qsvars["debug"]; //if ($debug) { foreach ($qsvars as $k => $v) echo "$k => $v<br>\n"; }
 
 $user = $qsvars["user"];	$gooduser = "emf-dev";
 $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
@@ -50,7 +46,7 @@ if ($user != $gooduser || $pass != $goodpass) {
 
 ##########################################################################################
 
-// date filter 
+/***** DATE FILTER *****/ 
 if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12) {
 	$interval = "MONTH(DOW.download_date) - 0 = ".$qsvars["month"];
 } else if ($qsvars["week"] && $qsvars["week"] - 0 >= 0 && $qsvars["week"] - 0 <= 53) {
@@ -69,7 +65,7 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 	$interval = "DOW.download_date >= DATE_SUB(CURDATE(), INTERVAL ".$qsvars["interval"]." DAY)"; 
 }
 
-// filename filter
+/***** FILENAME FILTER *****/ 
 if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) { 
 	$qsvars["filenames"] = array($qsvars["filenames"]);
 } else if (!$qsvars["filenames"] || (is_array($qsvars["filenames"]) && !$qsvars["filenames"][0])) {
@@ -108,30 +104,31 @@ foreach ($qsvars["filenames"] as $i => $fn) {
 }
 $filenames = "(".$filenames.")";
 
-// results limit (optional)
+/***** RESULTS LIMIT FILTER (OPTIONAL) *****/ 
 $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] - 0) : "";
 
-// get file ids and pass them to the secondary queries
+/***** COMPOSE + RUN FIRST QUERY: get file ids matching filename filter *****/
 $preQuery = "SELECT IDX.file_id " .
 			"FROM download_file_index AS IDX " .
 			"INNER JOIN downloads AS DOW ON IDX.file_id = DOW.file_id WHERE " . 
 			$filenames . "GROUP BY IDX.file_id";
 $file_id_csv = doQueryCSV($preQuery);
 
+/***** COMPOSE SECOND QUERY: get filenames, counties, or domains matching date + limit filters for the above file ids *****/
 $queries = array(
 	"File" => 
 		"SELECT COUNT(DOW.file_id) AS N, " .
-			"SUBSTRING_INDEX(IDX.file_name,'/',-1) as F " . // trash the full path, just get the filename
+			"SUBSTRING_INDEX(IDX.file_name,'/',-1) as F " . // trash the full path, just need the filename
 		"FROM download_file_index AS IDX " .
 		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in ($file_id_csv) AND " . 
-		$interval . "GROUP BY F " . $limit 
+		$interval . " GROUP BY F " . $limit 
 	,
 	"Country" => 
 		"SELECT COUNT(DOW.ccode) AS N, " .
 			"DOW.ccode as C " .
 		"FROM download_file_index AS IDX " .
 		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in ($file_id_csv) AND " . 
-		$interval . "GROUP BY C " . $limit
+		$interval . " GROUP BY C " . $limit
 	,
 	"Domain" => // FQDNs
 		"SELECT COUNT(*) AS N, " .
@@ -143,13 +140,14 @@ $queries = array(
 			"as D " .
 		"FROM download_file_index AS IDX " .
 		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in ($file_id_csv) AND " . 
-		$interval . "GROUP BY D " . $limit
+		$interval . " GROUP BY D " . $limit
 );
 
-$qsvarsToShow = array("sql", "generator");
+/***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
-$qsvars["generator"] = '$Id: stats.php,v 1.90 2006/03/03 19:52:18 nickb Exp $';
-$qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
+$qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
+$qsvars["generator"] = '$Id: stats.php,v 1.91 2006/03/03 20:04:52 nickb Exp $';
+$qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	if ($qsvars["ctype"]=="xml") { 
@@ -175,7 +173,7 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	include $pre . "includes/header.php";
 	echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 	foreach ($queries as $title => $query) {
-		echo "<li>".$title."s: <a href=\"$PHP_SELF?".
+		echo "<li>".$title.": <a href=\"$PHP_SELF?".
 			doQS(array("table" => $title, "ctype" => "html"))."\">HTML</a>, " .
 			"<a href=\"$PHP_SELF?".
 			doQS(array("table" => $title, "ctype" => "xml"))."\">XML</a>" .
@@ -184,6 +182,8 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	echo "</ul><p>&#160;</p>";
 	include $pre . "includes/footer.php";
 }
+
+/***** DONE. *****/
 
 ##########################################################################################
 
@@ -271,7 +271,7 @@ function doQuery($sql,$isCSV=false) {
 	
 	if (!$sql) return $out; 
 
-    # Connect to database & get results set
+    # Connect to database + get results set
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
     
     if(mysql_errno($dbh) > 0) {
@@ -281,7 +281,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.90 2006/03/03 19:52:18 nickb Exp $'.
+			 '$Id: stats.php,v 1.91 2006/03/03 20:04:52 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
