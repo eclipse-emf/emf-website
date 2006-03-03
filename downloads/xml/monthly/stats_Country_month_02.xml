@@ -1,8 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
-<b>SQL error processing query:</b><br/><small>
-SELECT COUNT(*) AS N, IF(SUBSTRING_INDEX(DOW.remote_host,'.',-1)=0,LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-1)),'?') as C FROM downloads AS DOW FORCE INDEX(idx_downloads_date) WHERE MONTH(DOW.date) - 0 = 02 AND (DOW.file LIKE '%/emf-sdo-xsd-Standalone-%.zip' OR DOW.file LIKE '%/emf-sdo-xsd-SDK-%.zip' OR DOW.file LIKE '%/emf-sdo-SDK-%.zip' OR DOW.file LIKE '%/emf-sdo-runtime-%.zip' OR DOW.file LIKE '%/org.eclipse.emf.ecore\_%.jar') GROUP BY C 
-</small>
-<p align="right"><small>
-$Id: stats_Country_month_02.xml,v 1.1 2006/03/01 18:59:59 nickb Exp $
-</small></p>
+  <query elapsed="2.278s">
+    <sql>SELECT IDX.file_id FROM download_file_index AS IDX INNER JOIN downloads AS DOW ON IDX.file_id = DOW.file_id WHERE (IDX.file_name LIKE '%/emf-sdo-xsd-Standalone-%.zip' OR IDX.file_name LIKE '%/emf-sdo-xsd-SDK-%.zip' OR IDX.file_name LIKE '%/emf-sdo-SDK-%.zip' OR IDX.file_name LIKE '%/emf-sdo-runtime-%.zip' OR IDX.file_name LIKE '%/org.eclipse.emf.ecore\_%.jar')GROUP BY IDX.file_id;
+SELECT COUNT(DOW.ccode) AS N, DOW.ccode as C FROM download_file_index AS IDX INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in (11,16,59,67,69,82,93,173,184,240,258,268,287,326,329,338,362,411,434,451,474,704,719,765,767,775,824,844,886,889,909,923,944,956,1145,1171,1243,1244,1382,1430,1649,1920,1927,1945,2433,2477,2787,2874,2876,3059,3263,4044,4374,4521,4537,5121,5155,5156,5160,5174,5568,5871,5874,5877,5898,5901,5910,5925,5939,5941,5949,5955,5956,6248,6314,6344,6346,6351,6364,6395,6438,6441,6537,6637,6650,6706,6924,7029,7186,7415,7427,7552,7608,7759,7938,7954,7984,8024,8056,8083,8096,8205,8290,8458,8524,8795,8848,8853,8981,9013,9022,9041,9629,9793,9842,9878,9916,9936,10003,10193,10757,11151,11224,11225,11238,11333,11398,11438,11464,11581,11590,11697,11824,11828,11921,12007,12586,12712,12754,12829,12949,12955,13007,13014,13031,13096,13117,13184,13264,13342,13418,13427,13499,13926,13962,14543,14615,14625,14760) AND MONTH(DOW.download_date) - 0 = 02 GROUP BY C </sql>
+    <generator>$Id: stats_Country_month_02.xml,v 1.2 2006/03/03 21:01:27 nickb Exp $</generator>
+  </query>
+  <country n="96666" c=""/>
+  <country n="17" c="a2"/>
+  <country n="9" c="ae"/>
+  <country n="102" c="ar"/>
+  <country n="219" c="at"/>
+  <country n="141" c="au"/>
+  <country n="1" c="ba"/>
+  <country n="4" c="bb"/>
+  <country n="2" c="bd"/>
+  <country n="175" c="be"/>
+  <country n="55" c="bg"/>
+  <country n="3" c="bm"/>
+  <country n="5" c="bo"/>
+  <country n="483" c="br"/>
+  <country n="22" c="by"/>
+  <country n="504" c="ca"/>
+  <country n="241" c="ch"/>
+  <country n="29" c="cl"/>
+  <country n="2236" c="cn"/>
+  <country n="81" c="co"/>
+  <country n="8" c="cr"/>
+  <country n="22" c="cs"/>
+  <country n="2" c="cu"/>
+  <country n="5" c="cy"/>
+  <country n="85" c="cz"/>
+  <country n="1947" c="de"/>
+  <country n="56" c="dk"/>
+  <country n="1" c="do"/>
+  <country n="8" c="dz"/>
+  <country n="3" c="ec"/>
+  <country n="21" c="ee"/>
+  <country n="7" c="eg"/>
+  <country n="542" c="es"/>
+  <country n="2" c="eu"/>
+  <country n="82" c="fi"/>
+  <country n="935" c="fr"/>
+  <country n="523" c="gb"/>
+  <country n="48" c="gr"/>
+  <country n="1" c="gt"/>
+  <country n="141" c="hk"/>
+  <country n="2" c="hn"/>
+  <country n="19" c="hr"/>
+  <country n="94" c="hu"/>
+  <country n="39" c="id"/>
+  <country n="57" c="ie"/>
+  <country n="60" c="il"/>
+  <country n="306" c="in"/>
+  <country n="10" c="ir"/>
+  <country n="5" c="is"/>
+  <country n="501" c="it"/>
+  <country n="1" c="jo"/>
+  <country n="1295" c="jp"/>
+  <country n="311" c="kr"/>
+  <country n="4" c="kw"/>
+  <country n="1" c="kz"/>
+  <country n="3" c="lb"/>
+  <country n="1" c="li"/>
+  <country n="5" c="lk"/>
+  <country n="32" c="lt"/>
+  <country n="16" c="lu"/>
+  <country n="23" c="lv"/>
+  <country n="17" c="ma"/>
+  <country n="1" c="mc"/>
+  <country n="3" c="md"/>
+  <country n="2" c="mg"/>
+  <country n="3" c="mk"/>
+  <country n="4" c="mn"/>
+  <country n="12" c="mo"/>
+  <country n="4" c="mt"/>
+  <country n="90" c="mx"/>
+  <country n="28" c="my"/>
+  <country n="1" c="mz"/>
+  <country n="1" c="ni"/>
+  <country n="159" c="nl"/>
+  <country n="77" c="no"/>
+  <country n="18" c="nz"/>
+  <country n="2" c="om"/>
+  <country n="1" c="pa"/>
+  <country n="13" c="pe"/>
+  <country n="18" c="ph"/>
+  <country n="4" c="pk"/>
+  <country n="406" c="pl"/>
+  <country n="9" c="pr"/>
+  <country n="62" c="pt"/>
+  <country n="4" c="py"/>
+  <country n="2" c="qa"/>
+  <country n="47" c="ro"/>
+  <country n="109" c="ru"/>
+  <country n="5" c="sa"/>
+  <country n="1" c="sd"/>
+  <country n="198" c="se"/>
+  <country n="45" c="sg"/>
+  <country n="29" c="si"/>
+  <country n="47" c="sk"/>
+  <country n="2" c="sn"/>
+  <country n="4" c="sv"/>
+  <country n="44" c="th"/>
+  <country n="26" c="tn"/>
+  <country n="49" c="tr"/>
+  <country n="176" c="tw"/>
+  <country n="40" c="ua"/>
+  <country n="2875" c="us"/>
+  <country n="6" c="uy"/>
+  <country n="24" c="ve"/>
+  <country n="39" c="vn"/>
+  <country n="17" c="xx"/>
+  <country n="46" c="za"/>
+  <summary n="112989" c="107"/>
+</data>
