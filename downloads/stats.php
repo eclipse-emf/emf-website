@@ -148,7 +148,7 @@ $queries = array(
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.88 2006/03/03 19:42:41 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.89 2006/03/03 19:47:33 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -194,7 +194,7 @@ function doQS($replacements = array()) {
 		$qsvars[$label] = $value;
 	}
 	foreach ($qsvars as $label => $value) {
-		if ($label) { 
+		if ($label && $label!="generator") { 
 			if ($qs) $qs .= "&";
 			$qs.=$label."=".urlencode($value);
 		}
@@ -281,7 +281,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.88 2006/03/03 19:42:41 nickb Exp $'.
+			 '$Id: stats.php,v 1.89 2006/03/03 19:47:33 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
