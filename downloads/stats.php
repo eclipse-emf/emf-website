@@ -124,14 +124,14 @@ $queries = array(
 			"SUBSTRING_INDEX(IDX.file_name,'/',-1) as F " . // trash the full path, just get the filename
 		"FROM download_file_index AS IDX " .
 		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in ($file_id_csv) AND " . 
-		$interval . "GROUP BY F" 
+		$interval . "GROUP BY F " . $limit 
 	,
 	"Country" => 
 		"SELECT COUNT(DOW.ccode) AS N, " .
 			"DOW.ccode as C " .
 		"FROM download_file_index AS IDX " .
 		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in ($file_id_csv) AND " . 
-		$interval . "GROUP BY C" 
+		$interval . "GROUP BY C " . $limit
 	,
 	"Domain" => // FQDNs
 		"SELECT COUNT(*) AS N, " .
@@ -141,14 +141,14 @@ $queries = array(
 					"LOWER(SUBSTRING_INDEX(DOW.remote_host,'.',-2))," .
 					"'?')) " .
 			"as D " .
-		"FROM downloads AS DOW " .
-		"FORCE INDEX(idx_downloads_date) WHERE " .$interval." AND " .
-		$filenames." GROUP BY D ".$limit
+		"FROM download_file_index AS IDX " .
+		"INNER JOIN downloads AS DOW ON DOW.file_id = IDX.file_id WHERE IDX.file_id in ($file_id_csv) AND " . 
+		$interval . "GROUP BY D " . $limit
 );
 
 $qsvarsToShow = array("sql", "generator");
 
-$qsvars["generator"] = '$Id: stats.php,v 1.89 2006/03/03 19:47:33 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.90 2006/03/03 19:52:18 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -176,7 +176,7 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 	foreach ($queries as $title => $query) {
 		echo "<li>".$title."s: <a href=\"$PHP_SELF?".
-			doQS(array("table" => $title))."\">HTML</a>, " .
+			doQS(array("table" => $title, "ctype" => "html"))."\">HTML</a>, " .
 			"<a href=\"$PHP_SELF?".
 			doQS(array("table" => $title, "ctype" => "xml"))."\">XML</a>" .
 			"</li>\n";
@@ -281,7 +281,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.89 2006/03/03 19:47:33 nickb Exp $'.
+			 '$Id: stats.php,v 1.90 2006/03/03 19:52:18 nickb Exp $'.
 			 "\n</small></p>\n";
 		exit;
     }
