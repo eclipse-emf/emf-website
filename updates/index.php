@@ -20,7 +20,7 @@ $ProjectName = array(
 	"images/reference.gif"
 );
 
-include $pre . "includes/header.php"; 
+if (is_file($pre . "includes/header.php")) include $pre . "includes/header.php"; 
 
 /*
  * To work, this script must be run with a version of PHP4 which
@@ -53,5 +53,5 @@ if (function_exists('xslt_create')) {
 
 <p><a href="view-source:http://download.eclipse.org/tools/emf/updates/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
-<?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: index.php,v 1.1 2006/03/09 18:25:42 nickb Exp $ -->
+<?php if (is_file($pre . "includes/footer.php")) include $pre . "includes/footer.php"; ?>
+<!-- $Id: index.php,v 1.2 2006/03/09 19:07:25 nickb Exp $ -->
