@@ -29,6 +29,19 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200603090000" project="emf" version="2.2.0">
+<bug id="105823">JET: 'stringBuffer' variable in the translated template's generate method should be final.</bug>
+<bug id="130175">Improve performance of EModelElement.getEAnnotation</bug>
+<bug id="130202">Generate basic setters for container features</bug>
+<bug id="130342">Support get/setXMLVersion() in XMLHandler</bug>
+<bug id="130379">Resource contents EList notifies of resource is loaded prematurely, causing an NPE for ECrossReferenceAdapter</bug>
+<bug id="130401">EcoreUtil.remove and related methods don't handle feature with unspecified multiplicity correctly</bug>
+<bug id="130427">genmodel fails after adding an EReference</bug>
+<bug id="130525">removeAll problem in DelegatingEList</bug>
+<bug id="130547">AnyType.getAny() now returns the same as getMixed()</bug>
+<bug id="130987">Problem with Change Description for Containment Feature in Feature Map</bug>
+</entry>
+
 <entry build="I200603020000" project="emf" version="2.2.0">
 <bug id="126678">Proxy resolution in ECrossReferenceAdapter</bug>
 <bug id="129357">&quot;Open Ecore&quot; action doesn't work if the path has spaces</bug>
@@ -420,6 +433,10 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200603090000" project="xsd" version="2.2.0">
+<bug id="130577">Subclassing Enhancements to XSDEcoreBuilder</bug>
 </entry>
 
 <entry build="I200603020000" project="xsd" version="2.2.0">
@@ -2253,4 +2270,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.137 2006/03/02 17:29:19 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.138 2006/03/09 06:19:12 nickb Exp $ -->
