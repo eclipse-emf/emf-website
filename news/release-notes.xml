@@ -29,6 +29,18 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200603160000" project="emf" version="2.2.0">
+<bug id="129461">ClassCastException usage in EMF code</bug>
+<bug id="130468">Exceptions after clicking into &quot;Instance Class Name&quot;</bug>
+<bug id="131134">Improve notification code in BasicEObjectImpl.eBasicSetContainer</bug>
+<bug id="131151">Metadata does not seem to be thread-safe</bug>
+<bug id="131686">Improve performance of ECrossReferenceAdapter.InverseCrossReferencer's newCollection.</bug>
+<bug id="131908">When generating model from annotated java having BiDi characters in package definition (the utf-8 file).</bug>
+<bug id="131911">A package with only abstract classes and map entry classes generates an invalid package example</bug>
+<bug id="131943">GenModelImpl.getRelativeGenModelLocation incorrect for model in root of project</bug>
+<bug id="132034">New Example: HTML Exporter</bug>
+</entry>
+
 <entry build="I200603090000" project="emf" version="2.2.0">
 <bug id="105823">JET: 'stringBuffer' variable in the translated template's generate method should be final.</bug>
 <bug id="130175">Improve performance of EModelElement.getEAnnotation</bug>
@@ -435,6 +447,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200603160000" project="xsd" version="2.2.0"/>
 <entry build="I200603090000" project="xsd" version="2.2.0">
 <bug id="130577">Subclassing Enhancements to XSDEcoreBuilder</bug>
 </entry>
@@ -2270,4 +2283,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.138 2006/03/09 06:19:12 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.139 2006/03/16 06:14:10 nickb Exp $ -->
