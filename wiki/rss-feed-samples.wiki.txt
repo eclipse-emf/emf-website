@@ -1,0 +1,154 @@
+= Eclipse Build Available RSS Feeds =
+
+== Sample Hypothetical Feeds ==
+
+<ul>
+<li>Below are a few sample feeds which will hopefully be implemented within the Eclipse 3.2M6 timeframe. As this spec evolves this document will to, including revised URLs where applicable.</li>
+
+<li>Everything in the <tt style="color:DarkGreen">&lt;summary/&gt;</tt> field is optional. A schema that backs these examples will be available soon, along with an Ant task to generate these during a build (after tests have run).</li>
+
+<li>The ant task (for the moment, until I think of something else) will take the following parameters:</li>
+
+	<ul>
+	<li>feed URL to publish</li>
+	<li>user@dev.eclipse.org to use for scp'ing the file</li>
+	<li>overwrite existing feed (one build per feed) or insert new content (many builds per feed)</li>
+	</ul>
+</ul>
+
+=== Sample Eclipse Platform Feed ===
+
+<pre>
+<?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Eclipse Builds</title>
+  <link rel="self" type="application/atom+xml" href="http://www.eclipse.org/news/builds.xml"/>
+  <updated>2005-10-27T21:49:50Z</updated>
+  <author>
+    <name>Eclipse Build Team</name>
+  </author>
+  <id>http://www.eclipse.org/news/builds.xml</id>
+  <entry>
+    <title>[announce] Eclipse 3.2.0 M6 is available</title>
+    <link href="http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/"/>
+    <id>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/</id>
+    <updated>2006-05-28T20:50:00Z</updated>
+    <summary>
+      <tests type="junit" href="http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/testResults.php"/>
+      <tests type="performance" href="http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/performance/performance.php"/>
+      <downloads>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/</downloads>
+      <update>http://download.eclipse.org/callisto/releases/</update>
+    </summary>
+  </entry>
+</feed>
+</pre>
+
+=== Sample EMF Feed ===
+
+<pre>
+<?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>EMF Builds</title>
+  <link rel="self" type="application/atom+xml" href="http://www.eclipse.org/emf/news/builds.xml"/>
+  <updated>2005-10-27T21:49:50Z</updated>
+  <author>
+    <name>EMF Build Team</name>
+  </author>
+  <id>http://www.eclipse.org/emf/news/builds.xml</id>
+  <entry>
+    <title>[announce] EMF 2.2.0 M6 is available</title>
+    <link href="http://download.eclipse.org/tools/uml2/scripts/downloads-viewer.php?s=2.0.0/R200509282050"/>
+    <id>2.0.0/R200509282050</id>
+    <updated>2005-09-28T20:50:00Z</updated>
+    <summary>
+      <tests type="junit">
+        <results os="ALL" ws="ALL">PASS</testresults>
+      </tests>
+      <releasenotes>http://www.eclipse.org/uml2/news/release-notes.php?version=2.0.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/uml2/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/uml2/updates/</update>
+      <depends>http://download.eclipse.org/downloads/drops/S-3.2M2-200509231000/eclipse-SDK-3.2M2-linux-gtk.tar.gz</depends>
+    </summary>
+  </entry>
+</feed>
+</pre>
+
+=== Sample UML2 Feed ===
+
+<pre>
+<?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>UML2 Builds</title>
+  <link rel="self" type="application/atom+xml" href="http://www.eclipse.org/uml2/"/>
+  <updated>2005-10-27T21:49:50Z</updated>
+  <author>
+    <name>UML2 Build Team</name>
+  </author>
+  <id>http://www.eclipse.org/uml2/news/builds.xml</id>
+  <entry>
+    <title>[announce] UML2 2.0.0 is available</title>
+    <link href="http://download.eclipse.org/tools/uml2/scripts/downloads-viewer.php?s=2.0.0/R200509282050"/>
+    <id>http://download.eclipse.org/tools/uml2/scripts/downloads-viewer.php?s=2.0.0/R200509282050</id>
+    <updated>2005-09-28T20:50:00Z</updated>
+    <summary>
+      <tests type="junit">
+        <results os="ALL" ws="ALL">PASS</testresults>
+      </tests>
+      <releasenotes>http://www.eclipse.org/uml2/news/release-notes.php?version=2.0.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/uml2/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/uml2/updates/</update>
+      <depends>http://download.eclipse.org/downloads/drops/S-3.2M2-200509231000/eclipse-SDK-3.2M2-linux-gtk.tar.gz</depends>
+      <depends>http://download.eclipse.org/tools/emf/downloads/drops/2.2.0/I200510270200/emf-sdo-xsd-SDK-I200510270200.zip</depends>
+    </summary>
+  </entry>
+</feed>
+</pre>
+
+=== Sample WTP Feed ===
+
+<pre>
+<?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>WTP Builds</title>
+  <link rel="self" type="application/atom+xml" href="http://www.eclipse.org/wtp/"/>
+  <updated>2005-10-27T21:49:50Z</updated>
+  <author>
+    <name>WTP Build Team</name>
+  </author>
+  <id>http://www.eclipse.org/wtp/news/builds.xml</id>
+  <entry>
+    <title>[announce] WTP 4.0.0 is available</title>
+    <link href="http://download.eclipse.org/webtools/downloads/4.0.0/R200509282050"/>
+    <id>http://download.eclipse.org/webtools/downloads/4.0.0/R200509282050</id>
+    <updated>2005-09-28T20:50:00Z</updated>
+    <summary>
+      <tests type="junit">
+        <results os="Linux">PASS</testresults>
+        <results os="Windows">PENDING</testresults>
+        <results os="Mac">FAIL</testresults>
+      </tests>
+      <tests type="performance">
+        <results os="Linux" ws="gtk">PENDING</testresults>
+        <results os="Linux" ws="motif">PENDING</testresults>
+        <results os="Windows">UNKNOWN</testresults>
+        <results os="Mac">SKIPPED</testresults>
+      </tests>
+      <tests type="api">
+        <results>PASS</results>
+      </tests>
+      <releasenotes>http://www.eclipse.org/wtp/news/release-notes.php?version=4.0.0</releasenotes>
+      <downloads>http://download.eclipse.org/tools/wtp/scripts/downloads.php</downloads>
+      <update>http://download.eclipse.org/tools/wtp/updates/</update>
+      <depends>http://download.eclipse.org/downloads/drops/S-3.2M2-200509231000/eclipse-SDK-3.2M2-linux-gtk.tar.gz</depends>
+      <depends>http://download.eclipse.org/tools/emf/downloads/drops/2.2.0/I200510270200/emf-sdo-xsd-SDK-I200510270200.zip</depends>
+      <depends>http://download.eclipse.org/tools/uml2/downloads/drops/2.0.0/I200510270300/uml2-SDK-I200510270300.zip</depends>
+    </summary>
+  </entry>
+</feed>
+</pre>
+
+== Additional Information ==
+
+* For more on the Atom 1.0 spec, see [http://www.ietf.org/rfc/rfc4287.txt http://www.ietf.org/rfc/rfc4287.txt].
+
+* For sample code (which will be revised shortly to implement this revised schema), see [https://bugs.eclipse.org/bugs/show_bug.cgi?id=116912#c21 https://bugs.eclipse.org/bugs/show_bug.cgi?id=116912#c21].
