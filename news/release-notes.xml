@@ -44,6 +44,7 @@
 <entry build="I200603090000" project="emf" version="2.2.0">
 <bug id="105823">JET: 'stringBuffer' variable in the translated template's generate method should be final.</bug>
 <bug id="130175">Improve performance of EModelElement.getEAnnotation</bug>
+<bug id="130189">Avoid the use of LinkedList in XMLHandler.</bug>
 <bug id="130202">Generate basic setters for container features</bug>
 <bug id="130342">Support get/setXMLVersion() in XMLHandler</bug>
 <bug id="130379">Resource contents EList notifies of resource is loaded prematurely, causing an NPE for ECrossReferenceAdapter</bug>
@@ -449,6 +450,7 @@
 
 <entry build="I200603160000" project="xsd" version="2.2.0"/>
 <entry build="I200603090000" project="xsd" version="2.2.0">
+<bug id="130364">EMF FeatureMap building from XSD sequence</bug>
 <bug id="130577">Subclassing Enhancements to XSDEcoreBuilder</bug>
 </entry>
 
@@ -2283,4 +2285,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.139 2006/03/16 06:14:10 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.140 2006/03/18 00:17:15 nickb Exp $ -->
