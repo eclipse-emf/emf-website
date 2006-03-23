@@ -29,7 +29,7 @@
 
 <!-- 2.2.0 -->
 
-<entry build="Nicholas" project="emf" version="2.2.0">
+<entry build="I200603160000 (Nicholas)" project="emf" version="2.2.0">
 <bug id="131815">Resolving ELists' removeAll(Collection) method does not resolve proxies</bug>
 <bug id="132386">When an object is uncontrolled, leaving an empty resource, the resource is never saved</bug>
 <bug id="132577">EMF-generated editor crashes with NMTOKEN</bug>
@@ -2293,4 +2293,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.141 2006/03/23 08:16:47 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.142 2006/03/23 19:03:53 nickb Exp $ -->
