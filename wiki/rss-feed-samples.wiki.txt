@@ -3,7 +3,7 @@
 == Sample Hypothetical Feeds ==
 
 <ul>
-<li>Below are a few sample feeds which will hopefully be implemented within the Eclipse 3.2M6 timeframe. As this spec evolves this document will to, including revised URLs where applicable.</li>
+<li>Below are a few sample feeds which will hopefully be implemented within the Eclipse 3.2M6 timeframe. As this spec evolves this document will too, including revised URLs where applicable.</li>
 
 <li>Everything in the <tt style="color:DarkGreen">&lt;summary/&gt;</tt> field is optional. A schema that backs these examples will be available soon, along with an Ant task to generate these during a build (after tests have run).</li>
 
@@ -146,6 +146,31 @@
   </entry>
 </feed>
 </pre>
+
+== Proposed Support For Eclipse.org Jar Signing ==
+
+So that we can identify which projects' builds are signed, we could do something along these lines...
+
+<pre>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	...
+    <summary>
+      <signing>UNSIGNED</signing>
+	...
+    </summary>
+</feed>
+</pre>
+
+A simpler approach would be to add an attribute to <tt style="color:DarkGreen">&lt;downloads/&gt;</tt> like this:
+
+<pre><downloads jars="SIGNED">http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/</downloads></pre>
+
+I'm thinking of 4 status codes, assuming the current jar signing process continues as proposed:
+
+* UNSIGNED 
+* SIGNREADY (prop'd to eclipse.org, ready for signing)
+* BUILDREADY (signed on eclipse.org, ready for bundling)
+* SIGNED (signed & bundled on download page)
 
 == Additional Information ==
 
