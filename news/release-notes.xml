@@ -29,6 +29,13 @@
 
 <!-- 2.2.0 -->
 
+<entry build="Nicholas" project="emf" version="2.2.0">
+<bug id="131815">Resolving ELists' removeAll(Collection) method does not resolve proxies</bug>
+<bug id="132386">When an object is uncontrolled, leaving an empty resource, the resource is never saved</bug>
+<bug id="132577">EMF-generated editor crashes with NMTOKEN</bug>
+<bug id="132906">loading Genmodel from Java with  Suppress Interfaces does not work.</bug>
+</entry>
+
 <entry build="I200603160000" project="emf" version="2.2.0">
 <bug id="129461">ClassCastException usage in EMF code</bug>
 <bug id="130468">Exceptions after clicking into &quot;Instance Class Name&quot;</bug>
@@ -448,6 +455,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="Nicholas" project="xsd" version="2.2.0"/>
 <entry build="I200603160000" project="xsd" version="2.2.0"/>
 <entry build="I200603090000" project="xsd" version="2.2.0">
 <bug id="130364">EMF FeatureMap building from XSD sequence</bug>
@@ -2285,4 +2293,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.140 2006/03/18 00:17:15 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.141 2006/03/23 08:16:47 nickb Exp $ -->
