@@ -455,7 +455,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
-<entry build="Nicholas" project="xsd" version="2.2.0"/>
+<entry build="I200603160000 (Nicholas)" project="xsd" version="2.2.0"/>
 <entry build="I200603160000" project="xsd" version="2.2.0"/>
 <entry build="I200603090000" project="xsd" version="2.2.0">
 <bug id="130364">EMF FeatureMap building from XSD sequence</bug>
@@ -2293,4 +2293,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.142 2006/03/23 19:03:53 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.143 2006/03/27 19:18:21 nickb Exp $ -->
