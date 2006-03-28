@@ -16,7 +16,7 @@
 
 	<tr>
 		<td><img src="images/c.gif" width="5" height="1" /></td>
-		<td><a style="font-size:11px" href="#tutorials">EMF Tutorials</a></td>
+		<td><a style="font-size:11px" href="#tutorials">EMF Tutorials &amp; Workshops</a></td>
 
 		<td><img src="images/c.gif" width="5" height="1" /></td>
 		<td><a style="font-size:11px" href="#xsd">XML Schema Infoset Model (XSD) Documents</a></td>
@@ -30,7 +30,7 @@
 		<td><a style="font-size:11px" href="#contributions">Contributed Articles</a></td>
 
 		<td><img src="images/c.gif" width="5" height="1" /></td>
-		<td><a style="font-size:11px" href="#presentations">Presentations and Interviews</a></td>
+		<td><a style="font-size:11px" href="#presentations">Presentations &amp; Interviews</a></td>
 
 		<td><img src="images/c.gif" width="5" height="1" /></td>
 		<td><a style="font-size:11px" href="#emf20xdocs">EMF 2.0 Documents</a></td>
@@ -230,7 +230,7 @@
     <tr>
       <td colspan="2">
         <b>
-          <u>EMF Tutorials</u>
+          <u>EMF Tutorials &amp; Workshops</u>
         </b>
 
         <a name="tutorials">
@@ -243,6 +243,24 @@
           <u>Last Update:</u>
         </b>
       </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="#eclipsecon2006intro">
+        Workshop: Generating an EMF 2.2 Model using XML Schema</a> (see Exercises #1 &amp; #5 of EclipseCon 2006 <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Intro to EMF</a> <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop</a>)
+      </td>
+
+      <td>March 20
+      <sup>th</sup>
+      2006</td>
     </tr>
 
     <tr>
@@ -1063,7 +1081,7 @@
 	<tr>
       <td colspan="2">
         <b>
-          <u>Presentations and Interviews</u>
+          <u>Presentations &amp; Interviews</u>
         </b>
 
         <a name="presentations">
@@ -1076,6 +1094,36 @@
           <u>Last Update:</u>
         </b>
       </td>
+    </tr>
+
+    <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
+
+      <td><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF:
+      <img src="images/c.gif" width="1" height="8" />
+
+        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Presentation</a> (PDF),
+        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop Project</a> (ZIP)
+      </td>
+
+      <td>March 20
+      <sup>th</sup>
+
+      2006</td>
+    </tr>
+
+    <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
+
+      <td>EclipseCon 2006 - Advanced Features of EMF:
+      <img src="images/c.gif" width="1" height="8" />
+
+        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced.pdf">Presentation</a> (PDF),
+        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced_project.zip">Workshop Project</a> (ZIP)
+      </td>
+
+      <td>March 20
+      <sup>th</sup>
+
+      2006</td>
     </tr>
 
     <tr>
@@ -1125,12 +1173,7 @@
       2005 (new formats)</td>
     </tr>
 
-    <tr>
-      <td>
-        <img src="images/c.gif" width="1" height="8" />
-
-        <img src="images/c.gif" width="5" height="1" />
-      </td>
+    <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
 
       <td>
         <a
@@ -1847,5 +1890,5 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.31 2006/02/27 18:17:28 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.32 2006/03/28 23:15:51 nickb Exp $ -->
 
