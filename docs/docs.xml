@@ -218,6 +218,25 @@
     </tr>
 
     <tr>
+      <td>
+        <img src="images/c.gif" width="1" height="8" />
+
+        <img src="images/c.gif" width="5" height="1" />
+      </td>
+
+      <td>
+        <a
+        href="#eclipsecon2006xmlbinding">
+        XML Binding with EMF</a> (see EclipseCon 2006 <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a>)
+      </td>
+
+      <td>March 22
+      <sup>th</sup>
+      2006</td>
+    </tr>
+
+	
+	<tr>
       <td width="60%" colspan="2">
         <img src="images/c.gif" width="1" height="8" />
       </td>
@@ -255,7 +274,7 @@
       <td>
         <a
         href="#eclipsecon2006intro">
-        Workshop: Generating an EMF 2.2 Model using XML Schema</a> (see Exercises #1 &amp; #5 of EclipseCon 2006 <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Intro to EMF</a> <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop</a>)
+        Workshop: Generating an EMF 2.2 Model using XML Schema</a> (see Exercises #1 &amp; #5 of EclipseCon 2006 <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Intro to EMF</a> <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Project</a>)
       </td>
 
       <td>March 20
@@ -1126,6 +1145,21 @@
       2006</td>
     </tr>
 
+    <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
+
+      <td><a name="eclipsecon2006xmlbinding"></a>EclipseCon 2006 - XML Binding with EMF:
+      <img src="images/c.gif" width="1" height="8" />
+
+        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> (PDF),
+        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a> (ZIP)
+      </td>
+
+      <td>March 22
+      <sup>th</sup>
+
+      2006</td>
+    </tr>
+
     <tr>
       <td>
         <img src="images/c.gif" width="1" height="8" />
@@ -1890,5 +1924,5 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.32 2006/03/28 23:15:51 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.33 2006/03/29 01:06:32 nickb Exp $ -->
 
