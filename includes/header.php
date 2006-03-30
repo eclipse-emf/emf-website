@@ -2,7 +2,9 @@
 <?php include_once $pre."includes/php42fix.php"; 
 		include_once $pre."includes/scripts.php"; 
 		$WWWpreEMF = "http://www.eclipse.org/emf/";
+		$WWWpreEMFPhysical = "/home/data/httpd/www.eclipse.org/html/emf/";
 		$WWWpreXSD = "http://www.eclipse.org/xsd/";
+		$WWWpreXSDPhysical = "/home/data/httpd/www.eclipse.org/html/xsd/";
 
 		$isEMFserver = $EMFserver!="false"&&false!==strpos($SERVER_NAME,"emf");	//$isEMFserver = 0; //testing
 		$isWWWserver = $WWWserver!="false"&&($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");	
@@ -30,7 +32,7 @@
    <link REL="SHORTCUT ICON" HREF="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico">
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css">
-<!-- $Id: header.php,v 1.8 2005/07/07 06:05:45 nickb Exp $ -->
+<!-- $Id: header.php,v 1.9 2006/03/30 20:58:22 nickb Exp $ -->
 <!-- PHP version: <?php echo phpversion(); ?> -->
 </head>
 <body>

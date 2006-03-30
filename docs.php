@@ -75,7 +75,7 @@
 
 	ini_set("display_errors","0"); // suppress file not found errors
 	if ($doc=="docs/docs.xml") { 
-		$CVSpreUsed = "";			$f = file($WWWpreEMF.$doc); 			// on www
+		$CVSpreUsed = "";			$f = file( (is_readable($WWWpreEMFPhysical) ? $WWWpreEMFPhysical : $WWWpreEMF) . $doc); 			// on www
 	} else if (strstr($doc,"http://") || strstr($doc,"https://")) {
 		$CVSpreUsed = "";					$f = file($doc); 						// emf-home (or other remote)
 	} else if (false!==strpos($doc,"org.eclipse.xsd.doc/")) { // xsd docs
@@ -160,4 +160,4 @@
 include_once $pre."includes/footer.php"; 
 //if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
 
-<!-- $Id: docs.php,v 1.8 2005/09/19 18:00:49 nickb Exp $ -->
+<!-- $Id: docs.php,v 1.9 2006/03/30 20:58:22 nickb Exp $ -->

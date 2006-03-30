@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.6 2006/01/20 23:04:09 nickb Exp $ 
+	// $Id: scripts.php,v 1.7 2006/03/30 20:58:22 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -195,8 +195,8 @@
 
 	function getNews($lim,$key,$style="horiz",$divider="") {
 
-		global $CVSpre,$WWWpreEMF,$pre,$isWWWserver; // $CVSpreDocEMF,
-		$xml = file($WWWpreEMF."news/news.xml"); // moved to www.eclipse (not dev.eclipse)
+		global $CVSpre,$WWWpreEMF,$WWWpreEMFPhysical,$pre,$isWWWserver; // $CVSpreDocEMF,
+		$xml = file( (is_readable($WWWpreEMFPhysical) ? $WWWpreEMFPhysical : $WWWpreEMF) . "news/news.xml"); // moved to www.eclipse (not dev.eclipse)
 		if (!$xml) {
 			$xml = array();
 		}
