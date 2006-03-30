@@ -29,6 +29,19 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200603300000" project="emf" version="2.2.0">
+<bug id="126093">Support for Encryption (resources)</bug>
+<bug id="131815">Resolving ELists' removeAll(Collection) method does not resolve proxies</bug>
+<bug id="132386">When an object is uncontrolled, leaving an empty resource, the resource is never saved</bug>
+<bug id="132577">EMF-generated editor crashes with NMTOKEN</bug>
+<bug id="132894">Copying references breaks opposites</bug>
+<bug id="132904">NPE seen if trying to remove a cross-resource containment object from its container's content list.</bug>
+<bug id="132906">loading Genmodel from Java with  Suppress Interfaces does not work.</bug>
+<bug id="133907">ECollections should provide move methods for any List</bug>
+<bug id="133910">Add an option to support zip resources without requiring a new Resource subclass</bug>
+<bug id="133913">Capabilities Example: The reflective editor and menu items should be enabled by default.</bug>
+</entry>
+
 <entry build="I200603160000 (Nicholas)" project="emf" version="2.2.0">
 <bug id="131815">Resolving ELists' removeAll(Collection) method does not resolve proxies</bug>
 <bug id="132386">When an object is uncontrolled, leaving an empty resource, the resource is never saved</bug>
@@ -455,6 +468,7 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200603300000" project="xsd" version="2.2.0"/>
 <entry build="I200603160000 (Nicholas)" project="xsd" version="2.2.0"/>
 <entry build="I200603160000" project="xsd" version="2.2.0"/>
 <entry build="I200603090000" project="xsd" version="2.2.0">
@@ -2293,4 +2307,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.143 2006/03/27 19:18:21 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.144 2006/03/30 07:38:06 nickb Exp $ -->
