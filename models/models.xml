@@ -2,6 +2,20 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<review 
+reviewName="EMF Persistency Layer using JDO/JPOX, a distribution and screenshot" 
+date="2006-03-30" 
+rating="8" 
+modelID="MartinTaal20051005073815" 
+reviewID="NouddeBrouwer20060330131511">
+<text>zero-effort persistency.
+distribution at: http://pkgsrc-group.sourceforge.net ::
+screenshot:
+http://sourceforge.net/dbimage.php?id=65915</text>
+<reviewer>Noud deBrouwer</reviewer>
+<reviewerURL>http://pkgsrc-group.sourceforge.net</reviewerURL>
+</review>
+
 <model 
 modelName="XPath Support for EMF" 
 date="2006-02-16" 
@@ -495,4 +509,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.23 2006/02/17 18:10:54 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.24 2006/03/30 22:06:00 nickb Exp $ -->
