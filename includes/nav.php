@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.27 2006/02/27 18:30:44 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.28 2006/03/31 01:57:00 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -43,8 +43,7 @@
 	<?php if ($isEMFserver) { ?>
 	:: <a href="http://emf.torolab.ibm.com/emf/build.php" target="_self" class="category">New Build</a>
 	:: <a href="http://emf.torolab.ibm.com/emf/secure/promo.php" target="_self" class="category">Promo</a>
-	:: <a href="http://eclipse.org/downloads/stats.php" target="_new" class="category">Stats</a>
-
+	:: <a href="http://emf.torolab.ibm.com/emf/downloads/downloads.php" target="_new" class="category">Live Stats</a>
 	<?php } ?>
 	<br>
 	<a name="over2" class="category">v2.x:</a> <a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/scripts/downloads.php" target="_self" class="subcategory">EMF,	SDO &amp; XSD</a>, 
