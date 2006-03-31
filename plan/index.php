@@ -2,7 +2,7 @@
 	/* if on www.eclipse.org, redirect to download; if on download or mirror, present a list of avail javadoc versions available */
 	/* if querystring value, pick latest version of javadoc and serve up that page */
 
-	$isWWWserver = $WWWserver!="false"&&($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
+	$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
 	
 	if (!$isWWWserver) { 
 		header("Location: http://eclipse.org/emf/plan/");
