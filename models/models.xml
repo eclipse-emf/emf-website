@@ -9,7 +9,7 @@ rating="8"
 modelID="MartinTaal20051005073815" 
 reviewID="NouddeBrouwer20060330131511">
 <text>zero-effort persistency.
-distribution at: http://pkgsrc-group.sourceforge.net ::
+A distribution at: http://pkgsrc-group.sourceforge.net ::
 screenshot:
 http://sourceforge.net/dbimage.php?id=65915</text>
 <reviewer>Noud deBrouwer</reviewer>
@@ -509,4 +509,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.24 2006/03/30 22:06:00 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.25 2006/04/01 21:44:50 nickb Exp $ -->
