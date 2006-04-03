@@ -199,7 +199,7 @@
 										</xsl:choose>&#160;<i>(<xsl:choose>
 											<xsl:when test="../plan-committed = ''"><xsl:value-of select="../pri" /></xsl:when>
 											<xsl:otherwise><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Committed on: {../plan-committed}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="../pri" /></a></xsl:otherwise>
-										</xsl:choose>)</i>&#160;<xsl:if test="../plan-committed != ''"><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Committed on: {../plan-committed}'); return true;" onMouseout="hideddrivetip(); return true;"><img src="http://eclipse.org/emf/images/check.gif" border="0"/></a></xsl:if>
+										</xsl:choose>)</i>&#160;<xsl:if test="../plan-committed != ''"><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('Committed on: {../plan-committed}'); return true;" onMouseout="hideddrivetip(); return true;"><img src="http://www.eclipse.org/emf/images/check.gif" border="0"/></a></xsl:if>
 									</xsl:when>
 									<xsl:when test="name() = 'plan-estimate' and ../plan-comments != ''">
 										<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={../id}" onMouseover="ddrivetip('{../plan-comments}'); return true;" onMouseout="hideddrivetip(); return true;"><xsl:value-of select="." />*</a>
@@ -260,4 +260,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: plan-2.2.xsl,v 1.5 2005/08/03 21:41:21 nickb Exp $ -->
+<!-- $Id: plan-2.2.xsl,v 1.6 2006/04/03 19:27:42 nickb Exp $ -->

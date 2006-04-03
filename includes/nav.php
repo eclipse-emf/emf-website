@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.28 2006/03/31 01:57:00 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.29 2006/04/03 19:27:41 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -60,10 +60,10 @@
 
 	<td width="10" rowspan="7"><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=10 height=1></td>
 
- <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"> <img
+ <td> <a href="http://www.eclipse.org/emf/newsgroup-mailing-list.php"> <img
  src="http://www.eclipse.org/emf/images/news.gif" border="0"></a></td>
-            <td> <a href="http://eclipse.org/emf/newsgroup-mailing-list.php"
- class="category" target="_top">EMF &amp; XSD newsgroups</a> :: <a href="http://eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
+            <td> <a href="http://www.eclipse.org/emf/newsgroup-mailing-list.php"
+ class="category" target="_top">EMF &amp; XSD newsgroups</a> :: <a href="http://www.eclipse.org/newsgroups/index.html" target="_new" class="subcategory">Pwd Req.</a><br>
 
 <a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.tools.emf&wm=wrd&t=News&t=Mail&q=emf"
  target="_self" class="subcategory">Search</a>, <a
@@ -71,7 +71,7 @@
  target="_self" class="subcategory">Browse: EMF &amp; SDO</a>, <a
  href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd"
  target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small><br>
-<a href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF &amp; SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
+<a href="http://www.eclipse.org/emf/newsgroup-mailing-list.php" class="subcategory" target="_self">Mailing List</a>, <a href="http://dev.eclipse.org/mhonarc/lists/emf-dev/maillist.html" target="_self" class="subcategory">Archives: EMF &amp; SDO</a>, <a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self" class="subcategory"><span style="color:#999999">XSD</span></a> <small class="subcategory"><em style="font-style:italic"> (deprecated)</em></small>
  </td>
 			</tr>
 			<tr><td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=1 height=3></td></tr>
@@ -83,7 +83,7 @@
             <td height="42"> <a href="http://bugs.eclipse.org/bugs" class="category">Bugzilla</a>
 <?php if ($isEMFserver) { ?>
 :: <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0" class="subcategory">Assigned</a>
-:: <a href="javascript://" class="subcategory" style="color:red" onclick="if (confirm('To regenerate plan-*.xml, follow this link, wait about 30 seconds\nfor the page to display, then view-source (CTRL-U) and copy that\nsource into the appropriate www/emf/plan/plan-*.xml document\nand it commit to CVS. Content should refresh on public site\n(http://eclipse.org/emf/plan/plan-*.xml) within a minute or two.')) { document.location.href='/emf/plan/plan.php?votes=true&blocks=true'; }"> Regenerate Prioritized Bug List</a>
+:: <a href="javascript://" class="subcategory" style="color:red" onclick="if (confirm('To regenerate plan-*.xml, follow this link, wait about 30 seconds\nfor the page to display, then view-source (CTRL-U) and copy that\nsource into the appropriate www/emf/plan/plan-*.xml document\nand it commit to CVS. Content should refresh on public site\n(http://www.eclipse.org/emf/plan/plan-*.xml) within a minute or two.')) { document.location.href='/emf/plan/plan.php?votes=true&blocks=true'; }"> Regenerate Prioritized Bug List</a>
 <?php } ?>
 				<br>
 
@@ -147,7 +147,7 @@
 	<a class="subcategory" href="http://www.eclipse.org/emf/docs/xsd/XSD.mdl">UML model</a>, 
 
    <a class="subcategory" href="http://download.eclipse.org/tools/emf/xsd/javadoc?org/eclipse/xsd/package-summary.html#details">XSD UML diagrams</a><br/>
-	<a name="overview12" class="category">Performance:</a> <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1</a>
+	<a name="overview12" class="category">Performance:</a> <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1</a>
 
 				</td>
             <td> <a name="cvs1" class="category">
@@ -201,11 +201,11 @@
 								} ?>
 							</table>
 						<br/>
-	- <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
+	- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
 
-	- <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review Presentation</a> <br><br>
+	- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review Presentation</a> <br><br>
 
-	- <a href="http://eclipse.org/emf/news/release-notes.php">EMF Release Notes</a><br><br>
+	- <a href="http://www.eclipse.org/emf/news/release-notes.php">EMF Release Notes</a><br><br>
 
 	- <a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
 

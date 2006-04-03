@@ -31,7 +31,7 @@ $result = xslt_process($processor, $fileBase.$XMLfile, $fileBase.'models.xsl', N
 if(!$result) echo xslt_errno($processor) . " : " . xslt_error($processor);
 echo $result; ?>
 
-<p><a href="view-source:http://eclipse.org/emf/models/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+<p><a href="view-source:http://www.eclipse.org/emf/models/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: models.php,v 1.1 2006/02/02 16:19:41 nickb Exp $ -->
+<!-- $Id: models.php,v 1.2 2006/04/03 19:27:42 nickb Exp $ -->

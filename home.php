@@ -11,9 +11,9 @@
     <table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" BGCOLOR="#006699" >
 
      <tr>
-          <td BGCOLOR="#000000" width="116" ><a name="top"></a><a href="http://eclipse.org" target="_top"><img src="http://eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
-          <td WIDTH="637"><img SRC="http://eclipse.org/images/gradient.jpg" border="0" height="50" width="282"/></td>
-          <td WIDTH="250"><img src="http://eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
+          <td BGCOLOR="#000000" width="116" ><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
+          <td WIDTH="637"><img SRC="http://www.eclipse.org/images/gradient.jpg" border="0" height="50" width="282"/></td>
+          <td WIDTH="250"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
      </tr>
     </table>
    </td>
@@ -22,7 +22,7 @@
 <table cellspacing="0" cellpadding="0" border="0">
 	<tr valign=top>
 		<td align=left width=115 bgcolor="#6699CC"><?php include_once $pre."includes/nav.xml"; ?></td>
-		<td><img src="http://eclipse.org/emf/images/c.gif" border="0" width="3" height="1"></td><td align="left" width="100%">
+		<td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width="3" height="1"></td><td align="left" width="100%">
 &#160;
 <table border="0" cellpadding="2" width="100%">
   <tbody>
@@ -33,7 +33,7 @@
         <font class="indexsub"><?php if (!$ProjectName[1]) { echo "Eclipse Modeling Framework"; } else { echo $ProjectName[1]; } ?></font>
       </td>
       <td width="40%">
-        <img src="<?php if (!$ProjectName[3]) { echo "http://eclipse.org/emf/images/c.gif"; } else { echo (strstr($ProjectName[3],$WWWpreEMF)?$ProjectName[3]:$WWWpreEMF.$ProjectName[3]); } ?>" align="right"/>
+        <img src="<?php if (!$ProjectName[3]) { echo "http://www.eclipse.org/emf/images/c.gif"; } else { echo (strstr($ProjectName[3],$WWWpre)?$ProjectName[3]:$WWWpre.$ProjectName[3]); } ?>" align="right"/>
       </td>
 
     </tr>
@@ -133,11 +133,11 @@
 					</table>
 				<br/>
 
-	- <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
+	- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
 
-	- <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review Presentation</a> <br><br>
+	- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review Presentation</a> <br><br>
 
-	- <a href="http://eclipse.org/emf/news/release-notes.php">EMF Release Notes</a><br><br>
+	- <a href="http://www.eclipse.org/emf/news/release-notes.php">EMF Release Notes</a><br><br>
 
 	- <a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
 
@@ -158,8 +158,8 @@
 		</tr>
 		<tr>
 			<td class="box">	<br/>
-Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> models, projects, files, ideas, utilities, or code to <a href="http://eclipse.org/emf/emf.php">EMF</a>, <a href="http://eclipse.org/emf/sdo.php">SDO</a>, or <a href="http://eclipse.org/emf/xsd.php">XSD</a>? Now you can!<br/><br/>
-			Have a look, post your comments, <a href="http://eclipse.org/emf/models/models.xml">submit</a> your code, or just read what others have written. <a href="mailto:codeslave(at)ca(dot)ibm(dot)com?Subject=EMF Corner Comments">Feedback here</a>.<br><br>
+Wanted to <a href="http://www.eclipse.org/emf/models/models.xml">contribute</a> models, projects, files, ideas, utilities, or code to <a href="http://www.eclipse.org/emf/emf.php">EMF</a>, <a href="http://www.eclipse.org/emf/sdo.php">SDO</a>, or <a href="http://www.eclipse.org/emf/xsd.php">XSD</a>? Now you can!<br/><br/>
+			Have a look, post your comments, <a href="http://www.eclipse.org/emf/models/models.xml">submit</a> your code, or just read what others have written. <a href="mailto:codeslave(at)ca(dot)ibm(dot)com?Subject=EMF Corner Comments">Feedback here</a>.<br><br>
 		</td>
 		</tr></table>
 
@@ -197,9 +197,9 @@ Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> mode
 		<tr>
 			<td class="box">	
 				<br />
-					- <a href="http://eclipse.org/uml2">UML2</a><br /><br />
-					- <a href="http://eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
-					- <a href="http://eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a><br/><br/>
+					- <a href="http://www.eclipse.org/uml2">UML2</a><br /><br />
+					- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
+					- <a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a><br/><br/>
 					- <a href="../newsgroups">Eclipse newsgroups</a><br /><br />
 
 				</ul>
@@ -225,7 +225,7 @@ Wanted to <a href="http://eclipse.org/emf/models/models.xml">contribute</a> mode
 	<a href="#top">Top of Page</a>
 </p>
 
-<!-- $Id: home.php,v 1.20 2006/01/23 18:38:35 nickb Exp $ -->
+<!-- $Id: home.php,v 1.21 2006/04/03 19:28:03 nickb Exp $ -->
 </body></html>
 
 <?php function doMoreLink($url) { 

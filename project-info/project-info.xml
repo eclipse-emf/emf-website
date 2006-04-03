@@ -39,7 +39,7 @@
     <release status="completed"
              date="07/07/2005"
              name="2.1.0"
-             plan="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
+             plan="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
     <release status="completed"
              date="30/09/2005"
              name="2.0.4"
@@ -64,19 +64,19 @@
     <!-- 1.x releases -->
     <release status="completed"
              date="20/11/2003"
-             download="http://eclipse.org/emf/downloads/dl-emf1x.html"
+             download="http://www.eclipse.org/emf/downloads/dl-emf1x.html"
              name="1.1.1.1" />
     <release status="completed"
              date="20/10/2003"
-             download="http://eclipse.org/emf/downloads/dl-emf1x.html"
+             download="http://www.eclipse.org/emf/downloads/dl-emf1x.html"
              name="1.1.1" />
     <release status="completed"
              date="20/06/2003"
-             download="http://eclipse.org/emf/downloads/dl-emf1x.html"
+             download="http://www.eclipse.org/emf/downloads/dl-emf1x.html"
              name="1.1.0" />
     <release status="completed"
              date="26/03/2003"
-             download="http://eclipse.org/emf/downloads/dl-emf1x.html"
+             download="http://www.eclipse.org/emf/downloads/dl-emf1x.html"
              name="1.0.2" />
   </releases>
 </project>

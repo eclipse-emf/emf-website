@@ -1,13 +1,13 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <?php include_once $pre."includes/php42fix.php"; 
 		include_once $pre."includes/scripts.php"; 
-		$WWWpreEMF = "http://www.eclipse.org/emf/";
-		$WWWpreEMFPhysical = "/home/data/httpd/www.eclipse.org/html/emf/";
+		$WWWpre = "http://www.eclipse.org/emf/"; 
+		$WWWprePhysical = "/home/data/httpd/www.eclipse.org/html/emf/";
 		$WWWpreXSD = "http://www.eclipse.org/xsd/";
-		$WWWpreXSDPhysical = "/home/data/httpd/www.eclipse.org/html/xsd/";
 
-		$isEMFserver = (false!==strpos($SERVER_NAME,"emf"));
+		$isEMFserver = false!==strpos($SERVER_NAME,"emf");
 		$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");	
+		$noHeader = isset($noHeader)?$noHeader:false;	
 
 		if ($isEMFserver) {
 			$CVSpre			= "http://emf.torolab.ibm.com/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/"; 
@@ -31,15 +31,15 @@
    <title><?php if (!$HTMLTitle) { echo "Eclipse Tools - EMF Project - $scn"; } else { echo $HTMLTitle; } ?></title>
    <link REL="SHORTCUT ICON" HREF="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico">
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
-	<link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css">
-<!-- $Id: header.php,v 1.10 2006/03/31 02:00:01 nickb Exp $ -->
-<!-- PHP version: <?php echo phpversion(); ?> -->
+	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css">
+	<!-- $Id: header.php,v 1.11 2006/04/03 19:27:41 nickb Exp $ -->
+	<!-- PHP version: <?php echo phpversion(); ?> -->
 </head>
 <body>
 <?php if (!$noHeader) { ?>
-	<link rel="stylesheet" href="http://eclipse.org/emf/includes/tooltip.css" type="text/css"/>
+	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/tooltip.css" type="text/css"/>
 	<div id="dhtmltooltip"></div>
-	<script type="text/javascript" src="http://eclipse.org/emf/includes/tooltip.js"></script>
+	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/tooltip.js"></script>
 <!-- wrapper for left nav -->
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr valign="top"><td colspan="1" align="left" width="100%">
@@ -68,7 +68,7 @@
         <font class="indexsub"><?php if (!$ProjectName[1]) { echo "Eclipse Modeling Framework"; } else { echo $ProjectName[1]; } ?></font>
       </td>
       <td width="40%">
-        <img src="<?php if (!$ProjectName[3]) { echo "http://eclipse.org/emf/images/c.gif"; } else { echo (strstr($ProjectName[3],$WWWpreEMF)?$ProjectName[3]:$WWWpreEMF.$ProjectName[3]); } ?>" align="right"/>
+        <img src="<?php if (!$ProjectName[3]) { echo "http://www.eclipse.org/emf/images/c.gif"; } else { echo (strstr($ProjectName[3],$WWWpre)?$ProjectName[3]:$WWWpre.$ProjectName[3]); } ?>" align="right"/>
       </td>
 
     </tr>

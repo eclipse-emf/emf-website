@@ -8,7 +8,7 @@
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/02/15 22:57:39 $</modified>
+  <modified>$Date: 2006/04/03 19:28:03 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -28,7 +28,7 @@ The <a href="http://www.eclipse.org/emf">Eclipse Modeling Framework</a> is a Jav
 How do I get started with EMF?
     </question>
     <answer>
-Start by reading the <a href="http://eclipse.org/emf/docs.php">overview documents and the tutorials</a>, followed by <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">downloading the driver</a>.
+Start by reading the <a href="http://www.eclipse.org/emf/docs.php">overview documents and the tutorials</a>, followed by <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">downloading the driver</a>.
 <br/><br/>
 After going through the tutorial, you will have generated a completely working editor from nothing but a picture of the object model (i.e., the simple libarary model shown in the tutorial). If you run the generated editor, you can add and remove books and authors, edit the properties (e.g., the book title), copy, paste, drag-and-drop, etc. All with unlimited undo/redo. You can also save the document (the default framework serialization format is XMI).<br/><br/>
 The purpose of the tutorial is to illustrate the power of a model driven architecture (MDA). By providing a model for the data your application will manipulate, you can use EMF to generate a Java implementation for you. EMF.Edit can leverage the same model (meta) data to generate view support and even a working editor. Read the overview documents for more details.
@@ -235,10 +235,10 @@ Can I link parts of UML diagrams to portions of the code in the EMF editor?
     </question>
     <answer>
 Yes, but the <a
-href="http://eclipse.org/uml2">UML2 project</a> should be able to provide
+href="http://www.eclipse.org/uml2">UML2 project</a> should be able to provide
 you with
 most of the "model" code that you need, and the <a
-href="http://eclipse.org/gef">GEF project</a> will give you a huge
+href="http://www.eclipse.org/gef">GEF project</a> will give you a huge
 head-start when it somes to creating the "view" and "controller" bits.
 <br /><br />
 I would guess that the best approach when it comes to linking your model
@@ -325,7 +325,7 @@ then unzip into your Eclipse directory.
 How do I get EMF, SDO or XSD source from CVS?
     </question>
     <answer>
-See <a href="http://eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, SDO and XSD from CVS</a>.
+See <a href="http://www.eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF, SDO and XSD from CVS</a>.
     </answer>
   </entry>
 
@@ -412,7 +412,7 @@ schemas and requires the EMF jars above and the following jars to be used in sta
 <li><tt class="code">org.eclipse.xsd.test/runtime/xsd.test.jar</tt></li>
 </ul>
 <a name="20050114-120205-note"></a><b class="question">NOTE:</b> If using ecore.xmi or any of the XSD jars, you will require a SAX parser such as 
-<a href="http://eclipse.org/emf/downloads-xerces.php" target="_xerces">Xerces</a>. 
+<a href="http://www.eclipse.org/emf/downloads-xerces.php" target="_xerces">Xerces</a>. 
 <br/><br/>
 For more information on working outside Eclipse, see the question 
 <i>"<a href="faq.php?Question=standalone#dev20040401-2098357246">How do I use EMF in standalone applications (such as an ordinary main)?</a>"</i>.
@@ -1719,11 +1719,11 @@ Why does EMF refuses to accept my schema file?
     </question>
     <answer>
 The following problem has been reported many times in the org.eclipse.emf newsgroup:<br /><br />
-<b class="question"><a style="background-color:yellow;color:black" target="_xml" href="http://eclipse.org/emf/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
+<b class="question"><a style="background-color:yellow;color:black" target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
 <br/><br/>
 
 The Crimson DOM implementation in (some versions of) the Sun JDK has a bug in the implementation of
-<tt class="code">hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://eclipse.org/emf/downloads-xerces.php">click here for details</a>.<br />
+<tt class="code">hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">click here for details</a>.<br />
 
 This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 <ul>
@@ -1734,7 +1734,7 @@ This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 I was trying to generate an EMF model from an XML Schema (.xsd) file
 and I was essentially following the tutorial with the promising name
 "Generating an EMF Model using XML Schema" (see
-<a target="_new" href="http://eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">http://eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html</a>).
+<a target="_new" href="http://www.eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">http://www.eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html</a>).
 <br /><br />
 But alas I am already stuck in step 1:
 File => New => Other => Eclipse Modeling Framework => EMF Project =>
@@ -1796,6 +1796,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.16 2006/02/15 22:57:39 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.17 2006/04/03 19:28:03 nickb Exp $ -->
 
 </faq>

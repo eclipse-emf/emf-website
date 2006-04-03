@@ -54,7 +54,7 @@ if(!$result) {
 }
 echo $result; ?>
 
-<p><a href="view-source:http://eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+<p><a href="view-source:http://www.eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.13 2006/01/25 19:22:28 nickb Exp $ -->
+<!-- $Id: release-notes.php,v 1.14 2006/04/03 19:27:42 nickb Exp $ -->

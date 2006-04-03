@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
-  <link href="http://eclipse.org/emf/"/>
+  <link href="http://www.eclipse.org/emf/"/>
   <updated>2006-03-30T02:23:58Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
-  <id>http://eclipse.org/emf/</id>
+  <id>http://www.eclipse.org/emf/</id>
   <entry>
     <title>[announce] EMF 2.2.0 I200603300000 is available</title>
     <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/I200603300000"/>
@@ -14,7 +14,7 @@
     <updated>2006-03-30T02:23:58Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060329-1600/eclipse-SDK-I20060329-1600-linux-gtk.tar.gz</depends>
@@ -27,7 +27,7 @@
     <updated>2006-03-23T03:09:07Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060315-1200/eclipse-SDK-I20060315-1200-linux-gtk.tar.gz</depends>
@@ -40,7 +40,7 @@
     <updated>2006-03-16T01:04:03Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060315-1200/eclipse-SDK-I20060315-1200-linux-gtk.tar.gz</depends>
@@ -53,7 +53,7 @@
     <updated>2006-03-09T01:04:25Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/eclipse-SDK-3.2M5a-linux-gtk.tar.gz</depends>
@@ -66,7 +66,7 @@
     <updated>2006-03-02T11:24:35Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M5a-200602231656/eclipse-SDK-3.2M5a-linux-gtk.tar.gz</depends>
@@ -79,7 +79,7 @@
     <updated>2006-02-24T14:17:21Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060223-1656/eclipse-SDK-I20060223-1656-linux-gtk.tar.gz</depends>
@@ -92,7 +92,7 @@
     <updated>2006-02-16T01:34:39Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060215-1200/eclipse-SDK-I20060215-1200-linux-gtk.tar.gz</depends>
@@ -105,7 +105,7 @@
     <updated>2006-02-09T01:25:54Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060207-1305/eclipse-SDK-I20060207-1305-linux-gtk.tar.gz</depends>
@@ -118,7 +118,7 @@
     <updated>2006-02-02T01:24:22Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060125-0800/eclipse-SDK-I20060125-0800-linux-gtk.tar.gz</depends>
@@ -131,7 +131,7 @@
     <updated>2006-01-26T01:27:10Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060125-0800/eclipse-SDK-I20060125-0800-linux-gtk.tar.gz</depends>
@@ -144,7 +144,7 @@
     <updated>2006-01-19T02:08:59Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060117-0800/eclipse-SDK-I20060117-0800-linux-gtk.tar.gz</depends>
@@ -157,7 +157,7 @@
     <updated>2006-01-12T07:51:35Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060110-1026/eclipse-SDK-I20060110-1026-linux-gtk.tar.gz</depends>
@@ -170,7 +170,7 @@
     <updated>2006-01-05T02:12:44Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20060103-0800/eclipse-SDK-I20060103-0800-linux-gtk.tar.gz</depends>
@@ -183,7 +183,7 @@
     <updated>2005-12-22T02:15:53Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M4-200512151506/eclipse-SDK-3.2M4-linux-gtk.tar.gz</depends>
@@ -196,7 +196,7 @@
     <updated>2005-12-15T12:52:17Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051214-1200/eclipse-SDK-I20051214-1200-linux-gtk.tar.gz</depends>
@@ -209,7 +209,7 @@
     <updated>2005-12-08T04:06:02Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends></depends>
@@ -222,7 +222,7 @@
     <updated>2005-12-01T14:58:13Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051123-1200/eclipse-SDK-I20051123-1200-linux-gtk.tar.gz</depends>
@@ -235,7 +235,7 @@
     <updated>2005-11-29T13:25:28Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051123-1200/eclipse-SDK-I20051123-1200-linux-gtk.tar.gz</depends>
@@ -248,7 +248,7 @@
     <updated>2005-11-24T11:13:44Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051123-1200/eclipse-SDK-I20051123-1200-linux-gtk.tar.gz</depends>
@@ -261,7 +261,7 @@
     <updated>2005-11-16T23:49:16Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M3-200511021600/eclipse-SDK-3.2M3-linux-gtk.tar.gz</depends>
@@ -274,7 +274,7 @@
     <updated>2005-11-14T16:41:07Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/S-3.2M3-200511021600/eclipse-SDK-3.2M3-linux-gtk.tar.gz</depends>
@@ -287,7 +287,7 @@
     <updated>2005-11-03T08:10:20Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051102-0010/eclipse-SDK-I20051102-0010-linux-gtk.tar.gz</depends>
@@ -300,7 +300,7 @@
     <updated>2005-10-27T20:41:31Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051025-0800/eclipse-SDK-I20051025-0800-linux-gtk.tar.gz</depends>
@@ -313,7 +313,7 @@
     <updated>2005-10-26T16:08:45Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051018-0932/eclipse-SDK-I20051018-0932-linux-gtk.tar.gz</depends>
@@ -326,7 +326,7 @@
     <updated>2005-10-26T16:08:30Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20051012-1200/eclipse-SDK-I20051012-1200-linux-gtk.tar.gz</depends>
@@ -339,7 +339,7 @@
     <updated>2005-10-26T16:08:15Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/eclipse/downloads/drops/I20050928-1300/eclipse-SDK-I20050928-1300-linux-gtk.tar.gz</depends>
@@ -352,7 +352,7 @@
     <updated>2005-09-28T13:10:00Z</updated>
     <summary>
       <testresults platform="ALL">PASS</testresults>
-      <releasenotes>http://eclipse.org/emf/news/release-notes.php?version=2.1.1</releasenotes>
+      <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.1.1</releasenotes>
       <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
       <update>http://download.eclipse.org/tools/emf/updates/</update>
       <depends>http://download.eclipse.org/downloads/drops/R-3.1.1-200509290840/eclipse-SDK-R-3.1.1-200509290840-linux-gtk.tar.gz</depends>

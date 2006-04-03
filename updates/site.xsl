@@ -16,7 +16,7 @@
 			<a name="top"> </a>
 	<h2 class="title">EMF Update Manager Site</h2>
 	<p class="bodyText"><xsl:copy-of select="description"/> 
-	For more on how to do this, <a href="http://eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">click here</a>. <a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/updates/site.xml&amp;format=xml">Mirrors available</a>.
+	For more on how to do this, <a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">click here</a>. <a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/updates/site.xml&amp;format=xml">Mirrors available</a>.
 	</p>
 	<pre><p class="bodyText">   Help
     > Software Updates
@@ -27,7 +27,7 @@
                 * URL:    <b><a href="http://download.eclipse.org/tools/emf/updates/site.xml" target="_um">http://download.eclipse.org/tools/emf/updates/site.xml</a></b> (Releases)
                      (or):    <b><a href="http://download.eclipse.org/tools/emf/updates/site-interim.xml" target="_um">http://download.eclipse.org/tools/emf/updates/site-interim.xml</a></b> (I, M and S Builds)</p></pre>
 		</td>
-		<td width="25%"><img alt="how to" src="http://eclipse.org/images/howto_banner.jpg" height="111" width="272" align="middle" /></td>
+		<td width="25%"><img alt="how to" src="http://www.eclipse.org/images/howto_banner.jpg" height="111" width="272" align="middle" /></td>
 		</tr>
 	</table>
 
@@ -227,7 +227,7 @@
 	</xsl:otherwise>
 	</xsl:choose>
 	</table>
-	<!-- $Id: site.xsl,v 1.1 2006/03/09 18:25:42 nickb Exp $ -->
+	<!-- $Id: site.xsl,v 1.2 2006/04/03 19:28:03 nickb Exp $ -->
 
 	</body>
 	</html>

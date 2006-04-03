@@ -39,7 +39,7 @@
     <tr>
       <td>
         <a name="documents">
-          <img src="http://eclipse.org/emf/images/c.gif" width="1" border="0"
+          <img src="http://www.eclipse.org/emf/images/c.gif" width="1" border="0"
           height="5" />
         </a>
       </td>
@@ -62,7 +62,7 @@
   '<table>
     <tr>
       <td>
-          <img src="http://eclipse.org/emf/images/c.gif" width="1" border="0"
+          <img src="http://www.eclipse.org/emf/images/c.gif" width="1" border="0"
           height="8" />
       </td>
     </tr>
@@ -75,7 +75,7 @@
 
 	ini_set("display_errors","0"); // suppress file not found errors
 	if ($doc=="docs/docs.xml") { 
-		$CVSpreUsed = "";			$f = file( (is_readable($WWWpreEMFPhysical) ? $WWWpreEMFPhysical : $WWWpreEMF) . $doc); 			// on www
+		$CVSpreUsed = "";					$f = getFile($doc); 			// on www
 	} else if (strstr($doc,"http://") || strstr($doc,"https://")) {
 		$CVSpreUsed = "";					$f = file($doc); 						// emf-home (or other remote)
 	} else if (false!==strpos($doc,"org.eclipse.xsd.doc/")) { // xsd docs
@@ -160,4 +160,4 @@
 include_once $pre."includes/footer.php"; 
 //if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
 
-<!-- $Id: docs.php,v 1.9 2006/03/30 20:58:22 nickb Exp $ -->
+<!-- $Id: docs.php,v 1.10 2006/04/03 19:28:03 nickb Exp $ -->

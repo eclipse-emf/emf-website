@@ -3,14 +3,14 @@
 <table border="0" cellspacing="0" cellpadding="0" BGCOLOR="#90C8FF" width="116">
   <!-- common links - both projects -->
   <tr>
-    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://eclipse.org/emf/emf.php" target="_top" class="navhead">EMF home</a></td>
+    <td valign="CENTER" height="21" BGCOLOR="#0080C0">&#160; <a href="http://www.eclipse.org/emf/emf.php" target="_top" class="navhead">EMF home</a></td>
 
   </tr>
 
   <tr><td bgcolor="#CFFFFF" width="116" height="1"></td></tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://eclipse.org/emf/sdo.php" target="_top" class="nav">SDO</a>
+      &#160; <a href="http://www.eclipse.org/emf/sdo.php" target="_top" class="nav">SDO</a>
 
     </td>
 
@@ -19,7 +19,7 @@
   <tr><td bgcolor="#CFFFFF" width="116" height="1"></td></tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://eclipse.org/emf/xsd.php" target="_top" class="nav">XSD</a>
+      &#160; <a href="http://www.eclipse.org/emf/xsd.php" target="_top" class="nav">XSD</a>
 
     </td>
 
@@ -37,7 +37,7 @@
   <tr><td bgcolor="#CFFFFF" width="116" height="1"></td></tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://eclipse.org/emf/downloads-xerces.php" class="nav">Installation</a>
+      &#160; <a href="http://www.eclipse.org/emf/downloads-xerces.php" class="nav">Installation</a>
 
     </td>
 
@@ -55,7 +55,7 @@
   </tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://eclipse.org/emf/docs.php" class="nav">Documentation</a><br/>
+      &#160; <a href="http://www.eclipse.org/emf/docs.php" class="nav">Documentation</a><br/>
 
     </td>
   </tr>
@@ -122,7 +122,7 @@
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
       &#160; <a
- href="http://eclipse.org/emf/newsgroup-mailing-list.php" class="nav">Newsgroup</a>
+ href="http://www.eclipse.org/emf/newsgroup-mailing-list.php" class="nav">Newsgroup</a>
 
     </td>
   </tr>
@@ -292,4 +292,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.13 2006/01/20 22:56:15 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.14 2006/04/03 19:27:41 nickb Exp $ -->

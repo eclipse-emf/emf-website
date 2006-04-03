@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.8 2006/04/03 18:23:23 nickb Exp $ 
+	// $Id: scripts.php,v 1.9 2006/04/03 19:27:41 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -194,17 +194,17 @@
 	}
 
 	function getFile($file) {
-		global $WWWpreEMF,$WWWpreEMFPhysical,$isWWWserver;
+		global $WWWpre,$WWWprePhysical,$isWWWserver;
 		$fp = false;
-		$contents = "";
+		$contents = array();
 		if ($isWWWserver) { 
-			$fp = fopen($WWWpreEMFPhysical . $file);
+			$fp = fopen($WWWprePhysical . $file);
 		} else {
-			$fp = fopen($WWWpreEMF . $file);
+			$fp = fopen($WWWpre . $file);
 		}
 		if ($fp !== false) {
 		    while (! feof($fp)) {
-		        $contents .= fread($fp, 4096);
+		        $contents[] = fread($fp, 4096);
 		    }
 		}
 		fclose($fp); 

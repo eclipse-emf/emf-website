@@ -11,11 +11,11 @@ the model, and a basic editor. Models can be specified using
 annotated Java, XML documents, or modeling tools like Rational Rose, then
 imported into EMF. Most important of all, EMF provides the foundation for
 interoperability with other EMF-based tools and applications. For more detailed 
-information see the <a href="http://eclipse.org/emf/docs.php#overviews">EMF Overviews</a> and <a href="http://eclipse.org/emf/docs.php#plandocs">Project Plan</a>.
+information see the <a href="http://www.eclipse.org/emf/docs.php#overviews">EMF Overviews</a> and <a href="http://www.eclipse.org/emf/docs.php#plandocs">Project Plan</a>.
 
 <br><br>
 
-EMF includes the <a href="http://eclipse.org/emf/xsd.php">XML Schema Infoset Model (XSD) project</a> and an <a href="http://eclipse.org/emf/sdo.php">EMF-based implementation of Service Data Objects (SDO)</a>.
+EMF includes the <a href="http://www.eclipse.org/emf/xsd.php">XML Schema Infoset Model (XSD) project</a> and an <a href="http://www.eclipse.org/emf/sdo.php">EMF-based implementation of Service Data Objects (SDO)</a>.
 
 <br><br>
 
@@ -31,7 +31,7 @@ the <a href="http://www.w3.org/TR/XMLSchema-0">W3C XML Schema</a>
 specifications, as well as an API for
 manipulating the DOM-accessible representation of XML Schema as a series
 of XML documents, and for keeping these representations in agreement as
-schemas are modified. [<a href="http://eclipse.org/emf/xsd.php">more</a>]
+schemas are modified. [<a href="http://www.eclipse.org/emf/xsd.php">more</a>]
 
 <br><br>
 
@@ -39,7 +39,7 @@ schemas are modified. [<a href="http://eclipse.org/emf/xsd.php">more</a>]
 
 <br><br>
 
-Service Data Objects (SDO) is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices. [<a href="http://eclipse.org/emf/sdo.php">more</a>]
+Service Data Objects (SDO) is a framework that simplifies and unifies data application development in a service oriented architecture (SOA). It supports and integrates XML and incorporates J2EE patterns and best practices. [<a href="http://www.eclipse.org/emf/sdo.php">more</a>]
 ';
 }
 
@@ -146,7 +146,7 @@ One thing that isn't an exaggeration: since April 2004, there have been over 200
 
 <?php include $pre."includes/footer.php"; ?>
 
-<!-- $Id: emf-contents.php,v 1.11 2006/01/20 23:12:48 nickb Exp $ -->
+<!-- $Id: emf-contents.php,v 1.12 2006/04/03 19:28:03 nickb Exp $ -->
 </body></html>
 
 <?php } 

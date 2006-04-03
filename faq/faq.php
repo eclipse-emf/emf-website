@@ -98,7 +98,7 @@ $result = xslt_process($processor, $fileBase.$XMLfile, $fileBase.'faq.xsl', NULL
 if(!$result) echo xslt_errno($processor) . " : " . xslt_error($processor);
 echo $result; ?>
 
-<p><a href="view-source:http://eclipse.org/emf/faq/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+<p><a href="view-source:http://www.eclipse.org/emf/faq/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: faq.php,v 1.14 2006/01/25 19:22:28 nickb Exp $ -->
+<!-- $Id: faq.php,v 1.15 2006/04/03 19:28:03 nickb Exp $ -->

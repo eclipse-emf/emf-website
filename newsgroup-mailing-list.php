@@ -30,7 +30,7 @@
 	search (<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.tools.emf&wm=wrd&t=News&t=Mail&q=emf">EMF &amp; SDO</a>,
 	<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&wm=wrd&t=News&t=Mail&q=xsd">XSD</a>)
 	 the
-	newsgroup archives online, if you prefer, but you will <a href="http://eclipse.org/newsgroups/index.html">require a password</a> first. 
+	newsgroup archives online, if you prefer, but you will <a href="http://www.eclipse.org/newsgroups/index.html">require a password</a> first. 
 	
 	Frequently asked questions in the newsgroup will ultimately end up in the FAQs.
 	See FAQ links below in the <a href="#quicknav">Quick Nav</a>.</li>
@@ -39,7 +39,7 @@
 	If you're not familiar with news://, you'll need a newreader first, such as 
 	<a href="http://www.mozilla.org/products/thunderbird/" target="_out">Thunderbird</a>, <a href="http://www.mozilla.org/products/mozilla1.x/" target="_out">Mozilla</a>, <a href="http://www.forteinc.com" target="_out">Forte Agent</a>, or even MS Outlook. Once installed, 
 	you'll also need a password to access the newsgroups. Signup is easy: 
-	just <a href="http://eclipse.org/newsgroups/index.html">request a password</a>.
+	just <a href="http://www.eclipse.org/newsgroups/index.html">request a password</a>.
 
 	<br><br>
 
@@ -52,11 +52,11 @@
       href="http://wiki.eclipse.org/index.php/Searching_Eclipse_Newsgroups_With_Firefox">search capabilities</a>.
 	Offline, here's two options:
       <a
-      href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">
       with Mozilla</a>
       or
       <a
-      href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">
       with Outlook Express</a>.
 
 </td><td>&#160;&#160;</td><td>
@@ -78,7 +78,7 @@ Newsgroups:<br><br>
 <a href="news://news.eclipse.org/eclipse.tools.emf" target="_top">Newsgroup</a><br>
 :&#160;<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&form=extended&wf=574a74&ps=10&m=all&t=5&ul=%2Fnewslists%2Fnews.eclipse.tools.emf&wm=wrd&t=News&t=Mail&q=emf" target="_self">Search</a><br>
 :&#160;<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf" target="_self">Browse</a><br>
-:&#160;<a href="http://eclipse.org/newsgroups/index.html">Password</a><br>:&#160;<a href="http://eclipse.org/newsgroups/index.html">Request</a>
+:&#160;<a href="http://www.eclipse.org/newsgroups/index.html">Password</a><br>:&#160;<a href="http://www.eclipse.org/newsgroups/index.html">Request</a>
 		</td>
 		<td>&#160;&#160;</td>
 		<td>
@@ -122,4 +122,4 @@ Newsgroups:<br><br>
 </table>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: newsgroup-mailing-list.php,v 1.7 2006/02/27 18:27:19 nickb Exp $ -->
+<!-- $Id: newsgroup-mailing-list.php,v 1.8 2006/04/03 19:28:03 nickb Exp $ -->

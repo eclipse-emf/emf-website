@@ -28,14 +28,14 @@
 		</tr>
 		<tr valign=top bgcolor="#FFFFFF">
 		<td><img src="http://www.eclipse.org/emf/images/eclipse-icons/newhov_obj.gif"></td>
-		<td><b>First-time users</b> can get started quickly by simply downloading the combined <b style="color:#B51464">ALL</b> SDK bundle (includes Source, Runtime and Docs for <b style="color:#BF5FBF">EMF</b>, <b style="color:#18187D">XSD</b>, and <b style="color:#C7568E">SDO</b>). <a href="http://eclipse.org/emf/downloads-build-types.php">What Build Type do I want?</a>
+		<td><b>First-time users</b> can get started quickly by simply downloading the combined <b style="color:#B51464">ALL</b> SDK bundle (includes Source, Runtime and Docs for <b style="color:#BF5FBF">EMF</b>, <b style="color:#18187D">XSD</b>, and <b style="color:#C7568E">SDO</b>). <a href="http://www.eclipse.org/emf/downloads-build-types.php">What Build Type do I want?</a>
 		<br/>		<br/>		<br/>
 		</td>
 		</tr>
 		<tr valign=top bgcolor="#EEEEEE">
 		<td><img src="http://www.eclipse.org/emf/images/eclipse-icons/featureshov_obj.gif"></td>
 		<td>
-			EMF, SDO and XSD 2.x require <a href="http://eclipse.org/downloads/" target="_eclipse">Eclipse 3.x</a> and <b>JDK 1.4</b>. As of Eclipse 3.2, you can also use a <b>JDK 1.5 / 5.0</b>, since this bug only exists in the <b>Sun JDK 1.4</b>.<br>
+			EMF, SDO and XSD 2.x require <a href="http://www.eclipse.org/downloads/" target="_eclipse">Eclipse 3.x</a> and <b>JDK 1.4</b>. As of Eclipse 3.2, you can also use a <b>JDK 1.5 / 5.0</b>, since this bug only exists in the <b>Sun JDK 1.4</b>.<br>
 			<br>
 			Note that the full Eclipse SDK is only required <i>if you intend to use the EMF, SDO or XSD graphical interfaces</i>, (ie., views, wizards, extensions) which are built for Eclipse. For <i>runtime-only applications</i>, only a JDK is required.
 			<br><br>
@@ -102,4 +102,4 @@
 </TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000'><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
 
 <?php	include $pre."includes/footer.php"; ?>
-<!-- $Id: downloads-xerces.php,v 1.6 2005/09/21 17:32:01 nickb Exp $ -->
+<!-- $Id: downloads-xerces.php,v 1.7 2006/04/03 19:28:03 nickb Exp $ -->

@@ -113,15 +113,15 @@ function doHeader($name) {
 <html>
 <head>
   <title>Eclipse Project IP Log - '.$name.'</title>
-  <link REL="SHORTCUT ICON" HREF="http://http://eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
-  <link rel="stylesheet" href="http://eclipse.org/emf/includes/style.css" type="text/css"/>
+  <link REL="SHORTCUT ICON" HREF="http://http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico"/>
+  <link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css"/>
 </head>
 <body>'."\n";
 }
 
 function doFooter($isHTML=true) {
 	echo $isHTML ? "<pre><small><i>\n" : "\n";
-	echo "--\n".'$Id: ip.php,v 1.1 2005/10/30 21:29:28 nickb Exp $'."\n";
+	echo "--\n".'$Id: ip.php,v 1.2 2006/04/03 19:27:42 nickb Exp $'."\n";
 	echo $isHTML ? "</i></small></pre>\n</body>\n</html>" : "\n";
 }
 

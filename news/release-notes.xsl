@@ -93,20 +93,20 @@
   </xsl:if>
 
   <!-- form controls -->
-  <form action="http://eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
+  <form action="http://www.eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
   <table width="60%">
       <tr>
         <td>
             <hr size="1" width="100%"/>
             <span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b>
             Multiple terms are treated as an <b>OR</b> search. You can also use these predefined filters: <br/>
-&#160; &#160; &#160; <img src="../images/icon-emf.gif" border="0" alt="emf"/>&#160;<a href="http://eclipse.org/emf/news/release-notes.php?project=emf">EMF</a> ::
-<img src="../images/icon-sdo.gif" border="0" alt="sdo"/>&#160;<a href="http://eclipse.org/emf/news/release-notes.php?project=emf">SDO</a> ::
-<img src="../images/icon-xsd.gif" border="0" alt="xsd"/>&#160;<a href="http://eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> ::
+&#160; &#160; &#160; <img src="../images/icon-emf.gif" border="0" alt="emf"/>&#160;<a href="http://www.eclipse.org/emf/news/release-notes.php?project=emf">EMF</a> ::
+<img src="../images/icon-sdo.gif" border="0" alt="sdo"/>&#160;<a href="http://www.eclipse.org/emf/news/release-notes.php?project=emf">SDO</a> ::
+<img src="../images/icon-xsd.gif" border="0" alt="xsd"/>&#160;<a href="http://www.eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> ::
 
-<a href="http://eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> ::
-<a href="http://eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a> ::
-<a href="http://eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a> ::
+<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> ::
+<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a> ::
+<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a> ::
             <a href="release-notes-1.x.php">1.x</a></span>
           <hr size="1" width="100%"/>
           <select class="log-text" name="project" size="1">
@@ -316,4 +316,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.35 2006/03/16 21:27:14 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.36 2006/04/03 19:27:42 nickb Exp $ -->
