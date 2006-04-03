@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
-<news date="April 3, 2005" showOn="whatsnew,docs">
+<news date="April 3, 2006" showOn="whatsnew,docs">
 	<a href="http://www.eclipse.org/emf/docs.php#presentations">EclipseCon 2006</a> presentations &amp; project files published.
 </news>
 <news date="March 30, 2006" showOn="whatsnew">
@@ -902,6 +902,6 @@
 	<a href="http://www.eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.138 2006/04/03 19:53:22 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.139 2006/04/03 19:59:52 nickb Exp $ -->
 
 </doc>
