@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.10 2006/04/03 19:33:49 nickb Exp $ 
+	// $Id: scripts.php,v 1.11 2006/04/03 19:38:11 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -204,11 +204,11 @@
 		}
 		if ($fp !== false) {
 		    while (! feof($fp)) {
-		        $contents[] = fread($fp, 4096);
+		        $contents .= fread($fp, 4096);
 		    }
 		}
-		fclose($fp); 
-		return $contents;
+		fclose($fp);
+		return explode("\n",$contents);
 	}
 
 	function getNews($lim,$key,$style="horiz",$divider="") {
