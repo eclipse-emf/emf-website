@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.9 2006/04/03 19:27:41 nickb Exp $ 
+	// $Id: scripts.php,v 1.10 2006/04/03 19:33:49 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -198,9 +198,9 @@
 		$fp = false;
 		$contents = array();
 		if ($isWWWserver) { 
-			$fp = fopen($WWWprePhysical . $file);
+			$fp = fopen($WWWprePhysical . $file,"r");
 		} else {
-			$fp = fopen($WWWpre . $file);
+			$fp = fopen($WWWpre . $file,"r");
 		}
 		if ($fp !== false) {
 		    while (! feof($fp)) {
