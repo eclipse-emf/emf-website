@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.7 2006/03/30 20:58:22 nickb Exp $ 
+	// $Id: scripts.php,v 1.8 2006/04/03 18:23:23 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -193,16 +193,33 @@
 		echo($s.$br); 
 	}
 
-	function getNews($lim,$key,$style="horiz",$divider="") {
+	function getFile($file) {
+		global $WWWpreEMF,$WWWpreEMFPhysical,$isWWWserver;
+		$fp = false;
+		$contents = "";
+		if ($isWWWserver) { 
+			$fp = fopen($WWWpreEMFPhysical . $file);
+		} else {
+			$fp = fopen($WWWpreEMF . $file);
+		}
+		if ($fp !== false) {
+		    while (! feof($fp)) {
+		        $contents .= fread($fp, 4096);
+		    }
+		}
+		fclose($fp); 
+		return $contents;
+	}
 
-		global $CVSpre,$WWWpreEMF,$WWWpreEMFPhysical,$pre,$isWWWserver; // $CVSpreDocEMF,
-		$xml = file( (is_readable($WWWpreEMFPhysical) ? $WWWpreEMFPhysical : $WWWpreEMF) . "news/news.xml"); // moved to www.eclipse (not dev.eclipse)
+	function getNews($lim,$key,$style="horiz",$divider="") {
+		global $CVSpre,$pre,$isWWWserver; 
+		$xml = getFile("news/news.xml"); 
 		if (!$xml) {
 			$xml = array();
 		}
 		$xmlCollect=0;
 		$xmlItems = array();
-		$xmlCurrentDate="";
+		$xmlCurrentDate=null;
 		foreach ($xml as $line) { 
 			$m=null;
 			if (preg_match("/\<news date\=\"([^\"]+)\" showOn\=\"([^\"]+)\"\>/",$line,$m)) { // start of item, date
