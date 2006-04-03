@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.11 2006/04/03 19:38:11 nickb Exp $ 
+	// $Id: scripts.php,v 1.12 2006/04/03 19:48:01 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -194,21 +194,20 @@
 	}
 
 	function getFile($file) {
-		global $WWWpre,$WWWprePhysical,$isWWWserver;
+		global $WWWpre, $WWWprePhysical, $isWWWserver;
 		$fp = false;
-		$contents = array();
+		$contents = "";
 		if ($isWWWserver) { 
-			$fp = fopen($WWWprePhysical . $file,"r");
+			$fp = fopen($WWWprePhysical . $file, "r");
 		} else {
-			$fp = fopen($WWWpre . $file,"r");
+			$fp = fopen($WWWpre . $file, "r");
 		}
 		if ($fp !== false) {
-		    while (! feof($fp)) {
-		        $contents .= fread($fp, 4096);
-		    }
+		    while (!feof($fp)) { $contents .= fread($fp, 4096); }
+			fclose($fp);
+			if (false!==strpos($contents,"\n")) return explode("\n", $contents);
 		}
-		fclose($fp);
-		return explode("\n",$contents);
+		return array($contents);
 	}
 
 	function getNews($lim,$key,$style="horiz",$divider="") {
