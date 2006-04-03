@@ -82,7 +82,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=references/overview/EMF.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.html">
         The Eclipse Modeling Framework Overview</a>
       </td>
 
@@ -128,7 +128,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">
         The EMF Edit Framework Overview</a>
       </td>
 
@@ -147,7 +147,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=references/overview/EMF.Validation.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Validation.html">
         The EMF Validation Framework Overview</a>
       </td>
 
@@ -227,7 +227,7 @@
       <td>
         <a
         href="#eclipsecon2006xmlbinding">
-        XML Binding with EMF</a> (see EclipseCon 2006 <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a>)
+        XML Binding with EMF</a> (see EclipseCon 2006 <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a>)
       </td>
 
       <td>March 22
@@ -274,7 +274,7 @@
       <td>
         <a
         href="#eclipsecon2006intro">
-        Workshop: Generating an EMF 2.2 Model using XML Schema</a> (see Exercises #1 &amp; #5 of EclipseCon 2006 <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Intro to EMF</a> <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Project</a>)
+        Workshop: Generating an EMF 2.2 Model using XML Schema</a> (see Exercises #1 &amp; #5 of EclipseCon 2006 <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Intro to EMF</a> <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Project</a>)
       </td>
 
       <td>March 20
@@ -291,7 +291,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=tutorials/clibmod/clibmod.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=tutorials/clibmod/clibmod.html">
         Tutorial: Generating an EMF 2.1 Model</a>
       </td>
 
@@ -309,7 +309,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=tutorials/slibmod/slibmod.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=tutorials/slibmod/slibmod.html">
         Tutorial: Generating an Extended EMF 2.1 Model</a>
       </td>
 
@@ -327,7 +327,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">
         Tutorial: Generating an EMF 2.1 Model using XML Schema</a>
       </td>
 
@@ -345,7 +345,7 @@
 
       <td>
       <a target="_out"
-      href="http://eclipse.org/emf/docs.php?doc=tutorials/jet1/jet_tutorial1.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=tutorials/jet1/jet_tutorial1.html">
       JET Tutorial Part 1 (Introduction to JET)</a>
 
       Contributed by Remko Popma [EMF 2.1]</td>
@@ -364,7 +364,7 @@
 
       <td>
       <a target="_out"
-      href="http://eclipse.org/emf/docs.php?doc=tutorials/jet2/jet_tutorial2.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=tutorials/jet2/jet_tutorial2.html">
       JET Tutorial Part 2 (Write Code that Writes Code)</a>
 
       Contributed by Remko Popma [EMF 2.x]</td>
@@ -383,7 +383,7 @@
 
       <td>
         <a target="_out"
-        href="http://eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
+        href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
         Tutorial: Generating a Rich Client Platform (RCP)
         Application Using EMF</a>
       </td>
@@ -403,7 +403,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=tutorials/rosepkg/rosepkg.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=tutorials/rosepkg/rosepkg.html">
         Specifying Package Information in Rose</a>
       </td>
 
@@ -422,7 +422,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">
         Getting EMF Source Files from CVS</a>
       </td>
 
@@ -441,7 +441,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">
         Using Eclipse Update Manager to Update EMF, SDO &amp; XSD</a>
       </td>
 
@@ -653,7 +653,7 @@
 
       <td>
         <a target="_out"
-        href="http://eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">
+        href="http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">
         Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)
 
         by Chaur G. Wu</td>
@@ -673,7 +673,7 @@
 
       <td>
         <a target="_out"
-        href="http://eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
+        href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">
         EMF goes RCP</a> (Eclipse Corner article)
 
         by Marcelo Paternostro</td>
@@ -693,7 +693,7 @@
 
       <td>
       <a target="_out"
-      href="http://eclipse.org/articles/Article-Using%20EMF/using-emf.html">
+      href="http://www.eclipse.org/articles/Article-Using%20EMF/using-emf.html">
       Using EMF</a> (Eclipse Corner article)
 
       by Catherine Griffin</td>
@@ -764,7 +764,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">
         Tutorial: Using the SDO Data Graph Editor</a>
       </td>
 
@@ -915,7 +915,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">
         Analyzing XML schemas with the Schema Infoset Model</a>
       </td>
 
@@ -931,7 +931,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">
         Diagrams and Animations of the internals of XSD models</a> (Powerpoint, OpenOffice, HTML)
       </td>
 
@@ -980,7 +980,7 @@
 
       <td>
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema
       Infoset Model, Part 1</a>
 
       <br />
@@ -996,7 +996,7 @@
       <br />
 
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">
       HTML</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -1006,7 +1006,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">
       PDF</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -1016,7 +1016,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">
       Examples</a>
 
       (zipped eclipse plugin project)</td>
@@ -1036,7 +1036,7 @@
 
       <td>
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
       XML Schema Infoset Model, Part 2</a>
 
       <br />
@@ -1052,7 +1052,7 @@
       <br />
 
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">
       HTML</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -1062,7 +1062,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">
       PDF</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -1072,7 +1072,7 @@
       <img src="images/c.gif" width="1" height="8" />
 
       <a target="_dw"
-      href="http://eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
+      href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">
       Examples</a>
 
       (zipped eclipse plugin project)</td>
@@ -1120,8 +1120,8 @@
       <td><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF:
       <img src="images/c.gif" width="1" height="8" />
 
-        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Presentation</a> (PDF),
-        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop Project</a> (ZIP)
+        <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Presentation</a> (PDF),
+        <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop Project</a> (ZIP)
       </td>
 
       <td>March 20
@@ -1135,8 +1135,8 @@
       <td>EclipseCon 2006 - Advanced Features of EMF:
       <img src="images/c.gif" width="1" height="8" />
 
-        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced.pdf">Presentation</a> (PDF),
-        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced_project.zip">Workshop Project</a> (ZIP)
+        <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced.pdf">Presentation</a> (PDF),
+        <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced_project.zip">Workshop Project</a> (ZIP)
       </td>
 
       <td>March 20
@@ -1150,8 +1150,8 @@
       <td><a name="eclipsecon2006xmlbinding"></a>EclipseCon 2006 - XML Binding with EMF:
       <img src="images/c.gif" width="1" height="8" />
 
-        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> (PDF),
-        <a href="http://eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a> (ZIP)
+        <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> (PDF),
+        <a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a> (ZIP)
       </td>
 
       <td>March 22
@@ -1211,7 +1211,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">
         EclipseCon 2004 EMF Presentation</a>
       </td>
 
@@ -1281,7 +1281,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
+        <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
       </td>
 
       <td>July 6
@@ -1298,7 +1298,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTips.html">EMF 2.1.0 Performance Tips</a>
+        <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTips.html">EMF 2.1.0 Performance Tips</a>
       </td>
 
       <td>July 7
@@ -1315,7 +1315,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
+        <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
       </td>
 
       <td>July 6
@@ -1365,7 +1365,7 @@
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/jet2architecture/jet2architecture.html">JET Enhancement Proposal (JET2)</a>
+        href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/jet2architecture/jet2architecture.html">JET Enhancement Proposal (JET2)</a>
       </td>
 
       <td>Sept 7
@@ -1381,7 +1381,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
+        <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
 
       </td>
 
@@ -1400,10 +1400,10 @@
 
       <td>
         EMF 2.2 Project Plan: <a
-        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">
         Overview</a>,
 		<a
-        href="http://eclipse.org/emf/plan/plan-2.2.xml">
+        href="http://www.eclipse.org/emf/plan/plan-2.2.xml">
         Prioritized Bugs</a>
       </td>
 
@@ -1421,7 +1421,7 @@
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> Overview
+        <a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> Overview
       </td>
 
       <td>July 6
@@ -1439,12 +1439,12 @@
 
       <td>
         EMF 2.1 Project Plan: <a
-        href="http://eclipse.org/emf/docs.php?doc=http://eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">
         Overview</a>, 
         <a
-        href="http://eclipse.org/emf/plan/plan-2.1.xml">
+        href="http://www.eclipse.org/emf/plan/plan-2.1.xml">
         Prioritized Bugs</a>, 
-        <a href="http://eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)
+        <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)
       </td>
 
       <td>July 27
@@ -1461,9 +1461,9 @@
       </td>
 
       <td>
-Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TXT),
-        <a href="http://eclipse.org/emf/eclipse-project-ip-log.csv">IP Log</a> (CSV),
-		<a href="http://eclipse.org/emf/eclipse-project-status.xml">Status</a> (XML)
+Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a> (TXT),
+        <a href="http://www.eclipse.org/emf/eclipse-project-ip-log.csv">IP Log</a> (CSV),
+		<a href="http://www.eclipse.org/emf/eclipse-project-status.xml">Status</a> (XML)
 
       </td>
 
@@ -1580,7 +1580,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/faq/faq.php">EMF, SDO &amp; XSD
+        <a href="http://www.eclipse.org/emf/faq/faq.php">EMF, SDO &amp; XSD
         Frequently Asked Questions (FAQ)</a>
       </td>
 
@@ -1598,7 +1598,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
       </td>
 
       <td>
-        <a href="http://eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
+        <a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
       </td>
 
       <td>May 19
@@ -1620,13 +1620,13 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
       <img src="images/c.gif" width="1" height="8" />
 
       <a
-      href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">
       Mozilla</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
       <a
-      href="http://eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">
       Outlook Express</a>
       </td>
 
@@ -1697,7 +1697,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">
         Tutorial: Generating an EMF 2.0 Model</a>
       </td>
 
@@ -1715,7 +1715,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">
         Tutorial: Generating an Extended EMF 2.0 Model</a>
       </td>
 
@@ -1733,7 +1733,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">
         Tutorial: Generating an EMF 2.0 Model using XML Schema</a>
       </td>
 
@@ -1751,7 +1751,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
       <a target="_out"
-      href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">
       JET Tutorial Part 1 (Introduction to JET)</a>
       Contributed by Remko Popma [EMF 2.0]</td>
 
@@ -1769,7 +1769,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
       <a target="_out"
-      href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">
+      href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">
       JET Tutorial Part 2 (Write Code that Writes Code)</a>
       Contributed by Remko Popma [EMF 2.0]</td>
 
@@ -1815,7 +1815,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">
         EMF 1.0 Users' Guide</a>
       </td>
 
@@ -1834,7 +1834,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/JarDepsExternal/JarDepsExternal.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/JarDepsExternal/JarDepsExternal.html">
         EMF 1.0 Jar Dependencies for Running Standalone as a Java
         Application Outside Eclipse</a>
       </td>
@@ -1854,7 +1854,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">
         Tutorial: Generating an EMF 1.1 Model</a>
       </td>
 
@@ -1873,7 +1873,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">
         Tutorial: Generating an Extended EMF 1.1 Model</a>
       </td>
 
@@ -1892,7 +1892,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">
         Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
       </td>
 
@@ -1911,7 +1911,7 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
 
       <td>
         <a
-        href="http://eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">
+        href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">
         Tutorial: Creating an EMF 1.1 Model using a Graphical
         Editor</a>
       </td>
@@ -1924,5 +1924,5 @@ Eclipse Project        <a href="http://eclipse.org/emf/.dates.txt">Dates</a> (TX
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.33 2006/03/29 01:06:32 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.34 2006/04/03 19:26:10 nickb Exp $ -->
 

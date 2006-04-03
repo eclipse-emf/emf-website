@@ -63,9 +63,9 @@
 
 <p>
 	<a name="quicknav">
-	<a href="http://eclipse.org/emf/emf.php">EMF Home</a> |
-	<a href="http://eclipse.org/emf/sdo.php">SDO Home</a> | 
-	<a href="http://eclipse.org/emf/xsd.php">XSD Home</a> | 
+	<a href="http://www.eclipse.org/emf/emf.php">EMF Home</a> |
+	<a href="http://www.eclipse.org/emf/sdo.php">SDO Home</a> | 
+	<a href="http://www.eclipse.org/emf/xsd.php">XSD Home</a> | 
 	<a href="#top">Top of Page</a>
 	</a>
 </p>
@@ -82,4 +82,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: docs.xsl,v 1.3 2005/07/07 05:50:52 nickb Exp $ -->
+<!-- $Id: docs.xsl,v 1.4 2006/04/03 19:26:10 nickb Exp $ -->
