@@ -133,17 +133,18 @@ modelID="michaellawley20050622221007">
 Tefkat features include:
 <ul>
 <li>support for multiple source and target models,</li>
-<li>models based on ECore, MOF2, UML2, and those derived from XML Schema,</li>
+<li>models based on Ecore, MOF2, UML2, and those derived from XML Schema,</li>
 <li>a built-in editor,</li>
 <li>a source-level debugger, and</li>
 <li>generation of trace models linking source and target elements.</li>
 </ul>
+2006/04/04: <a href="http://sourceforge.net/projects/tefkat">Tefkat</a> is now <a href="http://svn.sourceforge.net/viewcvs.cgi/tefkat/">Open Source</a>! 
 </text>
-<modelURL>http://www.dstc.edu.au/tefkat/</modelURL>
+<modelURL>http://sourceforge.net/projects/tefkat</modelURL>
 <thumbnailURL>http://www.dstc.edu.au/Research/Projects/Pegamento/images/TefkatLogo.gif</thumbnailURL>
 <screenshotURL></screenshotURL>
 <submitter>michael lawley</submitter> 
-<submitterURL></submitterURL>
+<submitterURL>http://www.dstc.edu.au/tefkat/</submitterURL>
 </model>
 
 <model
@@ -509,4 +510,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.26 2006/04/03 19:27:42 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.27 2006/04/05 02:20:49 nickb Exp $ -->
