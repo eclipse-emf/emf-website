@@ -29,6 +29,16 @@
 
 <!-- 2.2.0 -->
 
+<entry build="2.2.0M6" project="emf" version="2.2.0">
+<bug id="105380">Editor does not always detect resource changes on activation</bug>
+<bug id="131376">Create overlay images on the fly</bug>
+<bug id="133408">[Website] EMF web pages calling http://www.eclipse.org or http://localhost</bug>
+<bug id="134368">Fix XMLSave to Document to handle null options better.</bug>
+<bug id="134369">Fix InternalSettingDelegateSingleEObject to handle inverse containment properly</bug>
+<bug id="134370">Improve performance of XMLHandler.MyStack.</bug>
+<bug id="134917">The properties view for datagraph editor does not accept input</bug>
+</entry>
+
 <entry build="I200603300000" project="emf" version="2.2.0">
 <bug id="126093">Support for Encryption (resources)</bug>
 <bug id="132894">Copying references breaks opposites</bug>
@@ -462,6 +472,14 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="2.2.0M6" project="xsd" version="2.2.0">
+<bug id="132360">Indenting fix for Java 5</bug>
+<bug id="133425">Missing XMI suffix for XMI XSD schemaLocation references</bug>
+<bug id="133427">Transitive inclusion of XMI.xsd can fail</bug>
+<bug id="134193">NPE in XSDParser when parsing a schema with top level comment</bug>
+<bug id="134641">Extend the XSDDiagnostic interface to provide the message ID and parameters</bug>
 </entry>
 
 <entry build="I200603300000" project="xsd" version="2.2.0"/>
@@ -2303,4 +2321,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.145 2006/03/30 15:54:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.146 2006/04/06 15:04:04 nickb Exp $ -->
