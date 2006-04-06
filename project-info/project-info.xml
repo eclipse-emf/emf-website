@@ -3,6 +3,10 @@
     <product name="EMF"/>
     <product name="XSD"/>
   </bugzilla>
+  <newsgroups>
+    <newsgroup>eclipse.tools.emf</newsgroup>
+    <newsgroup>eclipse.technology.xsd</newsgroup>
+  </newsgroups>
   <committers />
   <contributors />
   <leaders />
