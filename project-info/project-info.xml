@@ -4,8 +4,8 @@
     <product name="XSD"/>
   </bugzilla>
   <newsgroups>
-    <newsgroup>eclipse.tools.emf</newsgroup>
-    <newsgroup>eclipse.technology.xsd</newsgroup>
+    <newsgroup name="eclipse.tools.emf"/>
+    <newsgroup name="eclipse.technology.xsd"/>
   </newsgroups>
   <committers />
   <contributors />
