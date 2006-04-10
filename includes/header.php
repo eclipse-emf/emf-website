@@ -6,7 +6,8 @@
 		$WWWpreXSD = "http://www.eclipse.org/xsd/";
 
 		$isEMFserver = false!==strpos($SERVER_NAME,"emf");
-		$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");	
+		$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
+		$isEclipseCluster = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org"||$SERVER_NAME=="download.eclipse.org"||$SERVER_NAME=="download1.eclipse.org");
 		$noHeader = isset($noHeader)?$noHeader:false;	
 
 		if ($isEMFserver) {
@@ -32,8 +33,9 @@
    <link REL="SHORTCUT ICON" HREF="http://www.eclipse.org/emf/images/eclipse-icons/eclipse32.ico">
 	<script type="text/javascript" src="http://www.eclipse.org/emf/includes/nav.js"></script>
 	<link rel="stylesheet" href="http://www.eclipse.org/emf/includes/style.css" type="text/css">
-	<!-- $Id: header.php,v 1.11 2006/04/03 19:27:41 nickb Exp $ -->
+	<!-- $Id: header.php,v 1.12 2006/04/10 17:00:59 nickb Exp $ -->
 	<!-- PHP version: <?php echo phpversion(); ?> -->
+	<!-- Server Name: <?php echo $SERVER_NAME; ?> -->
 </head>
 <body>
 <?php if (!$noHeader) { ?>

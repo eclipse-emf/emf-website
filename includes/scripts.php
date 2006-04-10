@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.12 2006/04/03 19:48:01 nickb Exp $ 
+	// $Id: scripts.php,v 1.13 2006/04/10 17:00:59 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -194,10 +194,10 @@
 	}
 
 	function getFile($file) {
-		global $WWWpre, $WWWprePhysical, $isWWWserver;
+		global $WWWpre, $WWWprePhysical, $isEclipseCluster;
 		$fp = false;
 		$contents = "";
-		if ($isWWWserver) { 
+		if ($isEclipseCluster) { 
 			$fp = fopen($WWWprePhysical . $file, "r");
 		} else {
 			$fp = fopen($WWWpre . $file, "r");
