@@ -29,6 +29,25 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200604130000" project="emf" version="2.2.0">
+<bug id="105380">Editor does not always detect resource changes on activation</bug>
+<bug id="129874">Default encoding for XML save doesn't preserve Unicode characters</bug>
+<bug id="131376">Create overlay images on the fly</bug>
+<bug id="133086">New child menu items not distinct</bug>
+<bug id="133408">[Website] EMF web pages calling http://www.eclipse.org or http://localhost</bug>
+<bug id="134368">Fix XMLSave to Document to handle null options better.</bug>
+<bug id="134369">Fix InternalSettingDelegateSingleEObject to handle inverse containment properly</bug>
+<bug id="134370">Improve performance of XMLHandler.MyStack.</bug>
+<bug id="134917">The properties view for datagraph editor does not accept input</bug>
+<bug id="135920">Problem with generation of validators</bug>
+<bug id="135986">Class template doesn't compile when there is a setGenFeature.override.javajetinc inclusion</bug>
+<bug id="135988">Exporter: Display information/warning about the export</bug>
+<bug id="136236">Cross Reference Adapter should provide containment references as well since it is providing the container.</bug>
+<bug id="136347">XMLResource.OPTION_SAVE_TYPE_INFORMATION has no effect</bug>
+<bug id="136356">ChangeCommand</bug>
+<bug id="136358">ChangeRecorder: Problems when adding a resource to a ResourceSet</bug>
+</entry>
+
 <entry build="2.2.0M6" project="emf" version="2.2.0">
 <bug id="105380">Editor does not always detect resource changes on activation</bug>
 <bug id="131376">Create overlay images on the fly</bug>
@@ -472,6 +491,15 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200604130000" project="xsd" version="2.2.0">
+<bug id="132360">Indenting fix for Java 5</bug>
+<bug id="133427">Transitive inclusion of XMI.xsd can fail</bug>
+<bug id="134193">NPE in XSDParser when parsing a schema with top level comment</bug>
+<bug id="134641">Extend the XSDDiagnostic interface to provide the message ID and parameters</bug>
+<bug id="135988">Exporter: Display information/warning about the export</bug>
+<bug id="136267">XSDEcoreBuilder.generate throws ClassCastException</bug>
 </entry>
 
 <entry build="2.2.0M6" project="xsd" version="2.2.0">
@@ -2321,4 +2349,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.146 2006/04/06 15:04:04 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.147 2006/04/13 05:25:32 nickb Exp $ -->
