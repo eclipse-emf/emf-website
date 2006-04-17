@@ -368,13 +368,13 @@ function showXML(dateStamp,type,range) {
 //		"1 half (weekly)" => "hw", // server timeout - too much data
 		"1 quarter (weekly)" => "qw",
 		"1 month (weekly)" => "mw",
-		"1 week" => "ww",
+		"1 week" => "ww"
 
 	    // monthly-by-day (30), fortnight-by-day (14), weekly-by-day (7), a specific day (1)
 //	    "1 month (30 days)" => "md", // server timeout - too much data
-		"1 fortnight (daily)" => "fd",
-		"1 week (daily)" => "wd",
-		"1 day" => "dd" 
+//		"1 fortnight (daily)" => "fd",
+//		"1 week (daily)" => "wd",
+//		"1 day" => "dd" 
 	);
 	
 	foreach ($rangeOptions as $label => $value) {
@@ -667,4 +667,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.19 2006/02/16 21:50:34 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.20 2006/04/17 17:27:20 nickb Exp $ -->
