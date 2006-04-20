@@ -30,7 +30,6 @@
 <!-- 2.2.0 -->
 
 <entry build="2.2.0RC1" project="emf" version="2.2.0">
-<bug id="84950">Show load errors as markers when opening generated editor</bug>
 <bug id="135379">support encoding of charactesr that are valid in XML 1.1</bug>
 <bug id="135689">Ecore editor should limit access to the generated EcorePackage's classifiers.</bug>
 <bug id="136002">Compile errors in generated code when using unsettable map feature</bug>
@@ -39,6 +38,7 @@
 <bug id="136693">New header not merged after code re-generation</bug>
 <bug id="136998">Make EPackage the default choice when created new Ecore model.</bug>
 <bug id="137099">JMerger: Method qualified name computation should be common to facade implementations</bug>
+<bug id="137234">Mock 3.2 - Unexternalized string in sample xml schema editor</bug>
 <bug id="137302">Converter API: Package page should show the qualified name of the ecore package</bug>
 <bug id="137485">Invalid attributes in SDK feature.xml</bug>
 <bug id="137514">Duplicate cvc-minInclusive-valid property incorrect in XSD jar's plugin.properties file?</bug>
@@ -2372,4 +2372,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.148 2006/04/20 13:39:15 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.149 2006/04/20 13:43:27 nickb Exp $ -->
