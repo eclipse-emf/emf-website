@@ -80,7 +80,7 @@
 	<table border="0" cellspacing="1" cellpadding="3">
 		<tr class="light-row" valign="bottom">
 			<td colspan="1" class="big-header">
-				<b class="big-header">Newest Model: </b> 
+				<b class="big-header">Newest Contribution: </b> 
 					<xsl:for-each select="model">
 						<xsl:if test="(position()=1)">
 							<span class="datestamp" style="font-weight:normal"><xsl:value-of select="@date"/></span>
@@ -361,4 +361,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.19 2006/02/02 16:24:50 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.20 2006/04/25 20:38:08 nickb Exp $ -->

@@ -2,6 +2,25 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model modelName="Acceleo" date="2006-04-25" category="EMF tool" modelID="JonathanMusset20060425161117">
+<text>Acceleo is an OpenSource code generator designed to implement the MDA approach and to improve software development productivity. It includes tools and editors making it easy to learn and to adapt to any kind of technology and it is fully based on EMF.
+Acceleo main features are the followings :
+<ul>
+<li>Any meta-model support including UML 2.0, UML1.4 (using a MDR bridge)</li>
+<li>Template Editor with syntax colouring, in-line completion for meta-model elements, scripts, services and  error detection for compilation and runtime errors</li>
+<li>Reflective Editor for precise and real-time preview of generation results</li>
+<li>Execution chains acting as a “glue” for real project generation, specifying which model to use, where and what to generate, etc...</li>
+<li>Tree-like syntax very easy and natural to use</li>
+<li>Fully extensible thanks to the use of Services developed in Java</li>
+<li>Incremental generation support: manual code is kept after every generation</li></ul>
+Acceleo has been designed by MDA experienced users for real users, so we hope you enjoy it !</text>
+    <modelURL>http://www.acceleo.org</modelURL>
+    <thumbnailURL>http://www.acceleo.org/images/acceleo/logo_acceleo.jpg</thumbnailURL>
+    <screenshotURL>http://www.acceleo.org/pages/screenshots/</screenshotURL>
+    <submitter>Jonathan Musset</submitter> 
+    <submitterURL>http://www.obeo.fr</submitterURL>
+  </model>
+
 <review 
 reviewName="EMF Persistency Layer using JDO/JPOX, a distribution and screenshot" 
 date="2006-03-30" 
@@ -510,4 +529,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.27 2006/04/05 02:20:49 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.28 2006/04/25 20:37:16 nickb Exp $ -->
