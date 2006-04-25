@@ -2,22 +2,36 @@
 
 	include_once $pre."includes/php42fix.php"; 
 	include_once $pre."includes/scripts.php"; 
-
-	if ($doc) {
-		$ext = substr( $doc,-4 );
-		switch( $ext ){
-			case ".pdf": $ctype="application/pdf";	break;
-			case ".zip": $ctype="application/zip";	break;
-			default:		 $ctype="text/html";
-		}
-
-		if ($ctype!="text/html" || $noHeader==true) { // don't parse the file; track view, then redirect as is to the page
-			//include_once $pre."includes/clickthru-tracker.php";
-			echo "\n"."<html><body onload=\"document.location.href='$doc';\"></body>\n";
-			exit();
+	if ($doc && $doc!="docs/docs.xml") {
+		if (0===strpos($doc,"http")) {
+			header("Location: ".$doc);
+			exit;
+		} else {
+			// TODO: all these docs should be migrated out of emf-home and into www/emf
+			$CVSpre			= "http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/"; 
+			$CVSpreEMF		= "http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/"; 
+			$CVSpreXSD		= "http://dev.eclipse.org/viewcvs/indextech.cgi/%7Echeckout%7E/xsd-home/";
+			 
+			$CVSpreDocEMF	= "http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf/doc/org.eclipse.emf.doc/"; 
+			$CVSpreDocSDO	= "http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf.ecore.sdo/doc/org.eclipse.emf.ecore.sdo.doc/";
+			$CVSpreDocXSD	= "http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.xsd/doc/org.eclipse.xsd.doc/";
+			if (false!==strpos($doc,"org.eclipse.xsd.doc/")) { // xsd docs
+				$doc = str_replace("org.eclipse.xsd.doc/","",$doc);
+				header("Location: ".$CVSpreDocXSD.$doc);
+				exit;
+			} else if (false!==strpos($doc,"org.eclipse.emf.ecore.sdo.doc/")) { // sdo docs
+				$doc = str_replace("org.eclipse.emf.ecore.sdo.doc/","",$doc);
+				header("Location: ".$CVSpreDocSDO.$doc);
+				exit;
+			} else if (strstr($doc,"docs/")) { 
+				header("Location: ".$CVSpre.$doc);
+				exit;
+			} else if (strstr($doc,"references/") || strstr($doc,"tutorials/")) { 
+				header("Location: ".$CVSpreDocEMF.$doc);
+				exit;
+			} 
 		}
 	}
-
 	$pre = "";
 	$HTMLTitle = "Eclipse Tools - EMF Documents";
 	$ProjectName = array(
@@ -26,16 +40,15 @@
 		$doc?'EMF Documents':($showNews?'What\'s New? | <a style="color:white;text-decoration:none" href="docs.php?showNews=">Hide</a>':'Documents | <a style="color:white;text-decoration:none" href="docs.php?showNews=true">What\'s New?</a>'),
 		"images/reference.gif"
 		);
-	include_once $pre."includes/header.php"; 
 		
-	if (!$doc) { ?>
+	include_once $pre."includes/header.php"; ?>
 <script language="javascript" src="includes/popup.js"></script>
 <table><tr><td><img src="images/<?php echo $pre; ?>images/c.gif" width=1 height=1></td></tr></table>
 
 <?php 
-		if ($showNews) {
-			getNews(-1,"docs");
-			echo '<table>
+	if ($showNews) {
+		getNews(-1,"docs");
+		echo '<table>
     <tr>
       <td>
         <a name="documents">
@@ -67,29 +80,9 @@
       </td>
     </tr>
   </table>';
-		}
-		$doc = "docs/docs.xml";	
-		 
 	}
-	// check doc plugin first, then check emf-home
 
-	ini_set("display_errors","0"); // suppress file not found errors
-	if ($doc=="docs/docs.xml") { 
-		$CVSpreUsed = "";					$f = getFile($doc); 			// on www
-	} else if (strstr($doc,"http://") || strstr($doc,"https://")) {
-		$CVSpreUsed = "";					$f = file($doc); 						// emf-home (or other remote)
-	} else if (false!==strpos($doc,"org.eclipse.xsd.doc/")) { // xsd docs
-		$doc = str_replace("org.eclipse.xsd.doc/","",$doc);
-		$CVSpreUsed = $CVSpreDocXSD;	$f = file($CVSpreDocXSD.$doc);	// org.eclipse.xsd
-	} else if (false!==strpos($doc,"org.eclipse.emf.ecore.sdo.doc/")) { // sdo docs
-		$doc = str_replace("org.eclipse.emf.ecore.sdo.doc/","",$doc);
-		$CVSpreUsed = $CVSpreDocSDO;	$f = file($CVSpreDocSDO.$doc);	// org.eclipse.emf.ecore.sdo
-	} else if (strstr($doc,"docs/")) { 
-		$CVSpreUsed = $CVSpre;			$f = file($CVSpre.$doc); 			// emf-home
-	} else if (strstr($doc,"references/") || strstr($doc,"tutorials/")) { 
-		$CVSpreUsed = $CVSpreDocEMF;	$f = file($CVSpreDocEMF.$doc);	// org.eclipse.emf
-	} 
-	ini_set("display_errors","1"); // and turn 'em back on.
+	$f = getFile("docs/docs.xml");
 
 	$folder = preg_replace("/(.+\/)[^\/]+\.(html|xml)$/","$1",$doc);
 	if ($folder==$doc) { $folder=""; }
@@ -98,7 +91,7 @@
 		echo "$doc document not found!";
 		$f = array();
 	} else { 
-		echo "<!-- /* doc: $doc found in $CVSpreUsed */ -->\n";
+		echo "<!-- /* doc: $doc found */ -->\n";
 	}
 
 	$stopped=1;
@@ -160,4 +153,4 @@
 include_once $pre."includes/footer.php"; 
 //if ($doc && false===strpos($doc,"docs.xml")) { include_once $pre."includes/clickthru-tracker.php"; } ?>
 
-<!-- $Id: docs.php,v 1.10 2006/04/03 19:28:03 nickb Exp $ -->
+<!-- $Id: docs.php,v 1.11 2006/04/25 22:44:57 nickb Exp $ -->
