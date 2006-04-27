@@ -29,6 +29,36 @@
 
 <!-- 2.2.0 -->
 
+<entry build="I200604270000" project="emf" version="2.2.0">
+<bug id="84950">Show load errors as markers when opening generated editor</bug>
+<bug id="109127">Support a mechanism to determine a library's build version at runtime</bug>
+<bug id="124307">Duplicate methods generated for annotations in PackageImpl</bug>
+<bug id="126068">Enhancement: make genmodel tree viewer more user-friendly</bug>
+<bug id="131611">duplicates methods using inheritance and GenModel / body</bug>
+<bug id="131674">StackOverflowError with large EMF models</bug>
+<bug id="135206">ArrayStoreException while mapping instance with corresponding ecoremodel</bug>
+<bug id="135689">Ecore editor should limit access to the generated EcorePackage's classifiers.</bug>
+<bug id="136002">Compile errors in generated code when using unsettable map feature</bug>
+<bug id="136613">value INF does not work when validating against built-in type double, float</bug>
+<bug id="136653">EContentAdapter throws ClassCastException when unsettable list features are unset</bug>
+<bug id="136693">New header not merged after code re-generation</bug>
+<bug id="136998">Make EPackage the default choice when created new Ecore model.</bug>
+<bug id="137089">Provide support for root elements of unknown type</bug>
+<bug id="137099">JMerger: Method qualified name computation should be common to facade implementations</bug>
+<bug id="137302">Converter API: Package page should show the qualified name of the ecore package</bug>
+<bug id="137485">Invalid attributes in SDK feature.xml</bug>
+<bug id="137514">Duplicate cvc-minInclusive-valid property incorrect in XSD jar's plugin.properties file?</bug>
+<bug id="137587">Compile error in generated code in M6 that did not happen in M5</bug>
+<bug id="137600">Polish labels in tools</bug>
+<bug id="137808">Exceptions from createFromString lock-up the editor</bug>
+<bug id="137972">ChangeRecorder should be sensitive to containment proxies</bug>
+<bug id="137991">PERF: getPrefix() and getPrefixes() is slow</bug>
+<bug id="138270">org.eclipse.emf.test.xml.encoding.UnicodeEncodingTest does not clean up after itself</bug>
+<bug id="138524">Compile errors when supress interfaces is on and have instance class name</bug>
+<bug id="138559">XML Loader doesn't handle namespace prefixes correctly</bug>
+<bug id="138742">ClassCastException in EcoreUtil.getAllProperContents(ResourceSet, boolean)</bug>
+</entry>
+
 <entry build="2.2.0RC1" project="emf" version="2.2.0">
 <bug id="135379">support encoding of charactesr that are valid in XML 1.1</bug>
 <bug id="135689">Ecore editor should limit access to the generated EcorePackage's classifiers.</bug>
@@ -508,6 +538,12 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="I200604270000" project="xsd" version="2.2.0">
+<bug id="136613">value INF does not work when validating against built-in type double, float</bug>
+<bug id="137234">Mock 3.2 - Unexternalized string in sample xml schema editor</bug>
+<bug id="137514">Duplicate cvc-minInclusive-valid property incorrect in XSD jar's plugin.properties file?</bug>
 </entry>
 
 <entry build="2.2.0RC1" project="xsd" version="2.2.0">
@@ -2372,4 +2408,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.149 2006/04/20 13:43:27 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.150 2006/04/27 05:28:56 nickb Exp $ -->
