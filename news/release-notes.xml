@@ -29,6 +29,23 @@
 
 <!-- 2.2.0 -->
 
+<entry build="2.2.0RC2" project="emf" version="2.2.0">
+<bug id="75925">[Plan Item] Generator Extensibility</bug>
+<bug id="135175">Include the line # and column # for int types when the value in xml is empty</bug>
+<bug id="138650">[Drag and Drop] drag/drop has memory leak</bug>
+<bug id="138898">Root class used in PackageExample.javajet might be in different package.</bug>
+<bug id="138941">The XMIException should use the Throwable Cause introduced in 1.4</bug>
+<bug id="138966">EcoreUtil.remove() and EcoreUtil.replace() should be aware of cross-resource containment</bug>
+<bug id="138970">Extension point names should not be externalized</bug>
+<bug id="138971">Provide a generalization of the the marker methods available in ValidateAction.EclipseResourcesUtil</bug>
+<bug id="139378">Typo in BasicExtendedMetadata</bug>
+<bug id="139533">Problem indication on editors</bug>
+<bug id="139536">The error and warning lists should be cleared before saving a Resource</bug>
+<bug id="139538">The Resource.IOWrappedException should use the Throwable Cause introduced in 1.4</bug>
+<bug id="139539">ResourceSet.demandLoadHelp should record errors and warning in the Resource</bug>
+<bug id="139628">Improve the error message for PropertyDescriptors</bug>
+</entry>
+
 <entry build="I200604270000" project="emf" version="2.2.0">
 <bug id="84950">Show load errors as markers when opening generated editor</bug>
 <bug id="109127">Support a mechanism to determine a library's build version at runtime</bug>
@@ -538,6 +555,11 @@
 <bug id="105800">Cannot Create Models With '#' In The Name</bug>
 <bug id="104717" sub="sdo">[Plan Item] Support SDO 1.0 to load XML without schema</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
+</entry>
+
+<entry build="2.2.0RC2" project="xsd" version="2.2.0">
+<bug id="136901">large schema leads to hang, huge memory bloat</bug>
+<bug id="139447">Support round trip for non-schema namespace attributes from and to schema</bug>
 </entry>
 
 <entry build="I200604270000" project="xsd" version="2.2.0">
@@ -2408,4 +2430,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.150 2006/04/27 05:28:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.151 2006/05/02 14:38:37 nickb Exp $ -->
