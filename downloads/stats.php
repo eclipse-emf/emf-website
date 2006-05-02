@@ -146,7 +146,7 @@ $queries = array(
 /***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
 $qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
-$qsvars["generator"] = '$Id: stats.php,v 1.91 2006/03/03 20:04:52 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.92 2006/05/02 16:39:11 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -275,14 +275,17 @@ function doQuery($sql,$isCSV=false) {
     $dbc = new DBConnectionDownloads(); $dbh = $dbc->connect(); $rs = mysql_query($sql, $dbh);
     
     if(mysql_errno($dbh) > 0) {
+		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		echo "<data>\n";
 		echo "<b>SQL error processing query:</b><br/><small>\n$sql\n</small>\n";
 		# For debugging purposes - don't display this stuff in a production page.
-		# echo mysql_error($dbh);
+		echo "<b>".mysql_error($dbh)."</b>\n";
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.91 2006/03/03 20:04:52 nickb Exp $'.
+			 '$Id: stats.php,v 1.92 2006/05/02 16:39:11 nickb Exp $'.
 			 "\n</small></p>\n";
+		echo "</data>\n";
 		exit;
     }
     while($myrow = mysql_fetch_assoc($rs)) {
