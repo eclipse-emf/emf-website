@@ -655,26 +655,26 @@ class xmlParser
 			$contents = fread($fp,$size);
 			fclose($fp);
 		} else $contents = file_get_contents($filename);
-		$this->loadFromString($contents);
+		$this->loadFromString($filename,$contents);
 	}
 
 	/**
 	  * Loads a xml-document and prepares the parsing
 	  * @param string $contents the document
 	  */
-	function loadFromString($contents)
+	function loadFromString($filename,$contents)
 	{
 		$this->parse_stack = array();
 
 		// find xml opening tag
 		$pos1 = strpos($contents, "<?xml");
 		if ($pos1 === false) {
-			trigger_error ("not xml", E_USER_ERROR);
+			trigger_error ($filename . " is not valid xml", E_USER_ERROR);
 		}
 		// find xml opening tag terminator
 		$pos2 = strpos($contents, "?>");
 		if ($pos2 === false) {
-			trigger_error ("not xml", E_USER_ERROR);
+			trigger_error ($filename . " is not valid xml", E_USER_ERROR);
 		}
 		// find the encoding
 		$xml_att = substr($contents, $pos1, $pos2);
@@ -705,7 +705,7 @@ class xmlParser
 			// find doctype tag terminator
 			$pos = strpos($this->data, ">");
 			if ($pos === false) {
-				trigger_error ("xml parse error", E_USER_ERROR);
+				trigger_error ("xml parse error in ".$filename, E_USER_ERROR);
 			}
 			$this->data = substr($this->data, $pos+1);
 		}
