@@ -31,14 +31,25 @@
 
 <entry build="2.2.0RC2" project="emf" version="2.2.0">
 <bug id="75925">[Plan Item] Generator Extensibility</bug>
+<bug id="125469">CodeGen Reusability</bug>
+<bug id="129223">Enable access to the GenModel's import manager from outside</bug>
+<bug id="131078">JavaFormatter should respect project settings</bug>
 <bug id="135175">Include the line # and column # for int types when the value in xml is empty</bug>
 <bug id="138650">[Drag and Drop] drag/drop has memory leak</bug>
 <bug id="138898">Root class used in PackageExample.javajet might be in different package.</bug>
 <bug id="138941">The XMIException should use the Throwable Cause introduced in 1.4</bug>
+<bug id="138956">There should be a way to create a Diagnostic from an Exception</bug>
 <bug id="138966">EcoreUtil.remove() and EcoreUtil.replace() should be aware of cross-resource containment</bug>
 <bug id="138970">Extension point names should not be externalized</bug>
 <bug id="138971">Provide a generalization of the the marker methods available in ValidateAction.EclipseResourcesUtil</bug>
+<bug id="138980">There should a way to create a Diagnostic from Resource.Diagnostic</bug>
+<bug id="139179">XMLResource assumes errors/warnings are Exceptions</bug>
 <bug id="139378">Typo in BasicExtendedMetadata</bug>
+<bug id="139394">BasicExtendedMetaData's classifier cache should preserve original mapping for conflicting names</bug>
+<bug id="139402">Improve XSD Ecore round tripping</bug>
+<bug id="139403">Fix bug that GenModel's extended meta data isn't populated properly during initialize of new model</bug>
+<bug id="139433">Support round tripping EOperation bodies to and from schema</bug>
+<bug id="139434">Support round tripping constraints to and from schema</bug>
 <bug id="139533">Problem indication on editors</bug>
 <bug id="139536">The error and warning lists should be cleared before saving a Resource</bug>
 <bug id="139538">The Resource.IOWrappedException should use the Throwable Cause introduced in 1.4</bug>
@@ -2430,4 +2441,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.151 2006/05/02 14:38:37 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.152 2006/05/02 15:16:45 nickb Exp $ -->
