@@ -29,6 +29,13 @@
 
 <!-- 2.2.0 -->
 
+<!-- to get missing bugs:
+	wget -O bugs.rdf "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF%2CXSD&bug_status=ASSIGNED&ctype=rdf;
+	cat bugs.rdf | egrep "bz:id|bz:short_short_desc" | sed -e 's/<bz:id nc:parseType="Integer">/<bug id="/g' \
+	-e 's/<\/bz:id>/">/g' -e 's/<bz:short_short_desc>//g' -e 's/<\/bz:short_short_desc>/<\/bug>/g' -e 's/          //g';
+	rm -fr bugs.rdf;
+-->
+
 <entry build="2.2.0RC2" project="emf" version="2.2.0">
 <bug id="75925">[Plan Item] Generator Extensibility</bug>
 <bug id="125469">CodeGen Reusability</bug>
@@ -2441,4 +2448,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.152 2006/05/02 15:16:45 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.153 2006/05/02 15:37:07 nickb Exp $ -->
