@@ -30,7 +30,7 @@
 <!-- 2.2.0 -->
 
 <!-- to get missing bugs:
-	wget -O bugs.rdf --no-check-certificate "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF%2CXSD&bug_status=ASSIGNED&ctype=rdf";
+	wget -O bugs.rdf \-\-no-check-certificate "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF%2CXSD&bug_status=ASSIGNED&ctype=rdf";
 	cat bugs.rdf | egrep "bz:id|bz:short_short_desc" | sed -e 's/<bz:id nc:parseType="Integer">/<bug id="/g' \
 	-e 's/<\/bz:id>/">/g' -e 's/<bz:short_short_desc>//g' -e 's/<\/bz:short_short_desc>/<\/bug>/g' -e 's/          //g';
 	rm -fr bugs.rdf;
@@ -2467,4 +2467,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.155 2006/05/04 17:21:39 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.156 2006/05/04 17:24:17 nickb Exp $ -->
