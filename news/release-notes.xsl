@@ -136,7 +136,6 @@
               </xsl:otherwise>
             </xsl:choose>
             </xsl:for-each>
-            <option value=""> - All - </option>
           </select>
           &#160;
           <input class="black-no-underline" type="submit" name="z" value="Go!"/>
@@ -316,4 +315,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.36 2006/04/03 19:27:42 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.37 2006/05/04 17:38:24 nickb Exp $ -->
