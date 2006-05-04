@@ -30,32 +30,21 @@
 <!-- 2.2.0 -->
 
 <!-- to get missing bugs:
-	wget -O bugs.rdf "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF%2CXSD&bug_status=ASSIGNED&ctype=rdf;
+	wget -O bugs.rdf --no-check-certificate "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF%2CXSD&bug_status=ASSIGNED&ctype=rdf";
 	cat bugs.rdf | egrep "bz:id|bz:short_short_desc" | sed -e 's/<bz:id nc:parseType="Integer">/<bug id="/g' \
 	-e 's/<\/bz:id>/">/g' -e 's/<bz:short_short_desc>//g' -e 's/<\/bz:short_short_desc>/<\/bug>/g' -e 's/          //g';
 	rm -fr bugs.rdf;
 -->
 
 <entry build="I200605041055" project="emf" version="2.2.0">
-<bug id="75925">[Plan Item] Generator Extensibility</bug>
-<bug id="114094">Error opening editor</bug>
-<bug id="135175">Include the line # and column # for int types when the value in xml is empty</bug>
-<bug id="138650">[Drag and Drop] drag/drop has memory leak</bug>
-<bug id="138898">Root class used in PackageExample.javajet might be in different package.</bug>
-<bug id="138941">The XMIException should use the Throwable Cause introduced in 1.4</bug>
-<bug id="138966">EcoreUtil.remove() and EcoreUtil.replace() should be aware of cross-resource containment</bug>
-<bug id="138970">Extension point names should not be externalized</bug>
-<bug id="138971">Provide a generalization of the the marker methods available in ValidateAction.EclipseResourcesUtil</bug>
-<bug id="139378">Typo in BasicExtendedMetadata</bug>
-<bug id="139533">Problem indication on editors</bug>
-<bug id="139538">The Resource.IOWrappedException should use the Throwable Cause introduced in 1.4</bug>
-<bug id="139539">ResourceSet.demandLoadHelp should record errors and warning in the Resource</bug>
-<bug id="139628">Improve the error message for PropertyDescriptors</bug>
 <bug id="139940">Problems in new generator framework</bug>
-<bug id="140015">ZipOutputStream's Deflater not freed eagerly when useZip() is true</bug>
 <bug id="140045">Regenerate models to pickup template changes</bug>
+<bug id="114094">Error opening editor</bug>
+<bug id="140015">ZipOutputStream's Deflater not freed eagerly when useZip() is true</bug>
+<bug id="140069">The problemIndicationAdapter adapter in the generated editor is traversing the entire tree</bug>
 <bug id="140082">There should be a way to generate a single page editor</bug>
 <bug id="140112">EcoreEditor should be generated with the new option &quot;multipleEditorPages&quot; set to false</bug>
+<bug id="140169">Exception on generated editor when Properties is closed</bug>
 <bug id="140140">Refactor EContentAdapter for more flexible override.</bug>
 <bug id="140141">Fix XMLLoadImpl.readBuffer to handle stream failure better.</bug>
 <bug id="140144">Add Problem Indication to Generator Editor</bug>
@@ -602,9 +591,7 @@
 </entry>
 
 <entry build="I200605041055" project="xsd" version="2.2.0">
-<bug id="139447">Support round trip for non-schema namespace attributes from and to schema</bug>
 <bug id="139971">Class cast in XSDSchemaImpl#getEventListener</bug>
-<bug id="140045">Regenerate models to pickup template changes</bug>
 </entry>
 
 <entry build="2.2.0RC2" project="xsd" version="2.2.0">
@@ -2480,4 +2467,4 @@ The XML namespace schema can now be imported without an explicit schema location
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes.xml,v 1.154 2006/05/04 16:47:13 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.155 2006/05/04 17:21:39 nickb Exp $ -->
