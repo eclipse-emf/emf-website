@@ -40,7 +40,9 @@ include $pre . "includes/header.php";
  */
 
 // define XML and XSL sources 
-$XMLfile = "release-notes.xml";
+$XMLfile = "release-notes-".
+    (substr($params["version"],0,3)=="2.2" ? "" : substr($params["version"],0,3))
+    .".xml";
 $XSLfile = "release-notes.xsl";
 
 $processor = xslt_create();
@@ -52,9 +54,12 @@ if(!$result) {
 	echo "Trying to parse ".$XMLfile." with ".$XSLfile."...<br/>";
 	echo "ERROR #".xslt_errno($processor) . " : " . xslt_error($processor);
 }
-echo $result; ?>
+echo $result; 
 
-<p><a href="view-source:http://www.eclipse.org/emf/news/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
+echo '<p><a href="view-source:http://www.eclipse.org/emf/news/'.$XMLfile.'" class="red">View as XML</a></p>'."\n";
 
-<?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: release-notes.php,v 1.14 2006/04/03 19:27:42 nickb Exp $ -->
+include_once $pre . "includes/footer.php"; 
+
+echo "<!-- $Id: release-notes.php,v 1.15 2006/05/04 17:33:16 nickb Exp $ -->"; 
+
+?>
