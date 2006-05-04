@@ -40,9 +40,9 @@ include $pre . "includes/header.php";
  */
 
 // define XML and XSL sources 
-$XMLfile = "release-notes-".
-    (substr($params["version"],0,3)=="2.2" ? "" : substr($params["version"],0,3))
-    .".xml";
+$XMLfile = "release-notes" .
+    (substr($params["version"],0,3)=="2.2" ? "" : "-" . substr($params["version"],0,3))
+    . ".xml";
 $XSLfile = "release-notes.xsl";
 
 $processor = xslt_create();
@@ -60,6 +60,6 @@ echo '<p><a href="view-source:http://www.eclipse.org/emf/news/'.$XMLfile.'" clas
 
 include_once $pre . "includes/footer.php"; 
 
-echo "<!-- $Id: release-notes.php,v 1.15 2006/05/04 17:33:16 nickb Exp $ -->"; 
+echo "<!-- $Id: release-notes.php,v 1.16 2006/05/04 17:36:11 nickb Exp $ -->"; 
 
 ?>
