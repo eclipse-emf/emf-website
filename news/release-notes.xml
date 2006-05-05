@@ -36,6 +36,14 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="2.2.0RC2a" project="emf" version="2.2.0">
+<bug id="131807" sub="1">EMF SDO feature does not select EMF when hitting Select Required in Update Manager</bug>
+<bug id="140177">Change Recorder not attached to contents of resource when loading</bug>
+<bug id="140380">IllegalArgumentException thrown while loading a resource with a missing EPackage on a Sun 1.5 VM</bug>
+<bug id="140383">Reconcilitation missing for new multipleEditorPages property</bug>
+<bug id="140399">Modification to resource in non-UI thread causes SWTException in editor with problem handling</bug>
+</entry>
+
 <entry build="I200605041055" project="emf" version="2.2.0">
 <bug id="139940">Problems in new generator framework</bug>
 <bug id="140045">Regenerate models to pickup template changes</bug>
@@ -590,6 +598,10 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="2.2.0RC2a" project="xsd" version="2.2.0">
+<bug id="131807" sub="1">EMF SDO feature does not select EMF when hitting Select Required in Update Manager</bug>
+</entry>
+
 <entry build="I200605041055" project="xsd" version="2.2.0">
 <bug id="139971">Class cast in XSDSchemaImpl#getEventListener</bug>
 </entry>
@@ -780,4 +792,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.157 2006/05/04 17:33:16 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.158 2006/05/05 20:41:11 nickb Exp $ -->
