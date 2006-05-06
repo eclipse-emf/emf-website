@@ -37,8 +37,9 @@
 -->
 
 <entry build="2.2.0RC2a" project="emf" version="2.2.0">
-<bug id="131807" sub="1">EMF SDO feature does not select EMF when hitting Select Required in Update Manager</bug>
+<bug id="131807" sub="emf,sdo">EMF SDO feature does not select EMF when hitting Select Required in Update Manager</bug>
 <bug id="140177">Change Recorder not attached to contents of resource when loading</bug>
+<bug id="140228">New non-externalized strings not marked in Editor template</bug>
 <bug id="140380">IllegalArgumentException thrown while loading a resource with a missing EPackage on a Sun 1.5 VM</bug>
 <bug id="140383">Reconcilitation missing for new multipleEditorPages property</bug>
 <bug id="140399">Modification to resource in non-UI thread causes SWTException in editor with problem handling</bug>
@@ -373,7 +374,7 @@
 <bug id="120815">Create a common infrastructure for the Importer and Exporter frameworks</bug>
 <bug id="120861">Replace Generate Schema action with the exporter support</bug>
 <bug id="120862">Exporter: The referenced genPackage information is not saved</bug>
-<bug id="120869" sub="1">SDO create followed by delete misrepresented in ChangeSummary</bug>
+<bug id="120869" sub="emf,sdo">SDO create followed by delete misrepresented in ChangeSummary</bug>
 <bug id="120964">GenAnnotations are lost when the GenModel is reloaded.</bug>
 <bug id="120967">The model export dialog should pre-select the last exporter used.</bug>
 <bug id="121074">Possible NPE in SAXWrapper</bug>
@@ -410,7 +411,7 @@
 <bug id="117940">Fix typos in org.eclipse.emf.importer/schema/modelImporterDescriptors.exsd</bug>
 <bug id="117954">Further Virtual Delegation Enhancements</bug>
 <bug id="118048">Support an option to reduce the size of the reflective methods</bug>
-<bug id="118109" sub="1">SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
+<bug id="118109" sub="emf,sdo">SDO Editor needs ReflectiveItemProviderAdapterFactory</bug>
 <bug id="118117">Support GenClass.dynamic</bug>
 <bug id="118314">Using Literals on the importers</bug>
 <bug id="118410">BasicDiagnostic.Wrapper's DiagnosticException constructor should assign diagnostic field.</bug>
@@ -792,4 +793,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.158 2006/05/05 20:41:11 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.159 2006/05/06 00:29:41 nickb Exp $ -->
