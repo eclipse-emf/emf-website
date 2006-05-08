@@ -36,6 +36,21 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="2.2.0RC3" project="emf" version="2.2.0">
+<bug id="125558">Improve the peformance of EModelElement.freeze.</bug>
+<bug id="132548">BIDI: An folder icon is displayed in Resource set panel once tooltip is activated</bug>
+<bug id="140177">Change Recorder not attached to contents of resource when loading</bug>
+<bug id="140380">IllegalArgumentException thrown while loading a resource with a missing EPackage on a Sun 1.5 VM</bug>
+<bug id="140383">Reconcilitation missing for new multipleEditorPages property</bug>
+<bug id="140399">Modification to resource in non-UI thread causes SWTException in editor with problem handling</bug>
+<bug id="140440">[Legal] Update about.html to new May 2, 2006 template</bug>
+<bug id="140443">Problems with GenModel and Suppress Interfaces option</bug>
+<bug id="140495">Make EClassifierImpl.getEPackage faster even for dynamic models.</bug>
+<bug id="140496">Disable XMLParserPoolImpl handler caching by default and provide constructor to turn it on</bug>
+<bug id="140539">DeleteCommand does not remove references for contained objects.</bug>
+<bug id="140692">Support an extension point to control the package registry implementation</bug>
+</entry>
+
 <entry build="2.2.0RC2a" project="emf" version="2.2.0">
 <bug id="131807" sub="emf,sdo">EMF SDO feature does not select EMF when hitting Select Required in Update Manager</bug>
 <bug id="140177">Change Recorder not attached to contents of resource when loading</bug>
@@ -599,6 +614,10 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="2.2.0RC3" project="xsd" version="2.2.0">
+<bug id="140440">[Legal] Update about.html to new May 2, 2006 template</bug>
+</entry>
+
 <entry build="2.2.0RC2a" project="xsd" version="2.2.0">
 <bug id="131807" sub="1">EMF SDO feature does not select EMF when hitting Select Required in Update Manager</bug>
 </entry>
@@ -793,4 +812,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.159 2006/05/06 00:29:41 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.160 2006/05/08 23:52:15 nickb Exp $ -->
