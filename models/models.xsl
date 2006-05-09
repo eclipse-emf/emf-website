@@ -156,7 +156,19 @@
 									<a href="#{@category}{position()}"><xsl:value-of select="@category"/> - <xsl:value-of select="@date"/></a>
 								</xsl:otherwise>
 								</xsl:choose>
-								<xsl:if test="text"><span class="normal"><xsl:value-of select="text"/></span></xsl:if>
+								&#160;
+								<xsl:if test="text"><span class="normal">
+								<xsl:choose>
+								<xsl:when test="string-length(text) &gt; 220">
+									<xsl:value-of select="substring(text,1,220)"/>...
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="text"/>
+								</xsl:otherwise>
+								</xsl:choose>
+								</span>
+								</xsl:if>
+								&#160;<a href="#{@category}{position()}">More...</a>
 							</td>
 							<td class="datestamp" width="50">
 							<xsl:value-of select="substring(@date,1,10)"/>
@@ -361,4 +373,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: models.xsl,v 1.20 2006/04/25 20:38:08 nickb Exp $ -->
+<!-- $Id: models.xsl,v 1.21 2006/05/09 21:39:35 nickb Exp $ -->

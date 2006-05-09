@@ -2,6 +2,25 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model modelName="TOPCASED Graphical Ecore Editor" date="2006-05-09" category="EMF tool" modelID="DavidSciamma20060509162149">
+<text>TOPCASED provides a graphical ecore editor :
+<ul>
+<li>Wizard to create new ecore diagram from scratch or from an existing ecore model</li>
+<li>Handle multi-diagrams</li>
+<li>Tree or overview outline with full edition capabilities</li>
+<li>Image export</li>
+<li>Dedicated documentation view</li>
+<li>...lots of new features are coming</li>
+</ul>
+TOPCASED is an opensource project licensed under EPL.</text>
+<modelURL>http://gforge.enseeiht.fr/frs/?group_id=7</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>David Sciamma</submitter> 
+<submitterURL>http://www.topcased.org</submitterURL>
+</model>
+
+
 <model modelName="Acceleo" date="2006-04-25" category="EMF tool" modelID="JonathanMusset20060425161117">
 <text>Acceleo is an OpenSource code generator designed to implement the MDA approach and to improve software development productivity. It includes tools and editors making it easy to learn and to adapt to any kind of technology and it is fully based on EMF.
 Acceleo main features are the followings :
@@ -467,7 +486,7 @@ documentation.</text>
   date="2004-10-03"
   category="EMF tool"
   modelID="AlexanderRupsch20041003141937">
-    <text>Editor for JET-templates. It is intended to support the development of JET-templates in a quality which is adequate to other eclispe language support.</text>
+    <text>Editor for JET-templates. It is intended to support the development of JET-templates in a quality which is adequate to other eclipse language support.</text>
     <modelURL>http://sourceforge.net/projects/jet-editor/</modelURL>
     <thumbnailURL></thumbnailURL>
     <screenshotURL></screenshotURL>
@@ -529,4 +548,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.28 2006/04/25 20:37:16 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.29 2006/05/09 21:39:35 nickb Exp $ -->
