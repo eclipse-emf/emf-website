@@ -39,10 +39,6 @@
 <entry build="2.2.0RC3" project="emf" version="2.2.0">
 <bug id="125558">Improve the peformance of EModelElement.freeze.</bug>
 <bug id="132548">BIDI: An folder icon is displayed in Resource set panel once tooltip is activated</bug>
-<bug id="140177">Change Recorder not attached to contents of resource when loading</bug>
-<bug id="140380">IllegalArgumentException thrown while loading a resource with a missing EPackage on a Sun 1.5 VM</bug>
-<bug id="140383">Reconcilitation missing for new multipleEditorPages property</bug>
-<bug id="140399">Modification to resource in non-UI thread causes SWTException in editor with problem handling</bug>
 <bug id="140440">[Legal] Update about.html to new May 2, 2006 template</bug>
 <bug id="140443">Problems with GenModel and Suppress Interfaces option</bug>
 <bug id="140495">Make EClassifierImpl.getEPackage faster even for dynamic models.</bug>
@@ -812,4 +808,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.160 2006/05/08 23:52:15 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.161 2006/05/09 12:59:31 nickb Exp $ -->
