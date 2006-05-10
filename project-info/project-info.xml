@@ -27,15 +27,17 @@
   </mailing-lists>
   <project-plan url="/emf/docs.php#plandocs"/>
   <releases>
+    <!-- Future 2.x releases -->
+    <release status="scheduled"
+             date="30/06/2006"
+             name="2.2.0"
+             plan="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html" />
     <!-- Future 2.x maintenance -->
-    <release status="scheduled"
-             date="31/01/2006"
-             name="2.1.2" />
-    <release status="scheduled"
-             date="08/12/2005"
-             name="2.0.5" />
-
     <!-- 2.x releases -->
+    <release status="completed"
+             date="19/01/2006"
+             name="2.1.2"
+             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.2/R200601191349" />
     <release status="completed"
              date="28/09/2005"
              name="2.1.1"
@@ -44,6 +46,10 @@
              date="07/07/2005"
              name="2.1.0"
              plan="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
+    <release status="completed"
+             date="29/11/2005"
+             name="2.0.5"
+             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.5/R200511291418" />
     <release status="completed"
              date="30/09/2005"
              name="2.0.4"
