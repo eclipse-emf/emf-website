@@ -37,11 +37,14 @@
 -->
 
 <entry build="2.2.0RC4" project="emf" version="2.2.0">
+
 <bug id="61751">Sorting support for multi valued editor</bug>
 <bug id="104159">Java Model Importer Exception</bug>
 <bug id="131813">Undesirable open as entry</bug>
 <bug id="138262">[XSD Editor] Reorganize context menu</bug>
 <bug id="139189">The Library example could be bundled in the SDK as a zip to be unzipped upon request into the workspace</bug>
+<bug id="140962">anyAttribute in attributeGroup not reflected in Ecore</bug>
+<bug id="140940">UnsupportedOperationException saving Registered Resource</bug>
 <bug id="141080">Provide support for multiline text editing</bug>
 <bug id="141285">Ecore should extend FlatEObjectImpl</bug>
 <bug id="141529">XMLHelperImpl should correctly load bidirectional references if defer ID resolution switched on</bug>
@@ -847,4 +850,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.164 2006/05/16 03:31:57 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.165 2006/05/16 03:38:50 nickb Exp $ -->
