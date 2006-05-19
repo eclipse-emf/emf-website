@@ -18,7 +18,7 @@
 ';
 
 $queries = array(
-"Defects Entered, 2004-07-01 to 2005-07-07 (GA)" =>
+"Defects Entered, 2005-07-08 to 2006-06-28 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
 FROM 
@@ -27,9 +27,9 @@ FROM
 WHERE 
   PROD.id = BUG.product_id AND 
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' AND BUG.creation_ts <= '2005-07-07'",
+  BUG.creation_ts >= '2005-07-08' AND BUG.creation_ts <= '2006-06-28'",
 
-"Defects Fixed/Resolved/Closed of Those Entered, 2004-07-01 to 2005-07-07 (GA)" =>
+"Defects Fixed/Resolved/Closed of Those Entered, 2005-07-08 to 2006-06-28 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
 FROM 
@@ -38,7 +38,7 @@ FROM
 WHERE 
   PROD.id = BUG.product_id AND 
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' AND BUG.creation_ts <= '2005-07-07' AND
+  BUG.creation_ts >= '2005-07-08' AND BUG.creation_ts <= '2006-06-28' AND
     (
       BUG.bug_status = 'RESOLVED' OR BUG.bug_status = 'VERIFIED' OR
       BUG.bug_status = 'CLOSED' OR 
@@ -46,7 +46,7 @@ WHERE
       BUG.resolution = 'WONTFIX' OR BUG.resolution = 'WORKSFORME'
     )",
 
-"Defects NOT Fixed/Resolved/Closed of Those Entered, 2004-07-01 to 2005-07-07 (GA)" =>
+"Defects NOT Fixed/Resolved/Closed of Those Entered, 2005-07-08 to 2006-06-28 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
 FROM 
@@ -55,7 +55,7 @@ FROM
 WHERE 
   PROD.id = BUG.product_id AND 
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' AND BUG.creation_ts <= '2005-07-07' AND
+  BUG.creation_ts >= '2005-07-08' AND BUG.creation_ts <= '2006-06-28' AND
     (
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
@@ -63,7 +63,7 @@ WHERE
       BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WANDKSFANDME'
     )",
 
-"Defects Fixed/Resolved/Closed Between 2004-07-01 and 2005-07-07 (GA) (including older bugs)" =>
+"Defects Fixed/Resolved/Closed Between 2005-07-08 and 2006-06-28 (GA) (including older bugs)" =>
 "SELECT DISTINCT 
    count(BUG.bug_id) as CNT
 FROM 
@@ -75,7 +75,7 @@ WHERE
   FLD.fieldid = ACT.fieldid AND
   PROD.id = BUG.product_id AND 
   BUG.bug_id = ACT.bug_id AND 
-  ACT.bug_when >= '2004-07-01' AND ACT.bug_when <= '2005-07-07' AND
+  ACT.bug_when >= '2005-07-08' AND ACT.bug_when <= '2006-06-28' AND
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
     ( (FLD.description = 'Resolution' AND ACT.added = 'FIXED') OR
       (FLD.description = 'Resolution' AND ACT.added = 'INVALID') OR
@@ -86,7 +86,7 @@ WHERE
       (FLD.description = 'Status' AND ACT.added = 'CLOSED') 
     )",
 
-"Critical Defects NOT Fixed/Resolved/Closed of Those Entered, 2004-07-01 to 2005-07-07 (GA)" =>
+"Critical Defects NOT Fixed/Resolved/Closed of Those Entered, 2005-07-08 to 2006-06-28 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
 FROM 
@@ -95,7 +95,7 @@ FROM
 WHERE 
   PROD.id = BUG.product_id AND 
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' AND BUG.creation_ts <= '2005-07-07' AND
+  BUG.creation_ts >= '2005-07-08' AND BUG.creation_ts <= '2006-06-28' AND
     (
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
@@ -104,7 +104,7 @@ WHERE
     ) AND
     BUG.bug_severity = 'critical'",
 
-"Blocker Defects NOT Fixed/Resolved/Closed of Those Entered, 2004-07-01 to 2005-07-07 (GA)" =>
+"Blocker Defects NOT Fixed/Resolved/Closed of Those Entered, 2005-07-08 to 2006-06-28 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
 FROM 
@@ -113,7 +113,7 @@ FROM
 WHERE 
   PROD.id = BUG.product_id AND 
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' AND BUG.creation_ts <= '2005-07-07' AND
+  BUG.creation_ts >= '2005-07-08' AND BUG.creation_ts <= '2006-06-28' AND
     (
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
@@ -122,7 +122,7 @@ WHERE
     ) AND
     BUG.bug_severity = 'blocker'",
 
-"P1 Defects NOT Fixed/Resolved/Closed of Those Entered, 2004-07-01 to 2005-07-07 (GA)" =>
+"P1 Defects NOT Fixed/Resolved/Closed of Those Entered, 2005-07-08 to 2006-06-28 (GA)" =>
 "SELECT DISTINCT
   count(BUG.bug_id) AS CNT
 FROM 
@@ -131,7 +131,7 @@ FROM
 WHERE 
   PROD.id = BUG.product_id AND 
   (PROD.name = 'EMF' OR PROD.name = 'XSD') AND
-  BUG.creation_ts >= '2004-07-01' AND BUG.creation_ts <= '2005-07-07' AND
+  BUG.creation_ts >= '2005-07-08' AND BUG.creation_ts <= '2006-06-28' AND
     (
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
