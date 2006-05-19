@@ -41,7 +41,7 @@ WHERE
   AND (
     TXT.thetext like "%to cvs%"
     OR TXT.thetext like "%in cvs%")
-  AND TXT.bug_when >= "2005-01-01"
+  AND TXT.bug_when >= "2005-07-07"
   AND PROF.realname in (
     "Dave Steinberg"
     ,"Ed Merks"
