@@ -1404,13 +1404,14 @@
         Overview</a>,
 		<a
         href="http://www.eclipse.org/emf/plan/plan-2.2.xml">
-        Prioritized Bugs</a>
+        Prioritized Bugs</a>, 
+        <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs.php?doc=docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)
       </td>
 
-      <td>September 20
+      <td>May 19
       <sup>th</sup>
 
-      2005</td>
+      2006</td>
     </tr>
 
 	<tr>
@@ -1924,5 +1925,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.34 2006/04/03 19:26:10 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.35 2006/05/19 20:37:29 nickb Exp $ -->
 
