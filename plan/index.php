@@ -4,7 +4,7 @@
 
 	$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
 	
-	if (!$isWWWserver) { 
+	if (false || !$isWWWserver) { 
 		header("Location: http://www.eclipse.org/emf/plan/index.php");
 		exit;
 	} else {
