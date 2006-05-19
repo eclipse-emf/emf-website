@@ -105,11 +105,11 @@ WHERE
 #  AND PROF.realname = "Dave Steinberg"
   AND PROF.realname = "Nick Boldt"
 
-#// check for "The fix is in CVS" / "Committed to CVS" since 2005-01-01
+#// check for "The fix is in CVS" / "Committed to CVS" since 2005-07-07
   AND (
     TXT.thetext like "%to cvs%" OR 
     TXT.thetext like "%in cvs%")
-  AND TXT.bug_when >= "2005-01-01"
+  AND TXT.bug_when >= "2005-07-07"
 
 #// ORDER, LIMIT, and DESC do not work with count() functions
 
@@ -148,7 +148,7 @@ WHERE
   AND (
     TXT.thetext like "%to cvs%"
     OR TXT.thetext like "%in cvs%")
-  AND TXT.bug_when >= "2005-01-01"
+  AND TXT.bug_when >= "2005-07-07"
   AND PROF.realname in (
     "Dave Steinberg"
     ,"Ed Merks"
