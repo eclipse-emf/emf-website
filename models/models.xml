@@ -2,6 +2,21 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<review reviewName="A must have for those who love EMF and distributed applications" date="2006-05-18" rating="9" modelID="EikeStepper20041011132202" reviewID="SewerynNiemiec20060518142902">
+<text>Imagine you have the same instance of EMF model on many Eclipse platforms and machines. Editors are notified about changes made in other editors. Additionally you get model persistence in relational database. New version utilizes non-blocking IO and has well prepared, ready to use example of distributed EMF Editor and CDO Resource Browser.</text>
+<reviewer>Seweryn Niemiec</reviewer>
+<reviewerURL></reviewerURL>
+</review>
+
+<model modelName="Lightweight Modeling" date="2006-04-30" category="EMF article" modelID="Ronald20060430174208">
+<text>This article on TheServerSide brought my attention to EMF. It might be interesting to others (newbies like me?).</text>
+<modelURL>http://www.theserverside.com/articles/article.tss?l=LightweightModeling</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Ronald</submitter> 
+<submitterURL></submitterURL>
+</model>
+
 <model modelName="TOPCASED Graphical Ecore Editor" date="2006-05-09" category="EMF tool" modelID="DavidSciamma20060509162149">
 <text>TOPCASED provides a graphical ecore editor :
 <ul>
@@ -510,26 +525,12 @@ documentation.</text>
     <submitterURL></submitterURL>
   </model>
 
-<!--  <model
-     modelName="Welcome To EMF Corner"
-     date="2004-09-13"
-     category="General discussion"
-     modelID="NickBoldt20040913165614">
-    <text>Welcome, everyone. If you have any suggestions or comments, please post them into this thread or start your own under the General Discussion category.</text>
-    <modelURL>http://www.eclipse.org/emf/models.xml</modelURL>
-    <thumbnailURL></thumbnailURL>
-    <screenshotURL></screenshotURL>
-    <submitter>Nick Boldt</submitter>
-    <submitterURL>http://www.divbyzero.com/v-web/b2/index.php?cat=2</submitterURL>
-  </model> -->
-
-<!--   <category-def category="General discussion"  label="General Discussion" /> -->
-
    <category-def category="EMF model"     label="EMF Models" />
    <category-def category="EMF framework" label="EMF Frameworks" />
    <category-def category="EMF tool"      label="EMF Tools" />
    <category-def category="EMF utility"   label="EMF Utilities" />
    <category-def category="EMF example"   label="EMF Examples" />
+   <category-def category="EMF article"   label="EMF Articles" />
    <category-def category="EMF other"     label="EMF (Other)" />
 
    <category-def category="SDO model"     label="SDO Models" />
@@ -548,4 +549,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.29 2006/05/09 21:39:35 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.30 2006/05/20 05:35:04 nickb Exp $ -->
