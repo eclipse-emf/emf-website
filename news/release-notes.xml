@@ -36,6 +36,17 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="2.2.0RC5" project="emf" version="2.2.0">
+<bug id="142558">SDK documentation uniformization</bug>
+<bug id="142589">Update Eclipse 3.2 feature icons</bug>
+<bug id="142734">The model exporter should reconcile the model before diagnosing its problems</bug>
+<bug id="142759">cardinality of wildcard not used when maxOccurs=1</bug>
+<bug id="142870">Generate for parents of selected model element</bug>
+<bug id="143241">EReferenceItemProvider needs to also override resetProperyValue for eOpposite feature</bug>
+<bug id="143250">JavaEcoreBuilder for containment=&quot;true&quot; should have resolveProxies false by default</bug>
+<bug id="143264">usedGenPackages property is being appended with a redundant reference package in resync operation</bug>
+</entry>
+
 <entry build="I200605181255" project="emf" version="2.2.0">
 <bug id="135571">No error reported for invalid generated_package extension</bug>
 <bug id="141119">Dialog warning that project does not contain annotated source</bug>
@@ -649,6 +660,13 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="2.2.0RC5" project="xsd" version="2.2.0">
+<bug id="142558">SDK documentation uniformization</bug>
+<bug id="142559">SDK documentation uniformization</bug>
+<bug id="142589">Update Eclipse 3.2 feature icons</bug>
+<bug id="143250">JavaEcoreBuilder for containment=&quot;true&quot; should have resolveProxies false by default</bug>
+</entry>
+
 <entry build="I200605181255" project="xsd" version="2.2.0">
 <bug id="142200">EcoreSchemaBuilder should add ecore:name for names that won't be round tripped</bug>
 </entry>
@@ -861,4 +879,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.167 2006/05/19 15:39:44 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.168 2006/05/23 22:47:39 nickb Exp $ -->
