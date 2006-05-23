@@ -1405,7 +1405,7 @@
 		<a
         href="http://www.eclipse.org/emf/plan/plan-2.2.xml">
         Prioritized Bugs</a>, 
-        <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)
+        <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)
       </td>
 
       <td>May 19
@@ -1445,7 +1445,7 @@
         <a
         href="http://www.eclipse.org/emf/plan/plan-2.1.xml">
         Prioritized Bugs</a>, 
-        <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)
+        <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)
       </td>
 
       <td>July 27
@@ -1925,5 +1925,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.36 2006/05/19 20:39:02 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.37 2006/05/23 15:40:31 nickb Exp $ -->
 
