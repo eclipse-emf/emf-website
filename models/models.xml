@@ -2,6 +2,16 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<review reviewName="Acceleo Review" date="2006-05-21" rating="8"
+modelID="JonathanMusset20060425161117" reviewID="Adelino20060521170213">
+<text>After doing the quick start tutorial found on the Acceleo web site, I am
+very impressed by the simplicity and quality of this plug-in. Acceleo allows
+with a few clicks to generate code from an EMF model using one or more
+JET-like templates.</text>
+<reviewer>Adelino</reviewer>
+<reviewerURL></reviewerURL>
+</review>
+
 <review reviewName="A must have for those who love EMF and distributed applications" date="2006-05-18" rating="9" modelID="EikeStepper20041011132202" reviewID="SewerynNiemiec20060518142902">
 <text>Imagine you have the same instance of EMF model on many Eclipse platforms and machines. Editors are notified about changes made in other editors. Additionally you get model persistence in relational database. New version utilizes non-blocking IO and has well prepared, ready to use example of distributed EMF Editor and CDO Resource Browser.</text>
 <reviewer>Seweryn Niemiec</reviewer>
@@ -549,4 +559,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.30 2006/05/20 05:35:04 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.31 2006/05/23 00:28:44 nickb Exp $ -->
