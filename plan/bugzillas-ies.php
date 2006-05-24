@@ -60,7 +60,7 @@ WHERE
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
       BUG.resolution != 'FIXED' AND BUG.resolution != 'INVALID' AND
-      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WANDKSFANDME'
+      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WORKSFORME'
     )",
 
 "Defects Fixed/Resolved/Closed Between 2005-07-08 and 2006-06-28 (GA) (including older bugs)" =>
@@ -100,7 +100,7 @@ WHERE
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
       BUG.resolution != 'FIXED' AND BUG.resolution != 'INVALID' AND
-      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WANDKSFANDME'
+      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WORKSFORME'
     ) AND
     BUG.bug_severity = 'critical'",
 
@@ -118,7 +118,7 @@ WHERE
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
       BUG.resolution != 'FIXED' AND BUG.resolution != 'INVALID' AND
-      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WANDKSFANDME'
+      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WORKSFORME'
     ) AND
     BUG.bug_severity = 'blocker'",
 
@@ -136,7 +136,7 @@ WHERE
       BUG.bug_status != 'RESOLVED' AND BUG.bug_status != 'VERIFIED' AND
       BUG.bug_status != 'CLOSED' AND 
       BUG.resolution != 'FIXED' AND BUG.resolution != 'INVALID' AND
-      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WANDKSFANDME'
+      BUG.resolution != 'WONTFIX' AND BUG.resolution != 'WORKSFORME'
     ) AND
     BUG.priority = 'P1'"
 
