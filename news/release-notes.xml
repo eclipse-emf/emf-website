@@ -38,14 +38,6 @@
 
 <entry build="I200605250000" project="emf" version="2.2.0">
 <bug id="130998">Allow no-compile option in XSDImporterApplication and ant tasks</bug>
-<bug id="142558">SDK documentation uniformization</bug>
-<bug id="142589">Update Eclipse 3.2 feature icons</bug>
-<bug id="142734">The model exporter should reconcile the model before diagnosing its problems</bug>
-<bug id="142759">cardinality of wildcard not used when maxOccurs=1</bug>
-<bug id="142870">Generate for parents of selected model element</bug>
-<bug id="143241">EReferenceItemProvider needs to also override resetProperyValue for eOpposite feature</bug>
-<bug id="143250">JavaEcoreBuilder for containment=&quot;true&quot; should have resolveProxies false by default</bug>
-<bug id="143264">usedGenPackages property is being appended with a redundant reference package in resync operation</bug>
 <bug id="143494">Overriden method not called any more in GenBaseItemProvider</bug>
 <bug id="143554">trying to reach fixpoint in regenerating model: problems with data type</bug>
 </entry>
@@ -675,14 +667,9 @@
 </entry>
 
 <entry build="I200605250000" project="xsd" version="2.2.0">
-<bug id="142558">SDK documentation uniformization</bug>
-<bug id="142559">SDK documentation uniformization</bug>
-<bug id="142589">Update Eclipse 3.2 feature icons</bug>
-<bug id="143250">JavaEcoreBuilder for containment=&quot;true&quot; should have resolveProxies false by default</bug>
 </entry>
 
 <entry build="2.2.0RC5" project="xsd" version="2.2.0">
-<bug id="142558">SDK documentation uniformization</bug>
 <bug id="142559">SDK documentation uniformization</bug>
 <bug id="142589">Update Eclipse 3.2 feature icons</bug>
 <bug id="143250">JavaEcoreBuilder for containment=&quot;true&quot; should have resolveProxies false by default</bug>
@@ -900,4 +887,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.169 2006/05/25 05:19:41 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.170 2006/05/25 14:04:21 nickb Exp $ -->
