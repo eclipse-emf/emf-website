@@ -1408,7 +1408,7 @@
         <a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a> <a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)
       </td>
 
-      <td>May 19
+      <td>May 26
       <sup>th</sup>
 
       2006</td>
@@ -1925,5 +1925,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.37 2006/05/23 15:40:31 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.38 2006/05/26 04:11:04 nickb Exp $ -->
 
