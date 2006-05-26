@@ -2,6 +2,20 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<review reviewName="Sympedia GenFw Generator Framework Review" date="2006-05-25" rating="8" modelID="EikeStepper20060204144820" reviewID="PhilippW.Kutter20060525142703">
+    <text>We have been using GenFw productively in a large project in the financial industry over the last 3 months. Originally we have chosen GenFw because it allowed to do certain things (like project specific code formatting/adding removing templates) which where not working in EMF back then.
+
+The usage of GenFw was straight forward, and it helped us nicely manage our custom JET templates. The option to do EMF without merging is something very interesting in very large projects, like the one we worked on.
+
+The developer of GenFw, Eike Stepper did a tremendous job porting his framework back from Eclipse 3.2/EMF 2.2 to Eclipse 3.1/EMF 2.1. Without this special effort, our EMF introduction would have been canceled by the management.
+
+In the meantime the two main issues with EMF (formatting, adding/removing templates) are solved, and our client was ready to move on to 3.2. Currently we investigate the usage of GenFw for pure code generation with Jet Templates, which are triggered by OCL rules.
+
+Last but not least, I would like to mention that the tutorials where great to get our people started with the framework.</text>
+    <reviewer>Philipp W. Kutter</reviewer>
+    <reviewerURL>http://www.kutter.org</reviewerURL>
+</review>
+
 <review reviewName="Acceleo Review" date="2006-05-21" rating="8"
 modelID="JonathanMusset20060425161117" reviewID="Adelino20060521170213">
 <text>After doing the quick start tutorial found on the Acceleo web site, I am
@@ -559,4 +573,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.31 2006/05/23 00:28:44 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.32 2006/05/26 17:32:25 nickb Exp $ -->
