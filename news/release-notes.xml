@@ -37,13 +37,6 @@
 -->
 
 <entry build="2.2.0RC6a" project="emf" version="2.2.0">
-<bug id="135571">No error reported for invalid generated_package extension</bug>
-<bug id="143565">NPE for missing ecore namespace</bug>
-<bug id="143699">generation into source directory other than &quot;src&quot; : &quot;src&quot; folder still created</bug>
-<bug id="143767">]]&gt; are not escaped when saving the resource</bug>
-<bug id="143797">Need a way to add usedGenPackages to an existing genModel</bug>
-<bug id="144201">StackOverflowError while deleting element in generated ecore editor</bug>
-<bug id="144254">Importing from &#64;model annotations doesn't find .genmodel in required plugins.</bug>
 <bug id="144416">DND of a non contained reference</bug>
 <bug id="144417">null pointer exception due to dependency on missing plugin</bug>
 </entry>
@@ -689,8 +682,6 @@
 </entry>
 
 <entry build="2.2.0RC6a" project="xsd" version="2.2.0">
-<bug id="143751">Java code generated from XSD does not have model-doc from element references</bug>
-<bug id="143797">Need a way to add usedGenPackages to an existing genModel</bug>
 </entry>
 
 <entry build="2.2.0RC6" project="xsd" version="2.2.0">
@@ -919,4 +910,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.172 2006/05/30 20:08:07 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.173 2006/05/30 20:52:03 nickb Exp $ -->
