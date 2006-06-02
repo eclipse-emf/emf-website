@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.31 2006/05/23 15:40:31 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.32 2006/06/02 20:15:30 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -139,7 +139,12 @@
  border="0"></td>
             <td height="42" rowspan=1> <a
  href="http://www.eclipse.org/emf/docs.php" class="category"
- target="_self">Documentation</a><br>
+ target="_self">Documentation</a>  
+ :: <a class="subcategory" href="http://wiki.eclipse.org/index.php/Eclipse_Modeling_Framework">Wiki</a>
+<?php if ($isEMFserver) { ?>
+ :: <a class="subcategory" href="http://instawiki.webahead.ibm.com/pilot/wiki/Wiki.jsp?page=EMF&wiki=Rational_Modeling_Tools_Team">w3 Wiki</a>
+<?php } ?>
+<br/>
 
 <a class="category" href="http://www.awprofessional.com/titles/0131425420">EMF Book</a>: <a class="subcategory" href="http://www.awprofessional.com/titles/0131425420">Overview and Developer's Guide</a><br>
 <a name="overview11" class="category">Overviews:</a> <a class="subcategory" href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.html">EMF</a>, 
