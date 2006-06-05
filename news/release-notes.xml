@@ -36,6 +36,12 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="2.2.0RC7" project="emf" version="2.2.0">
+<bug id="131811">Memory leak in ItemProviderAdapter when using wrappers</bug>
+<bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
+<bug id="144989">Allow presetting the location and importer in the NewEMFWizard</bug>
+</entry>
+
 <entry build="I200606010000" project="emf" version="2.2.0">
 </entry>
 
@@ -684,6 +690,10 @@
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="2.2.0RC7" project="xsd" version="2.2.0">
+<bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
+</entry>
+
 <entry build="I200606010000" project="xsd" version="2.2.0">
 </entry>
 
@@ -916,4 +926,4 @@
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.175 2006/06/01 15:52:12 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.176 2006/06/05 15:44:52 nickb Exp $ -->
