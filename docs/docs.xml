@@ -169,11 +169,11 @@
 
       <img src="images/c.gif" width="1" height="8" />
 
-      <a href="images/../overviews/FeatureMap.doc">Word Doc</a>
+      <a href="/emf/docs/overviews/FeatureMap.doc">Word Doc</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
-      <a href="images/../overviews/FeatureMap.pdf">PDF</a>
+      <a href="/emf/docs/overviews/FeatureMap.pdf">PDF</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
@@ -198,12 +198,12 @@
 
       <img src="images/c.gif" width="1" height="8" />
 
-      <a href="images/../overviews/XMLSchemaToEcoreMapping.doc">
+      <a href="/emf/docs/overviews/XMLSchemaToEcoreMapping.doc">
       Word Doc</a>
 
       <img src="images/c.gif" width="1" height="8" />
 
-      <a href="images/../overviews/XMLSchemaToEcoreMapping.pdf">
+      <a href="/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf">
       PDF</a>
 
       <img src="images/c.gif" width="1" height="8" />
@@ -1925,5 +1925,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.38 2006/05/26 04:11:04 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.39 2006/06/05 15:11:54 nickb Exp $ -->
 
