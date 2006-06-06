@@ -1,4 +1,6 @@
-Section 1 (Internal Committers),,,,
+Section 1 (Committers),,,,
+
+dev.eclise.org Login,,,,
 merks,,,,
 fbudinsky,,,,
 davidms,,,,
@@ -8,7 +10,9 @@ nickb,,,,
 bportier,,,,
 khussey,,,,
 
-Section 2 (External Contributors),,,,
+Section 2 (Developers),,,,
+
+Component,Bug #,Contributor,Size,Committer
 org.eclipse.emf.ecore,122422,Didier Villevalois,small,merks
 org.eclipse.emf.common,130525,Ronald Steinhau,small,merks
 org.eclipse.emf.ecore.edit,130468,Aaron Digulla,small,merks
@@ -16,6 +20,8 @@ org.eclipse.xsd,132360,Steve Sexton,small,merks
 org.eclipse.emf.ecore.xmi and org.eclipse.emf.test.xml,129874,Jesper S Møller,300 lines,merks
 
 Section 3 (Third Party Software),,,
-Tomcat 3.2.4, org.eclipse.emf.codegen/codegen.jar, Apache Software License ,derivative work
-XML4J 4.3, org.eclipse.emf.ecore/ecore.jar, Apache Software License ,derivative work
+
+Name,Location,License,Usage
+Tomcat 3.2.4, org.eclipse.emf.codegen/codegen.jar,Apache Software License,derivative work
+XML4J 4.3, org.eclipse.emf.ecore/ecore.jar,Apache Software License,derivative work
 SDO 1.0 Specification Interfaces,org.eclipse.emf.ecore.commonj.sdo,Royalty-free license from IBM/BEA (see about.html),unmodified source
