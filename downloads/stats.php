@@ -145,7 +145,7 @@ $queries = array(
 /***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
 $qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
-$qsvars["generator"] = '$Id: stats.php,v 1.93 2006/06/07 18:33:57 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.94 2006/06/07 19:14:35 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -265,6 +265,8 @@ function displayHTMLResults($title, $results) {
      
 # There are usually in excess of 30 million records.. watch your queries!!
 function doQuery($sql,$isCSV=false) {
+	global $debug;
+	if ($debug) { echo "<b>Query: </b><span>". $sql."</span><br/>"; }
 	
 	$out = $isCSV?"":array();
 	
@@ -282,7 +284,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.93 2006/06/07 18:33:57 nickb Exp $'.
+			 '$Id: stats.php,v 1.94 2006/06/07 19:14:35 nickb Exp $'.
 			 "\n</small></p>\n";
 		echo "</data>\n";
 		exit;
