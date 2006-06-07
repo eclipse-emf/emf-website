@@ -77,9 +77,10 @@ if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) {
 		);
 	} else if ($qsvars["emft"]) { // for EMFT numbers use these default queries
 		$qsvars["filenames"] = array( 
-		  	'%/emf-'.$qsvars["emft"].'-SDK-%.zip',
-		  	'%/emf-'.$qsvars["emft"].'-runtime-%.zip',
-		  	'%/emf-'.$qsvars["emft"].'-examples-%.zip',
+		  	'%/emft-'.$qsvars["emft"].'-SDK-%.zip',
+		  	'%/emft-'.$qsvars["emft"].'-runtime-%.zip',
+		  	'%/emft-'.$qsvars["emft"].'-examples-%.zip',
+		  	'%/org.eclipse.emf.'.$qsvars["emft"].'\_%.jar',
 		  	'%/org.eclipse.'.$qsvars["emft"].'\_%.jar'
 			// _ = any 1 char, % = 0 or more chars, so must escape the _
 	    );
@@ -110,7 +111,7 @@ $limit = $qsvars["limit"] && $qsvars["limit"] > 0 ? "LIMIT ".($qsvars["limit"] -
 $preQuery = "SELECT IDX.file_id " .
 			"FROM download_file_index AS IDX " .
 			"INNER JOIN downloads AS DOW ON IDX.file_id = DOW.file_id WHERE " . 
-			$filenames . "GROUP BY IDX.file_id";
+			$filenames . " GROUP BY IDX.file_id";
 $file_id_csv = doQueryCSV($preQuery);
 
 /***** COMPOSE SECOND QUERY: get filenames, counties, or domains matching date + limit filters for the above file ids *****/
@@ -145,7 +146,7 @@ $queries = array(
 /***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
 $qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
-$qsvars["generator"] = '$Id: stats.php,v 1.94 2006/06/07 19:14:35 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.95 2006/06/07 19:22:45 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -284,7 +285,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.94 2006/06/07 19:14:35 nickb Exp $'.
+			 '$Id: stats.php,v 1.95 2006/06/07 19:22:45 nickb Exp $'.
 			 "\n</small></p>\n";
 		echo "</data>\n";
 		exit;
