@@ -69,21 +69,20 @@ if ($qsvars["month"] && $qsvars["month"] - 0 >= 1 && $qsvars["month"] - 0 <= 12)
 if ($qsvars["filenames"] && !is_array($qsvars["filenames"])) { 
 	$qsvars["filenames"] = array($qsvars["filenames"]);
 } else if (!$qsvars["filenames"] || (is_array($qsvars["filenames"]) && !$qsvars["filenames"][0])) {
-	if ($qsvars["xsd"]) { // for XSD numbers use these default queries
-		$qsvars["filenames"] = array( 
-			'%/emf-sdo-xsd-Standalone-%.zip', // overlap w/ EMF
-		 	'%/emf-sdo-xsd-SDK-%.zip', // overlap w/ EMF
-		 	'%/xsd-SDK-%.zip',
-		 	'%/xsd-runtime-%.zip',
-		 	'%/org.eclipse.xsd\_%.jar'
-			// _ = any 1 char, % = 0 or more chars, so must escape the _
-		);
-	} else if ($qsvars["uml2"]) { // for UML2 numbers use these default queries
+	if ($qsvars["uml2"]) { // for UML2 numbers use these default queries
 		$qsvars["filenames"] = array( 
 			'%/uml2-%.zip',
 			'%/org.eclipse.uml2.common\_%.jar' 
 			// _ = any 1 char, % = 0 or more chars, so must escape the _
 		);
+	} else if ($qsvars["emft"]) { // for EMFT numbers use these default queries
+		$qsvars["filenames"] = array( 
+		  	'%/emf-'.$qsvars["emft"].'-SDK-%.zip',
+		  	'%/emf-'.$qsvars["emft"].'-runtime-%.zip',
+		  	'%/emf-'.$qsvars["emft"].'-examples-%.zip',
+		  	'%/org.eclipse.'.$qsvars["emft"].'\_%.jar'
+			// _ = any 1 char, % = 0 or more chars, so must escape the _
+	    );
 	} else { // for EMF numbers use these default queries
 		$qsvars["filenames"] = array( 
 			'%/emf-sdo-xsd-Standalone-%.zip',
@@ -146,7 +145,7 @@ $queries = array(
 /***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
 $qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
-$qsvars["generator"] = '$Id: stats.php,v 1.92 2006/05/02 16:39:11 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.93 2006/06/07 18:33:57 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -283,7 +282,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.92 2006/05/02 16:39:11 nickb Exp $'.
+			 '$Id: stats.php,v 1.93 2006/06/07 18:33:57 nickb Exp $'.
 			 "\n</small></p>\n";
 		echo "</data>\n";
 		exit;
