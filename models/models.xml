@@ -136,16 +136,19 @@ support are coming soon.</text>
 </model>
 
 <model
-modelName="EMF Persistency Layer using Hibernate or JDO/JPOX"
-date="2005-10-05"
+modelName="EMF Persistency Layer using Hibernate/JPOX with support for
+EJB3-EAnnotations"
+date="2006-06-08"
 category="EMF model"
 modelID="MartinTaal20051005073815">
-<text>Elver EMF Store is a persistency solution for EMF using Hibernate
-or JPOX/JDO 2.0. It supports automatic creation of EMF to Relational
+<text>Elver EMF Store is a persistency solution for EMF using Hibernate or
+JPOX/JDO 2.0. It supports automatic creation of EMF to Relational
 Mappings and the related database schemas. The solution also contains a
-runtime layer to support specific EMF features. EMF Objects can be stored
-and retrieved using advanced queries (HQL or JDOQL). EMF resource
-implementations are provided for integration with EMF Editors.</text>
+runtime layer to support specific EMF features. EMF Objects can be
+stored and retrieved using advanced queries (HQL or JDOQL). EMF resource
+implementations are provided for integration with EMF Editors. The
+persistence logic and mapping can be controlled using EJB3-like
+annotations. Most of the EJB3 mapping standard is supported.</text>
 <modelURL>http://www.elver.org</modelURL>
 <thumbnailURL></thumbnailURL>
 <screenshotURL></screenshotURL>
@@ -573,4 +576,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.32 2006/05/26 17:32:25 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.33 2006/06/08 06:09:52 nickb Exp $ -->

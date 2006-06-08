@@ -37,10 +37,9 @@
 -->
 
 <entry build="I200606080000" project="emf" version="2.2.0">
-<bug id="131811">Memory leak in ItemProviderAdapter when using wrappers</bug>
-<bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
-<bug id="144989">Allow presetting the location and importer in the NewEMFWizard</bug>
 <bug id="145379">Example Installer Wizard should open specific files after creating the projects</bug>
+<bug id="145380">
+The Example Installer Wizard hangs if the delete action is cancelled</bug>
 <bug id="145588">manifest.mf generation</bug>
 </entry>
 
@@ -701,7 +700,6 @@ Standalone jar's Manifest file is wrong</bug>
 </entry>
 
 <entry build="I200606080000" project="xsd" version="2.2.0">
-<bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
 </entry>
 
 <entry build="2.2.0RC7" project="xsd" version="2.2.0">
@@ -940,4 +938,4 @@ Standalone jar's Manifest file is wrong</bug>
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.178 2006/06/08 05:13:27 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.179 2006/06/08 06:05:52 nickb Exp $ -->
