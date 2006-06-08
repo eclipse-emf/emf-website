@@ -36,6 +36,14 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="I200606080000" project="emf" version="2.2.0">
+<bug id="131811">Memory leak in ItemProviderAdapter when using wrappers</bug>
+<bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
+<bug id="144989">Allow presetting the location and importer in the NewEMFWizard</bug>
+<bug id="145379">Example Installer Wizard should open specific files after creating the projects</bug>
+<bug id="145588">manifest.mf generation</bug>
+</entry>
+
 <entry build="2.2.0RC7" project="emf" version="2.2.0">
 <bug id="131811">Memory leak in ItemProviderAdapter when using wrappers</bug>
 <bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
@@ -692,6 +700,10 @@ Standalone jar's Manifest file is wrong</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200606080000" project="xsd" version="2.2.0">
+<bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
+</entry>
+
 <entry build="2.2.0RC7" project="xsd" version="2.2.0">
 <bug id="144877">Hard UI dependency in converter, importer, and exporter plug-ins</bug>
 </entry>
@@ -928,4 +940,4 @@ Standalone jar's Manifest file is wrong</bug>
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.177 2006/06/05 15:56:48 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.178 2006/06/08 05:13:27 nickb Exp $ -->
