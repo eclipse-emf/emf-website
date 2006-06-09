@@ -2,6 +2,15 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
+<model modelName="Atom Syndication Format in EMF" date="2006-06-09" category="EMF model" modelID="PeterNehrer20060609121337">
+<text>This project aims to provide an EMF-based model for representing the Atom Syndication Format. Its deliverables include an extensible Ecore model along with a set of generated implementation classes (both model and editing support). The Ecore model closely follows the official Atom Syndication Format Specification. Content rules that cannot be represented in the model itself are encapsulated in a set of external validators. This gives the model the ability to represent incomplete Atom documents or those that are not 100% standard compliant.</text>
+<modelURL>http://www.eclipticalsoftware.com/emf/atom/</modelURL>
+<thumbnailURL></thumbnailURL>
+<screenshotURL></screenshotURL>
+<submitter>Peter Nehrer</submitter> 
+<submitterURL>http://www.eclipticalsoftware.com</submitterURL>
+</model>
+
 <review reviewName="Sympedia GenFw Generator Framework Review" date="2006-05-25" rating="8" modelID="EikeStepper20060204144820" reviewID="PhilippW.Kutter20060525142703">
     <text>We have been using GenFw productively in a large project in the financial industry over the last 3 months. Originally we have chosen GenFw because it allowed to do certain things (like project specific code formatting/adding removing templates) which where not working in EMF back then.
 
@@ -576,4 +585,4 @@ documentation.</text>
 
 </data>
 
-<!-- $Id: models.xml,v 1.33 2006/06/08 06:09:52 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.34 2006/06/09 21:22:35 nickb Exp $ -->
