@@ -36,7 +36,7 @@
 	rm -fr bugs.rdf;
 -->
 
-<entry build="I200606150000" project="emf" version="2.2.0"buildID="I200606150000">
+<entry build="I200606150000" project="emf" version="2.2.0">
 <bug id="146163">Projects &quot;update site&quot; names are inconsistent and repeated</bug>
 <bug id="146304">Root object not selected when opening Ecore editor or Generator</bug>
 <bug id="146305">EMOF inter-model opposite fails</bug>
@@ -714,7 +714,7 @@ Standalone jar's Manifest file is wrong</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
-<entry build="I200606150000" project="xsd" version="2.2.0"buildID="I200606150000">
+<entry build="I200606150000" project="xsd" version="2.2.0">
 <bug id="146714">resolveXYZ() methods and default target namespace in XSD.</bug>
 <bug id="146810">EMF 2.2 Enum generated names from XSD incompatible with 2.1 when name contains underscores.</bug>
 <bug id="146871">Unable to load schema containing DTD statements at top</bug>
@@ -959,4 +959,4 @@ Standalone jar's Manifest file is wrong</bug>
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.180 2006/06/15 05:19:16 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.181 2006/06/15 13:06:27 nickb Exp $ -->
