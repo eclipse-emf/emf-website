@@ -36,6 +36,21 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="I200606150000" project="emf" version="2.2.0"buildID="I200606150000">
+<bug id="146163">Projects &quot;update site&quot; names are inconsistent and repeated</bug>
+<bug id="146304">Root object not selected when opening Ecore editor or Generator</bug>
+<bug id="146305">EMOF inter-model opposite fails</bug>
+<bug id="146343">Modeling tutorials need updating for EMF 2.2</bug>
+<bug id="146596">Container reference not saved</bug>
+<bug id="146601">IndexOutOfBoundsException in ECrossReferenceAdapter</bug>
+<bug id="146701">Set the EMF Empty Project name through code</bug>
+<bug id="146702">ModelImporterApplication fails to process platform:/ uri's</bug>
+<bug id="146751">XML Loader doesn't handle namespace prefixes correctly (2)</bug>
+<bug id="146838">ModelImporterApplication: referenced epackage is being saved</bug>
+<bug id="147038">Null pointer exception in ChangeDescriptionImpl Class</bug>
+<bug id="147125">Handle containment cycles more gracefully</bug>
+</entry>
+
 <entry build="I200606080000" project="emf" version="2.2.0">
 <bug id="145379">Example Installer Wizard should open specific files after creating the projects</bug>
 <bug id="145380">
@@ -699,6 +714,12 @@ Standalone jar's Manifest file is wrong</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="I200606150000" project="xsd" version="2.2.0"buildID="I200606150000">
+<bug id="146714">resolveXYZ() methods and default target namespace in XSD.</bug>
+<bug id="146810">EMF 2.2 Enum generated names from XSD incompatible with 2.1 when name contains underscores.</bug>
+<bug id="146871">Unable to load schema containing DTD statements at top</bug>
+</entry>
+
 <entry build="I200606080000" project="xsd" version="2.2.0">
 </entry>
 
@@ -938,4 +959,4 @@ Standalone jar's Manifest file is wrong</bug>
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.179 2006/06/08 06:05:52 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.180 2006/06/15 05:19:16 nickb Exp $ -->
