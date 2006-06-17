@@ -53,6 +53,9 @@
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/I20060605-1430/eclipse-SDK-I20060605-1430-linux-gtk.tar.gz</dependency>
+        </dependencies>
       </build>
     </summary>
   </entry>
@@ -75,6 +78,9 @@
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/S-3.2RC7-200606021317/eclipse-SDK-3.2RC7-linux-gtk.tar.gz</dependency>
+        </dependencies>
       </build>
     </summary>
   </entry>
