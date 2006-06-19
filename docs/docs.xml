@@ -1117,6 +1117,17 @@
 
     <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
 
+      <td><a href="http://adobedev.breezecentral.com/p17835008/">Using The Eclipse Modeling Frameworks</a> (Adobe Breeze Webinar w/ sound, video, and chat transcript)
+      </td>
+
+      <td>June 19
+      <sup>th</sup>
+
+      2006</td>
+    </tr>
+
+    <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
+
       <td><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF:
       <img src="images/c.gif" width="1" height="8" />
 
@@ -1925,5 +1936,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.39 2006/06/05 15:11:54 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.40 2006/06/19 17:33:56 nickb Exp $ -->
 
