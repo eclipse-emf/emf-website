@@ -4,11 +4,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://www.eclipse.org/emf/news/builds.xml" rel="self" type="application/atom+xml"/>
-  <updated>2006-06-18T04:49:02Z</updated>
+  <updated>2006-06-19T04:49:02Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://www.eclipse.org/emf/news/builds.xml</id>
+  <entry>
+    <title>[announce] EMF 2.2.0 N200606190200 is available</title>
+    <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/N200606190200"/>
+    <id>http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/N200606190200</id>
+    <updated>2006-06-19T04:49:02Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/N200606190200" jars="" type="N">
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-.zip</release>
+        </releases>
+        <tests>
+          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.2.0/N200606190200/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+      </build>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF 2.2.0 N200606180200 is available</title>
     <link href="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.2.0/N200606180200"/>
