@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="June 19, 2006" showOn="whatsnew,docs">
+	<a href="http://adobedev.breezecentral.com/p17835008/">Using The Eclipse Modeling Frameworks</a> (Adobe Breeze Webinar w/ sound, video, and chat transcript) is available.
+</news>
 <news date="June 15, 2006" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Integration build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0">I200606150000</a>) is available 
@@ -1016,6 +1019,6 @@
 	<a href="http://www.eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.164 2006/06/15 05:19:16 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.165 2006/06/19 17:37:28 nickb Exp $ -->
 
 </doc>
