@@ -11,11 +11,11 @@
   <id>http://www.eclipse.org/emf/news/builds.xml</id>
   <entry>
     <title>[announce] EMF I200606150000 (2.2.0.I200606150000) is available</title>
-    <link href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606150000"/>
-    <id>http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606150000</id>
+    <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606150000"/>
+    <id>http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606150000</id>
     <updated>2006-06-17T02:10:37Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606150000" jars="" type="I">
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606150000" jars="" type="I">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0
@@ -36,11 +36,11 @@
   </entry>
   <entry>
     <title>[announce] EMF I200606080000 (2.2.0.I200606080000) is available</title>
-    <link href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606080000"/>
-    <id>http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606080000</id>
+    <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606080000"/>
+    <id>http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606080000</id>
     <updated>2006-06-17T02:09:23Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606080000" jars="" type="I">
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606080000" jars="" type="I">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0
@@ -61,11 +61,11 @@
   </entry>
   <entry>
     <title>[announce] EMF 2.2.0RC7 (S200606051102) is available</title>
-    <link href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/S200606051102"/>
-    <id>http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/S200606051102</id>
+    <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/S200606051102"/>
+    <id>http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/S200606051102</id>
     <updated>2006-06-17T02:09:18Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/S200606051102" jars="" type="S">
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/S200606051102" jars="" type="S">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0
@@ -86,11 +86,11 @@
   </entry>
   <entry>
     <title>[announce] EMF I200606010000 (2.2.0.I200606010000) is available</title>
-    <link href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606010000"/>
-    <id>http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606010000</id>
+    <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606010000"/>
+    <id>http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606010000</id>
     <updated>2006-06-17T02:09:13Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/I200606010000" jars="" type="I">
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/I200606010000" jars="" type="I">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0
@@ -108,11 +108,11 @@
   </entry>
   <entry>
     <title>[announce] EMF 2.2.0RC6a (S200605300949) is available</title>
-    <link href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/S200605300949"/>
-    <id>http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/S200605300949</id>
+    <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/S200605300949"/>
+    <id>http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/S200605300949</id>
     <updated>2006-06-17T02:09:08Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/downloads/drops/2.2.0/S200605300949" jars="" type="S">
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.0/S200605300949" jars="" type="S">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0
