@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="June 20, 2006" showOn="whatsnew">
+	<!-- "#S200606201609" -->
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Stable build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0">2.2.0RC8</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
 <news date="June 19, 2006" showOn="whatsnew,docs">
 	<a href="http://adobedev.breezecentral.com/p17835008/">Using The Eclipse Modeling Frameworks</a> (Adobe Breeze Webinar w/ sound, video, and chat transcript) is available.
 </news>
@@ -1019,6 +1025,6 @@
 	<a href="http://www.eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.165 2006/06/19 17:37:28 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.166 2006/06/21 02:49:59 nickb Exp $ -->
 
 </doc>
