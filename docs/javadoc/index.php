@@ -2,10 +2,14 @@
 	/* if on www.eclipse.org, redirect to download; if on download or mirror, present a list of avail javadoc versions available */
 	/* if querystring value, pick latest version of javadoc and serve up that page */
 
-	$isWWWserver = ($_SERVER["HOST_NAME"]=="www.eclipse.org"||$_SERVER["HOST_NAME"]=="eclipse.org");
+    $SERVER_NAME  = $_SERVER["SERVER_NAME"] ? $_SERVER["SERVER_NAME"] : $_SERVER["HOST_NAME"];
+    $SCRIPT_NAME  = $_SERVER["SCRIPT_NAME"];
+    $QUERY_STRING = $_SERVER["QUERY_STRING"];
 
-	$pre = false!==strpos($_SERVER["SCRIPT_NAME"],"sdo") || false!==strpos($_SERVER["SCRIPT_NAME"],"xsd") ? "../../../" : "../../"; // or ../../../ for sdo/xsd
-	$folder = substr($_SERVER["SCRIPT_NAME"],0,strrpos($_SERVER["SCRIPT_NAME"],"/"));
+	$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
+
+	$pre = false!==strpos($SCRIPT_NAME,"sdo") || false!==strpos($SCRIPT_NAME,"xsd") ? "../../../" : "../../"; // or ../../../ for sdo/xsd
+	$folder = substr($SCRIPT_NAME,0,strrpos($SCRIPT_NAME,"/"));
 	
 	if ($isWWWserver) { 
 		header("Location: http://download.eclipse.org/tools/emf/javadoc/");
