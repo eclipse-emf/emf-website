@@ -61,6 +61,7 @@
 </tr>
 </table>
 
+<!-- content begins -->
   <table cellspacing="0" cellpadding="0" border="0" width="99%">
     <tr valign="top">
       <td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"></td>
@@ -12906,6 +12907,7 @@ Standalone jar's Manifest file is wrong</td>
       </td>
     </tr>
   </table>
+<!-- content ends -->
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes2.2.php,v 1.1 2006/06/28 20:53:39 nickb Exp $ -->
+<!-- $Id: release-notes2.2.php,v 1.2 2006/06/28 21:02:50 nickb Exp $ -->
