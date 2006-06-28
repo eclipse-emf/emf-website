@@ -17,6 +17,11 @@ $params["showFiltersOrHeaderFooter"] = 1;
 // default if no QS values
 if (!$params["project"] && !$qsvars["version"]) $params["version"] = "2.2";
 
+if (is_file("release-notes".$params["version"].".php")) {
+    header("Location: http://www.eclipse.org/emf/news/release-notes".$params["version"].".php");
+    exit;
+}
+
 $HTMLTitle = "Eclipse Tools - EMF Release Notes";
 $ProjectName = array(
 	"Release Notes",
@@ -60,6 +65,6 @@ echo '<p><a href="view-source:http://www.eclipse.org/emf/news/'.$XMLfile.'" clas
 
 include_once $pre . "includes/footer.php"; 
 
-echo "<!-- $Id: release-notes.php,v 1.16 2006/05/04 17:36:11 nickb Exp $ -->"; 
+echo "<!-- $Id: release-notes.php,v 1.17 2006/06/28 20:53:39 nickb Exp $ -->"; 
 
 ?>
