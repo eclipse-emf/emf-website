@@ -62,8 +62,8 @@
 <table border="0" cellpadding="2" width="100%" >
 <tr>
 <td align="left" valign="TOP"><b>
-&#160; &#160; <a href="release-notes.php?version=2.1">EMF 2.1.x</a> :: <a href="release-notes.php?version=2.0">EMF 2.0.x</a> :: <a href="#emf_111">EMF 1.1.1</a> :: <a href="#emf_110">EMF 1.1.0</a> :: <a href="#emf_102">EMF 1.0.2</a> :: <a href="#emf_101">EMF 1.0.1</a> <br>
-&#160; &#160; <a href="release-notes.php?version=2.1&project=xsd">XSD 2.1.x</a> :: <a href="release-notes.php?version=2.0&project=xsd">XSD 2.0.x</a> :: <a href="#xsd_111">XSD 1.1.1</a> :: <a href="#xsd_110">XSD 1.1.0</a> :: <a href="#xsd_102">XSD 1.0.2</a> :: <a href="#xsd_101">XSD 1.0.1</a>
+&#160; &#160; <a href="release-notes.php?version=2.2">EMF 2.2.x</a> :: <a href="release-notes.php?version=2.1">EMF 2.1.x</a> :: <a href="release-notes.php?version=2.0">EMF 2.0.x</a> :: <a href="#emf_111">EMF 1.1.1</a> :: <a href="#emf_110">EMF 1.1.0</a> :: <a href="#emf_102">EMF 1.0.2</a> :: <a href="#emf_101">EMF 1.0.1</a> <br>
+&#160; &#160; <a href="release-notes.php?version=2.2&project=xsd">XSD 2.2.x</a> :: <a href="release-notes.php?version=2.1&project=xsd">XSD 2.1.x</a> :: <a href="release-notes.php?version=2.0&project=xsd">XSD 2.0.x</a> :: <a href="#xsd_111">XSD 1.1.1</a> :: <a href="#xsd_110">XSD 1.1.0</a> :: <a href="#xsd_102">XSD 1.0.2</a> :: <a href="#xsd_101">XSD 1.0.1</a>
 </b></td>
 <td align="right" valign="TOP"><b><small><a href="#quicknav">Quick Nav</a></small></b></td>
 </tr>
@@ -1399,4 +1399,4 @@ to reflect this build (i.e., the latest release).</li>
 </table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.10 2006/04/03 19:27:42 nickb Exp $ -->
+<!-- $Id: release-notes-1.x.php,v 1.11 2006/06/28 21:21:28 nickb Exp $ -->
