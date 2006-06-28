@@ -93,66 +93,7 @@
   </xsl:if>
 
   <!-- form controls -->
-  <table width="60%">
-      <tr>
-        <td>
-          <hr size="1" width="100%"/>
-            <span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b>
-            Multiple terms are treated as an <b>OR</b> search. You can also use these predefined filters: <br/>
-&#160; &#160; &#160; <img src="../images/icon-emf.gif" border="0" alt="emf"/>&#160;<a href="http://www.eclipse.org/emf/news/release-notes.php?project=emf">EMF</a> ::
-<img src="../images/icon-sdo.gif" border="0" alt="sdo"/>&#160;<a href="http://www.eclipse.org/emf/news/release-notes.php?project=emf">SDO</a> ::
-<img src="../images/icon-xsd.gif" border="0" alt="xsd"/>&#160;<a href="http://www.eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> ::
-
-<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> ::
-<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a> ::
-<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a> ::
-            <a href="release-notes-1.x.php">1.x</a></span>
-          <hr size="1" width="100%"/>
-          <form action="http://www.eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
-            <select class="log-text" name="project" size="1">
-              <option value=""> Choose... </option>
-              <xsl:for-each select="project-def">
-              <xsl:choose>
-                <xsl:when test="$project = @project">
-                  <option value="{@project}" selected="selected"><xsl:value-of select="@label" /></option>
-                </xsl:when>
-                <xsl:otherwise>
-                  <option value="{@project}"><xsl:value-of select="@label" /></option>
-                </xsl:otherwise>
-              </xsl:choose>
-              </xsl:for-each>
-              <option value=""> - All - </option>
-            </select>
-            &#160;
-            <select class="log-text" name="version" size="1">
-              <option value=""> Choose... </option>
-              <xsl:for-each select="version-def">
-              <xsl:choose>
-                <xsl:when test="$version = @version">
-                  <option value="{@version}" selected="selected"><xsl:value-of select="@label" /></option>
-                </xsl:when>
-                <xsl:otherwise>
-                  <option value="{@version}"><xsl:value-of select="@label" /></option>
-                </xsl:otherwise>
-              </xsl:choose>
-              </xsl:for-each>
-            </select>
-            &#160;
-            <input class="black-no-underline" type="submit" name="z" value="Go!"/>
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <form action="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php" method="get" name="bugform" onSubmit="javascript:document.getElementById('Bugzilla').value = document.getElementById('bug').value" target="_blank">
-            <input type="hidden" name="source" value="emf"/>
-            <label for="bug">CVS Delta for Bug ID: </label><input size="7" type="text" name="bug" id="bug"/>
-            <input type="hidden" name="Bugzilla" id="Bugzilla" value=""/>
-            <input type="submit" value="Go!"/>
-          </form>
-        </td>
-      </tr>
-  </table>
+  <xsl:copy-of select="document('release-notes-form-controls.xml')/div"/>
 
   <!-- nav header table (release/milestone list) -->
   <table border="0" cellspacing="1" cellpadding="3" width="99%">
@@ -325,4 +266,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.38 2006/05/11 18:37:24 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.39 2006/06/28 21:17:52 nickb Exp $ -->

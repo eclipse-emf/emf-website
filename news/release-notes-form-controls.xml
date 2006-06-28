@@ -1,0 +1,53 @@
+<div>
+    <table width="60%">
+      <tr>
+        <td>
+          <hr size="1" width="100%"><span class="log-text">
+        <a href="http://www.eclipse.org/emf/news/release-notes2.2.php">2.2</a> ::
+        <a href="http://www.eclipse.org/emf/news/release-notes2.1.php">2.1</a> ::
+        <a href="http://www.eclipse.org/emf/news/release-notes2.0.php">2.0</a> ::
+        <a href="release-notes-1.x.php">1.x</a>
+          </span>
+          <hr size="1" width="100%">
+          <form action="http://www.eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
+            <select class="log-text" name="project" size="1">
+              <option value=""> Choose... </option>
+              <option value="emf">EMF &amp; SDO Release Notes</option>
+              <option value="xsd">XSD Release Notes</option>
+              <option value=""> - All - </option>
+            </select>
+        
+        <select class="log-text" name="version" size="1">
+              <option value=""> Choose... </option>
+              <option value="2.2.0">2.2.0</option>
+              <option value="2.2">2.2.x</option>
+              <option value="2.1.2">2.1.2</option>
+              <option value="2.1.1">2.1.1</option>
+              <option value="2.1.0">2.1.0</option>
+              <option value="2.1">2.1.x</option>
+              <option value="2.0.5">2.0.5</option>
+              <option value="2.0.4">2.0.4</option>
+              <option value="2.0.3">2.0.3</option>
+              <option value="2.0.2">2.0.2</option>
+              <option value="2.0.1">2.0.1</option>
+              <option value="2.0.0">2.0.0</option>
+              <option value="2.0" selected>2.0.x</option>
+            </select>
+        
+        <input class="black-no-underline" type="submit" name="z" value="Go!">
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <form action="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php" method="get" name="bugform" onSubmit="javascript:document.getElementById('Bugzilla').value = document.getElementById('bug').value" target="_blank">
+            <input type="hidden" name="source" value="emf">
+            <label for="bug">CVS Delta for Bug ID: </label>
+            <input size="7" type="text" name="bug" id="bug">
+            <input type="hidden" name="Bugzilla" id="Bugzilla" value="">
+            <input type="submit" value="Go!">
+          </form>
+        </td>
+      </tr>
+    </table>
+</div>

@@ -67,62 +67,9 @@
     <tr valign="top">
       <td><img src="http://www.eclipse.org/images/c.gif" height="1" width="3"></td>
       <td align="left" width="99%">
-        <table width="60%">
-          <tr>
-            <td>
-              <hr size="1" width="100%"><span class="log-text">To filter, enter a search term in a field and hit <b>Go!</b>
-            Multiple terms are treated as an <b>OR</b> search. You can also use these predefined filters: <br>
-   <img src="../images/icon-emf.gif" border="0" alt="emf"><a href="http://www.eclipse.org/emf/news/release-notes.php?project=emf">EMF</a> ::
-<img src="../images/icon-sdo.gif" border="0" alt="sdo"><a href="http://www.eclipse.org/emf/news/release-notes.php?project=emf">SDO</a> ::
-<img src="../images/icon-xsd.gif" border="0" alt="xsd"><a href="http://www.eclipse.org/emf/news/release-notes.php?project=xsd">XSD</a> ::
 
-<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a> ::
-<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a> ::
-<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a> ::
-            <a href="release-notes-1.x.php">1.x</a>
-              </span>
-              <hr size="1" width="100%">
-              <form action="http://www.eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
-                <select class="log-text" name="project" size="1">
-                  <option value=""> Choose... </option>
-                  <option value="emf">EMF &amp; SDO Release Notes</option>
-                  <option value="xsd">XSD Release Notes</option>
-                  <option value=""> - All - </option>
-                </select>
-            
-            <select class="log-text" name="version" size="1">
-                  <option value=""> Choose... </option>
-                  <option value="2.2.0">2.2.0</option>
-                  <option value="2.2">2.2.x</option>
-                  <option value="2.1.2">2.1.2</option>
-                  <option value="2.1.1">2.1.1</option>
-                  <option value="2.1.0">2.1.0</option>
-                  <option value="2.1" selected>2.1.x</option>
-                  <option value="2.0.5">2.0.5</option>
-                  <option value="2.0.4">2.0.4</option>
-                  <option value="2.0.3">2.0.3</option>
-                  <option value="2.0.2">2.0.2</option>
-                  <option value="2.0.1">2.0.1</option>
-                  <option value="2.0.0">2.0.0</option>
-                  <option value="2.0">2.0.x</option>
-                </select>
-            
-            <input class="black-no-underline" type="submit" name="z" value="Go!">
-              </form>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <form action="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php" method="get" name="bugform" onSubmit="javascript:document.getElementById('Bugzilla').value = document.getElementById('bug').value" target="_blank">
-                <input type="hidden" name="source" value="emf">
-                <label for="bug">CVS Delta for Bug ID: </label>
-                <input size="7" type="text" name="bug" id="bug">
-                <input type="hidden" name="Bugzilla" id="Bugzilla" value="">
-                <input type="submit" value="Go!">
-              </form>
-            </td>
-          </tr>
-        </table>
+		<?php include_once 'release-notes-form-controls.xml'; ?>
+
         <table border="0" cellspacing="1" cellpadding="3" width="99%">
           <tr class="header">
             <td colspan="1" class="sub-header">
@@ -9734,4 +9681,4 @@ mixin features inherited from interface</td>
 <!-- content ends -->
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes2.1.php,v 1.1 2006/06/28 21:02:50 nickb Exp $ -->
+<!-- $Id: release-notes2.1.php,v 1.2 2006/06/28 21:17:52 nickb Exp $ -->
