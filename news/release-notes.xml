@@ -36,6 +36,7 @@
 	rm -fr bugs.rdf;
 -->
 
+<entry build="2.2.0" project="emf" version="2.2.0" buildID="R200606271057"/>
 <entry build="2.2.0RC9a" project="emf" version="2.2.0" buildID="S200606271057">
 <bug id="148307" sub="sdo">SDOUtil accessor pool cause potential memory leak</bug>
 <bug id="148713">GenPackageGeneratorAdapter#getGenerateEditorChildren does not return nested genpackages</bug>
@@ -728,6 +729,7 @@ Standalone jar's Manifest file is wrong</bug>
 <bug id="104732" sub="sdo">Some SDO Properties should not be treated as containment</bug>
 </entry>
 
+<entry build="2.2.0" project="xsd" version="2.2.0" buildID="R200606271057"/>
 <entry build="2.2.0RC9a" project="xsd" version="2.2.0" buildID="S200606271057"/>
 <entry build="2.2.0RC9" project="xsd" version="2.2.0" buildID="S200606221156">
 </entry>
@@ -981,4 +983,4 @@ Standalone jar's Manifest file is wrong</bug>
 <entry build="I200508040200" project="xsd" version="2.2.0"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.184 2006/06/27 20:25:31 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.185 2006/06/29 14:23:54 nickb Exp $ -->
