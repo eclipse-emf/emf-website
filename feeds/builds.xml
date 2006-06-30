@@ -29,7 +29,7 @@
           </test>
         </tests>
         <dependencies>
-          <dependency>http://download.eclipse.org/downloads/drops/R-3.2-200606281325/eclipse-SDK-R-3.2-200606281325-linux-gtk.tar.gz</dependency>
+          <dependency>http://download.eclipse.org/downloads/drops/R-3.2-200606291905/eclipse-SDK-3.2-linux-gtk.tar.gz</dependency>
         </dependencies>
       </build>
     </summary>
