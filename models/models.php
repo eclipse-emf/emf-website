@@ -14,6 +14,8 @@ $ProjectName = array(
 );
 
 include $pre . "includes/header.php"; 
+
+echo '<script type="text/javascript" language="javascript" src="models.js"></script>';
 		
 /*
  * To work, this script must be run with a version of PHP4 which
@@ -34,4 +36,4 @@ echo $result; ?>
 <p><a href="view-source:http://www.eclipse.org/emf/models/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
 
 <?php include $pre . "includes/footer.php"; ?>
-<!-- $Id: models.php,v 1.2 2006/04/03 19:27:42 nickb Exp $ -->
+<!-- $Id: models.php,v 1.3 2006/07/05 17:15:24 nickb Exp $ -->
