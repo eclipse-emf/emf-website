@@ -13,20 +13,7 @@
 <version-def label="2.1.x" version="2.1"/>
 <version-def label="2.0.x" version="2.0"/>
 
-<entry build="M200607131143" project="emf" version="2.2.1">
-<bug id="148446">NotificationWrapper.merge(Notification) causes infinite recursion.</bug>
-<bug id="149734">Queries for reflective methods</bug>
-<bug id="149944">Ecore2Java is overlooking certain genmodel settings</bug>
-<bug id="150094">DataGraph serialization of fragment path based IDREF is incorrect</bug>
-<bug id="150141">Adopt updated stylesheet from platform (docs only, no code change)</bug>
-<bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
-</entry>
-
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
-<entry build="M200607131143" project="xsd" version="2.2.1">
-<bug id="149178">Problem with ecore:implements</bug>
-</entry>
-
 <project-def label="XSD Release Notes" project="xsd"/>
 
 <!-- to get missing bugs:
@@ -38,6 +25,18 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200607131143" project="emf" version="2.2.1">
+<bug id="148446">NotificationWrapper.merge(Notification) causes infinite recursion.</bug>
+<bug id="149734">Queries for reflective methods</bug>
+<bug id="149944">Ecore2Java is overlooking certain genmodel settings</bug>
+<bug id="150094">DataGraph serialization of fragment path based IDREF is incorrect</bug>
+<bug id="150141">Adopt updated stylesheet from platform (docs only, no code change)</bug>
+<bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
+</entry>
+
+<entry build="M200607131143" project="xsd" version="2.2.1">
+<bug id="149178">Problem with ecore:implements</bug>
+</entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.188 2006/07/13 16:57:26 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.189 2006/07/13 17:12:40 nickb Exp $ -->
