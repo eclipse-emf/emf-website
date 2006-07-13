@@ -4,11 +4,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://www.eclipse.org/emf/feeds/builds.xml" rel="self" type="application/atom+xml"/>
-  <updated>2006-07-13T05:03:06Z</updated>
+  <updated>2006-07-13T16:36:38Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://www.eclipse.org/emf/feeds/builds.xml</id>
+  <entry>
+    <title>[announce] EMF M200607131143 (2.2.1.M200607131143) is available</title>
+    <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.1/M200607131143"/>
+    <id>http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.1/M200607131143</id>
+    <updated>2006-07-13T16:36:38Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.1/M200607131143" jars="" type="M">
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200607131143.zip</release>
+        </releases>
+        <tests>
+          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.2.1/M200607131143/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/eclipse/downloads/drops/M20060712-0922/eclipse-SDK-M20060712-0922-linux-gtk.tar.gz</dependency>
+        </dependencies>
+      </build>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF M200607130000 (2.2.1.M200607130000) is available</title>
     <link href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.1/M200607130000"/>
