@@ -20,18 +20,8 @@
         <select class="log-text" name="version" size="1">
               <option value=""> Choose... </option>
               <option value="2.2.1">2.2.1</option>
-              <option value="2.2.0">2.2.0</option>
-              <option value="2.2">2.2.x</option>
-              <option value="2.1.2">2.1.2</option>
-              <option value="2.1.1">2.1.1</option>
-              <option value="2.1.0">2.1.0</option>
+              <option value="2.2">2.2.0</option>
               <option value="2.1">2.1.x</option>
-              <option value="2.0.5">2.0.5</option>
-              <option value="2.0.4">2.0.4</option>
-              <option value="2.0.3">2.0.3</option>
-              <option value="2.0.2">2.0.2</option>
-              <option value="2.0.1">2.0.1</option>
-              <option value="2.0.0">2.0.0</option>
               <option value="2.0">2.0.x</option>
             </select>
         
