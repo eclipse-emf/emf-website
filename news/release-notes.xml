@@ -22,6 +22,14 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200607200000" project="emf" version="2.2.1">
+<bug id="150500">bugs in merge algorithm in AdapterFactoryContentProvider$ViewerRefresh</bug>
+<bug id="150835">MarkerHelper should decode the segments of the URI on getFile(URI)</bug>
+<bug id="150866">REMOVE notifications resulting from the inverses of an addAll need to be merged</bug>
+<bug id="151056">ItemPropertyDescriptor.getHelpContextIds should return null not an empty string array</bug>
+<bug id="151072">ECrossReferenceAdapter.resolveAll causes extraneous proxy resolution</bug>
+</entry>
+
 <entry build="M200607131143" project="emf" version="2.2.1">
 <bug id="148446">NotificationWrapper.merge(Notification) causes infinite recursion.</bug>
 <bug id="149734">Queries for reflective methods</bug>
@@ -31,9 +39,16 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200607200000" project="xsd" version="2.2.1">
+<bug id="150706">Regression: multiple appInfo tags are lost on XSD to EMF model conversion</bug>
+<bug id="150735">Force update should update resolved names that fail to resolve</bug>
+<bug id="150836">EMF XMLResourceImpl uses reserved word &apos;XML&apos; in some NameSpace Prefix</bug>
+<bug id="151123" sub="sdo">When defining complex types from xsd files SDO requires Attributes to be in the same order as they appear in the XSD</bug>
+</entry>
+
 <entry build="M200607131143" project="xsd" version="2.2.1">
 <bug id="149178">Problem with ecore:implements</bug>
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.190 2006/07/13 17:14:03 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.191 2006/07/20 05:18:01 nickb Exp $ -->
