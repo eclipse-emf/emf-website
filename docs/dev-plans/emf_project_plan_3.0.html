@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+    content="text/html; charset=utf-8" />
+
+    <title>Eclipse EMF and XSD - DRAFT 3.0.0 Plans</title>
+
+    <link rel="stylesheet" href="images/../../book.css" type="text/css" />
+  </head>
+
+  <body lang="EN-US" xml:lang="EN-US">
+
+   <div class="Section1">
+      <h1>Eclipse Modeling Framework (EMF)
+      <br />
+		Draft 3.0.0 Plans</h1> 
+
+		<h3>Including XML Schema Infoset Model (XSD) framework</h3>
+
+      <p>Last revised <tt>$Date: 2006/07/20 00:39:02 $</tt> ( 
+      <img width="12" height="12" src="/emf/images/green-box.gif"
+      border="0" />
+
+      marks interesting changes over a previous revision of this
+      document) 
+
+      </p>
+
+      <p>
+      <em>&nbsp;&nbsp;&nbsp; Please send comments about this draft
+      plan to the</em>
+
+      <a href="http://www.eclipse.org/emf/newsgroup-mailing-list.php">
+      eclipse.tools.emf</a>
+
+      or 
+      <a href="http://www.eclipse.org/emf/newsgroup-mailing-list.php">
+      eclipse.technology.xsd</a>
+
+      <em>newsgroup, as applicable.</em>
+      </p>
+
+      <p>This document lays out the feature and API set for the
+      next feature release of the Eclipse Modeling Framework (EMF) project (which includes XSD)
+      after 2.2.0, designated releases 3.0.</p>
+
+      <ul type="disc">
+        <li>
+          <a href="#Deliverables">Release deliverables</a>
+        </li>
+
+        <li>
+          <a href="#Milestones">Release milestones</a>
+        </li>
+
+        <li>
+          <a href="#TargetOperatingEnvironments">Target operating
+          environments</a>
+        </li>
+
+        <li>
+          <a href="#Compatibility">Compatibility with previous
+          releases</a>
+        </li>
+
+        <li>
+          <a href="#Project">EMF and XSD Project</a>
+        </li>
+      </ul>
+
+      <p>Plans do not materialize out of nowhere, nor are they
+      entirely static. To ensure the planning process is
+      transparent and open to the entire Eclipse community, plans
+      are posted in an embryonic form and then revised from time to
+      time throughout the release cycle.</p>
+
+      <p>The first part of the plan deals with the important
+      matters of release deliverables, release milestones, target
+      operating environments, and release-to-release compatibility.
+      These are all things that need to be clear for any release,
+      even if no features were to change.&nbsp;</p>
+
+      <p>The remainder of the plan consists of plan items for the
+      projects under the EMF and XSD projects. Each
+      plan item covers a feature or API that is to be added, or
+      some aspect that is to be improved. Each plan item has its
+      own entry in the 
+      <a href="http://bugs.eclipse.org/bugs">Eclipse bugzilla</a>
+
+      database, with a title and a concise summary (usually a
+      single paragraph) that explains the work item at a suitably
+      high enough level so that everyone can readily understand
+      what the work item is without having to understand the
+      nitty-gritty detail.</p>
+
+      <p>Not all plan items represent the same amount of work; some
+      may be quite large, others, quite small. Some plan items may
+      involve work that is localized to a single subsystem; others
+      may involve coordinated changes across several projects
+      within the same top-level project; and others may involve
+      coordination with other top-level projects. Although some
+      plan items are for work that is more pressing that others,
+      the plan items appear in no particular order.</p>
+
+      <p>With the previous release as the starting point, this is
+      the plan for how we will enhance and improve it. Fixing bugs,
+      improving test coverage, documentation, examples, performance
+      tuning, usability, etc. are considered routine ongoing
+      maintenance activities and are not included in this plan
+      unless they would also involve a significant change to the
+      API or feature set, or involve a significant amount of work.
+      The intent of the plan is to account for all interesting
+      feature work.</p>
+
+      <h2>
+      <a name="Deliverables">
+      </a>
+
+      Release Deliverables</h2>
+
+      <p>The release deliverables are:</p>
+
+      <ul type="disc">
+        <li>Source code release for EMF and XSD is available in the eclipse.org 
+        <a href="http://dev.eclipse.org/viewcvs/">CVS
+        repositories</a>
+
+        for 
+        <a
+        href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/">
+        EMF</a>
+
+         and 
+        <a
+        href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.xsd">
+        XSD</a>
+
+        .</li>
+
+        <li>EMF and XSD runtime binaries and SDK distributions
+        (downloadable).</li>
+
+        <li>EMF and XSD runtime binaries and SDK features on
+        eclipse.org update site (install via Eclipse update
+        manager).</li>
+      </ul>
+
+      <h2>
+      <a name="Milestones">
+      </a>
+
+      Release Milestones</h2>
+
+      <p>EMF and XSD builds are available weekly as <em>Integration
+      builds</em>. EMF Milestone Releases are <b>one business day</b> after the <!--<a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html#Milestones">--><i style="color:gray">Eclipse Milestone Releases</i> (forthcoming) <!--</a>-->.
+      </p>
+      
+      <p>Following the final milestone, release candidates will begin. EMF Release Candidates are planned to be released <b>one business day</b> after each
+       <!--<a href="http://www.eclipse.org/eclipse/development/freeze_plan_3.3.html">--><i style="color:gray">Eclipse Release Candidate</i> (forthcoming) <!--</a>-->.
+      This convergence is required to meet the goals of the <!--<a href="http://www.eclipse.org/projects/europa.php">--><i style="color:gray">Europa Simultaneous Release</i> (forthcoming)<!--</a>-->.</p>
+
+      <p>Scheduled release candidates should end in 2007Q2, and beyond that point, will be produced only as needed, leading up to a release in late 2007Q2.</p>
+      <h2>
+      <a name="TargetOperatingEnvironments">
+      </a>
+
+      Target Operating Environments</h2>
+
+      <p>In order to remain current, each release of an Eclipse
+      project targets reasonably current versions of underlying
+      operating environments and other Eclipse projects on which it
+      depends.&nbsp;</p>
+
+      <p>Most of Eclipse is "pure" Java 
+      <sup>TM</sup>
+
+      code and has no direct dependence on the underlying operating
+      system. The chief dependence is on the Eclipse Platform, and
+      on the Java 2 Platform that runs it.</p>
+
+      <p>The EMF and XSD 3.0.0 releases depend on the
+      following:</p>
+
+      <ul type="disc">
+        <li>Java 2 Platform 1.5</li>
+
+        <li>Eclipse Platform 3.3</li>
+      </ul>
+
+      <p>The 3.0.0 releases of EMF and XSD are designed to run
+      on any configuration supporting the above components.</p>
+
+      <p>The Eclipse Platform runs in a variety of operating
+      environments. Testing is focused on a handful of popular
+      combinations of operating system and Java 2 Platform; these
+      are our 
+      <em>reference platforms</em>.
+
+      Eclipse undoubtedly runs fine in many operating
+      environments beyond the reference platforms we test. However,
+      since we do not systematically test them we cannot vouch for
+      them. Problems encountered when running Eclipse on
+      non-reference platform that cannot be recreated on any
+      reference platform will be given lower priority than problems
+      with running Eclipse on a reference platform.</p>
+
+      <p>See the 
+      <!--<a
+      href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html">-->
+      <i style="color:gray">Eclipse Project 3.3 plan</i> (forthcoming)<!--</a>-->
+
+      for a list of reference platforms.</p>
+
+      <h4>Internationalization</h4>
+
+      <p>Eclipse is designed as the basis for internationalized
+      products. The user interface elements provided by the various
+      Eclipse projects, including dialogs and error messages, are
+      externalized. The English strings for EMF and XSD are
+      provided as the default resource bundles. Translations are
+      not provided with this release. However, the plug-in fragment
+      mechanism provides the means by which translations into any
+      number of other languages can be incorporated.</p>
+
+      <h2>
+      <a name="Compatibility">
+      </a>
+
+      Compatibility with Previous Releases</h2>
+
+      <h3>Compatibility of Release 3.0.0 with 2.2.0</h3>
+
+      <p>EMF and XSD 3.0.0 will be compatible with EMF and XSD 2.2.0, except in those areas noted in the 
+      <a href="#MigrationGuide">
+        <em>EMF and XSD 3.0.0 Migration Guide.</em>
+      </a>.</p>
+
+      <p>
+      <b>API Contract Compatibility:</b>
+
+      EMF and XSD 3.0.0 will be upwards contract-compatible
+      with EMF and XSD 2.2.0 except in those areas noted in the
+      
+      <a href="#MigrationGuide">
+        <em>EMF and XSD 3.0.0 Migration Guide.</em>
+      </a>
+
+      Programs that use affected APIs and extension points will
+      need to be ported to EMF and XSD 3.0.0 APIs. Downward
+      contract compatibility is not supported. There is no
+      guarantee that compliance with EMF and XSD 3.0.0 APIs
+      would ensure compliance with EMF and XSD 1.x APIs. Refer
+      to 
+      <em>
+        <a
+        href="http://www.eclipse.org/eclipse/development/java-api-evolution.html">
+        Evolving Java-based APIs</a>
+      </em>
+
+      for a discussion of the kinds of API changes that maintain
+      contract compatibility.</p>
+
+      <p>
+      <b>Binary (plug-in) Compatibility:</b>
+
+      EMF and XSD 3.0.0 will be upwards binary-compatible with
+      EMF and XSD 2.2.0 except in those areas noted in the 
+      <a href="#MigrationGuide">
+        <em>EMF and XSD 3.0.0 Migration Guide.</em>
+      </a>
+
+      Downward plug-in compatibility is not supported: plug-ins
+      compiled against EMF and XSD 3.0.0 will likely be
+      unusable with EMF and XSD 1.x. Refer to 
+      <em>
+        <a
+        href="http://www.eclipse.org/eclipse/development/java-api-evolution.html">
+        Evolving Java-based APIs</a>
+      </em>
+
+      for a discussion of the kinds of API changes that maintain
+      binary compatibility.</p>
+
+      <p>
+      <b>Source Compatibility:</b>
+
+      Source files written to use EMF and XSD 2.2.0 APIs will
+      usually compile and run successfully against EMF and XSD
+      3.0.0 APIs, although this cannot be guaranteed. In some
+      cases, it may be necessary to make minor changes to the
+      source code to disambiguate things like imports or overloaded
+      method invocations. Downward source compatibility is not
+      supported. If source files use new APIs, they will not be
+      usable with earlier versions.</p>
+
+      <p>
+      <b>Workspace Compatibility:</b>
+
+      EMF and XSD 3.0.0 will be upwards
+      workspace-compatible with EMF and XSD 2.2.0 unless noted.
+      This means that workspaces and projects created by an Eclipse
+      with EMF and XSD 2.2.0 installed can be successfully
+      opened by an Eclipse with EMF and XSD 3.0.0 installed.
+      This includes both hidden metadata, which is localized to a
+      particular workspace, as well as metadata files found within
+      a workspace project, which may propagate between workspaces
+      via file copying or team repositories. User interface session
+      state may be discarded when a workspace is upgraded. Downward
+      workspace compatibility is not supported. Metadata files
+      created (or overwritten) by the newer version will generally
+      be unusable with older versions.</p>
+
+      <p>
+      <b>Non-compliant usage of API's:</b>
+
+      All non-API methods and classes, and certainly everything in
+      a package with "internal" in its name, are considered
+      implementation details which may vary between operating
+      environment and are subject to change without notice. Client
+      plug-ins that directly depend on anything other than what is
+      specified in the API are inherently unsupportable and receive
+      no guarantees about compatibility within a single release
+      much less with an earlier releases. Refer to 
+      <em>
+        <a
+        href="http://www.eclipse.org/articles/Article-API%20use/eclipse-api-usage-rules.html">
+        How to Use the Eclipse API</a>
+      </em>
+
+      for information about how to write compliant plug-ins.</p>
+
+      <h3>
+      <a name="MigrationGuide">
+      </a>
+
+      EMF and XSD 3.0.0 Migration Guide</h3>
+
+      <p>At this time, there are no known issues migrating from
+      2.2.0 to 3.0.0. 
+      Should this change, this document will be
+      revised, or a secondary document will be added documenting
+      any known issues.</p>
+
+      <h2>
+      <a name="Themes">
+      </a>
+
+      Themes</h2>
+  <p>The changes under consideration for the next release of
+      Eclipse EMF and XSD address a few major themes:</p>
+
+      <ul type="disc">
+        <li>
+        <b>Built To Last</b>
+
+        - EMF and XSD has always been a framework for
+        delivering integrated modeling tools. With a growing base
+        of both free and commercial offerings based on EMF and
+        XSD, it's critical for continued success to maintain API
+        stability and ensure that the framework scales well. This
+        theme includes work to measure and improve the performance
+        and scalability of EMF and XSD resources.</li>
+
+        <li>
+        <b>Simple To Use</b>
+
+        - The EMF and XSD framework needs to not only provide
+        the features that advanced developers demand, but also be
+        something that most developers find simple to use. This
+        theme includes ease-of-use reviews of existing features,
+        and work that helps make EMF and XSD-based products
+        simple to use for developers with widely-varying
+        backgrounds and skill sets.</li>
+
+        <li>
+        <b>Release Currency</b>
+
+        - Tools projects will maintain release currency concurrent
+        with 3.x releases. For EMF and XSD 3.0, this means
+        currency with Eclipse 3.3.</li>
+		
+</ul>
+
+<p> Additionally, the following plan items are being discussed:</p>
+<ul>        
+        <li><b>Java 2 Standard Edition 5 Support</b></li>
+        <li><b>JET Unification</b></li>
+        <li><b>J-Merge</b></li>
+        <li><b>XQuery, XLinks, XPath</b></li>
+        <li><b>Performance</b></li>
+        <li><b>Ecore Constraint, XSD2Ecore, Ecore Source Editor</b></li>
+        <li><b>MMI</b></li>
+        <li><b>Tooling Enhancements</b></li>
+        <li><b>BIRT Integration / Mentoring</b></li>
+        <li><b>Threaded Unit Testing</b></li>
+        <li><b>Transformation &amp; Mapping</b></li>
+        <li><b>Release Engineering &amp; Automation</b></li>
+        <li><b>Web Site Refresh</b></li>
+</ul>
+
+
+      <p>The current status of each plan item is noted:</p>
+
+      <ul type="disc">
+      <li>
+        <b>Plan Item</b>
+
+        items - a <i>Plan Item</i> that we have
+        decided to address for the release. To see all committed items - see <i>"committed"</i> items</li>
+        <li>
+        <b>Committed</b>
+
+        items - A committed bug is one that we have
+        decided to address for the release.</li>
+
+        <li>
+        <b>Proposed</b>
+
+        items - A bug item is one that we are
+        considering addressing for the release. Although we are
+        actively investigating it, we are not yet in a position to
+        commit to it, or to say that we won't be able to address
+        it. After due consideration, a proposal will either be
+        committed or deferred.</li>
+
+        <li>
+        <b>Deferred</b>
+
+        items - A reasonable proposal that will not make it in
+        to this release for some reason is marked as deferred with
+        a brief note as to why it was deferred. Deferred plan items
+        may resurface as committed plan items at a later
+        point.</li>
+      </ul>
+
+      <h2>
+      <a name="Project">
+      </a>
+
+     EMF and XSD Project</h2>
+
+<p>Plan items reflect new features of the EMF and XSD project, or
+areas where existing features will be significantly reworked.
+
+<h4><a name="Plan"> </a> Plan Items </h4>
+
+<blockquote>
+<p>The Plan Item Bugzillas:</p>
+<p><a 
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&short_desc_type=substring&short_desc=%5BPlan+Item%5D&bug_status=NEW&bug_status=REOPENED&bug_status=ASSIGNED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id">All Open</a> 
+	| <a
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&short_desc_type=substring&short_desc=%5BPlan+Item%5D&bug_status=UNCONFIRMED&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id">All Resolved</a> 
+	| <a
+  href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&short_desc_type=substring&short_desc=%5BPlan+Item%5D&bug_status=NEW&bug_status=REOPENED&bug_status=ASSIGNED&bug_status=UNCONFIRMED&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id">All Bugs</a></p>
+
+</blockquote>
+<h4><a name="Committed"> </a> Committed Items </h4>
+
+<blockquote>
+<p>Bugzillas with a target milestone set are committed to
+that release. For the most current list of these items, see the
+following links:</p>
+
+<p><b>3.0 release:</b></p>
+<p><a 
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=REOPENED&bug_status=ASSIGNED&target_milestone=3.0&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced">All Open</a> 
+	| <a
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=UNCONFIRMED&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&target_milestone=3.0&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced">All Resolved</a> 
+	| <a
+  href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=REOPENED&bug_status=ASSIGNED&bug_status=UNCONFIRMED&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&target_milestone=3.0&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced">All Bugs</a>
+  </p>
+
+</blockquote>
+<h4><a name="Proposed"> </a> Proposed Items</h4>
+
+<blockquote>
+<p>Bugzillas without a specific target milestone are
+proposed, but not committed for a particular release. This list also includes Bugzillas that were
+proposed for older releases but have not yet been addressed. For the most
+current list of these items, see the following links:</p>
+
+<p><a 
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&product=EMF&version=1.0&version=2.0&version=2.1&version=2.2&version=3.0&target_milestone=---&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&emailtype1=substring&email1=&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&field0-0-0=noop&type0-0-0=noop&value0-0-0=&query_based_on=">Open</a> | 
+	<a
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&product=EMF&version=3.0&target_milestone=---&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&emailtype1=substring&email1=&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=">Resolved</a> </p>
+	</blockquote>
+
+<h4><a name="Deferred"> </a> Deferred Items</h4>
+
+<blockquote>
+<p>Bugzillas assigned to the non-specific target of 'Future' are
+deferred, and not scheduled for a particular release. For the most
+current list of these items, see the following link:</p>
+
+<p><a 
+	href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&product=EMF&target_milestone=Future&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&emailtype1=substring&email1=&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=">All Open</a>
+ </p>
+</blockquote>
+
+
+<p><em> <small>Note that for the links above, you may need to reset your
+browser's <u>bugs.eclipse.org</u> cookie(s) in order to see all the
+appropriate columns.</small> </em></p>
+</div>
+
+</body>
+</html>
+
