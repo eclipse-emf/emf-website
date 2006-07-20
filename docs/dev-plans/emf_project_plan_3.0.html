@@ -19,7 +19,7 @@
 
 		<h3>Including XML Schema Infoset Model (XSD) framework</h3>
 
-      <p>Last revised <tt>$Date: 2006/07/20 00:39:02 $</tt> ( 
+      <p>Last revised <tt>$Date: 2006/07/20 00:41:29 $</tt> ( 
       <img width="12" height="12" src="/emf/images/green-box.gif"
       border="0" />
 
@@ -44,7 +44,7 @@
 
       <p>This document lays out the feature and API set for the
       next feature release of the Eclipse Modeling Framework (EMF) project (which includes XSD)
-      after 2.2.0, designated releases 3.0.</p>
+      after 2.2.0, designated releases 3.0.0.</p>
 
       <ul type="disc">
         <li>
@@ -186,7 +186,7 @@
       <ul type="disc">
         <li>Java 2 Platform 1.5</li>
 
-        <li>Eclipse Platform 3.3</li>
+        <li>Eclipse Platform 3.3.0</li>
       </ul>
 
       <p>The 3.0.0 releases of EMF and XSD are designed to run
@@ -288,7 +288,11 @@
 
       Source files written to use EMF and XSD 2.2.0 APIs will
       usually compile and run successfully against EMF and XSD
-      3.0.0 APIs, although this cannot be guaranteed. In some
+      3.0.0 APIs, although this cannot be guaranteed. 
+      Because EMF 3.0.0 will exploit new Java language constructs, 
+      there is an increased chance of source incompatibilities 
+      compared to previous EMF releases.
+      In some
       cases, it may be necessary to make minor changes to the
       source code to disambiguate things like imports or overloaded
       method invocations. Downward source compatibility is not
@@ -378,8 +382,8 @@
         <b>Release Currency</b>
 
         - Tools projects will maintain release currency concurrent
-        with 3.x releases. For EMF and XSD 3.0, this means
-        currency with Eclipse 3.3.</li>
+        with 3.x releases. For EMF and XSD 3.0.0, this means
+        currency with Eclipse 3.3.0.</li>
 		
 </ul>
 
@@ -463,7 +467,7 @@ areas where existing features will be significantly reworked.
 that release. For the most current list of these items, see the
 following links:</p>
 
-<p><b>3.0 release:</b></p>
+<p><b>3.0.0 release:</b></p>
 <p><a 
 	href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=REOPENED&bug_status=ASSIGNED&target_milestone=3.0&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced">All Open</a> 
 	| <a
