@@ -17,7 +17,7 @@ $params["showFiltersOrHeaderFooter"] = 1;
 // default if no QS values
 if (!$params["project"] && !$qsvars["version"]) $params["version"] = "";
 
-if (is_file("release-notes".$params["version"].".php")) {
+if ($params["version"] && is_file("release-notes".$params["version"].".php")) {
     header("Location: http://www.eclipse.org/emf/news/release-notes".$params["version"].".php");
     exit;
 }
@@ -65,6 +65,6 @@ echo '<p><a href="view-source:http://www.eclipse.org/emf/news/'.$XMLfile.'" clas
 
 include_once $pre . "includes/footer.php"; 
 
-echo "<!-- $Id: release-notes.php,v 1.18 2006/07/20 16:55:05 nickb Exp $ -->"; 
+echo "<!-- $Id: release-notes.php,v 1.19 2006/07/20 16:59:49 nickb Exp $ -->"; 
 
 ?>
