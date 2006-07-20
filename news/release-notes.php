@@ -15,7 +15,7 @@ $params["version"] = $qsvars["version"];
 $params["showFiltersOrHeaderFooter"] = 1;
 
 // default if no QS values
-if (!$params["project"] && !$qsvars["version"]) $params["version"] = "2.2";
+if (!$params["project"] && !$qsvars["version"]) $params["version"] = "";
 
 if (is_file("release-notes".$params["version"].".php")) {
     header("Location: http://www.eclipse.org/emf/news/release-notes".$params["version"].".php");
@@ -45,10 +45,10 @@ include $pre . "includes/header.php";
  */
 
 // define XML and XSL sources 
-$XMLfile = "release-notes" .
-    (substr($params["version"],0,3)=="2.2" ? "" : "-" . substr($params["version"],0,3))
-    . ".xml";
+$XMLfile = "release-notes" . ($params["version"] && strlen($params["version"])>=3 ? "-" . substr($params["version"],0,3) : "") . ".xml";	
+if (!is_file($XMLfile)) { $XMLfile = "release-notes.xml"; }	
 $XSLfile = "release-notes.xsl";
+
 
 $processor = xslt_create();
 $fileBase = 'file://' . getcwd () . '/';
@@ -65,6 +65,6 @@ echo '<p><a href="view-source:http://www.eclipse.org/emf/news/'.$XMLfile.'" clas
 
 include_once $pre . "includes/footer.php"; 
 
-echo "<!-- $Id: release-notes.php,v 1.17 2006/06/28 20:53:39 nickb Exp $ -->"; 
+echo "<!-- $Id: release-notes.php,v 1.18 2006/07/20 16:55:05 nickb Exp $ -->"; 
 
 ?>

@@ -1,4 +1,4 @@
-<!-- $Id: nav.php,v 1.32 2006/06/02 20:15:30 nickb Exp $ -->
+<!-- $Id: nav.php,v 1.33 2006/07/20 16:55:05 nickb Exp $ -->
 <!-- quick nav -->
 		&#160;
 		<table border="0" width="100%">
@@ -81,6 +81,7 @@
  src="http://www.eclipse.org/emf/images/bugzilla.gif" border="0"></a></td>
 
             <td height="42"> <a href="http://bugs.eclipse.org/bugs" class="category">Bugzilla</a>
+
 <?php if ($isEMFserver) { ?>
 :: <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0" class="subcategory">Assigned</a>
 :: <a href="javascript://" class="subcategory" style="color:red" onclick="if (confirm('To regenerate plan-*.xml, follow this link, wait about 30 seconds\nfor the page to display, then view-source (CTRL-U) and copy that\nsource into the appropriate www/emf/plan/plan-*.xml document\nand it commit to CVS. Content should refresh on public site\n(http://www.eclipse.org/emf/plan/plan-*.xml) within a minute or two.')) { document.location.href='/emf/plan/plan.php?votes=true&blocks=true'; }"> Regenerate Prioritized Bug List</a>
@@ -170,10 +171,14 @@
 &#160;</td>
           </tr>
 			<tr><td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width=1 height=3></td></tr>
-			<tr><td><img src="http://www.eclipse.org/emf/images/release-notes.gif" border="0"></td>
-	<td><a name="relnotes1" class="category">Release Notes:</a> 
+			<tr><td><a class="category" href="http://www.eclipse.org/emf/news/release-notes.php"><img src="http://www.eclipse.org/emf/images/release-notes.gif" border="0"></a></td>
+	<td><a name="relnotes1" class="category"></a><a class="category" href="http://www.eclipse.org/emf/news/release-notes.php">Release Notes</a>: 
 
-	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2">2.2</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1">2.1</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0">2.0</a>, <a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes-1.x.php">1.x</a></td>
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes.php">In Progress</a>, 
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes2.2.php">2.2</a>, 
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes2.1.php">2.1</a>, 
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes2.0.php">2.0</a>, 
+	<a class="subcategory" href="http://www.eclipse.org/emf/news/release-notes-1.x.php">1.x</a></td>
 
             <td> <a href="http://www.eclipse.org/emf/faq/faq.php"><img
  src="http://www.eclipse.org/emf/images/faq.gif" border="0"></a></td>
