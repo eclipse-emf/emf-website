@@ -1117,6 +1117,18 @@
 
     <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
 
+      <td><a href="http://www.eclipsezone.com/files/podcasts/4-EMF-Ed.Merks.mp3">Callisto Podcast: Ed Merks</a> (MP3, 37 min, 51 Mb)<br/>
+      Discussed: why people are confused by EMF and how this amazing tool can be leveraged in almost any situation.
+      </td>
+
+      <td>July 20
+      <sup>th</sup>
+
+      2006</td>
+    </tr>
+
+    <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
+
       <td><a href="http://adobedev.breezecentral.com/p17835008/">Using The Eclipse Modeling Frameworks</a> (Adobe Breeze Webinar w/ sound, video, and chat transcript)
       </td>
 
@@ -1936,5 +1948,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.40 2006/06/19 17:33:56 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.41 2006/07/20 23:27:29 nickb Exp $ -->
 
