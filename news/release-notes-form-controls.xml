@@ -28,6 +28,9 @@
         <input class="black-no-underline" type="submit" name="z" value="Go!"/>
           </form>
         </td>
+        <td rowspan="2">
+        <img border="1" src="../images/misc/bug.gif" alt="I've been looking closely at bugs." label="I've been looking closely at bugs."/>
+        </td>
       </tr>
       <tr>
         <td>
