@@ -22,6 +22,10 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200607270021" project="emf" version="2.2.1">
+<bug id="151208">JETEmitter.addVariable() does not work with binary plugins in runtime workbench</bug>
+</entry>
+
 <entry build="M200607200000" project="emf" version="2.2.1">
 <bug id="150500">bugs in merge algorithm in AdapterFactoryContentProvider$ViewerRefresh</bug>
 <bug id="150835">MarkerHelper should decode the segments of the URI on getFile(URI)</bug>
@@ -39,6 +43,10 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200607270021" project="xsd" version="2.2.1">
+<bug id="125762">[Editor] Design view not updated when an &apos;include&apos; statement is removed</bug>
+</entry>
+
 <entry build="M200607200000" project="xsd" version="2.2.1">
 <bug id="150706">Regression: multiple appInfo tags are lost on XSD to EMF model conversion</bug>
 <bug id="150735">Force update should update resolved names that fail to resolve</bug>
@@ -51,4 +59,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.191 2006/07/20 05:18:01 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.192 2006/07/27 06:18:49 nickb Exp $ -->
