@@ -1129,7 +1129,7 @@
 
     <tr><td><img src="images/c.gif" width="1" height="8" /><img src="images/c.gif" width="5" height="1" /></td>
 
-      <td><a href="http://adobedev.breezecentral.com/p17835008/">Using The Eclipse Modeling Frameworks</a> (Adobe Breeze Webinar w/ sound, video, and chat transcript)
+      <td><a href="http://adobedev.breezecentral.com/p17835008/">Using The Eclipse Modeling Frameworks</a> (Adobe Breeze Webinar w/ sound, video, and chat transcript) <a href="http://www.eclipse.org/emf/docs/webinars/MindMap.xsd">MindMap.xsd example</a>
       </td>
 
       <td>June 19
@@ -1948,5 +1948,5 @@ Eclipse Project        <a href="http://www.eclipse.org/emf/.dates.txt">Dates</a>
   </table>
 </body>
 
-<!-- $Id: docs.xml,v 1.41 2006/07/20 23:27:29 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.42 2006/08/03 22:42:02 nickb Exp $ -->
 
