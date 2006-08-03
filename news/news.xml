@@ -6,6 +6,16 @@
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200608030000</a>) is available 
 	for <a href="downloads.php">download</a>.
 </news>
+<news date="August 01, 2006" showOn="whatsnew">
+	Since January 2006, there have been over 777,000 downloads of EMF (incl. 100,000 of EMF 2.2.0)!
+	<!-- other stats:
+	    Jan-July, total 2.2.0.x downloads: 229,283
+	    Jan-July, total 2.2.0 pre-release (I builds): 125,480, or about 20,000/mo
+	        UM to Zip ratio: 118,546 to 110,737 or about 1:1 (52% UM)
+	    Jan-July, total 2.2.0 release downloads: 103,803, or about 100,000/mo
+    	    UM to Zip ratio: 83,078 to 20,725 or about 4:1 (80% UM)
+	-->
+</news>
 <news date="July 27, 2006" showOn="whatsnew">
 	<!-- M200607270021 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
@@ -1070,6 +1080,6 @@
 	<a href="http://www.eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.178 2006/08/03 05:14:24 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.179 2006/08/03 19:10:02 nickb Exp $ -->
 
 </doc>
