@@ -22,6 +22,13 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200608030000" project="emf" version="2.2.1">
+<bug id="152166">XML loader namespace-scoping problem</bug>
+<bug id="152274">java.lang.StackOverflowError in executing DragAndDropCommand with DND.DROP_MOVE</bug>
+<bug id="152477">@model features causes NullPointerException when specifying keyType and valueType</bug>
+<bug id="152615">NPE when a windows path is entered as the model URI</bug>
+</entry>
+
 <entry build="M200607270021" project="emf" version="2.2.1">
 <bug id="151208">JETEmitter.addVariable() does not work with binary plugins in runtime workbench</bug>
 </entry>
@@ -43,6 +50,11 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200608030000" project="xsd" version="2.2.1">
+<bug id="152113">Choice within a Sequence</bug>
+<bug id="152487">EAnnotations on EOperations and EParameters don&apos;t round trip</bug>
+</entry>
+
 <entry build="M200607270021" project="xsd" version="2.2.1">
 <bug id="125762">[Editor] Design view not updated when an &apos;include&apos; statement is removed</bug>
 </entry>
@@ -59,4 +71,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.192 2006/07/27 06:18:49 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.193 2006/08/03 05:14:24 nickb Exp $ -->
