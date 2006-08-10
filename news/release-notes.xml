@@ -22,6 +22,12 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200608100000" project="emf" version="2.2.1">
+<bug id="152628">Ecore schema export lacks unsettable tag</bug>
+<bug id="153149">EcoreUtil.Copier.copyReferences handles bidirectional references incorrectly</bug>
+<bug id="153171">Bidirectional references that delegate to a feature map don&apos;t generate correctly</bug>
+</entry>
+
 <entry build="M200608030000" project="emf" version="2.2.1">
 <bug id="152166">XML loader namespace-scoping problem</bug>
 <bug id="152274">java.lang.StackOverflowError in executing DragAndDropCommand with DND.DROP_MOVE</bug>
@@ -50,6 +56,10 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200608100000" project="xsd" version="2.2.1">
+<bug id="152628">Ecore schema export lacks unsettable tag</bug>
+</entry>
+
 <entry build="M200608030000" project="xsd" version="2.2.1">
 <bug id="152113">Choice within a Sequence</bug>
 <bug id="152487">EAnnotations on EOperations and EParameters don&apos;t round trip</bug>
@@ -71,4 +81,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.193 2006/08/03 05:14:24 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.194 2006/08/10 22:52:06 nickb Exp $ -->
