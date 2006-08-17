@@ -22,6 +22,10 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200608170000" project="emf" version="2.2.1">
+<bug id="153603">NPE in AbstractGeneratorAdapter</bug>
+</entry>
+
 <entry build="M200608100000" project="emf" version="2.2.1">
 <bug id="152628">Ecore schema export lacks unsettable tag</bug>
 <bug id="153149">EcoreUtil.Copier.copyReferences handles bidirectional references incorrectly</bug>
@@ -56,6 +60,14 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200608170000" project="xsd" version="2.2.1">
+<bug id="152628">Ecore schema export lacks unsettable tag</bug>
+<bug id="153637">NPE when creating an EMP project using Oracle BPEL extension XML schema</bug>
+<bug id="153698">invalid character generated in XML Schema</bug>
+<bug id="153702">Illegal XML Schema - use=required and default</bug>
+<bug id="153813">NPE trying to set default value for &quot;Abstract&quot; feature of XSDElementDeclaration</bug>
+</entry>
+
 <entry build="M200608100000" project="xsd" version="2.2.1">
 <bug id="152628">Ecore schema export lacks unsettable tag</bug>
 </entry>
@@ -81,4 +93,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.194 2006/08/10 22:52:06 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.195 2006/08/17 19:25:52 nickb Exp $ -->
