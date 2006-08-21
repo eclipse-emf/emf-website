@@ -1,57 +1,55 @@
 <?php 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-$pre = "../";
+ob_start();
+?>
+<div id="midcolumn">
+	<div class="homeitem3col">
+		<h3>EMF Update Manager Site</h3>
+		<p>To install these plugins, point your Eclipse Update Manager at this site. For more on how to do this, <a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">click here</a>. <a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/updates/site.xml&amp;format=xml">Mirrors available</a>.
+		</p>
+		<ul>
+			<li>
+				Help
+				<ul>
+					<li>
+						Software Updates
+						<ul>
+							<li>
+								Find and Install...
+								<ul>
+									<li>
+										Search for new features to install
+										<ul>
+											<li>
+											Add Update Site...<br/>
+											* Name: <b>EMF Update Manager Site</b><br/>
+											* URL: <b><a href="http://download.eclipse.org/tools/emf/updates/site.xml" target="_um">http://download.eclipse.org/tools/emf/updates/site.xml</a></b> (Releases)<br/>
+											(or): <b><a href="http://download.eclipse.org/tools/emf/updates/site-interim.xml" target="_um">http://download.eclipse.org/tools/emf/updates/site-interim.xml</a></b> (I, M and S Builds)
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- this doesn't really fit anywhere anymore... -->
+<!-- <img alt="how to" src="http://www.eclipse.org/images/howto_banner.jpg" height="111" width="272"/> -->
+<?php
+$html = ob_get_contents();
+ob_end_clean();
 
-// Process query string
-$vars = explode("&", $_SERVER['QUERY_STRING']);
-for ($i=0;$i<=count($vars);$i++) {
-  $var = explode("=", $vars[$i]);
-  $qsvars[$var[0]] = $var[1];
-}
+$pageTitle = "Eclipse Tools - EMF - Update Manager";
+$pageKeywords = ""; // TODO: add something here
+$pageAuthor = "Neil Skrypuch";
 
-$params = array();
-$params["project"] = $qsvars["proj"]; 
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/um.css"/>');
 
-$HTMLTitle = "EMF - Update Manager";
-$ProjectName = array(
-	"Update Manager",
-	"EMF",
-	"Update Manager",
-	"images/reference.gif"
-);
-
-if (is_file($pre . "includes/header.php")) include $pre . "includes/header.php"; 
-
-/*
- * To work, this script must be run with a version of PHP4 which
- * includes the Sablotron XSLT extension compiled into it
- * 
- * Params in stylesheet:
- *  
- * 	<xsl:param name="project"></xsl:param>
- *
- */
-
-// define XML and XSL sources 
-$XMLfile = $qsvars["XMLfile"] ? str_replace("../","",$qsvars["XMLfile"]).".xml" : "site.xml";
-$XSLfile = "site.xsl";
-
-if (function_exists('xslt_create')) {
-	$processor = xslt_create();
-	$fileBase = 'file://' . getcwd () . '/';
-	xslt_set_base ( $processor, $fileBase );
-	$result = xslt_process($processor, $fileBase.$XMLfile, $fileBase.$XSLfile, NULL, array(), $params);
-	
-	if(!$result) {
-		echo "Trying to parse ".$XMLfile." with ".$XSLfile."...<br/>";
-		echo "ERROR #".xslt_errno($processor) . " : " . xslt_error($processor);
-	}
-	echo $result; 
-} else { ?>
-	<meta http-equiv="Refresh" content="0;url=site.html">
-<?php } ?>
-
-<p><a href="view-source:http://download.eclipse.org/tools/emf/updates/<?php echo $XMLfile; ?>" class="red">View as XML</a></p>
-
-<?php if (is_file($pre . "includes/footer.php")) include $pre . "includes/footer.php"; ?>
-<!-- $Id: index.php,v 1.2 2006/03/09 19:07:25 nickb Exp $ -->
+# Generate the web page
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>
