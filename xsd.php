@@ -1,1 +1,4 @@
-<?php $page = "xsd"; include "home.php"; ?>
+<?php
+$page = "xsd";
+include "home.php";
+?>

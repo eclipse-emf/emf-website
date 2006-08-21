@@ -1,1 +1,4 @@
-<?php $page = "emf"; include "home.php"; ?>
+<?php
+$page = "emf";
+include "home.php";
+?>

@@ -1,233 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<?php 
-		$HTMLTitle = "Eclipse Tools - ".strtoupper($page)." Home";
-		$noHeader=true; 
-		$newsInSidebar=true; // don't include news in footer
-		include $pre."includes/header.php"; ?>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-<!-- wrapper for left nav -->
-<table cellspacing="0" cellpadding="0" border="0" width="100%">
-	<tr valign="top"><td colspan="1" align="left" width="100%">
-    <table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" BGCOLOR="#006699" >
+ob_start();
+?>
 
-     <tr>
-          <td BGCOLOR="#000000" width="116" ><a name="top"></a><a href="http://www.eclipse.org" target="_top"><img src="http://www.eclipse.org/images/EclipseBannerPic.jpg" width="115" height="50" border="0"/></a></td>
-          <td WIDTH="637"><img SRC="http://www.eclipse.org/images/gradient.jpg" border="0" height="50" width="282"/></td>
-          <td WIDTH="250"><img src="http://www.eclipse.org/images/eproject-simple.GIF" width="250" height="48"/></td>
-     </tr>
-    </table>
-   </td>
-  </tr>
-</table>
-<table cellspacing="0" cellpadding="0" border="0">
-	<tr valign=top>
-		<td align=left width=115 bgcolor="#6699CC"><?php include_once $pre."includes/nav.xml"; ?></td>
-		<td><img src="http://www.eclipse.org/emf/images/c.gif" border="0" width="3" height="1"></td><td align="left" width="100%">
-&#160;
-<table border="0" cellpadding="2" width="100%">
-  <tbody>
+<div id="midcolumn">
+<?php
+include "${pre}includes/scripts.php";
 
-    <tr>
-      <td align="left" width="60%">
-        <font class="indextop"><?php if (!$ProjectName[0]) { echo "EMF"; } else { echo $ProjectName[0]; } ?></font><br>
-        <font class="indexsub"><?php if (!$ProjectName[1]) { echo "Eclipse Modeling Framework"; } else { echo $ProjectName[1]; } ?></font>
-      </td>
-      <td width="40%">
-        <img src="<?php if (!$ProjectName[3]) { echo "http://www.eclipse.org/emf/images/c.gif"; } else { echo (strstr($ProjectName[3],$WWWpre)?$ProjectName[3]:$WWWpre.$ProjectName[3]); } ?>" align="right"/>
-      </td>
+include "home-contents.php";
+displayIntro($page);
 
-    </tr>
-  </tbody>            
-</table>
+include "${pre}includes/nav.php";
+?>
+</div>
 
-<table BORDER=0 CELLPADDING=2 WIDTH="100%" >
-<tr>
-<td ALIGN=right VALIGN=TOP><b><font face="Arial,Helvetica"><small><a href="#quicknav">Quick Nav</a></small></td>
-</tr>
-</table>
+<div id="rightcolumn">
+	<div class="sideitem">
+	<h6>News</h6>
+		<?php getNews(3, "whatsnew", "vert"); ?>
+		<ul>
+			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>
+			<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview</li>
+			<li><a href="http://www.eclipse.org/emf/news/release-notes.php">EMF Release Notes</a></li>
+			<li><a href="<?php echo $pre; ?>news-whatsnew.php">More news</a></li>
+		</ul>
+	</div>
 
+	<div class="sideitem">
+		<h6>Eclipse Modeling Corner</h6>
+		<p>Wanted to <a href="http://www.eclipse.org/emf/models/models.php">contribute</a> models, projects, files, ideas, utilities, or code to <a href="http://www.eclipse.org/emf/emf.php">EMF</a>, <a href="http://www.eclipse.org/emf/sdo.php">SDO</a>, or <a href="http://www.eclipse.org/emf/xsd.php">XSD</a>? Now you can!</p>
+		<p>Have a look, post your comments, <a href="http://www.eclipse.org/emf/models/models.php">submit</a> your code, or just read what others have written. <a href="mailto:codeslave(at)ca(dot)ibm(dot)com?Subject=EMF Corner Comments">Feedback here</a>.</p>
+	</div>
 
-<!-- main content starts here -->
-<table border=0 cellpadding=2 width="100%" >
-<tr valign="top">
+	<div class="sideitem">
+		<h6>Related links</h6>
+		<ul>
+			<li><a href="http://www.eclipse.org/uml2">UML2</a></li>
+			<li><a href="http://www.eclipse.org/modeling">Modeling Project</a></li>
+			<li><a href="http://www.eclipse.org/emft">EMF Tech (EMFT)</a></li>
+			<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a></li>
+			<li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a></li>
+			<li><a href="../newsgroups">Eclipse newsgroups</a></li>
+		</ul>
+	</div>
+</div>
+<?php
+$html = ob_get_contents();
+ob_end_clean();
 
-<?php if ($page=="" || $page=="emf") { ?>
+$pageTitle = "Eclipse Tools - " . strtoupper($page) . " Home";
+$pageKeywords = ""; // TODO: add something here
+$pageAuthor = "Neil Skrypuch";
 
-	<td width="100%"> <!-- EMF --> 
-	<table cellpadding="2" cellspacing="2" border="0">
-		<tr>
-			<td nowrap class="head_section"><b>Eclipse Modeling Framework (EMF)</b><a name="top">&#160;</a></td>
-		</tr>
-		<tr>
-			<td class="box-9pt" width="100%">
-				<?php include_once "emf-contents.php"; displayEMFIntro(); 
-						if ($page == "" || $page == "emf") { 
-							echo "<br/><br/><b>What is EMF?</b><br/><br/>\n\n"; displayEMFIntro2(); 
-						} else { 
-							doMoreLink("home.php?page=emf"); 
-						} ?>
-			</td>
-		</tr>
-	</table>
-	</td> 
-
-<?php } ?>
-<?php if ($page=="sdo") { ?>
-
-	<td width="100%"> <!-- SDO --> 
-	<table cellpadding="2" cellspacing="2" border="0">
-		<tr>
-			<td nowrap class="head_section"><b>Service Data Objects (SDO)</b><a name="top">&#160;</a></td>
-		</tr>
-		<tr>
-			<td class="box-9pt" width="100%">
-				<?php include_once "sdo-contents.php"; displaySDOIntro(); 
-						if ($page == "sdo") { 
-							echo "<br/><br/><b>What is SDO?</b><br/><br/>\n\n"; displaySDOIntro2(); 
-						} else {
-							doMoreLink("home.php?page=sdo"); 
-						} ?>
-			</td>
-		</tr>
-	</table>
-	</td> 
-
-<?php } ?>
-<?php if ($page=="xsd") { ?>
-
-	<td width="100%"> <!-- XSD --> 
-	<table cellpadding="2" cellspacing="2" border="0">
-		<tr>
-			<td nowrap class="head_section"><b>XML Schema Infoset Model (XSD)</b><a name="top">&#160;</a></td>
-		</tr>
-		<tr>
-			<td class="box-9pt" width="100%">
-				<?php include_once "xsd-contents.php"; displayXSDIntro(); 
-						if ($page == "xsd") { 
-							echo "<br/><br/><b>What is XSD?</b><br/><br/>\n\n"; displayXSDIntro2();
-							echo "<br/><br/>\n\n"; displayXSDModelImage(); 
-						} else {
-							doMoreLink("home.php?page=xsd"); 
-						} ?>
-			</td>
-		</tr>
-	</table>
-	</td> 
-
-<?php } ?>
-
-	<td rowspan="2" width="20%" valign="top">
-
-	<table width="212" cellpadding="2" cellspacing="2" border="0">
-		<tr>
-
-			<td colspan="3" class="head_section">
-				<b>News</b>
-			</td>
-		</tr>
-		<tr>
-			<td class="box">	
-				<br />
-					<table>
-					<?php getNews(3,"whatsnew","vert"); ?>
-					</table>
-				<br/>
-
-	- <a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a> <br><br>
-
-	- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview <br><br>
-
-	- <a href="http://www.eclipse.org/emf/news/release-notes.php">EMF Release Notes</a><br><br>
-
-	- <a href="<?php echo $pre; ?>news-whatsnew.php">What's New</a> [<a href="<?php echo $pre; ?>news-whatsnew.php">more</a>]</a><br><br>
-
-
-
-			</td>
-		</tr>
-	</table>
-
-	<br />
-
-	<table width="212" cellpadding="2" cellspacing="2" border="0">
-		<tr>
-
-			<td colspan="3" class="head_section">
-				<b>Eclipse Modeling Corner</b>
-			</td>
-		</tr>
-		<tr>
-			<td class="box">	<br/>
-Wanted to <a href="http://www.eclipse.org/emf/models/models.xml">contribute</a> models, projects, files, ideas, utilities, or code to <a href="http://www.eclipse.org/emf/emf.php">EMF</a>, <a href="http://www.eclipse.org/emf/sdo.php">SDO</a>, or <a href="http://www.eclipse.org/emf/xsd.php">XSD</a>? Now you can!<br/><br/>
-			Have a look, post your comments, <a href="http://www.eclipse.org/emf/models/models.xml">submit</a> your code, or just read what others have written. <a href="mailto:codeslave(at)ca(dot)ibm(dot)com?Subject=EMF Corner Comments">Feedback here</a>.<br><br>
-		</td>
-		</tr></table>
-
-	<br/>
-
-<!--	<table width="212" cellpadding="2" cellspacing="2" border="0">
-		<tr>
-
-			<td colspan="3" class="head_section">
-				<b>Subprojects</b>
-			</td>
-		</tr>
-		<tr>
-			<td class="box">	
-				<br />
-				- <a href="/emf/emf.php">Eclipse Modeling Framework (EMF)</a><br /><br />
-
-				- <a href="/emf/sdo.php">Service Data Objects (SDO)</a><br /><br />
-
-				- <a href="/emf/xsd.php">XML Schema Infoset Model (XSD)</a><br /><br />
-				
-			</td>
-		</tr>
-	</table>
-
-	<br /> -->
-
-	<table width="212" cellpadding="2" cellspacing="2" border="0">
-		<tr>
-			<td colspan="3" class="head_section">
-				<b>Related links</b>
-
-			</td>
-		</tr>
-		<tr>
-			<td class="box">	
-				<br />
-					- <a href="http://www.eclipse.org/uml2">UML2</a><br /><br />
-					- <a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a><br /><br />
-					- <a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a><br/><br/>
-					- <a href="../newsgroups">Eclipse newsgroups</a><br /><br />
-
-				</ul>
-			</td>
-		</tr>
-	</table>
-
-	</td>
-
-</tr>
-
-<tr><td colspan="1">
-<?php include $pre."includes/nav.php"; ?>
-
-</td></tr>
-
-</table>
-
-<p>
-	<a href="<?php if ($isWWWserver) { ?>/emf<?php } else { ?>/tools/emf/scripts<?php } ?>/emf.php">EMF Home</a> |
-	<a href="<?php if ($isWWWserver) { ?>/emf<?php } else { ?>/tools/emf/scripts<?php } ?>/sdo.php">SDO Home</a> | 
-	<a href="<?php if ($isWWWserver) { ?>/emf<?php } else { ?>/tools/emf/scripts<?php } ?>/xsd.php">XSD Home</a> | 
-	<a href="#top">Top of Page</a>
-</p>
-
-<!-- $Id: home.php,v 1.23 2006/05/23 15:40:31 nickb Exp $ -->
-</body></html>
-
-<?php function doMoreLink($url) { 
-	echo '<a href="'.$url.'">More...</a>';
-} ?>
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="includes/home.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<style type="text/css">.homeitem { clear: none; }</style>' . "\n");
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>

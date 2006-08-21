@@ -1,1 +1,4 @@
-<?php $page = "sdo"; include "home.php"; ?>
+<?php
+$page = "sdo";
+include "home.php";
+?>

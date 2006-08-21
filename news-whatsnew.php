@@ -1,21 +1,22 @@
-<?php $pre = ""; 
-		$HTMLTitle = "Eclipse Tools - EMF and SDO - What's New";
-		$ProjectName = array(
-			"What's New",
-			'Eclipse Modeling Framework Documents',
-			"What's New",
-			"images/reference.gif"
-			);
-		include $pre."includes/header.php"; ?>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-<table BORDER=0 CELLPADDING=2 WIDTH="100%" >
-<tr>
-<td>&#160;&#160;&#160; </td>
-<td>
-<?php getNews(-1,"all"); ?>
-</td>
-</tr>
-</table>
-<?php include $pre."includes/footer.php"; ?>
+ob_start();
 
-<!-- $Id: news-whatsnew.php,v 1.3 2005/05/06 21:44:37 nickb Exp $ -->
+include "includes/scripts.php";
+print "<div id=\"midcolumn\">\n";
+print "<div class=\"homeitem3col\">\n";
+print "<h3>All News</h3>\n";
+getNews(-1, "all", "vert");
+print "</div>\n";
+print "</div>\n";
+
+$html = ob_get_contents();
+ob_end_clean();
+
+$pageTitle = "Eclipse Tools - All News";
+$pageKeywords = ""; // TODO: add something here
+$pageAuthor = "Neil Skrypuch";
+
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>
