@@ -465,7 +465,6 @@
 
 <entry build="I200402251234SL" project="emf" version="2.0.0">
 <note>
-<p>
 There are bug fixes and improvements included with this build, some of which are described below.
 Where the description applies to a bug reported through Bugzilla, the Bugzilla number is included after the description.
 <ul>
@@ -510,7 +509,6 @@ Refactored EFactoryImpl.create(EClass) for easier reuse. The implementation of i
 making it easier to create something other than EObjectImpl.
 </li>
 </ul>
-</p>
 </note>
 <bug id="43957">Removed recursive build from JET, which caused NPEs in GlobalBuildAction, BuildManager.</bug>
 <bug id="49269">Changed CopyCommand to properly preserve order of copied bi-directional references.</bug>
@@ -523,7 +521,6 @@ making it easier to create something other than EObjectImpl.
 
 <entry build="I200401271738SL" project="emf" version="2.0.0">
 <note>
-<p>
 There are bug fixes and improvements included with this build, some of which are described below.
 Where the description applies to a bug reported through Bugzilla, the Bugzilla number is included after the description.
 <ul>
@@ -531,13 +528,11 @@ Where the description applies to a bug reported through Bugzilla, the Bugzilla n
 Use dynamic classpath containers to accomodate breaking runtime changes in Eclipse 3.0 M6.
 </li>
 </ul>
-</p>
 </note>
 </entry>
 
 <entry build="I200312190637VL" project="emf" version="2.0.0">
 <note>
-<p>
 There are bug fixes and improvements included with this build, some of which are described below.
 Where the description applies to a bug reported through Bugzilla, the Bugzilla number is included after the description.
 <ul>
@@ -561,7 +556,6 @@ if they are invalid Java identifiers.
 An XSD-based model's generated resource factory now sets the OPTION_USE_ENCODED_ATTRIBUTE_STYLE option to true.
 </li>
 </ul>
-</p>
 </note>
 <bug id="48721">Register the package instance against the null target namespace in an XSD model's generated resource factory.</bug>
 <bug id="48838">Problem occurred when importing a namespace where the only reference to that namespace was in an ecore:reference.Handle imports resolving during XSD model import.</bug>
@@ -570,21 +564,18 @@ An XSD-based model's generated resource factory now sets the OPTION_USE_ENCODED_
 <entry build="I200312101532XL" project="emf" version="2.0.0">
 <note>
 Initial EMF 2.0 driver. Eclipse 3.0 (M5) based
-<p>Eclipse M5 includes breaking API changes which will require regeneration or equivalent hand modification of generated EMF editors.
+Eclipse M5 includes breaking API changes which will require regeneration or equivalent hand modification of generated EMF editors.
 Since JDK 1.4 dictates the JAXP default implementation,
 all dependencies on the Xerces plugin have now been removed from the EMF (and XSD) plugins.
 Use -D<a href="http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html">java.endorsed.dirs</a> to choose a JAXP implementation.
 E.g., this command will run Eclipse with the implementation used historically:
 <pre>eclipse.exe -vmargs -Djava.endorsed.dirs=plugins/org.apache.xerces_4.0.13</pre>
-</p>
-<p>
 <b>Migration from 1.1</b>
-</p>
-<p>Code regeneration of 1.1 projects is required. There are some breaking changes in this version, specifically in the handling of XML Schema based models. Details are provided below.</p>
-<p>
+<br/>
+Code regeneration of 1.1 projects is required. There are some breaking changes in this version, specifically in the handling of XML Schema based models. Details are provided below.
 <b>Improved XML Schema Support</b>
-</p>
-<p>The support for XML Schema has been significantly enhanced in EMF 2.0. Much more of the complexity of XML Schema is now supported,
+<br/>
+The support for XML Schema has been significantly enhanced in EMF 2.0. Much more of the complexity of XML Schema is now supported,
 including mixed and open content. In addition, special Ecore annotations are now supported that allow one to specify the
 Ecore model properties that XML Schema cannot otherwise represent. The most significant changes are as follows:
 <ul>
@@ -625,7 +616,7 @@ an Ecore model and any XSD2Ecore EAnnotations it may have. The default XMLResour
 to access the data it needs to customize a schema-based model's serialization/deserialization, instead of using the XMLMap/XMLInfo mechanism.
 It is enabled using a new save/load option: XMLResource.OPTION_EXTENDED_META_DATA.
 </li>
-<li>
+<li class="outerli">
 A set of Ecore namespace (http://www.eclipse.org/emf/2002/Ecore) annotation attributes are now supported in an XSD definition of an Ecore model:
 <ul>
 <li>
@@ -666,14 +657,12 @@ Support easier tailoring for handling of xsi:schemaLocation. These changes are t
 testsuite cases at http://www.xml.com/lpt/a/2003/09/03/binding.html
 </li>
 </ul>
-</p>
-<p>
 <b>OMG MOF 2 Support</b>
-</p>
-<p>Several changes have been made in EMF 2.0 to align Ecore better with the EMOF (Essential MOF) subset of the MOF 2 Specification.
+<br/>
+Several changes have been made in EMF 2.0 to align Ecore better with the EMOF (Essential MOF) subset of the MOF 2 Specification.
 The following changes are related to this feature:
 <ul>
-<li>
+<li class="outerli">
 Ecore model changes
 <ul>
 <li>
@@ -694,7 +683,7 @@ The Ecore XMI Resource will always serialize Ecore models using the new referenc
 </li>
 </ul>
 </li>
-<li>
+<li class="outerli">
 EMOF Resource
 <ul>
 <li>
@@ -713,11 +702,7 @@ the Ecore namespace (http://www.eclipse.org/emf/2002/Ecore).
 </ul>
 </li>
 </ul>
-</p>
-<p>
 <b>Model Import Enhancements</b>
-</p>
-<p>
 <ul>
 <li>
 XSD diagnostics are displayed in EMF Model Wizard if errors are encountered while loading a model from XML Schema.
@@ -757,11 +742,9 @@ indirect dependencies and is fixed by computing the closure when a new package d
 package being used also need to be used.
 </li>
 </ul>
-</p>
-<p>
 <b>New Generator options and function</b>
-</p>
-<p>This new function is preliminary and still subject to change. New features include:
+<br/>
+This new function is preliminary and still subject to change. New features include:
 <ul>
 <li>
 You can now specify in the GenModel a different root base interface and impl class, instead of EObject and EObjectImpl.
@@ -779,11 +762,7 @@ eAnnotations can now be set on an EOperation to specify the method body to gener
 eAnnotations can now be set to specify documentation to be emitted into the generated JavaDoc.
 </li>
 </ul>
-</p>
-<p>
 <b>Miscellaneous Bug fixes and Improvements</b>
-</p>
-<p>
 <ul>
 <li>
 The bulk of the function in EObjectImpl and NotifierImpl has been moved to base classes BasicEObjectImpl and BasicNotifierImpl, which declare
@@ -853,7 +832,6 @@ Fixed generator to not set ECLIPSE_SWT classpath variable to incorrect value whe
 Tuned method BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature). Simple dynamic eGet() will be twice as fast now.
 </li>
 </ul>
-</p>
 </note>
 <bug id="45660">Incorrect classpath setting for generated editor code on Linux/gtk</bug>
 <bug id="38069">GenModel meta-model is hard-coded in JET</bug>
@@ -951,7 +929,6 @@ Tuned method BasicEObjectImpl.eDerivedStructuralFeatureID(EStructuralFeature). S
 
 <entry build="I200312190637VL" project="xsd" version="2.0.0">
 <note>
-<p>
 There are few minor bug fixes and improvements included with this build.
 <ul>
 <li>
@@ -962,13 +939,11 @@ provides support for processing instructions in the XSDParser.
 Named components with equal name and namespace are sorted by hashCode.
 </li>
 </ul>
-</p>
 </note>
 </entry>
 
 <entry build="I200312101532XL" project="xsd" version="2.0.0">
 <note>
-<p>
 There are numerous bug fixes and improvements included with this build, the most significant of which is described below.
 <ul>
 <li>
@@ -1004,8 +979,7 @@ This fix is is also available in the 1.1.1.1 maintenance release.
 The XML namespace schema can now be imported without an explicit schema location and it will load the cached local version.
 </li>
 </ul>
-</p>
 </note>
 </entry>
 </data>
-<!-- $Id: release-notes-2.0.xml,v 1.1 2006/05/04 17:33:16 nickb Exp $ -->
+<!-- $Id: release-notes-2.0.xml,v 1.2 2006/08/21 23:03:06 nickb Exp $ -->
