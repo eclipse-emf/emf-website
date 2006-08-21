@@ -1,0 +1,9 @@
+#midcolumn .homeitem3col ul li ul li,
+#midcolumn .homeitem3col ul li ul li ul li,
+#midcolumn .homeitem3col ul li ul li ul li ul li,
+#midcolumn .homeitem3col ul li ul li ul li ul li ul li
+{
+	border-style: none;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}

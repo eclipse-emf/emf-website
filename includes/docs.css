@@ -1,0 +1,26 @@
+#midcolumn .homeitem3col ul,
+#midcolumn .homeitem3col ul li,
+#midcolumn .homeitem3col ul li ul
+{
+	clear: both;
+}
+
+#midcolumn .homeitem3col ul li ul li
+{
+	border-style: none;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#midcolumn .homeitem3col ul li div
+{
+	float: right;
+	padding-left: 2em;
+}
+
+#midcolumn .homeitem3col ul .lastupdate
+{
+	border-style: none;
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+	padding-bottom: 1.2em;
+}

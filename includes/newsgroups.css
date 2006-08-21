@@ -1,0 +1,19 @@
+#midcolumn .homeitem3col ul li.outerli,
+#midcolumn .homeitem3col ul li ul li.outerli
+{
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+}
+
+#midcolumn .homeitem3col ul li ul li
+{
+	border-style: none;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#midcolumn .homeitem3col ul li.header
+{
+	border-style: none;
+	padding-bottom: 0;
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+}

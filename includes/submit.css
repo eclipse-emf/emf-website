@@ -1,0 +1,43 @@
+div.label
+{
+	float: left;
+	text-align: right;
+	width: 16em;
+	padding-top: 0.5em;
+	padding-right: 0.5em;
+}
+
+div.box
+{
+	padding: 1em;
+}
+
+div.required
+{
+	color: red;
+	display: inline;
+	vertical-align: top;
+	font-size: 1.5em;
+}
+
+input.textbox
+{
+	width: 20em;
+}
+
+textarea
+{
+	width: 26em;
+	height: 18em;
+}
+
+div.error
+{
+	font-style: italic;
+	color: red;
+}
+
+input.disabled
+{
+	color: #7f7f7f;
+}

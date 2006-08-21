@@ -1,0 +1,47 @@
+#midcolumn .homeitem3col ul li div
+{
+	padding-bottom: 1.5em;
+	float: right;
+}
+
+#midcolumn .homeitem3col ul .lastupdate
+{
+	margin-bottom: 2.5em; /* otherwise this collides with the content on the left in firefox */
+}
+
+#midcolumn .homeitem3col ul .lastupdate,
+#midcolumn .homeitem3col ul .outerli,
+#midcolumn .homeitem3col ul li ul .outerli
+{
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+	border-style: none;
+}
+
+#midcolumn .homeitem3col ul .rootpoint
+{
+	padding-bottom: 1.5em;
+	border-style: none;
+}
+
+#midcolumn .homeitem3col ul .rootpoint img.screenshot
+{
+	float: right;
+}
+
+#midcolumn .homeitem3col ul .rootpoint .reviews
+{
+	border-style: none;
+}
+
+#midcolumn .homeitem3col ul .outerli ul li div
+{
+	padding-bottom: 2em;
+	padding-left: 2em;
+	float: right;
+}
+
+/* hack for ie, otherwise it puts the rating images in the *completely* wrong spot, usually on top of another paragraph */
+* html body #midcolumn .homeitem3col ul .outerli
+{
+	padding-top: 0px;
+}

@@ -1,0 +1,40 @@
+#midcolumn .homeitem3col ul .release
+{
+	padding-top: 1.5em;
+	font-weight: bold;
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+	border-style: none;
+}
+
+#midcolumn .homeitem3col ul .outerli
+{
+	border-style: none;
+	padding-bottom: 1.2em;
+}
+
+#midcolumn .homeitem3col ul .header
+{
+	border-style: none;
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+	padding-bottom: 1.2em;
+}
+
+.cb
+{
+	clear: both;
+}
+
+.fr
+{
+	float: right;
+}
+
+.fl
+{
+	float: left;
+}
+
+#midcolumn .homeitem3col h3 .projtitle
+{
+	color: white;
+}

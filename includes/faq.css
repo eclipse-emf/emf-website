@@ -1,0 +1,17 @@
+code
+{
+	white-space: pre;
+}
+
+#midcolumn .homeitem3col ul li.outerli,
+#midcolumn .homeitem3col ul li ul li.outerli
+{
+	border-style: none;
+	list-style: url(http://www.eclipse.org/emf/images/c.gif); /* hack for ie, since it doesn't understand list-style: none here */
+	padding-bottom: 1.2em;
+}
+
+#midcolumn .homeitem3col ul li.outerli div
+{
+	float: right;
+}
