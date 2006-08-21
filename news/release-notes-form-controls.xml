@@ -1,47 +1,38 @@
 <div>
-    <table width="60%">
-      <tr>
-        <td>
-          <hr size="1" width="100%"/><span class="log-text">
-        <a href="http://www.eclipse.org/emf/news/release-notes2.2.php">2.2</a> ::
-        <a href="http://www.eclipse.org/emf/news/release-notes2.1.php">2.1</a> ::
-        <a href="http://www.eclipse.org/emf/news/release-notes2.0.php">2.0</a> ::
-        <a href="release-notes-1.x.php">1.x</a>
-          </span>
-          <hr size="1" width="100%"/>
-          <form action="http://www.eclipse.org/emf/news/release-notes.php" method="get" name="mainform">
-            <select class="log-text" name="project" size="1">
-              <option value=""> Choose... </option>
-              <option value="emf">EMF &amp; SDO Release Notes</option>
-              <option value="xsd">XSD Release Notes</option>
-              <option value=""> - All - </option>
-            </select>
-        
-        <select class="log-text" name="version" size="1">
-              <option value=""> Choose... </option>
-              <option value="2.2.1">2.2.1</option>
-              <option value="2.2">2.2.0</option>
-              <option value="2.1">2.1.x</option>
-              <option value="2.0">2.0.x</option>
-            </select>
-        
-        <input class="black-no-underline" type="submit" name="z" value="Go!"/>
-          </form>
-        </td>
-        <td rowspan="2">
-        <img border="1" src="../images/misc/bug.gif" alt="I've been looking closely at bugs." label="I've been looking closely at bugs."/>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <form action="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php" method="get" name="bugform" onSubmit="javascript:document.getElementById('Bugzilla').value = document.getElementById('bug').value" target="_blank">
-            <input type="hidden" name="source" value="emf"/>
-            <label for="bug">CVS Delta for Bug ID: </label>
-            <input size="7" type="text" name="bug" id="bug"/>
-            <input type="hidden" name="Bugzilla" id="Bugzilla" value=""/>
-            <input type="submit" value="Go!"/>
-          </form>
-        </td>
-      </tr>
-    </table>
+	<div class="homeitem3col">
+	<h3>Filters</h3>
+	<img style="float: right; padding: 3px;" src="../images/misc/bug.gif" alt="I've been looking closely at bugs." title="I've been looking closely at bugs."/>
+	<p>
+	<a href="release-notes2.2.php">2.2</a> ::
+	<a href="release-notes2.1.php">2.1</a> ::
+	<a href="release-notes2.0.php">2.0</a> ::
+	<a href="release-notes-1.x.php">1.x</a>
+	</p>
+	<form action="/emf/news/release-notes.php" method="get" name="mainform">
+	<p>
+	<select name="project" size="1">
+	<option value=""> Choose... </option>
+	<option value="emf">EMF &amp; SDO Release Notes</option>
+	<option value="xsd">XSD Release Notes</option>
+	<option value=""> - All - </option>
+	</select>
+	<select name="version" size="1">
+	<option value=""> Choose... </option>
+	<option value="2.2.1">2.2.1</option>
+	<option value="2.2">2.2.0</option>
+	<option value="2.1">2.1.x</option>
+	<option value="2.0">2.0.x</option>
+	</select>
+	<input type="submit" name="z" value="Go!"/>
+	</p>
+	</form>
+	<form action="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php" method="get" name="bugform" onsubmit="javascript:document.getElementById('Bugzilla').value = document.getElementById('bug').value" target="_blank">
+	<p>
+	<input type="hidden" name="source" value="emf"/>
+	<label for="bug">CVS Delta for Bug ID: </label><input size="7" type="text" name="bug" id="bug"/>
+	<input type="hidden" name="Bugzilla" id="Bugzilla" value=""/>
+	<input type="submit" value="Go!"/>
+	</p>
+	</form>
+	</div>
 </div>

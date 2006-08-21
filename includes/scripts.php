@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.13 2006/04/10 17:00:59 nickb Exp $ 
+	// $Id: scripts.php,v 1.14 2006/08/21 21:27:46 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -148,33 +148,10 @@
 		return $stuff;
 	}
 
-	function wArr($arr) { // ie., wArr(array,separator,showKeys,trailingCharacter);
-	// since PHP won't display an array's contents when you do echo($array), this returns the array like this:
-	/* usage: wArr($array)		// 0:apple, 1:peach, 2:grapes\n
-			  wArr($array,"\n") (use "\n" as separator instead of ", ")
-			  wArr($array,"",false); (use default separator, but don't display keys 			
-			  wArr($array,"",false,false); (use default separator, but don't display keys and no trailing char	*/
-		$sep=(func_num_args()>1&&func_get_arg(1))?func_get_arg(1):"<br>"; 
-		$key=(func_num_args()>2)?func_get_arg(2):true;  // assume we want keys
-		$trail=(func_num_args()>3)?func_get_arg(3):"\n";  // assume we want a trailing newline
-		$i=0;
-		if (is_array($arr) && sizeof($arr)>0) { 
-			foreach ($arr as $ark => $arv) {
-				w(($key?$ark.": ":"")); 
-				if (is_array($arv)) { 
-					w("<ul>");
-					wArr($arv,$sep,$key,$trail);
-					w("</ul>");
-				} else {
-					w($arv);
-				}
-				$i++;
-				if ($i<sizeof($arr)) { w($sep); }
-			} 	
-			w($trail);
-		} else {
-			//w($arr.$trail);
-		}
+	function wArr($arr) {
+		print "<pre>\n";
+		print_r($arr);
+		print "</pre>\n";
 	} 
 
 	function w($s) { // shortcut for echo() with second parameter: "add break+newline"
@@ -183,11 +160,11 @@
 		} else { 
 			$br=func_get_arg(1);
 			if (stristr($br,"b")) {
-				$br="<br>";
+				$br="<br/>";
 			} else if (stristr($br,"n")) {
 				$br="\n";
 			} else if ($br) { 
-				$br="<br>\n"; 
+				$br="<br/>\n"; 
 			}
 		}
 		echo($s.$br); 
@@ -210,7 +187,7 @@
 		return array($contents);
 	}
 
-	function getNews($lim,$key,$style="horiz",$divider="") {
+	function getNews($lim,$key,$style="horiz") {
 		global $CVSpre,$pre,$isWWWserver; 
 		$xml = getFile("news/news.xml"); 
 		if (!$xml) {
@@ -255,55 +232,20 @@
 				$xmlCollect = 0;
 			} 
 		}
-		if ($style=="horiz") { 
-			echo "<table>";
+
+		if ($style=="vert") { 
 			foreach ($xmlItems as $i => $pair) { 
 				if ($lim<0 || $i<$lim) {
-					echo "<tr valign=top>";
+					echo "<p>\n";
 					foreach ($pair as $date => $contents) { 
-						if (date("Y",strtotime($date))<date("Y")) { 
-							echo '<td><span class="'.($key=="whatsnew"?"normal":"").'"><b>'.
-								date( ($key=="whatsnew"?"M":"F").'\&\n\b\s\p\;j\<\s\u\p\>S\<\/\s\u\p\>, Y',
-								strtotime($date)).'</b></span></td>'."\n";
-						} else {
-							echo '<td><span class="'.($key=="whatsnew"?"normal":"").'"><b>'.
-								date( ($key=="whatsnew"?"M":"F").'\&\n\b\s\p\;j\<\s\u\p\>S\<\/\s\u\p\>', 
-								strtotime($date)).'</b></span></td>'."\n";
-						}
-						echo '<td><span class="'.($key=="whatsnew"?"normal":"").'">&#160;-&#160;</span></td>'."\n";
-						echo '<td><span class="'.($key=="whatsnew"?"normal":"").'">';
 						if (strtotime($date)>strtotime("-3 weeks")) { 
-							echo '<img src="http://www.eclipse.org/emf/images/new.gif" width="31" height="14">';
+							echo '<img src="http://www.eclipse.org/emf/images/new.gif" alt="New!" width="31" height="14"/>';
 						}
-						echo $contents.'</span></td>'."\n";
+						$app = (date("Y",strtotime($date))<date("Y") ? ", Y" : "");
+						echo '<b>' . date(($key=="whatsnew"?"M":"F").'\&\n\b\s\p\;j\<\s\u\p\>S\<\/\s\u\p\>' . $app, strtotime($date)).'</b> - '."\n";
+						echo $contents;
 					}
-					echo "</tr>";
-				}
-			}
-			echo "</table>";
-		} else if ($style=="vert") { 
-			foreach ($xmlItems as $i => $pair) { 
-				if ($lim<0 || $i<$lim) {
-					echo "<tr valign=top>";
-					foreach ($pair as $date => $contents) { 
-						echo "<td>";
-						if (strtotime($date)>strtotime("-3 weeks")) { 
-							echo '<img src="http://www.eclipse.org/emf/images/new.gif" width="31" height="14">';
-						}
-						if (date("Y",strtotime($date))<date("Y")) { 
-							echo '<span class="'.($key=="whatsnew"?"normal":"").'"><b>'.
-								date( ($key=="whatsnew"?"M":"F").'\&\n\b\s\p\;j\<\s\u\p\>S\<\/\s\u\p\>, Y',
-								strtotime($date)).'</b></span> - '."\n";
-						} else {
-							echo '<span class="'.($key=="whatsnew"?"normal":"").'"><b>'.
-								date( ($key=="whatsnew"?"M":"F").'\&\n\b\s\p\;j\<\s\u\p\>S\<\/\s\u\p\>', 
-								strtotime($date)).'</b></span> - '."\n";
-						}
-						echo '<span class="'.($key=="whatsnew"?"normal":"").'">';
-						echo $contents.'</span></td>'."\n";
-					}
-					echo "</tr>\n";
-					echo $divider;
+					echo "</p>\n";
 				}
 			}
 		}

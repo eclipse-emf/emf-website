@@ -8,7 +8,7 @@
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/04/03 19:28:03 $</modified>
+  <modified>$Date: 2006/08/21 21:25:51 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -111,24 +111,24 @@ Why does EMF fail to load resources when running on an application server
 or other specialized runtime?
     </question>
     <answer>
-EMF recognizes a couple of well known archive schemes, such as "<tt class="code">zip</tt>" and
-"<tt class="code">jar</tt>", so everything will work fine if the URI of an archived resource
-starts, for example, with "<tt class="code">zip:</tt>".  Although most applications probably use
+EMF recognizes a couple of well known archive schemes, such as "<tt>zip</tt>" and
+"<tt>jar</tt>", so everything will work fine if the URI of an archived resource
+starts, for example, with "<tt>zip:</tt>".  Although most applications probably use
 one of these recognized schemes, you may find that certain runtimes use a
 different one.  For example, when running in the IBM WebSphere Application
-Server, <tt class="code">Class.getResource(String)</tt> may return a URL with a "<tt class="code">wsjar</tt>" scheme,
+Server, <tt>Class.getResource(String)</tt> may return a URL with a "<tt>wsjar</tt>" scheme,
 like
-"<tt class="code">wsjar:file:/C:/dev/ws/default/sample_app/xsd.resources.jar!/org/eclipse/xsd/plugin.properties</tt>".
+"<tt>wsjar:file:/C:/dev/ws/default/sample_app/xsd.resources.jar!/org/eclipse/xsd/plugin.properties</tt>".
 <br/>
 By default, EMF will not recognize this as an archive URI and will fail
 to handle it correctly, probably resulting in multiple unregistered
 resources errors and/or null pointer exceptions.
 If you are facing this problem, you will need to change EMF's set of
 recognized archive schemes. This is done by defining a property named
-"<tt class="code">org.eclipse.emf.common.util.URI.archiveSchemes</tt>", whose value is the
+"<tt>org.eclipse.emf.common.util.URI.archiveSchemes</tt>", whose value is the
 desired space-separated list of archive schemes.  Here's an example of how
 you could define it when invoking your Java application:<br/><br/>
-<tt class="code">java MyApp -Dorg.eclipse.emf.common.util.URI.archiveSchemes="wsjar wszip jar zip"</tt>
+<tt>java MyApp -Dorg.eclipse.emf.common.util.URI.archiveSchemes="wsjar wszip jar zip"</tt>
     </answer>
   </entry>
 
@@ -140,8 +140,8 @@ compared to the effective facets of its type?
     </question>
     <answer>
 To determine if a literal is valid with respect to a simple type, you can use
-either <tt class="code">XSDSimpleTypeDefinition.isValidLiteral</tt> or
-<tt class="code">XSDSimpleTypeDefinition.assess</tt>.
+either <tt>XSDSimpleTypeDefinition.isValidLiteral</tt> or
+<tt>XSDSimpleTypeDefinition.assess</tt>.
     </answer>
   </entry>
 
@@ -292,7 +292,7 @@ How do I install EMF, SDO, or XSD 2.x (for Eclipse 3.x)?
     </question>
     <answer>
 <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>
-the version of EMF, SDO and/or XSD that <b class="question">matches</b> your installation of Eclipse.
+the version of EMF, SDO and/or XSD that <b>matches</b> your installation of Eclipse.
 Generally, the version of Eclipse is one version greater than that of EMF; 
 eg., EMF 2.1.2 is build against (and for) Eclipse 3.1.2. 
 Exit Eclipse, then unzip into your Eclipse directory.
@@ -353,12 +353,12 @@ The rest of the world can use:
 <ul>
 <li><a href="http://download.eclipse.org/tools/emf/updates/" target="_upd">http://download.eclipse.org/tools/emf/updates/</a></li>
 <li><a href="http://eclipse.mirrors.tds.net/tools/emf/updates/" target="_upd">http://eclipse.mirrors.tds.net/tools/emf/updates/</a></li>
-<li>(or other mirrors with similar paths. some mirrors use <b class="question">/eclipse</b>/tools/emf/updates/)</li>
+<li>(or other mirrors with similar paths. some mirrors use <b>/eclipse</b>/tools/emf/updates/)</li>
 </ul>
 If you're not familiar with Update Manager, surf to one of the above URLs and read the instructions there.
 <br/><br/>
 Please note, however:
-<ol>
+<ul>
 <li>You cannot upgrade from EMF 1.x to EMF 2.x, since you must also
 upgrade versions of Eclipse (2.x -> 3.0).</li>
 <li>If you install a stable, integration build of EMF, such as
@@ -370,7 +370,7 @@ Final was launched, you'd have to download EMF manually and remove your
 updating Eclipse itself via UM to 3.0.0.yyyymmddhhmm - once 3.0.0 is
 launched, you won't be able to use UM to upgrade the the Final version,
 since 3.0.0 &lt; 3.0.0.yyyymmddhhmm. However, we're planning to drop a new UM site build for every zipped build, so you should be able to continue to upgrade without having to download zips manually.</li>
-</ol>
+</ul>
     </answer>
   </entry>
 
@@ -381,37 +381,37 @@ since 3.0.0 &lt; 3.0.0.yyyymmddhhmm. However, we're planning to drop a new UM si
 I want to use EMF, SDO, or XSD in my standalone project, or include only a working subset of the code. What libraries (jar files) do I need in my CLASSPATH?
     </question>
     <answer>
-<b class="question">Eclipse Modeling Framework (EMF)</b> provides the infrastructure to run the generated models and 
+<b>Eclipse Modeling Framework (EMF)</b> provides the infrastructure to run the generated models and 
 dynamic model based on existing ecore files. 
 It also provides XMI/XML serialization and deserialization.
 <br/><br/>
 The following jars can be used in standalone mode. Jars are found under the plugins directory of your Eclipse installation - 
-there will be a release number appended to the plugin name, e.g. <tt class="code">org.eclipse.emf.common<b class="question">_2.1.0</b></tt>.
+there will be a release number appended to the plugin name, e.g. <tt>org.eclipse.emf.common<b>_2.1.0</b></tt>.
 <br/><br/>
 Add to the following jars to your CLASSPATH or copy them into your project. This includes, but is not limited to:
 <ul>
-<li><tt class="code">org.eclipse.emf.common/runtime/common.jar</tt></li>
-<li><tt class="code">org.eclipse.emf.common/runtime/common.resources.jar</tt> (needed at runtime, not at compile time)</li> 
-<li><tt class="code">org.eclipse.emf.ecore/runtime/ecore.jar</tt></li>
-<li><tt class="code">org.eclipse.emf.ecore/runtime/ecore.resources.jar</tt> (needed at runtime, not at compile time)</li> 
-<li><tt class="code">org.eclipse.emf.ecore.change/runtime/ecore.change.jar</tt></li>
-<li><tt class="code">org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</tt> (requires SAX parser - <a href="#20050114-120205-note">see note below</a>)</li>
+<li><tt>org.eclipse.emf.common/runtime/common.jar</tt></li>
+<li><tt>org.eclipse.emf.common/runtime/common.resources.jar</tt> (needed at runtime, not at compile time)</li> 
+<li><tt>org.eclipse.emf.ecore/runtime/ecore.jar</tt></li>
+<li><tt>org.eclipse.emf.ecore/runtime/ecore.resources.jar</tt> (needed at runtime, not at compile time)</li> 
+<li><tt>org.eclipse.emf.ecore.change/runtime/ecore.change.jar</tt></li>
+<li><tt>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</tt> (requires SAX parser - <a href="#20050114-120205-note">see note below</a>)</li>
 </ul>
-<b class="question">Service Data Objects (SDO)</b> is an API specification in the format of Java interfaces and the 
+<b>Service Data Objects (SDO)</b> is an API specification in the format of Java interfaces and the 
 EMF implementation that requires the EMF jars above and the following jars to be used in standalone mode:
 <ul>
-<li><tt class="code">org.eclipse.emf.commonj.sdo/runtime/commonj.sdo.jar</tt></li>
-<li><tt class="code">org.eclipse.emf.ecore.sdo/runtime/ecore.sdo.jar</tt></li>
+<li><tt>org.eclipse.emf.commonj.sdo/runtime/commonj.sdo.jar</tt></li>
+<li><tt>org.eclipse.emf.ecore.sdo/runtime/ecore.sdo.jar</tt></li>
 </ul>
 
-<b class="question">XML Schema Infoset Model (XSD)</b> is a reference library for use with any code that manipulates XML 
+<b>XML Schema Infoset Model (XSD)</b> is a reference library for use with any code that manipulates XML 
 schemas and requires the EMF jars above and the following jars to be used in standalone mode:
 <ul>
-<li><tt class="code">org.eclipse.xsd/runtime/xsd.jar</tt></li>
-<li><tt class="code">org.eclipse.xsd/runtime/xsd.resources.jar</tt> (needed at runtime, not at compile time)</li> 
-<li><tt class="code">org.eclipse.xsd.test/runtime/xsd.test.jar</tt></li>
+<li><tt>org.eclipse.xsd/runtime/xsd.jar</tt></li>
+<li><tt>org.eclipse.xsd/runtime/xsd.resources.jar</tt> (needed at runtime, not at compile time)</li> 
+<li><tt>org.eclipse.xsd.test/runtime/xsd.test.jar</tt></li>
 </ul>
-<a name="20050114-120205-note"></a><b class="question">NOTE:</b> If using ecore.xmi or any of the XSD jars, you will require a SAX parser such as 
+<a name="20050114-120205-note"></a><b>NOTE:</b> If using ecore.xmi or any of the XSD jars, you will require a SAX parser such as 
 <a href="http://www.eclipse.org/emf/downloads-xerces.php" target="_xerces">Xerces</a>. 
 <br/><br/>
 For more information on working outside Eclipse, see the question 
@@ -550,21 +550,21 @@ How do I use EMF in standalone applications (such as an ordinary main)?
 An EMF model can be used without change in a standalone application with couple of exceptions.<br/><br/> 
 
 Default resource factories are not registered in the standalone EMF environment. Therefore, for each file extension or scheme your application wants to load or save, you need to register the corresponding resource factory. For example, to load and save XMI documents, add a line similar to the one below to your main program:<br/><br/>
-<tt class="code">
+<tt>
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", new XMIResourceFactoryImpl());
 </tt>
 <br/><br/>
 To load and save XML documents, register the following factory:
 <br/><br/>
-<tt class="code">
+<tt>
 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 </tt>
 
 <br/><br/>
-In the above examples, the model is registered using the global static resource factory registry instance. You can also register factories local to the <tt class="code">ResourceSet</tt> being used, e.g:
+In the above examples, the model is registered using the global static resource factory registry instance. You can also register factories local to the <tt>ResourceSet</tt> being used, e.g:
  <br/><br/>
 
-<tt class="code">
+<tt>
 ResourceSet rs = new ResourceSet();
 <br/>
 rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put(("xml", new XMLResourceFactoryImpl());
@@ -572,12 +572,12 @@ rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put(("xml", new XMLRe
 <br/><br/>
 In addition, you'll also need to register your package, which happens as a side effect of accessing XyzPackage.eINSTANCE. For example, to register the library model, add the following line to your main program:
 <br/><br/>
-<tt class="code">
+<tt>
 LibraryPackage packageInstance = LibraryPackage.eINSTANCE;
 </tt>
 
 <br/><br/>
-You need to add to the CLASSPATH all the jars for the plugins (and their dependent plugins) that you want to use standalone. The list is dependent on exactly what plugins you want to use and is available by looking at the runtime libraries in their <tt class="code">plugin.xml</tt> files. This includes, but is not limited to: 
+You need to add to the CLASSPATH all the jars for the plugins (and their dependent plugins) that you want to use standalone. The list is dependent on exactly what plugins you want to use and is available by looking at the runtime libraries in their <tt>plugin.xml</tt> files. This includes, but is not limited to: 
 <ul>
 <li>org.eclipse.emf.common/runtime/common.jar</li>
 <li>org.eclipse.emf.common/runtime/common.resources.jar</li>	
@@ -586,7 +586,7 @@ You need to add to the CLASSPATH all the jars for the plugins (and their depende
 <li>org.eclipse.emf.ecore.xmi/runtime/ecore.xmi.jar</li>
 </ul>
 
-The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b class="question">_2.1.0</b>.
+The jars are found under the plugins directory of your Eclipse installation. There will be a release number appended to the plugin name, e.g. org.eclipse.emf.common<b>_2.1.0</b>.
 <br/><br/>
 For EMF.Edit you would also have to add the following jar files to your classpath:
 
@@ -598,7 +598,7 @@ For EMF.Edit you would also have to add the following jar files to your classpat
 </ul>
 
 <br/>
-Also, to produce the right .jar file for standalone execution of a generated project, you need to copy the <tt class="code">plugin.properties</tt> file and the icons directory to the directory containing the EMF XyzPlugin for the project. This will put the resources in just the right place to be found by the generated XyzPlugin during standalone execution. Such a project will work as both a plugin and for standalone execution.
+Also, to produce the right .jar file for standalone execution of a generated project, you need to copy the <tt>plugin.properties</tt> file and the icons directory to the directory containing the EMF XyzPlugin for the project. This will put the resources in just the right place to be found by the generated XyzPlugin during standalone execution. Such a project will work as both a plugin and for standalone execution.
     </answer>
   </entry>
 
@@ -648,7 +648,7 @@ It may be convenient to serialize the package in the data graph, along with the 
 <br/><br/>
 For example:
 <br/><br/>
-<tt class="code">
+<tt>
 EDataGraph companyGraph = SDOFactory.eINSTANCE.createEDataGraph();
 <br/>
 ResourceSet set = companyGraph.getResourceSet();
@@ -728,7 +728,7 @@ When using static SDO stand-alone, it is recommended to follow the instructions 
 <br/><br/> 
 If you are using static EMF, the generated package interface (e.g. CompanyPackage) will include a static field called eINSTANCE. Accessing this field will cause the package to be initialized and registered in the global package registry, allowing any resource to locate it. For example, the following code accesses the eINSTANCE field of CompanyPackage:
 <br/><br/>
-<tt class="code">CompanyPackage packageInstance = CompanyPackage.eINSTANCE;</tt>
+<tt>CompanyPackage packageInstance = CompanyPackage.eINSTANCE;</tt>
 <br/><br/>
 When running under Eclipse, this step is unnecessary, as a plug-in manifest file drives automatic package registration.
 <br/><br/>
@@ -750,9 +750,9 @@ When a model instance is saved with this option set, an xsi:schemaLocation attri
 <br/><br/>
 The following code shows how to set the option in the resource associated with an SDO data graph:
 <br/><br/>
-<tt class="code">
+<tt>
 ((XMLResource)eDataGraph.getDataGraphResource()).getDefaultSaveOptions()
-&#160;&#160;.put(XMLResource.OPTION_SCHEMA_LOCATION_IMPLEMENTATION, Boolean.TRUE);
+  .put(XMLResource.OPTION_SCHEMA_LOCATION_IMPLEMENTATION, Boolean.TRUE);
   </tt>
 <br/>
     </answer>
@@ -766,11 +766,11 @@ How do I register a dynamic package?
     <answer>
 In order for EMF to locate a dynamic package that has been built up programmatically, it must be registered in a package registry. For example, the following code globally registers companyPackage:
 <br/><br/>
-<tt class="code">EPackage.Registry.INSTANCE.put(companyPackage.getNsURI(), companyPackage);</tt>
+<tt>EPackage.Registry.INSTANCE.put(companyPackage.getNsURI(), companyPackage);</tt>
 <br/><br/>
 Each resource set has its own local package registry, which is consulted before the global registry. To avoid collisions, you may prefer to register the dynamic package locally, instead of globally:
 <br/><br/>
-<tt class="code">
+<tt>
 ResourceSet set = new ResourceSetImpl();
 <br/>
 set.getPackageRegistry().put(companyPackage.getNsURI(), companyPackage);
@@ -793,7 +793,7 @@ If the package is available at a different physical location, whether public or 
 <br/><br/>
 First, create a resource and add your package to it. For example:
 <br/><br/>
-<tt class="code">
+<tt>
 ResourceSet set = new ResourceSetImpl();
 <br/>
 Resource packageResource = set.createResource(URI.createURI("file:///c:/data/company.ecore"));
@@ -805,7 +805,7 @@ packageResource.save(null);
 <br/><br/>
 Then, use the OPTION_SCHEMA_LOCATION when you serialize your model instance: 
 <br/><br/>
-<tt class="code">
+<tt>
 Resource resource = set.createResource(URI.createURI("file:///c:/data/company.xml"));
 <br/>
 Resource.getContents.add(company);
@@ -829,8 +829,8 @@ compared to the effective facets of its type?
     </question>
     <answer>
 To determine if a literal is valid with respect to a simple type, you can use
-either <pre class="code">XSDSimpleTypeDefinition.isValidLiteral</pre> or
-<pre class="code">XSDSimpleTypeDefinition.assess</pre>
+either <code>XSDSimpleTypeDefinition.isValidLiteral</code> or
+<code>XSDSimpleTypeDefinition.assess</code>
     </answer>
   </entry>
 
@@ -839,13 +839,14 @@ either <pre class="code">XSDSimpleTypeDefinition.isValidLiteral</pre> or
     <question>
 I'm generating EMF models from xsd files. To generate relations between
 entities I use the following syntax, with the ecore:reference attribute on
-xsd:element.<pre class="code">    &lt;xsd:complexType name="Writer"&gt;
+xsd:element.<code>
+    &lt;xsd:complexType name="Writer"&gt;
     &lt;xsd:sequence&gt;
     &lt;xsd:element name="name" type="xsd:string"/&gt;
     &lt;xsd:element maxOccurs="unbounded" minOccurs="0"
     name="books" type="xsd:anyURI" ecore:reference="lib:Book"/&gt;
     &lt;/xsd:sequence&gt;
-    &lt;/xsd:complexType&gt;</pre>
+    &lt;/xsd:complexType&gt;</code><br/>
 But I have to generate this XSD schema and for this I need the schema
 that defines the ecore namespace. Where can I find this schema ?
     </question>
@@ -854,7 +855,8 @@ I don't think you actually need it in order to generate a schema like the
 one
 below.  The XML Schema spec defines the wildcard for these "non-schema
 namespace
-attributes" like this:<pre class="code">    &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;</pre>
+attributes" like this:<code>
+    &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;</code><br/>
 so no schema needs to exist for that namespace in order for the schema to
 be
 valid, you only need to ensure that the prefix is defined.
@@ -870,8 +872,8 @@ How can I examine the contents of an &lt;xs:complexType>? How could I
 programmatically determine its restrictions/enumerations etc?
     </question>
     <answer>
-Here's snippet of code that does some of the things you mention:<pre
-class="code">    void handle(XSDElementDeclaration xsdElementDeclaration)
+Here's snippet of code that does some of the things you mention:<code>
+  void handle(XSDElementDeclaration xsdElementDeclaration)
     {
       XSDTypeDefinition xsdTypeDefinition =
         xsdElementDeclaration.getTypeDefinition();
@@ -938,7 +940,7 @@ class="code">    void handle(XSDElementDeclaration xsdElementDeclaration)
           }
         }
       }
-    }</pre>
+    }</code>
     </answer>
   </entry>
 
@@ -965,10 +967,9 @@ drive your actions, it won't matter.
 How can I load a XSDSchema from a simple Java String or from a DOM Tree?
     </question>
     <answer>
-Assuming you do something much like what's in <tt
-class="code">XSDMainTest</tt> in
-<tt class="code">org.eclipse.xsd.test</tt>, this should do the trick:<pre
-class="code">    ResourceSet resourceSet = new ResourceSetImpl();
+Assuming you do something much like what's in <tt>XSDMainTest</tt> in
+<tt>org.eclipse.xsd.test</tt>, this should do the trick:<code>
+    ResourceSet resourceSet = new ResourceSetImpl();
     XSDResourceImpl xsdMainResource =
     (XSDResourceImpl)resourceSet.createResource(URI.createURI("*.xsd"));
     xsdMainResource.setURI(uri);
@@ -983,7 +984,7 @@ class="code">    ResourceSet resourceSet = new ResourceSetImpl();
     XSDPackage.eINSTANCE.createXSDSchema();
     xsdSdchema.setElement(/* your &lt;schema> element */);
     xsdMainResource.getContents().add(xsdSchema);
-    }</pre>
+    }</code>
     </answer>
   </entry>
 
@@ -996,12 +997,13 @@ environment?
     <answer>
 In an Eclipse environment the EPackage.Registry.INSTANCE is populated at
 startup time by the registrations of the models in the plugin.xml,
-e.g.,<pre class="code">    &lt;extension
+e.g.,<code>
+    &lt;extension
     point="org.eclipse.emf.ecore.generated_package">
     &lt;package
     uri = "http://www.eclipse.org/xsd/2002/XSD"
     class = "org.eclipse.xsd.XSDPackage" />
-    &lt;/extension></pre>
+    &lt;/extension></code><br/>
 But in a standalone environment, this doesn't happen, so you need to
 register each package explicitly.
 <br /><br />
@@ -1290,12 +1292,13 @@ to schema documents referenced by &lt;include&gt; &lt;import&gt; or
     </question>
     <answer>
 This could be seen if you iterate through the resource in a ResourceSet,
-for example:<pre class="code">    for (Iterator resources = resourceSet.getResources().iterator();
+for example:<code>
+    for (Iterator resources = resourceSet.getResources().iterator();
     resources.hasNext();)
     {
         Resource resource = (Resource)resources.next(); 
         /* Now use getSchema() */
-    }</pre>
+    }</code><br/>
 If the &lt;include&gt; &lt;import&gt; or &lt;redefine&gt; contained a
 schemaLocation which has
 a relative file path, the library will not resolve it, and this can be a
@@ -1303,12 +1306,13 @@ symptom.
 <br /><br />
 To get around this problem, have code which is guaranteed to turn the URI
 into an absolute
-URI. For example:<pre class="code">    File file = new File(schemaURL);
+URI. For example:<code>
+    File file = new File(schemaURL);
     if (file.isFile())
     {
         schemaURL =
             URI.createFileURI(file.getCanonicalFile().toString()).toString();
-    }</pre>
+    }</code>
     </answer>
   </entry>
 
@@ -1378,7 +1382,8 @@ returned value will be a newly manufactured reference to it.
 Here is an example method to return the component or return null if it was
 not in the schema,
 in this case for an Attribute Declaration with a particular name:
-<pre class="code">    /**
+<code>
+    /**
     return the XSDAttributeDeclaration of a given namespace and name
     defined in a given schema
     or a schema it includes, redefines or imports
@@ -1397,7 +1402,7 @@ in this case for an Attribute Declaration with a particular name:
         {
             return ret;
         }
-    }</pre>
+    }</code>
     </answer>
   </entry>
 
@@ -1446,7 +1451,7 @@ location.
 How do I remove a component from the Schema?
     </question>
     <answer>
-There is generic support for remove in EMF: <tt class="code">EcoreUtil.remove</tt>
+There is generic support for remove in EMF: <tt>EcoreUtil.remove</tt>
 The removed component will look like an unresolved reference to any
 components that still reference it.
     </answer>
@@ -1464,9 +1469,9 @@ what do I do?
     <answer>
 As part of your initialization, for each extension that will contain
 schemas (shown as foo in this
-example), you should call <tt class="code">
+example), you should call <tt>
 org.eclipse.emf.resource.Resource.Factory.Registry
-&#160;&#160;.INSTANCE.registerExtension("foo",
+  .INSTANCE.registerExtension("foo",
 new XSDResourceFactoryImpl());</tt>
     </answer>
   </entry>
@@ -1478,7 +1483,8 @@ Is there a function to inquire "Did this parsed schema  have unresolved
 &lt;include&gt; &lt;import&gt; or &lt;redefine&gt; directives?"
     </question>
     <answer>
-You can write code like this:<pre class="code">    if (xsdSchema.getAllDiagnostics().isEmpty())
+You can write code like this:<code>
+    if (xsdSchema.getAllDiagnostics().isEmpty())
     {
         xsdSchema.validate();
     }
@@ -1489,7 +1495,7 @@ You can write code like this:<pre class="code">    if (xsdSchema.getAllDiagnosti
     else
     {
         */ Unresolved directives or other problems */
-    }</pre>
+    }</code>
     </answer>
   </entry>
 
@@ -1500,7 +1506,7 @@ Is there a way to determine if a string represents a value that
 a particular simpleType would consider valid?
     </question>
     <answer>
-Yes. The call <tt class="code">yourSimpleTypeDefinition.isValidLiteral("a-particular-string")</tt> will give you the boolean answer.
+Yes. The call <tt>yourSimpleTypeDefinition.isValidLiteral("a-particular-string")</tt> will give you the boolean answer.
     </answer>
   </entry>
 
@@ -1511,30 +1517,34 @@ When I used the method type.getBaseTypeDefinition(), how do I know when
 I've reached "the top" -- something like anyType?
     </question>
     <answer>
-For simpleTypes, you would write:<pre class="code">    yourStopVariable =
+For simpleTypes, you would write:<code>
+    yourStopVariable =
     yourSchema.getSchemaForSchema().resolveSimpleTypeDefinition("anyType");
     /*
     as you loop through from one type definition to another,
     via getBaseTypeDefinition() you compare it to yourStopVariable
-    */</pre>
-For complexTypes, you would write:<pre class="code">    yourStopVariable =
+    */</code><br/>
+For complexTypes, you would write:<code>
+    yourStopVariable =
     yourSchema.getSchemaForSchema().resolveComplexTypeDefinition("anyType");
     /*
     as you loop through from one type definition to another,
     via getBaseTypeDefinition() you compare it to yourStopVariable
-    */</pre>
-If you are not sure if your time is simple or complex, you could write:<pre class="code">    yourStopVariable =
-    yourSchema.getSchemaForSchema().resolveTypeDefinition("anyType");</pre>
-There are recognizers of the special types in XSDConstants:<pre class="code">    XSDConstants.isURType
+    */</code><br/>
+If you are not sure if your time is simple or complex, you could write:<code>
+    yourStopVariable =
+    yourSchema.getSchemaForSchema().resolveTypeDefinition("anyType");</code><br/>
+There are recognizers of the special types in XSDConstants:<code>
+    XSDConstants.isURType
     XSDConstants.isAnyType
-    XSDConstants.isAnySimpleType</pre>
+    XSDConstants.isAnySimpleType</code>
     </answer>
   </entry>
 
   <entry date="2004/06/02 15:27" UNID="20040602-1383194195">
     <category>dev</category>
     <question>
-Because <tt class="code">td = resolveTypeDefinition(String nsuri, String
+Because <tt>td = resolveTypeDefinition(String nsuri, String
 name)</tt>
 may return
 an unresolved instance, which is synthesized to hold the namespace and
@@ -1544,8 +1554,7 @@ synthesized or
 whether it comes from an existing instance?
     </question>
     <answer>
-XSDConcreteComponent.getContainer() will yield null for <tt
-class="code">td</tt>
+XSDConcreteComponent.getContainer() will yield null for <tt>td</tt>
 if resolveTypeDefinition returned a synthesized type definition.
     </answer>
   </entry>
@@ -1680,15 +1689,15 @@ Which EMF, SDO or XSD version will run on my Eclipse version?
     </question>
     <answer>
     
-EMF, SDO and XSD <b class="question">2.2.0</b> run on Eclipse <b class="question">3.2.0</b>.<br />
+EMF, SDO and XSD <b>2.2.0</b> run on Eclipse <b>3.2.0</b>.<br />
 <br/>  
-EMF, SDO and XSD <b class="question">2.1.0</b>, <b class="question">2.1.1</b> &amp; <b class="question">2.1.2</b> run on Eclipse 
-	<b class="question">3.1.0</b>, <b class="question">3.1.1</b> &amp; <b class="question">3.1.2</b>, respectively.<br />
+EMF, SDO and XSD <b>2.1.0</b>, <b>2.1.1</b> &amp; <b>2.1.2</b> run on Eclipse 
+	<b>3.1.0</b>, <b>3.1.1</b> &amp; <b>3.1.2</b>, respectively.<br />
 <br/>
-EMF, SDO and XSD <b class="question">2.0.2</b> through <b class="question">2.0.5</b> run on Eclipse <b class="question">3.0.2</b>.<br />
-EMF, SDO and XSD <b class="question">2.0</b> &amp; <b class="question">2.0.1</b> run on Eclipse <b class="question">3.0</b> &amp; <b class="question">3.0.1</b>.<br />
+EMF, SDO and XSD <b>2.0.2</b> through <b>2.0.5</b> run on Eclipse <b>3.0.2</b>.<br />
+EMF, SDO and XSD <b>2.0</b> &amp; <b>2.0.1</b> run on Eclipse <b>3.0</b> &amp; <b>3.0.1</b>.<br />
 <br/>
-EMF and XSD <b class="question">1.0</b> &amp; <b class="question">1.1</b> run on Eclipse <b class="question">2.0</b> &amp; <b class="question">2.1</b>.
+EMF and XSD <b>1.0</b> &amp; <b>1.1</b> run on Eclipse <b>2.0</b> &amp; <b>2.1</b>.
     </answer>
   </entry>
 
@@ -1719,11 +1728,11 @@ Why does EMF refuses to accept my schema file?
     </question>
     <answer>
 The following problem has been reported many times in the org.eclipse.emf newsgroup:<br /><br />
-<b class="question"><a style="background-color:yellow;color:black" target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
+<b><a style="background-color:yellow;color:black" target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
 <br/><br/>
 
 The Crimson DOM implementation in (some versions of) the Sun JDK has a bug in the implementation of
-<tt class="code">hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">click here for details</a>.<br />
+<tt>hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">click here for details</a>.<br />
 
 This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 <ul>
@@ -1761,19 +1770,19 @@ Why does EMF refuse to accept my schema file?
     <question>
     I've created a model from an XML Schema.  Why won't EMF load or 
     save conforming instance documents (loading 
-    throws a <tt class="code">ClassNotFoundException</tt>)?
+    throws a <tt>ClassNotFoundException</tt>)?
     </question>
     <answer>
 EMF does some remapping to turn XML element and attribute names into conventional 
 Ecore attribute and reference names (i.e. conventional Java field names). 
 It annotates the model with the original XML names (and a bunch of other 
 information from the schema that can't be represented in Ecore) via the 
-<tt class="code">ExtendedMetaData</tt> interface. Resources must use this information to 
+<tt>ExtendedMetaData</tt> interface. Resources must use this information to 
 save and load conforming instance documents.
 <br/><br/>
 Look in the util package of the generated model code and you'll find a resource 
-factory implementation, <tt class="code">XxyResourceFactoryImpl</tt>. This factory returns 
-instances of <tt class="code">XMLResource</tt> with a few non-default options set. Most 
+factory implementation, <tt>XxyResourceFactoryImpl</tt>. This factory returns 
+instances of <tt>XMLResource</tt> with a few non-default options set. Most 
 importantly, it enables the use of <tt>ExtendedMetaData</tt>.
 <br/><br/>
 When you're running the editor under Eclipse, this resource factory will 
@@ -1781,7 +1790,7 @@ automatically be registered. For standalone applications, you'll need to perform
 the registration in your code. For example, to globally register the generated 
 library resource factory implementation against the extension "library":
 <br/><br/>
-<tt class="code">Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", 
+<tt>Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", 
 new LibraryResourceFactoryImpl());</tt>
     </answer>
   </entry>
@@ -1796,6 +1805,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.17 2006/04/03 19:28:03 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.18 2006/08/21 21:25:51 nickb Exp $ -->
 
 </faq>
