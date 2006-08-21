@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="models.xsl"?>
 <data>
 
-  <review reviewName="Emfatic Review" date="2006-06-12" rating="9" modelID="ChrisDaly20041110011007" reviewID="FelixLeipold20060612172341">
-    <text>Emfatic is a nice and clear way to express emf meta models. It's way less cluttered than annotated interfaces. I'd love to see it in the standard emf distribution, perhaps with autobuild emf->ecore.</text>
-    <reviewer>Felix Leipold</reviewer>
-    <reviewerURL>http://wuetender-junger-mann.de</reviewerURL>
-  </review>
+<review reviewName="Emfatic Review" date="2006-06-12" rating="9" modelID="ChrisDaly20041110011007" reviewID="FelixLeipold20060612172341">
+<text>Emfatic is a nice and clear way to express emf meta models. It's way less cluttered than annotated interfaces. I'd love to see it in the standard emf distribution, perhaps with autobuild emf->ecore.</text>
+<reviewer>Felix Leipold</reviewer>
+<reviewerURL>http://wuetender-junger-mann.de</reviewerURL>
+</review>
 
-<model modelName="Atom Syndication Format in EMF" date="2006-06-09" category="EMF model" modelID="PeterNehrer20060609121337">
+<model modelName="Atom Syndication Format in EMF" date="2006-06-09" category="EMF_model" modelID="PeterNehrer20060609121337">
 <text>This project aims to provide an EMF-based model for representing the Atom Syndication Format. Its deliverables include an extensible Ecore model along with a set of generated implementation classes (both model and editing support). The Ecore model closely follows the official Atom Syndication Format Specification. Content rules that cannot be represented in the model itself are encapsulated in a set of external validators. This gives the model the ability to represent incomplete Atom documents or those that are not 100% standard compliant.</text>
 <modelURL>http://www.eclipticalsoftware.com/emf/atom/</modelURL>
 <thumbnailURL></thumbnailURL>
@@ -18,7 +18,7 @@
 </model>
 
 <review reviewName="Sympedia GenFw Generator Framework Review" date="2006-05-25" rating="8" modelID="EikeStepper20060204144820" reviewID="PhilippW.Kutter20060525142703">
-    <text>We have been using GenFw productively in a large project in the financial industry over the last 3 months. Originally we have chosen GenFw because it allowed to do certain things (like project specific code formatting/adding removing templates) which where not working in EMF back then.
+<text>We have been using GenFw productively in a large project in the financial industry over the last 3 months. Originally we have chosen GenFw because it allowed to do certain things (like project specific code formatting/adding removing templates) which where not working in EMF back then.
 
 The usage of GenFw was straight forward, and it helped us nicely manage our custom JET templates. The option to do EMF without merging is something very interesting in very large projects, like the one we worked on.
 
@@ -27,8 +27,8 @@ The developer of GenFw, Eike Stepper did a tremendous job porting his framework 
 In the meantime the two main issues with EMF (formatting, adding/removing templates) are solved, and our client was ready to move on to 3.2. Currently we investigate the usage of GenFw for pure code generation with Jet Templates, which are triggered by OCL rules.
 
 Last but not least, I would like to mention that the tutorials where great to get our people started with the framework.</text>
-    <reviewer>Philipp W. Kutter</reviewer>
-    <reviewerURL>http://www.kutter.org</reviewerURL>
+<reviewer>Philipp W. Kutter</reviewer>
+<reviewerURL>http://www.kutter.org</reviewerURL>
 </review>
 
 <review reviewName="Acceleo Review" date="2006-05-21" rating="8"
@@ -47,7 +47,7 @@ JET-like templates.</text>
 <reviewerURL></reviewerURL>
 </review>
 
-<model modelName="Lightweight Modeling" date="2006-04-30" category="EMF article" modelID="Ronald20060430174208">
+<model modelName="Lightweight Modeling" date="2006-04-30" category="EMF_article" modelID="Ronald20060430174208">
 <text>This article on TheServerSide brought my attention to EMF. It might be interesting to others (newbies like me?).</text>
 <modelURL>http://www.theserverside.com/articles/article.tss?l=LightweightModeling</modelURL>
 <thumbnailURL></thumbnailURL>
@@ -56,7 +56,7 @@ JET-like templates.</text>
 <submitterURL></submitterURL>
 </model>
 
-<model modelName="TOPCASED Graphical Ecore Editor" date="2006-05-09" category="EMF tool" modelID="DavidSciamma20060509162149">
+<model modelName="TOPCASED Graphical Ecore Editor" date="2006-05-09" category="EMF_tool" modelID="DavidSciamma20060509162149">
 <text>TOPCASED provides a graphical ecore editor :
 <ul>
 <li>Wizard to create new ecore diagram from scratch or from an existing ecore model</li>
@@ -75,24 +75,24 @@ TOPCASED is an opensource project licensed under EPL.</text>
 </model>
 
 
-<model modelName="Acceleo" date="2006-04-25" category="EMF tool" modelID="JonathanMusset20060425161117">
+<model modelName="Acceleo" date="2006-04-25" category="EMF_tool" modelID="JonathanMusset20060425161117">
 <text>Acceleo is an OpenSource code generator designed to implement the MDA approach and to improve software development productivity. It includes tools and editors making it easy to learn and to adapt to any kind of technology and it is fully based on EMF.
 Acceleo main features are the followings :
 <ul>
 <li>Any meta-model support including UML 2.0, UML1.4 (using a MDR bridge)</li>
-<li>Template Editor with syntax colouring, in-line completion for meta-model elements, scripts, services and  error detection for compilation and runtime errors</li>
+<li>Template Editor with syntax colouring, in-line completion for meta-model elements, scripts, services and error detection for compilation and runtime errors</li>
 <li>Reflective Editor for precise and real-time preview of generation results</li>
 <li>Execution chains acting as a “glue” for real project generation, specifying which model to use, where and what to generate, etc...</li>
 <li>Tree-like syntax very easy and natural to use</li>
 <li>Fully extensible thanks to the use of Services developed in Java</li>
 <li>Incremental generation support: manual code is kept after every generation</li></ul>
 Acceleo has been designed by MDA experienced users for real users, so we hope you enjoy it !</text>
-    <modelURL>http://www.acceleo.org</modelURL>
-    <thumbnailURL>http://www.acceleo.org/images/acceleo/logo_acceleo.jpg</thumbnailURL>
-    <screenshotURL>http://www.acceleo.org/pages/screenshots/</screenshotURL>
-    <submitter>Jonathan Musset</submitter> 
-    <submitterURL>http://www.obeo.fr</submitterURL>
-  </model>
+<modelURL>http://www.acceleo.org</modelURL>
+<thumbnailURL>http://www.acceleo.org/images/acceleo/logo_acceleo.jpg</thumbnailURL>
+<screenshotURL>http://www.acceleo.org/pages/screenshots/</screenshotURL>
+<submitter>Jonathan Musset</submitter> 
+<submitterURL>http://www.obeo.fr</submitterURL>
+</model>
 
 <review 
 reviewName="EMF Persistency Layer using JDO/JPOX, a distribution and screenshot" 
@@ -111,7 +111,7 @@ http://sourceforge.net/dbimage.php?id=65915</text>
 <model 
 modelName="XPath Support for EMF" 
 date="2006-02-16" 
-category="EMF utility" 
+category="EMF_utility" 
 modelID="PeterNehrer20060216004001">
 <text>This software component provides support for using the XPath language to navigate arbitrary EMF models. Jaxen is used as the underlying XPath engine, with a custom document model adapter that allows it to navigate EMF object graphs using XPath constructs.</text>
 <modelURL>http://www.eclipticalsoftware.com/emf/xpath/</modelURL>
@@ -124,7 +124,7 @@ modelID="PeterNehrer20060216004001">
 <model 
 modelName="Sympedia GenFw Generator Framework" 
 date="2006-02-04" 
-category="EMF model" 
+category="EMF_model" 
 modelID="EikeStepper20060204144820">
 <text>Sympedia GenFw is a flexible and easy to use framework for software artifact generation. Input models can be associated with generators via extensible rule sets. Additional Content providers, generators and rules can be provided by Eclipse plugins.</text>
 <modelURL>http://genfw.berlios.de</modelURL>
@@ -137,11 +137,11 @@ modelID="EikeStepper20060204144820">
 <model 
 modelName="realMethods Framework" 
 date="2006-01-30" 
-category="EMF tool" 
+category="EMF_tool" 
 modelID="TylerWinston20060130205700">
 <text>Quickly generate multi-tier design pattern based J2EE 
-applications from one or more ECore files.  Includes complete support for 
-Struts, Hibernate, Ant, Axis Web Services, and more.  Portal and AJAX 
+applications from one or more ECore files. Includes complete support for 
+Struts, Hibernate, Ant, Axis Web Services, and more. Portal and AJAX 
 support are coming soon.</text>
 <modelURL>http://www.realmethods.com</modelURL>
 <thumbnailURL></thumbnailURL>
@@ -154,7 +154,7 @@ support are coming soon.</text>
 modelName="EMF Persistency Layer using Hibernate/JPOX with support for
 EJB3-EAnnotations"
 date="2006-06-08"
-category="EMF model"
+category="EMF_model"
 modelID="MartinTaal20051005073815">
 <text>Elver EMF Store is a persistency solution for EMF using Hibernate or
 JPOX/JDO 2.0. It supports automatic creation of EMF to Relational
@@ -174,7 +174,7 @@ annotations. Most of the EJB3 mapping standard is supported.</text>
 <model 
 modelName="Open Source IDE for Laszlo 2.1 / Eclipse 3.1" 
 date="2005-08-12" 
-category="EMF tool" 
+category="EMF_tool" 
 modelID="gham20050812185633">
 <text>IDE (Integrated Development Environment) for Laszlo is an 
 open source technology preview of an Eclipse-based development environment 
@@ -192,7 +192,7 @@ bug fixes. [<a href="http://www.alphaworks.ibm.com/tech/ide4laszlo?open&amp;S_TA
 <model
 modelName="MetaDiff"
 date="2005-08-02"
-category="EMF framework"
+category="EMF_framework"
 modelID="MarkKofman20050802121500">
 <text>MetaDiff is a generic model comparison solution. Generic, in a
 sense, that it should make possible to compare models based on
@@ -222,7 +222,7 @@ reviewID="SimonPope20050716230711">
 <model
 modelName="Tefkat"
 date="2005-06-22"
-category="EMF tool" 
+category="EMF_tool" 
 modelID="michaellawley20050622221007">
     <text>Tefkat is an implementation of a fully-declarative model transformation language for EMF.<br/><br/>
 Tefkat features include:
@@ -245,7 +245,7 @@ Tefkat features include:
 <model
 modelName="EMF / GEF Shapes Example"
 date="2005-06-17"
-category="EMF other"
+category="EMF_other"
 modelID="ChrisAniszczyk20050617153859">
 <text>This takes the GEF Shapes example and replaces its custom model with an EMF based one.</text>
 <modelURL>http://www.eclipse.org/articles/Article-GEF-EMF/files/shapesemf.zip</modelURL>
@@ -269,7 +269,7 @@ reviewID="EdMerks20050601083256">
 <model
 modelName="Open ArchitectureWare for EMF"
 date="2005-05-25"
-category="EMF framework"
+category="EMF_framework"
 modelID="SvenEfftinge20050525060503">
 <text>The open ArchitectureWare framework for EMF consists of the
 following parts:
@@ -319,7 +319,7 @@ An example and basic documentation is included.</text>
   <model
   modelName="IBM Model Transformation Framework"
   date="2005-01-05"
-  category="EMF framework"
+  category="EMF_framework"
   modelID="CatherineGriffin20050105045346">
     <text>The IBM Model Transformation Framework supports the development
 of tools that compare, merge, transform or generate text from EMF models.
@@ -346,7 +346,7 @@ a bi-directional UML2.0 to XSD transformation.</text>
   <model
   modelName="Dynamic JET Generator"
   date="2004-12-10"
-  category="EMF tool"
+  category="EMF_tool"
   modelID="JoelCheuoua20041210164245">
     <text>This is an Eclipse plugin, based on EMF and JET templates, whose
     goal is to ease the process of automating the code generation process.
@@ -376,7 +376,7 @@ a bi-directional UML2.0 to XSD transformation.</text>
   <model
   modelName="Emfatic"
   date="2004-11-10"
-  category="EMF tool"
+  category="EMF_tool"
   modelID="ChrisDaly20041110011007">
     <text>Emfatic is a language for representing EMF Ecore models in a
     simple textual form.
@@ -414,7 +414,7 @@ editor and a parser for the language. The Eclipse plug-ins add actions that
   <model
   modelName="EclipseUML"
   date="2004-10-25"
-  category="EMF tool"
+  category="EMF_tool"
   modelID="julien20041025173305">
     <text>EclipseUML provides an EMF native graphic editors with 8 diagrams
     and the Java code generation driving through class diagram directly. In
@@ -444,7 +444,7 @@ editor and a parser for the language. The Eclipse plug-ins add actions that
   <model
   modelName="CDO Example Workspace"
   date="2004-10-11"
-  category="EMF framework"
+  category="EMF_framework"
   modelID="EikeStepper20041011132202">
     <text>CDO (Connected Data Objects) is an object persistence technology
     that integrates with EMF (Eclipse Modelling Framework) to transparently
@@ -463,7 +463,7 @@ Any feedback is greatly appreciated. Happy persisting...</text>
   <model
   modelName="Notification Gatherer"
   date="2004-10-07"
-  category="EMF utility"
+  category="EMF_utility"
   modelID="ConstantineAPlotnikov(onbehalfofIBMATS)20041007014530">
     <text>The Notification Gatherer component is a simple utility component
     that automates listening to events that happen in EMF object graph.
@@ -510,7 +510,7 @@ The plug-in is submitted as patch to EMF team. URL points to corresponding
   <model
   modelName="EMF Eclipse Forms Editor"
   date="2004-10-04"
-  category="EMF example"
+  category="EMF_example"
   modelID="SteveBlass20041004133615">
     <text>This example demonstrates how to convert a generated EMF editor
 to an Eclipse Forms based editor by changing the generated editor to extend
@@ -528,7 +528,7 @@ documentation.</text>
   <model
   modelName="Sandwich Pattern"
   date="2004-10-04"
-  category="EMF example"
+  category="EMF_example"
   modelID="PhilippW.Kutter20041004094720">
     <text>Frameworks on top of EMF: the Sandwich Pattern - see <a href="http://www.montages.com/index.php?lbl=sandwich">http://www.montages.com/index.php?lbl=sandwich</a> for details</text>
     <modelURL>http://www.montages.com/downloads/sandwich.zip</modelURL>
@@ -541,7 +541,7 @@ documentation.</text>
   <model
   modelName="JET-Editor"
   date="2004-10-03"
-  category="EMF tool"
+  category="EMF_tool"
   modelID="AlexanderRupsch20041003141937">
     <text>Editor for JET-templates. It is intended to support the development of JET-templates in a quality which is adequate to other eclipse language support.</text>
     <modelURL>http://sourceforge.net/projects/jet-editor/</modelURL>
@@ -554,7 +554,7 @@ documentation.</text>
   <model
   modelName="Marven"
   date="2004-10-03"
-  category="EMF tool"
+  category="EMF_tool"
   modelID="AlexanderRupsch20041003142919">
     <text>Marven is a model based generator implemented as eclipse plugin.
     It is based on EMF JET-templates and the UML 2.0 metamodel
@@ -567,28 +567,28 @@ documentation.</text>
     <submitterURL></submitterURL>
   </model>
 
-   <category-def category="EMF model"     label="EMF Models" />
-   <category-def category="EMF framework" label="EMF Frameworks" />
-   <category-def category="EMF tool"      label="EMF Tools" />
-   <category-def category="EMF utility"   label="EMF Utilities" />
-   <category-def category="EMF example"   label="EMF Examples" />
-   <category-def category="EMF article"   label="EMF Articles" />
-   <category-def category="EMF other"     label="EMF (Other)" />
+   <category-def category="EMF_model"     label="EMF Models" />
+   <category-def category="EMF_framework" label="EMF Frameworks" />
+   <category-def category="EMF_tool"      label="EMF Tools" />
+   <category-def category="EMF_utility"   label="EMF Utilities" />
+   <category-def category="EMF_example"   label="EMF Examples" />
+   <category-def category="EMF_article"   label="EMF Articles" />
+   <category-def category="EMF_other"     label="EMF (Other)" />
 
-   <category-def category="SDO model"     label="SDO Models" />
-   <category-def category="SDO framework" label="SDO Frameworks" />
-   <category-def category="SDO tool"      label="SDO Tools" />
-   <category-def category="SDO utility"   label="SDO Utilities" />
-   <category-def category="SDO example"   label="SDO Examples" />
-   <category-def category="SDO other"     label="SDO (Other)" />
+   <category-def category="SDO_model"     label="SDO Models" />
+   <category-def category="SDO_framework" label="SDO Frameworks" />
+   <category-def category="SDO_tool"      label="SDO Tools" />
+   <category-def category="SDO_utility"   label="SDO Utilities" />
+   <category-def category="SDO_example"   label="SDO Examples" />
+   <category-def category="SDO_other"     label="SDO (Other)" />
 
-   <category-def category="XSD model"     label="XSD Models" />
-   <category-def category="XSD framework" label="XSD Frameworks" />
-   <category-def category="XSD tool"      label="XSD Tools" />
-   <category-def category="XSD utility"   label="XSD Utilities" />
-   <category-def category="XSD example"   label="XSD Examples" />
-   <category-def category="XSD other"     label="XSD (Other)" />
+   <category-def category="XSD_model"     label="XSD Models" />
+   <category-def category="XSD_framework" label="XSD Frameworks" />
+   <category-def category="XSD_tool"      label="XSD Tools" />
+   <category-def category="XSD_utility"   label="XSD Utilities" />
+   <category-def category="XSD_example"   label="XSD Examples" />
+   <category-def category="XSD_other"     label="XSD (Other)" />
 
 </data>
 
-<!-- $Id: models.xml,v 1.35 2006/06/14 04:00:49 nickb Exp $ -->
+<!-- $Id: models.xml,v 1.36 2006/08/21 21:28:59 nickb Exp $ -->

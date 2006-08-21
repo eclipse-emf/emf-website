@@ -1,90 +1,132 @@
-<?php $pre="../"; include "../includes/header.php"; ?>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-<style>@import url("models.css");</style>
-<script type="text/javascript" src="models.js"></script>
+include("functions.php");
 
-	<table border="0" cellspacing="1" cellpadding="3" width="560">
-		<form action="models-mailform.php" method="post">
-			<input type=hidden name="h_Email_Title" value="Eclipse EMF Corner Submission">
-			<input type=hidden name="h_Email_Recipient_Name" value="EMF Corner Submit">
-			<input type=hidden name="h_Email_Recipient_Email" value="emf@divbyzero.com">
-			<input type=hidden name="h_Site_Name" value="<?php echo $_SERVER["SERVER_NAME"]; ?>">
-			<input type="hidden" name="h_Submission_Type" value="Model">
-		<tr class="light-row" valign="top">
-			<td colspan="3" class="">
-				<b style="font-size:16px">Submit A Model, Framework, Tool, Utility, Example...</b>
-				<br>&#160;&#160;&#160;<b class="red">*</b> - required fields<br>&#160;
-			</td>
-		</tr>
+ob_start();
 
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Contribution Name</h4></td>
-			<td><input type="text" name="c_Model_Name" size="40"></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Contribution Description</h4></td>
-			<td><textarea name="c_Text" rows="3" cols="40"></textarea></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Category</h4></td>
-			<td><select name="c_Category1" onchange="if(false && this.selectedIndex==3){ document.forms[0].c_Category2.selectedIndex=5; }">
-				<option value="EMF">EMF</option>
-				<option value="SDO">SDO</option>
-				<option value="XSD">XSD</option>
-<!--				<option value="General">General</option> -->
-			</select>&#160;&#160;<select name="c_Category2" onchange="if(false && this.selectedIndex==5){ document.forms[0].c_Category1.selectedIndex=3; }">
-				<option value="model">Model</option>
-				<option value="framework">Framework</option>
-				<option value="tool">Tool</option>
-				<option value="utility">Utility</option>
-				<option value="example">Example</option>
-<!--				<option value="discussion">Discussion</option> -->
-				<option value="other">Other</option>
-			</select></td>
-			<td>&#160;</td>
-		</tr>
+$validate = array(
+	"model_name" => array("regex" => "/^.{6,100}$/", "errmsg" => "Your model, plugin or tool's name must be between 6 and 100 characters long."),
+	"model_url" => array("regex" => "/^\S{15,200}$/", "errmsg" => "Your model, plugin or tool's URL must be between 15 and 200 characters long, and cannot contain spaces."),
+	"description" => array("regex" => "/^.{15,1000}$/m", "errmsg" => "Your description must be between 15 and 1000 characters long."),
+	"name" => array("regex" => "/^.{3,100}$/", "errmsg" => "Your name must be between 3 and 100 characters."),
+	"email" => array("regex" => "/^[a-zA-Z0-9\-\.]+\@[a-zA-Z0-9\-\.]+(?:\.[a-zA-Z0-9]{2,})+$/", "errmsg" => "You must enter a valid email address."),
+	"screenshot_url" => array("regex" => "/^.*$/", "errmsg" => "Invalid screenshot URL."),
+	"thumbnail_url" => array("regex" => "/^.*$/", "errmsg" => "Invalid thumbnail URL."),
+	"type" => array("regex" => "/^model$/", "errmsg" => "Invalid type."),
+	"project" => array("regex" => "/^(?:EMF|XSD|SDO)$/", "errmsg" => "Invalid project."),
+	"stype" => array("regex" => "/^(?:model|framework|tool|utility|example|other)$/", "errmsg" => "Invalid submission type."),
+	"website" => array("regex" => "/^.*$/", "errmsg" => "Invalid website.")
+);
 
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class=""><h4>Contribution URL</h4></td>
-			<td><input type="text" value="http://" name="c_Model_URL" size="40"><br><small>Path to your model, plugin or tool's site, for download or <br>more information</small></td>
-			<td>&#160;<b class="red">*</b>&#160;&#160;<!--<a href="models-sample.xml">Sample XML</a>--></td>
-		</tr>
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class=""><h4>Contribution Screenshot URL</h4></td>
-			<td><input type="text" value="http://" name="c_Model_Screenshot_URL" size="40"><br><small>Path to a screenshot, if available</small></td>
-			<td>&#160;</td>
-		</tr>
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class=""><h4>Contribution Thumbnail URL</h4></td>
-			<td><input type="text" value="http://" name="c_Model_Thumbnail_URL" size="40"><br><small>Path to a screenshot thumbnail, if available</small></td>
-			<td>&#160;</td>
-		</tr>
+$err = "";
+if ($_POST["do_it"] == "yes")
+{
+	foreach (array_keys($validate) as $z)
+	{
+		if (!preg_match($validate[$z]["regex"], $_POST[$z]))
+		{
+			$err .= "<div class=\"error\">" . $validate[$z]["errmsg"] . "</div>\n";
+		}
+	}
+}
+?>
+<div id="midcolumn">
+	<div class="homeitem3col">
+		<h3>Submit A Model, Framework, Tool, Utility, Example...</h3>
+		<?php
+		if ($err == "" ^ $_POST["do_it"] == "yes")
+		{
+			print $err;
+		?>
+		<form action="models-submit.php" method="post">
+			<input type="hidden" name="do_it" value="yes"/>
+			<input type="hidden" name="type" value="model"/>
+			<div class="required">*</div> - required fields
 
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Submitter Name</h4></td>
-			<td><input type="text" name="c_Name" size="40"></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Submitter Email</h4></td>
-			<td><input type="text" name="c_Email" size="40"><br><small>Required to send confirmation of submission and for clarification<br>or followup of submission, if necessary. Email <b>NOT</b> posted to site.</small></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Submitter Website</h4></td>
-			<td><input type="text" value="http://" name="c_Submitter_Website" size="40"></td>
-			<td>&#160;</td>
-		</tr>
-	
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class="">&#160;</td>
-			<td><input type="submit" onclick="return doModelSubmit();" value="Submit" name="Submit"></td>
-			<td>&#160;</td>
-		</tr>
+			<div class="box">
+				<div class="label">Contribution Name</div>
+				<input<?php print put("model_name"); ?> class="textbox" type="text" name="model_name"/><div class="required">*</div>
+			</div>
+			<div class="box">
+				<div class="label">Contribution Description</div>
+				<textarea rows="10" cols="50" name="description"><?php print put("description", "", true); ?></textarea><div class="required">*</div>
+			</div>
+			<div class="box">
+				<div class="label">Category</div>
+				<select name="project">
+					<?php
+					$ops = array("EMF", "SDO", "XSD");
+					foreach ($ops as $z)
+					{
+						print "<option " . ($_POST["project"] == $z ? "selected=\"selected\" " : "") . "value=\"$z\">$z</option>\n";
+					}
+					?>
+				</select>
+				<select name="stype">
+					<?php
+					$ops = array("model" => "Model", "framework" => "Framework",
+						"tool" => "Tool", "utility" => "Utility",
+						"example" => "Example", "other" => "Other");
+
+					foreach (array_keys($ops) as $z)
+					{
+						print "<option " . ($_POST["stype"] == $z ? "selected " : "") . "value=\"$z\">$ops[$z]</option>\n";
+					}
+					?>
+				</select>
+			</div>
+
+			<div class="box">
+				<div class="label">Contribution URL</div>
+				<input class="textbox" type="text"<?php print put("model_url", "http://"); ?> name="model_url"/><div class="required">*</div><br/>Path to your model, plugin or tool's site, for download or more information
+			</div>
+			<div class="box">
+				<div class="label">Contribution Screenshot URL</div>
+				<input class="textbox" type="text"<?php print put("screenshot_url", "http://"); ?> name="screenshot_url"/><br/>Path to a screenshot, if available
+			</div>
+			<div class="box">
+				<div class="label">Contribution Thumbnail URL</div>
+				<input class="textbox" type="text"<?php print put("thumbnail_url", "http://"); ?> name="thumbnail_url"/><br/>Path to a screenshot thumbnail, if available
+			</div>
+
+			<div class="box">
+				<div class="label">Submitter Name</div>
+				<input class="textbox" type="text"<?php print put("name"); ?> name="name"/><div class="required">*</div>
+			</div>
+			<div class="box">
+				<div class="label">Submitter Email</div>
+				<input class="textbox" type="text"<?php print put("email"); ?> name="email"/><div class="required">*</div><br/>Required to send confirmation of submission and for clarification or followup of submission, if necessary. Email is <b>NOT</b> posted to site.
+			</div>
+			<div class="box">
+				<div class="label">Submitter Website</div>
+				<input class="textbox" type="text"<?php print put("website"); ?> name="website"/>
+			</div>
+
+			<div class="box">
+				<input id="submit" type="submit" value="Submit" name="Submit"/>
+			</div>
 		</form>
-	</table>
+		<?php
+		}
+		else
+		{
+			$doit = 1; //protects models-mailform.php from direct access
+			include("models-mailform.php");
+		}
+		?>
+	</div>
+</div>
 
-<?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: models-submit.php,v 1.11 2005/06/03 16:06:46 nickb Exp $ -->
+<?php
+$html = ob_get_contents();
+ob_end_clean();
+
+$pageTitle = "Eclipse Tools - EMF - Submit a Model, Framework, Tool, Utility, Example...";
+$pageKeywords = ""; //TODO: add something here
+$pageAuthor = "Neil Skrypuch";
+
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/submit.css"/>');
+
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>

@@ -1,78 +1,112 @@
-<?php $pre="../"; include "../includes/header.php"; ?>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-<style>@import url("models.css");</style>
-<script type="text/javascript" src="models.js"></script>
+include("functions.php");
 
-	<table border="0" cellspacing="1" cellpadding="3" width="560">
-		<form action="models-mailform.php" method="post">
-			<input type=hidden name="h_Email_Title" value="Eclipse EMF Corner Review">
-			<input type=hidden name="h_Email_Recipient_Name" value="EMF Corner Review">
-			<input type=hidden name="h_Email_Recipient_Email" value="emf@divbyzero.com">
-			<input type=hidden name="h_Site_Name" value="<?php echo $_SERVER["SERVER_NAME"]; ?>">
-			<input type="hidden" name="h_Submission_Type" value="Review">
-		<tr class="light-row" valign="top">
-			<td colspan="3" class="">
-				<b style="font-size:16px">Submit A Review</b>
-				<br>&#160;&#160;&#160;<b class="red">*</b> - required fields<br>&#160;
-			</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Contribution Name &amp; ID</h4></td>
-			<td><input style="color:#7f7f7f" readonly type="text" value="<?php echo $_GET["name"]; ?>" name="c_Model_Name">&#160;&#160;<input style="color:#7f7f7f" readonly type="text" value="<?php echo $_GET["ModelID"]; ?>" name="c_Model_ID"></td>
-			<td>&#160;</td>
-		</tr>
+ob_start();
 
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class=""><h4>Review Title</h4></td>
-			<td><input type="text" name="c_Review_Title" size="54" value="<?php echo $_GET["name"]; ?> Review"></td>
-			<td>&#160;</td>
-		</tr>
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class=""><h4>Review Text</h4></td>
-			<td><textarea name="c_Text" rows="3" cols="40"></textarea></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class=""><h4>Rating</h4></td>
-			<td><select name="c_Rating">
-				<option value="">Choose...</option>
-				<option value="10">10 out of 10!</option>
-				<option value="9">9</option>
-				<option value="8">8</option>
-				<option value="7">7</option>
-				<option value="6">6</option>
-				<option value="5">5</option>
-				<option value="4">4</option>
-				<option value="3">3</option>
-				<option value="2">2</option>
-				<option value="1">1</option>
-			</select></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
+$validate = array(
+	"model_id" => array("regex" => "/^\S+\d{14}$/", "errmsg" => "Invalid model id."),
+	"review_title" => array("regex" => "/^.{3,200}$/", "errmsg" => "Your review title must be between 3 and 200 characters long."),
+	"review" => array("regex" => "/^.{15,1000}$/m", "errmsg" => "Your review must be between 15 and 1000 characters long."),
+	"rating" => array("regex" => "/^(?:[1-9]|10)$/", "errmsg" => "You must choose a rating."),
+	"name" => array("regex" => "/^.{3,100}$/", "errmsg" => "Your name must be between 3 and 100 characters."),
+	"email" => array("regex" => "/^[a-zA-Z0-9\-\.]+\@[a-zA-Z0-9\-\.]+(?:\.[a-zA-Z0-9]{2,})+$/", "errmsg" => "You must enter a valid email address."),
+	"website" => array("regex" => "/^.*$/", "errmsg" => "Invalid website.")
+);
 
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Reviewer Name</h4></td>
-			<td><input type="text" name="c_Name" size="40"></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Reviewer Email</h4></td>
-			<td><input type="text" name="c_Email" size="40"><br><small>Required to send confirmation of submission and for clarification<br>or followup of submission, if necessary. Email <b>NOT</b> posted to site.</small></td>
-			<td>&#160;<b class="red">*</b>&#160;</td>
-		</tr>
-		<tr class="dark-row" valign="top">
-			<td colspan="1" class=""><h4>Reviewer Website</h4></td>
-			<td><input type="text" value="http://" name="c_Reviewer_Website" size="40"></td>
-			<td>&#160;</td>
-		</tr>
+$err = "";
+if ($_POST["do_it"] == "yes")
+{
+	foreach (array_keys($validate) as $z)
+	{
+		if (!preg_match($validate[$z]["regex"], $_POST[$z]))
+		{
+			$err .= "<div class=\"error\">" . $validate[$z]["errmsg"] . "</div>\n";
+		}
+	}
+}
+?>
+<div id="midcolumn">
+	<div class="homeitem3col">
+		<h3>Submit a review for <?php print $_GET["name"]; ?></h3>
+		<?php
+		if ($err == "" ^ $_POST["do_it"] == "yes")
+		{
+			print $err;
+		?>
+		<form action="models-review.php<?php print "?name=" . $_GET["name"] . "&amp;ModelID=" . $_GET["ModelID"]; ?>" method="post">
+			<input type="hidden" name="type" value="review"/>
+			<input type="hidden" name="do_it" value="yes"/>
+			<input type="hidden" value="<?php echo $_GET["ModelID"]; ?>" name="model_id"/>
+			<div class="required">*</div> - required fields<br/>
 
-		<tr class="dark-row2" valign="top">
-			<td colspan="1" class="">&#160;</td>
-			<td><input type="submit" onclick="return doModelReviewSubmit();" value="Submit Review" name="Submit"></td>
-			<td>&#160;</td>
-		</tr>
+			<div class="box">
+				<div class="label">Review Title</div>
+				<input class="textbox" type="text" name="review_title"<?php print put("review_title", $_GET["name"] . " Review"); ?>/><div class="required">*</div>
+			</div>
+
+			<div class="box">
+				<div class="label">Review Text</div>
+				<textarea name="review" rows="3" cols="40"><?php print put("review", "", true); ?></textarea><div class="required">*</div>
+			</div>
+
+			<div class="box">
+				<div class="label">Rating</div>
+				<select name="rating">
+				<?php
+					$ops = array(
+						"Choose..." => "", "10 out of 10!" => 10,
+						"9" => 9, "8" => 8, "7" => 7, "6" => 6, "5" => 5,
+						"4" => 4, "3" => 3, "2" => 2, "1" => 1
+					);
+					
+					foreach (array_keys($ops) as $z)
+					{
+						print "<option " . ($_POST["rating"] == $ops[$z] ? "selected=\"selected\" " : "") . "value=\"$ops[$z]\">$z</option>\n";
+					}
+				?>
+				</select>
+				<div class="required">*</div>
+			</div>
+
+			<div class="box">
+				<div class="label">Reviewer Name</div>
+				<input class="textbox" type="text" name="name"<?php print put("name"); ?>/><div class="required">*</div>
+			</div>
+
+			<div class="box">
+				<div class="label">Reviewer Email</div>
+				<input class="textbox" type="text" name="email"<?php print put("email"); ?>/><div class="required">*</div><br/>
+				Required to send confirmation of submission and for clarification or followup of submission, if necessary. Email <b>NOT</b> posted to site.
+			</div>
+
+			<div class="box">
+				<div class="label">Reviewer Website</div>
+				<input class="textbox" type="text"<?php print put("website", "http://"); ?> name="website"/>
+			</div>
+
+			<input type="submit" value="Submit Review"/>
 		</form>
-	</table>
+		<?php
+		}
+		else
+		{
+			$doit = 1; //protects models-mailform.php from direct access
+			include("models-mailform.php");
+		}
+		?>
+	</div>
+</div>
+<?php
+$html = ob_get_contents();
+ob_end_clean();
 
-<?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: models-review.php,v 1.10 2005/06/03 16:06:46 nickb Exp $ -->
+$pageTitle = "Eclipse Tools - EMF - Submit a Review";
+$pageKeywords = ""; //TODO: add something here
+$pageAuthor = "Neil Skrypuch";
+
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/submit.css"/>');
+
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>
