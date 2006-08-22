@@ -859,11 +859,11 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 
 function fileFound($PWD, $url, $label) //only used once
 {
-	global $pre, $downloadScript, $downloadPre;
+	global $isEMFserver, $downloadScript, $downloadPre;
 
 	$mid = "$downloadPre/tools/emf/downloads/drops/"; // new for www.eclipse.org centralized download.php script
 
-	return (is_file("$PWD$url.md5") ? "<div>" . pretty_size(filesize("$PWD$url")) . " (<a href=\"$pre$mid$url.md5\">md5</a>)</div>" : "") . "<a href=\"$downloadScript$pre$mid$url\">$label</a>";
+	return (is_file("$PWD$url.md5") ? "<div>" . pretty_size(filesize("$PWD$url")) . " (<a href=\"" . ($isEMFserver ? "" : "http://download.eclipse.org/") . "$mid$url.md5\">md5</a>)</div>" : "") . "<a href=\"$downloadScript$pre$mid$url\">$label</a>";
 }
 
 function pretty_size($bytes)
