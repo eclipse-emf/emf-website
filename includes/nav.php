@@ -2,7 +2,7 @@
 	<h3>Downloads</h3>
 	<p>
 		<a href="<?php if (!$isEMFserver) { ?>http://www.eclipse.org/emf/downloads/<?php } else { ?>/tools/emf/scripts/downloads.php<?php } ?>" target="_self">Downloads</a><br/>
-		<a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/updates" target="_self">Update Manager</a>
+		<a href="<?php if (!$isEMFserver) { ?>http://www.eclipse.org/emf/updates/<?php } else { ?>/tools/emf/updates<?php } ?>" target="_self">Update Manager</a>
 		<?php if ($isEMFserver) { ?>
 		:: <a href="http://emf.torolab.ibm.com/emf/build.php" target="_self">New Build</a>
 		:: <a href="http://emf.torolab.ibm.com/emf/secure/promo.php" target="_self">Promo</a>
