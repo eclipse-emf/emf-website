@@ -1120,16 +1120,17 @@ function outputBuild($branch, $ID, $c)
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
 
 	$ret .= $tests;
-	$ret .= getEclipseDriver("$PWD/$branch/$ID/build.cfg");
-	$ret .= getBuildArtifacts("$PWD/$branch/$ID/");
+	$ret .= getBuildArtifacts("$PWD/$branch/$ID");
 	$ret .= "</ul>\n";
 	$ret .= "</li>\n";
 
 	return $ret;
 }
 
-function getEclipseDriver($file)
+function getBuildArtifacts($dir)
 {
+	global $isEMFserver;
+	$file = $dir."/build.cfg";
 	$lines = (is_file($file) && is_readable($file) ? file($file) : array());
 
 	foreach ($lines as $z)
@@ -1144,21 +1145,6 @@ function getEclipseDriver($file)
 	$buildID = explode("/",$opts["eclipseBuildURL"]); $buildID = $buildID[sizeof($buildID)-1];
 	$buildfile = $builddir . "/" . $opts["eclipseFile"];
 
-	return ($builddir ? 
-		"<li>Build Dependencies<ul>" .
-		"<li>" . 
-		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
-		"<a href=\"$buildfile\">" . $buildID ."</a> " .
-		"<div><a href=\"$builddir\">Build Page</a></div>" . 
-		"</li>\n" . 
-		"</ul></li>\n" : 
-		"");
-}
-
-function getBuildArtifacts($buildFolder)
-{
-	global $isEMFserver;
-	$builddir = $opts["eclipseDownloadURL"] . $opts["eclipseBuildURL"];
 	$link = ($isEMFserver ? "" : "http://download.eclipse.org");
 	$ret = "";
 		
@@ -1169,6 +1155,14 @@ function getBuildArtifacts($buildFolder)
 			"Map File Entries" => "directory.txt",
 			"Config File" => "build.cfg"
 		);
+		
+		$ret .= "<li>Build Dependencies<ul>" .
+		"<li>" . 
+		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
+		"<a href=\"$buildfile\">" . $buildID ."</a> " .
+		"<div><a href=\"$builddir\">Build Page</a></div>" . 
+		"</li>\n" . 
+		"</ul></li>\n";
 		
 		$ret .= "<li>Build Details<ul>";
 		foreach ($details as $label => $file) { 
