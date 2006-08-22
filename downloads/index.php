@@ -1165,13 +1165,13 @@ function getBuildArtifacts($dir, $branchID)
 		"</ul></li>\n";
 
 		$ret .= "<li>Build Details<ul>";
-		$ret .= "<li>".fileFound($dir,"${webDir}testResults.php","Test Results &amp; Compile Logs")."</li>\n ";
+		$ret .= "<li>".fileFound($dir,"${branchID}testResults.php","Test Results &amp; Compile Logs")."</li>\n ";
 
 		$ret .= "<li>";	
 		$c=0;
 		foreach ($details as $label => $file) { 
 			if ($c>0) { $ret .= ", "; }
-			$ret .= fileFound($dir,"$webDir$file",$label);
+			$ret .= fileFound($dir,"$branchID$file",$label);
 			$c++;
 		}
 		$ret .= "</li>\n ";
