@@ -96,7 +96,7 @@ or headless from a command line.</p>
 technology to help you boost your Java programming productivity,
 application compatibility and integration? Start by reading the <a
 href="http://www.eclipse.org/emf/docs.php">overview documents and the tutorial</a>,
-followed by <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">downloading the driver</a>,
+followed by <a href="http://www.eclipse.org/emf/downloads/">downloading the driver</a>,
 and then sit back and watch your applications write themselves!
 Well, not completely, but this wouldn't be a sales pitch if there
 weren't a little bit of exaggeration.</p>
@@ -118,7 +118,7 @@ $content["sdo2"] = <<<EOF
 <li><a href="http://www.eclipse.org/emf/docs.php#overviews">Overview</a></li>
 <li><a href="http://www.eclipse.org/emf/docs.php">Documentation</a></li>
 <li><a href="http://download.eclipse.org/tools/emf/sdo/javadoc/">Javadoc</a></li>
-<li><a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Downloads</a></li>
+<li><a href="http://www.eclipse.org/emf/downloads/">Downloads</a></li>
 </ul>
 </div>
 EOF;

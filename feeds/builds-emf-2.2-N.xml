@@ -17,7 +17,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608221500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -42,7 +42,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608211134" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -67,7 +67,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608181500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -92,7 +92,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608171500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -117,7 +117,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608161500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -142,7 +142,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608151500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -167,7 +167,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608111500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -192,7 +192,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608111500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -217,7 +217,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608101500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -242,7 +242,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608091500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -267,7 +267,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608041500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -292,7 +292,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608041500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -317,7 +317,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608041500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -342,7 +342,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608031500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -367,7 +367,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608021500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -392,7 +392,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608011500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -417,7 +417,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607271500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -442,7 +442,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607271500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -467,7 +467,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607271500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -492,7 +492,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607261500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -517,7 +517,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607211500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -542,7 +542,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607211500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -567,7 +567,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607211500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -592,7 +592,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607201500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -617,7 +617,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607191500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>
@@ -642,7 +642,7 @@
     <summary>
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200607181500" jars="" type="N">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
         <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
           </releasenotes>
         <releases>

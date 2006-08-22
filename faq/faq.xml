@@ -8,7 +8,7 @@
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/08/21 21:25:51 $</modified>
+  <modified>$Date: 2006/08/22 23:50:57 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -28,7 +28,7 @@ The <a href="http://www.eclipse.org/emf">Eclipse Modeling Framework</a> is a Jav
 How do I get started with EMF?
     </question>
     <answer>
-Start by reading the <a href="http://www.eclipse.org/emf/docs.php">overview documents and the tutorials</a>, followed by <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">downloading the driver</a>.
+Start by reading the <a href="http://www.eclipse.org/emf/docs.php">overview documents and the tutorials</a>, followed by <a href="http://www.eclipse.org/emf/downloads/">downloading the driver</a>.
 <br/><br/>
 After going through the tutorial, you will have generated a completely working editor from nothing but a picture of the object model (i.e., the simple libarary model shown in the tutorial). If you run the generated editor, you can add and remove books and authors, edit the properties (e.g., the book title), copy, paste, drag-and-drop, etc. All with unlimited undo/redo. You can also save the document (the default framework serialization format is XMI).<br/><br/>
 The purpose of the tutorial is to illustrate the power of a model driven architecture (MDA). By providing a model for the data your application will manipulate, you can use EMF to generate a Java implementation for you. EMF.Edit can leverage the same model (meta) data to generate view support and even a working editor. Read the overview documents for more details.
@@ -190,7 +190,7 @@ Are there any examples of EMF used standalone?
 Yes, definitely. In fact, SDO (Service Data Objects) is a standalone
 application of EMF. <a
 href="http://download.eclipse.org/tools/emf/sdo/javadoc">Javadoc</a>, <a
-href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>.
+href="http://www.eclipse.org/emf/downloads/">Download</a>.
     </answer>
   </entry>
 
@@ -291,7 +291,7 @@ For more information on working outside Eclipse, see the question <i>"<a href="f
 How do I install EMF, SDO, or XSD 2.x (for Eclipse 3.x)?
     </question>
     <answer>
-<a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">Download</a>
+<a href="http://www.eclipse.org/emf/downloads/">Download</a>
 the version of EMF, SDO and/or XSD that <b>matches</b> your installation of Eclipse.
 Generally, the version of Eclipse is one version greater than that of EMF; 
 eg., EMF 2.1.2 is build against (and for) Eclipse 3.1.2. 
@@ -634,7 +634,7 @@ Web Data Objects, or WDO, is the name of an early release of SDO shipped in IBM 
 What is the relationship between EMF &amp; SDO?
     </question>
     <answer>
-EMF and SDO both deal with data representation. The SDO implementation is based on EMF and is essentially a thin layer (facade) over EMF. You can get SDO from the <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php" target="_emf">Eclipse EMF Project Downloads page</a>.
+EMF and SDO both deal with data representation. The SDO implementation is based on EMF and is essentially a thin layer (facade) over EMF. You can get SDO from the <a href="http://www.eclipse.org/emf/downloads/" target="_emf">Eclipse EMF Project Downloads page</a>.
     </answer>
   </entry>
 
@@ -1805,6 +1805,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.18 2006/08/21 21:25:51 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.19 2006/08/22 23:50:57 nickb Exp $ -->
 
 </faq>
