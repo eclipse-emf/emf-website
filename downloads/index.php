@@ -1121,6 +1121,7 @@ function outputBuild($branch, $ID, $c)
 
 	$ret .= $tests;
 	$ret .= getEclipseDriver("$PWD/$branch/$ID/build.cfg");
+	$ret .= getBuildArtifacts("$PWD/$branch/$ID/");
 	$ret .= "</ul>\n";
 	$ret .= "</li>\n";
 
@@ -1147,11 +1148,35 @@ function getEclipseDriver($file)
 		"<li>Build Dependencies<ul>" .
 		"<li>" . 
 		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
-		"<div><a href=\"$buildfile\">" . $buildID ."</a> " .
-		"<a href=\"$builddir\">more</a></div>" . 
+		"<a href=\"$buildfile\">" . $buildID ."</a> " .
+		"<div><a href=\"$builddir\">Build Page</a></div>" . 
 		"</li>\n" . 
 		"</ul></li>\n" : 
 		"");
+}
+
+function getBuildArtifacts($buildFolder)
+{
+	global $isEMFserver;
+	$builddir = $opts["eclipseDownloadURL"] . $opts["eclipseBuildURL"];
+	$link = ($isEMFserver ? "" : "http://download.eclipse.org");
+	$ret = "";
+		
+	if ($builddir) {
+		$details = array(
+			"Test Results and Compile Logs" => "testResults.php",
+			"Build Log" => "buildlog.txt",
+			"Map File Entries" => "directory.txt",
+			"Config File" => "build.cfg"
+		);
+		
+		$ret .= "<li>Build Details<ul>";
+		foreach ($details as $label => $file) { 
+			$ret .= "<li><a href=\"$link$file\">$label</a></li>\n ";
+		}
+		$ret .= "</ul></li>\n";
+	}
+	return $ret;
 }
 
 function showToggle($showAll, $showMax, $sortBy, $count)
