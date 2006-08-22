@@ -837,7 +837,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 
 	if (!$link) // return a string with icon, result, and counts (if applic)
 	{
-		$link = ($isEMFserver ? "/emf/log-viewer.php?build=$path" : "$pre$mid${path}buildlog.txt");
+		$link = ($isEMFserver ? "/emf/log-viewer.php?build=$path" : "http://download.eclipse.org/"."$mid${path}buildlog.txt");
 	}
 
 	if (!$link2) // link to console log in progress if it exists
@@ -845,11 +845,12 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 		$ID = substr($path, -14);
 		$conlog = "${path}testing/${ID}testing/linux.gtk_consolelog.txt";
 		$testlog = "${path}testResults.php";
-		$link2 = (is_file("$PWD$conlog") ? "$pre$mid$conlog" : (is_file("$PWD$testlog") ? "$pre$mid$testlog" : $link));
+		$link2 = (is_file("$PWD$conlog") ? "$mid$conlog" : (is_file("$PWD$testlog") ? "$mid$testlog" : $link));
 		$result = (is_file("$PWD$conlog") ? "Testing..." : $result);
 	}
-
-	$out .= "<a href=\"".($isEMFserver ? "" : "http://download.eclipse.org")."$link2\">$result";
+	$link2 = ($isEMFserver ? "/" : "http://download.eclipse.org/").$link2;
+	
+	$out .= "<a href=\"$link2\">$result";
 	$out .= ($errors == 0 && $warnings == 0) && !$result ? "Success" : "";
 	$out .= ($errors > 0 || $warnings > 0) && $result ? ": " : "";
 	$out .= ($errors > 0 ? "$errors E, $warnings W" : ($warnings > 0 ? "$warnings W" : ""));
