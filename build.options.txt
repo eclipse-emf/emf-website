@@ -1,0 +1,55 @@
+# build options file
+# note also that there must be a directory below this one called data which is set to 777 permission so that files can be read/written via anon web user. x bit must be set too so the dir is openable/viewable
+
+# this defines the alias "HEAD" to a particular stream within CVS. As of 040714, sequence reversed - Pretty_Branch_Name=CVS_Branch_Name
+# note that for build versions that can no longer be build, use -=x.y.z so that they still get listed,
+# but aren't available in the build branch selection list
+[Branch]
+
+#used in build.php for selecting build branch
+2.2.1=HEAD|selected
+2.1.2=R2_1_maintenance
+2.0.5=R2_0_maintenance
+
+# used in display logic, not in build.php
+-=2.2.1
+-=2.2.0
+-=2.1.2
+-=2.1.1
+-=2.1.0
+-=2.0.5
+-=2.0.4
+-=2.0.3.1
+-=2.0.3
+-=2.0.2
+-=2.0.1
+-=2.0
+-=1.1.1.1
+
+# buildType
+# Letters I, N, S, R or M are used to identify builds as being one of the following:
+#	 I - Integration
+#	 N - Nightly
+#	 S - Stable
+#	 R - Release
+#	 M - Maintenance
+# If set to N, all source will be checked out from the HEAD stream. In all other cases,
+# tags as specifed in map files will be used when exporting plugins to the buildDirectory.
+[BuildType]
+Release=R
+Stable=S
+Integration=I
+Maintenance=M
+Nightly=N|selected
+
+[TagBuild]
+Yes
+No|selected
+
+#series of checkboxes
+[RunTests]
+JUnit Tests=JUnit
+JDK 1.3 Tests=JDK13
+JDK 1.4 &amp; Standalone=JDK14
+JDK 5.0 Tests=JDK50
+Old Tests=Old
