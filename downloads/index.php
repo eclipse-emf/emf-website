@@ -899,7 +899,13 @@ function doRequirements()
 <!-- requirements -->
 <div class="homeitem3col">
 	<h3>Requirements</h3>
-	<p><b>First-time users</b> can get started quickly by simply downloading the combined <b class="all">ALL</b> SDK bundle (includes source, runtime and docs for <b class="emf">EMF</b>, <b class="xsd">XSD</b>, and <b class="sdo">SDO</b>). Specific Eclipse and JDK requirements are below. Eclipse is only required if you intend to use the UI - for runtime-only use, only a JDK is required.</p>
+	<p><b>First-time users</b> can get started quickly by simply downloading the 
+	combined <b class="all">ALL</b> SDK bundle (includes source, runtime and docs 
+	for <b class="emf">EMF</b>, <b class="xsd">XSD</b>, and <b class="sdo">SDO</b>). 
+	Specific Eclipse and JDK requirements are below - to know which Eclipse driver was used to build a given EMF release, 
+	check below under <b>Build Dependencies</b>. </p>
+	<p>Note that Eclipse is only required if you intend to use the UI - for runtime-only use, only a JDK is required.</p>
+
 	
 	<ul id="requirements">
 		<li>
