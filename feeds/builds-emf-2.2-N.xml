@@ -4,11 +4,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://www.eclipse.org/emf/feeds/builds-emf-2.2-N.xml" rel="self" type="application/atom+xml"/>
-  <updated>2006-08-21T19:25:01Z</updated>
+  <updated>2006-08-22T19:25:02Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://www.eclipse.org/emf/feeds/builds-emf-2.2-N.xml</id>
+  <entry>
+    <title>[announce] EMF N200608221500 (2.2.1.N200608221500) is available</title>
+    <link href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608221500"/>
+    <id>http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608221500</id>
+    <updated>2006-08-22T19:25:02Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" callisto="BUILDCOMPLETE" href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608221500" jars="" type="N">
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://download.eclipse.org/tools/emf/scripts/downloads.php</downloads>
+        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-N200608221500.zip</release>
+        </releases>
+        <tests>
+          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.2.1/N200608221500/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/M20060810-0800/eclipse-SDK-M20060810-0800-linux-gtk.tar.gz</dependency>
+        </dependencies>
+      </build>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF N200608211134 (2.2.1.N200608211134) is available</title>
     <link href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/N200608211134"/>
