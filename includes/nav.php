@@ -100,7 +100,8 @@
 		<br/>
 		Submit new bug:
 		<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EMF" target="_bugz">EMF &amp; SDO</a>,
-		<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=XSD" target="_bugz">XSD</a>
+		<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=XSD" target="_bugz">XSD</a>, 
+		<a href="https://bugs.eclipse.org/bugs/describekeywords.cgi" target="_bugz">Keywords</a>
 		<br/>
 		<?php
 		$statuses = array(
@@ -123,9 +124,9 @@
 			echo "<br/>";
 		}
 		?>
-		<!-- new sep 27 -->
+
 		Component owners: 
 		<a href="https://bugs.eclipse.org/bugs/describecomponents.cgi?product=EMF" target="_bugz">EMF &amp; SDO</a>, 
-		<a href="https://bugs.eclipse.org/bugs/describecomponents.cgi?product=XSD" target="_bugz">XSD</a>
+		<a href="https://bugs.eclipse.org/bugs/describecomponents.cgi?product=XSD" target="_bugz">XSD</a>		
 	</p>
 </div>
