@@ -1136,7 +1136,15 @@ function getEclipseDriver($file)
 	$builddir = $opts["eclipseDownloadURL"] . $opts["eclipseBuildURL"];
 	$buildfile = $builddir . "/" . $opts["eclipseFile"];
 
-	return ($builddir ? "<li><a href=\"$buildfile\">Eclipse driver</a> <a href=\"$builddir\">(build page)</a></li>\n" : "");
+	return ($builddir ? 
+		"<li>Build Dependencies<ul>" .
+		"<li>" . 
+		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> &#160; &#160; " .
+		"<a href=\"$buildfile\">" . $opts["eclipseFile"] ."</a> &#160; &#160; " .
+		"<a href=\"$builddir\">build page</a>" . 
+		"</li>\n" . 
+		"</ul></li>\n" : 
+		"");
 }
 
 function showToggle($showAll, $showMax, $sortBy, $count)
