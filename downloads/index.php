@@ -1,6 +1,6 @@
 <?php
 
-ini_set("display_errors",1);
+/* ini_set("display_errors",1); */
 $pre = "../"; 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); 
@@ -53,7 +53,6 @@ $doRefreshPage = false;
 $hideInstructions = 0;
 
 $PWD = getPWD("downloads/drops"); // see scripts.php
-print "PWD = ".$PWD."<br/>\n";
 $buildOptionsFile = "$pre/build.options.txt"; // read only
 
 if (preg_match("/(?:emf|fullmoon)\./", $_SERVER["HTTP_HOST"])) //internal
@@ -828,7 +827,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 		$result = (is_file("$PWD$conlog") ? "Testing..." : $result);
 	}
 
-	$out .= "<a href=\"$link2\">$result";
+	$out .= "<a href=\"".($isEMFserver ? "" : "http://download.eclipse.org")."$link2\">$result";
 	$out .= ($errors == 0 && $warnings == 0) && !$result ? "Success" : "";
 	$out .= ($errors > 0 || $warnings > 0) && $result ? ": " : "";
 	$out .= ($errors > 0 ? "$errors E, $warnings W" : ($warnings > 0 ? "$warnings W" : ""));
