@@ -190,6 +190,7 @@ print "<li><a href=\"http://www.eclipse.org/emf/faq/faq.php\">FAQs</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads-xerces.php\">installation issues</a></li>\n";
 print "<li><a href=\"#archives\">archived releases</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads-build-types.php\">about build types</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/downloads/verifyMD5.php\">using md5 files</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -1166,7 +1167,7 @@ function getBuildArtifacts($dir)
 		
 		$ret .= "<li>Build Details<ul>";
 		foreach ($details as $label => $file) { 
-			$ret .= "<li><a href=\"$link$file\">$label</a></li>\n ";
+			$ret .= "<li><a href=\"$link$dir$file\">$label</a></li>\n ";
 		}
 		$ret .= "</ul></li>\n";
 	}
