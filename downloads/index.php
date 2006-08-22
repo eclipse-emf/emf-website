@@ -1140,14 +1140,15 @@ function getEclipseDriver($file)
 	}
 
 	$builddir = $opts["eclipseDownloadURL"] . $opts["eclipseBuildURL"];
+	$buildID = explode("/",$opts["eclipseBuildURL"]); $buildID = $buildID[sizeof($buildID)-1];
 	$buildfile = $builddir . "/" . $opts["eclipseFile"];
 
 	return ($builddir ? 
 		"<li>Build Dependencies<ul>" .
 		"<li>" . 
-		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> &#160; &#160; " .
-		"<a href=\"$buildfile\">" . $opts["eclipseFile"] ."</a> &#160; &#160; " .
-		"<a href=\"$builddir\">build page</a>" . 
+		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
+		"<div><a href=\"$buildfile\">" . $buildID ."</a> " .
+		"<a href=\"$builddir\">more</a></div>" . 
 		"</li>\n" . 
 		"</ul></li>\n" : 
 		"");
