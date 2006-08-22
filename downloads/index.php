@@ -1167,13 +1167,13 @@ function getBuildArtifacts($dir, $branchID)
 		"</ul></li>\n";
 
 		$ret .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-more.gif\" alt=\"More info about this build\"/> Build Details<ul>";
-		$ret .= "<li><a href=\"$link$mid$dir/${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n ";
+		$ret .= "<li><a href=\"$link$mid/${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n ";
 
 		$ret .= "<li>";	
 		$c=0;
 		foreach ($details as $label => $file) { 
 			if ($c>0) { $ret .= ", "; }
-			$ret .= "<a href=\"$link$mid$dir/$branchID/$file\">$label</a>";
+			$ret .= "<a href=\"$link$mid/$branchID/$file\">$label</a>";
 			$c++;
 		}
 		$ret .= "</li>\n ";
