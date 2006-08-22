@@ -1130,7 +1130,9 @@ function outputBuild($branch, $ID, $c)
 
 function getBuildArtifacts($dir, $branchID)
 {
-	global $isEMFserver;
+	global $isEMFserver, $downloadPre;
+
+	$mid = "$downloadPre/tools/emf/downloads/drops/"; 
 	$file = "$dir/$branchID/build.cfg";
 	$lines = (is_file($file) && is_readable($file) ? file($file) : array());
 
@@ -1165,13 +1167,13 @@ function getBuildArtifacts($dir, $branchID)
 		"</ul></li>\n";
 
 		$ret .= "<li>Build Details<ul>";
-		$ret .= "<li><a href=\"$link$dir/${branchID}testResults.php\">Test Results &amp; Compile Logs</a></li>\n ";
+		$ret .= "<li><a href=\"$link$mid$dir/${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n ";
 
 		$ret .= "<li>";	
 		$c=0;
 		foreach ($details as $label => $file) { 
 			if ($c>0) { $ret .= ", "; }
-			$ret .= "<a href=\"$link$dir/$branchID$file\">$label</a>";
+			$ret .= "<a href=\"$link$mid$dir/$branchID/$file\">$label</a>";
 			$c++;
 		}
 		$ret .= "</li>\n ";

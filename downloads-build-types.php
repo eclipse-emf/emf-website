@@ -24,7 +24,7 @@ $pre = "";
 		<li><b>Automated Tests</b> - 
 		These zips contain the JUnit tests for the EMF, SDO and XSD plugins.</li>
 		<li><b>Examples</b> - 
-		These zips contains the examples for EMF, SDO and XSD. It includes source and can be imported into the workspace as an existing project.</li>
+		These zips contains the examples for EMF, SDO and XSD. It includes source and can be imported into the workspace as an existing project. This can also be installed via <a href="http://www.eclipse.org/emf/updates/">Update Manager</a>.</li>
 		
 	</div>
 
