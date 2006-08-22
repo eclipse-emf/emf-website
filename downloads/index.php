@@ -180,6 +180,28 @@ doLanguagePacks(); ?>
 </div>
 
 <?php
+
+print "<div id=\"rightcolumn\">\n";
+print "<div class=\"sideitem\">\n";
+print "<h6>Additional Info</h6>\n";
+print "<ul>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/faq/faq.php\">FAQs</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/downloads-xerces.php\">installation issues</a></li>\n";
+print "<li><a href=\"#archives\">archived releases</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/downloads-build-types.php\">about build types</a></li>\n";
+print "</ul>\n";
+print "</div>\n";
+
+print "<div id=\"rightcolumn\">\n";
+print "<div class=\"sideitem\">\n";
+print "<h6>Language Packs</h6>\n";
+print "<ul>\n";
+print "<li><a href=\"#2.2.zip\">2.2.x</a></li>\n";
+print "<li><a href=\"#2.1.zip\">2.1.x</a></li>\n";
+print "<li><a href=\"#2.0.zip\">2.0.x</a></li>\n";
+print "</ul>\n";
+print "</div>\n";
+
 print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Sort</h6>\n";
@@ -877,8 +899,8 @@ function doRequirements()
 <!-- requirements -->
 <div class="homeitem3col">
 	<h3>Requirements</h3>
-	<p><b>First-time users</b> can get started quickly by simply downloading the combined <b class="all">ALL</b> SDK bundle (includes source, runtime and docs for <b class="emf">EMF</b>, <b class="xsd">XSD</b>, and <b class="sdo">SDO</b>). Specific Eclipse and JDK requirements are below. Eclipse is only required if you intend to use the UI - for runtime-only use, only a JDK is required.<br/>
-	Also see <a href="#NLS21">EMF 2.1.x language packs</a>, <a href="#NLS20">EMF 2.0.x language packs</a>, <a href="http://www.eclipse.org/emf/downloads-xerces.php">installation issues</a>, <a href="http://www.eclipse.org/emf/faq/faq.php">FAQs</a>, <a href="#archives">archived releases</a>, <a href="http://www.eclipse.org/emf/downloads-build-types.php">description of build types</a>.</p>
+	<p><b>First-time users</b> can get started quickly by simply downloading the combined <b class="all">ALL</b> SDK bundle (includes source, runtime and docs for <b class="emf">EMF</b>, <b class="xsd">XSD</b>, and <b class="sdo">SDO</b>). Specific Eclipse and JDK requirements are below. Eclipse is only required if you intend to use the UI - for runtime-only use, only a JDK is required.</p>
+	
 	<ul id="requirements">
 		<li>
 			<a href="javascript:toggle('req2_2_0')">EMF 2.2.1, 2.2.0</a>
@@ -940,7 +962,7 @@ function doLanguagePacks()
 					<p>These translations are based on EMF 2.2.0. The NLS translation fragment packs should work with all subsequent 2.2 maintenance releases, with any new strings remaining untranslated.</p>
 					<?php
 					$packs = array (
-						"2.1.x NLS Translation Packs" => "NLpacks-"
+						"2.2.x NLS Translation Packs" => "NLpacks-"
 					);
 					$cols = array (
 						"EMF, SDO " => "emf-sdo",
@@ -950,8 +972,8 @@ function doLanguagePacks()
 						"SDK " => "SDK-",
 						"Runtime " => "runtime-",
 					);
-					$packSuf = "2.1.zip";
-					$folder = "NLS/2.1/";
+					$packSuf = "2.2.zip";
+					$folder = "NLS/2.2/";
 					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
 				</li>
 			</ul>
@@ -1027,7 +1049,7 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive=f
 	global $downloadScript, $downloadPre;
 	$cnt = 0;
 
-	print "<ul class=\"nls\">\n";
+	print "<ul class=\"nls\"><a name=\"$packSuf\"></a>\n";
 	foreach ($packs as $name => $packPre)
 	{
 		print "<li>\n$name\n<ul>\n";
