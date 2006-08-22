@@ -192,7 +192,6 @@ print "<li><a href=\"http://www.eclipse.org/emf/downloads-build-types.php\">abou
 print "</ul>\n";
 print "</div>\n";
 
-print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Language Packs</h6>\n";
 print "<ul>\n";
@@ -202,7 +201,6 @@ print "<li><a href=\"#2.0.zip\">2.0.x</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
-print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Sort</h6>\n";
 $newsort = ($sortBy == "date" ? "type" : "date");
