@@ -1,7 +1,7 @@
 <div class="homeitem">
 	<h3>Downloads</h3>
 	<p>
-		<a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/scripts/downloads.php" target="_self">Downloads</a><br/>
+		<a href="<?php if (!$isEMFserver) { ?>http://www.eclipse.org/emf/downloads/<?php } else { ?>/tools/emf/scripts/downloads.php<?php } ?>" target="_self">Downloads</a><br/>
 		<a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/updates" target="_self">Update Manager</a>
 		<?php if ($isEMFserver) { ?>
 		:: <a href="http://emf.torolab.ibm.com/emf/build.php" target="_self">New Build</a>
@@ -9,7 +9,7 @@
 		:: <a href="http://emf.torolab.ibm.com/emf/downloads/downloads.php" target="_new">Live Stats</a>
 		<?php } ?>
 		<br/>
-		v2.x: <a href="<?php if (!$isEMFserver) { ?>http://download.eclipse.org<?php } ?>/tools/emf/scripts/downloads.php" target="_self">EMF,	SDO &amp; XSD</a>, 
+		v2.x: <a href="<?php if (!$isEMFserver) { ?>http://www.eclipse.org/emf/downloads/<?php } else { ?>/tools/emf/scripts/downloads.php<?php } ?>" target="_self">EMF,	SDO &amp; XSD</a>, 
 		v1.x: <a href="http://www.eclipse.org/emf/downloads/dl-emf1x.html">EMF &amp; XSD</a> 
 	</p>
 
