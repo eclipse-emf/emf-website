@@ -9,6 +9,26 @@ $pre = "";
 
 <div id="midcolumn">
 	<div class="homeitem3col">
+		<h3>Zip Bundle Types</h3>
+		
+		<li><b>SDK</b> - 
+		These zips are the developer's SDK. They contain the runtime plugins, source and documentation for developers that want to extend and 
+		use EMF, SDO and XSD. This can also be installed via <a href="http://www.eclipse.org/emf/updates/">Update Manager</a>.</li>
+		<li><b>Runtime</b> - 
+		These zips are the normal EMF, SDO and XSD installations. They contain only the features and plugins. There is no source, documentation or 
+		developer files. They are to be used for normal customer installation.</li>
+		<li><b>Standalone</b> - 
+		It seems that there is life outside Eclipse. These zips were created to simplify the use of EMF in this scenario. Each zip contains a "readme" document that explains its purpose and how you can use its contents.</li>
+		<li><b>Models</b> - 
+		It seems that there is life outside Eclipse. These zip were created to simplify the use of EMF in this scenario. Each zip contains a "readme" document that explains its purpose and how you can use its contents.</li>
+		<li><b>Automated Tests</b> - 
+		These zips contain the JUnit tests for the EMF, SDO and XSD plugins.</li>
+		<li><b>Examples</b> - 
+		These zips contains the examples for EMF, SDO and XSD. It includes source and can be imported into the workspace as an existing project.</li>
+		
+	</div>
+
+	<div class="homeitem3col">
 		<h3>Release Types</h3>
 
 		<ul>
@@ -57,26 +77,6 @@ $pre = "";
 		<b>Note:</b> Nightly builds are produced only as requested, and not necessarily every night, by developers to build what was in HEAD.</li>
 		</ul>
 
-	</div>
-
-	<div class="homeitem3col">
-		<h3>Zip Bundle Types</h3>
-		
-		<li><b>SDK</b> - 
-		These zips are the developer's SDK. They contain the runtime plugins, source and documentation for developers that want to extend and 
-		use EMF, SDO and XSD. This can also be installed via <a href="http://www.eclipse.org/emf/updates/">Update Manager</a>.</li>
-		<li><b>Runtime</b> - 
-		These zips are the normal EMF, SDO and XSD installations. They contain only the features and plugins. There is no source, documentation or 
-		developer files. They are to be used for normal customer installation.</li>
-		<li><b>Standalone</b> - 
-		It seems that there is life outside Eclipse. These zips were created to simplify the use of EMF in this scenario. Each zip contains a "readme" document that explains its purpose and how you can use its contents.</li>
-		<li><b>Models</b> - 
-		It seems that there is life outside Eclipse. These zip were created to simplify the use of EMF in this scenario. Each zip contains a "readme" document that explains its purpose and how you can use its contents.</li>
-		<li><b>Automated Tests</b> - 
-		These zips contain the JUnit tests for the EMF, SDO and XSD plugins.</li>
-		<li><b>Examples</b> - 
-		These zips contains the examples for EMF, SDO and XSD. It includes source and can be imported into the workspace as an existing project.</li>
-		
 	</div>
 
 </div>
