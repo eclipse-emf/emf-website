@@ -1158,7 +1158,7 @@ function getBuildArtifacts($dir, $branchID)
 			"Build Log" => "buildlog.txt"
 		);
 		
-		$ret .= "<li>Build Dependencies<ul>" .
+		$ret .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies<ul>" .
 		"<li>" . 
 		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
 		"<a href=\"$buildfile\">" . $buildID ."</a> " .
@@ -1166,7 +1166,7 @@ function getBuildArtifacts($dir, $branchID)
 		"</li>\n" . 
 		"</ul></li>\n";
 
-		$ret .= "<li>Build Details<ul>";
+		$ret .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-more.gif\" alt=\"More info about this build\"/> Build Details<ul>";
 		$ret .= "<li><a href=\"$link$mid$dir/${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n ";
 
 		$ret .= "<li>";	
