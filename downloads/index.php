@@ -195,9 +195,9 @@ print "</div>\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Language Packs</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"#2.2.zip\">2.2.x</a></li>\n";
-print "<li><a href=\"#2.1.zip\">2.1.x</a></li>\n";
-print "<li><a href=\"#2.0.zip\">2.0.x</a></li>\n";
+print "<li><a href=\"#NL22x\">2.2.x</a></li>\n";
+print "<li><a href=\"#NL21x\">2.1.x</a></li>\n";
+print "<li><a href=\"#NL20x\">2.0.x</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -947,7 +947,7 @@ function doLanguagePacks()
 	<p>IBM is pleased to contribute translations for the Eclipse Modeling Framework.</p>
 	<ul>
 		<li>
-			<a href="javascript:toggle('lang2_2')">EMF 2.2 Language Packs</a>
+			<a href="javascript:toggle('lang2_2')">EMF 2.2 Language Packs</a><a name="NL22x"></a>
 			<ul id="lang2_2">
 				<li>
 					<p>The language packs contain the following translations:</p>
@@ -979,7 +979,7 @@ function doLanguagePacks()
 		</li>
 
 		<li>
-			<a href="javascript:toggle('lang2_1')">EMF 2.1 Language Packs</a>
+			<a href="javascript:toggle('lang2_1')">EMF 2.1 Language Packs</a><a name="NL21x"></a>
 			<ul id="lang2_1" style="display: none">
 				<li>
 					<p>The language packs contain the following translations:</p>
@@ -1010,7 +1010,7 @@ function doLanguagePacks()
 		</li>
 
 		<li>
-			<a href="javascript:toggle('lang2_0')">EMF 2.0 Language Packs</a>
+			<a href="javascript:toggle('lang2_0')">EMF 2.0 Language Packs</a><a name="NL20x"></a>
 			<ul id="lang2_0" style="display: none">
 				<li>
 					<p>The language packs contain the following translations:</p>
@@ -1048,7 +1048,7 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive=f
 	global $downloadScript, $downloadPre;
 	$cnt = 0;
 
-	print "<ul class=\"nls\"><a name=\"$packSuf\"></a>\n";
+	print "<ul class=\"nls\">\n";
 	foreach ($packs as $name => $packPre)
 	{
 		print "<li>\n$name\n<ul>\n";
