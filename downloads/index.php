@@ -207,7 +207,7 @@ print "<div class=\"sideitem\">\n";
 print "<h6>Sort</h6>\n";
 $newsort = ($sortBy == "date" ? "type" : "date");
 print "<ul>\n";
-print "<li><a href=\"downloads.php?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">by $newsort</a></li>\n";
+print "<li><a href=\"?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">by $newsort</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -950,6 +950,8 @@ function doLanguagePacks()
 	global $downloadScript, $downloadPre; ?>
 <!-- language packs -->
 <div class="homeitem3col">
+	<a name="#NLS"></a>
+	
 	<h3>Language Packs</h3>
 
 	<p>IBM is pleased to contribute translations for the Eclipse Modeling Framework.</p>
@@ -1185,7 +1187,7 @@ function getBuildArtifacts($dir, $branchID)
 
 function showToggle($showAll, $showMax, $sortBy, $count)
 {
-	$ret = "<li><a href=\"" . $_SERVER["PHP_SELF"] . "?showAll=" . ($showAll == "1" ? "" : "1") . "&amp;showMax=$showMax&amp;sortBy=$sortBy\">" . ($showAll != "1" ? "show all $count" : "only show $showMax") . "...</a></li>\n";
+	$ret = "<li><a href=\"" . $_SERVER["PHP_SELF"] . "?showAll=" . ($showAll == "1" ? "" : "1") . "&amp;showMax=$showMax&amp;sortBy=$sortBy\">" . ($showAll != "1" ? "show all $count" : "show only $showMax") . "...</a></li>\n";
 
 	return $ret;
 }
