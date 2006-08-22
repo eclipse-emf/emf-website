@@ -1,0 +1,84 @@
+#midcolumn .homeitem3col #requirements li ul li
+{
+	border-style: none;
+	padding: 0px;
+}
+
+#midcolumn .homeitem3col ul li ul li .nls li ul li ul li
+{
+	border-style: none;
+	padding: 0px;
+}
+
+#midcolumn .homeitem3col ul li ul li .nls li,
+#midcolumn .homeitem3col ul li ul li,
+#midcolumn .homeitem3col ul li.outerli
+{
+	border-style: none;
+}
+
+b.emf
+{
+	color: #BF5FBF;
+}
+
+b.sdo
+{
+	color: #18187D;
+}
+
+b.xsd
+{
+	color: #C7568E;
+}
+
+b.all
+{
+	color: #B51464;
+}
+
+.warning
+{
+	background-color: yellow;
+	font-weight: bold;
+	margin: 2em;
+}
+
+#midcolumn .homeitem3col ul.releases li ul li ul li
+{
+	border-style: none;
+	min-height: 14px; /* makes sure that list items are at least as tall as check.gif, and thus, evenly spaced */
+	padding: 0px;
+}
+
+#midcolumn .homeitem3col ul.releases li ul
+{
+	padding-top: 1px; /* in Konqueror, the status float hits the list and makes the (MD5)s not line up without this */
+}
+
+#midcolumn .homeitem3col ul.releases li ul li ul li.errors
+{
+	background-color: #ff9c9c;
+}
+
+#midcolumn .homeitem3col ul.releases li ul li ul li.warnings
+{
+	background-color: yellow;
+}
+
+#midcolumn .homeitem3col ul li div,
+#midcolumn .homeitem3col ul li ul li ul li div
+{
+	float: right;
+}
+
+#midcolumn .homeitem3col ul li div span
+{
+	padding-left: 1.5em;
+}
+
+#midcolumn .homeitem3col ul#archives li
+{
+	border-style: none;
+	padding: 0px;
+}

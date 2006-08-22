@@ -53,7 +53,8 @@ $doRefreshPage = false;
 $hideInstructions = 0;
 
 $PWD = getPWD("downloads/drops"); // see scripts.php
-$buildOptionsFile = "$pre../build.options.txt"; // read only
+print "PWD = ".$PWD."<br/>\n";
+$buildOptionsFile = "$pre/build.options.txt"; // read only
 
 if (preg_match("/(?:emf|fullmoon)\./", $_SERVER["HTTP_HOST"])) //internal
 {
@@ -212,8 +213,8 @@ $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
 # Generate the web page
-$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="includes/downloads.css"/>' . "\n");
-$App->AddExtraHtmlHeader('<script src="includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="'.$pre.'includes/downloads.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<script src="'.$pre.'includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
 /************************** METHODS *****************************************/
