@@ -1014,7 +1014,7 @@ function doLanguagePacks()
 					);
 					$packSuf = "2.0.zip";
 					$folder = "NLS/2.0/";
-					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
+					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, true); ?>
 				</li>
 			</ul>
 		</li>
@@ -1023,7 +1023,7 @@ function doLanguagePacks()
 
 <?php }
 
-function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder)
+function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive=false)
 {
 	global $downloadScript, $downloadPre;
 	$cnt = 0;
@@ -1037,7 +1037,7 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder)
 			print "<li>\n<img src=\"http://www.eclipse.org/emf/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt\n<ul>\n";
 			foreach ($subcols as $alt2 => $packMid2)
 			{
-				print "<li><a href=\"$downloadScript$downloadPre/tools/emf/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a></li>";
+				print "<li><a href=\"".($isArchive?"http://archive.eclipse.org":$downloadScript)."$downloadPre/tools/emf/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a></li>";
 			}
 			print "</ul>\n</li>\n";
 		}
