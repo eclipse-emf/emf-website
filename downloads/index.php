@@ -1121,17 +1121,17 @@ function outputBuild($branch, $ID, $c)
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
 
 	$ret .= $tests;
-	$ret .= getBuildArtifacts("$PWD/$branch/$ID");
+	$ret .= getBuildArtifacts("$PWD","$branch/$ID");
 	$ret .= "</ul>\n";
 	$ret .= "</li>\n";
 
 	return $ret;
 }
 
-function getBuildArtifacts($dir)
+function getBuildArtifacts($dir, $branchID)
 {
 	global $isEMFserver;
-	$file = $dir."/build.cfg";
+	$file = "$dir${branchID}/build.cfg";
 	$lines = (is_file($file) && is_readable($file) ? file($file) : array());
 
 	foreach ($lines as $z)
@@ -1151,10 +1151,9 @@ function getBuildArtifacts($dir)
 		
 	if ($builddir) {
 		$details = array(
-			"Test Results and Compile Logs" => "testResults.php",
-			"Build Log" => "buildlog.txt",
-			"Map File Entries" => "directory.txt",
-			"Config File" => "build.cfg"
+			"Config File" => "build.cfg",
+			"Map File" => "directory.txt",
+			"Build Log" => "buildlog.txt"
 		);
 		
 		$ret .= "<li>Build Dependencies<ul>" .
@@ -1164,11 +1163,17 @@ function getBuildArtifacts($dir)
 		"<div><a href=\"$builddir\">Build Page</a></div>" . 
 		"</li>\n" . 
 		"</ul></li>\n";
-		
+		fileFound($PWD, $url, $label) //only used once
 		$ret .= "<li>Build Details<ul>";
+		$ret .= "<li>".fileFound($dir,"${webDir}testResults.php","Test Results &amp; Compile Logs")."</li>\n ";
+		$ret .= "<li>";
+		$c=0;
 		foreach ($details as $label => $file) { 
-			$ret .= "<li><a href=\"$link$dir$file\">$label</a></li>\n ";
+			if ($c>0) { $ret .= ", "; }
+			$ret .= fileFound($dir,"$webDir$file",$label);
+			$c++;
 		}
+		$ret .= "</li>\n ";
 		$ret .= "</ul></li>\n";
 	}
 	return $ret;
