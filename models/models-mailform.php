@@ -106,8 +106,8 @@ EOXML;
 	}
 
 	// send to site admin, from customer
-	$footer = "\n\n".'$Id: models-mailform.php,v 1.36 2006/08/23 01:49:55 nickb Exp $';
-	wmail("Modeling Corner", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML . $footer);
+	$footer = "\n\n".'$Id: models-mailform.php,v 1.37 2006/08/23 01:51:54 nickb Exp $';
+	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML . $footer);
 
 	/* message */
 	$messagePre = <<<EOTEXT
