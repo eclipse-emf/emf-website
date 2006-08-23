@@ -133,7 +133,7 @@ Here's what you sent:
 
 EOTEXT;
 
-	echo "<pre>" . $messagePre . $messageHTML . "</pre>";
+	echo $messagePre . $messageHTML;
 
 	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message);
 }
