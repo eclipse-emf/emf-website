@@ -1,4 +1,18 @@
 <?php
+
+   # Enable polls on this page
+   # Polls are good for 3 months!
+   $App->usePolls();
+
+   # Poll 1
+   $Poll = new Poll(1, "What do you think of our new look?");
+   $Poll->addOption(1, "Phoen-tast-ix!");
+   $Poll->addOption(2, "Easier to use");
+   $Poll->addOption(3, "Too purple!");
+   $Poll->addOption(4, "I miss the frames!");
+   # $Poll->noGraph();  # uncomment to disable bar graph
+   $pollHTML = $Poll->getHTML();
+   
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
 ob_start();
@@ -25,6 +39,11 @@ include "${pre}includes/nav.php";
 			<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a></li>
 			<li><a href="<?php echo $pre; ?>news-whatsnew.php">Older news</a></li>
 		</ul>
+	</div>
+
+	<div class="sideitem">
+	<h6>Poll</h6>
+	<?php echo $pollHTML; ?>
 	</div>
 
 	<div class="sideitem">
