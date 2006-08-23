@@ -1162,9 +1162,9 @@ function getBuildArtifacts($dir, $branchID)
 		
 		$ret .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies<ul>" .
 		"<li>" . 
+		"<div><a href=\"$builddir\">Build Page</a></div>" . 
 		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
 		"<a href=\"$buildfile\">" . $buildID ."</a> " .
-		"<div><a href=\"$builddir\">Build Page</a></div>" . 
 		"</li>\n" . 
 		"</ul></li>\n";
 
