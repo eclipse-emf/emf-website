@@ -5,7 +5,7 @@
 	$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
 	
 	if (!$isWWWserver) { 
-		header("Location: http://www.eclipse.org/emf/docs.php");
+		header("Location: http://www.eclipse.org/emf/docs/");
 		exit;
 	} else {
 		$files = loadDirSimple(".",".*","f");

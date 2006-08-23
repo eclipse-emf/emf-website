@@ -20,6 +20,9 @@ ob_start();
 <?php
 include "${pre}includes/scripts.php";
 
+// default for no page selected
+if (!$page) { $page = "emf"; }
+
 include "home-contents.php";
 displayIntro($page);
 
@@ -34,7 +37,7 @@ include "${pre}includes/nav.php";
 		<ul>
 			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>
 			<li><a href="http://www.eclipse.org/emf/news/release-notes.php">EMF Release Notes</a></li>
-			<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a></li>
+			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a></li>
 			<li><a href="<?php echo $pre; ?>news-whatsnew.php">Older news</a></li>
 		</ul>
 	</div>
@@ -56,7 +59,7 @@ include "${pre}includes/nav.php";
 			<li><a href="http://www.eclipse.org/modeling">Eclipse Modeling</a></li>
 			<li><a href="http://www.eclipse.org/uml2">UML2</a></li>
 			<li><a href="http://www.eclipse.org/emft">EMF Tech (EMFT)</a></li>
-			<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a></li>
+			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a></li>
 			<!-- <li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a></li> -->
 		</ul>
 	</div>

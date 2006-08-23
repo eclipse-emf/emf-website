@@ -19,10 +19,10 @@
 	$Nav->addCustomNav("XSD", "$rooturl/emf/xsd.php", "_self", 2);
 
 	$Nav->addNavSeparator("Downloads", "$rooturl/emf/downloads/");
-	$Nav->addCustomNav("Installation", "$rooturl/emf/downloads-xerces.php", "_self", 2);
+	$Nav->addCustomNav("Installation", "$rooturl/emf/downloads/install.php", "_self", 2);
 	$Nav->addCustomNav("Update Manager", "$rooturl/tools/emf/updates/", "_self", 2);
 
-	$Nav->addNavSeparator("Documentation", "$rooturl/emf/docs.php");
+	$Nav->addNavSeparator("Documentation", "$rooturl/emf/docs/");
 	$Nav->addCustomNav("Getting Started", "http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.html", "_self", 2);
 	$Nav->addCustomNav("FAQ", "$rooturl/emf/faq/faq.php", "_self", 2);
 	$Nav->addCustomNav("Release Notes", "$rooturl/emf/news/release-notes.php", "_self", 2);

@@ -16,22 +16,22 @@
     <module path="org.eclipse.emf.releng.build"/>
     <module path="org.eclipse.xsd"/>
   </cvs>
-  <description url="/emf/docs.php#overviews" 
+  <description url="/emf/docs/#overviews" 
                paragraph-url="/emf/project-info/project-page-paragraph.html"/>
   <summary paragraph-url="/emf/project-info/summary.html"/>
-  <getting-started url="/emf/docs.php#tutorials"/>
+  <getting-started url="/emf/docs/#tutorials"/>
   <project-ip-log url="/emf/eclipse-project-ip-log.csv"/>
   <mailing-lists url="/emf/newsgroup-mailing-list.php">
     <list name="emf-dev"/>
     <list name="xsd-dev"/>
   </mailing-lists>
-  <project-plan url="/emf/docs.php#plandocs"/>
+  <project-plan url="/emf/docs/#plandocs"/>
   <releases>
     <!-- Future 2.x releases -->
     <release status="scheduled"
              date="30/06/2006"
              name="2.2.0"
-             plan="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html" />
+             plan="http://www.eclipse.org/emf/docs/?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html" />
     <!-- Future 2.x maintenance -->
     <!-- 2.x releases -->
     <release status="completed"
@@ -45,7 +45,7 @@
     <release status="completed"
              date="07/07/2005"
              name="2.1.0"
-             plan="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
+             plan="http://www.eclipse.org/emf/docs/?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
     <release status="completed"
              date="29/11/2005"
              name="2.0.5"

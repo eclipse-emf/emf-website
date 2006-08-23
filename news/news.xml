@@ -35,7 +35,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="July 20, 2006" showOn="whatsnew,docs">
-	<a href="http://www.eclipse.org/emf/docs.php#presentations">Callisto Podcast Series: Ed Merks</a> is available.
+	<a href="http://www.eclipse.org/emf/docs/#presentations">Callisto Podcast Series: Ed Merks</a> is available.
 </news>
 <news date="July 20, 2006" showOn="whatsnew">
 	<!-- M200607200000 -->
@@ -191,7 +191,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="April 3, 2006" showOn="whatsnew,docs">
-	<a href="http://www.eclipse.org/emf/docs.php#presentations">EclipseCon 2006</a> presentations &amp; project files published.
+	<a href="http://www.eclipse.org/emf/docs/#presentations">EclipseCon 2006</a> presentations &amp; project files published.
 </news>
 <news date="March 30, 2006" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.0">Version 2.2.0</a> Integration build
@@ -478,10 +478,10 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="July 06, 2005" showOn="whatsnew,docs">
-	<a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> overview published.
+	<a href="http://www.eclipse.org/emf/docs/?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> overview published.
 </news>
 <news date="July 06, 2005" showOn="whatsnew,docs">
-	<a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1 vs. EMF 2.0.1</a> performance results published.
+	<a href="http://www.eclipse.org/emf/docs/?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1 vs. EMF 2.0.1</a> performance results published.
 </news>
 <news date="July 06, 2005" showOn="whatsnew,docs">
 	<a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review</a> presentation published.
@@ -493,7 +493,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="June 23, 2005" showOn="whatsnew,docs">
-	New <a href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Validation.html">EMF Validation Framework Overview</a> available on <a href="http://www.eclipse.org/emf/docs.php#overviews">docs page</a>.
+	New <a href="http://www.eclipse.org/emf/docs/?doc=references/overview/EMF.Validation.html">EMF Validation Framework Overview</a> available on <a href="http://www.eclipse.org/emf/docs/#overviews">docs page</a>.
 </news>
 <news date="June 23, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
@@ -526,9 +526,9 @@
 </news>
 <news date="June 03, 2005" showOn="whatsnew,docs">
 	Accessible (HTML/text) versions of
-	<a href="http://www.eclipse.org/emf/docs.php#xsd">XSD</a>
+	<a href="http://www.eclipse.org/emf/docs/#xsd">XSD</a>
 	and
-	<a href="http://www.eclipse.org/emf/docs.php#presentations">EMF</a>
+	<a href="http://www.eclipse.org/emf/docs/#presentations">EMF</a>
 	Powerpoint presentations now available.
 </news>
 <news date="June 02, 2005" showOn="whatsnew">
@@ -564,7 +564,7 @@
 	If you've tried to submit or review and never heard back from us, please try again.
 </news>
 <news date="May 19, 2005" showOn="whatsnew,docs">
-	EMF Build 2.1.0.I200505191347 contains important and potentially breaking changes. <a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">Details here</a>.
+	EMF Build 2.1.0.I200505191347 contains important and potentially breaking changes. <a href="http://www.eclipse.org/emf/docs/?doc=docs/whatsnew/tools2.1.html">Details here</a>.
 </news>
 <news date="May 19, 2005" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0">Version 2.1.0</a> Integration build
@@ -716,7 +716,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="January 11, 2005" showOn="docs,whatsnew">
-	<a href="http://www.eclipse.org/emf/docs.php#plandocs">EMF, SDO or XSD Plan Docs</a> added.
+	<a href="http://www.eclipse.org/emf/docs/#plandocs">EMF, SDO or XSD Plan Docs</a> added.
 </news>
 <news date="January 04, 2005" showOn="whatsnew">
 	<a href="news-release-notes.php?ver=2.1.0#emf_210">Version 2.1.0</a> Integration build
@@ -774,7 +774,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="October 18, 2004" showOn="docs,whatsnew">
-	New SDO tutorial: <a href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="http://www.eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
+	New SDO tutorial: <a href="http://www.eclipse.org/emf/docs/?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Using the SDO Data Graph Editor</a> &amp; link to <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">JSF/SDO Redbook</a>
 </news>
 <news date="October 18, 2004" showOn="whatsnew">
 	Since April 2004, there have been over 200,000 downloads of EMF, SDO, and XSD!
@@ -791,25 +791,25 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="October 13, 2004" showOn="docs,whatsnew">
-	New Eclipse Corner article: <a href="http://www.eclipse.org/emf/docs.php?noHeader=true&amp;doc=http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
+	New Eclipse Corner article: <a href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a>.
 </news>
 <news date="October 13, 2004" showOn="docs,whatsnew">
 	<a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=SDO">SDO FAQ</a> split from <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=EMF">EMF FAQ</a> for ease of use. Now filterable!
 </news>
 <news date="October 07, 2004" showOn="docs,whatsnew">
-	Links to SDO <a href="http://www.eclipse.org/emf/docs.php#sdo">articles</a> added.
+	Links to SDO <a href="http://www.eclipse.org/emf/docs/#sdo">articles</a> added.
 </news>
 <news date="September 30, 2004" showOn="docs,whatsnew">
 	<a href="http://www.eclipse.org/emf/models/">EMF Corner launched</a>!
 </news>
 <news date="September 30, 2004" showOn="docs,whatsnew">
-	Link to SDO <a href="http://www.eclipse.org/emf/docs.php#sdo">Overview</a> on developerWorks added.
+	Link to SDO <a href="http://www.eclipse.org/emf/docs/#sdo">Overview</a> on developerWorks added.
 </news>
 <news date="September 24, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/downloads/#NLS">NLS packs</a> for EMF, SDO, and XSD (SDK and Runtime) now available.
 </news>
 <news date="September 23, 2004" showOn="docs,whatsnew">
-	Added two new walkthroughs for <a href="http://www.eclipse.org/emf/docs.php#references">offline newsgroup searching</a>.
+	Added two new walkthroughs for <a href="http://www.eclipse.org/emf/docs/#references">offline newsgroup searching</a>.
 </news>
 <news date="September 17, 2004" showOn="whatsnew">
 	<!-- "#R200409171617" -->
@@ -824,7 +824,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="September 14, 2004" showOn="docs,whatsnew">
-	New <a href="http://www.eclipse.org/emf/docs.php#downloads">Update Manager</a> article added.
+	New <a href="http://www.eclipse.org/emf/docs/#downloads">Update Manager</a> article added.
 </news>
 <news date="September 08, 2004" showOn="whatsnew">
 	<!-- "#M200409081700" -->
@@ -847,7 +847,7 @@
 	EMF/SDO/XSD Update Manager site bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70176">70176</a> fixed - UM now actually works, as of Eclipse 3.0.1.M20040825 or Eclipse 3.1.0.N20040831.
 </news>
 <news date="August 31, 2004" showOn="docs,whatsnew">
-	Link to new <a href="http://www.eclipse.org/emf/docs.php#tutorials">Kent OCL Library tutorial</a> added.
+	Link to new <a href="http://www.eclipse.org/emf/docs/#tutorials">Kent OCL Library tutorial</a> added.
 </news>
 <news date="August 31, 2004" showOn="docs,whatsnew">
 	XSD <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=XSD">FAQ</a> updated.
@@ -873,7 +873,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="August 12, 2004" showOn="docs,whatsnew">
-	Link to EMF Book <a href="http://www.eclipse.org/emf/docs.php#overviews">sample chapter</a> added.
+	Link to EMF Book <a href="http://www.eclipse.org/emf/docs/#overviews">sample chapter</a> added.
 </news>
 <news date="August 04, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.1#emf_201">Version 2.0.1</a> Maintenance build
@@ -911,7 +911,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="July 13, 2004" showOn="docs,whatsnew">
-	<a href="http://www.eclipse.org/emf/docs.php#presentations">JavaOne 2004 Presentation</a> added.
+	<a href="http://www.eclipse.org/emf/docs/#presentations">JavaOne 2004 Presentation</a> added.
 </news>
 <news date="June 28, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Release build
@@ -927,7 +927,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="June 24, 2004" showOn="docs,whatsnew">
-	<a href="http://www.eclipse.org/emf/docs.php#overviews">Two new <i>draft</i> overview documents</a>: EMF FeatureMaps &amp; XML Schema to Ecore Mapping added.
+	<a href="http://www.eclipse.org/emf/docs/#overviews">Two new <i>draft</i> overview documents</a>: EMF FeatureMaps &amp; XML Schema to Ecore Mapping added.
 </news>
 <news date="June 24, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -973,16 +973,16 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="June 1, 2004" showOn="docs,whatsnew">
-	Updated: <a href="http://www.eclipse.org/emf/faq/faq.php">FAQ</a>, <a href="http://www.eclipse.org/emf/docs.php#overviews">Overviews</a>, <a href="http://www.eclipse.org/emf/docs.php#tutorials">Tutorials</a>!
+	Updated: <a href="http://www.eclipse.org/emf/faq/faq.php">FAQ</a>, <a href="http://www.eclipse.org/emf/docs/#overviews">Overviews</a>, <a href="http://www.eclipse.org/emf/docs/#tutorials">Tutorials</a>!
 </news>
 <news date="May 26, 2004" showOn="docs,whatsnew">
-	Added links to <a href="http://www.eclipse.org/emf/docs.php#contributions">two new developerWorks articles</a>.
+	Added links to <a href="http://www.eclipse.org/emf/docs/#contributions">two new developerWorks articles</a>.
 </news>
 <news date="May 20, 2004" showOn="whatsnew">
 	<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=62422">In order to support Rich Client Platform</a>, the <tt>org.eclipse.emf.edit.ui</tt> plugin now optionally requires <tt>org.eclipse.core.resources</tt> and <tt>org.eclipse.ui.ide</tt> and <b style="background-color:yellow;color:black">no longer exports these imports</b>. <a href="http://www.eclipse.org/emf/downloads/">Details here</a>.
 </news>
 <news date="May 20, 2004">
-	To better meet the needs of our users, Runtime bundles no longer contain docs. See SDK bundles for Runtime, Source, and docs. <a href="http://www.eclipse.org/emf/docs.php#references">Javadocs are still available online</a>, updated with every new build.
+	To better meet the needs of our users, Runtime bundles no longer contain docs. See SDK bundles for Runtime, Source, and docs. <a href="http://www.eclipse.org/emf/docs/#references">Javadocs are still available online</a>, updated with every new build.
 </news>
 <news date="May 20, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -990,7 +990,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="May 17, 2004" showOn="docs,whatsnew">
-	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://www.eclipse.org/emf/faq/faq.php">EMF FAQ</a> &amp; <a href="http://www.eclipse.org/emf/docs.php">EMF Docs page</a>
+	Crimson DOM bug (problem loading/importing XML Schema) added to <a href="http://www.eclipse.org/emf/faq/faq.php">EMF FAQ</a> &amp; <a href="http://www.eclipse.org/emf/docs/">EMF Docs page</a>
 </news>
 <news date="May 13, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -1035,7 +1035,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>
 </news>
 <news date="March 16, 2004" showOn="docs,whatsnew">
-	Updated the <a href="http://www.eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> document.
+	Updated the <a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> document.
 </news>
 <news date="March 9, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -1048,10 +1048,10 @@
 	for <a href="downloads/dl.html#stable_builds">download</a>.
 </news>
 <news date="February 25, 2004" showOn="docs,whatsnew">
-	Added EMF development plan and links to SDO specification and white paper. <a href="http://www.eclipse.org/emf/docs.php#overviews">link</a>
+	Added EMF development plan and links to SDO specification and white paper. <a href="http://www.eclipse.org/emf/docs/#overviews">link</a>
 </news>
 <news date="February 12, 2004" showOn="docs,whatsnew">
-	Added EclipseCon Presentation and Steinberg Interview. <a href="http://www.eclipse.org/emf/docs.php#presentations">link</a>
+	Added EclipseCon Presentation and Steinberg Interview. <a href="http://www.eclipse.org/emf/docs/#presentations">link</a>
 </news>
 <news date="January 28, 2004">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -1089,9 +1089,9 @@
 	<a href="http://www.eclipse.org/articles/Article-JET/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a> is available.
 </news>
 <news date="July 15, 2003" showOn="docs">
-	<a href="http://www.eclipse.org/emf/docs.php#references">Getting EMF Source Files from CVS</a> is available.
+	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.182 2006/08/22 23:50:58 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.183 2006/08/23 19:46:36 nickb Exp $ -->
 
 </doc>

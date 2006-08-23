@@ -854,7 +854,7 @@ first. Here is <a target="_code"
 href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/xlibmod/library.xsd">library.xsd</a>,
 the Library model expressed in XML Schema. To use it, run the Ecore
 Model Project wizard and choose "Load from XML Schema" when
-prompted. This is documented in this <a href="http://www.eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">tutorial</a>. Give
+prompted. This is documented in this <a href="http://www.eclipse.org/emf/docs/?doc=tutorials/xlibmod/xlibmod.html">tutorial</a>. Give
 it a try.</p>
 
 <p>One very important difference (advantage) to using XML Schema to
@@ -1399,4 +1399,4 @@ to reflect this build (i.e., the latest release).</li>
 </table>
 
 <?php $pre="../"; include "../includes/footer.php"; ?>
-<!-- $Id: release-notes-1.x.php,v 1.11 2006/06/28 21:21:28 nickb Exp $ -->
+<!-- $Id: release-notes-1.x.php,v 1.12 2006/08/23 19:46:37 nickb Exp $ -->

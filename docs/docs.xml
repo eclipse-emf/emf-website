@@ -28,41 +28,29 @@
 	<h3>EMF Overview Papers</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>June 16 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.html">The Eclipse Modeling Framework Overview</a>
 		</li>
 
 		<li>
-			<div>June 16<sup>th</sup> 2005 (accessibility)</div><a href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.html">The Eclipse Modeling Framework Overview</a>
+			<div>Aug 12 2004</div>EMF Book: <a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">Eclipse Modeling Framework</a> (Overview and Developer's Guide)<br/>
+			<a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">Chapter 2 Sample</a> (PDF)
 		</li>
 
 		<li>
-			<div>Aug 12<sup>th</sup> 2004</div>EMF Book: <a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">Eclipse Modeling Framework</a> (Overview and Developer's Guide)<br/>
-			Sample, Chapter 2: <a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">PDF</a>
+			<div>June 1 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.Edit.html">The EMF Edit Framework Overview</a>
 		</li>
 
 		<li>
-			<div>June 1<sup>st</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Edit.html">The EMF Edit Framework Overview</a>
+			<div>June 23<sup>rd</sup> 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.Validation.html">The EMF Validation Framework Overview</a>
 		</li>
 
 		<li>
-			<div>June 23<sup>rd</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=references/overview/EMF.Validation.html">The EMF Validation Framework Overview</a>
+			<div>June 28 2004</div><a href="/emf/docs/overviews/FeatureMap.pdf">EMF Feature Maps</a> (PDF)
 		</li>
 
 		<li>
-			<div>June 28<sup>th</sup> 2004</div>EMF Feature Maps: <i>(draft)</i>
-			<ul>
-				<li><a href="/emf/docs/overviews/FeatureMap.doc">Word Doc</a></li>
-				<li><a href="/emf/docs/overviews/FeatureMap.pdf">PDF</a></li>
-			</ul>
-		</li>
-
-		<li>
-			<div>June 24<sup>th</sup> 2004</div>XML Schema to Ecore Mapping: <i>(draft)</i>
-			<ul>
-				<li><a href="/emf/docs/overviews/XMLSchemaToEcoreMapping.doc">Word Doc</a></li>
-				<li><a href="/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf">PDF</a></li>
-			</ul>
+			<div>June 24 2004</div><a href="/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf">XML Schema to Ecore Mapping</a> (PDF)
 		</li>
 	</ul>
 </div>
@@ -72,54 +60,42 @@
 	<h3>EMF Tutorials &amp; Workshops</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/clibmod/clibmod.html">Tutorial: Generating an EMF 2.2 Model</a>
 		</li>
 
 		<li>
-			<div>March 20<sup>th</sup> 2006</div>Workshop: Generating an EMF 2.2 Model using XML Schema (see Exercises #1 &amp; #5 of <a href="#eclipsecon2006intro">EclipseCon 2006</a>):
-			<ul>
-				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Intro to EMF</a></li>
-				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Project</a></li>
-			</ul>
+			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/slibmod/slibmod.html">Tutorial: Generating an Extended EMF 2.2 Model</a>
 		</li>
 
 		<li>
-			<div>June 17<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=tutorials/clibmod/clibmod.html">Tutorial: Generating an EMF 2.1 Model</a>
+			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/xlibmod/xlibmod.html">Tutorial: Generating an EMF 2.2 Model using XML Schema</a>
 		</li>
 
 		<li>
-			<div>July 14<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=tutorials/slibmod/slibmod.html">Tutorial: Generating an Extended EMF 2.1 Model</a>
-		</li>
-
-		<li>
-			<div>June 17<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=tutorials/xlibmod/xlibmod.html">Tutorial: Generating an EMF 2.1 Model using XML Schema</a>
-		</li>
-
-		<li>
-			<div>June 17<sup>th</sup> 2005</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=tutorials/jet1/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
+			<div>June 17 2005</div><a target="_out" href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/jet1/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
 			Contributed by Remko Popma
 		</li>
 
 		<li>
-			<div>May 31<sup>st</sup> 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=tutorials/jet2/jet_tutorial2.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
+			<div>May 31 2004</div><a target="_out" href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/jet2/jet_tutorial2.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
 			Contributed by Remko Popma
 		</li>
 
 		<li>
-			<div>Oct 12<sup>th</sup> 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html"> Tutorial: Generating a Rich Client Platform (RCP) Application Using EMF</a>
+			<div>Oct 12 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html"> Tutorial: Generating a Rich Client Platform (RCP) Application Using EMF</a>
 		</li>
 
 		<li>
-			<div>June 2<sup>nd</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=tutorials/rosepkg/rosepkg.html">Specifying Package Information in Rose</a>
+			<div>June 2 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/rosepkg/rosepkg.html">Specifying Package Information in Rose</a>
 		</li>
 
 		<li>
-			<div>June 13<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF Source Files from CVS</a>
+			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF Source Files from CVS</a>
 		</li>
 
 		<li>
-			<div>June 13<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Eclipse Update Manager to Update EMF, SDO &amp; XSD</a>
+			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Eclipse Update Manager to Update EMF, SDO &amp; XSD</a>
 		</li>
 	</ul>
 </div>
@@ -128,34 +104,28 @@
 	<a name="references"></a>
 	<h3>Books, Guides, and References</h3>
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
-		</li>
-
 		<li>
-			<div>August 11<sup>th</sup> 2003 (Date Published)</div><a target="_out" href="http://www.awprofessional.com/titles/0131425420">Eclipse Modeling Framework</a> (Overview and Developer's Guide)
+			<div>August 11 2003</div><a target="_out" href="http://www.awprofessional.com/titles/0131425420">Eclipse Modeling Framework</a> (Overview and Developer's Guide)
 		</li>
 
 	<!-- new version extracted from recent builds on download -->
 		<li>
-			<div>see most recent build date</div>Javadoc
+			Javadoc
 			<ul>
-				<li><a target="_out" href="http://download.eclipse.org/tools/emf/javadoc/">EMF</a></li>
-				<li><a target="_out" href="http://download.eclipse.org/tools/emf/sdo/javadoc/">SDO</a></li>
-				<li><a target="_out" href="http://download.eclipse.org/tools/emf/xsd/javadoc/">XSD</a></li>
+				<li><a target="_out" href="http://download.eclipse.org/tools/emf/javadoc/">EMF</a>, <a target="_out" href="http://download.eclipse.org/tools/emf/xsd/javadoc/">XSD</a></li>
 			</ul>
 		</li>
 
 		<li>
-			<div>April 29<sup>th</sup> 2004</div><a target="_out" href="http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg246302.html">GEF EMF Redbook</a>
+			<div>April 29 2004</div><a target="_out" href="http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg246302.html">GEF EMF Redbook</a>
 		</li>
 
 		<li>
-			<div>May 27<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/faq/faq.php">EMF, SDO &amp; XSD Frequently Asked Questions (FAQ)</a>
+			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/faq/faq.php">Frequently Asked Questions (FAQ)</a>
 		</li>
 
 		<li>
-			<div>May 19<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
+			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
 		</li>
 
 		<li>
@@ -167,7 +137,7 @@
 		</li>
 
 		<li>
-			<div>Feb 27 <sup>th</sup> 2006</div>Eclipse.org Newsgroups - Online Searching with
+			<div>Feb 27  2006</div>Eclipse.org Newsgroups - Online Searching with
 			<ul>
 				<li><a href="http://wiki.eclipse.org/index.php/Searching_Eclipse_Newsgroups_With_Firefox">Firefox</a></li>
 			</ul>
@@ -180,26 +150,20 @@
 	<h3>developerWorks</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
-		</li>
-
 		<li>
-			<div>May 7<sup>th</sup> 2004</div><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema Infoset Model, Part 1</a><br/>
-			First published by IBM developerWorks at <a href="http://www.ibm.com/developerWorks" target="_dw">http://www.ibm.com/developerWorks</a>, November 4<sup>th</sup> 2003
+			<div>May 7 2004</div><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema Infoset Model, Part 1</a><br/>
+			First published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, November 4 2003
 			<ul>
-				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">HTML</a></li>
-				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">PDF</a></li>
+				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">Presentation</a> (PDF)</li>
 				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">Examples</a> (zipped eclipse plugin project)</li>
 			</ul>
 		</li>
 
 		<li>
-			<div>May 7<sup>th</sup> 2004</div><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">XML Schema Infoset Model, Part 2</a><br/>
-			First published by IBM developerWorks at <a href="http://www.ibm.com/developerWorks" target="_dw">http://www.ibm.com/developerWorks</a>, February 17<sup>th</sup> 2004<br/>
+			<div>May 7 2004</div><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">XML Schema Infoset Model, Part 2</a><br/>
+			First published <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, February 17 2004<br/>
 			<ul>
-				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">HTML</a></li>
-				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">PDF</a></li>
+				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">Presentation</a> (PDF)</li>
 				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">Examples</a> (zipped eclipse plugin project)</li>
 			</ul>
 		</li>
@@ -213,16 +177,13 @@
 	<h3>XML Schema Infoset Model (XSD)</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>July 2002</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">Analyzing XML schemas with the Schema Infoset Model</a>
 		</li>
 
 		<li>
-			<div>July 2002</div><a href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">Analyzing XML schemas with the Schema Infoset Model</a>
-		</li>
-
-		<li>
-			<div>June 3<sup>rd</sup> 2005 (new formats)</div><a href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.xsd.doc/references/diagrams/diagrams.html">Diagrams and Animations of the internals of XSD models</a> (Powerpoint, OpenOffice, HTML)
+			<div>June 3<sup>rd</sup> 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/diagrams/diagrams.html">Diagrams 
+and Animations of the internals of XSD models</a>
 		</li>
 	</ul>
 </div>
@@ -232,39 +193,38 @@
 	<h3>Service Data Objects (SDO)</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>Sep 28 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">Introduction to Service Data Objects</a>
 		</li>
 
 		<li>
-			<div>Sep 28<sup>th</sup> 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">Introduction to Service Data Objects</a>
+			<div>October 12 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Tutorial: Using the SDO Data Graph Editor</a>
 		</li>
 
 		<li>
-			<div>October 12<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Tutorial: Using the SDO Data Graph Editor</a>
-		</li>
-
-		<li>
-			<div>June 29<sup>th</sup> 2005</div>SDO Reference:
+			<div>June 29 2005</div>SDO Reference:
 			<ul>
-				<li><a target="_out" href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">Announcement</a></li>
-				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">Whitepaper</a></li>
-				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">1.0 specification</a></li>
-				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">2.0 specification</a></li>
+				<li><a target="_out" href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">Announcement</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">Whitepaper</a></li>
+				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">1.0 specification</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">2.0 specification</a></li>
 				<li><a target="_out" href="http://download.eclipse.org/tools/emf/sdo/javadoc/">Javadoc</a></li>
 			</ul>
 		</li>
 
 		<li>
-			<div>July 1<sup>st</sup> 2004</div><a target="_out" href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">Redbook: WebSphere Studio 5.1.2 JavaServer Faces and Service Data Objects</a>
+			<div>June 7 2006</div><a target="_out" href="http://incubator.apache.org/tuscany/sdo_index.html">Apache Tuscany Project - SDO</a>
+		</li>
+
+
+		<li>
+			<div>July 1 2004</div><a target="_out" href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">Redbook: WebSphere Studio 5.1.2 JavaServer Faces and Service Data Objects</a>
 		</li>
 
 		<li>
-			<div>July 1<sup>st</sup> 2004</div><a target="_out" href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">Enterprise Information Integration Technology</a> (usage)
+			<div>July 1 2004</div><a target="_out" href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">Enterprise Information Integration Technology</a> (usage)
 		</li>
 
 		<li>
-			<div>Oct 6<sup>th</sup> 2004</div><a target="_out" href="http://www.sys-con.com/story/?storyid=46652&amp;DE=1">Integrating relational data into Web applications</a> (an introduction to SDO)
+			<div>Oct 6 2004</div><a target="_out" href="http://www.sys-con.com/story/?storyid=46652&amp;DE=1">Integrating relational data into Web applications</a> (an introduction to SDO)
 		</li>
 	</ul>
 </div>
@@ -274,26 +234,22 @@
 	<h3>Presentations &amp; Interviews</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
-		</li>
-
 		<li>
-			<div>July 20<sup>th</sup> 2006</div>Callisto Podcast: Ed Merks - Why people are confused by EMF and how this amazing tool can be leveraged in almost any situation.
+			<div>July 20 2006</div>Callisto Podcast: Ed Merks - Why people are confused by EMF and how this amazing tool can be leveraged in almost any situation.
 			<ul>
 				<li><a href="http://www.eclipsezone.com/files/podcasts/4-EMF-Ed.Merks.mp3">MP3</a> (37 min, 51 MB)</li>
 			</ul>
 		</li>
 
 		<li>
-			<div>June 19<sup>th</sup> 2006</div>Using the Eclipse Modeling Frameworks
+			<div>June 19 2006</div>Using the Eclipse Modeling Frameworks
 			<ul>
 				<li><a href="http://adobedev.breezecentral.com/p17835008/">Webinar</a> (features sound, video and chat transcript)</li>
 			</ul>
 		</li>
 
 		<li>
-			<div>March 20<sup>th</sup> 2006</div><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF:
+			<div>March 20 2006</div><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF:
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop Project</a> (ZIP)</li>
@@ -301,7 +257,7 @@
 		</li>
 
 		<li>
-			<div>March 20<sup>th</sup> 2006</div>EclipseCon 2006 - Advanced Features of EMF:
+			<div>March 20 2006</div>EclipseCon 2006 - Advanced Features of EMF:
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced_project.zip">Workshop Project</a> (ZIP)</li>
@@ -309,7 +265,7 @@
 		</li>
 
 		<li>
-			<div>March 22<sup>th</sup> 2006</div><a name="eclipsecon2006xmlbinding"></a>EclipseCon 2006 - XML Binding with EMF:
+			<div>March 22 2006</div><a name="eclipsecon2006xmlbinding"></a>EclipseCon 2006 - XML Binding with EMF:
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a> (ZIP)</li>
@@ -317,18 +273,15 @@
 		</li>
 
 		<li>
-			<div>July 13<sup>th</sup> 2004</div>JavaOne 2004 EMF Presentation:
-			<ul>
-				<li><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.pdf">Presentation</a> (PDF)</li>
-			</ul>
+			<div>July 13 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/%7Echeckout%7E/emf-home/docs/JavaOnePresentation/JavaOnePresentation.pdf">JavaOne 2004 EMF Presentation</a> (PDF)
 		</li>
 
 		<li>
-			<div>February 6<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">EclipseCon 2004 EMF Presentation</a>
+			<div>February 6 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">EclipseCon 2004 EMF Presentation</a>
 		</li>
 
 		<li>
-			<div>December 2<sup>nd</sup> 2003</div><a target="_out" href="http://www.codegeneration.net/tiki-read_article.php?articleId=38">EMF Interview</a> with David Steinberg
+			<div>December 2 2003</div><a target="_out" href="http://www.codegeneration.net/tiki-read_article.php?articleId=38">EMF Interview</a> with David Steinberg
 		</li>
 	</ul>
 </div>
@@ -339,13 +292,9 @@
 	<h3>Contributed Articles</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
-		</li>
-
 		<li>
-			<div>August 29<sup>th</sup> 2005</div><a target="_out" href="http://www.devx.com/Java/Article/29093/0/page/1">Discover the Eclipse Modeling Framework (EMF) and Its Dynamic Capabilities</a><br/>
-			Published by <a href="http://www.devx.com/" target="_out">DevX.com</a>, August 26<sup>th</sup> 2005
+			<div>August 29 2005</div><a target="_out" href="http://www.devx.com/Java/Article/29093/0/page/1">Discover the Eclipse Modeling Framework (EMF) and Its Dynamic Capabilities</a><br/>
+			Published by <a href="http://www.devx.com/" target="_out">DevX.com</a>, August 26 2005
 		</li>
 
 		<li>
@@ -354,42 +303,42 @@
 		</li>
 
 		<li>
-			<div>June 8<sup>th</sup> 2005</div><a target="_out" href="http://www.eclipse.org/articles/Article-GEF-EMF/gef-emf.html">Using GEF with EMF</a>
+			<div>June 8 2005</div><a target="_out" href="http://www.eclipse.org/articles/Article-GEF-EMF/gef-emf.html">Using GEF with EMF</a>
 			Contributed by Chris Aniszczyk
 		</li>
 
 		<li>
-			<div>August 31<sup>st</sup> 2004</div><a target="_out" href="http://www.zurich.ibm.com/~wah/doc/emf-ocl/index.html">Kent OCL Library Tutorial (Using OCL to Interrogate Your EMF Model)</a><br/>
+			<div>August 31 2004</div><a target="_out" href="http://www.zurich.ibm.com/~wah/doc/emf-ocl/index.html">Kent OCL Library Tutorial (Using OCL to Interrogate Your EMF Model)</a><br/>
 			Contributed by Michael Wahler
 		</li>
 
 		<li>
-			<div>May 26<sup>th</sup> 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/opensource/library/os-ecemf1/">Model with the Eclipse Modeling Framework, Part 1</a>: Create UML models and generate code<br/>
-			Published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, April 15<sup>th</sup> 2004
+			<div>May 26 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/opensource/library/os-ecemf1/">Model with the Eclipse Modeling Framework, Part 1</a>: Create UML models and generate code<br/>
+			Published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, April 15 2004
 		</li>
 
 		<li>
-			<div>May 26<sup>th</sup> 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/opensource/library/os-ecemf2/">Model with the Eclipse Modeling Framework, Part 2</a>: Create UML models and generate code <br/>
-			Published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, April 27<sup>th</sup> 2004
+			<div>May 26 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/opensource/library/os-ecemf2/">Model with the Eclipse Modeling Framework, Part 2</a>: Create UML models and generate code <br/>
+			Published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, April 27 2004
 		</li>
 
 		<li>
-			<div>Dec 13<sup>th</sup> 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/library/os-ecemf3/">Model with the Eclipse Modeling Framework, Part 3</a>: Customize generated models and editors with Eclipse's JMerge<br/>
-			Published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, May 13<sup>th</sup> 2004
+			<div>Dec 13 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/library/os-ecemf3/">Model with the Eclipse Modeling Framework, Part 3</a>: Customize generated models and editors with Eclipse's JMerge<br/>
+			Published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, May 13 2004
 		</li>
 
 		<li>
-			<div>November 30<sup>th</sup> 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)<br/>
+			<div>November 30 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)<br/>
 			by Chaur G. Wu
 		</li>
 
 		<li>
-			<div>October 12<sup>th</sup> 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a> (Eclipse Corner article)<br/>
+			<div>October 12 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a> (Eclipse Corner article)<br/>
 			by Marcelo Paternostro
 		</li>
 
 		<li>
-			<div>December 9<sup>th</sup> 2002</div><a target="_out" href="http://www.eclipse.org/articles/Article-Using%20EMF/using-emf.html">Using EMF</a> (Eclipse Corner article)<br/>
+			<div>December 9 2002</div><a target="_out" href="http://www.eclipse.org/articles/Article-Using%20EMF/using-emf.html">Using EMF</a> (Eclipse Corner article)<br/>
 			by Catherine Griffin
 		</li>
 	</ul>
@@ -399,20 +348,16 @@
 	<a name="perf"></a>
 	<h3>EMF Performance</h3>
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>July 7 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTips.html">EMF 2.1.0 Performance Tips</a>
 		</li>
 
 		<li>
-			<div>July 6<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
+			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
 		</li>
 
 		<li>
-			<div>July 7<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTips.html">EMF 2.1.0 Performance Tips</a>
-		</li>
-
-		<li>
-			<div>July 6<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
+			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
 		</li>
 	</ul>
 </div>
@@ -422,29 +367,25 @@
 	<h3>EMF 2.0</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model</a>
 		</li>
 
 		<li>
-			<div>June 29<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model</a>
+			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">Tutorial: Generating an Extended EMF 2.0 Model</a>
 		</li>
 
 		<li>
-			<div>June 29<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">Tutorial: Generating an Extended EMF 2.0 Model</a>
+			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model using XML Schema</a>
 		</li>
 
 		<li>
-			<div>June 29<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model using XML Schema</a>
-		</li>
-
-		<li>
-			<div>May 31<sup>st</sup> 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
+			<div>May 31 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
 			Contributed by Remko Popma [EMF 2.0]
 		</li>
 
 		<li>
-			<div>May 31<sup>st</sup> 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
+			<div>May 31 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
 			Contributed by Remko Popma [EMF 2.0]
 		</li>
 	</ul>
@@ -455,32 +396,28 @@
 	<h3>EMF 1.x</h3>
 
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">EMF 1.0 Users' Guide</a>
 		</li>
 
 		<li>
-			<div>May 27<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">EMF 1.0 Users' Guide</a>
+			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/JarDepsExternal/JarDepsExternal.html">EMF 1.0 Jar Dependencies for Running Standalone as a Java Application Outside Eclipse</a>
 		</li>
 
 		<li>
-			<div>May 27<sup>th</sup> 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/JarDepsExternal/JarDepsExternal.html">EMF 1.0 Jar Dependencies for Running Standalone as a Java Application Outside Eclipse</a>
+			<div>May 19 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model</a>
 		</li>
 
 		<li>
-			<div>May 19<sup>th</sup> 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model</a>
+			<div>May 1 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">Tutorial: Generating an Extended EMF 1.1 Model</a>
 		</li>
 
 		<li>
-			<div>May 1<sup>st</sup> 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">Tutorial: Generating an Extended EMF 1.1 Model</a>
+			<div>May 22 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
 		</li>
 
 		<li>
-			<div>May 22<sup>nd</sup> 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
-		</li>
-
-		<li>
-			<div>August 20<sup>th</sup> 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">Tutorial: Creating an EMF 1.1 Model using a GraphicalEditor</a>
+			<div>August 20 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">Tutorial: Creating an EMF 1.1 Model using a GraphicalEditor</a>
 		</li>
 	</ul>
 </div>
@@ -489,44 +426,42 @@
 	<a name="plandocs"></a>
 	<h3>Project Management</h3>
 	<ul>
-		<li class="lastupdate">
-			<div>Last update</div>
+		<li>
+			<div>Sept 7 2005</div><a href="http://www.eclipse.org/emf/docs/jet2architecture/jet2architecture.html">JET Enhancement Proposal (JET2)</a>
 		</li>
 
 		<li>
-			<div>Sept 7<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/jet2architecture/jet2architecture.html">JET Enhancement Proposal (JET2)</a>
-		</li>
-
-		<li>
-			<div>July 21<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/plan-summary.html">EMF Plan Summary</a>
-		</li>
-
-		<li>
-			<div>May 26<sup>th</sup> 2006</div>EMF 2.2 Project Plan:
+			<div>July 31 2006</div>EMF 3.0 Project Plan
 			<ul>
-				<li><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">Overview</a></li>
-				<li><a href="http://www.eclipse.org/emf/plan/plan-2.2.xml">Prioritized Bugs</a></li>
+				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_3.0.html">Overview</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<div>May 26 2006</div>EMF 2.2 Project Plan
+			<ul>
+				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">Overview</a></li>
 				<li><a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a></li>
 				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)</li>
 			</ul>
 		</li>
 
 		<li>
-			<div>July 6<sup>th</sup> 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview
+			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview
 		</li>
 
 		<li>
-			<div>July 27<sup>th</sup> 2005</div>EMF 2.1 Project Plan:
+			<div>July 27 2005</div>EMF 2.1 Project Plan
 			<ul>
-				<li><a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">Overview</a></li>
-				<li><a href="http://www.eclipse.org/emf/plan/plan-2.1.xml">Prioritized Bugs</a></li>
+				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">Overview</a></li>
 				<li><a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a></li>
 				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)</li>
+				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/plan-summary.html">Summary</a></li>
 			</ul>
 		</li>
 
 		<li>
-			<div>Sept 16 <sup>th</sup> 2005</div>Eclipse Project
+			<div>Sept 16  2005</div>Eclipse Project
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/eclipse-project-ip-log.csv">IP Log</a> (CSV)</li>
 				<li><a href="http://www.eclipse.org/emf/eclipse-project-status.xml">Status</a> (XML)</li>
@@ -535,4 +470,4 @@
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.43 2006/08/21 21:25:51 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.44 2006/08/23 19:46:38 nickb Exp $ -->
