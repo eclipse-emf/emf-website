@@ -1,0 +1,739 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type"
+    content="text/html; charset=iso-8859-1" />
+
+    <title>Eclipse Tools - EMF Project - Architectural
+    Overview</title>
+  </head>
+
+  <body>
+    <link rel="stylesheet"
+    href="http://www.eclipse.org/default_style.css"
+    type="text/css" />
+
+    <link rel="stylesheet" type="text/css"
+    href="http://www.eclipse.org/tools/architecture/eclipse_style.css" />
+  <table width="709" cellspacing="0" bordercolor="#111111"
+  style="border-collapse: collapse;" border="0">
+    <tr>
+      <td width="709" colspan="3" valign="top">
+        <div id="page_header">EMF</div>
+
+        <div id="page_sub_header">Project architecture</div>
+      </td>
+    </tr>
+  </table>
+
+  <div id="section_header">EMF Project Information</div>
+
+  <br /><br /><br />
+
+  EMF is a modeling framework and code generation facility for
+  building tools and other applications based on a structured data
+  model. From a model specification described in XMI, EMF provides
+  tools and runtime support to produce a set of Java classes for
+  the model, a set of adapter classes that enable viewing and
+  command-based editing of the model, and a basic editor. Models
+  can be specified using annotated Java, XML documents, or modeling
+  tools like Rational Rose, then imported into EMF. Most important
+  of all, EMF provides the foundation for interoperability with
+  other EMF-based tools and applications, by exposing their models
+  through a rich metadata that can be used to read and modify the
+  objects.
+
+  <br /><br />
+
+  EMF includes an EMF-based implementation of Service Data
+  Objects (SDO). SDO is a framework that simplifies and unifies
+  data application development in a service oriented architecture
+  (SOA). It supports and integrates XML and incorporates J2EE
+  patterns and best practices.
+
+  <br /><br />
+  
+  EMF optionally includes the XML Schema Infoset Model (XSD).
+  XSD is a reference library for use with any code that examines,
+  creates or modifies XML Schemas (standalone or as part of other
+  artifacts, such as XForms or WSDL documents).
+
+  <br /><br />
+
+  Refer to the 
+  <a href="http://www.eclipse.org/emf/">EMF Website</a>,
+
+  the 
+  <a href="http://www.eclipse.org/emf/sdo/">SDO Website</a>
+
+  and the 
+  <a href="http://www.eclipse.org/xsd/">XSD Website</a>
+
+  for additional project information.
+
+  <br /><br />
+
+  <div id="section_header">Project architecture</div>
+
+  <br /><br /><br />
+
+  <table border="0">
+    <tr>
+      <td rowspan="10">
+        <img src="images/../architecture-summary.gif" width="447"
+        height="406" border="0" alt="EMF Architectural Diagram" />
+
+        <br />
+
+        <span class="img_caption">Figure 1. &lt;EMF Architecture
+        Diagram&gt;</span>
+      </td>
+
+      <td rowspan="10">&nbsp;</td>
+
+      <td>
+        <table>
+          <tr>
+            <td>
+              <br />
+
+              <b>Runtime features:</b>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            Rich metadata</td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            XMI serialization &amp; deserialization</td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            Change monitoring</td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            Validation framework</td>
+          </tr>
+
+          <tr>
+            <td>
+              <br />
+
+              <b>Generator features:</b>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            Customizable JSP-like templates (JET)</td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            Command-line, Ant, or integrated with Eclipse JDT</td>
+          </tr>
+
+          <tr>
+            <td>
+            <b style="color:#aa0000">&#149;</b>
+
+            Fully supports regeneration and merge</td>
+          </tr>
+
+          <tr>
+            <td>
+            <br />
+
+            <br />
+
+            <br />
+
+            <br />
+
+            <br />
+
+            <br />
+
+            * requires Eclipse workbench or RCP to run 
+            <br />
+
+            <br />
+
+            <br />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <div id="section_header">Status</div>
+
+  <br /><br /><br />
+
+  EMF is being used in several existing commercial products. For
+  more information on the current status of EMF, please see the 
+  <a
+  href="http://www.eclipse.org/emf/docs.php#plandocs"
+   target="_self">Project Plan.</a>
+
+  <br /><br />
+
+  <div id="section_header">Platforms</div>
+
+  <br /><br /><br />
+
+  The plugins are written in Java with no native code and thus may
+  be ported to any platform supported by Eclipse. 
+  <br /><br />
+
+  <div id="section_header">Content</div>
+
+  <br /><br /><br />
+
+  The following plugins are included. 
+  <br />
+
+  <table cellspacing="0" cellpadding="3">
+    <tr valign="top">
+      <td colspan="3">
+        <br />
+
+        <b>EMF:</b>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.codegen</td>
+
+      <td>-</td>
+
+      <td>Java Emitter Templates (JET) and JMerge code generation
+      components</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.codegen.ui</td>
+
+      <td>-</td>
+
+      <td>workbench support for JET</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.codegen.ecore</td>
+
+      <td>-</td>
+
+      <td>Generator model and headless generator and model
+      conversion tools</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.codegen.ecore.ui</td>
+
+      <td>-</td>
+
+      <td>workbench-based code generator and model conversion
+      tools</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.common</td>
+
+      <td>-</td>
+
+      <td>command and notification frameworks and utilities used
+      throughout EMF</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.common.ui</td>
+
+      <td>-</td>
+
+      <td>extensions to SWT and JFace used in other EMF UI
+      plug-ins</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore</td>
+
+      <td>-</td>
+
+      <td>Ecore model and implementation, persistence framework,
+      and utilities</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.edit</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      edit support for Ecore</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.editor</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      Ecore editor</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.change</td>
+
+      <td>-</td>
+
+      <td>Change model and change recorder utility</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.change.edit</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      edit support for Change model</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.xmi</td>
+
+      <td>-</td>
+
+      <td>default XML/XMI resource implementations</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.edit</td>
+
+      <td>-</td>
+
+      <td>UI-independent portion of the EMF.Edit framework</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.edit.ui</td>
+
+      <td>-</td>
+
+      <td>Eclipse UI portion of EMF.Edit</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.mapping</td>
+
+      <td>-</td>
+
+      <td>UI-independent portion of the EMF Mapping framework</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.mapping.ui</td>
+
+      <td>-</td>
+
+      <td>Eclipse UI portion of the EMF Mapping framework</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.mapping.ecore2.ecore</td>
+
+      <td>-</td>
+
+      <td>support for mapping between Ecore models</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.mapping.ecore2.ecore.editor</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      Ecore mapping editor</td>
+    </tr>
+
+    <tr valign="top">
+      <td colspan="3">
+        <br />
+
+        <b>SDO:</b>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.commonj.sdo</td>
+
+      <td>-</td>
+
+      <td>Service Data Objects (SDO) specification interfaces</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.sdo</td>
+
+      <td>-</td>
+
+      <td>EMF model and implementation of SDO</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.sdo.edit</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      edit support for SDO</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.ecore.sdo.editor</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      SDO datagraph editor</td>
+    </tr>
+
+    <tr valign="top">
+      <td colspan="3">
+        <br />
+
+        <b>XSD:</b>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.mapping.xsd2ecore</td>
+
+      <td>-</td>
+
+      <td>support for mapping between XML Schema and Ecore</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.emf.mapping.xsd2ecore.editor</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      XML Schema-Ecore mapping editor</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.xsd</td>
+
+      <td>-</td>
+
+      <td>XML Schema Inforset model and implementation</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.xsd.edit</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      edit support for XML Schema</td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.xsd.editor</td>
+
+      <td>-</td>
+
+      <td>
+      <i>sample</i>
+
+      XML Schema editor</td>
+    </tr>
+
+    <tr valign="top" bgcolor="#EEEEEE">
+      <td>
+      <b style="color:#aa0000">&#149;</b>
+
+      org.eclipse.xsd.test</td>
+
+      <td>-</td>
+
+      <td>tests and example code for XML Schema model</td>
+    </tr>
+  </table>
+
+  <br />
+
+  <div id="section_header">License</div>
+
+  <br /><br /><br />
+
+  This project is licensed under the Common Public License. 
+  <br /><br />
+
+  <div id="section_header">More Information</div>
+
+  <br /><br /><br />
+
+  EMF is part of the 
+  <a href="http://www.eclipse.org/tools/index.html">Eclipse Tools
+  Project</a>.
+
+  For more information about the Eclipse Tools Project, 
+  <a href="http://www.eclipse.org/tools/eclipsetools-charter.html">
+  click here</a>.
+
+  <br /><br />
+
+  For more information about EMF, SDO &amp; XSD, please visit: 
+  <br />
+
+  <table border="0" cellspacing="3">
+    <tr valign="top">
+      <td colspan="1">
+      <br />
+
+      &nbsp;&nbsp; 
+      <b>EMF:</b>
+      </td>
+
+      <td rowspan="5">&nbsp;</td>
+
+      <td colspan="1">
+      <br />
+
+      &nbsp;&nbsp; 
+      <b>SDO:</b>
+      </td>
+
+      <td rowspan="5">&nbsp;</td>
+
+      <td>
+      <br />
+
+      &nbsp;&nbsp; 
+      <b>XSD:</b>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="http://www.eclipse.org/emf/" target="_self"
+        class="category">Website</a>
+      </td>
+
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="http://www.eclipse.org/emf/sdo/" target="_self"
+        class="category">Website</a>
+      </td>
+
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="http://www.eclipse.org/xsd/" target="_self"
+        class="category">Website</a>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="http://www.eclipse.org/emf/faq/" target="_self"
+        class="category">FAQ</a>
+      </td>
+
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=SDO"
+        target="_self" class="category">FAQ</a>
+      </td>
+
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="http://www.eclipse.org/emf/faq/faq.php?FAQ=XSD"
+        target="_self" class="category">FAQ</a>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td colspan="1">
+        <b style="color:#aa0000">&#149;</b>
+
+        <a
+        href="http://www.eclipse.org/emf/docs.php#overviews"
+         class="category" target="_self">Documents</a>
+      </td>
+
+      <td colspan="1">
+        <b style="color:#aa0000">&#149;</b>
+
+        <a
+        href="http://www.eclipse.org/emf/docs.php#sdo"
+         class="category" target="_self">Documents</a>
+      </td>
+
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a
+        href="http://www.eclipse.org/emf/docs.php#xsd"
+         class="category" target="_self">Documents</a>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td colspan="1">
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="news://news.eclipse.org/eclipse.tools.emf"
+        class="category" target="_top">Newsgroup</a>
+      </td>
+
+      <td colspan="1">
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="news://news.eclipse.org/eclipse.tools.emf"
+        class="category" target="_top">Newsgroup</a>
+      </td>
+
+      <td>
+        <b style="color:#aa0000">&#149;</b>
+
+        <a href="news://news.eclipse.org/eclipse.technology.xsd"
+        class="category" target="_top">Newsgroup</a>
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    <i>
+      <small>Last updated: $Date: 2006/08/23 20:48:49 $</small>
+    </i>
+  </p>
+  </body>
+</html>
+
