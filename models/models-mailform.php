@@ -34,6 +34,7 @@ if ($doit == 1)
 
 	$fields = array();
 	$message = "";
+	$messageHTML = "";
 
 	foreach (array_keys($validate) as $k)
 	{
@@ -47,6 +48,7 @@ if ($doit == 1)
 		{
 			$fields[$k] = $v;
 		}
+		$mesageHTML .= "<li><b>".ucfirst($k)."</b> - $v</li>\n";
 		$message .= "$k: $v\n";
 	}
 
@@ -102,28 +104,32 @@ EOXML;
 
 	/* END CUSTOM CODE -- NOT GENERIC TO OTHER mailform.php IMPLEMENTATIONS */
 
-	//echo $message;
-	if ($debug > 0)
-	{
-		echo "<pre>" . htmlentities($XML) . "</pre>";
-	}
-
 	// send to site admin, from customer
 
 	wmail("Modeling Corner", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML);
 
 	/* message */
 	$messagePre = <<<EOTEXT
-Thanks for your submission! 
+<p>
 
-Your submission will be processed shortly - watch the EMF Corner site
+Thanks for your submission!
+
+</p><p>
+
+Your submission will be processed shortly - watch the Modeling Corner
 for updates. Note that submissions are approved by the same people 
-developing EMF, SDO and XSD, so please be patient!
+developing the code so please be patient!
+
+</p><p>
 
 If you don't hear from us or see your submission posted, 
 please send your information to codeslave(at)ca.ibm.com.
 
+</p><p>
+
 Here's what you sent:
+
+</p><p>
 
 EOTEXT;
 
