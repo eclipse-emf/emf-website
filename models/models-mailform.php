@@ -5,7 +5,7 @@ function wmail($toname, $to, $fromname, $from, $subject, $message)
 	but the message body is to use \n line termination, according to the rfc */
 	$headers = "Content-type: text/plain; charset=iso-8859-1\r\n";
 	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "X-Sender: <$from>\r\n";
+	$headers .= "X-Sender: \"$fromname\" <$from>\r\n";
 
 	// spoofing to avoid spam assassin filtering
 	$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\r\n";
@@ -72,16 +72,11 @@ if ($doit == 1)
 		$d = date("Y-m-d");
 		$id = preg_replace("/ /", "", $fields["name"]) . date("YmdHis");
 		$XML = <<<EOXML
-  <review 
-     reviewName="{$fields["review_title"]}" 
-     date="$d" 
-     rating="{$fields["rating"]}" 
-     modelID="{$fields["model_id"]}" 
-     reviewID="$id">
-    <text>{$fields["review"]}</text>
-    <reviewer>{$fields["name"]}</reviewer>
-    <reviewerURL>{$fields["website"]}</reviewerURL>
-  </review>
+<review reviewName="{$fields["review_title"]}" date="$d" rating="{$fields["rating"]}" modelID="{$fields["model_id"]}" reviewID="$id">
+<text>{$fields["review"]}</text>
+<reviewer>{$fields["name"]}</reviewer>
+<reviewerURL>{$fields["website"]}</reviewerURL>
+</review>
 
 EOXML;
 	}
@@ -90,23 +85,19 @@ EOXML;
 		$d = date("Y-m-d");
 		$id = preg_replace("/ /", "", $fields["name"]) . date("YmdHis");
 		$XML = <<<EOXML
-  <model 
-     modelName="{$fields["model_name"]}" 
-     date="$d" 
-     category="{$fields["project"]} {$fields["stype"]}"
-     modelID="$id">
-    <text>{$fields["description"]}</text>
-    <modelURL>{$fields["model_url"]}</modelURL>
-    <thumbnailURL>{$fields["thumbnail_url"]}</thumbnailURL>
-    <screenshotURL>{$fields["screenshot_url"]}</screenshotURL>
-    <submitter>{$fields["name"]}</submitter> 
-    <submitterURL>{$fields["website"]}</submitterURL>
-  </model>
+<model modelName="{$fields["model_name"]}" date="$d" category="{$fields["project"]} {$fields["stype"]}" modelID="$id">
+<text>{$fields["description"]}</text>
+<modelURL>{$fields["model_url"]}</modelURL>
+<thumbnailURL>{$fields["thumbnail_url"]}</thumbnailURL>
+<screenshotURL>{$fields["screenshot_url"]}</screenshotURL>
+<submitter>{$fields["name"]}</submitter> 
+<submitterURL>{$fields["website"]}</submitterURL>
+</model>
 
 EOXML;
 	}
 
-	$message .= <<<EOT
+	$messageXML = <<<EOT
 <!-- begin XML -->
 $XML
 <!-- end XML -->
@@ -123,7 +114,7 @@ EOT;
 
 	// send to site admin, from customer
 
-	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message);
+	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $messageXML);
 
 	/* message */
 	$messagePre = <<<EOTEXT
@@ -142,6 +133,6 @@ EOTEXT;
 
 	echo "<pre>" . $messagePre . htmlentities($message) . "</pre>";
 
-	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message);
+	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message . $messageXML);
 }
 ?>
