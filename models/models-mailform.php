@@ -1,31 +1,25 @@
 <?php 
-function wmail($toname, $to, $fromname, $from, $subject, $message, $longHeaders)
+function wmail($toname, $to, $fromname, $from, $subject, $message)
 {
 	global $sendMail;
 	if ($sendMail)
 	{
+		/* headers are supposed to be \r\n terminated,
+		but the message body is to use \n line termination, according to the rfc */
+		$headers = "Content-type: text/plain; charset=iso-8859-1\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "From: \"$fromname\" <$from>\r\n";
+		$headers .= "X-Sender: \"$fromname\" <$from>\r\n";
 	
-		if ($longHeaders) { 
-			/* headers are supposed to be \r\n terminated,
-			but the message body is to use \n line termination, according to the rfc */
-			$headers = "Content-type: text/plain; charset=iso-8859-1\r\n";
-			$headers .= "MIME-Version: 1.0\r\n";
-			$headers .= "X-Sender: \"$fromname\" <$from>\r\n";
-		
-			// spoofing to avoid spam assassin filtering
-			$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\r\n";
-			$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\r\n";
-			$headers .= "User-Agent: Mozilla/5.001 (Windows; U; NT4.0; en-us) Gecko/25250101\r\n";
-		
-			$headers .= "X-Priority: 3\r\n"; //1 Urgent Message, 3 Normal
-			//$headers .= "X-MSMail-Priority: High\r\n"; // fix for hotmail spam filters? 
-			$headers .= "Return-Path: \"$fromname\" <$from>\r\n";
-			$headers .= "Reply-To: \"$fromname\" <$from>\r\n";
-			$headers .= "From: \"$fromname\" <$from>\r\n";
-		} else {
-			$headers = "Content-type: text/plain; charset=iso-8859-1\r\n";
-			$headers .= "From: \"$fromname\" <$from>\r\n";
-		}
+		// spoofing to avoid spam assassin filtering
+		$headers .= "X-Mailer: Internet Mail Service (5.5.2653.19)\r\n";
+		$headers .= "X-MimeOLE: Produced By Microsoft Exchange V6.0.6979.0\r\n";
+		$headers .= "User-Agent: Mozilla/5.001 (Windows; U; NT4.0; en-us) Gecko/25250101\r\n";
+	
+		$headers .= "X-Priority: 3\r\n"; //1 Urgent Message, 3 Normal
+		$headers .= "X-MSMail-Priority: High\r\n"; // fix for hotmail spam filters? 
+		$headers .= "Return-Path: \"$fromname\" <$from>\r\n";
+		$headers .= "Reply-To: \"$fromname\" <$from>\r\n";
 	
 		mail($recip, $subject, $message, $headers, "-f$to");
 	}
@@ -108,8 +102,8 @@ EOXML;
 
 	// send to site admin, from customer
 	$recip = ($toname == "" ? "" : "\"$toname\" ") . "<" . $to . ">";
-	$footer = "\n\n".'$Id: models-mailform.php,v 1.34 2006/08/23 01:35:26 nickb Exp $';
-	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML . $footer, false);
+	$footer = "\n\n".'$Id: models-mailform.php,v 1.35 2006/08/23 01:41:03 nickb Exp $';
+	wmail("Modeling Corner", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML . $footer);
 
 	/* message */
 	$messagePre = <<<EOTEXT
@@ -137,6 +131,6 @@ Here's what you sent:
 EOTEXT;
 
 	echo $messagePre . $messageHTML;
-	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message, true);
+	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message);
 }
 ?>
