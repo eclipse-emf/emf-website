@@ -4,7 +4,7 @@
 	<h3>Documentation</h3>
 	<ul>
 		<li><a href="#overviews">EMF Overview Papers</a></li>
-		<li><a href="#tutorials">EMF Tutorials &amp; Workshops</a></li>
+		<li><a href="#tutorials">EMF Tutorials</a></li>
 		<li><a href="#references">Books, Guides, and References</a></li>
 		<li><a href="#dWdocuments">developerWorks</a></li>
 		<li><a href="#xsd">XML Schema Infoset Model (XSD)</a></li>
@@ -14,7 +14,7 @@
 <div class="homeitem">
 	<h3>Other Resources</h3>
 	<ul>
-		<li><a href="#presentations">Presentations &amp; Interviews</a></li>
+		<li><a href="#presentations">Presentations &amp; Workshops</a></li>
 		<li><a href="#contributions">Contributed Articles</a></li>
 		<li><a href="#perf">EMF Performance</a></li>
 		<li><a href="#emf20xdocs">EMF 2.0</a></li>
@@ -42,7 +42,7 @@
 		</li>
 
 		<li>
-			<div>June 23<sup>rd</sup> 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.Validation.html">The EMF Validation Framework Overview</a>
+			<div>June 23 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.Validation.html">The EMF Validation Framework Overview</a>
 		</li>
 
 		<li>
@@ -57,19 +57,19 @@
 
 <div class="homeitem3col">
 	<a name="tutorials"></a>
-	<h3>EMF Tutorials &amp; Workshops</h3>
+	<h3>EMF Tutorials</h3>
 
 	<ul>
 		<li>
-			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/clibmod/clibmod.html">Tutorial: Generating an EMF 2.2 Model</a>
+			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/clibmod/clibmod.html">Tutorial: Generating an EMF Model</a>
 		</li>
 
 		<li>
-			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/slibmod/slibmod.html">Tutorial: Generating an Extended EMF 2.2 Model</a>
+			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/slibmod/slibmod.html">Tutorial: Generating an Extended EMF Model</a>
 		</li>
 
 		<li>
-			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/xlibmod/xlibmod.html">Tutorial: Generating an EMF 2.2 Model using XML Schema</a>
+			<div>May 31 2006</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/xlibmod/xlibmod.html">Tutorial: Generating an EMF Model using XML Schema</a>
 		</li>
 
 		<li>
@@ -91,11 +91,11 @@
 		</li>
 
 		<li>
-			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF Source Files from CVS</a>
+			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/cvsdoc/emfcvsug.html">Getting EMF Source Files from CVS</a>
 		</li>
 
 		<li>
-			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Eclipse Update Manager to Update EMF, SDO &amp; XSD</a>
+			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Eclipse Update Manager to Update EMF, SDO &amp; XSD</a>
 		</li>
 	</ul>
 </div>
@@ -110,7 +110,7 @@
 
 	<!-- new version extracted from recent builds on download -->
 		<li>
-			Javadoc
+			<div><i>updated every build</i></div>Javadoc
 			<ul>
 				<li><a target="_out" href="http://download.eclipse.org/tools/emf/javadoc/">EMF</a>, <a target="_out" href="http://download.eclipse.org/tools/emf/xsd/javadoc/">XSD</a></li>
 			</ul>
@@ -125,22 +125,17 @@
 		</li>
 
 		<li>
-			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
+			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
 		</li>
 
 		<li>
-			<div>Sept 23 <sup>rd</sup> 2004</div>Eclipse.org Newsgroups - Offline Searching with
-			<ul>
-				<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">Mozilla</a></li>
-				<li><a href="http://www.eclipse.org/emf/docs.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">Outlook Express</a></li>
-			</ul>
+			<div>Sept 23  2004</div>Eclipse.org Newsgroups - Offline Searching with 
+				<a href="http://www.eclipse.org/emf/index.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">Mozilla</a> or 
+				<a href="http://www.eclipse.org/emf/index.php?doc=docs/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">Outlook Express</a>
 		</li>
 
 		<li>
-			<div>Feb 27  2006</div>Eclipse.org Newsgroups - Online Searching with
-			<ul>
-				<li><a href="http://wiki.eclipse.org/index.php/Searching_Eclipse_Newsgroups_With_Firefox">Firefox</a></li>
-			</ul>
+			<div>Feb 27  2006</div>Eclipse.org Newsgroups - Online Searching with <a href="http://wiki.eclipse.org/index.php/Searching_Eclipse_Newsgroups_With_Firefox">Firefox</a>
 		</li>
 	</ul>
 </div>
@@ -182,7 +177,7 @@
 		</li>
 
 		<li>
-			<div>June 3<sup>rd</sup> 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/diagrams/diagrams.html">Diagrams 
+			<div>June 3 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/diagrams/diagrams.html">Diagrams 
 and Animations of the internals of XSD models</a>
 		</li>
 	</ul>
@@ -231,7 +226,7 @@ and Animations of the internals of XSD models</a>
 
 <div class="homeitem3col">
 	<a name="presentations"></a>
-	<h3>Presentations &amp; Interviews</h3>
+	<h3>Presentations &amp; Workshops</h3>
 
 	<ul>
 		<li>
@@ -277,7 +272,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>February 6 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">EclipseCon 2004 EMF Presentation</a>
+			<div>February 6 2004</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/rapid-development/Rapid_Development_Using_EMF.html">EclipseCon 2004 EMF Presentation</a>
 		</li>
 
 		<li>
@@ -368,24 +363,24 @@ and Animations of the internals of XSD models</a>
 
 	<ul>
 		<li>
-			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model</a>
+			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/2.0/clibmod/clibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model</a>
 		</li>
 
 		<li>
-			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">Tutorial: Generating an Extended EMF 2.0 Model</a>
+			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/2.0/slibmod/slibmod_emf2.0.html">Tutorial: Generating an Extended EMF 2.0 Model</a>
 		</li>
 
 		<li>
-			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model using XML Schema</a>
+			<div>June 29 2004</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/2.0/xlibmod/xlibmod_emf2.0.html">Tutorial: Generating an EMF 2.0 Model using XML Schema</a>
 		</li>
 
 		<li>
-			<div>May 31 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
+			<div>May 31 2004</div><a target="_out" href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/2.0/jet1/jet_tutorial1_emf2.0.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
 			Contributed by Remko Popma [EMF 2.0]
 		</li>
 
 		<li>
-			<div>May 31 2004</div><a target="_out" href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
+			<div>May 31 2004</div><a target="_out" href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/2.0/jet2/jet_tutorial2_emf2.0.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
 			Contributed by Remko Popma [EMF 2.0]
 		</li>
 	</ul>
@@ -397,27 +392,27 @@ and Animations of the internals of XSD models</a>
 
 	<ul>
 		<li>
-			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">EMF 1.0 Users' Guide</a>
+			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/UG/EMF_v1.0_Users_Guide.html">EMF 1.0 Users' Guide</a>
 		</li>
 
 		<li>
-			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/JarDepsExternal/JarDepsExternal.html">EMF 1.0 Jar Dependencies for Running Standalone as a Java Application Outside Eclipse</a>
+			<div>May 27 2004</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/JarDepsExternal/JarDepsExternal.html">EMF 1.0 Jar Dependencies for Running Standalone as a Java Application Outside Eclipse</a>
 		</li>
 
 		<li>
-			<div>May 19 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model</a>
+			<div>May 19 2003</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/1.1/clibmod/clibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model</a>
 		</li>
 
 		<li>
-			<div>May 1 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">Tutorial: Generating an Extended EMF 1.1 Model</a>
+			<div>May 1 2003</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/1.1/slibmod/slibmod_emf1.1.html">Tutorial: Generating an Extended EMF 1.1 Model</a>
 		</li>
 
 		<li>
-			<div>May 22 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
+			<div>May 22 2003</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/1.1/xlibmod/xlibmod_emf1.1.html">Tutorial: Generating an EMF 1.1 Model using XML Schema</a>
 		</li>
 
 		<li>
-			<div>August 20 2003</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">Tutorial: Creating an EMF 1.1 Model using a GraphicalEditor</a>
+			<div>August 20 2003</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/tutorials/1.1/glibmod/glibmod_emf1.1.html">Tutorial: Creating an EMF 1.1 Model using a GraphicalEditor</a>
 		</li>
 	</ul>
 </div>
@@ -447,7 +442,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/docs.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview
+			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/index.php?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a> Overview
 		</li>
 
 		<li>
@@ -470,4 +465,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.44 2006/08/23 19:46:38 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.45 2006/08/23 20:14:35 nickb Exp $ -->
