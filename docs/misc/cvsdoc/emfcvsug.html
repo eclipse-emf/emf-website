@@ -1,0 +1,251 @@
+<html>
+<head>
+<title>Getting EMF, SDO and XSD from CVS</title>
+</head>
+
+<body>
+<h1><center>Getting EMF, SDO and XSD from CVS</center></h1>
+
+<p>
+<b><center>Updated June 13, 2005</center></b>
+<p>
+<hr>
+
+<b>Summary</b>
+<p>
+This document describes how to access the source code for the EMF, SDO and XSD projects, which is located in the eclipse.org CVS respositories.  It assumes some familiarity with CVS concepts and some experience working with the Eclipse workbench.  For more information on CVS, please consult eclipse.org's <a href="http://dev.eclipse.org/viewcvs/index.cgi">CVS repository</a> page. Eclipse's help system also provides a tutorial and documentation for CVS.
+<p>
+<b>This document includes a setup procedure that you may wish to use to checkout the EMF, SDO and XSD projects and resolve compilation errors.  We have used this procedure on Eclipse 3.0.0 with a clean workspace.</b>
+
+<hr>
+<h2>1. Software Environment</h2>
+<p>
+In order to develop on the EMF, SDO and XSD projects, you need the following software installed on your system:
+
+<ul>
+<li><a href="http://www.eclipse.org/downloads/index.php">Eclipse</a> 3.0 M7 or later</li>
+<li>A JRE, as required by Eclipse</li>
+</ul>
+
+<p>
+When specifying directory paths on your system, remember to compensate for any difference between the environment presented in this article and your development environment.
+
+<hr>
+<h2>2. Setting up the Eclipse Workspace</h2>
+
+<h3>Configuring the plug-in environment</h3>
+
+<p>
+You need to specify where Eclipse should look for required plug-ins if they do not exist in the current workspace. To do this:
+
+<p>
+<ol>
+<li>In the Preferences dialog, with <b>Plug-In Development</b> expanded, select <b>Target Platform</b>.</li>
+<li>Click <b>Select All</b> so that all the plug-ins are selected.</li> 
+<li>Click <b>OK</b> to close the Preferences dialog.</li>
+</ol>
+
+<p>
+<img src="images/img2.jpg">
+
+<h3>Configuring the the Eclipse CVS preferences</h3>
+
+<p>
+It is highly recommended to prune empty directories when extracting the code from the CVS repository.  This is how you 
+can set Eclipse to do that:
+
+<p>
+<ol>
+<li>Select <b>Windows > Preferences > Team</b>.</li> 
+<li>Open <b>CVS</b> and select <b>Prune empty directories</b>.</li>
+<li>Click <b>OK</b> to close the Preferences dialog.</li>
+</ol>
+
+<p>
+<img src="images/img13.jpg">
+
+<hr>
+<h2>3. Understanding the CVS Structure</h2>
+
+<p>
+If you are unfamiliar with CVS concepts, there is a good list of resources on the <a href="http://dev.eclipse.org/viewcvs/index.cgi/?cvsroot=Tools_Project">CVS repository</a> page.
+
+<h3>Modules structure</h3>
+
+<p>
+The EMF, SDO and XSD source is divided into three modules in CVS.
+
+<p>
+<table cellspacing="0" cellpadding="5" border="1">
+	<tr>
+		<td><b>CVS Repository</b></td>
+		<td><b>Module</b></td>
+		<td colspan="2"><b>Directories</b></td>
+	</tr>
+	<tr>
+		<td rowspan="5" valign="top">/cvsroot/tools</td>
+		<td rowspan="5" valign="top">org.eclipse.emf</td>
+	</tr>
+	<tr>
+		<td>plugins</td>
+		<td>contains the EMF runtime plug-ins and features</td>
+	</tr>
+	<tr>
+		<td>doc</td>
+		<td>contains the EMF documentation plug-ins and features</td>
+	</tr>
+	<tr>
+		<td>tests</td>
+		<td>contains the EMF, SDO and XSD automated tests plug-ins and features</td>
+	</tr>
+	<tr>
+		<td>examples</td>
+		<td>contains the examples for the EMF, SDO and XSD projects</td>
+	</tr>
+	<tr>
+		<td rowspan="3" valign="top">/cvsroot/tools</td>
+		<td rowspan="3" valign="top">org.eclipse.emf.ecore.sdo</td>
+	</tr>
+	<tr>
+		<td>plugins</td>
+		<td>contains the SDO plug-ins and features</td>
+	</tr>
+	<tr>
+		<td>doc</td>
+		<td>contains the SDO documentation plug-ins and features</td>
+	</tr>
+	<tr>
+		<td rowspan="3" valign="top">/cvsroot/tools</td>
+		<td rowspan="3" valign="top">org.eclipse.xsd</td>
+	</tr>
+	<tr>
+		<td>plugins</td>
+		<td>contains the XSD runtime plug-ins and features</td>
+	</tr>
+	<tr>
+		<td>doc</td>
+		<td>contains the XSD documentation plug-ins and features</td>
+	</tr>
+</table>
+
+<p>
+Both XSD and SDO are part of the EMF Tools project.
+
+<h3>Build tag and branch naming conventions</h3>
+
+<p>
+For each build, a new CVS tag is created. The name of the CVS tag follows this convention:
+
+<p>
+<pre>      build_&lt;build id&gt;</pre>
+
+<p>
+where &lt;build id&gt; is usually the build timestamp in the yyyyMMddhhmmss format (for example,  20040211140643).
+
+<p>
+The HEAD branch always contains the latest file versions, which are currently under active development. If a fix is required for a particular past build (typically a release), a branch will be created.  The branch naming convention is:
+<p>
+<pre>      branch_&lt;build id&gt;</pre>
+<p>
+The structure of the CVS repository is shown below:
+
+<p>
+<img src="images/img3.jpg">
+
+<p>
+If for some reason you need to get files from a certain build, look under "Versions" for the tag that identifies that build.
+
+<hr>
+<h2>4. Checking Out Code as an Anonymous User</h2>
+
+<p>
+An anonymous user has access only to check out files from the CVS repository. This user does not have the privileges to check in files.
+
+<h3>Configuring the CVS client to check out files</h3>
+
+<p>
+<u>EMF, SDO &amp; XSD</u>
+<p>
+<ol>
+<li>Open the CVS perspective in the Eclipse Workbench by selecting <b>Windows > Open Perspective > CVS Repository Exploring</b>.</li>   
+
+<li>Right click on the CVS Repositories view as shown below, and select <b>New > Repository Location...</b>
+
+<p>
+<img src="images/img4.jpg"></li>
+
+<p>
+<li>Enter the information as shown below in the Add CVS Repository dialog and click <b>Finish</b>. This will establish a connection with the /cvsroot/tools repository located on dev.eclipse.org, using the anonymous user ID.  Make sure you set the connection type to pserver and use the default port, as shown.
+
+<p>
+<img src="images/img5.jpg">
+</li>
+</ol>
+
+<h3><a name="checkout.first">Checking out code for the first time</h3>
+
+<p>
+If you followed the instructions in the previous section, you should see a new repository entry in the CVS Repositories view. To check out code, do the following:
+
+<ol> 
+<li>Expand the repository node.</li>
+<li>Expand the HEAD node, as shown below, to view all the modules in the repository.</li>
+
+<p>
+<img src="images/img6.jpg">
+
+<p>
+<li>Scroll down and expand the org.eclipse.emf module, as shown below. Select the subdirectories of the plugins, docs, tests, and examples directories that you want to retrieve, and then right click and select the <b>Check Out</b> menu option.</li>
+
+<p>
+<img src="images/img7.jpg">
+
+<p>
+<li>Each selected directory as is checked out as a project in the workspace.  Once the operation is complete, you can switch to the Java perspective to work with the projects.</li>
+</ol>
+
+<hr>
+<h2><a name="Resolving Dependency Problems">5. Resolving Dependency Problems</a></h2>
+
+<p>
+You may find that the projects have compilation errors after you check them out.  To resolve these, update the classpath. Right click on the project and select the <b>PDE Tools > Update Classpath...</b> menu option as shown below. The Java Classpath dialog appears.
+
+<p>
+<img src="images/img8.jpg">
+
+<p>
+Ensure that any projects with dependency problems are checked in the list of available plug-ins and fragments, and then click <b>Finish</b>.
+
+<p>
+<img src="images/img9.jpg">
+
+<hr>
+<h2>Synchronizing your Local Sandbox with the HEAD Branch</h2>
+
+<p>
+As described above, the HEAD branch contains the latest verision of the code. To synchronize your local changes with the HEAD, right click on the resource that you want to synchronize, and then select <b>Team > Synchronize with Repository</b>.
+
+<p>
+<img src="images/img10.jpg">
+
+<p>
+This opens the Synchronize view, which is briefly described by the following text from the Eclipse help system. Please refer to the Eclipse help for additional information about this view.
+
+<blockquote>
+<hr>
+<img src="images/img11.jpg">
+<hr>
+</blockquote>
+
+<p>
+You can merge in the changes from the HEAD manually or automatically. To merge automatically, right click on the resource you want to merge.  Select <b>Team > Update</b>, as shown below.
+
+<p>
+<img src="images/img12.jpg">
+
+<p>
+If there are conflicts that cannot be resolved automatically, CVS will insert special markup in the file to indicate that those lines could not be merged.  You will need to resolve the conflicts manually.  For more information how to do this, please refer to the Eclipse help system.
+</li>
+<hr>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EMF Jar Dependencies</title>
+<link rel="stylesheet" href="http://www.eclipse.org/default_style.css" type="text/css" />
+<link rel="stylesheet" href="images/../../book.css" type="text/css" />
+<style type="text/css">
+<!--
+pre {  color: #4444cc}
+span.code { 
+	font-weight: medium;
+	font-style: Regular;
+	color: #4444CC;
+	text-decoration: none;
+	vertical-align: baseline;
+	text-transform: none;
+	font-family: "Courier New";
+}
+td.code { 
+	font-weight: medium;
+	font-style: Regular;
+	color: #4444CC;
+	text-decoration: none;
+	vertical-align: baseline;
+	text-transform: none;
+	font-family: "Courier New";
+}
+span.nbsp {
+	font-size: 1px;
+}
+-->
+</style>
+</head>
+
+<body lang="EN-US" xml:lang="EN-US">
+<h1>EMF 1.0 Jar Dependencies for Running Standalone as
+a Java Application Outside Eclipse</h1>
+
+<table border="0" cellspacing="2" cellpadding="0">
+<tr valign="top">
+	<td class="">EMF Plugin Name</td>
+	<td class="">Plugin Jars<sup><a class="footnote" href="#fn1">[1]</a><a name="ref1">&nbsp;</a></sup></td>
+	<td class="">Function Provided by the Plugin</td>
+	<td class="">Directly Dependent Plugins/Jars<sup><a class="footnote" href="#fn2">[2]</a><a name="ref2">&nbsp;</a></sup></td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.emf.common</td>
+	<td class="code">common.jar</td>
+	<td class="">A collection of subpackages to support the EMF infrastructure.</td>
+	<td class="code">None.</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code">common.resources.jar</td>
+	<td class="code"></td>
+	<td class="code"></td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.emf.ecore</td>
+	<td class="code">ecore.jar</td>
+	<td class="">The EMF Framework.</td>
+	<td class="code">org.eclipse.emf.common</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-common.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-common.resources.jar</td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.xsd</td>
+	<td class="code">xsd.jar</td>
+	<td class="">Schema support.</td>
+	<td class="code">org.eclipse.emf.ecore</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code">xsd.resources.jar</td>
+	<td class="code"></td>
+	<td class="code">-ecore.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">org.apache.xerces</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-xercesImpl.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-xmlParserAPIs.jar</td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.emf.ecore.xmi</td>
+	<td class="code">ecore.xmi.jar</td>
+	<td class="">Serialization/Deserialization using XMI.</td>
+	<td class="code">org.eclipse.emf.ecore</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-ecore.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">org.apache.xerces</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-xercesImpl.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-xmlParserAPIs.jar</td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.emf.edit</td>
+	<td class="code">edit.jar</td>
+	<td class="">Generic edit support for EMF objects.</td>
+	<td class="code">org.eclipse.emf.common</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code">edit.resources.jar</td>
+	<td class="code"></td>
+	<td class="code">-common.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-common.resources.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">org.eclipse.emf.ecore</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-ecore.jar</td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.emf.ecore.edit&nbsp;&nbsp;</td>
+	<td class="code">ecore.edit.jar</td>
+	<td class="">Reusable edit support for viewing Ecore models.</td>
+	<td class="code">org.eclipse.emf.edit</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-edit.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-edit.resources.jar</td>
+</tr>
+<tr><td colspan=4 bgcolor="black"><span class="nbsp">&nbsp;</span></td></tr>
+<tr valign="top">
+	<td class="code">org.eclipse.xsd.edit</td>
+	<td class="code">xsd.edit.jar</td>
+	<td class="">Reusable edit support for viewing schemas.</td>
+	<td class="code">org.eclipse.emf.edit</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-edit.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-edit.resources.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">org.eclipse.xsd</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-xsd.jar</td>
+</tr>
+<tr valign="top">
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code"></td>
+	<td class="code">-xsd.resources.jar</td>
+</tr>
+</table>
+
+<p>
+<sup><a class="footnote" href="#ref1">[1]</a><a name="fn1">&nbsp;</a></sup>All EMF 1.0.0 jars belong to Eclipse plugins that are named using the following convention:</p>
+
+<pre>org.eclipse.emf.&lt;jar name></pre>
+
+<p>For example, the jar codegen.ecore.ui.jar is contained in the Eclipse plugin named org.eclipse.emf.codegen.ecore.ui.<br/>
+Every EMF jar is located in the runtime directory that is immediately beneath the corresponding plugin directory.</p>
+
+<p>All EMF 1.0.1 jars belong to Eclipse plugins that are named using the following convention:
+</p>
+
+<pre>org.eclipse.emf.&lt;jar name>_1.0.1</pre>
+
+<p>For example, the jar codegen.ecore.ui.jar is contained in the Eclipse plugin named org.eclipse.emf.codegen.ecore.ui_1.0.1.<br/>
+Every EMF jar is located in the runtime directory that is immediately beneath the corresponding plugin directory.</p>
+
+<p><sup><a class="footnote" href="#ref2">[2]</a><a name="fn2">&nbsp;</a></sup>The directly dependent jars may also have their own dependencies.<br/>
+These indirect dependencies can be determined from the corresponding entries in the table.</p>
+<br/>
+</body>
+</html>
