@@ -48,7 +48,7 @@ if ($doit == 1)
 		{
 			$fields[$k] = $v;
 		}
-		$mesageHTML .= "<li><b>".ucfirst($k)."</b> - $v</li>\n";
+		$messageHTML .= "<li><b>".ucfirst($k)."</b> - $v</li>\n";
 		$message .= "$k: $v\n";
 	}
 
