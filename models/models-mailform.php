@@ -14,7 +14,7 @@ function wmail($toname, $to, $fromname, $from, $subject, $message)
 
 	$headers .= "X-Priority: 3\r\n"; //1 Urgent Message, 3 Normal
 	$headers .= "X-MSMail-Priority: High\r\n"; // fix for hotmail spam filters? 
-	$headers .= "Return-Path: <$from>\r\n";
+	$headers .= "Return-Path: \"$fromname\" <$from>\r\n";
 	$headers .= "Reply-To: \"$fromname\" <$from>\r\n";
 	$headers .= "From: \"$fromname\" <$from>\r\n";
 
