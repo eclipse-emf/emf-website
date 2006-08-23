@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="images/../../book.css" type="text/css" />
+<title>What's New In EMF 2.1?</title>
+</head>
+
+<body lang="EN-US" xml:lang="EN-US">
+
+<h1>What's New In EMF 2.1?</h1>
+
+<p>
+Last updated: July 6, 2005
+</p>
+
+<p><b>XML Support</b></p>
+
+<p><i>Load XML without schema</i></p>
+
+<p>Similarly to SAX and DOM, EMF can now load any XML document without the need to specify a schema for the document. The implementation will use <tt class="code">xsi:schemaLocation</tt> or <tt class="code">noNamespaceSchema</tt> location attributes to locate a schema; or, if no schema is located will treat the content as XML Schema wildcard. In the case schema is located, the implementation will dynamically generate Ecore and use it to validate the document. To use this functionality, register the <tt class="code">org.eclipse.emf.ecore.xmi.impl.GenericXMLResourceFactoryImpl</tt> for a file extension you want to process. For more information see the <a href="http://www.eclipse.org/emf/faq/faq.php#dev20041117-1542941924">EMF FAQ</a>.</p>
+
+<p><i>DOM and XPath</i></p>
+<p>EMF now provides a way to load EMF resources using DOM as an input source, as well as serializing EMF resources to DOM trees. To load an EMF resource from DOM use <tt class="code">XMLResource.load(Node, Map)</tt> methods; to save an EMF resource to DOM use <tt class="code">XMLResource.save(Document,Map,DOMHandler)</tt> (see  <tt class="code">org.eclipse.emf.ecore.xmi</tt>).</p> 
+<p>EMF natively does not support XPath. However, using new functionality in EMF 2.1, you can convert your EMF resource to a DOM tree, run XPath queries on those DOM nodes, and then iterate via <tt class="code">Node</tt> result sets using the <tt class="code">DOMHandler</tt> API to get ahold of the corresponding EMF Objects. </p>
+
+<p><b>EMF &amp; SDO Runtime Performance</b></p>
+<p>In this release, the EMF team was focused on improving performance of the EMF runtime. In particular, we improved XML and XMI serialization/deserialization performance. Improved performance for EMF accessors, copy, reduced footprint of EMF models. For more information see <a href="http://www.eclipse.org/emf/docs.php?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF performance</a>.</p>
+ 
+<p><b>Change Model</b></p>
+<p>This release adds support to resume recording (see <tt class="code">beginRecording(ChangeDescription, Collection)</tt> in <tt class="code">org.eclipse.emf.ecore.change.util.ChangeRecorder</tt>).</p>
+<p>In addition, EMF 2.1 provides a mechanism for recording and applying changes for <tt class="code">FeatureMaps</tt> to help to provide complete redo/undo capabilities for models that use <tt class="code">FeatureMaps</tt>.</p>
+
+<p><b>Improved Generator Capabilities</b></p>
+<p>EMF now provides an extension point so that model importers can be added to the framework: <tt class="code">org.eclipse.emf.importer.modelImporterDescriptors</tt>.  The existing importers (Rose, XML Schema, annotated Java interfaces and Ecore model) were refactored into this design, being contributed by different plugins.  EMF now also includes a provisional API that can be used by anyone to provide their own importer.</p>
+
+<p>JET (Java Emitter Templates) now supports conditional inclusion, specified by a <tt class="code">fail="silent"</tt> or <tt class="code">fail="alternative"</tt> attribute on the include directive.  EMF's templates use conditional includes quite extensively, to allow more flexible overriding and inserting of sections.</p>
+
+<p>Users can now easily customize the packages into which code will be generated, allowing them to, for example, generate their implementation classes in an "internal" package.</p>
+
+<p>Multiplicities on operations and parameters are now fully supported in code generation.</p>
+
+<p>A new generator action, "Generate Test Code" generates JUnit test skeletons for testing volatile features and operations, as well some example code for working with the model in a standalone context.</p>
+
+</body>
+</html>
