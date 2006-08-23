@@ -33,7 +33,7 @@
 		</li>
 
 		<li>
-			<div>Aug 12 2004</div>EMF Book: <a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">Eclipse Modeling Framework</a> (Overview and Developer's Guide)<br/>
+			<div>Aug 12 2004</div>EMF Book: <a target="_out" href="http://www.awprofessional.com/titles/0131425420">Eclipse Modeling Framework</a> (Overview and Developer's Guide)<br/>
 			<a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">Chapter 2 Sample</a> (PDF)
 		</li>
 
@@ -105,10 +105,10 @@
 	<h3>Books, Guides, and References</h3>
 	<ul>
 		<li>
-			<div>August 11 2003</div><a target="_out" href="http://www.awprofessional.com/titles/0131425420">Eclipse Modeling Framework</a> (Overview and Developer's Guide)
+			<div>Aug 12 2004</div>EMF Book: <a target="_out" href="http://www.awprofessional.com/titles/0131425420">Eclipse Modeling Framework</a> (Overview and Developer's Guide)<br/>
+			<a target="_out" href="http://www.awprofessional.com/content/images/0131425420/samplechapter/budinskych02.pdf">Chapter 2 Sample</a> (PDF)
 		</li>
 
-	<!-- new version extracted from recent builds on download -->
 		<li>
 			<div><i>updated every build</i></div>Javadoc
 			<ul>
@@ -125,7 +125,7 @@
 		</li>
 
 		<li>
-			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
+			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
 		</li>
 
 		<li>
@@ -174,7 +174,7 @@
 
 	<ul>
 		<li>
-			<div>July 2002</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">Analyzing XML schemas with the Schema Infoset Model</a>
+			<div>July 2002</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">Analyzing XML schemas with the Schema Infoset Model</a>
 		</li>
 
 		<li>
@@ -194,7 +194,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>October 12 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Tutorial: Using the SDO Data Graph Editor</a>
+			<div>October 12 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf.ecore.sdo/doc/org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Tutorial: Using the SDO Data Graph Editor</a>
 		</li>
 
 		<li>
@@ -207,7 +207,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>June 7 2006</div><a target="_out" href="http://incubator.apache.org/tuscany/sdo_index.html">Apache Tuscany Project - SDO</a>
+			<div>June 7 2006</div><a target="_out" href="http://incubator.apache.org/tuscany/sdo_index.html">Apache Tuscany Project</a>
 		</li>
 
 
@@ -437,8 +437,7 @@ and Animations of the internals of XSD models</a>
 			<div>May 26 2006</div>EMF 2.2 Project Plan
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html">Overview</a></li>
-				<li><a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a></li>
-				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)</li>
+				<li><a href="http://www.eclipse.org/projects/dev_process/release-review.php">Release Review</a> - <a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">Presentation</a> (PDF)</li>
 			</ul>
 		</li>
 
@@ -450,8 +449,7 @@ and Animations of the internals of XSD models</a>
 			<div>July 27 2005</div>EMF 2.1 Project Plan
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html">Overview</a></li>
-				<li><a href="http://www.eclipse.org/org/processes/release-review.html">Release Review</a></li>
-				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)</li>
+				<li><a href="http://www.eclipse.org/projects/dev_process/release-review.php">Release Review</a> - <a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/plan-summary.html">Summary</a></li>
 			</ul>
 		</li>
@@ -460,10 +458,10 @@ and Animations of the internals of XSD models</a>
 			<div>Sept 16  2005</div>Eclipse Project
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/eclipse-project-ip-log.csv">IP Log</a> (CSV)</li>
-				<li><a href="http://www.eclipse.org/emf/eclipse-project-status.xml">Status</a> (XML)</li>
+				<li><a href="http://www.eclipse.org/emf/project-info/project-info.xml">Info</a> (XML)</li>
 			</ul>
 		</li>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.46 2006/08/23 20:57:53 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.47 2006/08/23 21:42:12 nickb Exp $ -->
