@@ -18,7 +18,7 @@ function wmail($toname, $to, $fromname, $from, $subject, $message)
 	$headers .= "Reply-To: \"$fromname\" <$from>\r\n";
 	$headers .= "From: \"$fromname\" <$from>\r\n";
 
-	$recip = ($toname == "" ? "" : "\"$toname\" ") . $to;
+	$recip = ($toname == "" ? "" : "\"$toname\" ") . "<" . $to . ">";
 
 	global $sendMail;
 	if ($sendMail)
@@ -106,7 +106,7 @@ EOXML;
 
 	// send to site admin, from customer
 
-	wmail("Modeling Corner", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML);
+	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML);
 
 	/* message */
 	$messagePre = <<<EOTEXT
