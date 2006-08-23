@@ -85,6 +85,8 @@ EOXML;
 		$d = date("Y-m-d");
 		$id = preg_replace("/ /", "", $fields["name"]) . date("YmdHis");
 		$XML = <<<EOXML
+
+<!-- begin XML -->
 <model modelName="{$fields["model_name"]}" date="$d" category="{$fields["project"]} {$fields["stype"]}" modelID="$id">
 <text>{$fields["description"]}</text>
 <modelURL>{$fields["model_url"]}</modelURL>
@@ -93,16 +95,10 @@ EOXML;
 <submitter>{$fields["name"]}</submitter> 
 <submitterURL>{$fields["website"]}</submitterURL>
 </model>
+<!-- end XML -->
 
 EOXML;
 	}
-
-	$messageXML = <<<EOT
-<!-- begin XML -->
-$XML
-<!-- end XML -->
-
-EOT;
 
 	/* END CUSTOM CODE -- NOT GENERIC TO OTHER mailform.php IMPLEMENTATIONS */
 
@@ -114,7 +110,7 @@ EOT;
 
 	// send to site admin, from customer
 
-	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $messageXML);
+	wmail("Modeling Corner", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML);
 
 	/* message */
 	$messagePre = <<<EOTEXT
@@ -133,6 +129,6 @@ EOTEXT;
 
 	echo "<pre>" . $messagePre . htmlentities($message) . "</pre>";
 
-	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message . $messageXML);
+	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message);
 }
 ?>
