@@ -1212,6 +1212,7 @@ function showArchived()
 	{
 		print "<li><a href=\"http://archive.eclipse.org/tools/emf/downloads/drops/$z/R$oldrels[$z]\">$z</a> (" . IDtoDateStamp($oldrels[$z], 0) . ")</li>\n";
 	}
+	print "<li><a href=\"http://www.eclipse.org/emf/downloads/dl-emf1x.html\">1.x</a> (2003)</li>\n";
 	print "</ul>\n";
 	print "</div>\n";
 }
