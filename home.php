@@ -49,8 +49,10 @@ include "${pre}includes/nav.php";
 
 	<div class="sideitem">
 		<h6>Modeling Corner</h6>
-		<p>Wanted to <a href="http://www.eclipse.org/emf/models/models.php">contribute</a> models, projects, files, ideas, utilities, or code to <a href="http://www.eclipse.org/emf/emf.php">EMF</a>, <a href="http://www.eclipse.org/emf/sdo.php">SDO</a>, or <a href="http://www.eclipse.org/emf/xsd.php">XSD</a>? Now you can!</p>
-		<p>Have a look, post your comments, <a href="http://www.eclipse.org/emf/models/models.php">submit</a> your code, or just read what others have written. <a href="mailto:codeslave(at)ca(dot)ibm(dot)com?Subject=EMF Corner Comments">Feedback here</a>.</p>
+		<p>Want to <a href="http://wiki.eclipse.org/index.php/Modeling_Corner">contribute</a> models, projects, files, ideas, utilities, or code to 
+		<a href="http://www.eclipse.org/emf/emf.php">EMF</a> or any other part of the <a href="http://www.eclipse.org/modeling/">Modeling Project</a>? 
+		Now you can!</p>
+		<p>Have a look, post your comments, submit a link, or just read what others have written. <a href="http://wiki.eclipse.org/index.php/Modeling_Corner">Details here</a>.</p>
 	</div>
 
 	<div class="sideitem">

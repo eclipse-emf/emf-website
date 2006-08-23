@@ -48,8 +48,8 @@
 		<a href="http://dev.eclipse.org/mhonarc/lists/xsd-dev/maillist.html" target="_self">XSD</a>
 	</p>
 	<p>
-		<a href="http://www.eclipse.org/emf/models/models.xml" target="_self">EMF Corner</a> :: 
-		<a href="http://www.eclipse.org/emf/models/models-submit.php" target="_self">Submit a model!</a>
+		<a href="http://wiki.eclipse.org/index.php/Modeling_Corner" target="_self">Modeling Corner</a> :: 
+		<a href="http://wiki.eclipse.org/index.php/Modeling_Corner" target="_self">Contribute!</a>
 	</p>
 </div>
 

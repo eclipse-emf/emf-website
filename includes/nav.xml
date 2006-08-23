@@ -88,7 +88,7 @@
   </tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://www.eclipse.org/emf/models/models.xml" class="nav">EMF Corner</a><br/>
+      &#160; <a href="http://wiki.eclipse.org/index.php/Modeling_Corner" class="nav">EMF Corner</a><br/>
 
     </td>
   </tr>
@@ -292,4 +292,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.17 2006/08/23 19:46:44 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.18 2006/08/23 23:46:51 nickb Exp $ -->

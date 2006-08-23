@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="August 23, 2006" showOn="docs,whatsnew">
+	<a href="http://wiki.eclipse.org/index.php/Modeling_Corner">EMF Corner relaunched as Modeling Corner</a>!
+</news>
 <news date="August 17, 2006" showOn="whatsnew">
 	<!-- M200608170000 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
@@ -800,7 +803,7 @@
 	Links to SDO <a href="http://www.eclipse.org/emf/docs/#sdo">articles</a> added.
 </news>
 <news date="September 30, 2004" showOn="docs,whatsnew">
-	<a href="http://www.eclipse.org/emf/models/">EMF Corner launched</a>!
+	<a href="http://wiki.eclipse.org/index.php/Modeling_Corner">EMF Corner launched</a>!
 </news>
 <news date="September 30, 2004" showOn="docs,whatsnew">
 	Link to SDO <a href="http://www.eclipse.org/emf/docs/#sdo">Overview</a> on developerWorks added.
@@ -1092,6 +1095,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.183 2006/08/23 19:46:36 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.184 2006/08/23 23:46:51 nickb Exp $ -->
 
 </doc>
