@@ -86,6 +86,9 @@ EOXML;
 	// send to site admin, from customer
 	$recip = ($toname == "" ? "" : "\"$toname\" ") . "<" . $to . ">";
 
+	$headers = "Content-type: text/plain; charset=iso-8859-1\r\n";
+	$headers .= "From: \"$fromname\" <$from>\r\n";
+
 	wmail("", "emf@divbyzero.com", $fields["name"], $fields["email"], $subject, $messagePre . $message . $XML, $headers);
 
 	/* message */
@@ -130,9 +133,6 @@ EOTEXT;
 	//$headers .= "X-MSMail-Priority: High\r\n"; // fix for hotmail spam filters? 
 	$headers .= "Return-Path: \"$fromname\" <$from>\r\n";
 	$headers .= "Reply-To: \"$fromname\" <$from>\r\n";
-	$headers .= "From: \"$fromname\" <$from>\r\n";
-
-	$headers = "Content-type: text/plain; charset=iso-8859-1\r\n";
 	$headers .= "From: \"$fromname\" <$from>\r\n";
 
 	wmail($fields["name"], $fields["email"], $fields["name"], $fields["email"], $subject, $messagePre . $message, $headers);
