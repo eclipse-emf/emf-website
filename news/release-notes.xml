@@ -22,6 +22,17 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200608241248" project="emf" version="2.2.1">
+<bug id="154300">Elminate package protected methods, clases, and fields in Mapping Editor</bug>
+<bug id="154550">Freezing a package doesn&apos;t freeze the whole model properly</bug>
+<bug id="154551">Document that EcoreList.set( Object )/EStructuralFeature.Setting/eSet can&apos;t handle itself as input</bug>
+<bug id="154608">Operation reconciliation should match by more than name</bug>
+<bug id="154751">Memory leak caused by validator cache</bug>
+<bug id="154796">@model kind=&quot;class&quot; fails when used with @model for the constructor</bug>
+<bug id="155041">The version of some plugins were not moved to 2.2.0</bug>
+<bug id="155065">xmlns and schemaLocation URIs don&apos;t match</bug>
+</entry>
+
 <entry build="M200608170000" project="emf" version="2.2.1">
 <bug id="153603">NPE in AbstractGeneratorAdapter</bug>
 </entry>
@@ -60,6 +71,10 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200608241248" project="xsd" version="2.2.1">
+<bug id="154290">Improve performance of load...</bug>
+</entry>
+
 <entry build="M200608170000" project="xsd" version="2.2.1">
 <bug id="152628">Ecore schema export lacks unsettable tag</bug>
 <bug id="153637">NPE when creating an EMP project using Oracle BPEL extension XML schema</bug>
@@ -93,4 +108,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.195 2006/08/17 19:25:52 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.196 2006/08/24 18:28:51 nickb Exp $ -->
