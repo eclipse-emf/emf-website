@@ -128,7 +128,7 @@ if ($sortBy != "date")
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<h3>Latest Builds</h3>\n";
+	print "<a name=\"latest\"></a><h3>Latest Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
 	foreach ($builds as $rID => $rbranch)
