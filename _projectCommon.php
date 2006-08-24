@@ -11,8 +11,8 @@
 	$Nav->setLinkList(null);
 
 	$rooturl = "http://www.eclipse.org";
-	$downurl = (preg_match("/^(download\.eclipse\.org|emf\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"], $regs) ? "http://$regs[1]" : "http://www.eclipse.org");
-	$wnurl = (preg_match("/^(download\.eclipse\.org|emf\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"], $regs) ? "http://$regs[1]" : "http://download.eclipse.org");
+	$downurl = (preg_match("/^(emf\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"], $regs) ? "http://$regs[1]" : "http://www.eclipse.org");
+	$wnurl   = (preg_match("/^(emf\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"], $regs) ? "http://$regs[1]" : "http://download.eclipse.org");
 	$bugurl = "https://bugs.eclipse.org";
 
 	$Nav->addNavSeparator("EMF", "$rooturl/emf/emf.php");
@@ -24,7 +24,7 @@
 	$Nav->addCustomNav("Update Manager", "$rooturl/tools/emf/updates/", "_self", 2);
 
 	$Nav->addNavSeparator("Documentation", "$rooturl/emf/docs/");
-	$Nav->addCustomNav("Getting Started", "http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.html", "_self", 2);
+	$Nav->addCustomNav("Getting Started", "http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.html", "_self", 2);
 	$Nav->addCustomNav("FAQ", "$rooturl/emf/faq/faq.php", "_self", 2);
 	$Nav->addCustomNav("Release Notes", "$rooturl/emf/news/release-notes.php", "_self", 2);
 	$Nav->addCustomNav("What's New, CVS?", "$wnurl/tools/emf/scripts/news-whatsnew-cvs.php?source=emf", "_self", 2);
