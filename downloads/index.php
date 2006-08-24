@@ -337,19 +337,19 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 			$cnt = ($type == "jdk50" ? getJDK50TestResultsFailureCount($f, $t) : getJDK14TestResultsFailureCount($f, $t));
 			if ($cnt === "...") //not done (yet)
 			{
-				$stat = "<a href=\"$testlog\">In progress...</a>";
+				$stat = "<a href=\"$testlog\">...</a>";
 			}
 			else if ($cnt === "") //empty log file
 			{
 				$stat = "empty log";
 			}
-			else if ($cnt === 0) //all passed, 0 F, E, and N
-			{
-				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/check.gif\" alt=\"Passed!\"/></a>";
-			}
 			else if (preg_match("/FAILED/", $cnt)) //build failed
 			{
 				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
+			}
+			else if ($cnt === 0) //all passed, 0 F, E, and N
+			{
+				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/check.gif\" alt=\"Passed!\"/></a>";
 			}
 			else //something else
 			{
@@ -397,15 +397,29 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 		return;
 	}
 
-	foreach ($tests as $t)
-	{
+	$logs = array();
+	foreach ($tests as $t) {
+		if (is_file("$testsPWD$path$testDirs[0]/results/$t.html"))
+		{
+			$logs[$t] = "results/$t.html";
+		}
+	}
+	
+	if (sizeof($logs) < 1) {
+		$logs["..."] = "testlog.txt";
+	}
+	foreach ($logs as $t => $log) {
 		$stat = "";
 		$sty = "";
-		$cnt = getTestResultsFailureCount($testsPWD . $path, $testDirs, "results/$t.html");
-		$testlog = ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/results/$t.html" : "$pre$mid$path$testDirs[0]/results/$t.html");
+		$cnt = getTestResultsFailureCount($testsPWD . $path, $testDirs, $log);
+		$testlog = ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/$log" : "$pre$mid$path$testDirs[0]/$log");
 		if ($cnt === "")
 		{
-			$stat = "(...)";
+			$stat = "<a href=\"" . ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
+		}
+	    else if (preg_match("/FAILED/", $cnt)) //build failed
+	    {
+	    	$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
 		}
 		else if ($cnt === 0)
 		{
@@ -528,7 +542,7 @@ function parseIssues($issues, $failed)
 		$count += $z;
 	}
 
-	if ($count == 0)
+	if ($count == 0 && !$failed)
 	{
 		return 0;
 	}
@@ -555,13 +569,20 @@ function getTestResultsFailureCount($path, $testDirs, $file)
 {
 	$num = "";
 	$file = "$path$testDirs[0]/$file";
-
-	if (is_file($file) && is_readable($file))
-	{
-		$f = file_contents($file);
-		$num = preg_match_all("/>failed</", $f, $regs);
+	
+	if (false!==strpos($file,"testlog.txt")) 
+	{ 
+			$f = file_contents($file);
+			$num = false!==strpos($f,"BUILD FAILED") ? "FAILED" : "";
 	}
-
+	else
+	{
+		if (is_file($file) && is_readable($file))
+		{
+			$f = file_contents($file);
+			$num = preg_match_all("/>failed</", $f, $regs);
+		}
+	}
 	return $num;
 }
 
@@ -685,7 +706,7 @@ function createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel = 
 			}
 			else
 			{
-				$echo_out .= "(...)";
+				$echo_out .= "... ";
 			}
 			$echo_out .= "</li>\n";
 			$uu++;
@@ -792,7 +813,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	if (!$icon)
 	{
 		// display in progress icon & link to log
-		$result = "In progress...";
+		$result = "...";
 		$icon = "question";
 	}
 
@@ -848,7 +869,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 		$link2 = (is_file("$PWD$conlog") ? "$mid$conlog" : (is_file("$PWD$testlog") ? "$mid$testlog" : $link));
 		$result = (is_file("$PWD$conlog") ? "Testing..." : $result);
 	}
-	$link2 = ($isEMFserver ? "/" : "http://download.eclipse.org/").$link2;
+	$link2 = ($isEMFserver ? "" : "http://download.eclipse.org/").$link2;
 	
 	$out .= "<a href=\"$link2\">$result";
 	$out .= ($errors == 0 && $warnings == 0) && !$result ? "Success" : "";
@@ -1108,16 +1129,16 @@ function outputBuild($branch, $ID, $c)
 	if ($isEMFserver)
 	{
 		$tests = getJDKTestResults("$jdk14testsPWD/", "$branch/$ID/", "jdk14", $summary) . "\n";
-		$summary .= ($summary ? "</span><span>" : "");
+		$summary .= ($summary ? "</span> &#160; <span>" : "");
 		$tests .= getJDKTestResults("$jdk50testsPWD/", "$branch/$ID/", "jdk50", $summary) . "\n";
-		$summary .= ($summary ? "</span><span>" : "");
+		$summary .= ($summary ? "</span> &#160; <span>" : "");
 		$tests .= getOldTestResults("$testsPWD/", "$branch/$ID/", $summary) . "\n";
-		$summary = ($summary ? "<span>$summary</span>" : "");
+		$summary = ($summary ? " &#160; <span>$summary</span>" : "");
 	}
 
 	$ret = "<li>\n";
 	$ret .= "<div>" . showBuildResults("$PWD/", "$branch/$ID/") . ($isEMFserver && $summary ? $summary : "") . "</div>";
-	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
+	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a> &#160; ";
 
 	$ret .= "<ul id=\"r$ID\"" . (($c == 0 && !isset($_GET["hlbuild"])) || $ID == $_GET["hlbuild"] ? "" : " style=\"display: none\"") . ">\n";
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
