@@ -31,7 +31,6 @@
 <bug id="154751">Memory leak caused by validator cache</bug>
 <bug id="154796">@model kind=&quot;class&quot; fails when used with @model for the constructor</bug>
 <bug id="154950">Hygiene - no version tolerances</bug>
-<bug id="154955">Hygiene - no version tolerances</bug>
 <bug id="155036">Add version ranges to example and test plugins</bug>
 <bug id="155041">The version of some plugins were not moved to 2.2.0</bug>
 <bug id="155065">xmlns and schemaLocation URIs don&apos;t match</bug>
@@ -77,6 +76,7 @@
 
 <entry build="M200608241248" project="xsd" version="2.2.1">
 <bug id="154290">Improve performance of load...</bug>
+<bug id="154955">Hygiene - no version tolerances</bug>
 </entry>
 
 <entry build="M200608170000" project="xsd" version="2.2.1">
@@ -112,4 +112,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.197 2006/08/24 18:44:38 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.198 2006/08/24 18:51:42 nickb Exp $ -->
