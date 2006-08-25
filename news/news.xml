@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="August 25, 2006" showOn="docs,whatsnew">
+	<a href="http://www.theserverside.com/tt/articles/article.tss?l=BindingXMLJava">Binding XML to Java</a> published at TheServerSide.com.
+</news>
+<news date="August 24, 2006" showOn="docs,whatsnew">
+	EMF Website reskin completed - please update your bookmarks. Report any problems or broken links in <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EMF">Bugzilla</a>.
+</news>
 <news date="August 24, 2006" showOn="whatsnew">
 	<!-- M200608241248 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
@@ -1101,6 +1107,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.185 2006/08/24 18:28:51 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.186 2006/08/25 16:31:06 nickb Exp $ -->
 
 </doc>

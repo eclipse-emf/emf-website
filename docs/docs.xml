@@ -50,6 +50,11 @@
 		</li>
 
 		<li>
+			<div>Aug 25 2006</div><a target="_out" href="http://www.theserverside.com/tt/articles/article.tss?l=BindingXMLJava">Binding XML to Java</a> (TheServerSide.com)<br/>
+			Contributed by Ed Merks and Elena Litani
+		</li>
+
+		<li>
 			<div>June 24 2004</div><a href="/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf">XML Schema to Ecore Mapping</a> (PDF)
 		</li>
 	</ul>
@@ -245,7 +250,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>March 20 2006</div><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF:
+			<div>March 20 2006</div><a name="eclipsecon2006intro"></a>EclipseCon 2006 - Introduction to EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Intro_project.zip">Workshop Project</a> (ZIP)</li>
@@ -253,7 +258,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>March 20 2006</div>EclipseCon 2006 - Advanced Features of EMF:
+			<div>March 20 2006</div>EclipseCon 2006 - Advanced Features of EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_Advanced_project.zip">Workshop Project</a> (ZIP)</li>
@@ -261,7 +266,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>March 22 2006</div><a name="eclipsecon2006xmlbinding"></a>EclipseCon 2006 - XML Binding with EMF:
+			<div>March 22 2006</div><a name="eclipsecon2006xmlbinding"></a>EclipseCon 2006 - XML Binding with EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2006_EMF_XML_Binding_project.zip">Project</a> (ZIP)</li>
@@ -464,4 +469,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.47 2006/08/23 21:42:12 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.48 2006/08/25 16:31:06 nickb Exp $ -->
