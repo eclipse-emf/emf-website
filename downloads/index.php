@@ -233,8 +233,8 @@ if ($isEMFserver)
 <div class="sideitem">
 	<h6>Tests</h6>
 	<ul>
-		<li><a href="http://emf.torolab.ibm.com/tests/results-jdk14.php">1.4</a></li>
-		<li><a href="http://emf.torolab.ibm.com/tests/results-jdk50.php">5.0</a></li>
+		<li><a href="http://emf.torolab.ibm.com/tests/results-jdk14.php">JDK 1.4</a></li>
+		<li><a href="http://emf.torolab.ibm.com/tests/results-jdk50.php">JDK 5.0</a></li>
 		<li><a href="http://emf.torolab.ibm.com/tests/results.php">BVT, FVT, SVT</a></li>
 	</ul>
 </div>
