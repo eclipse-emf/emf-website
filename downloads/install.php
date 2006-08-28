@@ -9,9 +9,7 @@ $pre = "";
 		<p>EMF, SDO and XSD 2.x require <a href="http://www.eclipse.org/downloads/" target="_eclipse">Eclipse 3.x</a> and <b>JDK 1.4</b>. As of Eclipse 3.2, you can also use a <b>JDK 1.5 / 5.0</b>, since this bug only exists in the <b>Sun JDK 1.4</b>.</p>
 		<p>Note that the full Eclipse SDK is only required <i>if you intend to use the EMF, SDO or XSD graphical interfaces</i>, (ie., views, wizards, extensions) which are built for Eclipse. For <i>runtime-only applications</i>, only a JDK is required.</p>
 		<p>EMF, SDO and XSD are built against the latest Eclipse SDKs, eg., EMF 2.1.0 with Eclipse 3.1.0, and is thus as compatible with Eclipse 3.0 as Eclipse 3.1 is with 3.0.</p>
-		<p>To see or download the Eclipse build used for a particular package, click the link under <b>Build Name</b> and check the <b>Requirements</b> section.</p>
-		<p>If you require <i><b>EMF or XSD 1.x downloads</b></i>, go here:
-		<i><a href="http://www.eclipse.org/emf/downloads/dl-emf1x.html">EMF</a></i> &amp; <i><a href="http://www.eclipse.org/emf/downloads/dl-xsd1x.html">XSD</a></i>.</p>
+		<p>To see or download the Eclipse build used for a particular package, choose a build and scroll down to see its <b>Build Dependencies</b>. For older, archived builds, click the link under <b>Build Name</b> and check the <b>Requirements</b> section.</p>
 
 	</div>
 	<div class="homeitem3col">
@@ -39,11 +37,12 @@ $pre = "";
 
 			<li>For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
 			
-				<a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
-				<a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j">Download XML4J from IBM alphaWorks</a>
-				&nbsp; &nbsp;
-				<a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
-				<a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi">Download Xerces2-J from apache.org</a>
+				<ul>
+				<li><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j">Download XML4J from IBM alphaWorks</a></li>
+				<li><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi">Download Xerces2-J from apache.org</a></li>
+				</ul>
 			</li>
 
 			<li>Please do NOT open any bugs or post comments to the newsgroup regarding the absence of Xerces in the Eclipse plugin directory or that the above workaround no longer works.</li>
@@ -57,7 +56,7 @@ $pre = "";
 
 	$pageTitle = "Eclipse Tools - EMF Installation";
 	$pageKeywords = ""; //TODO: add something here
-	$pageAuthor = "Neil Skrypuch";
+	$pageAuthor = "Nick Boldt";
 
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
