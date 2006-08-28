@@ -22,7 +22,7 @@ $pre = "";
 		<p><b>If you <b style="color:green">will be</b> loading or importing model(s) from XML Schema</b>, you need to be aware of the following bug &amp; its workaround.</p>
 
 		<ul>
-			<li>The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
+			<li style="border-bottom: 0px">The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
 			This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 				<ul>
 					<li style="border-bottom: 0px">a null pointer exception, or</li>
@@ -35,7 +35,7 @@ $pre = "";
 
 			</li>
 
-			<li>For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
+			<li style="border-bottom: 0px">For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
 			
 				<ul>
 				<li style="border-bottom: 0px"><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
