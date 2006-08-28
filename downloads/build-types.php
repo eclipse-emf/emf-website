@@ -11,6 +11,7 @@ $pre = "";
 	<div class="homeitem3col">
 		<h3>Zip Bundle Types</h3>
 		
+		<ul>
 		<li><b>SDK</b> - 
 		These zips are the developer's SDK. They contain the runtime plugins, source and documentation for developers that want to extend and 
 		use EMF, SDO and XSD. This can also be installed via <a href="http://www.eclipse.org/emf/updates/">Update Manager</a>.</li>
@@ -25,6 +26,7 @@ $pre = "";
 		These zips contain the JUnit tests for the EMF, SDO and XSD plugins.</li>
 		<li><b>Examples</b> - 
 		These zips contains the examples for EMF, SDO and XSD. It includes source and can be imported into the workspace as an existing project. This can also be installed via <a href="http://www.eclipse.org/emf/updates/">Update Manager</a>.</li>
+		</ul>
 		
 	</div>
 

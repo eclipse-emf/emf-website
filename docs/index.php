@@ -46,14 +46,6 @@ echo "</div>\n";
 $html = ob_get_contents();
 ob_end_clean();
 
-/* get filemtime from the directory: */
-$jPWD = "../javadoc"; // path on downloads.eclipse.org & mirrors
-if (is_dir($jPWD) && is_readable($jPWD))
-{ 
-	$rep = date('F j\<\s\u\p\>S\<\/\s\u\p\> Y', filemtime($jPWD));
-	$html = preg_replace("/see most recent build date/", $rep, $html);
-} 
-
 $pageTitle = "Eclipse Tools - EMF Documents";
 $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
@@ -63,4 +55,4 @@ $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/incl
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
 
-<!-- $Id: index.php,v 1.1 2006/08/23 19:46:39 nickb Exp $ -->
+<!-- $Id: index.php,v 1.2 2006/08/28 18:07:00 nickb Exp $ -->
