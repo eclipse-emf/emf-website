@@ -14,22 +14,22 @@ $pre = "";
 	</div>
 	<div class="homeitem3col">
 		<h3>XSD Model Loading: Crimson DOM Bug, Workaround &amp; Download</h3>
+		
+		<p>If you use the <b>IBM JDK 1.4</b> or a <b>1.5 / 5.0 JDK</b> instead of the <b>SUN JDK 1.4</b>, this workaround is not required.</p>
+		
+		<p><b>If you <b style="color:red">will NOT</b> be loading or importing model(s) from XML Schema</b>, or do not plan to use the XSD plugin, but intend to generate models from Rose, annotated java code, or using pre-existing ecore file(s), this workaround is also not required. EMF &amp; SDO will work fine without Xerces.</p>
+
+		<p><b>If you <b style="color:green">will be</b> loading or importing model(s) from XML Schema</b>, you need to be aware of the following bug &amp; its workaround.</p>
+
 		<ul>
-			<li>If you use the <b>IBM JDK 1.4</b> or a <b>1.5 / 5.0 JDK</b> instead of the <b>SUN JDK 1.4</b>, this workaround is not required.</li>
-
-			<li><b>If you <b style="color:red">will NOT</b> be loading or importing model(s) from XML Schema</b>, or do not plan to use the XSD plugin, but intend to generate models from Rose, annotated java code, or using pre-existing ecore file(s), this workaround is also not required. EMF &amp; SDO will work fine without Xerces.</li>
-
-			<li>
-				<b>If you <b style="color:green">will be</b> loading or importing model(s) from XML Schema</b>, you need to be aware of the following bug &amp; its workaround.
-				<br/><br/>
-				The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
+			<li>The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
+			This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 				<ul>
-					<li>a null pointer exception, or</li>
+					<li style="border-bottom: 0px">a null pointer exception, or</li>
 					<li style="border-bottom: 0px">the error message "Specify a valid XML Schema and try loading again".</li>
 				</ul>
-			
-			</li>
-
+            </li>
+            
 			<li style="border-bottom: 0px">To avoid this, use the following to control the JAXP implementation:
 				<pre style="background-color:yellow"><b>&lt;eclipse-install-dir&gt;</b>eclipse.exe -vmargs <br/>&#160;&#160;&#160;-D<a href="http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html">java.endorsed.dirs</a>=<b>&lt;path-to-your-xerces-jars-folder&gt;</b></pre>
 
@@ -38,15 +38,17 @@ $pre = "";
 			<li>For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
 			
 				<ul>
-				<li><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<li style="border-bottom: 0px"><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
 				<a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j">Download XML4J from IBM alphaWorks</a></li>
-				<li><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<li style="border-bottom: 0px"><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
 				<a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi">Download Xerces2-J from apache.org</a></li>
 				</ul>
 			</li>
 
-			<li>Please do NOT open any bugs or post comments to the newsgroup regarding the absence of Xerces in the Eclipse plugin directory or that the above workaround no longer works.</li>
 		</ul>
+		
+		<p>Please do NOT open any bugs or post comments to the newsgroup regarding the absence of Xerces in the Eclipse plugin directory or that the above workaround no longer works.</p>
+		
 	</div>
 </div>
 
