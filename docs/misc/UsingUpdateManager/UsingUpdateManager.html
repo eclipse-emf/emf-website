@@ -17,7 +17,15 @@
 <p>
   In this article you will learn how to update your Eclipse configuration using the Eclipse Update Manager. 
   </p>
-  <p>Last update: June 13, 2005.</p>
+
+      <p>Last revised <tt>$Date: 2006/08/30 22:04:49 $</tt> ( 
+      <img width="12" height="12" src="/emf/images/green-box.gif"
+      border="0" />
+
+      marks interesting changes over a previous revision of this
+      document) 
+
+      </p>
 </blockquote>
 
 <hr width="100%" />
@@ -65,9 +73,10 @@ name="step0">&nbsp;</a><a href="#top">contents</a></p>
 
 <p>IBM's implementation of the Service Data Objects (SDO) 1.0 specification is packaged with the Eclipse Modeling Framework (EMF) 2.0 and EMF 2.0.1 - however, 2.0.1 contains several bug fixes and improvements over 2.0.0, so it is recommended that you install the most recent version available. SDO is part of the EMF <a href="http://www.eclipse.org/tools/">Eclipse Tools</a> project.</p>
 
-<p>XML Schema Infoset Model (XSD), an <a href="http://www.eclipse.org/emf/">EMF</a> subproject, is packaged in the EMF Software Development Kit (SDK), which provides support for modeling based on XML Schema documents. You need to <a href="http://download.eclipse.org/tools/emf/updates/site-release.xml">install EMF 2.x</a> to use SDO or XSD.</p>
+<p>XML Schema Infoset Model (XSD), an <a href="http://www.eclipse.org/emf/">EMF</a> subproject, is packaged in the EMF Software Development Kit (SDK), which provides support for modeling based on XML Schema documents. 
+You need to <a href="http://www.eclipse.org/emf/updates/">install EMF 2.x</a> to use SDO or XSD.</p>
 
-<p>Make sure you read the <a href="http://download.eclipse.org/tools/emf/scripts/downloads.php">installation requirements</a> before you install EMF. Basically, you need to have <a href="http://www.eclipse.org/downloads/index.php">Eclipse 3.1 or 3.0.1</a> and a Java Development Kit (JDK) or Java Runtime Environment (JRE) 1.4 installed before you install EMF, SDO, or XSD via Update Manager. (To run pre-compiled code, a JRE will suffice; if you intend to use Eclipse to compile code, a full JDK is required.)</p>
+<p>Make sure you read the <a href="http://www.eclipse.org/emf/downloads/">installation requirements</a> before you install EMF. Basically, you need to have <a href="http://www.eclipse.org/downloads/index.php">Eclipse 3.1 or 3.0.1</a> and a Java Development Kit (JDK) or Java Runtime Environment (JRE) 1.4 installed before you install EMF, SDO, or XSD via Update Manager. (To run pre-compiled code, a JRE will suffice; if you intend to use Eclipse to compile code, a full JDK is required.)</p>
 
 <p>When installing, you can choose from installing the SDK (includes everything - EMF, SDO, and XSD - but not the Examples) or can choose sources, docs, or runtimes separately. The minimum to run SDO is the EMF runtime and the SDO runtime. For XSD, you need XSD and EMF runtimes; for EMF, just the EMF runtime.</p>
 
@@ -106,9 +115,10 @@ name="step1b">&nbsp;</a><a href="#top">contents</a></p>
 
 <img src="images/uum04.gif" border="0" alt="Click 'New Remote Site...' to add a new update site">
 
-<br/><br/>If you browse to this site, <a href="http://download.eclipse.org/tools/emf/updates/site.xml">http://download.eclipse.org/tools/emf/updates/</a>, you can see an list of the available updates there as well.
+<br/><br/>If you browse to this site, <a href="http://www.eclipse.org/emf/updates/">http://www.eclipse.org/emf/updates/</a>, 
+you can see an list of the available updates there as well.
 
-<br/><br/><img src="images/uum03.gif" border="0" alt="Enter 'http://download.eclipse.org/tools/emf/updates/'">
+<br/><br/><img src="images/uum03.gif" border="0" alt="Enter 'http://www.eclipse.org/emf/updates/'">
 
 <br/><br/>Then expand the twisty under the newly added site to reveal the categories beneath (see <a href="#img02">image</a> above). Choose the EMF SDK and version you would like to install.
 
@@ -136,9 +146,18 @@ name="step3">&nbsp;</a><a href="#top">contents</a></p>
 
 <h3> Step 3. Accept Licenses, Choose Install Location, Begin Download</h3>
 
-<p>Note: the images below are taken from the installation of 2.0.0 Relase installed from the <a href="http://download.eclipse.org/tools/emf/updates/site.xml">Eclipse Modeling Framework (EMF) Updates</a>. If you're installing from the <a href="http://update.eclipse.org/updates/3.0/site.xml">Eclipse.org update site</a>, you will not see the 4th part of the version, that is, you will see 2.0.0 instead of 2.0.0.R200406280827. Note also that due to the way that Eclipse handles plugin versioning, to update from 2.0.0.I to 2.0.0, or 2.0.1.M to 2.0.1 is not possible. You cannot update from a 4-part version to its equivalent 3-part version, since Update Manager considers that 2.0.0 < 2.0.0.R. You can, however, upgrade from 2.0.0.R to 2.0.1.</p>
+<p>Note: the images below are taken from the installation of 2.0.0 Relase installed from the 
+<a href="http://www.eclipse.org/emf/updates/">Eclipse Modeling Framework (EMF) Updates</a>. 
+If you're installing from the <a href="http://update.eclipse.org/updates/3.0/site.xml">Eclipse.org update site</a>, you will not see the 4th part of the version, 
+that is, you will see 2.0.0 instead of 2.0.0.R200406280827. Note also that due to the way that Eclipse handles plugin versioning, to update from 
+2.0.0.I to 2.0.0, or 2.0.1.M to 2.0.1 is not possible. You cannot update from a 4-part version to its equivalent 3-part version, since Update Manager 
+considers that 2.0.0 < 2.0.0.R. You can, however, upgrade from 2.0.0.R to 2.0.1.</p>
 
-<p>So, to move from an <a href="http://download.eclipse.org/tools/emf/updates/site.xml">I or M build</a> to its <a href="http://download.eclipse.org/tools/emf/updates/site-release.xml">Release</a>, you must either uninstall/disable that version and install fresh, or update from 2.0.1.M to 2.0.1.R (not 2.0.1), keeping that 4th version part intact.</p>
+<p>So, to move from an I or M build to its Release, 
+you must either uninstall/disable that version and install fresh, or update from 2.0.1.M to 2.0.1.R (not 2.0.1), keeping that 4th version part intact.</p>
+
+<p><img width="12" height="12" src="/emf/images/green-box.gif"
+      border="0" /> <b>Note:</b>As of EMF 2.2, this issue no longer applies as all builds contain a 4th part defining the timestamp of the build itself. You can now seamlessly upgrade from version to version using Update Manager.</p> 
 
 <img src="images/uum07.gif" border="0" alt="Accept the license(s) and click 'Next'">
 
@@ -215,7 +234,7 @@ The following eight plug-ins relate to XSD:</p>
 <li>org.eclipse.emf.mapping.xsd2ecore.editor</li>
 </ul>
 
-<p>If you installed XSD, don't forget about the <a href="http://download.eclipse.org/tools/emf/scripts/downloads-xerces.php">Crimson DOM bug</a> when running Eclipse.</p>
+<p>If you installed XSD, don't forget about the <a href="http://www.eclipse.org/emf/downloads/install.php">Crimson DOM bug</a> when running Eclipse.</p>
 
 &nbsp;
 <p><b>Conclusion</b><br>
