@@ -960,7 +960,7 @@
 	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="June 22, 2004" showOn="whatsnew">
-	EMF, SDO, and XSD now have an Eclipse 3.0 Update Manager site you can use. Details (including mirror info) posted to the <a href="http://www.eclipse.org/emf/faq/faq.php">FAQ</a>. Instructions &amp; list of available builds <a href="http://download.eclipse.org/tools/emf/updates/">here</a>.
+	EMF, SDO, and XSD now have an Eclipse 3.0 Update Manager site you can use. Details (including mirror info) posted to the <a href="http://www.eclipse.org/emf/faq/faq.php">FAQ</a>. Instructions &amp; list of available builds <a href="http://www.eclipse.org/emf/updates/">here</a>.
 </news>
 <news date="June 22, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.0.0#emf_200">Version 2.0.0</a> Integration build
@@ -1107,6 +1107,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.186 2006/08/25 16:31:06 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.187 2006/08/30 21:58:21 nickb Exp $ -->
 
 </doc>

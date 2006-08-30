@@ -8,7 +8,7 @@
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/08/23 19:46:44 $</modified>
+  <modified>$Date: 2006/08/30 21:58:21 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -351,9 +351,7 @@ IBM Internal can use:
 
 The rest of the world can use:
 <ul>
-<li><a href="http://download.eclipse.org/tools/emf/updates/" target="_upd">http://download.eclipse.org/tools/emf/updates/</a></li>
-<li><a href="http://eclipse.mirrors.tds.net/tools/emf/updates/" target="_upd">http://eclipse.mirrors.tds.net/tools/emf/updates/</a></li>
-<li>(or other mirrors with similar paths. some mirrors use <b>/eclipse</b>/tools/emf/updates/)</li>
+<li><a href="http://www.eclipse.org/emf/updates/" target="_upd">http://www.eclipse.org/emf/updates/</a></li>
 </ul>
 If you're not familiar with Update Manager, surf to one of the above URLs and read the instructions there.
 <br/><br/>
@@ -1728,11 +1726,11 @@ Why does EMF refuses to accept my schema file?
     </question>
     <answer>
 The following problem has been reported many times in the org.eclipse.emf newsgroup:<br /><br />
-<b><a style="background-color:yellow;color:black" target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">Click here if you load or import model(s) from XML Schema.</a></b>
+<b><a style="background-color:yellow;color:black" target="_xml" href="http://www.eclipse.org/emf/downloads/install.php">Click here if you load or import model(s) from XML Schema.</a></b>
 <br/><br/>
 
 The Crimson DOM implementation in (some versions of) the Sun JDK has a bug in the implementation of
-<tt>hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://www.eclipse.org/emf/downloads-xerces.php">click here for details</a>.<br />
+<tt>hasAttributeNS</tt>. To resolve this, <a target="_xml" href="http://www.eclipse.org/emf/downloads/install.php">click here for details</a>.<br />
 
 This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 <ul>
@@ -1805,6 +1803,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.20 2006/08/23 19:46:44 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.21 2006/08/30 21:58:21 nickb Exp $ -->
 
 </faq>
