@@ -21,7 +21,7 @@
 
 	$Nav->addNavSeparator("Downloads", "$downurl/emf/downloads/");
 	$Nav->addCustomNav("Installation", "$rooturl/emf/downloads/install.php", "_self", 2);
-	$Nav->addCustomNav("Update Manager", "$rooturl/tools/emf/updates/", "_self", 2);
+	$Nav->addCustomNav("Update Manager", "$rooturl/emf/updates/", "_self", 2);
 
 	$Nav->addNavSeparator("Documentation", "$rooturl/emf/docs/");
 	$Nav->addCustomNav("Getting Started", "http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.html", "_self", 2);
