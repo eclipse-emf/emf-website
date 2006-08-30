@@ -47,7 +47,7 @@
     <td bgcolor="#CFFFFF" width="116" height="1"></td>
   </tr>
   <tr valign="CENTER">
-    <td valign="CENTER" height="21">&#160; <a href="http://www.eclipse.org/tools/emf/updates/" class="nav">Update Manager</a></td>
+    <td valign="CENTER" height="21">&#160; <a href="http://www.eclipse.org/emf/updates/" class="nav">Update Manager</a></td>
   </tr>
 
   <tr>
@@ -292,4 +292,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.18 2006/08/23 23:46:51 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.19 2006/08/30 16:04:06 nickb Exp $ -->
