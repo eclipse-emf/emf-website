@@ -1,4 +1,5 @@
-<?php  																														require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());    # All on the same line to unclutter the user's desktop'
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());    # All on the same line to unclutter the user's desktop'
 $pre = "";
 	ob_start();
 ?>
@@ -22,25 +23,23 @@ $pre = "";
 		<p><b>If you <b style="color:green">will be</b> loading or importing model(s) from XML Schema</b>, you need to be aware of the following bug &amp; its workaround.</p>
 
 		<ul>
-			<li style="border-bottom: 0px">The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
+			<li class="requirements">The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
 			This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 				<ul>
-					<li style="border-bottom: 0px">a null pointer exception, or</li>
-					<li style="border-bottom: 0px">the error message "Specify a valid XML Schema and try loading again".</li>
+					<li class="requirements">a null pointer exception, or</li>
+					<li class="requirements">the error message "Specify a valid XML Schema and try loading again".</li>
 				</ul>
-            </li>
+      </li>
             
-			<li style="border-bottom: 0px">To avoid this, use the following to control the JAXP implementation:
+			<li class="requirements">To avoid this, use the following to control the JAXP implementation:
 				<pre style="background-color:yellow"><b>&lt;eclipse-install-dir&gt;</b>eclipse.exe -vmargs <br/>&#160;&#160;&#160;-D<a href="http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html">java.endorsed.dirs</a>=<b>&lt;path-to-your-xerces-jars-folder&gt;</b></pre>
-
 			</li>
 
-			<li style="border-bottom: 0px">For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
-			
+			<li class="requirements">For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
 				<ul>
-				<li style="border-bottom: 0px"><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<li class="requirements"><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
 				<a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j">Download XML4J from IBM alphaWorks</a></li>
-				<li style="border-bottom: 0px"><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<li class="requirements"><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
 				<a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi">Download Xerces2-J from apache.org</a></li>
 				</ul>
 			</li>
@@ -60,5 +59,6 @@ $pre = "";
 	$pageKeywords = ""; //TODO: add something here
 	$pageAuthor = "Nick Boldt";
 
+  $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/downloads.css"/>' . "\n");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
