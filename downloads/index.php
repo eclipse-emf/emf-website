@@ -987,7 +987,7 @@ function doLanguagePacks()
 	global $downloadScript, $downloadPre; ?>
 <!-- language packs -->
 <div class="homeitem3col">
-	<a name="#NLS"></a>
+	<a name="NLS"></a>
 	
 	<h3>Language Packs</h3>
 
