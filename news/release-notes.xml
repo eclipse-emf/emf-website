@@ -22,6 +22,7 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200608241248" project="emf" version="2.2.1"/>
 <entry build="M200608241248" project="emf" version="2.2.1">
 <bug id="153309">Phoenixize EMF website</bug>
 <bug id="154300">Elminate package protected methods, clases, and fields in Mapping Editor</bug>
@@ -74,6 +75,7 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200608241248" project="xsd" version="2.2.1"/>
 <entry build="M200608241248" project="xsd" version="2.2.1">
 <bug id="154290">Improve performance of load...</bug>
 <bug id="154955">Hygiene - no version tolerances</bug>
@@ -112,4 +114,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.198 2006/08/24 18:51:42 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.199 2006/08/31 05:06:44 nickb Exp $ -->
