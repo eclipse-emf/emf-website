@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
 <news date="August 31, 2006" showOn="whatsnew">
+	<!-- M200608311032 -->
+	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
+	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200608311032</a>) is available 
+	for <a href="downloads.php">download</a>.
+</news>
+<news date="August 31, 2006" showOn="whatsnew">
 	<!-- M200608241248 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200608241248</a>) is available 
@@ -1113,6 +1119,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.188 2006/08/31 05:06:44 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.189 2006/08/31 15:17:40 nickb Exp $ -->
 
 </doc>

@@ -22,6 +22,10 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200608311032" project="emf" version="2.2.1">
+<bug id="155409">GenModelEditor: Adding to unmodifiable list</bug>
+</entry>
+
 <entry build="M200608241248" project="emf" version="2.2.1"/>
 <entry build="M200608241248" project="emf" version="2.2.1">
 <bug id="153309">Phoenixize EMF website</bug>
@@ -75,6 +79,12 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200608311032" project="xsd" version="2.2.1">
+<bug id="155289">NullPointerException when trying to copy and paste.</bug>
+<bug id="155338">relative path for the xsd:import schemaLocation</bug>
+<bug id="155345">xsd:choice in a xsd:group breaks ecore:featureMap=&quot;choices&quot;</bug>
+</entry>
+
 <entry build="M200608241248" project="xsd" version="2.2.1"/>
 <entry build="M200608241248" project="xsd" version="2.2.1">
 <bug id="154290">Improve performance of load...</bug>
@@ -114,4 +124,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.199 2006/08/31 05:06:44 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.200 2006/08/31 15:17:41 nickb Exp $ -->
