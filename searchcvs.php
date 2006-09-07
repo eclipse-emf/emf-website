@@ -109,7 +109,7 @@ mysql_close($connect);
 <div id="rightcolumn">
 	<div class="sideitem">
 		<h6>Help</h6>
-		<a href="http://wiki.eclipse.org/index.php/Search_CVS">Consult the wiki</a>, or try these examples:
+		<p><a href="http://wiki.eclipse.org/index.php/Search_CVS">Consult the wiki</a>, or try these examples:</p>
 		<ul>
 			<li><a href="?q=%5B155286%5D">[155286]</a></li>
 			<li><a href="?q=98877+file%3A+ChangeAdapter">98877 file: ChangeAdapter</a></li>
@@ -120,9 +120,7 @@ mysql_close($connect);
 			<li><a href="?q=%22package+protected%22">"package protected"</a></li>
 			<li><a href="?q=Neil+Skrypuch">Neil Skrypuch</a></li>
 		</ul>
-        See also the complete <a href="http://wiki.eclipse.org/index.php/Search_CVS#Parameter_List">Parameter List</a>.
-	</div>
-	<div class="sideitem">
+        <p>See also the complete <a href="http://wiki.eclipse.org/index.php/Search_CVS#Parameter_List">Parameter List</a>.</p> 
 	</div>
 </div>
 <?php
