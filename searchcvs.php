@@ -17,7 +17,7 @@ $extraf = array(
 	array("regex" => "/author: ?(\S+)/", "sql" => "`author` LIKE '%%%s%%'", "sqlpart" => "where"),
 	array("regex" => "/file: ?(\S+)/", "sql" => "`cvsname` LIKE '%%%s%%'", "sqlpart" => "where"),
 	array("regex" => "/days: ?(\d+)/", "sql" => "`date` >= DATE_SUB(CURDATE(), INTERVAL %d DAY)", "sqlpart" => "where"),
-	array("regex" => "/(?:project|module): ?(\S+)/", "sql" => "`project` LIKE '%%%s%%'", "sqlpart" => "where"),
+	array("regex" => "/(?:project|module): ?(\S+)/", "sql" => "`project` LIKE '%s'", "sqlpart" => "where"),
 	array("regex" => "/branch: ?(\S+)/", "sql" => "`branch` LIKE '%%%s%%'", "sqlpart" => "having") //is a calculated value, won't work in WHERE
 );
 
@@ -36,7 +36,7 @@ $regs = array();
 /* this *could* be put into $extraf, but it would change the semantics slightly, in that any number searched for would be treated as a bug #, which i think is undesirable */
 if (preg_match("/^\s*\[?(\d+)\]?\s*$/", $_GET["q"], $regs))
 {
-	$_GET["q"] = $regs[1]; //TODO: check if we're allowed to write to $_GET on *.eclipse.org
+	$_GET["q"] = $regs[1]; 
 	$where = "WHERE `bugid` = $regs[1]";
 	$et = "Bug #";
 }
@@ -65,7 +65,7 @@ else if (preg_match("/(\S)/", $q, $regs) || sizeof($extra["where"]) + sizeof($ex
 	</div>
 </div>
 <?php
-//TODO: put the search box in focus, somehow, despite not being able to add a body onLoad=
+
 /* 1.1.2.x <- 1.1.0.2 = branch tag, likewise, 1.1.4.x <- 1.1.0.4 = branch tag, so dynamically rewrite a.b.c.d to a.b.0.c to find the branch tag */
 $branch = "IF(`revision` LIKE '%.%.%.%', (SELECT `tagname` FROM `tags` NATURAL JOIN `filetags` WHERE `fid` = `ofid` AND `revision` = CONCAT(SUBSTRING_INDEX(`orev`, '.', 2), '.0.', SUBSTRING_INDEX(SUBSTRING_INDEX(`orev`, '.', -2), '.', 1))), 'HEAD')";
 $sql = "SELECT SQL_CALC_FOUND_ROWS `cvsname`, `revision`, `date`, `author`, `message`, `keyword_subs`, `bugid`, `revision` AS `orev`, `fid` AS `ofid`, $branch AS `branch`$ec FROM `cvsfiles` NATURAL JOIN `commits` NATURAL LEFT JOIN `bugs` $where GROUP BY `fid`, `revision`, `bugid` $having $order LIMIT $offset, $pagesize";
@@ -108,15 +108,21 @@ mysql_close($connect);
 ?>
 <div id="rightcolumn">
 	<div class="sideitem">
-		<h6>Examples:</h6>
+		<h6>Help</h6>
+		<a href="http://wiki.eclipse.org/index.php/Search_CVS">Consult the wiki</a>, or try these examples:
 		<ul>
 			<li><a href="?q=%5B155286%5D">[155286]</a></li>
-			<li><a href="?q=static+dynamic+project%3A+org.eclipse.emf">static dynamic project: org.eclipse.emf</a></li>
-			<li><a href="?q=days%3A200+author%3Amerks">days:200 author:merks</a></li>
 			<li><a href="?q=98877+file%3A+ChangeAdapter">98877 file: ChangeAdapter</a></li>
-			<li><a href="?q=%22package+protected+things%22">"package protected things"</a></li>
+			<li><a href="?q=file:+org.eclipse.emf/+days:+7">file: org.eclipse.emf/ days: 7</a></li>
+			<li><a href="?q=days%3A200+author%3Amerks">days:200 author:merks</a></li>
+			<li><a href="?q=branch:+R2_1_+file:+.xml">branch: R2_1_ file: .xml</a></li>
+			<li><a href="?q=static+dynamic+project%3A+org.eclipse.emf">static dynamic project: org.eclipse.emf</a></li>
+			<li><a href="?q=%22package+protected%22">"package protected"</a></li>
 			<li><a href="?q=Neil+Skrypuch">Neil Skrypuch</a></li>
 		</ul>
+        See also the complete <a href="http://wiki.eclipse.org/index.php/Search_CVS#Parameter_List">Parameter List</a>.
+	</div>
+	<div class="sideitem">
 	</div>
 </div>
 <?php
