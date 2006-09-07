@@ -22,6 +22,11 @@
 
 <!-- 2.2.1 -->
 
+<entry build="M200609071016" project="emf" version="2.2.1">
+<bug id="155777">JET compiler output code page cannot be set</bug>
+<bug id="156431">EcoreUtil#isAncestor(EObject, EObject) could result in infinite loop</bug>
+</entry>
+
 <entry build="M200608311032" project="emf" version="2.2.1"/>
 <entry build="M200608311032" project="emf" version="2.2.1">
 <bug id="155409">GenModelEditor: Adding to unmodifiable list</bug>
@@ -79,6 +84,10 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="M200609071016" project="xsd" version="2.2.1">
+<bug id="155794">XSDSchemaImpl.getDocument() is not serializable when loading the schema from an existing file.</bug>
+</entry>
+
 <entry build="M200608311032" project="xsd" version="2.2.1"/>
 <entry build="M200608311032" project="xsd" version="2.2.1">
 <bug id="155289">NullPointerException when trying to copy and paste.</bug>
@@ -124,4 +133,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.202 2006/09/07 05:06:58 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.203 2006/09/07 15:09:59 nickb Exp $ -->
