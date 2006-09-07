@@ -1,5 +1,6 @@
 <?php
-$connect = mysql_connect("emft.eclipse.org", "modelingwww", "mjNDPzJ88v6xZRa4");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/emf/includes/searchcvs-dbaccess.php";
+$connect = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db($db ? $db : "modeling", $connect) or die(mysql_error());
 
 function wmysql_query($sql)
