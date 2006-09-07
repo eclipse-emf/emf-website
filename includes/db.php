@@ -1,6 +1,6 @@
 <?php
 $connect = mysql_connect("emft.eclipse.org", "modelingwww", "mjNDPzJ88v6xZRa4");
-mysql_select_db($db ? $db : "modeling") or die(mysql_error());
+mysql_select_db($db ? $db : "modeling", $connect) or die(mysql_error());
 
 function wmysql_query($sql)
 {
