@@ -3,8 +3,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 
 ob_start();
 ?>
-<?php include_once "release-notes-form-controls.xml"; ?>
 <div id="midcolumn">
+<?php include_once "release-notes-form-controls.xml"; ?>
 <div class="homeitem3col"><h3><a class="projtitle" href="#emf">EMF &amp; SDO Release Notes</a></h3><ul><li class="header"><div class="fr">Bugs Closed</div></li>
 <li><div class="cb"><div class="fr">6</div><b>2.1.2 Release</b></div><div style="display:none" id="emf-2.1.2"><div class="fl"><a href="http://www.eclipse.org/emf/searchcvs.php?q=121600&amp;Bugzilla=121600"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas"/></a><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=121600" target="_bugz">121600</a>,
 &#160;</div><div class="fl"><a href="http://www.eclipse.org/emf/searchcvs.php?q=121597&amp;Bugzilla=121597"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas"/></a><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=121597" target="_bugz">121597</a>,
