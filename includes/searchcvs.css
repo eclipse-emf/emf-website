@@ -40,7 +40,7 @@ abbr
 	padding: 0.3em;
 }
 
-#midcolumn .homeitem3col .pager span#selected
+#midcolumn .homeitem3col .pager span.selected
 {
 	border-bottom: 1px dotted black;
 	border-top: 1px dotted black;

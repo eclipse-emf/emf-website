@@ -113,9 +113,9 @@ mysql_close($connect);
 		<ul>
 			<li><a href="?q=%5B155286%5D">[155286]</a></li>
 			<li><a href="?q=98877+file%3A+ChangeAdapter">98877 file: ChangeAdapter</a></li>
-			<li><a href="?q=file:+org.eclipse.emf/+days:+7">file: org.eclipse.emf/ days: 7</a></li>
+			<li><a href="?q=file%3A+org.eclipse.emf%2F+days%3A+7">file: org.eclipse.emf/ days: 7</a></li>
 			<li><a href="?q=days%3A200+author%3Amerks">days:200 author:merks</a></li>
-			<li><a href="?q=branch:+R2_1_+file:+.xml">branch: R2_1_ file: .xml</a></li>
+			<li><a href="?q=branch%3A+R2_1_+file%3A+.xml">branch: R2_1_ file: .xml</a></li>
 			<li><a href="?q=static+dynamic+project%3A+org.eclipse.emf">static dynamic project: org.eclipse.emf</a></li>
 			<li><a href="?q=%22package+protected%22">"package protected"</a></li>
 			<li><a href="?q=Neil+Skrypuch">Neil Skrypuch</a></li>
@@ -221,7 +221,7 @@ function pagelink($page, $selected, $linktext = "")
 {
 	$innertext = ($linktext ? $linktext : $page);
 	$text = (!$selected ? "<a href=\"?q=" . sanitize($_GET["q"]) . "&amp;p=$page\">$innertext</a>" : $innertext);
-	return "<span" . ($selected ? " id=\"selected\"" : "") . ">$text</span>";
+	return "<span" . ($selected ? " class=\"selected\"" : "") . ">$text</span>";
 }
 
 function dopager($rows, $page, $pagesize)
