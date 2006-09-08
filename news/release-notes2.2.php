@@ -4,6 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 ob_start();
 ?>
 <div id="midcolumn">
+<?php include_once "release-notes-form-controls.xml"; ?>
 <div class="homeitem3col"><h3><a class="projtitle" href="#emf">EMF &amp; SDO Release Notes</a></h3><ul><li class="header"><div class="fr">Bugs Closed</div></li><li><div class="cb"><div class="fr">513</div><b>2.2.0 Release</b> (In Progress)</div><div style="display:none" id="emf-2.2.0"><div class="fl"><a href="http://www.eclipse.org/emf/searchcvs.php?q=147125&amp;Bugzilla=147125"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas"/></a><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=147125" target="_bugz">147125</a>,
 &#160;</div><div class="fl"><a href="http://www.eclipse.org/emf/searchcvs.php?q=147038&amp;Bugzilla=147038"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas"/></a><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=147038" target="_bugz">147038</a>,
 &#160;</div><div class="fl"><a href="http://www.eclipse.org/emf/searchcvs.php?q=146838&amp;Bugzilla=146838"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas"/></a><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=146838" target="_bugz">146838</a>,

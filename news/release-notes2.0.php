@@ -4,6 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 ob_start();
 ?>
 <div id="midcolumn">
+<?php include_once "release-notes-form-controls.xml"; ?>
 <div class="homeitem3col"><h3><a class="projtitle" href="#emf">EMF &amp; SDO Release Notes</a></h3><ul><li class="header"><div class="fr">Bugs Closed</div></li>
 <li><div class="cb"><div class="fr">0</div><b>2.0.5 Release</b></div><div style="display:none" id="emf-2.0.5"><div class="fl">&#9632;</div></div><div class="cb"><a id="emf-2.0.5-tog" href="javascript:toggle('emf-2.0.5')">show bug numbers</a></div></li>
 <li><div class="cb"><div class="fr">2</div><b>2.0.4 Release</b></div><div style="display:none" id="emf-2.0.4"><div class="fl"><a href="http://www.eclipse.org/emf/searchcvs.php?q=105538&amp;Bugzilla=105538"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas"/></a><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=105538" target="_bugz">105538</a>,
