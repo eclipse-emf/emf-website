@@ -60,7 +60,7 @@
 						<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">
 							<div class="fl">
 							<xsl:if test="(substring(../@build,1,5) = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202">
-								<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas - What's New, CVS?"/></a>
+								<a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a>
 							</xsl:if><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id"/></a>, <xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							</div>
 						</xsl:if>
@@ -128,7 +128,7 @@
 							</xsl:choose>
 							</div>
 							<xsl:if test="(substring(../@build,1,5) = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202">
-								<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source={../@project}&amp;bug={@id}&amp;Bugzilla={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Deltas - What's New, CVS?"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
+								<a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							</xsl:if>
 							<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							<xsl:value-of select="."/>
@@ -151,4 +151,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.40 2006/08/21 21:25:13 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.41 2006/09/08 21:11:58 nickb Exp $ -->

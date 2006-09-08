@@ -26,11 +26,10 @@
 	<input type="submit" name="z" value="Go!"/>
 	</p>
 	</form>
-	<form action="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php" method="get" name="bugform" onsubmit="javascript:document.getElementById('Bugzilla').value = document.getElementById('bug').value" target="_blank">
+	<form action="http://www.eclipse.org/emf/searchcvs.php" method="get" name="bugform" target="_blank">
 	<p>
 	<input type="hidden" name="source" value="emf"/>
-	<label for="bug">CVS Delta for Bug ID: </label><input size="7" type="text" name="bug" id="bug"/>
-	<input type="hidden" name="Bugzilla" id="Bugzilla" value=""/>
+	<label for="bug">CVS Delta for Bug ID: </label><input size="7" type="text" name="q" id="q"/>
 	<input type="submit" value="Go!"/>
 	</p>
 	</form>

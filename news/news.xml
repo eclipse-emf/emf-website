@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
 <news date="September 07, 2006" showOn="whatsnew">
+	<a href="http://www.eclipse.org/emf/searchcvs.php?q=project%3A+org.eclipse.emf+days%3A+7">Search CVS</a> tool launched for tracking CVS changes.
+</news>
+<news date="September 07, 2006" showOn="whatsnew">
 	<!-- M200609071016 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200609071016</a>) is available 
@@ -810,7 +813,7 @@
 	Since April 2004, there have been over 75,000 downloads of EMF, SDO, and XSD documentation!
 </news>
 <news date="October 14, 2004" showOn="whatsnew">
-	<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf">What's New, CVS?</a> tool launched for tracking CVS changes.
+	<a href="http://www.eclipse.org/emf/searchcvs.php?q=project%3A+org.eclipse.emf+days%3A+7">What's New, CVS?</a> tool launched for tracking CVS changes (replaced by Search CVS, 2006-09-07).
 </news>
 <news date="October 14, 2004" showOn="whatsnew">
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.1.0#emf_210">Version 2.1.0</a> Integration build
@@ -1119,6 +1122,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.193 2006/09/07 20:45:59 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.194 2006/09/08 21:11:58 nickb Exp $ -->
 
 </doc>
