@@ -99,7 +99,7 @@
   </tr>
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" class="nav">What&#39;s New, CVS?</a>
+      &#160; <a href="http://www.eclipse.org/emf/searchcvs.php?q=project%3A+org.eclipse.emf+days%3A+7" class="nav">Search CVS</a>
     </td>
   </tr>
 
@@ -292,4 +292,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.19 2006/08/30 16:04:06 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.20 2006/09/08 21:11:44 nickb Exp $ -->

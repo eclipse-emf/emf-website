@@ -81,11 +81,7 @@
 <div class="homeitem">
 	<h3>Development</h3>
 	<p>
-		<?php if ($isEMFserver) { ?>
-			<a href="/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self">What's New, CVS?</a> :: <a href="/whatsnew-cvs/build.php" target="_self">Regenerate</a><br/>
-		<?php } else { ?>
-			<a href="http://download.eclipse.org/tools/emf/scripts/news-whatsnew-cvs.php?source=emf" target="_self">What's New, CVS?</a> <span class="info">(weekly delta)</span><br/>
-		<?php } ?>
+		<a href="http://www.eclipse.org/emf/searchcvs.php?q=project%3A+org.eclipse.emf+days%3A+7" target="_self">Search CVS</a> <br/>
 		<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf/" target="_self">EMF</a>, 
 		<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.emf.ecore.sdo/" target="_self">SDO</a>,
 		<a href="http://dev.eclipse.org/viewcvs/indextools.cgi/org.eclipse.xsd/" target="_self">XSD</a>

@@ -27,7 +27,7 @@
 	$Nav->addCustomNav("Getting Started", "http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/references/overview/EMF.html", "_self", 2);
 	$Nav->addCustomNav("FAQ", "$rooturl/emf/faq/faq.php", "_self", 2);
 	$Nav->addCustomNav("Release Notes", "$rooturl/emf/news/release-notes.php", "_self", 2);
-	$Nav->addCustomNav("What's New, CVS?", "$wnurl/tools/emf/scripts/news-whatsnew-cvs.php?source=emf", "_self", 2);
+	$Nav->addCustomNav("Search CVS", "$rooturl/emf/searchcvs.php?q=project%3A+org.eclipse.emf+days%3A+7", "_self", 2);
 
 	$Nav->addNavSeparator("Community", "http://wiki.eclipse.org/index.php/Modeling_Corner");
 	$Nav->addCustomNav("Newsgroup", "$rooturl/emf/newsgroup-mailing-list.php", "_self", 2);
