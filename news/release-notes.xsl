@@ -59,9 +59,8 @@
 						<xsl:sort select="@id" data-type="number" order="descending" />
 						<xsl:if test="starts-with(../@version,$thisVersion) and ../@project = $thisProject">
 							<div class="fl">
-							<xsl:if test="(substring(../@build,1,5) = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202">
-								<a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a>
-							</xsl:if><a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id"/></a>, <xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
+							<a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a>
+							<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id"/></a>, <xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							</div>
 						</xsl:if>
 					</xsl:for-each>
@@ -127,9 +126,7 @@
 								<xsl:otherwise><img src="../images/icon-{../@project}.gif" alt="{../@project}"/></xsl:otherwise>
 							</xsl:choose>
 							</div>
-							<xsl:if test="(substring(../@build,1,5) = ../@version) or number(substring(../@build,2,8)) &gt;= 20041202">
-								<a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
-							</xsl:if>
+						    <a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							<xsl:value-of select="."/>
 							</li>
@@ -151,4 +148,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.41 2006/09/08 21:11:58 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.42 2006/09/08 21:25:05 nickb Exp $ -->
