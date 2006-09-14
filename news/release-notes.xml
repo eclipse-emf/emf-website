@@ -22,6 +22,17 @@
 
 <!-- 2.2.1 -->
 
+<entry build="2.2.1RC1" project="emf" version="2.2.1" buildID="S200609141116">
+<bug id="155902">emf URI cache should be bounded or weak reference, otherwise its a memory leak</bug>
+<bug id="156798">BasicEObjectImpl.eSetting doesn&apos;t handle open content features</bug>
+<bug id="156809">plugin.properties not found if runtime is stand-alone</bug>
+<bug id="157043">ConcurrentModificationException on EditUIMarkerHelper hasMarkers and deleteMarkers</bug>
+<bug id="157181">Grouping packages in the main javadoc page</bug>
+<bug id="157210">Standalone code generation fails in AbstractGeneratorAdapter.exists() for non-file URIs</bug>
+<bug id="157227">Proper use of the org.eclipse.pde.core.javadoc extension point</bug>
+<bug id="157246">GenPackageGeneratorAdaptor.doPostGenerate() invokes super.doPreGenerate()</bug>
+</entry>
+
 <entry build="M200609071016" project="emf" version="2.2.1">
 <bug id="155777">JET compiler output code page cannot be set</bug>
 <bug id="156431">EcoreUtil#isAncestor(EObject, EObject) could result in infinite loop</bug>
@@ -83,6 +94,10 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="2.2.1RC1" project="xsd" version="2.2.1" buildID="S200609141116">
+<bug id="157227">Proper use of the org.eclipse.pde.core.javadoc extension point</bug>
+</entry>
+
 <entry build="M200609071016" project="xsd" version="2.2.1">
 <bug id="155794">XSDSchemaImpl.getDocument() is not serializable when loading the schema from an existing file.</bug>
 </entry>
@@ -131,4 +146,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.204 2006/09/07 20:45:59 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.205 2006/09/14 19:50:56 nickb Exp $ -->
