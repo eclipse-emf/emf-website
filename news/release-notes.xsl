@@ -51,7 +51,14 @@
 						<xsl:value-of select="string-length($matchCount)"/>
 					</xsl:if>
 					</div>
-					<b><xsl:value-of select="$thisVersion"/> Release</b>
+					<xsl:choose>
+						<xsl:when test="string-length($isReleaseBuild) &lt; 1">
+							<b><xsl:value-of select="$thisVersion"/> Release</b>
+						</xsl:when>
+						<xsl:otherwise>
+							<b><a href="#r{$thisVersion}"><xsl:value-of select="$thisVersion"/> Release</a></b>
+						</xsl:otherwise>
+					</xsl:choose>
 					<xsl:if test="string-length($isReleaseBuild) &lt; 1"> (In Progress)</xsl:if>
 					</div>
 					<div style="display:none" id="{$thisProject}-{$thisVersion}">
@@ -100,6 +107,7 @@
 						<li class="release">
 						<xsl:value-of select="@build"/> Release
 						<xsl:if test="string-length($matchCount)>1"><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>(<xsl:value-of select="string-length($matchCount)"/> Bugs)</xsl:if>
+						<a name="r{@version}"><xsl:text disable-output-escaping="yes">&#038;nbsp;</xsl:text></a>
 						</li>
 					</xsl:if>
 
@@ -148,4 +156,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.42 2006/09/08 21:25:05 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.43 2006/09/15 04:14:10 nickb Exp $ -->
