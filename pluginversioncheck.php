@@ -5,7 +5,7 @@ ob_start();
 
 include("includes/db.php");
 
-$debug=0;
+$debug=isset($_GET["debug"]) ? $_GET["debug"] : 0;
 #$debuglimit="LIMIT 2";
 
 /* Set params */
@@ -100,12 +100,13 @@ foreach ($files as $m => $filegroup)
   }
 }
 
-if ($debug) 
+$count=0;
+foreach ($files as $m => $filegroup)
 {
- print date("[H:i:s] ");
- print ("Versions: \n");
- print_r ($files);
+  $count += sizeof($filegroup);
 }
+
+if ($debug) { print date("[H:i:s] "); print ("Versions: \n"); print_r ($files); }
 
 /* Produce HTML */
 
@@ -124,7 +125,7 @@ $output = '
 </div>
 
 <div class="homeitem3col">
-<h3><span>Changes to '.$targetVersion.' since '.$startdate.'</span>Showing results for ';
+<h3><span>'.$count.' changes to '.$targetVersion.' since '.$startdate.'</span>Showing results for ';
 $i=0;
 foreach ($modules as $mod => $c) { 
  if ($i>0) { $output .= ", "; }
@@ -145,10 +146,10 @@ foreach ($files as $m => $filegroup)
     foreach ($modules as $mod => $cvsrootsuffix) { 
       if (false!==strpos($filearray[1],$mod)) { $suf = $cvsrootsuffix; break; }
     }
-    $abbr = explode("/",$filearray[0]); $abbr = $abbr[sizeof($abbr)-1];
     $output .= '<li><div>'.$filearray[1].'</div>';
-    $output .= ' <a href="http://www.eclipse.org/emf/searchcvs.php?q=file%3A'.urlencode($filearray[0]).'"><abbr title="'.$filearray[0].'">'.$abbr.'</abbr></a> (<a href="http://dev.eclipse.org/viewcvs/index.cgi/*checkout*/'.$filearray[0].$suf.'">CVS</a>)'."\n";
-    $output .= ' <ul><li>Expected: '.$filearray[2].', Actual: <span style="'.(false!==strpos($filearray[3],"?")?"color:red":"").'">'.$filearray[3].'</span></li></ul>'."\n";
+    $output .= ' <a href="http://www.eclipse.org/emf/searchcvs.php?q=file%3A'.urlencode($filearray[0]).'">'.$filearray[0].'</a>';
+    $output .= ' (<a href="http://dev.eclipse.org/viewcvs/index.cgi/*checkout*/'.$filearray[0].$suf.'">CVS</a>)'."\n";
+    $output .= ' <ul><li>Expected: '.$filearray[2].', Actual: <span class="'.(false!==strpos($filearray[3],"?")?"warning":"").'">'.$filearray[3].'</span></li></ul>'."\n";
     $output .= '</li>'."\n";
   }
 }
@@ -160,6 +161,10 @@ $output .= '</ul>
 </div></div>
 ';
 
+?>
+<div id="rightcolumn"></div>
+<?php
+
 print $output;
 $html = ob_get_contents();
 ob_end_clean();
@@ -169,6 +174,7 @@ $pageKeywords = "";
 $pageAuthor = "Nick Boldt";
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/searchcvs.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/pluginversioncheck.css"/>' . "\n");
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
 ?>
