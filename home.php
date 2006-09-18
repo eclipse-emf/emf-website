@@ -34,7 +34,7 @@ include "${pre}includes/nav.php";
 
 <div id="rightcolumn">
 	<div class="sideitem">
-	<h6>News&#160;<a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"><img style="float:right" alt="EMF Build Feed" src="images/rss-atom10.gif" width="45" height="13" border="0"></a></h6>
+	<h6><a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"><img align="right" style="float:right" alt="EMF Build Feed" src="images/rss-atom10.gif" width="45" height="13" border="0"></a>News</h6>
 		<?php getNews(3, "whatsnew", "vert"); ?>
 		<ul>
 			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>

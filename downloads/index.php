@@ -108,7 +108,7 @@ if ($sortBy != "date")
   		foreach ($types as $type => $IDs)
   		{
   			print "<div class=\"homeitem3col\">\n";
-  			print "<h3>" . $buildTypes[$branch][$type] . "s&#160;<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a></h3>\n";
+  			print "<h3><a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img align=\"right\" style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a>" . $buildTypes[$branch][$type] . "s</h3>\n";
   			print "<ul class=\"releases\">\n";
   			$i = 0;
   			foreach ($IDs as $ID)
@@ -134,7 +134,7 @@ if ($sortBy != "date")
 	else 
 	{
 		print "<div class=\"homeitem3col\">\n";
-		print "<h3>Builds</h3>\n";
+		print "<h3><a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img align=\"right\" style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a>Builds</h3>\n";
 		print "<ul class=\"releases\">\n";
 	  print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
   	print "</ul>\n";
@@ -144,7 +144,7 @@ if ($sortBy != "date")
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<a name=\"latest\"></a><h3>Latest Builds&#160;<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a></h3>\n";
+	print "<a name=\"latest\"></a><h3><a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img align=\"right\" style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a>Latest Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
 	
