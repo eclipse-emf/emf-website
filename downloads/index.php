@@ -85,67 +85,91 @@ if (($options = loadOptionsFromFile($buildOptionsFile)) && is_array($options["Br
 }
 
 $builds = getBuildsFromDirs();
-if ($sortBy != "date")
+if (is_array($builds))
 {
-	$builds = reorderArray($builds, $buildTypes);
-}
-else
-{
-	krsort($builds);
+  if ($sortBy != "date")
+  {
+  	$builds = reorderArray($builds, $buildTypes);
+  }
+  else
+  {
+  	krsort($builds);
+  }
 }
 
 if ($sortBy != "date")
 {
 	$c = 0;
-	foreach ($builds as $branch => $types)
+	
+  if (is_array($builds))
+  {
+  	foreach ($builds as $branch => $types)
+  	{
+  		foreach ($types as $type => $IDs)
+  		{
+  			print "<div class=\"homeitem3col\">\n";
+  			print "<h3>" . $buildTypes[$branch][$type] . "s&#160;<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a></h3>\n";
+  			print "<ul class=\"releases\">\n";
+  			$i = 0;
+  			foreach ($IDs as $ID)
+  			{
+  				print outputBuild($branch, $ID, $c++);
+  				$i++;
+  
+  				if (!$showAll && $i == $showMax && $i < sizeof($IDs))
+  				{
+  					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
+  					break;
+  				}
+  				else if ($showAll && sizeof($IDs) > $showMax && $i == sizeof($IDs))
+  				{
+  					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
+  				}
+  			}
+  			print "</ul>\n";
+  			print "</div>\n";
+  		}
+  	}
+	}
+	else 
 	{
-		foreach ($types as $type => $IDs)
-		{
-			print "<div class=\"homeitem3col\">\n";
-			print "<h3>" . $buildTypes[$branch][$type] . "s</h3>\n";
-			print "<ul class=\"releases\">\n";
-			$i = 0;
-			foreach ($IDs as $ID)
-			{
-				print outputBuild($branch, $ID, $c++);
-				$i++;
-
-				if (!$showAll && $i == $showMax && $i < sizeof($IDs))
-				{
-					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
-					break;
-				}
-				else if ($showAll && sizeof($IDs) > $showMax && $i == sizeof($IDs))
-				{
-					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
-				}
-			}
-			print "</ul>\n";
-			print "</div>\n";
-		}
+		print "<div class=\"homeitem3col\">\n";
+		print "<h3>Builds</h3>\n";
+		print "<ul class=\"releases\">\n";
+	  print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
+  	print "</ul>\n";
+		print "</div>\n";
 	}
 }
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<a name=\"latest\"></a><h3>Latest Builds</h3>\n";
+	print "<a name=\"latest\"></a><h3>Latest Builds&#160;<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a></h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
-	foreach ($builds as $rID => $rbranch)
+	
+	if (is_array($builds)) 
 	{
-		$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
-		$branch = preg_replace("/.$/", "", $rbranch);
-		print outputBuild($branch, $ID, $c++);
-
-		if (!$showAll && $c == $showMax && $c < sizeof($builds))
-		{
-			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
-			break;
-		}
-		else if ($showAll && sizeof($builds) > $showMax && $c == sizeof($builds))
-		{
-			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
-		}
+  	foreach ($builds as $rID => $rbranch)
+  	{
+  		$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
+  		$branch = preg_replace("/.$/", "", $rbranch);
+  		print outputBuild($branch, $ID, $c++);
+  
+  		if (!$showAll && $c == $showMax && $c < sizeof($builds))
+  		{
+  			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
+  			break;
+  		}
+  		else if ($showAll && sizeof($builds) > $showMax && $c == sizeof($builds))
+  		{
+  			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
+  		}
+ 		}
+	}
+	else
+	{
+	  print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
 	}
 	print "</ul>\n";
 	print "</div>\n";
@@ -251,6 +275,7 @@ $pageAuthor = "Neil Skrypuch";
 
 # Generate the web page
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="'.$pre.'includes/downloads.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"/>' . "\n");
 $App->AddExtraHtmlHeader('<script src="'.$pre.'includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
@@ -291,24 +316,27 @@ function getBuildsFromDirs() // massage the builds into more useful structures
 		}
 	}
 
-	foreach ($buildDirs as $br => $dirList)
-	{
-		foreach ($dirList as $dir)
-		{
-			$ty = substr($dir, 0, 1); //first char
-
-			if ($sortBy != "date")
-			{
-				$builds_temp[$br][$ty][] = $dir;
-			}
-			else
-			{
-				$dttm = substr($dir, 1); // last 12 digits
-				$a = $dttm . $ty;
-				$b = $br . $ty;
-
-				$builds_temp[$a] = $b;
-			}
+  if (is_array($buildDirs))
+  {
+  	foreach ($buildDirs as $br => $dirList)
+  	{
+  		foreach ($dirList as $dir)
+  		{
+  			$ty = substr($dir, 0, 1); //first char
+  
+  			if ($sortBy != "date")
+  			{
+  				$builds_temp[$br][$ty][] = $dir;
+  			}
+  			else
+  			{
+  				$dttm = substr($dir, 1); // last 12 digits
+  				$a = $dttm . $ty;
+  				$b = $br . $ty;
+  
+  				$builds_temp[$a] = $b;
+  			}
+  		}
 		}
 	}
 
