@@ -260,8 +260,6 @@
     
     echo '<p align=right><small style="font-size:9px">'.$time->displaytime().'s</small></p>'."\n";
     
-	if ($doHeaderAndFooter) { include ($pre."includes/footer.php"); }
-
 /**********************************************************/
 
 function displayNav() { 
@@ -667,4 +665,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.20 2006/04/17 17:27:20 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.21 2006/09/18 02:53:47 nickb Exp $ -->

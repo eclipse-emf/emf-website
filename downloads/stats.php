@@ -40,7 +40,6 @@ if ($user != $gooduser || $pass != $goodpass) {
 	include $pre . "includes/header.php";
 	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
 	echo "<p>&#160;</p>";
-	include $pre . "includes/footer.php";
 	exit;
 }
 
@@ -146,7 +145,7 @@ $queries = array(
 /***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
 $qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
-$qsvars["generator"] = '$Id: stats.php,v 1.95 2006/06/07 19:22:45 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.96 2006/09/18 02:53:47 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -285,7 +284,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.95 2006/06/07 19:22:45 nickb Exp $'.
+			 '$Id: stats.php,v 1.96 2006/09/18 02:53:47 nickb Exp $'.
 			 "\n</small></p>\n";
 		echo "</data>\n";
 		exit;
