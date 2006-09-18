@@ -2,16 +2,18 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-# Enable polls on this page: Polls are good for 3 months!
-$App->usePolls();
-
-$Poll = new Poll(1, "What do you think of our new look?");
-$Poll->addOption(1, "Phoen-tast-ix!");
-$Poll->addOption(2, "Easier to use");
-$Poll->addOption(3, "Too purple!");
-$Poll->addOption(4, "Meh.");
-# $Poll->noGraph();  # uncomment to disable bar graph
-$pollHTML = $Poll->getHTML();
+if ($_SERVER["DOCUMENT_ROOT"] == "/home/data/httpd/www.eclipse.org") {
+  # Enable polls on this page: Polls are good for 3 months!
+  $App->usePolls();
+  
+  $Poll = new Poll(1, "What do you think of our new look?");
+  $Poll->addOption(1, "Phoen-tast-ix!");
+  $Poll->addOption(2, "Easier to use");
+  $Poll->addOption(3, "Too purple!");
+  $Poll->addOption(4, "Meh.");
+  # $Poll->noGraph();  # uncomment to disable bar graph
+  $pollHTML = $Poll->getHTML();
+}
    
 ob_start();
 ?>
@@ -32,7 +34,7 @@ include "${pre}includes/nav.php";
 
 <div id="rightcolumn">
 	<div class="sideitem">
-	<h6>News</h6>
+	<h6>News&#160;<a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"><img style="float:right" alt="EMF Build Feed" src="images/rss-atom10.gif" width="45" height="13" border="0"></a></h6>
 		<?php getNews(3, "whatsnew", "vert"); ?>
 		<ul>
 			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>
@@ -42,10 +44,12 @@ include "${pre}includes/nav.php";
 		</ul>
 	</div>
 
+<?php if ($_SERVER["DOCUMENT_ROOT"] == "/home/data/httpd/www.eclipse.org") { ?>
 	<div class="sideitem">
 	<h6>Poll</h6>
 	<?php echo $pollHTML; ?>
 	</div>
+<?php } ?>
 
 	<div class="sideitem">
 		<h6>Modeling Corner</h6>
@@ -62,7 +66,7 @@ include "${pre}includes/nav.php";
 			<li><a href="http://www.eclipse.org/uml2">UML2</a></li>
 			<li><a href="http://www.eclipse.org/emft">EMF Tech (EMFT)</a></li>
 			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a></li>
-			<!-- <li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_1.html">Eclipse 3.1 Project Plan</a></li> -->
+			<!-<li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html">Eclipse 3.3 Project Plan</a></li>
 		</ul>
 	</div>
 </div>
@@ -75,6 +79,7 @@ $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="includes/home.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"/>' . "\n");
 $App->AddExtraHtmlHeader('<style type="text/css">.homeitem { clear: none; }</style>' . "\n");
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
