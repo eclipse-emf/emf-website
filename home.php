@@ -2,7 +2,8 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-if ($_SERVER["DOCUMENT_ROOT"] == "/home/data/httpd/www.eclipse.org") {
+#print $_SERVER["DOCUMENT_ROOT"];
+if (false===strpos($_SERVER["DOCUMENT_ROOT"],"eclipse.org/htdocs")) {
   # Enable polls on this page: Polls are good for 3 months!
   $App->usePolls();
   
@@ -44,7 +45,7 @@ include "${pre}includes/nav.php";
 		</ul>
 	</div>
 
-<?php if ($_SERVER["DOCUMENT_ROOT"] == "/home/data/httpd/www.eclipse.org") { ?>
+<?php if (false===strpos($_SERVER["DOCUMENT_ROOT"],"eclipse.org/htdocs")) { ?>
 	<div class="sideitem">
 	<h6>Poll</h6>
 	<?php echo $pollHTML; ?>
