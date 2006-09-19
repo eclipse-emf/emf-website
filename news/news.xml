@@ -13,13 +13,13 @@
 	<!-- M200609071016 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200609071016</a>) is available 
-	for <a href="downloads.php">download</a>.
+	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="August 31, 2006" showOn="whatsnew">
 	<!-- M200608311032 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200608311032</a>) is available 
-	for <a href="downloads.php">download</a>.
+	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="August 25, 2006" showOn="docs,whatsnew">
 	<a href="http://www.theserverside.com/tt/articles/article.tss?l=BindingXMLJava">Binding XML to Java</a> published at TheServerSide.com.
@@ -31,7 +31,7 @@
 	<!-- M200608241248 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Maintenance build
 	(<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">M200608241248</a>) is available 
-	for <a href="downloads.php">download</a>.
+	for <a href="http://www.eclipse.org/emf/downloads/">download</a>.
 </news>
 <news date="August 23, 2006" showOn="docs,whatsnew">
 	<a href="http://wiki.eclipse.org/index.php/Modeling_Corner">EMF Corner relaunched as Modeling Corner</a>!
@@ -1128,6 +1128,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.195 2006/09/14 19:50:56 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.196 2006/09/19 17:00:23 nickb Exp $ -->
 
 </doc>
