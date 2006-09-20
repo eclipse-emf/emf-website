@@ -19,10 +19,11 @@ org.eclipse.emf.ecore.edit,130468,Aaron Digulla,small,merks
 org.eclipse.xsd,132360,Steve Sexton,small,merks
 org.eclipse.emf.ecore.xmi and org.eclipse.emf.test.xml,129874,Jesper S Mueller,300 lines,merks
 org.eclipse.emf.edit,131811,Peter Nehrer,small,davidms
+org.eclipse.emf.edit.ui,150500,Henrik Rentz-Reichert,small,davidms
 
-Section 3 (Third Party Software),,,
+Section 3 (Third Party Software),,,,
 
-Name,Location,License,Usage
-Tomcat 3.2.4, org.eclipse.emf.codegen/codegen.jar,Apache Software License,derivative work
-XML4J 4.3, org.eclipse.emf.ecore/ecore.jar,Apache Software License,derivative work
-SDO 1.0 Specification Interfaces,org.eclipse.emf.ecore.commonj.sdo,Royalty-free license from IBM/BEA (see about.html),unmodified source
+Name,Location,License,Usage,
+Tomcat 3.2.4, org.eclipse.emf.codegen/codegen.jar,Apache Software License,derivative work,
+XML4J 4.3, org.eclipse.emf.ecore/ecore.jar,Apache Software License,derivative work,
+SDO 1.0 Specification Interfaces,org.eclipse.emf.ecore.commonj.sdo,Royalty-free license from IBM/BEA (see about.html),unmodified source,
