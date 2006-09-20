@@ -18,6 +18,8 @@ $extraf = array(
 	array("regex" => "/file: ?(\S+)/", "sql" => "`cvsname` LIKE '%%%s%%'", "sqlpart" => "where"),
 	array("regex" => "/days: ?(\d+)/", "sql" => "`date` >= DATE_SUB(CURDATE(), INTERVAL %d DAY)", "sqlpart" => "where"),
 	array("regex" => "/(?:project|module): ?(\S+)/", "sql" => "`project` LIKE '%s'", "sqlpart" => "where"),
+	array("regex" => "/startdate: ?(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)/", "sql" => "`date` >= STR_TO_DATE('%s', '%%Y-%%m-%%d %%T')", "sqlpart" => "where"),
+	array("regex" => "/enddate: ?(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)/", "sql" => "`date` <= STR_TO_DATE('%s', '%%Y-%%m-%%d %%T')", "sqlpart" => "where"),
 	array("regex" => "/branch: ?(\S+)/", "sql" => "`branch` LIKE '%%%s%%'", "sqlpart" => "having") //is a calculated value, won't work in WHERE
 );
 
@@ -59,8 +61,20 @@ else if (preg_match("/(\S)/", $q, $regs) || sizeof($extra["where"]) + sizeof($ex
 	<h3>Search</h3>
 	<div id="searchdiv">
 		<form action="" method="get">
-			<input type="text" size="60" id="q" name="q"<?php print ($_GET["q"] ? " value=\"" . sanitize($_GET["q"], "text") . "\"" : ""); ?>/>
+			<input type="text" size="60" id="qb" name="q"<?php print ($_GET["q"] ? " value=\"" . sanitize($_GET["q"], "text") . "\"" : ""); ?>/>
 			<input type="submit" value="Go!"/>
+			<br/>
+			<label for="project">Project: </label>
+			<select id="project" name="project" onchange="javascript:setquery();">
+			<option selected="selected" value="0">-- Select a project --</option>
+			<?php
+			$result = wmysql_query("SELECT `project` FROM `cvsfiles` GROUP BY `project`");
+			while ($row = mysql_fetch_row($result))
+			{
+				print "<option value=\"1\">$row[0]</option>\n";
+			}
+			?>
+			</select>
 		</form>
 	</div>
 </div>
@@ -120,7 +134,7 @@ mysql_close($connect);
 			<li><a href="?q=%22package+protected%22">"package protected"</a></li>
 			<li><a href="?q=Neil+Skrypuch">Neil Skrypuch</a></li>
 		</ul>
-        <p>See also the complete <a href="http://wiki.eclipse.org/index.php/Search_CVS#Parameter_List">Parameter List</a>.</p> 
+		<p>See also the complete <a href="http://wiki.eclipse.org/index.php/Search_CVS#Parameter_List">Parameter List</a>.</p> 
 	</div>
 </div>
 <?php
@@ -132,13 +146,14 @@ $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/searchcvs.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<script type="text/javascript" src="includes/searchcvs.js"></script>' . "\n"); //hack for ie which doesn't understand self closing script tags
 if (!isset($_GET["totalonly"]))
 {
 	ob_start();
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 	$html = ob_get_contents();
 	ob_end_clean();
-	print preg_replace("/<body>/", "<body onload=\"document.getElementById('q').focus()\">", $html);
+	print preg_replace("/<body>/", "<body onload=\"document.getElementById('qb').focus()\">", $html);
 }
 else
 {
