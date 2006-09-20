@@ -3,17 +3,18 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
 #print $_SERVER["DOCUMENT_ROOT"];
-if (false===strpos($_SERVER["DOCUMENT_ROOT"],"eclipse.org/htdocs")) {
-  # Enable polls on this page: Polls are good for 3 months!
-  $App->usePolls();
-  
-  $Poll = new Poll(1, "What do you think of our new look?");
-  $Poll->addOption(1, "Phoen-tast-ix!");
-  $Poll->addOption(2, "Easier to use");
-  $Poll->addOption(3, "Too purple!");
-  $Poll->addOption(4, "Meh.");
-  # $Poll->noGraph();  # uncomment to disable bar graph
-  $pollHTML = $Poll->getHTML();
+if (false===strpos($_SERVER["DOCUMENT_ROOT"],"eclipse.org/htdocs"))
+{
+	# Enable polls on this page: Polls are good for 3 months!
+	$App->usePolls();
+
+	$Poll = new Poll(1, "What do you think of our new look?");
+	$Poll->addOption(1, "Phoen-tast-ix!");
+	$Poll->addOption(2, "Easier to use");
+	$Poll->addOption(3, "Too purple!");
+	$Poll->addOption(4, "Meh.");
+	# $Poll->noGraph();  # uncomment to disable bar graph
+	$pollHTML = $Poll->getHTML();
 }
    
 ob_start();
@@ -81,6 +82,6 @@ $pageAuthor = "Neil Skrypuch";
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="includes/home.css"/>' . "\n");
 $App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"/>' . "\n");
-$App->AddExtraHtmlHeader('<style type="text/css">.homeitem { clear: none; }</style>' . "\n");
+$App->AddExtraHtmlHeader('<style type="text/css">.homeitem { clear: none; }</style>' . "\n"); //hack for ie, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=154356
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>

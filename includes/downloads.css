@@ -1,10 +1,7 @@
-#midcolumn .homeitem3col #requirements li ul li
-{
-	border-style: none;
-	padding: 0px;
-}
-
-#midcolumn .homeitem3col ul li ul li .nls li ul li ul li
+#midcolumn .homeitem3col #requirements li ul li,
+#midcolumn .homeitem3col ul li ul li .nls li ul li ul li,
+#midcolumn .homeitem3col ul#archives li,
+#midcolumn #crimsonbug ul li
 {
 	border-style: none;
 	padding: 0px;
@@ -74,11 +71,5 @@ b.all
 
 #midcolumn .homeitem3col ul li div span
 {
-	padding-left: 1.5em;
-}
-
-#midcolumn .homeitem3col ul#archives li
-{
-	border-style: none;
-	padding: 0px;
+	padding-left: 2.5em;
 }

@@ -13,7 +13,7 @@ $pre = "";
 		<p>To see or download the Eclipse build used for a particular package, choose a build and scroll down to see its <b>Build Dependencies</b>. For older, archived builds, click the link under <b>Build Name</b> and check the <b>Requirements</b> section.</p>
 
 	</div>
-	<div class="homeitem3col">
+	<div class="homeitem3col" id="crimsonbug">
 		<h3>XSD Model Loading: Crimson DOM Bug, Workaround &amp; Download</h3>
 		
 		<p>If you use the <b>IBM JDK 1.4</b> or a <b>1.5 / 5.0 JDK</b> instead of the <b>SUN JDK 1.4</b>, this workaround is not required.</p>
@@ -23,23 +23,23 @@ $pre = "";
 		<p><b>If you <b style="color:green">will be</b> loading or importing model(s) from XML Schema</b>, you need to be aware of the following bug &amp; its workaround.</p>
 
 		<ul>
-			<li class="requirements">The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
+			<li>The Crimson DOM implementation in (some versions of) the Sun JDK 1.4 has a bug in the implementation of <tt>hasAttributeNS</tt>. 
 			This bug can be seen, <i>when importing a model from XML Schema</i>, as either:
 				<ul>
-					<li class="requirements">a null pointer exception, or</li>
-					<li class="requirements">the error message "Specify a valid XML Schema and try loading again".</li>
+					<li>a null pointer exception, or</li>
+					<li>the error message "Specify a valid XML Schema and try loading again".</li>
 				</ul>
-      </li>
+			</li>
             
-			<li class="requirements">To avoid this, use the following to control the JAXP implementation:
+			<li>To avoid this, use the following to control the JAXP implementation:
 				<pre style="background-color:yellow"><b>&lt;eclipse-install-dir&gt;</b>eclipse.exe -vmargs <br/>&#160;&#160;&#160;-D<a href="http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html">java.endorsed.dirs</a>=<b>&lt;path-to-your-xerces-jars-folder&gt;</b></pre>
 			</li>
 
-			<li class="requirements">For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.<br/><br/>
+			<li>For your convenience, here are some links to XML4J and Xerces2-J, for anyone wishing to use Eclipse 3.0M8 or later.
 				<ul>
-				<li class="requirements"><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<li><a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
 				<a target="_xml" href="http://alphaworks.ibm.com/tech/xml4j">Download XML4J from IBM alphaWorks</a></li>
-				<li class="requirements"><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
+				<li><a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi"><img border="0" alt="Other Download" src="http://www.eclipse.org/emf/images/dl-other.gif"/></a>
 				<a target="_xml" href="http://xml.apache.org/xerces2-j/download.cgi">Download Xerces2-J from apache.org</a></li>
 				</ul>
 			</li>
@@ -52,13 +52,13 @@ $pre = "";
 </div>
 
 <?php
-	$html = ob_get_contents();
-	ob_end_clean();
+$html = ob_get_contents();
+ob_end_clean();
 
-	$pageTitle = "Eclipse Tools - EMF Installation";
-	$pageKeywords = ""; //TODO: add something here
-	$pageAuthor = "Nick Boldt";
+$pageTitle = "Eclipse Tools - EMF Installation";
+$pageKeywords = ""; //TODO: add something here
+$pageAuthor = "Nick Boldt";
 
-  $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/downloads.css"/>' . "\n");
-	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/downloads.css"/>' . "\n");
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
