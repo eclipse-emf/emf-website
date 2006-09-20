@@ -1,29 +1,11 @@
 <?php
-
-/* ini_set("display_errors",1); */
-$pre = "../"; 
-
-require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  
-require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 
-$App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
 ob_start();
 
-include $pre . "includes/header.php";
-
 /* config */
-$filePre = array ( // file prefixes - also defines the DL image to use, and image alt tag
-	"emf-sdo-xsd",
-	"emf-sdo-xsd",
-	"emf-sdo-xsd",
-	"emf-sdo-xsd",
-	"emf-sdo-xsd",
-	"emf-sdo",
-	"emf-sdo",
-	"xsd",
-	"xsd"
-);
+$pre = "../";
+include $pre . "includes/header.php";
 
 $dls = array(
 	"EMF, SDO, and XSD" => array(
@@ -31,7 +13,7 @@ $dls = array(
 		"Standalone" => "Standalone",
 		"Models" => "Models",
 		"Automated Tests" => "Automated-Tests",
-		"Examples" => "Examples" 
+		"Examples" => "Examples"
 	),
 	"EMF and SDO" => array(
 		"SDK" => "SDK",
@@ -43,9 +25,22 @@ $dls = array(
 	)
 );
 
+$filePre = array( // file prefixes - also defines the DL image to use, and image alt tag
+	"emf-sdo-xsd",
+	"emf-sdo-xsd",
+	"emf-sdo-xsd",
+	"emf-sdo-xsd",
+	"emf-sdo-xsd",
+	"emf-sdo",
+	"emf-sdo",
+	"xsd",
+	"xsd"
+);
+
+$rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
+
 $debug = -1;
 $hadLoadDirSimpleError = 1; //have we echoed the loadDirSimple() error msg yet? if 1, omit error; if 0, echo at most 1 error
-$pre = ($pre ? $pre : "");
 $sortBy = (preg_match("/^(date)$/", $_GET["sortBy"], $regs) ? $regs[1] : "");
 $showAll = (preg_match("/^(1)$/", $_GET["showAll"], $regs) ? $regs[1] : "0");
 $showMax = (preg_match("/^(\d+)$/", $_GET["showMax"], $regs) ? $regs[1] : ($sortBy == "date" ? "10" : "5"));
@@ -85,91 +80,77 @@ if (($options = loadOptionsFromFile($buildOptionsFile)) && is_array($options["Br
 }
 
 $builds = getBuildsFromDirs();
-if (is_array($builds))
+if ($sortBy != "date")
 {
-  if ($sortBy != "date")
-  {
-  	$builds = reorderArray($builds, $buildTypes);
-  }
-  else
-  {
-  	krsort($builds);
-  }
+	$builds = reorderArray($builds, $buildTypes);
+}
+else
+{
+	krsort($builds);
+}
+
+if (sizeof($builds) == 0)
+{
+	print "<div class=\"homeitem3col\">\n";
+	print "<h3>${rssfeed}Builds</h3>\n";
+	print "<ul class=\"releases\">\n";
+	print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
+	print "</ul>\n";
+	print "</div>\n";
 }
 
 if ($sortBy != "date")
 {
 	$c = 0;
-	
-  if (is_array($builds))
-  {
-  	foreach ($builds as $branch => $types)
-  	{
-  		foreach ($types as $type => $IDs)
-  		{
-  			print "<div class=\"homeitem3col\">\n";
-  			print "<h3><a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img align=\"right\" style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a>" . $buildTypes[$branch][$type] . "s</h3>\n";
-  			print "<ul class=\"releases\">\n";
-  			$i = 0;
-  			foreach ($IDs as $ID)
-  			{
-  				print outputBuild($branch, $ID, $c++);
-  				$i++;
-  
-  				if (!$showAll && $i == $showMax && $i < sizeof($IDs))
-  				{
-  					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
-  					break;
-  				}
-  				else if ($showAll && sizeof($IDs) > $showMax && $i == sizeof($IDs))
-  				{
-  					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
-  				}
-  			}
-  			print "</ul>\n";
-  			print "</div>\n";
-  		}
-  	}
-	}
-	else 
+	foreach ($builds as $branch => $types)
 	{
-		print "<div class=\"homeitem3col\">\n";
-		print "<h3><a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img align=\"right\" style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a>Builds</h3>\n";
-		print "<ul class=\"releases\">\n";
-	  print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
-  	print "</ul>\n";
-		print "</div>\n";
+		foreach ($types as $type => $IDs)
+		{
+			print "<div class=\"homeitem3col\">\n";
+			print "<h3>$rssfeed" . $buildTypes[$branch][$type] . "s</h3>\n";
+			print "<ul class=\"releases\">\n";
+			$i = 0;
+			foreach ($IDs as $ID)
+			{
+				print outputBuild($branch, $ID, $c++);
+				$i++;
+
+				if (!$showAll && $i == $showMax && $i < sizeof($IDs))
+				{
+					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
+					break;
+				}
+				else if ($showAll && sizeof($IDs) > $showMax && $i == sizeof($IDs))
+				{
+					print showToggle($showAll, $showMax, $sortBy, sizeof($IDs));
+				}
+			}
+			print "</ul>\n";
+			print "</div>\n";
+		}
 	}
 }
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<a name=\"latest\"></a><h3><a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img align=\"right\" style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\" width=\"45\" height=\"13\" border=\"0\"></a>Latest Builds</h3>\n";
+	print "<a name=\"latest\"></a><h3>${rssfeed}Latest Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
-	
-	if (is_array($builds)) 
+	foreach ($builds as $rID => $rbranch)
 	{
-  	foreach ($builds as $rID => $rbranch)
-  	{
-  		$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
-  		$branch = preg_replace("/.$/", "", $rbranch);
-  		print outputBuild($branch, $ID, $c++);
-  
-  		if (!$showAll && $c == $showMax && $c < sizeof($builds))
-  		{
-  			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
-  			break;
-  		}
-  		else if ($showAll && sizeof($builds) > $showMax && $c == sizeof($builds))
-  		{
-  			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
-  		}
- 		}
-	}
-	else
-	{
-	  print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
+		$ID = preg_replace("/^(\d{12})([IMNRS])$/", "$2$1", $rID);
+		$branch = preg_replace("/.$/", "", $rbranch);
+		print outputBuild($branch, $ID, $c++);
+
+		if (!$showAll && $c == $showMax && $c < sizeof($builds))
+		{
+			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
+			break;
+		}
+		else if ($showAll && sizeof($builds) > $showMax && $c == sizeof($builds))
+		{
+			print showToggle($showAll, $showMax, $sortBy, sizeof($builds));
+		}
 	}
 	print "</ul>\n";
 	print "</div>\n";
@@ -274,9 +255,9 @@ $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
 # Generate the web page
-$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="'.$pre.'includes/downloads.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="' . $pre . 'includes/downloads.css"/>' . "\n");
 $App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"/>' . "\n");
-$App->AddExtraHtmlHeader('<script src="'.$pre.'includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
+$App->AddExtraHtmlHeader('<script src="' . $pre . 'includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
 /************************** METHODS *****************************************/
@@ -287,6 +268,7 @@ function reorderArray($arr, $buildTypes)
 	// sort the second dimension using the IMNRS order in $buildTypes
 	// rsort the third dimension
 
+	$new = array();
 	foreach ($buildTypes as $br => $types)
 	{
 		foreach ($types as $bt => $names)
@@ -307,6 +289,7 @@ function getBuildsFromDirs() // massage the builds into more useful structures
 	global $PWD, $sortBy;
 
 	$branchDirs = loadDirSimple($PWD, ".*", "d");
+	$buildDirs = array();
 
 	foreach ($branchDirs as $branch)
 	{
@@ -316,27 +299,25 @@ function getBuildsFromDirs() // massage the builds into more useful structures
 		}
 	}
 
-  if (is_array($buildDirs))
-  {
-  	foreach ($buildDirs as $br => $dirList)
-  	{
-  		foreach ($dirList as $dir)
-  		{
-  			$ty = substr($dir, 0, 1); //first char
-  
-  			if ($sortBy != "date")
-  			{
-  				$builds_temp[$br][$ty][] = $dir;
-  			}
-  			else
-  			{
-  				$dttm = substr($dir, 1); // last 12 digits
-  				$a = $dttm . $ty;
-  				$b = $br . $ty;
-  
-  				$builds_temp[$a] = $b;
-  			}
-  		}
+	$builds_temp = array();
+	foreach ($buildDirs as $br => $dirList)
+	{
+		foreach ($dirList as $dir)
+		{
+			$ty = substr($dir, 0, 1); //first char
+
+			if ($sortBy != "date")
+			{
+				$builds_temp[$br][$ty][] = $dir;
+			}
+			else
+			{
+				$dttm = substr($dir, 1); // last 12 digits
+				$a = $dttm . $ty;
+				$b = $br . $ty;
+
+				$builds_temp[$a] = $b;
+			}
 		}
 	}
 
@@ -442,17 +423,20 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 	}
 
 	$logs = array();
-	foreach ($tests as $t) {
+	foreach ($tests as $t)
+	{
 		if (is_file("$testsPWD$path$testDirs[0]/results/$t.html"))
 		{
 			$logs[$t] = "results/$t.html";
 		}
 	}
 	
-	if (sizeof($logs) < 1) {
+	if (sizeof($logs) < 1)
+	{
 		$logs["..."] = "testlog.txt";
 	}
-	foreach ($logs as $t => $log) {
+	foreach ($logs as $t => $log)
+	{
 		$stat = "";
 		$sty = "";
 		$cnt = getTestResultsFailureCount($testsPWD . $path, $testDirs, $log);
@@ -461,9 +445,9 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 		{
 			$stat = "<a href=\"" . ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
 		}
-	    else if (preg_match("/FAILED/", $cnt)) //build failed
-	    {
-	    	$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
+		else if (preg_match("/FAILED/", $cnt)) //build failed
+		{
+			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
 		}
 		else if ($cnt === 0)
 		{
@@ -614,10 +598,9 @@ function getTestResultsFailureCount($path, $testDirs, $file)
 	$num = "";
 	$file = "$path$testDirs[0]/$file";
 	
-	if (false!==strpos($file,"testlog.txt")) 
-	{ 
-			$f = file_contents($file);
-			$num = false!==strpos($f,"BUILD FAILED") ? "FAILED" : "";
+	if (preg_match("/testlog\.txt/", $file))
+	{
+		$num = (grep("/BUILD FAILED/", $file) ? "FAILED" : "");
 	}
 	else
 	{
@@ -628,19 +611,6 @@ function getTestResultsFailureCount($path, $testDirs, $file)
 		}
 	}
 	return $num;
-}
-
-function getBranches($options)
-{
-	$arr = array();
-	foreach ($options["Branch"] as $br => $branch)
-	{
-		if (preg_match("/^(.+)=([^\|]+)(?:\|selected)?$/", $opt, $regs)) //TODO: is |selected supposed to do something here?
-		{
-			$arr[$regs[1]] = $regs[2];
-		}
-	}
-	return $arr;
 }
 
 function getBuildTypes($options)
@@ -750,7 +720,7 @@ function createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel = 
 			}
 			else
 			{
-				$echo_out .= "... ";
+				$echo_out .= "...";
 			}
 			$echo_out .= "</li>\n";
 			$uu++;
@@ -965,10 +935,10 @@ function doRequirements()
 <!-- requirements -->
 <div class="homeitem3col">
 	<h3>Requirements</h3>
-	<p><b>First-time users</b> can get started quickly by simply downloading the 
-	combined <b class="all">ALL</b> SDK bundle (includes source, runtime and docs 
-	for <b class="emf">EMF</b>, <b class="xsd">XSD</b>, and <b class="sdo">SDO</b>). 
-	Specific Eclipse and JDK requirements are below - to know which Eclipse driver was used to build a given EMF release, 
+	<p><b>First-time users</b> can get started quickly by simply downloading the
+	combined <b class="all">ALL</b> SDK bundle (includes source, runtime and docs
+	for <b class="emf">EMF</b>, <b class="xsd">XSD</b>, and <b class="sdo">SDO</b>).
+	Specific Eclipse and JDK requirements are below - to know which Eclipse driver was used to build a given EMF release,
 	check below under <b>Build Dependencies</b>. </p>
 	<p>Note that Eclipse is only required if you intend to use the UI - for runtime-only use, only a JDK is required.</p>
 
@@ -1118,7 +1088,7 @@ function doLanguagePacks()
 
 <?php }
 
-function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive=false)
+function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive = false)
 {
 	global $downloadScript, $downloadPre;
 	$cnt = 0;
@@ -1173,22 +1143,22 @@ function outputBuild($branch, $ID, $c)
 	if ($isEMFserver)
 	{
 		$tests = getJDKTestResults("$jdk14testsPWD/", "$branch/$ID/", "jdk14", $summary) . "\n";
-		$summary .= ($summary ? "</span> &#160; <span>" : "");
+		$summary .= ($summary ? "</span><span>" : "");
 		$tests .= getJDKTestResults("$jdk50testsPWD/", "$branch/$ID/", "jdk50", $summary) . "\n";
-		$summary .= ($summary ? "</span> &#160; <span>" : "");
+		$summary .= ($summary ? "</span><span>" : "");
 		$tests .= getOldTestResults("$testsPWD/", "$branch/$ID/", $summary) . "\n";
-		$summary = ($summary ? " &#160; <span>$summary</span>" : "");
+		$summary = ($summary ? "<span>$summary</span>" : "");
 	}
 
 	$ret = "<li>\n";
 	$ret .= "<div>" . showBuildResults("$PWD/", "$branch/$ID/") . ($isEMFserver && $summary ? $summary : "") . "</div>";
-	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a> &#160; ";
+	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
 
 	$ret .= "<ul id=\"r$ID\"" . (($c == 0 && !isset($_GET["hlbuild"])) || $ID == $_GET["hlbuild"] ? "" : " style=\"display: none\"") . ">\n";
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
 
 	$ret .= $tests;
-	$ret .= getBuildArtifacts("$PWD","$branch/$ID");
+	$ret .= getBuildArtifacts("$PWD", "$branch/$ID");
 	$ret .= "</ul>\n";
 	$ret .= "</li>\n";
 
@@ -1199,53 +1169,59 @@ function getBuildArtifacts($dir, $branchID)
 {
 	global $isEMFserver, $downloadPre;
 
-	$mid = "$downloadPre/tools/emf/downloads/drops/"; 
+	$deps = array(
+		"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>"
+	);
+	$mid = "$downloadPre/tools/emf/downloads/drops/";
 	$file = "$dir/$branchID/build.cfg";
 	$lines = (is_file($file) && is_readable($file) ? file($file) : array());
 
 	foreach ($lines as $z)
 	{
-		if (preg_match("/^(eclipse(?:DownloadURL|File|BuildURL))=(.+)$/", $z, $regs))
+		if (preg_match("/^((?:" . join("|", array_keys($deps)) . ")(?:DownloadURL|File|BuildURL))=(.+)$/", $z, $regs))
 		{
 			$opts[$regs[1]] = $regs[2];
 		}
 	}
 
-	$builddir = $opts["eclipseDownloadURL"] . $opts["eclipseBuildURL"];
-	$buildID = explode("/",$opts["eclipseBuildURL"]); $buildID = $buildID[sizeof($buildID)-1];
-	$buildfile = $builddir . "/" . $opts["eclipseFile"];
+	foreach (array_keys($deps) as $z)
+	{
+		$builddir[$z] = $opts["${z}DownloadURL"] . $opts["${z}BuildURL"];
+		$buildID[$z] = (preg_match("/([IMNRS]?\d{8}-?\d{4})$/", $opts["${z}BuildURL"], $regs) ? $regs[1] : "");
+		$buildfile[$z] = $builddir[$z] . "/" . $opts["${z}File"];
+	}
 
-	$link = ($isEMFserver ? "" : "http://download.eclipse.org");
 	$ret = "";
 		
-	if ($builddir) {
+	if (is_array($builddir) > 0)
+	{
 		$details = array(
 			"Config File" => "build.cfg",
 			"Map File" => "directory.txt",
 			"Build Log" => "buildlog.txt"
 		);
 		
-		$ret .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies<ul>" .
-		"<li>" . 
-		"<div><a href=\"$builddir\">Build Page</a></div>" . 
-		"<a href=\"http://www.eclipse.org/eclipse\">Eclipse</a> " .
-		"<a href=\"$buildfile\">" . $buildID ."</a> " .
-		"</li>\n" . 
-		"</ul></li>\n";
-
-		$ret .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-more.gif\" alt=\"More info about this build\"/> Build Details<ul>";
-		$ret .= "<li><a href=\"$link$mid${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n ";
-
-		$ret .= "<li>";	
-		$c=0;
-		foreach ($details as $label => $file) { 
-			if ($c>0) { $ret .= ", "; }
-			$ret .= "<a href=\"$link$mid$branchID/$file\">$label</a>";
-			$c++;
+		$ret .= "<li>\n";
+		$ret .= "<img src=\"http://www.eclipse.org/emf/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies\n";
+		$ret .= "<ul>\n";
+		foreach (array_keys($deps) as $z)
+		{
+			$ret .= "<li><div><a href=\"$builddir[$z]\">Build Page</a></div>$deps[$z] <a href=\"$buildfile[$z]\">$buildID[$z]</a></li>\n";
 		}
-		$ret .= "</li>\n ";
-		
-		$ret .= "</ul></li>\n";
+		$ret .= "</ul>\n";
+		$ret .= "</li>\n";
+
+		$ret .= "<li>\n";
+		$ret .= "<img src=\"http://www.eclipse.org/emf/images/dl-more.gif\" alt=\"More info about this build\"/> Build Details\n";
+		$ret .= "<ul>\n";
+		$ret .= "<li><a href=\"$link$mid${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n";
+		foreach (array_keys($details) as $label)
+		{
+			$details[$label] = preg_replace("/^(.+)$/", "<a href=\"$link$mid$branchID/$1\">$label</a>", $details[$label]);
+		}
+		$ret .= "<li>" . join(", ", $details) . "</li>\n";
+		$ret .= "</ul>\n";
+		$ret .= "</li>\n";
 	}
 	return $ret;
 }
