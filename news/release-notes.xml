@@ -22,6 +22,11 @@
 
 <!-- 2.2.1 -->
 
+<entry build="2.2.1RC2" project="emf" version="2.2.1" buildID="S200609210005">
+<bug id="157590">ItemProviderAdapterFactory.javajet misses &quot;()&quot; making possible to produce incompilable code</bug>
+<bug id="157601">[Feature Request] Improve Efficiency of map population for XML load</bug>
+</entry>
+
 <entry build="2.2.1RC1" project="emf" version="2.2.1" buildID="S200609141116">
 <bug id="155902">emf URI cache should be bounded or weak reference, otherwise its a memory leak</bug>
 <bug id="156798">BasicEObjectImpl.eSetting doesn&apos;t handle open content features</bug>
@@ -94,6 +99,7 @@
 <bug id="150382">Store-based EObject implementations should override eInternalContainer instead of eContainer</bug>
 </entry>
 
+<entry build="2.2.1RC2" project="xsd" version="2.2.1" buildID="S200609210005"/>
 <entry build="2.2.1RC1" project="xsd" version="2.2.1" buildID="S200609141116">
 <bug id="157227">Proper use of the org.eclipse.pde.core.javadoc extension point</bug>
 </entry>
@@ -146,4 +152,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.205 2006/09/14 19:50:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.206 2006/09/21 05:12:06 nickb Exp $ -->
