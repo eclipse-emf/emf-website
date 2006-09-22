@@ -116,13 +116,10 @@ print "<ul>\n";
 
 while ($row = mysql_fetch_assoc($result))
 {
+	$cvsroot = preg_replace("#^/cvsroot/([^\/]+)/.+#", "$1", $row["cvsname"]);
 	$file = basename($row["cvsname"], ",v");
-	print "<li>[ ".$row["cvname"]."; ".$file." ]</li>";
-
+	print "<li>[ ".$cvsroot."; ".$file." ]</li>";
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
-	$cvsroot = preg_replace("#^/cvsroot/([^\/]+)/.+#", "$1", $file);
-	print "<li>{ ".$row["cvsname"]."; ".$cvsroot." }</li>";
-
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
 	print ($row["bugid"] ? "[<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id={$row['bugid']}\">{$row['bugid']}</a>] " : "");
