@@ -36,8 +36,8 @@ foreach ($extraf as $z)
 }
 
 $cvsfileprojects = array(
-    "tools" => implode("|", loadDirSimple("/cvsroot/tools", ".*", "d")),
-    "tech"  => implode("|", loadDirSimple("/cvsroot/technology", ".*", "d"))
+    "tools" => implode("|", loadDirSimple(" /home/data/httpd/dev.eclipse.org/cvsroot/tools", ".*", "d")),
+    "tech"  => implode("|", loadDirSimple(" /home/data/httpd/dev.eclipse.org/cvsroot/technology", ".*", "d"))
 );
 
 $regs = array();
