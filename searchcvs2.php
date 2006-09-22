@@ -117,11 +117,11 @@ print "<ul>\n";
 while ($row = mysql_fetch_assoc($result))
 {
 	$file = basename($row["cvsname"], ",v");
-	print "[ ".$row["cvname"]."; ".$file." ]<br>";
+	print "<li>[ ".$row["cvname"]."; ".$file." ]</li>";
 
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
 	$cvsroot = preg_replace("#^/cvsroot/([^\/]+)/.+#", "$1", $file);
-	print "{ ".$row["cvsname"]."; ".$cvsroot." }<br>";
+	print "<li>{ ".$row["cvsname"]."; ".$cvsroot." }</li>";
 
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
