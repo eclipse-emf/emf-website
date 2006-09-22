@@ -34,6 +34,20 @@ foreach ($extraf as $z)
 	}
 }
 
+/* Static list of mappings - needs to be updated when more top-level projects are added. See http://dev.eclipse.org/viewcvs/ for current list. */
+$cvsroots = array(
+	"birt" => "BIRT_Project",
+	"datatools" => "Datatools_Project",
+	"dsdp" => "DSDP_Project",
+	"eclipse" => "Eclipse_Project",
+	"org.eclipse" => "Eclipse_Website",
+	"stp" => "STP_Project",
+	"technology" => "Technology_Project",
+	"tools" => "Tools_Project",
+	"tptp" => "TPTP_Project",
+	"webtools" => "WebTools_Project"
+);
+
 $regs = array();
 /* this *could* be put into $extraf, but it would change the semantics slightly, in that any number searched for would be treated as a bug #, which i think is undesirable */
 if (preg_match("/^\s*\[?(\d+)\]?\s*$/", $_GET["q"], $regs))
@@ -101,12 +115,13 @@ print "<ul>\n";
 
 while ($row = mysql_fetch_assoc($result))
 {
+	$cvsroot = preg_replace("#^/cvsroot/([^\/]+)/.+#", "$1", $row["cvsname"]);
 	$file = basename($row["cvsname"], ",v");
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
 	print ($row["bugid"] ? "[<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id={$row['bugid']}\">{$row['bugid']}</a>] " : "");
-	print "<a href=\"" . cvsfile($row["cvsname"]) . "\"><abbr title=\"{$row['cvsname']}\">$file</abbr></a> ({$row['branch']} " . showrev($row['revision'], $row["cvsname"]) . ")";
+	print "<a href=\"" . cvsfile($cvsroot, $row["cvsname"]) . "\"><abbr title=\"{$row['cvsname']}\">$file</abbr></a> ({$row['branch']} " . showrev($cvsroot, $row["cvsname"], $row['revision']) . ")";
 	print "<ul>\n";
 	print "<li><div>{$row['author']}</div>" . pretty_comment($row["message"], $q) . "</li>";
 	print "</ul>\n";
@@ -195,35 +210,29 @@ function cvsminus($rev)
 	}
 }
 
-function showrev($rev, $file)
+function showrev($cvsroot, $file, $rev)
 {
-	$link = "<a href=\"" . cvsfile($file) . "\">$rev</a>";
+	$link = "<a href=\"" . cvsfile($cvsroot, $file) . "\">$rev</a>";
 	if (!preg_match("/^1\.1$/", $rev)) // "1.10" == "1.1" returns true, curiously enough
 	{
 		$oldrev = cvsminus($rev);
-		$link = "<a href=\"" . cvsfile($file, $rev, $oldrev) . "\">$rev &gt; $oldrev</a>";
+		$link = "<a href=\"" . cvsfile($cvsroot, $file, $rev, $oldrev) . "\">$rev &gt; $oldrev</a>";
 	}
 
         return $link;
 }
 
-function cvsfile($file, $rev = "", $oldrev = "")
+function cvsfile($cvsroot, $file, $rev = "", $oldrev = "")
 {
+	global $cvsroots;
+  
 	if ($rev && $oldrev)
 	{
 		$ext = ".diff";
 		$params = "r1=$oldrev&amp;r2=$rev&amp;";
 	}
 	$params .= (preg_match("/\.php$/", $file) && $ext != ".diff" ? "content-type=text/plain&amp;" : "");
-
-	if (preg_match("/^www/", $file))
-	{
-		return "http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/$file$ext?${params}cvsroot=Eclipse_Website";
-	}
-	else
-	{
-		return "http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/$file$ext?$params";
-	}
+	return "http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/$file$ext?${params}cvsroot=" . $cvsroots[$cvsroot];
 }
 
 function sanitize($str, $type = "url")
