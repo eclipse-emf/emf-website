@@ -1200,6 +1200,8 @@ function getBuildArtifacts($dir, $branchID)
 			"Map File" => "directory.txt",
 			"Build Log" => "buildlog.txt"
 		);
+
+		$link = ($isEMFserver ? "" : "http://download.eclipse.org");
 		
 		$ret .= "<li>\n";
 		$ret .= "<img src=\"http://www.eclipse.org/emf/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies\n";
