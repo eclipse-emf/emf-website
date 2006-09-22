@@ -35,9 +35,18 @@ foreach ($extraf as $z)
 	}
 }
 
-$cvsfileprojects = array(
-    "tools" => implode("|", loadDirSimple("/home/data/httpd/dev.eclipse.org/cvsroot/tools", ".*", "d")),
-    "tech"  => implode("|", loadDirSimple("/home/data/httpd/dev.eclipse.org/cvsroot/technology", ".*", "d"))
+/* Static list of mappings - needs to be updated when more top-level projects are added. See http://dev.eclipse.org/viewcvs/ for current list. */
+$cvsroots = array(
+	"birt" => "BIRT_Project",
+	"datatools" => "Datatools_Project",
+	"dsdp" => "DSDP_Project",
+	"eclipse" => "Eclipse_Project",
+	"org.eclipse" => "Eclipse_Website",
+	"stp" => "STP_Project",
+	"technology" => "Technology_Project",
+	"tools" => "Tools_Project",
+	"tptp" => "TPTP_Project",
+	"webtools" => "WebTools_Project"
 );
 
 $regs = array();
@@ -109,10 +118,11 @@ while ($row = mysql_fetch_assoc($result))
 {
 	$file = basename($row["cvsname"], ",v");
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
+	$cvsroot = preg_replace("#^/cvsroot/(.+)/" . $row["cvsname"] . "#", "", $row["cvsname"]);
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
 	print ($row["bugid"] ? "[<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id={$row['bugid']}\">{$row['bugid']}</a>] " : "");
-	print "<a href=\"" . cvsfile($row["cvsname"]) . "\"><abbr title=\"{$row['cvsname']}\">$file</abbr></a> ({$row['branch']} " . showrev($row['revision'], $row["cvsname"]) . ")";
+	print "<a href=\"" . cvsfile($cvsroot, $row["cvsname"]) . "\"><abbr title=\"{$row['cvsname']}\">$file</abbr></a> ({$row['branch']} " . showrev($cvsroot, $row["cvsname"], $row['revision']) . ")";
 	print "<ul>\n";
 	print "<li><div>{$row['author']}</div>" . pretty_comment($row["message"], $q) . "</li>";
 	print "</ul>\n";
@@ -201,21 +211,21 @@ function cvsminus($rev)
 	}
 }
 
-function showrev($rev, $file)
+function showrev($cvsroot, $file, $rev)
 {
-	$link = "<a href=\"" . cvsfile($file) . "\">$rev</a>";
+	$link = "<a href=\"" . cvsfile($cvsroot, $file) . "\">$rev</a>";
 	if (!preg_match("/^1\.1$/", $rev)) // "1.10" == "1.1" returns true, curiously enough
 	{
 		$oldrev = cvsminus($rev);
-		$link = "<a href=\"" . cvsfile($file, $rev, $oldrev) . "\">$rev &gt; $oldrev</a>";
+		$link = "<a href=\"" . cvsfile($cvsroot, $file, $rev, $oldrev) . "\">$rev &gt; $oldrev</a>";
 	}
 
         return $link;
 }
 
-function cvsfile($file, $rev = "", $oldrev = "")
+function cvsfile($cvsroot, $file, $rev = "", $oldrev = "")
 {
-	global $cvsfileprojects;
+	global $cvsroots;
   
 	if ($rev && $oldrev)
 	{
@@ -223,23 +233,7 @@ function cvsfile($file, $rev = "", $oldrev = "")
 		$params = "r1=$oldrev&amp;r2=$rev&amp;";
 	}
 	$params .= (preg_match("/\.php$/", $file) && $ext != ".diff" ? "content-type=text/plain&amp;" : "");
-
-	if (preg_match("/^www\//", $file))
-	{
-		return "http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/$file$ext?${params}cvsroot=Eclipse_Website";
-	}
-	else if (preg_match("/^(" . $cvsfileprojects["tools"]. ")\//", $file))
-	{
-	  return "http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/$file$ext?$params";
-	}
-	else if (preg_match("/^(" . $cvsfileprojects["tech"]. ")\//", $file))
-	{
-	  return "http://dev.eclipse.org/viewcvs/indextech.cgi/~checkout~/$file$ext?$params";
-	}
-	else
-	{
-		return "http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/$file$ext?$params";
-	}
+	return "http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/$file$ext?${params}cvsroot=" . $cvsroots[$cvsroot];
 }
 
 function sanitize($str, $type = "url")
