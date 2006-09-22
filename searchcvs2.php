@@ -117,14 +117,18 @@ print "<ul>\n";
 while ($row = mysql_fetch_assoc($result))
 {
 	$file = basename($row["cvsname"], ",v");
+	print "[ ".$row["cvname"]."; ".$file." ]<br>";
+
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
 	$cvsroot = preg_replace("#^/cvsroot/([^\/]+)/.+#", "$1", $file);
+	print "{ ".$row["cvsname"]."; ".$cvsroot." }<br>";
+
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
 	print ($row["bugid"] ? "[<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id={$row['bugid']}\">{$row['bugid']}</a>] " : "");
 	print "<a href=\"" . cvsfile($cvsroot, $row["cvsname"]) . "\"><abbr title=\"{$row['cvsname']}\">$file</abbr></a> ({$row['branch']} " . showrev($cvsroot, $row["cvsname"], $row['revision']) . ")";
 	print "<ul>\n";
-	print "<li><div>{$row['author']}</div>" . $cvsroot . pretty_comment($row["message"], $q) . "</li>";
+	print "<li><div>{$row['author']}</div>" . pretty_comment($row["message"], $q) . "</li>";
 	print "</ul>\n";
 	print "</li>\n";
 }
