@@ -4,7 +4,14 @@ ob_start();
 
 include("includes/db.php");
 
-$pagesize = 25; //results per page
+/* Supported querystring parameters:
+ *   q           - REQUIRED; search terms
+ *   totalonly   - OPTIONAL; if set, display only a count of the # of deltas found; overrides showbuglist 
+ *   showbuglist - OPTIONAL; if set, display csv list of bugs found                 
+ *   bugfilter   - OPTIONAL; if set, filter results if bugids associated with commits; values: "hasbug" or "nobug"
+ */
+
+$pagesize = isset($_GET["showbuglist"]) ? 10000: 25; //results per page; need more than 25 for meaningful results if showing just list of bugs
 $scroll = 5; //+- pages to show in nav
 $days = 7;
 $page = (preg_match("/^\d+$/", $_GET["p"]) ? $_GET["p"] : 1);
@@ -64,6 +71,17 @@ else if (preg_match("/(\S)/", $q, $regs) || sizeof($extra["where"]) + sizeof($ex
 		$match = "MATCH(`message`) AGAINST('$q'" . (preg_match("/\".+\"/", $q) ? " IN BOOLEAN MODE" : "") . ")";
 	}
 	$where = "WHERE " . ($match ? $match : "1");
+	if (isset($_GET["bugfilter"]))
+	{
+		if ($_GET["bugfilter"] == "hasbug")
+		{ 
+			$where .= " AND `bugid` > 0";
+		}
+		else if ($_GET["bugfilter"] == "nobug")
+		{
+			$where .= " AND `bugid` IS NULL";
+		}
+	}
 	$where .= (sizeof($extra["where"]) > 0 ? " AND " . join($extra["where"], " AND ") : "");
 	$having = (sizeof($extra["having"]) > 0 ? " HAVING " . join($extra["having"], " AND ") : "");
 	$ec = ", $match AS `relevance`";
@@ -113,6 +131,7 @@ dopager($rows, $page, $pagesize);
 
 print "<ul>\n";
 
+$bugz = array();
 while ($row = mysql_fetch_assoc($result))
 {
 	$cvsroot = preg_replace("#^/cvsroot/([^\/]+)/.+#", "$1", $row["cvsname"]);
@@ -120,6 +139,10 @@ while ($row = mysql_fetch_assoc($result))
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
+	if ($row["bugid"] && !in_array($row["bugid"],$bugz))
+	{ 
+		array_push($bugz, $row["bugid"]); 
+	}
 	print ($row["bugid"] ? "[<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id={$row['bugid']}\">{$row['bugid']}</a>] " : "");
 	print "<a href=\"" . cvsfile($cvsroot, $row["cvsname"]) . "\"><abbr title=\"{$row['cvsname']}\">$file</abbr></a> ({$row['branch']} " . showrev($cvsroot, $row["cvsname"], $row['revision']) . ")";
 	print "<ul>\n";
@@ -162,18 +185,23 @@ $pageAuthor = "Neil Skrypuch";
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/searchcvs.css"/>' . "\n");
 $App->AddExtraHtmlHeader('<script type="text/javascript" src="includes/searchcvs.js"></script>' . "\n"); //hack for ie which doesn't understand self closing script tags
-if (!isset($_GET["totalonly"]))
+if (isset($_GET["totalonly"]))
+{
+	header("Content-Type: text/plain");
+	print $rows . "\n";
+}
+else if(isset($_GET["showbuglist"]))
+{
+	header("Content-Type: text/csv");
+	print join(",",$bugz) . "\n";
+}
+else
 {
 	ob_start();
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 	$html = ob_get_contents();
 	ob_end_clean();
 	print preg_replace("/<body>/", "<body onload=\"document.getElementById('qb').focus()\">", $html);
-}
-else
-{
-	header("Content-Type: text/plain");
-	print $rows;
 }
 
 function pretty_comment($str, $hl)
