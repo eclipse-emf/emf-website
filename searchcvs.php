@@ -5,10 +5,10 @@ ob_start();
 include("includes/db.php");
 
 /* Supported querystring parameters:
- *   q           - REQUIRED; search terms
+ *   q           - REQUIRED; search terms as outlined in http://wiki.eclipse.org/index.php/Search_CVS#Parameter_List
  *   totalonly   - OPTIONAL; if set, display only a count of the # of deltas found; overrides showbuglist 
  *   showbuglist - OPTIONAL; if set, display csv list of bugs found                 
- *   bugfilter   - OPTIONAL; if set, filter results if bugids associated with commits; values: "hasbug" or "nobug"
+ *   bugfilter   - OPTIONAL; if set, filter results if `bugid` defined for each commit; values: "hasbug" or "nobug"
  */
 
 $pagesize = isset($_GET["showbuglist"]) ? 10000: 25; //results per page; need more than 25 for meaningful results if showing just list of bugs
