@@ -192,10 +192,12 @@ print "<div class=\"sideitem\">\n";
 print "<h6>Additional Info</h6>\n";
 print "<ul>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/faq/faq.php\">FAQs</a></li>\n";
-print "<li><a href=\"http://www.eclipse.org/emf/downloads/install.php\">installation issues</a></li>\n";
-print "<li><a href=\"#archives\">archived releases</a></li>\n";
-print "<li><a href=\"http://www.eclipse.org/emf/downloads/build-types.php\">about build types</a></li>\n";
-print "<li><a href=\"http://www.eclipse.org/emf/downloads/verifyMD5.php\">using md5 files</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/downloads/install.php\">Installation Issues</a></li>\n";
+print "<li><a href=\"#archives\">Archived Releases</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/downloads/build-types.php\">About Build Types</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/downloads/verifyMD5.php\">Using md5 Files</a></li>\n";
+print '<li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED">Open Bugs</a></li>'."\n";
+print "<li><a href=\"http://www.eclipse.org/emf/news/release-notes.php\">Release Notes</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -212,7 +214,7 @@ print "<div class=\"sideitem\">\n";
 print "<h6>Sort</h6>\n";
 $newsort = ($sortBy == "date" ? "type" : "date");
 print "<ul>\n";
-print "<li><a href=\"?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">by $newsort</a></li>\n";
+print "<li><a href=\"?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">By ".ucfirst($newsort)."</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -231,7 +233,7 @@ if ($isEMFserver)
 	<h6>Info</h6>
 	<ul>
 		<li><a href="http://instawiki.webahead.ibm.com/pilot/wiki/Wiki.jsp?page=EMF&wiki=Rational_Modeling_Tools_Team">w3 Wiki</a></li>
-		<li><a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0">Assigned Bugs</a></li>
+		<li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT&amp;bug_status=ASSIGNED">Assigned Bugs</a></li>
 		<li><a href="http://emf.torolab.ibm.com/emf/downloads/downloads.php">Download Stats</a></li>
 	</ul>
 </div>
@@ -607,6 +609,7 @@ function getTestResultsFailureCount($path, $testDirs, $file)
 		if (is_file($file) && is_readable($file))
 		{
 			$f = file_contents($file);
+			$regs = null;
 			$num = preg_match_all("/>failed</", $f, $regs);
 		}
 	}
@@ -625,6 +628,7 @@ function getBuildTypes($options)
 			{
 				$arr[$v] = array();
 			}
+			$regs = null;
 			if (preg_match("/^(.+)=([^\|]+)(?:\|selected)?$/", $buildType, $regs))
 			{
 				// [2.0][N]
@@ -638,6 +642,7 @@ function getBuildTypes($options)
 
 function getValueFromOptionsString($opt, $nameOrValue)
 {
+	$regs = null;
 	if (preg_match("/^(.+)=([^\|]+)(?:\|selected)?$/", $opt, $regs))
 	{
 		return (preg_match("/^(?:name|0)$/", $nameOrValue) ? $regs[1] : $regs[2]);
@@ -651,10 +656,12 @@ function loadOptionsFromFile($file)
 
 function loadOptionsFromArray($sp)
 {
+  $doSection = null;
 	foreach ($sp as $s)
 	{
 		if (preg_match("/^[^#].{2,}/", $s))
 		{
+			$matches = null;
 			if (preg_match("/\[([a-zA-Z_]+)(\|reversed)?\]/", $s, $matches)) // section starts
 			{
 				$doSection = $matches[1];
@@ -677,6 +684,7 @@ function loadOptionsFromArray($sp)
 function IDtoDateStamp($ID, $style) // given N200402121441, return date("D, j M Y -- H:i (O)")
 {
 	$styles = array('Y/m/d H:i', "D, j M Y -- H:i (O)", 'Y/m/d');
+	$m = null;
 	if (preg_match("/(\d{4})(\d\d)(\d\d)(?:_)?(\d\d)(\d\d)/", $ID, $m))
 	{
 		$ts = mktime($m[4], $m[5], 0, $m[2], $m[3], $m[1]);
@@ -777,6 +785,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 						$rows = explode("<tr>", $tr); // break into pieces
 						foreach ($rows as $r => $row)
 						{
+							$m = null;
 							if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $row, $m))
 							{
 								$errors   += $m[1];
@@ -992,8 +1001,23 @@ function doLanguagePacks()
 	<p>IBM is pleased to contribute translations for the Eclipse Modeling Framework.</p>
 	<ul>
 		<li>
-			<a href="javascript:toggle('lang2_2')">EMF 2.2 Language Packs</a><a name="NL22x"></a>
+			<a href="javascript:toggle('lang2_2')">2.2.x Language Packs</a><a name="NL22x"></a>
 			<ul id="lang2_2">
+					<?php
+					$packs = array (
+						"2.2.x NLS Translation Packs" => "NLpacks-"
+					);
+					$cols = array (
+						"EMF, SDO" => "emf-sdo",
+						"XSD" => "xsd"
+					);
+					$subcols = array (
+						"SDK" => "SDK-",
+						"Runtime" => "runtime-"
+					);
+					$packSuf = "2.2.zip";
+					$folder = "NLS/2.2/";
+					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
 				<li>
 					<p>The language packs contain the following translations:</p>
 					<ul>
@@ -1004,28 +1028,28 @@ function doLanguagePacks()
 					</ul>
 					<p>Each language pack zip contains 4 other zips (one for each of the language groups above). Unpack these zips into your Eclipse directory before starting Eclipse.</p>
 					<p>These translations are based on EMF 2.2.0. The NLS translation fragment packs should work with all subsequent 2.2 maintenance releases, with any new strings remaining untranslated.</p>
-					<?php
-					$packs = array (
-						"2.2.x NLS Translation Packs" => "NLpacks-"
-					);
-					$cols = array (
-						"EMF, SDO " => "emf-sdo",
-						"XSD " => "xsd",
-					);
-					$subcols = array (
-						"SDK " => "SDK-",
-						"Runtime " => "runtime-",
-					);
-					$packSuf = "2.2.zip";
-					$folder = "NLS/2.2/";
-					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
 				</li>
 			</ul>
 		</li>
 
 		<li>
-			<a href="javascript:toggle('lang2_1')">EMF 2.1 Language Packs</a><a name="NL21x"></a>
+			<a href="javascript:toggle('lang2_1')">2.1.x Language Packs</a><a name="NL21x"></a>
 			<ul id="lang2_1" style="display: none">
+					<?php
+					$packs = array (
+						"2.1.x NLS Translation Packs" => "NLpacks-"
+					);
+					$cols = array (
+						"EMF, SDO" => "emf-sdo",
+						"XSD" => "xsd"
+					);
+					$subcols = array (
+						"SDK" => "SDK-",
+						"Runtime" => "runtime-"
+					);
+					$packSuf = "2.1.zip";
+					$folder = "NLS/2.1/";
+					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
 				<li>
 					<p>The language packs contain the following translations:</p>
 					<ul>
@@ -1035,28 +1059,28 @@ function doLanguagePacks()
 					</ul>
 					<p>Each language pack zip contains 6 other zips (two for each of the language groups above: an NLS translation fragment pack and a feature overlay). Unpack both these zips (for every language group you need) into your Eclipse directory before starting Eclipse. In particular, the feature overlay must actually write into the existing feature directories.</p>
 					<p>These translations are based on EMF 2.1.1. The NLS translation fragment packs should work with all subsequent 2.1 maintenance releases, with any new strings remaining untranslated. The feature overlays will need to be reissued for each subsequent release.</p>
-					<?php
-					$packs = array (
-						"2.1.x NLS Translation Packs" => "NLpacks-"
-					);
-					$cols = array (
-						"EMF, SDO " => "emf-sdo",
-						"XSD " => "xsd",
-					);
-					$subcols = array (
-						"SDK " => "SDK-",
-						"Runtime " => "runtime-",
-					);
-					$packSuf = "2.1.zip";
-					$folder = "NLS/2.1/";
-					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
 				</li>
 			</ul>
 		</li>
 
 		<li>
-			<a href="javascript:toggle('lang2_0')">EMF 2.0 Language Packs</a><a name="NL20x"></a>
+			<a href="javascript:toggle('lang2_0')">2.0.x Language Packs</a><a name="NL20x"></a>
 			<ul id="lang2_0" style="display: none">
+					<?php
+					$packs = array (
+						"2.0.x NLS Translation Packs" => "NLpacks-",
+					);
+					$cols = array (
+						"EMF, SDO" => "emf-sdo",
+						"XSD" => "xsd"
+					);
+					$subcols = array (
+						"SDK" => "SDK-",
+						"Runtime" => "runtime-"
+					);
+					$packSuf = "2.0.zip";
+					$folder = "NLS/2.0/";
+					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, true); ?>
 				<li>
 					<p>The language packs contain the following translations:</p>
 					<ul>
@@ -1065,21 +1089,6 @@ function doLanguagePacks()
 					</ul>
 					<p>Each language pack zip contains 2 zips (one for each of the language groups above). Each language pack is distributed as a feature which you can install by downloading the zip file, unzipping it into your Eclipse directory and restarting Eclipse.</p>
 					<p>These translations are based on the EMF, SDO and XSD 2.0.2 builds but should work with all subsequent 2.0 maintenance releases. If new strings are added to EMF, SDO or XSD after 2.0.2, they will not show up as translated in the 2.0.x stream when you install this language pack.</p>
-					<?php
-					$packs = array (
-						"2.0.x NLS Translation Packs" => "NLpacks-",
-					);
-					$cols = array (
-						"EMF, SDO " => "emf-sdo",
-						"XSD " => "xsd",
-					);
-					$subcols = array (
-						"SDK " => "SDK-",
-						"Runtime " => "runtime-",
-					);
-					$packSuf = "2.0.zip";
-					$folder = "NLS/2.0/";
-					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, true); ?>
 				</li>
 			</ul>
 		</li>
@@ -1093,22 +1102,22 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive =
 	global $downloadScript, $downloadPre;
 	$cnt = 0;
 
-	print "<ul class=\"nls\">\n";
 	foreach ($packs as $name => $packPre)
 	{
-		print "<li>\n$name\n<ul>\n";
 		foreach ($cols as $alt => $packMid)
 		{
-			print "<li>\n<img src=\"http://www.eclipse.org/emf/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt\n<ul>\n";
+			print "<li><img src=\"http://www.eclipse.org/emf/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt: ";
+			$cnt=0;
 			foreach ($subcols as $alt2 => $packMid2)
 			{
-				print "<li><a href=\"".($isArchive?"http://archive.eclipse.org":$downloadScript)."$downloadPre/tools/emf/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a></li>";
+			  if ($cnt>0) { print ", "; }
+			  print "<a href=\"".($isArchive?"http://archive.eclipse.org":$downloadScript).
+			    "$downloadPre/tools/emf/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
+			  $cnt++;
 			}
-			print "</ul>\n</li>\n";
+			print "</li>\n";
 		}
-		print "</ul>\n</li>\n";
 	}
-	print "</ul>\n";
 }
 
 function grep($pattern, $file)
@@ -1142,6 +1151,7 @@ function outputBuild($branch, $ID, $c)
 
 	if ($isEMFserver)
 	{
+	  // TODO: why is there no value for $summary?
 		$tests = getJDKTestResults("$jdk14testsPWD/", "$branch/$ID/", "jdk14", $summary) . "\n";
 		$summary .= ($summary ? "</span><span>" : "");
 		$tests .= getJDKTestResults("$jdk50testsPWD/", "$branch/$ID/", "jdk50", $summary) . "\n";
@@ -1178,6 +1188,7 @@ function getBuildArtifacts($dir, $branchID)
 
 	foreach ($lines as $z)
 	{
+	  $regs = null;
 		if (preg_match("/^((?:" . join("|", array_keys($deps)) . ")(?:DownloadURL|File|BuildURL))=(.+)$/", $z, $regs))
 		{
 			$opts[$regs[1]] = $regs[2];
@@ -1200,7 +1211,7 @@ function getBuildArtifacts($dir, $branchID)
 			"Map File" => "directory.txt",
 			"Build Log" => "buildlog.txt"
 		);
-
+		
 		$link = ($isEMFserver ? "" : "http://download.eclipse.org");
 		
 		$ret .= "<li>\n";
