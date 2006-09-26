@@ -24,4 +24,32 @@
 	$CVSpreDocEMF = "$_url/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf/doc/org.eclipse.emf.doc/"; 
 	$CVSpreDocSDO = "$_url/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf.ecore.sdo/doc/org.eclipse.emf.ecore.sdo.doc/";
 	$CVSpreDocXSD = "$_url/viewcvs/indextech.cgi/%7Echeckout%7E/org.eclipse.xsd/doc/org.eclipse.xsd.doc/";
+
+function internalUseOnly () 
+{
+	global $theme, $isEMFserver;
+	
+	if (!$isEMFserver) {
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
+		ob_start(); ?>
+	
+	<div id="midcolumn">
+	
+	<div class="homeitem3col">
+	<h3>For Internal Use Only</h3>
+	<p>Sorry, this script must be run from a sanctioned build server. Contact Nick Boldt (codeslave[at]ca[dot]ibm[dot]com) for details.</p>
+	</div>
+	</div>	
+	<?php 			
+		$html = ob_get_contents();
+		ob_end_clean();
+		
+		$pageTitle = "EMF";
+		$pageKeywords = "";
+		$pageAuthor = "Nick Boldt";
+		
+		$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+		exit; 
+	}
+}
 ?>
