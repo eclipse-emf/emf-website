@@ -4,8 +4,8 @@
 		<a href="<?php if (!$isEMFserver) { ?>http://www.eclipse.org/emf/downloads/<?php } else { ?>/tools/emf/scripts/downloads.php<?php } ?>">Downloads</a><br/>
 		<a href="<?php if (!$isEMFserver) { ?>http://www.eclipse.org/emf/updates/<?php } else { ?>/tools/emf/updates<?php } ?>">Update Manager</a>
 		<?php if ($isEMFserver) { ?>
-		:: <a href="http://emf.torolab.ibm.com/emf/build.php">New Build</a>
-		:: <a href="http://emf.torolab.ibm.com/emf/secure/promo.php">Promo</a>
+		:: <a href="http://emf.torolab.ibm.com/emf/build/">New Build</a>
+		:: <a href="http://emf.torolab.ibm.com/emf/build/promo.php">Promote</a>
 		:: <a href="http://emf.torolab.ibm.com/emf/downloads/downloads.php" target="_new">Live Stats</a>
 		<?php } ?>
 		<br/>

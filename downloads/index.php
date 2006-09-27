@@ -224,9 +224,9 @@ if ($isEMFserver)
 <div class="sideitem">
 	<h6>Actions</h6>
 	<ul>
-		<li><a href="http://emf.torolab.ibm.com/emf/build.php">New Build</a></li>
-		<li><a href="http://emf.torolab.ibm.com/emf/secure/patch.php">New Test</a></li>
-		<li><a href="http://emf.torolab.ibm.com/emf/secure/promo.php">Promote</a></li>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/">New Build</a></li>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/patch.php">New Test</a></li>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/promo.php">Promote</a></li>
 	</ul>
 </div>
 <div class="sideitem">
