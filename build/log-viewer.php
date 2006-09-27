@@ -3,6 +3,8 @@ $pre = "../";
 include $pre."includes/header.php"; 
 internalUseOnly(); 
 
+phpinfo();
+
 $build = $_GET["build"]; 
 $test = $_GET["test"]; 
 $jdk13test = $_GET["jdk13test"]; 
