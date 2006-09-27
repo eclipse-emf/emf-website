@@ -12,7 +12,7 @@
 #2.1.3=R2_1_maintenance
 #2.0.6=R2_0_maintenance
 
-# used in display logic, not in build.php
+# used in downloads page to determine what to show
 -=3.0.0
 -=2.2.1
 -=2.2.0
@@ -28,15 +28,6 @@
 -=2.0
 -=1.1.1.1
 
-# buildType
-# Letters I, N, S, R or M are used to identify builds as being one of the following:
-#	 I - Integration
-#	 N - Nightly
-#	 S - Stable
-#	 R - Release
-#	 M - Maintenance
-# If set to N, all source will be checked out from the HEAD stream. In all other cases,
-# tags as specifed in map files will be used when exporting plugins to the buildDirectory.
 [BuildType]
 Release=R
 Stable=S
