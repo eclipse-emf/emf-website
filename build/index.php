@@ -27,7 +27,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 		print "<p>To run a build, please complete the following form and click the Build button.</p>";
 	} else { 
 		print "<p>Your build is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
-			". <a href=\"?".($debug?"debug=1":"d").($previewOnly?"&previewOnly=1":"")."\">Build another?</a></p>";
+			". <a href=\"?project=$PR".($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":"")."\">Build another?</a></p>";
 	}
 
 	$workDir = "/home/www-data/build/".$PR;
@@ -35,10 +35,8 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 	/** customization options here **/
 	$buildOptionsFile = $pre."/../".$PR."/build.options.txt"; // read only
 
-	$buildRequestsFileXML = ""; //"build.requests.xml";	// set filename to "" to disable XML file
-	$buildRequestsFileCSV = ""; //"build.requests.csv";	// set filename to "" to disable CSV file
 	$buildRequestsFileTXT = $workDir."/../emf/requests/build.requests.txt";	// set filename to "" to disable tabbed TXT file
-	$dependenciesURLsFile = $workDir."/../emf/requests/dependencies.urls.txt"; // read-write
+	$dependenciesURLsFile = $workDir."/../emf/requests/dependencies.urls.txt"; // read-write, one shared file
 
 	/** done customizing, shouldn't have to change anything below here **/
 
@@ -96,8 +94,8 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 							<td> &#149; <a href="http://fullmoon/eclipse/downloads/">Eclipse</a></td>
 						</tr>
 						<tr>						
-							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&sortBy=date&hlbuild=0#latest">EMF</a></td>
-							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&sortBy=date&hlbuild=0#latest">EMF</a></td>
+							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
+							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
 						</tr>						
 					</table>							
 				</td>
@@ -250,13 +248,13 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 						<td colspan=3><b>Debug Options:</b></td>
 					</tr>
 					<tr>
-						<td colspan=1>org.eclipse.<?php echo $PR; ?> branch:<br><small>-branch</small></td>
+						<td colspan=1>org.eclipse.<?php print $PR; ?> branch:<br><small>-branch</small></td>
 						<td>&#160;</td>
 						<td><input size="15" name="build_debug_branch" value=""></td>
 						<td><small> Override value above; enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
 					</tr>
 					<tr>
-						<td colspan=1>org.eclipse.<?php echo $PR; ?>.releng branch:<br><small>-projRelengBranch</small></td>
+						<td colspan=1>org.eclipse.<?php print $PR; ?>.releng branch:<br><small>-projRelengBranch</small></td>
 						<td>&#160;</td>
 						<td><input size="15" name="build_debug_proj_releng_branch" value=""></td>
 						<td><small> Enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
@@ -365,13 +363,13 @@ function doSubmit() {
 	}
 }
 
-function selectDefaultBuildID() {
+function selectDefaultCVSBranch() {
 	field=document.forms.buildForm.build_CVS_Branch;
 	pickDefaultBuildID(field.options[field.selectedIndex].text);
 }
 
 setTimeout('loadSelectedValues()',500);
-setTimeout('selectDefaultBuildID()',501);
+setTimeout('selectDefaultCVSBranch()',501);
 
 </script>
 <?php } else { // page two, form submission results
@@ -424,101 +422,101 @@ setTimeout('selectDefaultBuildID()',501);
 <?php } ?>
 
 	<ul>
-		<li><a href="/<?php print $PR; ?>/downloads/?sortBy=date&hlbuild=0#latest">You can view, explore, or download your build here</a>.
-	Here's what you submitted:</li>
+		<li><a href="/<?php print $PR; ?>/downloads/?project=<?php print $PR; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
+		Here's what you submitted:</li>
 
 	<?php 
-			print "<ul>\n";
-			if ($buildRequestsFileTXT) {
-				$txtH = "ID\tDate\tTime";
-				$txt = $ID."\t".date("Y/m/d\tH:i"); 
+		print "<ul>\n";
+		if ($buildRequestsFileTXT) {
+			$txtH = "ID\tDate\tTime";
+			$txt = $ID."\t".date("Y/m/d\tH:i"); 
+		}
+		$i=2;
+		foreach ($_POST as $k => $v) {
+			if (strstr($k,"build_") && trim($v)!="" && !strstr($k,"_Sel") ) { 
+				$lab = preg_replace("/\_/"," ",substr($k,6));
+				$val = $k == "build_Dependencies_URL_New" ? $newDependencies : $v;
+				print "<li>";
+				print (is_array($val)? 
+					"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" : 
+					"<div>".$val."</div>" . "<b>".$lab.":</b>");
+				print "</li>\n";
+				if ($buildRequestsFileTXT) { $txtH.= ($i>0?"\t":"") . $lab; $txt .= ($i>0?"\t":"") . (is_array($val)? join(",",$val):$val); }
+				$i++;
 			}
-			$i=2;
-			foreach ($_POST as $k => $v) {
-				if (strstr($k,"build_") && trim($v)!="" && !strstr($k,"_Sel") ) { 
-					$lab = preg_replace("/\_/"," ",substr($k,6));
-					$val = $k == "build_Dependencies_URL_New" ? $newDependencies : $v;
-					print "<li>";
-					print (is_array($val)? 
-						"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" : 
-						"<div>".$val."</div>" . "<b>".$lab.":</b>");
-					print "</li>\n";
-					if ($buildRequestsFileTXT) { $txtH.= ($i>0?"\t":"") . $lab; $txt .= ($i>0?"\t":"") . (is_array($val)? join(",",$val):$val); }
-					$i++;
-				}
-			} 
+		} 
 
-			print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b>\n"; 
-			print "</ul>\n";
-			if ($buildRequestsFileTXT) { $txtH.="\tUser IP\n"; $txt .="\t".$_SERVER["REMOTE_ADDR"]."\n"; }
-			
-			print "</ul>\n";
+		print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b></li>\n"; 
+		print "</ul>\n";
+		if ($buildRequestsFileTXT) { $txtH.="\tUser IP\n"; $txt .="\t".$_SERVER["REMOTE_ADDR"]."\n"; }
+		
+		print "</ul>\n";
 
-			// then dump this data to a tabbed-text file for tracking/reporting
-			if ($buildRequestsFileTXT) {
-				if (!file_exists($buildRequestsFileTXT) || filesize($buildRequestsFileTXT)<5) { $txt = $txtH.$txt;	} // new file? do header
-				$f = fopen($buildRequestsFileTXT,"a");
-				fputs($f,$txt);
-				fclose($f);
+		// then dump this data to a tabbed-text file for tracking/reporting
+		if ($buildRequestsFileTXT) {
+			if (!file_exists($buildRequestsFileTXT) || filesize($buildRequestsFileTXT)<5) { $txt = $txtH.$txt;	} // new file? do header
+			$f = fopen($buildRequestsFileTXT,"a");
+			fputs($f,$txt);
+			fclose($f);
+		}
+
+		// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
+
+		$branches = getBranches($options);
+		//foreach ($branches as $k => $b) { print "$k => $b<br>"; }
+
+		if ($branches["HEAD"] == $_POST["build_CVS_Branch"]) { $_POST["build_CVS_Branch"] = "HEAD"; }
+
+		// fire the shell script...
+
+		/** see http://ca3.php.net/manual/en/function.exec.php **/
+
+		// create the log dir before trying to log to it
+		$preCmd = 'mkdir -p '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse ;';
+		$preCmd .= 'print "buildVer='.$BR.'" > '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse/transientProperties.txt ;';
+
+		$cmd = ('bash -c "exec nohup setsid '.$workDir.'/scripts/start.sh -proj '.$PR.
+			' -branch '.($_POST["build_debug_branch"]!=""?$_POST["build_debug_branch"]:$_POST["build_CVS_Branch"]).
+			$dependencyURLs.
+			($_POST["build_debug_runTestsOnly"]!=""? ' -antTarget runTestsOnly':
+				($_POST["build_Run_Tests_JUnit"]=="Y"?' -antTarget run':' -antTarget runWithoutTest')
+			).
+			($_POST["build_Build_Alias"]?' -buildAlias '.$_POST["build_Build_Alias"]:"").	// 2.0.2, for example
+			' -tagBuild '.($_POST["build_Tag_Build"]=="Yes"?"true":"false").		// new, 04/07/12
+			' -buildType '.$_POST["build_Build_Type"].
+			//' -javaHome /opt/sun/j2sdk1.4.2_03'. // on mp
+			' -javaHome '.($_POST["build_debug_java_home"]!=""?$_POST["build_debug_java_home"]:$defaultJDK). // on emf
+			' -downloadsDir '.$workDir.'/../downloads'. // use central location: /home/www-data/build/downloads
+			' -buildDir '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.
+			' -buildTimestamp '.$buildTimestamp.
+			($_POST["build_Run_Tests_JDK13"]=="Y"?' -runJDK13Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
+			($_POST["build_Run_Tests_JDK14"]=="Y"?' -runJDK14Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
+			($_POST["build_Run_Tests_JDK50"]=="Y"?' -runJDK50Tests '.$BR:''). // pass $BR to -runJDK50Tests flag
+			($_POST["build_Run_Tests_Old"]=="Y"?' -runOldTests '.$BR:'').		// pass $BR to -runOldTests flag
+			($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
+
+			// three new debugging options as of oct 6
+			($_POST["build_debug_basebuilder_branch"]!=""?' -basebuilderBranch '.$_POST["build_debug_basebuilder_branch"]:'').
+			($_POST["build_debug_proj_releng_branch"]!=""?' -projRelengBranch '.$_POST["build_debug_proj_releng_branch"]:'').
+			($_POST["build_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["build_debug_emf_old_tests_branch"]:'').
+			($_POST["build_debug_noclean"]=="Y"?' -noclean':'').
+			($testOnlyTimeStamp?' -testOnlyTimeStamp '.$testOnlyTimeStamp:'').
+
+			' >> '.$workDir.$logfile.' 2>&1 &"');	// logging to unique files
+
+			if ($previewOnly) { 
+				print '</div><div class="homeitem3col">'."\n";
+				print "<h3>Build Command (Preview Only)</h3>\n";
+				print "<p><small><code>$preCmd</code></small></p>";
+			} else {
+				exec($preCmd);
 			}
 
-			// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
-
-			$branches = getBranches($options);
-			//foreach ($branches as $k => $b) { print "$k => $b<br>"; }
-
-			if ($branches["HEAD"] == $_POST["build_CVS_Branch"]) { $_POST["build_CVS_Branch"] = "HEAD"; }
-
-			// fire the shell script...
-
-			/** see http://ca3.php.net/manual/en/function.exec.php **/
-
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse ;';
-				$preCmd .= 'print "buildVer='.$BR.'" > '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse/transientProperties.txt ;';
-
-				$cmd = ('bash -c "exec nohup setsid '.$workDir.'/scripts/start.sh -proj '.$PR.
-					' -branch '.($_POST["build_debug_branch"]!=""?$_POST["build_debug_branch"]:$_POST["build_CVS_Branch"]).
-					$dependencyURLs.
-					($_POST["build_debug_runTestsOnly"]!=""? ' -antTarget runTestsOnly':
-						($_POST["build_Run_Tests_JUnit"]=="Y"?' -antTarget run':' -antTarget runWithoutTest')
-					).
-					($_POST["build_Build_Alias"]?' -buildAlias '.$_POST["build_Build_Alias"]:"").	// 2.0.2, for example
-					' -tagBuild '.($_POST["build_Tag_Build"]=="Yes"?"true":"false").		// new, 04/07/12
-					' -buildType '.$_POST["build_Build_Type"].
-					//' -javaHome /opt/sun/j2sdk1.4.2_03'. // on mp
-					' -javaHome '.($_POST["build_debug_java_home"]!=""?$_POST["build_debug_java_home"]:$defaultJDK). // on emf
-					' -downloadsDir '.$workDir.'/../downloads'. // use central location: /home/www-data/build/downloads
-					' -buildDir '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.
-					' -buildTimestamp '.$buildTimestamp.
-					($_POST["build_Run_Tests_JDK13"]=="Y"?' -runJDK13Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
-					($_POST["build_Run_Tests_JDK14"]=="Y"?' -runJDK14Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
-					($_POST["build_Run_Tests_JDK50"]=="Y"?' -runJDK50Tests '.$BR:''). // pass $BR to -runJDK50Tests flag
-					($_POST["build_Run_Tests_Old"]=="Y"?' -runOldTests '.$BR:'').		// pass $BR to -runOldTests flag
-					($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
-
-					// three new debugging options as of oct 6
-					($_POST["build_debug_basebuilder_branch"]!=""?' -basebuilderBranch '.$_POST["build_debug_basebuilder_branch"]:'').
-					($_POST["build_debug_proj_releng_branch"]!=""?' -projRelengBranch '.$_POST["build_debug_proj_releng_branch"]:'').
-					($_POST["build_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["build_debug_emf_old_tests_branch"]:'').
-					($_POST["build_debug_noclean"]=="Y"?' -noclean':'').
-					($testOnlyTimeStamp?' -testOnlyTimeStamp '.$testOnlyTimeStamp:'').
-
-					' >> '.$workDir.$logfile.' 2>&1 &"');	// logging to unique files
-
-					if ($previewOnly) { 
-						print '</div><div class="homeitem3col">'."\n";
-						print "<h3>Build Command (Preview Only)</h3>\n";
-						print "<p><small><code>$preCmd</code></small></p>";
-					} else {
-						exec($preCmd);
-					}
-
-					if ($previewOnly) { 
-						print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
-					} else {
-						exec($cmd);
-					}
+			if ($previewOnly) { 
+				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
+			} else {
+				exec($cmd);
+			}
 
 		} // end else 
 
@@ -534,6 +532,9 @@ print "<li><a href=\"?project=$PR&amp;debug=1&previewOnly=1\">preview debug buil
 print "<li><a href=\"?project=$PR\">normal build</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
+
+include_once "sideitems-common.php";
+
 print "</div>\n";
 
 $html = ob_get_contents();

@@ -7,37 +7,43 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 ob_start();
 
 $debug = isset($_GET["debug"]) ? 1 : 0;
-$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
+$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; 
+$PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf"; 
 
+$emails = array(
+	"emf" => "codeslave@ca.ibm.com,emerks@ca.ibm.com,marcelop@ca.ibm.com,davidms@ca.ibm.com,khussey@ca.ibm.com,walkerp@us.ibm.com",
+	"uml2" => "khussey@ca.ibm.com,jbruck@ca.ibm.com"
+)
+
+?>
 <div id="midcolumn">
 
 <div class="homeitem3col">
-<h3>Promote a Build</h3>
-
+<h3>Promote 
+	<a style="color:white" href="?project=emf<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a> &amp; 
+	<a style="color:white" href="?project=uml2<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">UML2</a></h3>
 
 <?php	
 	if (!$_POST["process"]=="build") { // page one, the form
 			print "<p>To promote, please complete the following form and click the Promote button.</p>";
 		} else { 
 			print "<p>Your promotion is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
-				". <a href=\"?".($debug?"debug=1":"d").($previewOnly?"&previewOnly=1":"")."\">Promote another?</a></p>";
+				". <a href=\"?project=$PR".($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":"")."\">Promote another?</a></p>";
 		}
 ?>
 
 <p>
 <?php 
-	$PWD = "/home/www-data/emf-build";
+	$workDir = "/home/www-data/build/".$PR;
 
 	/** customization options here **/
-	$buildOptionsFile = $pre."build.options.txt"; // read only
+	$buildOptionsFile = $pre."../$PR/build.options.txt"; // read only
 
-	// note that there must be a directory below this one called "data/" which is set to 777 permission so that files can be read (4)/written (2) via anon web user. x bit (1) must be set too so the dir is openable/viewable (766 won't work)
-
-	$eclipseURLsFile		 = $PWD."/requests/eclipse.urls.txt"; // read-write
+	$dependenciesURLsFile = $workDir."/../emf/requests/dependencies.urls.txt"; // read-write, one shared file
 
 	/** done customizing, shouldn't have to change anything below here **/
 
-	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$eclipseURLsFile);
+	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$dependenciesURLsFile);
 
 	if ($_POST["build_Branch_And_Build_ID"]) { 
 		$projRelengBranch = getprojRelengBranch($options["Branch"],$_POST["build_Branch_And_Build_ID"]);
@@ -45,27 +51,26 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 		$_POST["build_EMF_Releng_Branch"] = $projRelengBranch;
 	}
 
-	//print "Branches:"; wArr($options["Branch"]);
+	//print "Branches:"; print_r($options["Branch"]);
+	$buildIDs = array();
+	$buildIDs2 = array();
+	
 	foreach ($options["Branch"] as $br) { 
 		$bits = explode("=",$br);
-		$BR=$bits[0];
-		//print "BR = $BR<br>";
-
+		if ($bits[0]=="-") { $BR = $bits[1]; }
 		// define which build types to show:
-		if ($BR!="-" && is_dir("$PWD/tools/emf/downloads/drops/$BR")) {
-			$buildIDs = loadDirSimple("$PWD/tools/emf/downloads/drops/$BR","([MISR]+\d{12})","d"); // include N builds
-			//$buildIDs = loadDirSimple("$PWD/tools/emf/downloads/drops/$BR","([MISR]+\d{12})","d"); // omit N builds
+		if (is_dir("$workDir/downloads/drops/$BR")) {
+			$buildIDs = loadDirSimple("$workDir/downloads/drops/$BR","([MISR]+\d{12})","d"); // include N builds
 			foreach ($buildIDs as $k => $bid) { 
-				//print $k.": ".substr($bid,1)."<br>";
-				if (is_dir("$PWD/tools/emf/downloads/drops/$BR/$bid/testresults/xml")) { // no point adding them to the list if there's no data available!
-					$buildIDs2[substr($bid,1)] = $BR."/".$bid;
+				if (is_dir("$workDir/downloads/drops/$BR/$bid/testresults/xml")) { // no point adding them to the list if there's no data available!
+					$buildIDs2[substr($bid,1).substr($bid,0,1)] = $BR."/".$bid;
 				}
 			}
 		}
 	}
 	$buildIDs = $buildIDs2;
+	if (sizeof($buildIDs)<1) { $buildIDs = array("ERROR: No builds found!"); }
 	krsort($buildIDs); reset($buildIDs);
-	//print "Build IDs:"; wArr($buildIDs);
 
 	if (!$_POST["process"]=="build") { // page one, the form
 
@@ -76,10 +81,10 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 			<input type="hidden" name="process" value="build" />
 			<tr>
 				<td>&#160;</td>
-				<td><b>Branch &amp; Build ID</b></td>
+				<td><b><?php echo strtoupper($PR); ?> Branch &amp; Build ID</b></td>
 				<td>&#160;</td>
 				<td colspan=2>
-				<select style="font-size:9px" name="build_Branch_And_Build_ID" size=5>
+				<select style="font-size:9px" name="build_Branch_And_Build_ID" size="8">
 					<?php displayOptions($buildIDs,false,0); ?>
 				</select></td>
 			</tr>
@@ -98,17 +103,17 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 				<td>&#160;</td>
 				<td><b>Email Address</b><br><small>optional</small></td>
 				<td>&#160;</td>
-				<td><input name="build_Email" size=25 value="codeslave@ca.ibm.com,emerks@ca.ibm.com,marcelop@ca.ibm.com,davidms@ca.ibm.com,khussey@ca.ibm.com,walkerp@us.ibm.com"></td>
+				<td><input name="build_Email" size=25 value="<?php echo $emails[$PR]; ?>"></td>
 				<td><small>If you would like to be<br>notified when promotion done</small></td>
 			</tr>
 
 			<tr>
 				<td>&#160;</td>
-				<td colspan=5><b>Note</b>: Please ensure the build you intend to promote was done using the latest (or appropriate)<br>
-				<a target="_check" class="highlight" href="http://download.eclipse.org/downloads/index.php">Eclipse SDK driver</a>, and that the <a target="_check" href="../../tools/emf/scripts/downloads.php?showAll=&sortBy=date#latest" class="highlight">automated JUnit tests</a> all passed 100%. <a target="_check" href="../../tests/results-jdk13.php" class="highlight">JDK1.3</a> and old <br>
-				<a target="_check" href="../../tests/results.php" class="highlight">BVT/FVT/SVT tests</a> should have passed suffiently close to 100% to approve this promotion.
+				<td colspan=5><p><b>Note</b>: Please ensure the build you intend to promote was done using the <br/>
+				<a target="_check" class="highlight" href="/emf/build/?project=<?php echo $PR; ?>">latest (or appropriate) driver(s)</a>, 
+				and that the <a target="_check" href="/<?php echo $PR; ?>/downloads/?project=<?php echo $PR; ?>&amp;sortBy=date&amp;hlbuild=0#latest" class="highlight">all tests have passed</a>.</p>
 				
-				<p><b>When done, don't forget to change any <a href="https://bugs.eclipse.org/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DASSIGNED%26order%3Dbugs.bug_id%26query_format%3Dadvanced&column_changeddate=on&column_bug_severity=on&column_priority=on&column_rep_platform=on&column_bug_status=on&column_product=on&column_component=on&column_version=on&column_target_milestone=on&column_short_short_desc=on&splitheader=0">Assigned bugzillas</a> to Fixed.</b></p>
+				<p><b>When done, don't forget to change any ASSIGNED bugzillas to FIXED.</b></p>
 
 				</td>
 			</tr>
@@ -155,85 +160,70 @@ function loadSelects() {
 	$logdir  = "/home/www-data/promo_logs/";
 	$logfile = "promo_log_".$BR.".".$ID."_".date("YmdHis").".txt";
 
-	print "Your promotion is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview.":""); 
 	if (!$previewOnly) { 
 ?>
-	Logfile is <?php print $logdir.$logfile; ?><br />
+	<p>Logfile is <?php print $logdir.$logfile; ?></p>
 <?php } ?>
 
-	Here's what you submitted:
-<br />&#160;
-	<?php 
-			print "<table>\n";
-			$i=2;
+	<ul>
+		<li><a href="/<?php print $PR; ?>/downloads/?project=<?php print $PR; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
+			Here's what you submitted:</li>
+	<?php 	print "<ul>\n";
 			foreach ($_POST as $k => $v) {
 				if (strstr($k,"build_") && trim($v)!="" && !strstr($k,"_Sel")) { 
 					$lab = str_replace("_"," ",substr($k,6));
-					$v = str_replace(",",", ",$v);
+					$val = false!==strpos($v,",") ? explode(",",$v) : $v;
 
-					print "<tr><td>&#149;&#160;</td><td><b>".$lab.":</b></td><td>".$v."</td></tr>\n";
-					$i++;
+					print "<li>";
+					print (is_array($val)? 
+						"<b>".$lab.":</b>" . "<ul>\n<li>".join("</li>\n<li>",$val)."</li>\n</ul>\n" : 
+						"<div>".$val."</div>" . "<b>".$lab.":</b>");
+					print "</li>\n";
 				}
 			} 
-
-			print "<tr><td>&#149;&#160;</td><td><b>Your IP:</b></td><td>".$_SERVER["REMOTE_ADDR"]."</td></tr>\n"; print "</table>\n";
-	?>
-<br />
-
-<a href="/emf/downloads/?sortBy=date&hlbuild=0#latest">You can view, explore, or download your build here</a>.
-
-<p><b>NOTE:</b> If you are redirected to a fullmoon mirror, you may not see the new build for at least an hour.</p>
+			print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b>\n"; 
+			print "</ul>\n"; ?>
+	</ul>
+		
+	<p><b>NOTE:</b> If you are redirected to a fullmoon mirror, you may not see the new build for at least an hour.</p>
 
 <?php 
-			// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
-
-			print "<hr noshade size=1>";
-
 			// fire the shell script...
-			$output="";
-
 			/** see http://ca3.php.net/manual/en/function.exec.php **/
 
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$logdir.';';
+			// create the log dir before trying to log to it
+			$preCmd = 'mkdir -p '.$logdir.';';
+	
+			$cmd = ('bash -c "exec nohup setsid ssh nickb@emf.torolab.ibm.com'.
+				' \"cd '.
+					$workDir.'/scripts; ./promoteToEclipse.sh'.
+					' -emf -Q'.
+					' -branch '.$BR.
+					' -buildID '.$ID.
+					' -user nickb'.
+					' -userIES nboldt'.
+					($_POST["build_Update_ISS_Map_File"]!=""?'':' -noies').
+					($_POST["build_Announce_In_Newsgroup"]!=""?' -announce':'').
+					($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
+				' \"'.
+				' >> '.$logdir.$logfile.' 2>&1 &"');	// logging to unique files
 
-				$cmd = ('bash -c "exec nohup setsid ssh nickb@emf.torolab.ibm.com'.
-					' \"cd '.
-						$PWD.'/scripts; ./promoteToEclipse.sh'.
-						' -emf -Q'.
-						' -branch '.$BR.
-						' -buildID '.$ID.
-						' -user nickb'.
-						' -userIES nboldt'.
-						($_POST["build_Update_ISS_Map_File"]!=""?'':' -noies').
-						($_POST["build_Announce_In_Newsgroup"]!=""?' -announce':'').
-					// ' -noies -nodrop -noscripts -nobugz -noCheckInNews -nodocs'.
-					//' -jarsonly -debug 2'. // for debugging only
-						($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
-					' \"'.
-					' >> '.$logdir.$logfile.' 2>&1 &"');	// logging to unique files
+			if ($previewOnly) { 
+				print '</div><div class="homeitem3col">'."\n";
+				print "<h3>Build Command (Preview Only)</h3>\n";
+				print "<p><small><code>$preCmd</code></small></p>";
+			} else {
+				exec($preCmd);
+				$f = fopen($logdir.$logfile,"w");
+				fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n");
+				fclose($f);
+			}
 
-					if ($previewOnly) { 
-						print $preCmd."<br />";
-					} else {
-						exec($preCmd);
-						$f = fopen($logdir.$logfile,"w");
-						fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n");
-						fclose($f);
-					}
-
-					if ($previewOnly) { 
-						print preg_replace("/\ \-/","<br> -",$cmd);
-					} else {
-						exec($cmd); // disable here to prevent operation
-					}
-
-					if ($output) { 
-						foreach($output as $outputline){
-							echo("$outputline<br>");
-						}
-					}
-
+			if ($previewOnly) { 
+				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
+			} else {
+				exec($cmd); // disable here to prevent operation
+			}
 		}
 
 print "</div>\n</div>\n";
@@ -242,18 +232,21 @@ print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Options</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"?debug\">debug promo</a></li>\n";
-print "<li><a href=\"?previewOnly\">preview promo</a></li>\n";
-print "<li><a href=\"?debug&previewOnly\">preview debug promo</a></li>\n";
-print "<li><a href=\"?\">normal promo</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug=1\">debug promo</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;previewOnly=1\">preview promo</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug=1&previewOnly=1\">preview debug promo</a></li>\n";
+print "<li><a href=\"?project=$PR\">normal promo</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
+
+include_once "sideitems-common.php";
+
 print "</div>\n";
 
 $html = ob_get_contents();
 ob_end_clean();
 
-$pageTitle = "EMF - Testing EMF Patched Builds";
+$pageTitle = "EMF - Promote a Build";
 $pageKeywords = "";
 $pageAuthor = "Nick Boldt";
 

@@ -7,7 +7,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 ob_start();
 
 $debug = isset($_GET["debug"]) ? 1 : 0;
-$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
+$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; 
+$PR = "emf"; ?>
 
 <div id="midcolumn">
 
@@ -20,7 +21,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 		print "<p>To test a build of EMF, please complete the following form and click the Run Tests button.</p>";
 	} else {
 		print "<p>Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
-			". <a href=\"?".($debug?"debug=1":"d").($previewOnly?"&previewOnly=1":"")."\">Test another?</a></p>";
+			". <a href=\"?project=$PR".($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":"")."\">Test another?</a></p>";
 	}
 ?>
 
@@ -605,12 +606,15 @@ print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Options</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"?debug\">debug test</a></li>\n";
-print "<li><a href=\"?previewOnly\">preview test</a></li>\n";
-print "<li><a href=\"?debug&previewOnly\">preview debug test</a></li>\n";
-print "<li><a href=\"?\">normal test</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug\">debug test</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;previewOnly\">preview test</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug&previewOnly\">preview debug test</a></li>\n";
+print "<li><a href=\"?project=$PR\">normal test</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
+
+include_once "sideitems-common.php";
+
 print "</div>\n";
 
 $html = ob_get_contents();
@@ -788,4 +792,4 @@ function loadOptionsFromArray($sp) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.2 2006/09/27 02:47:26 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.3 2006/09/27 22:04:40 nickb Exp $ -->
