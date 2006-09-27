@@ -358,7 +358,7 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 	{
 		$stat = "";
 		$sty = "";
-		$testlog = ($isEMFserver ? "/emf/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt");
+		$testlog = ($isEMFserver ? "/emf/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt");
 		if ($cnt === 0 || preg_match("/^[^EFP]+$/", $cnt)) // nothing, or no E or F or P
 		{
 			$cnt = ($type == "jdk50" ? getJDK50TestResultsFailureCount($f, $t) : getJDK14TestResultsFailureCount($f, $t));
@@ -397,7 +397,7 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 	$tmp = preg_replace("/^(.+?)(\d)(\d)$/e", "strtoupper($1) . \" $2.$3\"", $type) . " Tests";
 	if (is_file("$testsPWD$path$testDirs[0]/testlog.txt"))
 	{
-		$tmp = "<a href=\"" . ($isEMFserver ? "/emf/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
+		$tmp = "<a href=\"" . ($isEMFserver ? "/emf/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
 	}
 
 	return "<li>$tmp<ul>$ret</ul></li>";
@@ -442,10 +442,10 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 		$stat = "";
 		$sty = "";
 		$cnt = getTestResultsFailureCount($testsPWD . $path, $testDirs, $log);
-		$testlog = ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/$log" : "$pre$mid$path$testDirs[0]/$log");
+		$testlog = ($isEMFserver ? "/emf/build/log-viewer.php?test=$path$testDirs[0]/$log" : "$pre$mid$path$testDirs[0]/$log");
 		if ($cnt === "")
 		{
-			$stat = "<a href=\"" . ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
+			$stat = "<a href=\"" . ($isEMFserver ? "/emf/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
 		}
 		else if (preg_match("/FAILED/", $cnt)) //build failed
 		{
@@ -469,7 +469,7 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 	$tmp = "Old Tests";
 	if (is_file("$testsPWD$path$testDirs[0]/testlog.txt"))
 	{
-		$tmp = "<a href=\"" . ($isEMFserver ? "/emf/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
+		$tmp = "<a href=\"" . ($isEMFserver ? "/emf/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
 	}
 	return "<li>$tmp<ul>$ret</ul></li>";
 }
@@ -881,7 +881,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 
 	if (!$link) // return a string with icon, result, and counts (if applic)
 	{
-		$link = ($isEMFserver ? "/emf/log-viewer.php?build=$path" : "http://download.eclipse.org/"."$mid${path}buildlog.txt");
+		$link = ($isEMFserver ? "/emf/build/log-viewer.php?build=$path" : "http://download.eclipse.org/"."$mid${path}buildlog.txt");
 	}
 
 	if (!$link2) // link to console log in progress if it exists
