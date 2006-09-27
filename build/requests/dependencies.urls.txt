@@ -1,0 +1,5 @@
+# large #s first
+[DependenciesURL]
+1eclipse=http://download.eclipse.org/downloads/drops/M20060919-1045/eclipse-SDK-M20060919-1045-linux-gtk.tar.gz
+2emf=http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.1/S200609210005/emf-sdo-xsd-SDK-2.2.1RC2.zip
+1eclipse=http://download.eclipse.org/downloads/drops/M20060921-0945/eclipse-SDK-M20060921-0945-linux-gtk.tar.gz
