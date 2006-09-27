@@ -25,11 +25,34 @@
 	$CVSpreDocSDO = "$_url/viewcvs/indextools.cgi/%7Echeckout%7E/org.eclipse.emf.ecore.sdo/doc/org.eclipse.emf.ecore.sdo.doc/";
 	$CVSpreDocXSD = "$_url/viewcvs/indextech.cgi/%7Echeckout%7E/org.eclipse.xsd/doc/org.eclipse.xsd.doc/";
 
-function internalUseOnly () 
+function isAuthorized () 
 {
 	global $theme, $isEMFserver;
 	
-	if (!$isEMFserver) {
+	// must be on a build server and must not be on www.eclipse.org
+	if ($isEMFserver && $_SERVER["DOCUMENT_ROOT"] != "/home/data/httpd/www.eclipse.org/html") 
+	{
+		return true;
+	}
+	$server_name = domainSuffix($_SERVER["SERVER_NAME"]); 
+	$host_ip = $_SERVER["SERVER_NAME"] ? gethostbyname($server_name) : null;
+	$host_name = $_SERVER["SERVER_ADDR"] ? domainSuffix(gethostbyaddr($_SERVER["SERVER_ADDR"])) : null;
+	if ($host_ip && $host_name && $host_ip == $_SERVER["SERVER_ADDR"] && $host_name == $_SERVER["SERVER_NAME"])
+	{
+		return true;
+	}
+	return false; 
+}
+
+function domainSuffix($domain)
+{
+	return preg_replace("/.*([^\.]+\.[^\.]+)$/","$1",$domain);
+}
+
+function internalUseOnly () 
+{
+	global $theme;
+	if (!isAuthorized()) {
 		require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 		ob_start(); ?>
 	
