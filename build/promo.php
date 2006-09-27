@@ -17,9 +17,10 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 
 <?php	
 	if (!$_POST["process"]=="build") { // page one, the form
-			echo "<p>To promote, please complete the following form and click the Promote button.</p>";
+			print "<p>To promote, please complete the following form and click the Promote button.</p>";
 		} else { 
-			echo "<p>Your promotion is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").". <a href=\"/emf/secure/promo.php?\">Promote another?</a></p>";
+			print "<p>Your promotion is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
+				". <a href=\"?".($debug?"debug=1":"d").($previewOnly?"&previewOnly=1":"")."\">Promote another?</a></p>";
 		}
 ?>
 
@@ -40,22 +41,22 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 
 	if ($_POST["build_Branch_And_Build_ID"]) { 
 		$projRelengBranch = getprojRelengBranch($options["Branch"],$_POST["build_Branch_And_Build_ID"]);
-		//echo "projRelengBranch = $projRelengBranch<br>";
+		//print "projRelengBranch = $projRelengBranch<br>";
 		$_POST["build_EMF_Releng_Branch"] = $projRelengBranch;
 	}
 
-	//echo "Branches:"; wArr($options["Branch"]);
+	//print "Branches:"; wArr($options["Branch"]);
 	foreach ($options["Branch"] as $br) { 
 		$bits = explode("=",$br);
 		$BR=$bits[0];
-		//echo "BR = $BR<br>";
+		//print "BR = $BR<br>";
 
 		// define which build types to show:
 		if ($BR!="-" && is_dir("$PWD/tools/emf/downloads/drops/$BR")) {
 			$buildIDs = loadDirSimple("$PWD/tools/emf/downloads/drops/$BR","([MISR]+\d{12})","d"); // include N builds
 			//$buildIDs = loadDirSimple("$PWD/tools/emf/downloads/drops/$BR","([MISR]+\d{12})","d"); // omit N builds
 			foreach ($buildIDs as $k => $bid) { 
-				//echo $k.": ".substr($bid,1)."<br>";
+				//print $k.": ".substr($bid,1)."<br>";
 				if (is_dir("$PWD/tools/emf/downloads/drops/$BR/$bid/testresults/xml")) { // no point adding them to the list if there's no data available!
 					$buildIDs2[substr($bid,1)] = $BR."/".$bid;
 				}
@@ -64,14 +65,14 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 	}
 	$buildIDs = $buildIDs2;
 	krsort($buildIDs); reset($buildIDs);
-	//echo "Build IDs:"; wArr($buildIDs);
+	//print "Build IDs:"; wArr($buildIDs);
 
 	if (!$_POST["process"]=="build") { // page one, the form
 
 ?>
 
 <table>
-	<form method=POST>
+	<form method=POST name="promoForm">
 			<input type="hidden" name="process" value="build" />
 			<tr>
 				<td>&#160;</td>
@@ -113,7 +114,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 			</tr>
 			<tr>
 				<td>&#160;</td>
-				<td colspan=2 align=center><input type="button" value="<?php echo $previewOnly?"Preview Only":"Promote"; ?>" onclick="doSubmit()"></td>
+				<td colspan=2 align=center><input type="button" value="<?php print $previewOnly?"Preview Only":"Promote"; ?>" onclick="doSubmit()"></td>
 			</tr>
 			<tr>
 				<td>&#160;</td>
@@ -123,7 +124,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 <script language="javascript">
 function doSubmit() {
 	answer = true;
-	with (document.forms[0]) { 
+	with (document.forms.promoForm) { 
 		if (build_Branch_And_Build_ID.options[build_Branch_And_Build_ID.selectedIndex].value.indexOf("N")==0) {
 			answer = confirm(
 				'Are you sure you want to promote a Nightly build?');
@@ -131,7 +132,7 @@ function doSubmit() {
 		}
 	}
 	if (answer) { 
-			document.forms[0].submit();
+			document.forms.promoForm.submit();
 	} else {
 		// do nothing...
 	}
@@ -140,19 +141,13 @@ function doSubmit() {
 onload=loadSelects;
 
 function loadSelects() {
-	with (document.forms[0]) { 
+	with (document.forms.promoForm) { 
 		build_Branch_And_Build_ID.selectedIndex=0;
 	}
 }
 </script>
 <?php } else { // page two, form submission results
 	
-?>
-
-<p align=center><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 BGCOLOR="#F4F4F4"><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/L2R.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD WIDTH=1 BGCOLOR="#000000" BACKGROUND="http://www.eclipse.org/emf/images/outlines/D2U.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD><TD><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0><TR><TD><TABLE CELLPADDING= CELLSPACING=0 BORDER=0><TR><TD STYLE="background-color: #F4F4F4; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:10px;">
-
-<?php 
-
 	$BR = explode("/",$_POST["build_Branch_And_Build_ID"]);
 	$ID = $BR[1];
 	$BR = $BR[0];
@@ -160,28 +155,28 @@ function loadSelects() {
 	$logdir  = "/home/www-data/promo_logs/";
 	$logfile = "promo_log_".$BR.".".$ID."_".date("YmdHis").".txt";
 
-	echo "Your promotion is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview.":""); 
+	print "Your promotion is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview.":""); 
 	if (!$previewOnly) { 
 ?>
-	Logfile is <?php echo $logdir.$logfile; ?><br />
+	Logfile is <?php print $logdir.$logfile; ?><br />
 <?php } ?>
 
 	Here's what you submitted:
 <br />&#160;
 	<?php 
-			echo "<table>\n";
+			print "<table>\n";
 			$i=2;
 			foreach ($_POST as $k => $v) {
 				if (strstr($k,"build_") && trim($v)!="" && !strstr($k,"_Sel")) { 
 					$lab = str_replace("_"," ",substr($k,6));
 					$v = str_replace(",",", ",$v);
 
-					echo "<tr><td>&#149;&#160;</td><td><b>".$lab.":</b></td><td>".$v."</td></tr>\n";
+					print "<tr><td>&#149;&#160;</td><td><b>".$lab.":</b></td><td>".$v."</td></tr>\n";
 					$i++;
 				}
 			} 
 
-			echo "<tr><td>&#149;&#160;</td><td><b>Your IP:</b></td><td>".$_SERVER["REMOTE_ADDR"]."</td></tr>\n"; echo "</table>\n";
+			print "<tr><td>&#149;&#160;</td><td><b>Your IP:</b></td><td>".$_SERVER["REMOTE_ADDR"]."</td></tr>\n"; print "</table>\n";
 	?>
 <br />
 
@@ -189,12 +184,10 @@ function loadSelects() {
 
 <p><b>NOTE:</b> If you are redirected to a fullmoon mirror, you may not see the new build for at least an hour.</p>
 
-</TD></TR></TABLE></TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000' BACKGROUND="http://www.eclipse.org/emf/images/outlines/U2D.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/R2L.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
-
 <?php 
 			// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
 
-			echo "<hr noshade size=1>";
+			print "<hr noshade size=1>";
 
 			// fire the shell script...
 			$output="";
@@ -221,7 +214,7 @@ function loadSelects() {
 					' >> '.$logdir.$logfile.' 2>&1 &"');	// logging to unique files
 
 					if ($previewOnly) { 
-						echo $preCmd."<br />";
+						print $preCmd."<br />";
 					} else {
 						exec($preCmd);
 						$f = fopen($logdir.$logfile,"w");
@@ -230,7 +223,7 @@ function loadSelects() {
 					}
 
 					if ($previewOnly) { 
-						echo preg_replace("/\ \-/","<br> -",$cmd);
+						print preg_replace("/\ \-/","<br> -",$cmd);
 					} else {
 						exec($cmd); // disable here to prevent operation
 					}
@@ -282,11 +275,11 @@ function displayCheckboxes($label,$options,$verbose=false,$checked=false) {
 		if (!preg_match("/\-\=[\d\.]+/",$opt)) { 
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <input type="checkbox" name="bar" value="Y">foo
 				$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				echo "\n\t<input ".($checked?"checked ":"")."type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
+				print "\n\t<input ".($checked?"checked ":"")."type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
 			} else { // turn foo into <input type="checkbox" name="foo" value="Y">foo</option>
-				echo "\n\t<input ".($checked?"checked ":"")."type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
+				print "\n\t<input ".($checked?"checked ":"")."type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
 			}
-			echo "<br/>\n";
+			print "<br/>\n";
 		}
 	}
 }
@@ -308,9 +301,9 @@ function displayOptions($options,$verbose=false,$selected=-1) {
 			}
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
 				$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				echo "\n\t<option ".($isSelected||$selected==$o?"selected ":"")."value=\"".trim($matches[2])."\">".($verbose?trim($matches[2])." | ":"").trim($matches[1])."</option>";
+				print "\n\t<option ".($isSelected||$selected==$o?"selected ":"")."value=\"".trim($matches[2])."\">".($verbose?trim($matches[2])." | ":"").trim($matches[1])."</option>";
 			} else { // turn foo into <option value="foo">foo</option>
-				echo "\n\t<option ".($isSelected||$selected==$o?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
+				print "\n\t<option ".($isSelected||$selected==$o?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
 			}
 		}
 	}
@@ -353,14 +346,14 @@ function loadOptionsFromArray($sp) {
 				} else {
 					$doSection = trim($matches[1]);
 				}
-				if ($debug>0) echo "Section: $s --> $doSection<br>";
+				if ($debug>0) print "Section: $s --> $doSection<br>";
 
 				$options[$doSection] = array();
 				if ($isReversed) { $options[$doSection]["reversed"] = $isReversed; }
 			}
 		} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) { 
 			if (strlen($s)>2) { 
-				if ($debug>0) echo "Loading: $s<br>";
+				if ($debug>0) print "Loading: $s<br>";
 				$options[$doSection][] = trim($s);
 			}
 		}

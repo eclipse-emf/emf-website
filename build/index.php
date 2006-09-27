@@ -7,83 +7,42 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 ob_start();
 
 $debug = isset($_GET["debug"]) ? 1 : 0;
-$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
+$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; 
+$PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf"; ?>
 
 <div id="midcolumn">
 
 <div class="homeitem3col">
-<h3>Building EMF</h3>
+<h3>Building 
+	<a style="color:white" href="?project=emf<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a> &amp; 
+	<a style="color:white" href="?project=uml2<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">UML2</a></h3>
 
 <?php	
 
-	if ($_POST["build_Build_ID"] && $_POST["build_Build_ID"]=="-") { 
+	if ($_POST["build_Branch"] && $_POST["build_Branch"]=="-") { 
 		$previewOnly="true"; // ie, DO NOT BUILD!
 	}
 	
 	if (!$_POST["process"]=="build") { // page one, the form
-			print "<p>To run a build, please complete the following form and click the Build button.</p>";
-		} else { 
-			echo "Your build is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").". <a href=\"/emf/build.php?\">Build another?</a>";
-		}
-?>
-
-<!-- <br>If you would like to receive an email when the build completes, please enter your email address. -->
-
-<p>
-<?php 
-	$PWD = "/home/www-data/emf-build";
-	//$lockFile = $PWD."/start.sh.lock";
-	if (is_file($lockFile)) { ?>
-		<script language="javascript">
-			int1 = setTimeout("document.location.href+='?'",30*1000);
-			int2 = setInterval("document.forms[0].count.value=(document.forms[0].count.value-0)-1",1000);
-		</script>
-		
-		<p align=center><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 BGCOLOR="#F4F4F4"><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/L2R.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD WIDTH=1 BGCOLOR="#000000" BACKGROUND="http://www.eclipse.org/emf/images/outlines/D2U.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD><TD><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0><TR><TD><TABLE CELLPADDING= CELLSPACING=0 BORDER=0><TR><TD STYLE="background-color: #F4F4F4; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:10px;">
-			<table border=0><form>
-			<tr>
-				<td>&#160;&#160;&#160;</td>
-				<td colspan=2><span class="alert">
-				Sorry, another build is in progress. This page will refresh every <input type="text" class="field-invisible" size=1 value="30" name="count">seconds until the current build is complete.<br />
-				<br />
-				The current build is: <hr noshade size=1 />
-				</td>
-			</tr>
-			<tr>
-				<td>&#160;&#160;&#160;</td>
-				<td>&#160;&#160;&#160;</td>
-				<td><span class="alert">
-<?php $f = file($lockFile); 
-		foreach ($f as $v) {
-			$vv = $v;
-			//$vv = preg_replace("/\;/",";<br/ >",$vv);
-			$vv = preg_replace("/\ \-/","<br/ >&#160;&#160;&#160;&#160;-",$vv);
-			echo $vv; 
-		} ?>	</td>
-			</tr>
-		</form></table>
-	</TD></TR></TABLE></TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000' BACKGROUND="http://www.eclipse.org/emf/images/outlines/U2D.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/R2L.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
-	<script language="javascript">
-		document.forms[0].count.value=30;
-	</script>
-
-<?php	include $pre."includes/footer.php";
-		exit;
+		print "<p>To run a build, please complete the following form and click the Build button.</p>";
+	} else { 
+		print "<p>Your build is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
+			". <a href=\"?".($debug?"debug=1":"d").($previewOnly?"&previewOnly=1":"")."\">Build another?</a></p>";
 	}
 
-	/** customization options here **/
-	$buildOptionsFile = $pre."build.options.txt"; // read only
+	$workDir = "/home/www-data/build/".$PR;
 
-	// note that there must be a directory below this one called "data/" which is set to 777 permission so that files can be read (4)/written (2) via anon web user. x bit (1) must be set too so the dir is openable/viewable (766 won't work)
+	/** customization options here **/
+	$buildOptionsFile = $pre."/../".$PR."/build.options.txt"; // read only
 
 	$buildRequestsFileXML = ""; //"build.requests.xml";	// set filename to "" to disable XML file
 	$buildRequestsFileCSV = ""; //"build.requests.csv";	// set filename to "" to disable CSV file
-	$buildRequestsFileTXT = $PWD."/requests/build.requests.txt";	// set filename to "" to disable tabbed TXT file
-	$eclipseURLsFile		 = $PWD."/requests/eclipse.urls.txt"; // read-write
+	$buildRequestsFileTXT = $workDir."/../emf/requests/build.requests.txt";	// set filename to "" to disable tabbed TXT file
+	$dependenciesURLsFile = $workDir."/../emf/requests/dependencies.urls.txt"; // read-write
 
 	/** done customizing, shouldn't have to change anything below here **/
 
-	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$eclipseURLsFile);
+	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$dependenciesURLsFile);
 
 	sort($options["RunTests"]); reset ($options["RunTests"]);
 
@@ -92,46 +51,82 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 ?>
 
 <table>
-	<form method=POST>
+	<form method=POST name="buildForm">
 			<input type="hidden" name="process" value="build" />
 			<tr>
-				<td><img src="http://www.eclipse.org/emf/images/numbers/1.gif" /></td>
+				<td><img src="/emf/images/numbers/1.gif" /></td>
 				<td>&#160;</td>
-				<td><b>Branch & Type</b></td>
+				<td><b>Branch, Subproject &amp; Type</b></td>
 				<td>&#160;</td>
-				<input name="build_Build_ID" type="hidden" size=8 maxlength=10 value="<?php 
-						$branches = getBranches($options);
-						foreach ($branches as $k => $b) { 
-							echo $k; break; // echo the first one 
-						}
-				?>" onchange="this.value=this.value.replace(/[^0-9\.]/g,'');">
-				<td colspan=3><select name="build_Branch" onchange="pickDefaultBuildID(this.options[this.selectedIndex].text)">
+				<input name="build_Branch" type="hidden" size=8 maxlength=10 onchange="this.value=this.value.replace(/[^0-9\.]/g,'');">
+				<td colspan=3><select name="build_CVS_Branch" onchange="pickDefaultBuildID(this.options[this.selectedIndex].text)">
 				<?php displayOptions($options["Branch"],true); ?>
 				</select> &#160;
+				<select name="build_Project" onchange="document.location.href='?project='+this.options[this.selectedIndex].value+'<?php 
+					print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>'">
+					<option <?php print $PR == "emf" ? "selected " : ""; ?>value="emf">EMF</option>
+					<option <?php print $PR == "uml2" ? "selected " : ""; ?>value="uml2">UML2</option>
+				</select>
 				<select name="build_Build_Type" onchange="pickDefaults(this.options[this.selectedIndex].value)">
 				<?php displayOptions($options["BuildType"]); ?>
 				</select></td>
 			</tr>
-			<tr>
-				<td><img src="http://www.eclipse.org/emf/images/numbers/2.gif" /></td>
-				<td>&#160;</td>
-				<td><b>Eclipse URL</b><br><small>
-					choose an <a target="_new" href="http://fullmoon.torolab.ibm.com/downloads/index.php">existing</a><br>
-					URL or enter a <a target="_new" href="http://download.eclipse.org/downloads/index.php">new</a><br>
-					one</td>
-				<td>&#160;</td>
-				<td colspan=3><small><select onchange="with(document.forms[0]) {build_Eclipse_URL_New.value = build_Eclipse_URL.options[build_Eclipse_URL.selectedIndex].value; }" style="font-size:9px" name="build_Eclipse_URL" size=8>
-				<?php displayOptions($options["EclipseURL"]); ?>
-				</select><br>
-				<input style="font-size:9px" name="build_Eclipse_URL_New" size="60"></small></td>
-			</tr>
-			<tr><td colspan="6">&nbsp;</td></tr>
 
 			<tr>
-				<td rowspan="2" valign="top"><img src="<?php echo $WWWpre; ?>images/numbers/3.gif" /></td>
-				<td rowspan="2">&nbsp;</td>
+				<td colspan="1"></td>
+				<td colspan="5">
+					<input type="text" name="fullURL" style="border:0;font-size:9px" readonly="readonly" size="125"/>
+				</td>
+			</tr>
+			
+			<tr valign="top">
+				<td><img src="<?php print $WWWpre; ?>images/numbers/2.gif" /></td>
+				<td>&#160;</td>
+				<td><b>Dependency URLs</b><br>
+				
+					<!-- TODO: add more links here -->
+					<small>
+					choose URLs (use <em>CTRL</em> <br> 
+					for multiple selections)</small>
+					<table>
+						<tr><td><b>Public</b></td><td><b>Mirror</b></td></tr>
+						<?php $buildServer = array("www.eclipse.org","emf.torolab.ibm.com","emft.eclipse.org","download.eclipse.org"); ?>
+						<tr>						
+							<td> &#149; <a href="http://download.eclipse.org/eclipse/downloads/">Eclipse</a></td>
+							<td> &#149; <a href="http://fullmoon/eclipse/downloads/">Eclipse</a></td>
+						</tr>
+						<tr>						
+							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&sortBy=date&hlbuild=0#latest">EMF</a></td>
+							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&sortBy=date&hlbuild=0#latest">EMF</a></td>
+						</tr>						
+					</table>							
+				</td>
+				<td>&#160;</td>
+				<td colspan=2>
+				<small>
+				<select multiple="multiple" style="font-size:9px" name="build_Dependencies_URL[]" size="9" onchange="showfullURL(this.options[this.selectedIndex].value);">
+				<?php displayURLs($options["DependenciesURL"]); ?>
+				</select></td>
+			</tr>
+			<tr valign="top">
+				<td colspan=2>&#160;</td>
+				<td><small>&#160;&#160;-- AND/OR --<br><br>
+					paste full URL(s), one per<br>
+					line or comma separated<br>
+					(new values will be stored)</small>
+				</td>
+				<td>&#160;</td>
+				<td colspan=2>
+				<textarea name="build_Dependencies_URL_New" cols="50" rows="2"></textarea>
+				</td>
+			</tr>
+			<tr><td colspan="6">&#160;</td></tr>
+
+			<tr>
+				<td rowspan="2" valign="top"><img src="<?php print $WWWpre; ?>images/numbers/3.gif" /></td>
+				<td rowspan="2">&#160;</td>
 				<td colspan=1><b>JDK &amp; Basebuilder Branch</b></td>
-				<td>&nbsp;</td>
+				<td>&#160;</td>
 				<td colspan="2"><select name="build_debug_java_home">
 <?php 
 
@@ -155,7 +150,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 	foreach ($JDKs as $jdk) { 
 		if (realpath("/opt/".$jdk) == "/opt/".$jdk) { // not a link 
 			$label = false!==strpos(strtolower($jdk),"ibm") ? "IBM ".str_replace("IBMJava2-","",str_replace("ibm-java2-ws-sdk-pj9xia32","",str_replace("ibm-java2-sdk-","",$jdk))) : "Sun ".$jdk;
-			echo "<option ".($selected == "/opt/".$jdk ? "selected " : "")."value=\"/opt/".$jdk."\">$label</option>\n";
+			print "<option ".($selected == "/opt/".$jdk ? "selected " : "")."value=\"/opt/".$jdk."\">$label</option>\n";
 		}
 	}
 ?>
@@ -163,18 +158,18 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 			</tr>
 			<tr>
 				<td colspan=1><a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">org.eclipse.releng.basebuilder</a> branch:<br><small>-basebuilderBranch</small></td>
-				<td>&nbsp;</td>
+				<td>&#160;</td>
 				<td><input size="25" name="build_debug_basebuilder_branch" value="HEAD"></td>
 				<td><small> Enter Tag/Branch/Version, eg., HEAD, M2_33, <br/>R3_2_maintenance, r321_v20060830 :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
 			</tr>
 			
-			<tr><td colspan="6">&nbsp;</td></tr>
+			<tr><td colspan="6">&#160;</td></tr>
 
 			<tr>
-				<td rowspan="2" valign="top"><img src="<?php echo $WWWpre; ?>images/numbers/4.gif" /></td>
-				<td rowspan="2">&nbsp;</td>
+				<td rowspan="2" valign="top"><img src="<?php print $WWWpre; ?>images/numbers/4.gif" /></td>
+				<td rowspan="2">&#160;</td>
 				<td><b>Build Alias</b><br><small>optional</small></td>
-				<td>&nbsp;</td>
+				<td>&#160;</td>
 				<td><input name="build_Build_Alias" size=8></td>
 				<td><small>
 					Eg., for labelling Release builds as "2.0.1"<br> 
@@ -184,7 +179,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 			<tr>
 				<td><b>Tag Build</b><br><small>
 				optional</small></td>
-				<td>&nbsp;</td>
+				<td>&#160;</td>
 				<td><select name="build_Tag_Build" size=1>
 				<?php displayOptions($options["TagBuild"]); ?>
 				</select></td>
@@ -192,38 +187,50 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 				if No, CVS will NOT be tagged with this build's ID</small></td>
 			</tr> 
 
-			<tr><td colspan="6">&nbsp;</td></tr>
+			<tr><td colspan="6">&#160;</td></tr>
 
 
 			<tr valign="top">
-				<td><img src="http://www.eclipse.org/emf/images/numbers/5.gif" /></td>
+				<td><img src="/emf/images/numbers/5.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Run Tests</b><br><small>
 				optional</small></td>
 				<td>&#160;</td>
+				
+				<?php if ($PR == "emf") { ?>
 				<td colspan="1">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests"]); ?>
-				</select></td>
-
+				</td>
 				<td><small>Standard JUnit Tests are added incrementally with bug fixes. 
-				<br/><img src="http://www.eclipse.org/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
+				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
 				If yes to JUnit Tests, tests will be performed during build to
 				validate results and will be refected in build results on download 
 				page and build detail pages.
-				<br/><img src="http://www.eclipse.org/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
+				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
 				If yes to JDK x.x Tests, EMF will be build using IBM JDK x.x, then 
 				the EMF zips built with 1.4 will be run (and tested using the above 
 				JUnit tests using IBM JRE x.x. For Standalone tests, the EMF 
 				Standalone zip will be used instead of the SDK for running the same 
 				standalone JUnit tests as are used by the JDK tests.
-				<br/><img src="http://www.eclipse.org/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
+				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
 				Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build 
 				completes old tests will be run with new SDK zip &amp; selected eclipse SDK.
 				</small></td>
+				
+				<?php } else if ($PR == "uml2") { ?>
+				<td colspan="1">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests"]); ?>
+				</td>
+				<td><small>
+				If yes to JUnit Tests, tests will be performed during build<br>
+				to validate results and will be refected in build results on<br>
+				download page and build detail pages.</small></td>
+				
+				<?php } ?>
 			</tr> 
 
 			<tr>
-				<td><img src="http://www.eclipse.org/emf/images/numbers/6.gif" /></td>
+				<td><img src="/emf/images/numbers/6.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Email Address</b><br><small>optional</small></td>
 				<td>&#160;</td>
@@ -240,28 +247,34 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 				<td>&#160;</td>
 				<td colspan="6"><table>
 					<tr>
-						<td colspan=1><b>Debug Options:</b></td>
+						<td colspan=3><b>Debug Options:</b></td>
 					</tr>
 					<tr>
-						<td colspan=1>org.eclipse.emf.releng.build branch:<br><small>-projRelengBranch</small></td>
+						<td colspan=1>org.eclipse.<?php echo $PR; ?> branch:<br><small>-branch</small></td>
 						<td>&#160;</td>
-						<td><input size="25" name="build_debug_emf_releng_branch" value=""></td><td><small> Enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
+						<td><input size="15" name="build_debug_branch" value=""></td>
+						<td><small> Override value above; enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
 					</tr>
 					<tr>
-						<td colspan=1>old tests branch:<br><small>-emfOldTestsBranch</small></td>
+						<td colspan=1>org.eclipse.<?php echo $PR; ?>.releng branch:<br><small>-projRelengBranch</small></td>
 						<td>&#160;</td>
-						<td><input size="25" name="build_debug_emf_old_tests_branch" value=""></td><td><small> Enter Tag/Branch/Version, eg., R2_0_maintenance</small></td>
-					</tr>
-					<tr>
-						<td colspan=1>org.eclipse.emf branch:<br><small>-emfBranch</small></td>
-						<td>&#160;</td>
-						<td><input size="25" name="build_debug_branch" value=""></td><td><small> Enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
+						<td><input size="15" name="build_debug_proj_releng_branch" value=""></td>
+						<td><small> Enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
 					</tr>
 					<tr>
 						<td colspan=1>JUnit Tests Only (no build)?<br><small>-antTarget runTestsOnly</small></td>
 						<td>&#160;</td>
-						<td><input size="25" name="build_debug_runTestsOnly" value=""></td><td><small> Enter a build's datestamp, eg., 200411040245</small></td>
+						<td><input size="15" name="build_debug_runTestsOnly" value=""></td>
+						<td><small> Enter a build's datestamp, eg., 200411040245</small></td>
 					</tr>
+					<?php if ($PR == "emf") { ?>
+					<tr>
+						<td colspan=1>old tests branch:<br><small>-emfOldTestsBranch</small></td>
+						<td>&#160;</td>
+						<td><input size="15" name="build_debug_emf_old_tests_branch" value=""></td>
+						<td><small> Enter Tag/Branch/Version, eg., R2_0_maintenance</small></td>
+					</tr>
+					<?php } ?>
 					<tr>
 						<td colspan=1>Keep tempfiles?<br><small>-noclean</small></td>
 						<td>&#160;</td>
@@ -273,7 +286,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 
 			<tr>
 				<td>&#160;</td>
-				<td colspan=2 align=center><input type="button" value="<?php if ($previewOnly) { echo "Preview Only"; } else { echo "Build"; } ?>" onclick="doSubmit()"></td>
+				<td colspan=2 align=center><input type="button" value="<?php if ($previewOnly) { print "Preview Only"; } else { print "Build"; } ?>" onclick="doSubmit()"></td>
 			</tr>
 			<tr>
 				<td>&#160;</td>
@@ -281,59 +294,61 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 	</form>
 </table>
 <script language="javascript">
-function selectEclipseURL() {
-	with (document.forms[0]) {
-		if (build_Eclipse_URL.selectedIndex<0 && build_Eclipse_URL_New.value=='') { 
-			build_Eclipse_URL.selectedIndex=0;
-		}
-	}
+
+function showfullURL(val){
+	with (document.forms.buildForm) { fullURL.value=val?val:""; }
 }
 
-onload=loadSelectedValues;
-
 function loadSelectedValues() {
-	with (document.forms[0]) { 
-		document.forms[0].build_Run_Tests_JDK14.checked=true;
-		document.forms[0].build_Run_Tests_JUnit.checked=true;
+	with (document.forms.buildForm) { 
+		setCheckbox("build_Run_Tests_JDK14",true);
+		setCheckbox("build_Run_Tests_JUnit",true);
 	}
 }
 
 function pickDefaults(val) {
-	document.forms[0].build_Tag_Build.selectedIndex=(val=='N'?1:0); // Nightly = No; others = Yes
+	document.forms.buildForm.build_Tag_Build.selectedIndex=(val=='N'?1:0); // Nightly = No; others = Yes
 	if (val=='N') {
-		document.forms[0].build_Run_Tests_JUnit.checked=true;
-		document.forms[0].build_Run_Tests_JDK13.checked=false;
-		document.forms[0].build_Run_Tests_JDK14.checked=true;
-		document.forms[0].build_Run_Tests_JDK50.checked=false;
-		document.forms[0].build_Run_Tests_Old.checked=false;
+		setCheckbox("build_Run_Tests_JUnit",true);
+		setCheckbox("build_Run_Tests_JDK13",false);
+		setCheckbox("build_Run_Tests_JDK14",true);
+		setCheckbox("build_Run_Tests_JDK50",false);
+		setCheckbox("build_Run_Tests_Old",false);
 	} else if (val=='R' || val=='S') {
-		document.forms[0].build_Run_Tests_JUnit.checked=true;
-		document.forms[0].build_Run_Tests_JDK13.checked=false;
-		document.forms[0].build_Run_Tests_JDK14.checked=true;
-		document.forms[0].build_Run_Tests_JDK50.checked=true;
-		document.forms[0].build_Run_Tests_Old.checked=true;
+		setCheckbox("build_Run_Tests_JUnit",true);
+		setCheckbox("build_Run_Tests_JDK13",false);
+		setCheckbox("build_Run_Tests_JDK14",true);
+		setCheckbox("build_Run_Tests_JDK50",true);
+		setCheckbox("build_Run_Tests_Old",true);
 	} else if (val=='M' || val=='I') {
-		document.forms[0].build_Run_Tests_JUnit.checked=true;
-		document.forms[0].build_Run_Tests_JDK13.checked=false;
-		document.forms[0].build_Run_Tests_JDK14.checked=true;
-		document.forms[0].build_Run_Tests_JDK50.checked=true;
-		document.forms[0].build_Run_Tests_Old.checked=true;
+		setCheckbox("build_Run_Tests_JUnit",true);
+		setCheckbox("build_Run_Tests_JDK13",false);
+		setCheckbox("build_Run_Tests_JDK14",true);
+		setCheckbox("build_Run_Tests_JDK50",true);
+		setCheckbox("build_Run_Tests_Old",true);
 	}
 }
 
+function setCheckbox(field,bool) 
+{
+	if (document.forms.buildForm && document.forms.buildForm.elements[field] && document.forms.buildForm.elements[field].type=="checkbox")
+	{
+		document.forms.buildForm.elements[field].checked=bool;
+	}
+}
 function pickDefaultBuildID(val) {
-	with (document.forms[0]) { 
+	with (document.forms.buildForm) { 
 		if (val.indexOf(" | ")>0) { 
-			build_Build_ID.value=val.substring(val.indexOf(" | ")+3); // since the text label shown in the select box is not available for POST, store it here
+			build_Branch.value=val.substring(val.indexOf(" | ")+3); // since the text label shown in the select box is not available for POST, store it here
 		} else {
-			build_Build_ID.value=val; // since the text label shown in the select box is not available for POST, store it here
+			build_Branch.value=val; // since the text label shown in the select box is not available for POST, store it here
 		}
 	}
 }
 
 function doSubmit() {
 	answer = true;
-	with (document.forms[0]) { 
+	with (document.forms.buildForm) { 
 		if (build_Run_Tests_JUnit.checked==false // if not running JUnit tests
 			&& build_Build_Type.options[build_Build_Type.selectedIndex].value!='N' // and not a Nightly
 			) {
@@ -341,104 +356,79 @@ function doSubmit() {
 					'Are you sure you want to run a '+build_Build_Type.options[build_Build_Type.selectedIndex].text+"\n"+
 					'build without running JUnit tests?');
 		}
-		if (answer && ( (build_Eclipse_URL_New.value && build_Eclipse_URL_New.value.indexOf("linux-gtk")<0) || 
-				build_Eclipse_URL.options[build_Eclipse_URL.selectedIndex].value.indexOf("linux-gtk")<0 )
-			) {
-				answer = confirm(
-					'Are you sure you want to run a build'+"\n"+
-					'without a Linux GTK Eclipse driver?');
-		}
 	}
 	//loadOptions();
 	if (answer) { 
-		document.forms[0].submit();
+		document.forms.buildForm.submit();
 	} else {
-		document.forms[0].build_Run_Tests_JUnit.focus();
+		document.forms.buildForm.build_Run_Tests_JUnit.focus();
 	}
 }
 
-setTimeout('selectEclipseURL()',500);
+function selectDefaultBuildID() {
+	field=document.forms.buildForm.build_CVS_Branch;
+	pickDefaultBuildID(field.options[field.selectedIndex].text);
+}
+
+setTimeout('loadSelectedValues()',500);
+setTimeout('selectDefaultBuildID()',501);
 
 </script>
 <?php } else { // page two, form submission results
 	
-			// if a new URL is provided
-			if ($_POST["build_Eclipse_URL_New"]) {
+		/****************************** END OF PAGE ONE / START OF PAGE TWO **********************************/
 
-				// if new, append it into the build.options.txt file
-				if ($_POST["build_Eclipse_URL_New"]!=$_POST["build_Eclipse_URL"]) {
-					if (is_file($eclipseURLsFile)) { 
-						$f = file($eclipseURLsFile);
-					} else { 
-						$f = array();
-					}
-					if (
-						!in_array($_POST["build_Eclipse_URL_New"],$f) && 
-						!in_array($_POST["build_Eclipse_URL_New"]."\n",$f) &&
-						!in_array($_POST["build_Eclipse_URL_New"]."\r\n",$f) &&
-						!in_array($_POST["build_Eclipse_URL_New"]."\n\r",$f) 
-						) {
-						$f = fopen($eclipseURLsFile,"a");
-						fputs($f,$_POST["build_Eclipse_URL_New"]."\n");
-						fclose($f);
-					}
-				}
+		$newDependencies = splitDependencies($_POST["build_Dependencies_URL_New"]);
+		$dependencyURLs = getDependencyURLs($_POST["build_Dependencies_URL"],$newDependencies,$dependenciesURLsFile);	
 
-				// then remove the value in the New field, and replace it into the Eclipse URL field
-				$_POST["build_Eclipse_URL"] = $_POST["build_Eclipse_URL_New"];
-				$_POST["build_Eclipse_URL_New"] = "";
-			}
+		$buildTimestamp = ($_POST["build_debug_runTestsOnly"] ? $_POST["build_debug_runTestsOnly"] : date("YmdHi") );
+		$testOnlyTimeStamp = $_POST["build_debug_runTestsOnly"] ? "_".date("YmdHi") : "";
 
-			$buildTimestamp = (
-				$_POST["build_debug_runTestsOnly"] ? $_POST["build_debug_runTestsOnly"] : 
-				date("YmdHi") 
-			);
+		$ID = $_POST["build_Build_Type"].$buildTimestamp;
+		$BR = $_POST["build_Branch"]; 
+		$PR = $GET["project"] ? $GET["project"] : $_POST["build_Project"]; 
+	
+		$_POST["build_Branch"] = 	($_POST["build_Branch"]?$_POST["build_Branch"]:$_POST["build_CVS_Branch"]);
+		
+		$logfile = '/downloads/drops/'.$BR.'/'.$ID.'/buildlog'.$testOnlyTimeStamp.'.txt';
 
-			$testOnlyTimeStamp = $_POST["build_debug_runTestsOnly"] ? "_".date("YmdHi") : "";
-
-			$ID = $_POST["build_Build_Type"].$buildTimestamp;
-			$BR = $_POST["build_Build_ID"]; 
-
-		//$_POST["build_Build_ID"] = 	($_POST["build_Build_ID"]?$_POST["build_Build_ID"]:$_POST["build_Branch"].''.$_POST["build_Build_Type"]);
-		$_POST["build_Build_ID"] = 	($_POST["build_Build_ID"]?$_POST["build_Build_ID"]:$_POST["build_Branch"]);
-
-	// 2005-05-27: ensure that if we're building against maintenance branch, we use the right basebuilder, releng, and old tests
-	if ($_POST["build_Branch"]=="R2_0_maintenance") {
-		if ($_POST["build_debug_basebuilder_branch"]=="") {	$_POST["build_debug_basebuilder_branch"]  ="R3_0_maintenance"; }
-		if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="R2_0_maintenance"; }
-		if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="R2_0_maintenance"; }
+	if ($PR == "emf") 
+	{
+		if ($_POST["build_CVS_Branch"]=="R2_0_maintenance") {
+			if ($_POST["build_debug_basebuilder_branch"]=="") {		$_POST["build_debug_basebuilder_branch"]  ="R3_0_maintenance"; }
+			if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="R2_0_maintenance"; }
+			if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="R2_0_maintenance"; }
+		}
+		if ($_POST["build_CVS_Branch"]=="R2_1_maintenance") {
+			if ($_POST["build_debug_basebuilder_branch"]=="") {		$_POST["build_debug_basebuilder_branch"]  ="R3_1_maintenance"; }
+			if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="R2_1_maintenance"; }
+			if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="R2_1_maintenance"; } 
+		}
+		if ($_POST["build_CVS_Branch"]=="R2_2_maintenance") {
+			if ($_POST["build_debug_basebuilder_branch"]=="") {		$_POST["build_debug_basebuilder_branch"]  ="R3_2_maintenance"; }
+			if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="HEAD"; }
+			if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="HEAD"; }
+		}
+	} 
+	else
+	{
+		
 	}
-	// 2005-09-27: ensure that if we're building against maintenance branch, we use the right basebuilder, releng, and old tests
-	if ($_POST["build_Branch"]=="R2_1_maintenance") {
-		if ($_POST["build_debug_basebuilder_branch"]=="") {	$_POST["build_debug_basebuilder_branch"]  ="R3_1_maintenance"; }
-		if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="R2_1_maintenance"; }
-		if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="R2_1_maintenance"; } // 2006-01-04
-	}
-
 ?>
-
-<p align=center><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 BGCOLOR="#F4F4F4"><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/L2R.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD WIDTH=1 BGCOLOR="#000000" BACKGROUND="http://www.eclipse.org/emf/images/outlines/D2U.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD><TD><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0><TR><TD><TABLE CELLPADDING= CELLSPACING=0 BORDER=0><TR><TD STYLE="background-color: #F4F4F4; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:10px;">
 
 <?php 
-	echo "Your build is ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview.":""); 
 	if (!$previewOnly) { 
 ?>
-	Logfile is <a href="/tools/emf/downloads/drops/<?php echo $BR; ?>/<?php echo $ID; ?>/buildlog<?php echo $testOnlyTimeStamp; ?>.txt"><?php echo $PWD; ?>/tools/emf/downloads/drops/<?php echo $BR; ?>/<?php echo $ID; ?>/buildlog<?php echo $testOnlyTimeStamp; ?>.txt</a><br />
+	<p>Logfile is <a href="<?php print '/tools/'.$PR.$logfile; ?>"><?php print $workDir.$logfile; ?></a></p>
+	
 <?php } ?>
 
-	Here's what you submitted:
-<br />&#160;
+	<ul>
+		<li><a href="/<?php print $PR; ?>/downloads/?sortBy=date&hlbuild=0#latest">You can view, explore, or download your build here</a>.
+	Here's what you submitted:</li>
+
 	<?php 
-			echo "<table>\n";
-			if ($buildRequestsFileXML) { 
-				$xml = "<build id=\"".$ID."\">\n";
-				$xml .=	"\t<build_date value=\"".date("Y/m/d")."\" />\n";
-				$xml .=	 "\t<build_time value=\"".date("H:i")."\" />\n";
-			}
-			if ($buildRequestsFileCSV) {
-				$csvH = "ID,Date,Time";
-				$csv = $ID.",".date("Y/m/d,H:i"); 
-			}
+			print "<ul>\n";
 			if ($buildRequestsFileTXT) {
 				$txtH = "ID\tDate\tTime";
 				$txt = $ID."\t".date("Y/m/d\tH:i"); 
@@ -447,43 +437,22 @@ setTimeout('selectEclipseURL()',500);
 			foreach ($_POST as $k => $v) {
 				if (strstr($k,"build_") && trim($v)!="" && !strstr($k,"_Sel") ) { 
 					$lab = preg_replace("/\_/"," ",substr($k,6));
-
-					echo "<tr><td>&#149;&#160;</td><td><b>".$lab.":</b></td><td>".$v."</td></tr>\n";
-					if ($buildRequestsFileXML) { $xml .="\t<".strtolower($k)." value=\"$v\" />\n"; }
-					if ($buildRequestsFileCSV) { $csvH.= ($i>0?",":"") . $lab;	$csv .= ($i>0?",":"") . $v;  }
-					if ($buildRequestsFileTXT) { $txtH.= ($i>0?"\t":"") . $lab; $txt .= ($i>0?"\t":"") . $v; }
-
+					$val = $k == "build_Dependencies_URL_New" ? $newDependencies : $v;
+					print "<li>";
+					print (is_array($val)? 
+						"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" : 
+						"<div>".$val."</div>" . "<b>".$lab.":</b>");
+					print "</li>\n";
+					if ($buildRequestsFileTXT) { $txtH.= ($i>0?"\t":"") . $lab; $txt .= ($i>0?"\t":"") . (is_array($val)? join(",",$val):$val); }
 					$i++;
 				}
 			} 
 
-			echo "<tr><td>&#149;&#160;</td><td><b>Your IP:</b></td><td>".$_SERVER["REMOTE_ADDR"]."</td></tr>\n"; echo "</table>\n";
-			if ($buildRequestsFileXML) { $xml .="\t<build_user_ip value=\"".$_SERVER["REMOTE_ADDR"]."\" />\n"; $xml .= "</build>\n"; }
-			if ($buildRequestsFileCSV) { $csvH.=",User IP\n"; $csv .=",".$_SERVER["REMOTE_ADDR"]."\n"; }
+			print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b>\n"; 
+			print "</ul>\n";
 			if ($buildRequestsFileTXT) { $txtH.="\tUser IP\n"; $txt .="\t".$_SERVER["REMOTE_ADDR"]."\n"; }
-
-	?>
-<br />
-
-<a href="/emf/downloads/?sortBy=date&hlbuild=0#latest">You can view, explore, or download your build here</a>.
-
-</TD></TR></TABLE></TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000' BACKGROUND="http://www.eclipse.org/emf/images/outlines/U2D.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/R2L.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
-
-<?php 
-			// then dump this data to an XML file for tracking/reporting
-			if ($buildRequestsFileXML) {
-				$f = fopen($buildRequestsFileXML,"a");
-				fputs($f,$xml);
-				fclose($f);
-			}
-
-			// then dump this data to a CSV file for tracking/reporting
-			if ($buildRequestsFileCSV) {
-				if (!file_exists($buildRequestsFileCSV) || filesize($buildRequestsFileCSV)<5) { $csv = $csvH.$csv; } // new file? do header
-				$f = fopen($buildRequestsFileCSV,"a");
-				fputs($f,$csv);
-				fclose($f);
-			}
+			
+			print "</ul>\n";
 
 			// then dump this data to a tabbed-text file for tracking/reporting
 			if ($buildRequestsFileTXT) {
@@ -495,26 +464,22 @@ setTimeout('selectEclipseURL()',500);
 
 			// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
 
-			echo "<hr noshade size=1>";
-
-
 			$branches = getBranches($options);
-			//foreach ($branches as $k => $b) { echo "$k => $b<br>"; }
+			//foreach ($branches as $k => $b) { print "$k => $b<br>"; }
 
-			if ($branches["HEAD"] == $_POST["build_Branch"]) { $_POST["build_Branch"] = "HEAD"; }
+			if ($branches["HEAD"] == $_POST["build_CVS_Branch"]) { $_POST["build_CVS_Branch"] = "HEAD"; }
 
 			// fire the shell script...
-			$output="";
 
 			/** see http://ca3.php.net/manual/en/function.exec.php **/
 
 				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/tools/emf/downloads/drops/'.$BR.'/'.$ID.'/eclipse ;';
-				$preCmd .= 'echo "buildVer='.$BR.'" > '.$PWD.'/tools/emf/downloads/drops/'.$BR.'/'.$ID.'/eclipse/transientProperties.txt ;';
+				$preCmd = 'mkdir -p '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse ;';
+				$preCmd .= 'print "buildVer='.$BR.'" > '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse/transientProperties.txt ;';
 
-				$cmd = ('bash -c "exec nohup setsid '.$PWD.'/scripts/start.sh -proj emf'.
-					' -branch '.($_POST["build_debug_branch"]!=""?$_POST["build_debug_branch"]:$_POST["build_Branch"]).
-					' -URL '.$_POST["build_Eclipse_URL"].
+				$cmd = ('bash -c "exec nohup setsid '.$workDir.'/scripts/start.sh -proj '.$PR.
+					' -branch '.($_POST["build_debug_branch"]!=""?$_POST["build_debug_branch"]:$_POST["build_CVS_Branch"]).
+					$dependencyURLs.
 					($_POST["build_debug_runTestsOnly"]!=""? ' -antTarget runTestsOnly':
 						($_POST["build_Run_Tests_JUnit"]=="Y"?' -antTarget run':' -antTarget runWithoutTest')
 					).
@@ -523,8 +488,8 @@ setTimeout('selectEclipseURL()',500);
 					' -buildType '.$_POST["build_Build_Type"].
 					//' -javaHome /opt/sun/j2sdk1.4.2_03'. // on mp
 					' -javaHome '.($_POST["build_debug_java_home"]!=""?$_POST["build_debug_java_home"]:$defaultJDK). // on emf
-					' -downloadsDir '.$PWD.'/tools/emf/downloads'.
-					' -buildDir '.$PWD.'/tools/emf/downloads/drops/'.$BR.'/'.$ID.
+					' -downloadsDir '.$workDir.'/../downloads'. // use central location: /home/www-data/build/downloads
+					' -buildDir '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.
 					' -buildTimestamp '.$buildTimestamp.
 					($_POST["build_Run_Tests_JDK13"]=="Y"?' -runJDK13Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
 					($_POST["build_Run_Tests_JDK14"]=="Y"?' -runJDK14Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
@@ -534,36 +499,25 @@ setTimeout('selectEclipseURL()',500);
 
 					// three new debugging options as of oct 6
 					($_POST["build_debug_basebuilder_branch"]!=""?' -basebuilderBranch '.$_POST["build_debug_basebuilder_branch"]:'').
-					($_POST["build_debug_emf_releng_branch"]!=""?' -projRelengBranch '.$_POST["build_debug_emf_releng_branch"]:'').
+					($_POST["build_debug_proj_releng_branch"]!=""?' -projRelengBranch '.$_POST["build_debug_proj_releng_branch"]:'').
 					($_POST["build_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["build_debug_emf_old_tests_branch"]:'').
 					($_POST["build_debug_noclean"]=="Y"?' -noclean':'').
-					($_POST["build_debug_continuous_mode"]!=""?' -continuous '.$_POST["build_debug_continuous_mode"]:'').
 					($testOnlyTimeStamp?' -testOnlyTimeStamp '.$testOnlyTimeStamp:'').
 
-			// three output options: uncomment a line and comment out the other two.
-					' >> '.$PWD.'/tools/emf/downloads/drops/'.$BR.'/'.$ID.'/buildlog'.$testOnlyTimeStamp.'.txt 2>&1 &"');	// logging to unique files
-			//		' > /dev/null 2>&1 &"');											// no logging
-			//		' 2>&1"', $output);													// store output as an array of text (then display in browser)
+					' >> '.$workDir.$logfile.' 2>&1 &"');	// logging to unique files
 
 					if ($previewOnly) { 
-						echo $preCmd."<br />";
+						print '</div><div class="homeitem3col">'."\n";
+						print "<h3>Build Command (Preview Only)</h3>\n";
+						print "<p><small><code>$preCmd</code></small></p>";
 					} else {
 						exec($preCmd);
-						$f = fopen($PWD.'/tools/emf/downloads/drops/'.$BR.'/'.$ID.'/buildlog'.$testOnlyTimeStamp.'.txt',"w");
-						fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n");
-						fclose($f);
 					}
 
 					if ($previewOnly) { 
-						echo preg_replace("/\ \-/","<br> -",$cmd);
+						print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
 					} else {
 						exec($cmd);
-					}
-
-					if ($output) { 
-						foreach($output as $outputline){
-							echo("$outputline<br>");
-						}
 					}
 
 		} // end else 
@@ -574,10 +528,10 @@ print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Options</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"?debug\">debug build</a></li>\n";
-print "<li><a href=\"?previewOnly\">preview build</a></li>\n";
-print "<li><a href=\"?debug&previewOnly\">preview debug build</a></li>\n";
-print "<li><a href=\"?\">normal build</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug=1\">debug build</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;previewOnly=1\">preview build</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug=1&previewOnly=1\">preview debug build</a></li>\n";
+print "<li><a href=\"?project=$PR\">normal build</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 print "</div>\n";
@@ -585,7 +539,7 @@ print "</div>\n";
 $html = ob_get_contents();
 ob_end_clean();
 
-$pageTitle = "EMF - New Build";
+$pageTitle = "EMF + UML2 - New Build";
 $pageKeywords = "";
 $pageAuthor = "Nick Boldt";
 
@@ -593,6 +547,88 @@ $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="' . $pre 
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
 /************************** METHODS *****************************************/
+
+// if user submitted values by text entry, split them on newline, space or comma and return as an array
+function splitDependencies($entered) {
+	if (false!==strpos($entered,"\n")) {
+		$entered = explode("\n",$entered);
+	} else if (false!==strpos($entered," ")) {
+		$entered = explode(" ",$entered);
+	} else if (false!==strpos($entered,",")) {
+		$entered = explode(",",$entered);
+	} else {
+		$entered = array($entered); // cast to array
+	}
+	return $entered;
+}
+
+// if user submitted values by selection, collect them
+// if user submitted values by text entry, collect them and write back into file for storage
+// return a string in the form "-URL http://... -URL http://..."
+function getDependencyURLs($chosen, $entered, $file) {
+	if (!$chosen) $chosen = array();
+	if (!is_array($chosen)) $chosen = array($chosen); // cast to array if not already 
+	
+	$origSize = 0;
+	$newSize = 0;
+	
+	// load values from $entered into $chosen
+	if ($entered) {
+		$lines = trimmed_read($file);
+		$origSize = sizeof($lines);
+//		foreach ($lines as $line) print "<i>. $line</i><br/>\n";
+		foreach ($entered as $url) {
+			// add to $chosen
+			$urlFixed = trim($url);
+			if ($urlFixed) {
+				$urlFixed = preg_replace("/.+:\/\/(fullmoon[^\/]+)\//","http://download.eclipse.org/",$urlFixed);
+				$chosen[] = $urlFixed;
+			}
+			// add to file, if it exists and is writable
+			if (is_writable($file) && sizeof($lines)>0 && !in_array($url,$lines)) {
+				$catg = findCatg($urlFixed);
+				if ($catg && $urlFixed) {
+					$lines[] = "$catg=$urlFixed"; // don't add a blank entry!
+				}
+			}					
+		}
+		$newSize = sizeof($lines);
+	}
+	
+	$lines = array_unique($lines); // remove duplicate entries
+
+//	foreach ($chosen as $e) print "<i>. $e</i><br/>\n";
+	updateDependenciesFile($file,$lines,$newSize,$origSize);
+	
+	$ret = "";
+	foreach ($chosen as $choice) {
+		if ($choice) $ret .= " -URL ".$choice;
+	}
+	return $ret;
+}
+
+function findCatg($url) {
+	$matches = array(
+		"2emf" => "emf-sdo-xsd-",
+		"1eclipse" => "eclipse-",
+		"9other" => "/"
+	);
+	foreach ($matches as $catg => $match) { 
+		if (false!==strpos($url,$match)) {
+			return $catg;
+		}
+	}
+}
+
+function updateDependenciesFile($file,$lines,$newSize,$origSize) {
+	if (is_writable($file) && $lines && sizeof($lines)>0 && $newSize > $origSize) {
+		$f = fopen($file, "w");
+		foreach ($lines as $line) {
+			fwrite($f,$line."\n");
+		}
+		fclose($f);
+	}	
+}
 
 function displayCheckboxes($label,$options,$verbose=false) {
 	$matches = null;
@@ -608,11 +644,11 @@ function displayCheckboxes($label,$options,$verbose=false) {
 		if (!preg_match("/\-\=[\d\.]+/",$opt)) { 
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <input type="checkbox" name="bar" value="Y">foo
 				$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				echo "\n\t<input type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
+				print "\n\t<input type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
 			} else { // turn foo into <input type="checkbox" name="foo" value="Y">foo</option>
-				echo "\n\t<input type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
+				print "\n\t<input type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
 			}
-			echo "<br/>\n";
+			print "<br/>\n";
 		}
 	}
 }
@@ -634,13 +670,71 @@ function displayOptions($options,$verbose=false) {
 				$opt = substr($opt,0,strpos($opt,"|selected"));
 			}
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
-				$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				echo "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".($verbose?trim($matches[2])." | ":"").trim($matches[1])."</option>";
+				$matches = null;
+				preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".($verbose?trim($matches[2])." | ":"").trim($matches[1])."</option>";
+			} else if (strstr($opt,"http") && strstr($opt,"drops")) { // turn http://foo/bar.zip into <option value="http://foo/bar.zip">bar.zip</option>
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".
+					substr($opt,6+strpos($opt,"drops"))."</option>";
 			} else { // turn foo into <option value="foo">foo</option>
-				echo "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
 			}
 		}
 	}
+}
+
+// compare project index, then datestamps
+function compareURLs($a, $b) {
+   $aPF = substr($a,0,strpos($a,"="));
+   $bPF = substr($b,0,strpos($b,"="));
+   $aDS = preg_replace("/.+([0-9]{12}|[0-9]{8}\-[0-9]{4}).+/","$1",$a);
+   $bDS = preg_replace("/.+([0-9]{12}|[0-9]{8}\-[0-9]{4}).+/","$1",$b);
+   return $aPF == $bPF ? ($aDS < $bDS ? 1 : -1) : ($aPF > $bPF ? 1 : -1);  
+}
+
+function displayURLs($options,$verbose=false) {
+	if ($options["reversed"]) {
+		// pop that item out
+		array_shift($options);
+		$options = array_reverse($options);
+	}
+
+	usort($options, "compareURLs"); reset($options);
+	//sort($options); reset($options);
+	
+	$matches=null;
+	$currCatg="";
+	foreach ($options as $o => $option) {
+		$opt = $option;
+		if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
+			$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
+			$catg = substr(trim($matches[1]),1);
+			if ($catg!=$currCatg) {
+				if ($currCatg!="") 
+					print "\n\t<option "."value=\""."\"></option>";
+				print "\n\t<option "."value=\""."\"> -- ".$catg." -- </option>";
+				$currCatg=$catg;
+			}	
+			print "\n\t<option "."value=\"".trim($matches[2])."\">".substr(trim($matches[2]),6+strpos(trim($matches[2]),"drops"))."</option>";
+		} else if (strstr($opt,"http") && strstr($opt,"drops")) { // turn http://foo/bar.zip into <option value="http://foo/bar.zip">bar.zip</option>
+			print "\n\t<option "."value=\"".$opt."\">".
+				substr($opt,6+strpos($opt,"drops"))."</option>";
+		} else { // turn foo into <option value="foo">foo</option>
+			print "\n\t<option "."value=\"".$opt."\">".$opt."</option>";
+		}
+	}
+}
+
+function trimmed_read($file) {		
+	$lines = array();
+	if (is_writable($file) && is_readable($file)) { 
+		$f = fopen($file, "r");
+		if ($f) {
+			while (!feof($f) && ($line = trim(fgets($f, 4096))) ) $lines[] = $line;
+			fclose($f);
+		} else die( "Problem reading from: $file");
+	}
+	return $lines;
 }
 
 function loadOptionsFromFile($file1) { // fn not used
@@ -653,12 +747,6 @@ function loadOptionsFromRemoteFiles($file1,$file2) {
 	$sp1 = file($file1);	if (!$sp1) { $sp1 = array(); }
 	$sp2 = file($file2);	if (!$sp2) { $sp2 = array(); }
 	$options = loadOptionsFromArray( array_merge($sp1,$sp2) );
-	return $options;
-}
-
-function loadOptionsFromRemoteFile($file1) { // fn not used
-	$sp1 = file($file1);	if (!$sp1) { $sp1 = array(); }
-	$options = loadOptionsFromArray($sp1);
 	return $options;
 }
 
@@ -680,14 +768,14 @@ function loadOptionsFromArray($sp) {
 				} else {
 					$doSection = trim($matches[1]);
 				}
-				if ($debug>0) echo "Section: $s --> $doSection<br>";
+				if ($debug>0) print "Section: $s --> $doSection<br>";
 
 				$options[$doSection] = array();
 				if ($isReversed) { $options[$doSection]["reversed"] = $isReversed; }
 			}
 		} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) { 
 			if (strlen($s)>2) { 
-				if ($debug>0) echo "Loading: $s<br>";
+				if ($debug>0) print "Loading: $s<br>";
 				$options[$doSection][] = trim($s);
 			}
 		}

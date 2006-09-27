@@ -17,9 +17,10 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 <?php
 
 	if (!$_POST["process"]=="build") { // page one, the form
-		echo "<p>To test a build of EMF, please complete the following form and click the Run Tests button.</p>";
+		print "<p>To test a build of EMF, please complete the following form and click the Run Tests button.</p>";
 	} else {
-		echo "<p>Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").". <a href=\"/emf/secure/patch.php?\">Test again (concurrently)?</a></p>";
+		print "<p>Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
+			". <a href=\"?".($debug?"debug=1":"d").($previewOnly?"&previewOnly=1":"")."\">Test another?</a></p>";
 	}
 ?>
 
@@ -40,7 +41,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 	$options = loadOptionsFromRemoteFiles($testsOptionsFile,$eclipseURLsFile,$emfURLsFile);
 
 	// remove JUnit option
-	foreach ($options["RunTests"] as $o => $p) { //echo "$o => $p<br>";
+	foreach ($options["RunTests"] as $o => $p) { //print "$o => $p<br>";
 		if (false===strpos($p,"JUnit")) { $newopt["RunTests"][$o] = $p; }
 	}
 	$options["RunTests"] = $newopt["RunTests"];
@@ -51,7 +52,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 ?>
 
 <table>
-	<form method=POST enctype="multipart/form-data">
+	<form method=POST enctype="multipart/form-data" name="patchForm">
 			<input type="hidden" name="MAX_FILE_SIZE" value="5242880" /> <!-- 5M limit -->
 			<input type="hidden" name="process" value="test" />
 			<tr>
@@ -59,7 +60,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 				<td>&#160;</td>
 				<td><b>Eclipse URL</b><br><small>choose an existing URL<br />or enter a new one</td>
 				<td>&#160;</td>
-				<td colspan=2><small><select onchange="with(document.forms[0]) {tests_Eclipse_URL_New.value = tests_Eclipse_URL.options[tests_Eclipse_URL.selectedIndex].value; }" style="font-size:9px" name="tests_Eclipse_URL" size=8>
+				<td colspan=2><small><select onchange="with(document.forms.patchForm) {tests_Eclipse_URL_New.value = tests_Eclipse_URL.options[tests_Eclipse_URL.selectedIndex].value; }" style="font-size:9px" name="tests_Eclipse_URL" size=8>
 				<?php displayOptions($options["EclipseURL"]); ?>
 				</select><br>
 				<input style="font-size:9px" name="tests_Eclipse_URL_New" size="60"></small></td>
@@ -69,7 +70,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 				<td bgcolor="#ffffff">&#160;</td>
 				<td><b>EMF URL</b><br><small>choose an existing URL<br />or enter a new one</td>
 				<td>&#160;</td>
-				<td colspan=2><small><select onchange="with(document.forms[0]) {tests_EMF_URL_New.value = tests_EMF_URL.options[tests_EMF_URL.selectedIndex].value; }" style="font-size:9px" name="tests_EMF_URL" size=8>
+				<td colspan=2><small><select onchange="with(document.forms.patchForm) {tests_EMF_URL_New.value = tests_EMF_URL.options[tests_EMF_URL.selectedIndex].value; }" style="font-size:9px" name="tests_EMF_URL" size=8>
 				<?php displayOptions($options["EMFURL"]); ?>
 				</select><br>
 				<input style="font-size:9px" name="tests_EMF_URL_New" size="60"></small></td>
@@ -116,7 +117,7 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 			<tr>
 				<td bgcolor="#eeeeee">
 				<input type="checkbox" name="tests_Run_Tests_Perf" value="Y">Perf Tests, using Automated <br> Tests from build: <input style="font-size:10px" size="19" name="tests_Run_Tests_Perf_ID"><br/>
-				Test continuously for <input style="font-size:10px" size="2" name="tests_Run_Tests_Perf_Repeats" value="<?php echo $isEMFbuildServer?"":"10"; ?>"> builds?</td>
+				Test continuously for <input style="font-size:10px" size="2" name="tests_Run_Tests_Perf_Repeats" value="<?php print $isEMFbuildServer?"":"10"; ?>"> builds?</td>
 				<td bgcolor="#eeeeee" rowspan="1" valign="top">
 				eg., to run tests on EMF 2.1.0/I200503130300 using the tests from<br/>
 				<b>2.1.0/I200505150500</b>, select the EMF I200503130300 driver above, <br/>
@@ -139,9 +140,9 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 	foreach ($JDKs as $jdk) { 
 		if (!is_link("/opt/".$jdk)) { 
 			$label = false!==strpos(strtolower($jdk),"ibm") ? "IBM ".str_replace("ibm-java2-ws-sdk-pj9xia32","",$jdk) : "Sun ".$jdk;
-			echo "<option value=\"/opt/".$jdk."\">$label</option>\n";
+			print "<option value=\"/opt/".$jdk."\">$label</option>\n";
 			if (false!==strpos(strtolower($jdk),"ibm")) {
-				echo "<option ".($selected == "/opt/".$jdk ? "selected " : "")."value=\"/opt/".$jdk.",j9\">$label with j9".($selected == "/opt/".$jdk ? " (latest)" : "")."</option>\n";
+				print "<option ".($selected == "/opt/".$jdk ? "selected " : "")."value=\"/opt/".$jdk.",j9\">$label with j9".($selected == "/opt/".$jdk ? " (latest)" : "")."</option>\n";
 			}
 		}
 	}
@@ -208,14 +209,14 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 				<td>&#160;</td>
 				<td colspan=6 align=left>
 						<b style="color:red">There are tests in progress. Please make sure that running your tests will not overlap performance testing, or you may skew the results.</b><br>
-						<?php echo $testsInProgress."<br>"; ?>
+						<?php print $testsInProgress."<br>"; ?>
 				</td>
 			</tr>
 		<?php } ?>
 			<tr>
 				<td>&#160;</td>
 				<td colspan=2 align=center>
-					<input style="<?php if ($testsInProgress) { echo 'color:red;font-weight:bold'; } ?>" type="button" value="<?php echo ($previewOnly?"Preview":"Run"); ?> Tests" onclick="doSubmit()">
+					<input style="<?php if ($testsInProgress) { print 'color:red;font-weight:bold'; } ?>" type="button" value="<?php print ($previewOnly?"Preview":"Run"); ?> Tests" onclick="doSubmit()">
 				</td>
 			</tr>
 			<tr>
@@ -225,14 +226,14 @@ $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; ?>
 </table>
 <script language="javascript">
 function selectEclipseURL() {
-	with (document.forms[0]) {
+	with (document.forms.patchForm) {
 		if (tests_Eclipse_URL.selectedIndex<0 && tests_Eclipse_URL_New.value=='') {
 			tests_Eclipse_URL.selectedIndex=0;
 		}
 	}
 }
 function selectEMFURL() {
-	with (document.forms[0]) {
+	with (document.forms.patchForm) {
 		if (tests_EMF_URL.selectedIndex<0 && tests_EMF_URL_New.value=='') {
 			tests_EMF_URL.selectedIndex=0;
 		}
@@ -240,9 +241,9 @@ function selectEMFURL() {
 }
 
 function loadSelectedValues() {
-	with (document.forms[0]) { 
-		document.forms[0].tests_Run_Tests_Perf.checked=<?php echo $isEMFbuildServer?"false":"true"; ?>;
-		document.forms[0].tests_Run_Tests_JDK13.checked=false;
+	with (document.forms.patchForm) { 
+		document.forms.patchForm.tests_Run_Tests_Perf.checked=<?php print $isEMFbuildServer?"false":"true"; ?>;
+		document.forms.patchForm.tests_Run_Tests_JDK13.checked=false;
 	}
 }
 
@@ -250,13 +251,13 @@ setTimeout('selectEclipseURL();selectEMFURL();loadSelectedValues()',500);
 
 function doSubmit() {
 	//loadOptions();
-	document.forms[0].submit();
+	document.forms.patchForm.submit();
 }
 
 /*
 function loadOptions() { // only used by the select box for the Build Options
 	// due to a bug in the way that multiple options are collected in PHP, stuff the list into a text field instead.
-	with (document.forms[0]){
+	with (document.forms.patchForm){
 		str = "";
 		cnt=0;
 		for (i=0;i<tests_tests_Options_Sel.length;i++) {
@@ -333,15 +334,15 @@ function loadOptions() { // only used by the select box for the Build Options
 				$uploadfile = $uploaddir . basename($_FILES['tests_Patch_Zipfile']['name']);
 
 				if ($debug) {
-					echo '<pre>';
-					echo 'File upload details:'."\n";
+					print '<pre>';
+					print 'File upload details:'."\n";
 					print_r($_FILES);
 					print "</pre>";
 				}
 				if (move_uploaded_file($_FILES['tests_Patch_Zipfile']['tmp_name'], $uploadfile) && chmod($uploadfile,0744)) {
-					echo "<b style=\"color:green\">File successfully uploaded.</b>\n";
+					print "<b style=\"color:green\">File successfully uploaded.</b>\n";
 				} else {
-					echo "<b style=\"color:red\">Problem uploading &amp; copying your file from ".$_FILES['tests_Patch_Zipfile']['tmp_name']." to ".$uploadfile."!</b>\n";
+					print "<b style=\"color:red\">Problem uploading &amp; copying your file from ".$_FILES['tests_Patch_Zipfile']['tmp_name']." to ".$uploadfile."!</b>\n";
 				}
 			} else if ($_POST["tests_Patch_Zipfile_Name"]) {
 				$uploadfile = $_POST["tests_Patch_Zipfile_Name"];
@@ -354,19 +355,14 @@ function loadOptions() { // only used by the select box for the Build Options
 
 			// need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/tools/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
 			$ID = explode ("/",$_POST["tests_EMF_URL"]);
-			//echo $_POST["tests_EMF_URL"];
-			//foreach($ID as $k => $i) { echo "$k: $i<br>"; }
+			//print $_POST["tests_EMF_URL"];
+			//foreach($ID as $k => $i) { print "$k: $i<br>"; }
 			$BR = $ID[7];
 			$ID = $ID[8];
 
 			$testTimestamp = ($uploadfile?"P":"").date("YmdHi");
-?>
 
-<p align=center><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 BGCOLOR="#F4F4F4"><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/L2R.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD WIDTH=1 BGCOLOR="#000000" BACKGROUND="http://www.eclipse.org/emf/images/outlines/D2U.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD><TD><TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0><TR><TD><TABLE CELLPADDING= CELLSPACING=0 BORDER=0><TR><TD STYLE="background-color: #F4F4F4; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:10px;">
-
-<?php
-
-	echo "Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview.":".");
+	print "Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview.":".");
 	if (!$previewOnly) {
 ?>
 	Logfile(s) are listed below.
@@ -379,7 +375,7 @@ function loadOptions() { // only used by the select box for the Build Options
 
 		$logfile = $PWD.'/'.$logfile;
 
-			echo "<table>\n";
+			print "<table>\n";
 			if ($testsRequestsFileTXT) {
 				$txtH = "ID\tDate\tTime";
 				$txt = $testTimestamp."\t".date("Y/m/d\tH:i");
@@ -389,26 +385,22 @@ function loadOptions() { // only used by the select box for the Build Options
 				if (strstr($k,"tests_") && trim($v)!="" && !strstr($k,"_Sel") ) {
 					$lab = preg_replace("/\_/"," ",substr($k,6));
 
-					echo "<tr><td>&#149;&#160;</td><td><b>".$lab.":</b></td><td>".$v."</td></tr>\n";
+					print "<tr><td>&#149;&#160;</td><td><b>".$lab.":</b></td><td>".$v."</td></tr>\n";
 					if ($testsRequestsFileTXT) { $txtH.= ($i>0?"\t":"") . $lab; $txt .= ($i>0?"\t":"") . $v; }
 					$i++;
 				}
 			}
 
 			if ($uploadfile) {
-				echo "<tr><td>&#149;&#160;</td><td><b>Patch Zipfile:</b></td><td>".$uploadfile."</td></tr>\n";
+				print "<tr><td>&#149;&#160;</td><td><b>Patch Zipfile:</b></td><td>".$uploadfile."</td></tr>\n";
 			}
-			echo "<tr><td>&#149;&#160;</td><td><b>Your IP:</b></td><td>".$_SERVER["REMOTE_ADDR"]."</td></tr>\n"; echo "</table>\n";
+			print "<tr><td>&#149;&#160;</td><td><b>Your IP:</b></td><td>".$_SERVER["REMOTE_ADDR"]."</td></tr>\n"; print "</table>\n";
 			if ($testsRequestsFileTXT) { $txtH.="\tUser IP\n"; $txt .="\t".$_SERVER["REMOTE_ADDR"]."\n"; }
 
 	?>
 <br />
 
-Test results will he located here: <a href="/tests/results.php#goto<?php echo $BR."".substr($ID,0,1); ?>">BVT, FVT, SVT</a>, <a href="/tests/results-jdk13.php#goto<?php echo $BR."".substr($ID,0,1); ?>">JDK 1.3</a>, <a href="/tests/results-jdk14.php#goto<?php echo $BR."".substr($ID,0,1); ?>">JDK 1.4</a>, <a href="/tests/results-jdk50.php#goto<?php echo $BR."".substr($ID,0,1); ?>">JDK 5.0</a>, <a href="/tests/results-perf.php#goto<?php echo $BR."".substr($ID,0,1); ?>">Perf Tests</a>.
-
-<p><b>Don't forget to update CVS with the new version of the build.requests.txt file!</b> Run <i>synchronizeServers.sh </i> in <i>emf-build/scripts</i> to push this new file to both external (dev.eclipse.org) and internal (emf.torolab.ibm.com) CVS repositories.</p>
-
-</TD></TR></TABLE></TD></TR></TABLE></TD><TD WIDTH=1 BGCOLOR='#000000' BACKGROUND="http://www.eclipse.org/emf/images/outlines/U2D.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR><TR><TD COLSPAN=3 BGCOLOR="#000000" HEIGHT=1 BACKGROUND="http://www.eclipse.org/emf/images/outlines/R2L.gif"><IMG BORDER=0 SRC="http://www.eclipse.org/emf/images/c.gif" WIDTH=1 HEIGHT=1></TD></TR></TABLE></p>
+Test results will he located here: <a href="/tests/results.php#goto<?php print $BR."".substr($ID,0,1); ?>">BVT, FVT, SVT</a>, <a href="/tests/results-jdk13.php#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 1.3</a>, <a href="/tests/results-jdk14.php#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 1.4</a>, <a href="/tests/results-jdk50.php#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 5.0</a>, <a href="/tests/results-perf.php#goto<?php print $BR."".substr($ID,0,1); ?>">Perf Tests</a>.
 
 <?php
 			// then dump this data to a tabbed-text file for tracking/reporting
@@ -421,14 +413,14 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 			// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
 
-			echo "<hr noshade size=1>";
+			print "<hr noshade size=1>";
 
 			/*** OLD TESTS ***/
 			if ($_POST["tests_Run_Tests_Old"]=="Y") {
 
 				$PWD = "/home/www-data/tests";
 				$logfile = 'tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-				echo '<a href="/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
+				print '<a href="/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
 
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp;
@@ -445,11 +437,11 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 			// three output options: uncomment a line and comment out the other two.
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
-					if ($previewOnly) { echo $preCmd."<br />"; } else {
+					if ($previewOnly) { print $preCmd."<br />"; } else {
 						exec($preCmd);
 						$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
 					}
-					if ($previewOnly) { echo preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
+					if ($previewOnly) { print preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
 			}
 
 			/*** JDK 1.3 TESTS ***/
@@ -457,7 +449,7 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 				$PWD = "/home/www-data/jdk13tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-				echo '<a href="/tools/emf/jdk13tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
+				print '<a href="/tools/emf/jdk13tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
 
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
@@ -473,11 +465,11 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-					if ($previewOnly) { echo $preCmd."<br />"; } else {
+					if ($previewOnly) { print $preCmd."<br />"; } else {
 						exec($preCmd);
 						$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
 					}
-					if ($previewOnly) { echo preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
+					if ($previewOnly) { print preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
 			}
 
 			/*** JDK 1.4 TESTS ***/
@@ -485,7 +477,7 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 				$PWD = "/home/www-data/jdk14tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-				echo '<a href="/tools/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
+				print '<a href="/tools/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
 
 				$j9=false;
 				$compiler = $_POST["tests_Compiler_JDK14"];
@@ -513,18 +505,18 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-					if ($previewOnly) { echo $preCmd."<br />"; } else {
+					if ($previewOnly) { print $preCmd."<br />"; } else {
 						exec($preCmd);
 						$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
 					}
-					if ($previewOnly) { echo preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
+					if ($previewOnly) { print preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
 			}
 
 			/*** JDK 5.0 TESTS ***/
 			if ($_POST["tests_Run_Tests_JDK50"]=="Y") {
 				$PWD = "/home/www-data/jdk50tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-				echo '<a href="/tools/emf/jdk50tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
+				print '<a href="/tools/emf/jdk50tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
 
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
@@ -542,24 +534,24 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-					if ($previewOnly) { echo $preCmd."<br />"; } else {
+					if ($previewOnly) { print $preCmd."<br />"; } else {
 						exec($preCmd);
 						$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
 					}
-					if ($previewOnly) { echo preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
+					if ($previewOnly) { print preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
 			}
 
 			/*** PERF TESTS ***/
 			if ($_POST["tests_Run_Tests_Perf"]=="Y") {
 				$PWD = "/home/www-data/perftests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-				echo '<a href="/tools/emf/perftests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
+				print '<a href="/tools/emf/perftests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a><br />'."\n";
 
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				// echo path to logfile into lockfile
-				$preCmd2 = 'echo '.$PWD."/".$logfile." > ".$PWD."/perftests.lock";
+				// print path to logfile into lockfile
+				$preCmd2 = 'print '.$PWD."/".$logfile." > ".$PWD."/perftests.lock";
 
 				$tBR = $BR;
 				$tID = $ID;
@@ -597,12 +589,12 @@ Test results will he located here: <a href="/tests/results.php#goto<?php echo $B
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 					if ($previewOnly) {
-						echo $preCmd."<br />"; echo $preCmd2."<br />"; 
+						print $preCmd."<br />"; print $preCmd2."<br />"; 
 					} else {
 						exec($preCmd); exec($preCmd2);
 						$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
 					}
-					if ($previewOnly) { echo preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
+					if ($previewOnly) { print preg_replace("/\ \-/","<br> -",$cmd)."<hr noshade size=1/>"; } else { exec($cmd); }
 			}
 
 		} // end else 
@@ -647,11 +639,11 @@ function displayCheckboxes($label,$options,$verbose=false,$isChecked=false) {
 			if (!preg_match("/\-\=[\d\.]+/",$opt)) {
 				if (strstr($opt,"=")) {  // split line so that foo=bar becomes <input type="checkbox" name="bar" value="Y">foo
 					$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-					echo "\n\t<input".($isChecked?" checked":"")." type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
+					print "\n\t<input".($isChecked?" checked":"")." type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
 				} else { // turn foo into <input type="checkbox" name="foo" value="Y">foo</option>
-					echo "\n\t<input".($isChecked?" checked":"")." type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
+					print "\n\t<input".($isChecked?" checked":"")." type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
 				}
-				echo "<br/>\n";
+				print "<br/>\n";
 			}
 		}
 	}
@@ -673,9 +665,9 @@ function displayOptions($options) {
 		}
 		if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
 			$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-			echo "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".trim($matches[1])."</option>";
+			print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".trim($matches[1])."</option>";
 		} else { // turn foo into <option value="foo">foo</option>
-			echo "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
+			print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
 		}
 	}
 }
@@ -724,14 +716,14 @@ function loadOptionsFromArray($sp) {
 				} else {
 					$doSection = trim($matches[1]);
 				}
-				if ($debug>0) echo "Section: $s --> $doSection<br>";
+				if ($debug>0) print "Section: $s --> $doSection<br>";
 
 				$options[$doSection] = array();
 				if ($isReversed) { $options[$doSection]["reversed"] = $isReversed; }
 			}
 		} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) {
 			if (strlen($s)>2) {
-				if ($debug>0) echo "Loading: $s<br>";
+				if ($debug>0) print "Loading: $s<br>";
 				$options[$doSection][] = trim($s);
 			}
 		}
@@ -788,7 +780,7 @@ function loadOptionsFromArray($sp) {
 			if (is_file($lockfile)) {
 				$oc = file($lockfile);
 				$oc = str_replace("/home/www-data/","http://".$SERVER_NAME."/tools/emf/",$oc[0]);
-				$o .= '&nbsp;&nbsp;*&nbsp;<a href="'.$resultspage.'">Results</a>&nbsp;&nbsp;*&nbsp;<a href="'.$oc.'">'.$oc.'</a><br/>'."\n";
+				$o .= '&#160;&#160;*&#160;<a href="'.$resultspage.'">Results</a>&#160;&#160;*&#160;<a href="'.$oc.'">'.$oc.'</a><br/>'."\n";
 			}
 		}
 
@@ -796,4 +788,4 @@ function loadOptionsFromArray($sp) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.1 2006/09/26 18:56:00 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.2 2006/09/27 02:47:26 nickb Exp $ -->
