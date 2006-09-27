@@ -6,13 +6,13 @@
 # but aren't available in the build branch selection list
 [Branch]
 
-#used in build.php for selecting build branch
+#used in build/index.php for selecting build branch
 3.0.0=HEAD|selected
 2.2.2=R2_2_maintenance
 #2.1.3=R2_1_maintenance
 #2.0.6=R2_0_maintenance
 
-# used in downloads page to determine what to show
+# used in downloads/index.php
 -=3.0.0
 -=2.2.1
 -=2.2.0
