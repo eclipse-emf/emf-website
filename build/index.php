@@ -522,6 +522,8 @@ setTimeout('selectDefaultCVSBranch()',501);
 
 print "</div>\n</div>\n";
 
+print "<div id=\"rightcolumn\">\n";
+
 print "<div class=\"sideitem\">\n";
 print "<h6>Options</h6>\n";
 print "<ul>\n";
