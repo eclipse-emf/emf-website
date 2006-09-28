@@ -6,6 +6,7 @@ ob_start();
 /* config */
 $pre = "../";
 include $pre . "includes/header.php";
+$PR = "emf"; 
 
 $dls = array(
 	"EMF, SDO, and XSD" => array(
