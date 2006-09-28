@@ -16,14 +16,11 @@
 	<?php if ($isEMFserver) { ?>
 		<p>
 			Test Results:
-			<a href="http://emf.torolab.ibm.com/tests/results-jdk13.php">1.3</a>,
-			<a href="http://emf.torolab.ibm.com/tests/results-jdk14.php">1.4</a>,
-			<a href="http://emf.torolab.ibm.com/tests/results-jdk50.php">5.0</a>,
-			<a href="http://emf.torolab.ibm.com/tests/results.php">BVT, FVT, SVT</a>,
-			<a href="http://emf.torolab.ibm.com/tests/results-perf.php">Perf</a>,
-			<a href="http://emftest03.torolab.ibm.com/tests/results-perf.php">Perf2</a>
+			<a href="/emf/build/tests/results-jdk.php?version=14">1.4</a>,
+			<a href="/emf/build/tests/results-jdk.php?version=50">5.0</a>,
+			<a href="/emf/build/tests/results.php">BVT, FVT, SVT</a>,
 			<br/>
-			<a href="http://emf.torolab.ibm.com/emf/secure/patch.php">New Test</a> <span class="info">(with optional patch or continuous perf)</span> <!--:: <a href="http://emf.torolab.ibm.com/emf/secure/performance/">Perf</a> :: <a href="http://emf.torolab.ibm.com/emf/secure/junit-results.php">JUnit</a> -->
+			<a href="/emf/build/patch.php">New Test</a> <span class="info">(with optional patch)</span>
 		</p>
 	<?php } ?>
 	<p>
