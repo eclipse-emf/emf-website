@@ -239,7 +239,7 @@ print "<li><a href=\"?project=$PR\">normal promo</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
-include_once "sideitems-common.php";
+if ($isEMFserver) { include_once $pre."build/sideitems-common.php"; }
 
 print "</div>\n";
 

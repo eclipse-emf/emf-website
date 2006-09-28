@@ -524,16 +524,14 @@ print "</div>\n</div>\n";
 
 print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
-print "<h6>Options</h6>\n";
+print "<h6>Sort</h6>\n";
+$newsort = ($sortBy == "date" ? "type" : "date");
 print "<ul>\n";
-print "<li><a href=\"?project=$PR&amp;debug=1\">debug build</a></li>\n";
-print "<li><a href=\"?project=$PR&amp;previewOnly=1\">preview build</a></li>\n";
-print "<li><a href=\"?project=$PR&amp;debug=1&previewOnly=1\">preview debug build</a></li>\n";
-print "<li><a href=\"?project=$PR\">normal build</a></li>\n";
+print "<li><a href=\"?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">By ".ucfirst($newsort)."</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
-include_once "sideitems-common.php";
+if ($isEMFserver) { include_once $pre."build/sideitems-common.php"; }
 
 print "</div>\n";
 

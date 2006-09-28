@@ -401,7 +401,9 @@ function loadOptions() { // only used by the select box for the Build Options
 	?>
 <br />
 
-Test results will he located here: <a href="/tests/results.php#goto<?php print $BR."".substr($ID,0,1); ?>">BVT, FVT, SVT</a>, <a href="/tests/results-jdk13.php#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 1.3</a>, <a href="/tests/results-jdk14.php#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 1.4</a>, <a href="/tests/results-jdk50.php#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 5.0</a>, <a href="/tests/results-perf.php#goto<?php print $BR."".substr($ID,0,1); ?>">Perf Tests</a>.
+Test results will he located here: <a href="/emf/build/tests/results.php#goto<?php print $BR."".substr($ID,0,1); ?>">BVT, FVT, SVT</a>, 
+<a href="/emf/build/tests/results-jdk.php?version=14#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 1.4</a>, 
+<a href="/emf/build/tests/results-jdk.php?version=50#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 5.0</a>.
 
 <?php
 			// then dump this data to a tabbed-text file for tracking/reporting
@@ -613,7 +615,7 @@ print "<li><a href=\"?project=$PR\">normal test</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
-include_once "sideitems-common.php";
+if ($isEMFserver) { include_once $pre."build/sideitems-common.php"; }
 
 print "</div>\n";
 
@@ -792,4 +794,4 @@ function loadOptionsFromArray($sp) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.3 2006/09/27 22:04:40 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.4 2006/09/28 00:03:35 nickb Exp $ -->

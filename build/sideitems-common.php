@@ -22,9 +22,9 @@ if ($isEMFserver && $PR=="emf") { ?>
 <div class="sideitem">
 	<h6>Tests</h6>
 	<ul>
-		<li><a href="http://emf.torolab.ibm.com/tests/results-jdk14.php">JDK 1.4</a></li>
-		<li><a href="http://emf.torolab.ibm.com/tests/results-jdk50.php">JDK 5.0</a></li>
-		<li><a href="http://emf.torolab.ibm.com/tests/results.php">BVT, FVT, SVT</a></li>
+		<li><a href="/emf/build/tests/results-jdk.php?<?php echo "project=$PR&amp;version=14&amp;showAllResults=$showAllResults&amp;showAll=&amp;sortBy=$sortBy"; ?>">JDK 1.4</a></li>
+		<li><a href="/emf/build/tests/results-jdk.php?<?php echo "project=$PR&amp;version=50&amp;showAllResults=$showAllResults&amp;showAll=&amp;sortBy=$sortBy"; ?>">JDK 5.0</a></li>
+		<li><a href="/emf/build/tests/results.php?<?php echo "project=$PR&amp;version=&amp;showAllResults=$showAllResults&amp;showAll=&amp;sortBy=$sortBy"; ?>">BVT, FVT, SVT</a></li>
 	</ul>
 </div>
 <?php 
