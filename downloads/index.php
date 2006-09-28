@@ -830,11 +830,11 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 		else
 		{
 			$mightHavePassed = false;
-			if (grep("BUILD SUCCESSFUL", "$PWD${path}buildlog.txt"))
+			if (grep("/BUILD SUCCESSFUL/", "$PWD${path}buildlog.txt"))
 			{
 				$mightHavePassed = true;
 			}
-			else if (grep("BUILD FAILED", "$PWD${path}buildlog.txt"))
+			else if (grep("/BUILD FAILED/", "$PWD${path}buildlog.txt"))
 			{
 				$icon = "not"; //display failed icon
 				$result = "FAILED"; // BUILD
