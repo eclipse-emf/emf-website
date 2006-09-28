@@ -393,9 +393,9 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a href=\"".
 						(is_file($testsPWD.$path.$testDir."/results/".$t.".html") ? 
 							$pre.$mid.$path.$testDir."/results/".$t.".html#_Test_Results" : $pre.$mid.$path.$testDir."/testlog.txt").
-						"\"><span class=\"errors\"><img src=\"".$pre."images/not.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"BUILD FAILED!\"></a>&nbsp;</td>"."\n";
+						"\"><span class=\"errors\"><abbr title=\"$t\"><img src=\"".$pre."images/not.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"BUILD FAILED!\"></abbr></a>&nbsp;</td>"."\n";
 				} else if ($cnt==="...") { 
-					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a style=\"text-decoration:none\" href=\"".($pre.$mid.$path.$testDir."/testlog.txt")."\"><span class=\"inprogress\">.&nbsp;.&nbsp;.</a>&nbsp;</td>"."\n";
+					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a style=\"text-decoration:none\" href=\"".($pre.$mid.$path.$testDir."/testlog.txt")."\"><span class=\"inprogress\"><abbr title=\"$t\">.&nbsp;.&nbsp;.</abbr></a>&nbsp;</td>"."\n";
 				} else if ($cnt==="") { 
 					$ret .= "<td bgcolor=\"#FFFFFF\"><span class=\"errors\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"."\n";
 				} else if ($cnt===0) { 
@@ -404,16 +404,16 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 						$testDir.
 						"/results/".
 						$t.
-						".html#_Test_Results\"><img src=\"".$pre."images/check.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"Passed!\"></a>&nbsp;</td>"."\n";
+						".html#_Test_Results\"><abbr title=\"$t\"><img src=\"".$pre."images/check.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"Passed!\"></abbr></a>&nbsp;</td>"."\n";
 				} else {
 					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a class=\"errors\" href=\"".
 						$pre.$mid.$path.
 						$testDir.
 						"/results/".
 						$t.
-						".html#_Test_Results\"><span class=\"errors\">".
+						".html#_Test_Results\"><span class=\"errors\"><abbr title=\"$t\">".
 						$cnt.
-						"&nbsp;F</span></a>&nbsp;</td>".
+						"&nbsp;F</abbr></span></a>&nbsp;</td>".
 						"\n";
 				}
 			}
