@@ -1172,7 +1172,9 @@ function getBuildArtifacts($dir, $branchID)
 	foreach (array_keys($deps) as $z)
 	{
 		$builddir[$z] = $opts["${z}DownloadURL"] . $opts["${z}BuildURL"];
-		$buildID[$z] = (preg_match("/([IMNRS]?\d{8}-?\d{4})$/", $opts["${z}BuildURL"], $regs) ? $regs[1] : "");
+		# Eclipse: R-3.2.1-200609210945 or S-3.3M2-200609220010 or I20060926-0935 or M20060919-1045
+		# Other: 2.2.1/R200609210005 or 2.2.1/S200609210005
+		$buildID[$z] = str_replace("/"," ",preg_replace("/.+\/drops\/(.+)/","$1",$opts["${z}BuildURL"]));
 		$buildfile[$z] = $builddir[$z] . "/" . $opts["${z}File"];
 	}
 
