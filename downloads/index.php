@@ -1136,7 +1136,7 @@ function outputBuild($branch, $ID, $c)
 
 	$ret = "<li>\n";
 	$ret .= "<div>" . showBuildResults("$PWD/", "$branch/$ID/") . ($isEMFserver && $summary ? $summary : "") . "</div>";
-	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . ($_GET["sortby"] == "date" ? "&amp;sortBy=date" : "") . "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
+	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . ($_GET["sortBy"] == "date" ? "&amp;sortBy=date" : "") . "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
 
 	$ret .= "<ul id=\"r$ID\"" . (($c == 0 && !isset($_GET["hlbuild"])) || $ID == $_GET["hlbuild"] ? "" : " style=\"display: none\"") . ">\n";
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
