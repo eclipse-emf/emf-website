@@ -69,6 +69,9 @@ include "${pre}includes/nav.php";
 			<li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html">Eclipse 3.3 Project Plan</a></li>
 		</ul>
 	</div>
+	
+	<?php if ($isEMFserver) { $PR="emf"; include_once $pre."build/sideitems-common.php"; unset($PR); } ?>
+	
 </div>
 <?php
 $html = ob_get_contents();
