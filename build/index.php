@@ -404,8 +404,8 @@ setTimeout('selectDefaultCVSBranch()',501);
 		}
 		if ($_POST["build_CVS_Branch"]=="R2_2_maintenance") {
 			if ($_POST["build_debug_basebuilder_branch"]=="") {		$_POST["build_debug_basebuilder_branch"]  ="R3_2_maintenance"; }
-			if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="HEAD"; }
-			if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="HEAD"; }
+			if ($_POST["build_debug_emf_releng_branch"]=="") {		$_POST["build_debug_emf_releng_branch"]   ="R2_2_maintenance"; }
+			if ($_POST["build_debug_emf_old_tests_branch"]=="") {	$_POST["build_debug_emf_old_tests_branch"]="R2_2_maintenance"; }
 		}
 	} 
 	else
