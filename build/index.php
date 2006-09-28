@@ -91,7 +91,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 						<?php $buildServer = array("www.eclipse.org","emf.torolab.ibm.com","emft.eclipse.org","download.eclipse.org"); ?>
 						<tr>						
 							<td> &#149; <a href="http://download.eclipse.org/eclipse/downloads/">Eclipse</a></td>
-							<td> &#149; <a href="http://fullmoon/eclipse/downloads/">Eclipse</a></td>
+							<td> &#149; <a href="http://fullmoon/downloads/">Eclipse</a></td>
 						</tr>
 						<tr>						
 							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
