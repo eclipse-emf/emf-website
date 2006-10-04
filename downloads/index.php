@@ -975,11 +975,43 @@ function doLanguagePacks()
 	<p>IBM is pleased to contribute translations for the Eclipse Modeling Framework.</p>
 	<ul>
 		<li>
-			<a href="javascript:toggle('lang2_2')">2.2.x Language Packs</a><a name="NL22x"></a>
-			<ul id="lang2_2">
+			<a href="javascript:toggle('lang2_2_1')">2.2.1 Language Packs</a><a name="NL22x"></a>
+			<ul id="lang2_2_1">
 					<?php
 					$packs = array (
-						"2.2.x NLS Translation Packs" => "NLpacks-"
+						"2.2.1 NLS Translation Packs" => "NLpacks-"
+					);
+					$cols = array (
+						"EMF, SDO" => "emf-sdo",
+						"XSD" => "xsd"
+					);
+					$subcols = array (
+						"SDK" => "SDK-",
+						"Runtime" => "runtime-"
+					);
+					$packSuf = "2.2.1.zip";
+					$folder = "NLS/2.2.1/";
+					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
+				<li>
+					<p>The language packs contain the following translations:</p>
+					<ul>
+						<li>NLpack1 - German, Spanish, French, Italian, Japanese, Korean, Portuguese (Brazil), Traditional Chinese, Simplified Chinese</li>
+						<li>NLpack2 - Czech, Hungarian, Polish, Russian</li>
+						<li>NLpack2a - Danish, Dutch, Finnish, Greek, Norwegian, Portuguese, Swedish and Turkish</li>
+						<li>NLpackBidi - Arabic</li>
+					</ul>
+					<p>Each language pack zip contains 4 other zips (one for each of the language groups above). Unpack these zips into your Eclipse directory before starting Eclipse.</p>
+					<p>These translations are based on EMF 2.2.1.</p>
+				</li>
+			</ul>
+		</li>
+
+		<li>
+			<a href="javascript:toggle('lang2_2')">2.2.0 Language Packs</a><a name="NL22"></a>
+			<ul id="lang2_2" style="display: none">
+					<?php
+					$packs = array (
+						"2.2.0 NLS Translation Packs" => "NLpacks-"
 					);
 					$cols = array (
 						"EMF, SDO" => "emf-sdo",
@@ -1001,7 +1033,7 @@ function doLanguagePacks()
 						<li>NLpackBidi - Arabic</li>
 					</ul>
 					<p>Each language pack zip contains 4 other zips (one for each of the language groups above). Unpack these zips into your Eclipse directory before starting Eclipse.</p>
-					<p>These translations are based on EMF 2.2.0. The NLS translation fragment packs should work with all subsequent 2.2 maintenance releases, with any new strings remaining untranslated.</p>
+					<p>These translations work with EMF 2.2.0.</p>
 				</li>
 			</ul>
 		</li>
