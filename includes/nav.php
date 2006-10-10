@@ -22,7 +22,7 @@
 	<p>
 		<a href="/emf/newsgroup-mailing-list.php" target="_top">EMF &amp; XSD newsgroups</a>
 		<span class="info">(<a href="http://www.eclipse.org/newsgroups/index.html" target="_new">Password required</a>)</span><br/>
-		<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.tools.emf&amp;wm=wrd&amp;t=News&amp;t=Mail&amp;q=emf">Search</a>,
+		<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.tools.emf&amp;wm=wrd&amp;t=News&amp;t=Mail">Search</a>,
 		<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">Browse: EMF &amp; SDO</a>,
 		<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd">XSD</a><br/>
 		<a href="/emf/newsgroup-mailing-list.php">Mailing List</a>,

@@ -31,8 +31,8 @@ $pre = "";
 	and will save you time in not having to ask it again, and us in not having 
 	to answer it again. You can also browse (<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf">EMF &amp; SDO</a>, 
 	<a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd">XSD</a>) or 
-	search (<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.tools.emf&amp;wm=wrd&amp;t=News&amp;t=Mail&amp;q=emf">EMF &amp; SDO</a>,
-	<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&amp;wm=wrd&amp;t=News&amp;t=Mail&amp;q=xsd">XSD</a>)
+	search (<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.tools.emf&amp;wm=wrd&amp;t=News&amp;t=Mail">EMF &amp; SDO</a>,
+	<a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&amp;wm=wrd&amp;t=News&amp;t=Mail">XSD</a>)
 	 the
 	newsgroup archives online, if you prefer, but you will <a href="http://www.eclipse.org/newsgroups/index.html">require a password</a> first. 
 	</p>
@@ -76,7 +76,7 @@ $pre = "";
 			<li class="header"><a href="news://news.eclipse.org/eclipse.tools.emf" target="_top">EMF, SDO</a></li>
 			<li class="outerli">
 				<ul>
-					<li><a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.tools.emf&amp;wm=wrd&amp;t=News&amp;t=Mail&amp;q=emf" target="_self">Search</a></li>
+					<li><a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.tools.emf&amp;wm=wrd&amp;t=News&amp;t=Mail" target="_self">Search</a></li>
 					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.tools.emf" target="_self">Browse</a></li>
 					<li><a href="http://www.eclipse.org/newsgroups/index.html">Password Request</a></li>
 				</ul>
@@ -85,7 +85,7 @@ $pre = "";
 			<li class="header"><a href="news://news.eclipse.org/eclipse.technology.xsd" target="_top">XSD</a> (deprecated)</li>
 			<li class="outerli">
 				<ul>
-					<li><a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&amp;wm=wrd&amp;t=News&amp;t=Mail&amp;q=xsd" target="_self">Search</a></li>
+					<li><a href="http://www.eclipse.org/search/search.cgi?cmd=Search%21&amp;form=extended&amp;wf=574a74&amp;ps=10&amp;m=all&amp;t=5&amp;ul=%2Fnewslists%2Fnews.eclipse.technology.xsd&amp;wm=wrd&amp;t=News&amp;t=Mail" target="_self">Search</a></li>
 					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.xsd" target="_self">Browse</a></li>
 				</ul>
 			</li>
