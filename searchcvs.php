@@ -11,7 +11,7 @@ include("includes/db.php");
  *   bugfilter   - OPTIONAL; if set, filter results if `bugid` defined for each commit; values: "hasbug" or "nobug"
  */
 
-$pagesize = isset($_GET["showbuglist"]) ? 10000: 25; //results per page; need more than 25 for meaningful results if showing just list of bugs
+$pagesize = (isset($_GET["showbuglist"]) ? 10000: 25); //results per page; need more than 25 for meaningful results if showing just list of bugs
 $scroll = 5; //+- pages to show in nav
 $days = 7;
 $page = (preg_match("/^\d+$/", $_GET["p"]) ? $_GET["p"] : 1);
@@ -139,7 +139,7 @@ while ($row = mysql_fetch_assoc($result))
 	$row["cvsname"] = preg_replace("#^/cvsroot/[^\/]+/(.+),v$#", "$1", $row["cvsname"]);
 	print "<li>\n";
 	print "<div>{$row['date']}</div>";
-	if ($row["bugid"] && !in_array($row["bugid"],$bugz))
+	if ($row["bugid"] && !in_array($row["bugid"], $bugz))
 	{ 
 		array_push($bugz, $row["bugid"]); 
 	}
@@ -193,7 +193,7 @@ if (isset($_GET["totalonly"]))
 else if(isset($_GET["showbuglist"]))
 {
 	header("Content-Type: text/csv");
-	print join(",",$bugz) . "\n";
+	print join(",", $bugz) . "\n";
 }
 else
 {
@@ -206,6 +206,7 @@ else
 
 function pretty_comment($str, $hl)
 {
+	$str = htmlspecialchars($str);
 	$str = preg_replace("/\n/", "<br/>", $str);
 	$hl = words($hl);
 
@@ -247,13 +248,13 @@ function showrev($cvsroot, $file, $rev)
 		$link = "<a href=\"" . cvsfile($cvsroot, $file, $rev, $oldrev) . "\">$rev &gt; $oldrev</a>";
 	}
 
-        return $link;
+	return $link;
 }
 
 function cvsfile($cvsroot, $file, $rev = "", $oldrev = "")
 {
 	global $cvsroots;
-  
+
 	if ($rev && $oldrev)
 	{
 		$ext = ".diff";
@@ -297,23 +298,23 @@ function dopager($rows, $page, $pagesize)
 function words($str)
 {
 	$str = stripslashes($str);
-        $list = array();
+	$list = array();
 
-        preg_match_all("/\"([^\"]+)\"/", $str, $regs);
-        foreach ($regs[1] as $word)
-        {
+	preg_match_all("/\"([^\"]+)\"/", $str, $regs);
+	foreach ($regs[1] as $word)
+	{
 		$word = addslashes($word);
-                $list[] = $word;
-                $str = preg_replace("/\Q$word\E/", "", $str);
-        }
+		$list[] = $word;
+		$str = preg_replace("/\Q$word\E/", "", $str);
+	}
 
-        $regs = null;
-        preg_match_all("/(\w+)/", $str, $regs);
-        foreach ($regs[1] as $word)
-        {
-                $list[] = addslashes($word);
-        }
+	$regs = null;
+	preg_match_all("/(\w+)/", $str, $regs);
+	foreach ($regs[1] as $word)
+	{
+		$list[] = addslashes($word);
+	}
 
-        return $list;
+	return $list;
 }
 ?>

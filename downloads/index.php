@@ -26,6 +26,13 @@ $dls = array(
 	)
 );
 
+$suf = array("emf-sdo-xsd" => "all", "emf-sdo" => "emf-sdo",
+	"emf" => "emf-sdo", "xsd" => "xsd");
+
+$deps = array(
+	"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>"
+);
+
 $filePre = array( // file prefixes - also defines the DL image to use, and image alt tag
 	"emf-sdo-xsd",
 	"emf-sdo-xsd",
@@ -38,7 +45,7 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 	"xsd"
 );
 
-$rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
+$rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
 
 $debug = -1;
 $hadLoadDirSimpleError = 1; //have we echoed the loadDirSimple() error msg yet? if 1, omit error; if 0, echo at most 1 error
@@ -47,13 +54,14 @@ $showAll = (preg_match("/^(1)$/", $_GET["showAll"], $regs) ? $regs[1] : "0");
 $showMax = (preg_match("/^(\d+)$/", $_GET["showMax"], $regs) ? $regs[1] : ($sortBy == "date" ? "10" : "5"));
 $doRefreshPage = false;
 $hideInstructions = 0;
+$numzips = 7;
 
 $PWD = getPWD("downloads/drops"); // see scripts.php
 $buildOptionsFile = "$pre/build.options.txt"; // read only
 
 if (preg_match("/(?:emf|fullmoon)\./", $_SERVER["HTTP_HOST"])) //internal
 {
-	$downloadScript = "../../../tools/emf/scripts/download.php?dropFile=";
+	$downloadScript = "../../../tools/$PR/scripts/download.php?dropFile=";
 	$downloadPre = "../../..";
 }
 else // all others
@@ -66,7 +74,7 @@ $jdk14testsPWD = ""; //superfluous
 $jdk50testsPWD = "";
 if ($isEMFserver)
 {
-	$testsPWD = "/home/www-data/tests/tools/emf/tests"; // path on emf.torolab.ibm.com ONLY
+	$testsPWD = "/home/www-data/tests/tools/$PR/tests"; // path on emf.torolab.ibm.com ONLY
 	$jdk14testsPWD = "/home/www-data/jdk14tests"; // path on emf.torolab.ibm.com ONLY
 	$jdk50testsPWD = "/home/www-data/jdk50tests"; // path on emf.torolab.ibm.com ONLY
 }
@@ -192,13 +200,13 @@ print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Additional Info</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"http://www.eclipse.org/emf/faq/faq.php\">FAQs</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/$PR/faq/faq.php\">FAQs</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads/install.php\">Installation Issues</a></li>\n";
 print "<li><a href=\"#archives\">Archived Releases</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads/build-types.php\">About Build Types</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads/verifyMD5.php\">Using md5 Files</a></li>\n";
-print '<li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED">Open Bugs</a></li>'."\n";
-print "<li><a href=\"http://www.eclipse.org/emf/news/release-notes.php\">Release Notes</a></li>\n";
+print "<li><a href=\"https://bugs.eclipse.org/bugs/buglist.cgi?product=" . strtoupper($PR) . "&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED\">Open Bugs</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/$PR/news/release-notes.php\">Release Notes</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -215,11 +223,14 @@ print "<div class=\"sideitem\">\n";
 print "<h6>Sort</h6>\n";
 $newsort = ($sortBy == "date" ? "type" : "date");
 print "<ul>\n";
-print "<li><a href=\"?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">By ".ucfirst($newsort)."</a></li>\n";
+print "<li><a href=\"?showAll=$showAll&amp;showMax=$showMax&amp;sortBy=$newsort\">By " . ucfirst($newsort) . "</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
-if ($isEMFserver) { include_once $pre."build/sideitems-common.php"; }
+if ($isEMFserver)
+{
+	include_once $pre . "build/sideitems-common.php";
+}
 
 print "</div>\n";
 
@@ -231,9 +242,9 @@ $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
 # Generate the web page
-$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="' . $pre . 'includes/downloads.css"/>' . "\n");
-$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"/>' . "\n");
-$App->AddExtraHtmlHeader('<script src="' . $pre . 'includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/' . $PR . '/includes/downloads.css"/>' . "\n");
+$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/' . $PR . '/feeds/builds.xml"/>' . "\n");
+$App->AddExtraHtmlHeader('<script src="/' . $PR . '/includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
 /************************** METHODS *****************************************/
@@ -302,8 +313,8 @@ function getBuildsFromDirs() // massage the builds into more useful structures
 
 function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" or "jdk14"
 {
-	global $pre, $isEMFserver;
-	$mid = "../../../tools/emf/${type}tests/"; // this is a symlink on the filesystem!
+	global $pre, $isEMFserver, $PR;
+	$mid = "../../../tools/$PR/${type}tests/"; // this is a symlink on the filesystem!
 
 	// one <li> per test. if all passed, green check + link to log; if failures, red number (of failures) + link to log
 	// $testsPWD is path to root of tests; $path defines 2.0/I200405501234/ ... also need to then check subdirs
@@ -332,7 +343,7 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 	{
 		$stat = "";
 		$sty = "";
-		$testlog = ($isEMFserver ? "/emf/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt");
+		$testlog = ($isEMFserver ? "/$PR/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt");
 		if ($cnt === 0 || preg_match("/^[^EFP]+$/", $cnt)) // nothing, or no E or F or P
 		{
 			$cnt = ($type == "jdk50" ? getJDK50TestResultsFailureCount($f, $t) : getJDK14TestResultsFailureCount($f, $t));
@@ -346,11 +357,11 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 			}
 			else if (preg_match("/FAILED/", $cnt)) //build failed
 			{
-				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
+				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
 			}
 			else if ($cnt === 0) //all passed, 0 F, E, and N
 			{
-				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/check.gif\" alt=\"Passed!\"/></a>";
+				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/check.gif\" alt=\"Passed!\"/></a>";
 			}
 			else //something else
 			{
@@ -360,7 +371,7 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 		}
 		else // if we failed on the build, the JUnit stuff won't run (if javacFailOnError=true in runJDK14Tests.xml)
 		{
-			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/question.gif\" alt=\"Did Not Run - Previous Test Failed!\"/></a>";
+			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/question.gif\" alt=\"Did Not Run - Previous Test Failed!\"/></a>";
 		}
 		$ret .= "<li" . ($sty != "" ? " class=\"$sty\"" : "") . "><div>$stat</div>" . preg_replace("/^(.)/e", "chr(ord($1)-32)", $t) . "</li>\n";
 
@@ -371,7 +382,7 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 	$tmp = preg_replace("/^(.+?)(\d)(\d)$/e", "strtoupper($1) . \" $2.$3\"", $type) . " Tests";
 	if (is_file("$testsPWD$path$testDirs[0]/testlog.txt"))
 	{
-		$tmp = "<a href=\"" . ($isEMFserver ? "/emf/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
+		$tmp = "<a href=\"" . ($isEMFserver ? "/$PR/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
 	}
 
 	return "<li>$tmp<ul>$ret</ul></li>";
@@ -379,8 +390,8 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 
 function getOldTestResults($testsPWD, $path, &$status) // given a build ID, determine any test results for BVT, FVT, SVT
 {
-	global $pre, $isEMFserver;
-	$mid = "../../../tools/emf/tests/"; // this is a symlink on the filesystem!
+	global $pre, $isEMFserver, $PR;
+	$mid = "../../../tools/$PR/tests/"; // this is a symlink on the filesystem!
 
 	// $testsPWD is path to root of tests; $path defines 2.0/I200405131234/ ... also need to then check subdirs
 
@@ -416,18 +427,18 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 		$stat = "";
 		$sty = "";
 		$cnt = getTestResultsFailureCount($testsPWD . $path, $testDirs, $log);
-		$testlog = ($isEMFserver ? "/emf/build/log-viewer.php?test=$path$testDirs[0]/$log" : "$pre$mid$path$testDirs[0]/$log");
+		$testlog = ($isEMFserver ? "/$PR/build/log-viewer.php?test=$path$testDirs[0]/$log" : "$pre$mid$path$testDirs[0]/$log");
 		if ($cnt === "")
 		{
-			$stat = "<a href=\"" . ($isEMFserver ? "/emf/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
+			$stat = "<a href=\"" . ($isEMFserver ? "/$PR/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
 		}
 		else if (preg_match("/FAILED/", $cnt)) //build failed
 		{
-			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
+			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
 		}
 		else if ($cnt === 0)
 		{
-			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/emf/images/check.gif\" alt=\"Passed!\"/></a>";
+			$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/check.gif\" alt=\"Passed!\"/></a>";
 		}
 		else
 		{
@@ -443,7 +454,7 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 	$tmp = "Old Tests";
 	if (is_file("$testsPWD$path$testDirs[0]/testlog.txt"))
 	{
-		$tmp = "<a href=\"" . ($isEMFserver ? "/emf/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
+		$tmp = "<a href=\"" . ($isEMFserver ? "/$PR/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">$tmp</a>";
 	}
 	return "<li>$tmp<ul>$ret</ul></li>";
 }
@@ -630,7 +641,7 @@ function loadOptionsFromFile($file)
 
 function loadOptionsFromArray($sp)
 {
-  $doSection = null;
+	$doSection = null;
 	foreach ($sp as $s)
 	{
 		if (preg_match("/^[^#].{2,}/", $s))
@@ -670,10 +681,9 @@ function IDtoDateStamp($ID, $style) // given N200402121441, return date("D, j M 
 
 function createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel = "") // the new way - use a ziplabel pregen'd from a dir list!
 {
+	global $PR, $suf;
 	$uu = 0;
 	$echo_out = "";
-	$suf = array("emf-sdo-xsd" => "all", "emf-sdo" => "emf-sdo",
-		"emf" => "emf-sdo", "xsd" => "xsd");
 
 	if (!$ziplabel)
 	{
@@ -686,7 +696,7 @@ function createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel = 
 
 	foreach (array_keys($dls) as $z)
 	{
-		$echo_out .= "<li><img src=\"http://www.eclipse.org/emf/images/dl-" . $suf[$filePre[$uu]] . ".gif\" alt=\"" . $suf[$filePre[$uu]] . "\"/> $z\n<ul>\n";
+		$echo_out .= "<li><img src=\"http://www.eclipse.org/$PR/images/dl-" . $suf[$filePre[$uu]] . ".gif\" alt=\"" . $suf[$filePre[$uu]] . "\"/> $z\n<ul>\n";
 		foreach ($dls[$z] as $label => $u)
 		{
 			$echo_out .= "<li>\n";
@@ -715,8 +725,8 @@ function createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel = 
 
 function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200402021234/
 {
-	global $pre, $isEMFserver;
-	$mid = "../../../tools/emf/downloads/drops/"; // this is a symlink on the filesystem!
+	global $pre, $isEMFserver, $numzips, $PR;
+	$mid = "../../../tools/$PR/downloads/drops/"; // this is a symlink on the filesystem!
 
 	$warnings = 0;
 	$errors = 0;
@@ -730,6 +740,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	$link = "";
 	$link2 = "";
 
+	clearstatcache();
 	if ($isEMFserver && is_file("$PWD${path}buildlog.txt") && filesize("$PWD${path}buildlog.txt") < (3*1024*1024)) // if the log's too big, don't open it!
 	{
 		if (grep("/BUILD FAILED/", "$PWD${path}buildlog.txt"))
@@ -745,25 +756,47 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 		$zips = loadDirSimple($PWD . $path, ".zip", "f"); // get files count
 		$md5s = loadDirSimple($PWD . $path, ".zip.md5", "f"); // get files count
 
-		if ((sizeof($zips) >= 7 && sizeof($md5s) >= 7))
+		if ((sizeof($zips) >= $numzips && sizeof($md5s) >= $numzips))
 		{
-			//check testResults.php for results
-			if (is_file("$PWD${path}testResults.php"))
+			if (is_file("$PWD${path}testresults/chkpii/org.eclipse.nls.summary.txt"))
 			{
-				$testResultsPHP = file("$PWD${path}testResults.php");
-				$link2 = "$pre$mid${path}testResults.php";
-				foreach ($testResultsPHP as $tr)
+				$chkpiiResults = file_contents("$PWD${path}testresults/chkpii/org.eclipse.nls.summary.txt");
+				// eg, file contains:
+				//htm: 6 E, 0 W
+				//xml: 1 E, 1 W
+				//properties: 0 E, 2 W
+				$regs = null;
+				preg_match_all("/^\S+: (\d+) E, (\d+) W$/m", $chkpiiResults, $regs);
+				for ($i = 0; $i < sizeof($regs[0]); $i++)
 				{
-					if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $tr))
+					$errors += $regs[1][$i];
+					$warnings += $regs[2][$i];
+					$icon = "not";
+					$link = "$pre$mid${path}testresults/chkpii/org.eclipse.nls.summary.txt";
+					$link2 = "$pre$mid${path}testresults/chkpii/";
+				}
+			}
+
+			//check testResults.php for results
+			if ($icon != "not")
+			{
+				if (is_file("$PWD${path}testResults.php"))
+				{
+					$testResultsPHP = file("$PWD${path}testResults.php");
+					$link2 = "$pre$mid${path}testResults.php";
+					foreach ($testResultsPHP as $tr)
 					{
-						$rows = explode("<tr>", $tr); // break into pieces
-						foreach ($rows as $r => $row)
+						if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $tr))
 						{
-							$m = null;
-							if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $row, $m))
+							$rows = explode("<tr>", $tr); // break into pieces
+							foreach ($rows as $r => $row)
 							{
-								$errors   += $m[1];
-								$warnings += $m[2];
+								$m = null;
+								if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $row, $m))
+								{
+									$errors   += $m[1];
+									$warnings += $m[2];
+								}
 							}
 						}
 					}
@@ -815,6 +848,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	}
 
 	global $doRefreshPage;
+	clearstatcache();
 	if ($isEMFserver && $icon == "question" && is_file("$PWD${path}buildlog.txt") && filesize("$PWD${path}buildlog.txt") < (3*1024*1024))
 	{
 		if ($isEMFserver && grep("/\[start\] start\.sh finished on: /", "$PWD${path}buildlog.txt"))
@@ -855,7 +889,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 
 	if (!$link) // return a string with icon, result, and counts (if applic)
 	{
-		$link = ($isEMFserver ? "/emf/build/log-viewer.php?build=$path" : "http://download.eclipse.org/"."$mid${path}buildlog.txt");
+		$link = ($isEMFserver ? "/$PR/build/log-viewer.php?build=$path" : "http://download.eclipse.org/"."$mid${path}buildlog.txt");
 	}
 
 	if (!$link2) // link to console log in progress if it exists
@@ -866,29 +900,29 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 		$link2 = (is_file("$PWD$conlog") ? "$mid$conlog" : (is_file("$PWD$testlog") ? "$mid$testlog" : $link));
 		$result = (is_file("$PWD$conlog") ? "Testing..." : $result);
 	}
-	$link2 = ($isEMFserver ? "" : "http://download.eclipse.org/").$link2;
+	$link2 = ($isEMFserver ? "" : "http://download.eclipse.org/") . $link2;
 	
 	$out .= "<a href=\"$link2\">$result";
 	$out .= ($errors == 0 && $warnings == 0) && !$result ? "Success" : "";
 	$out .= ($errors > 0 || $warnings > 0) && $result ? ": " : "";
 	$out .= ($errors > 0 ? "$errors E, $warnings W" : ($warnings > 0 ? "$warnings W" : ""));
-	$out .= "</a> <a href=\"$link\"><img src=\"http://www.eclipse.org/emf/images/$icon.gif\" alt=\"$icon\"/></a>";
+	$out .= "</a> <a href=\"$link\"><img src=\"http://www.eclipse.org/$PR/images/$icon.gif\" alt=\"$icon\"/></a>";
 
 	return $out;
 }
 
 function fileFound($PWD, $url, $label) //only used once
 {
-	global $isEMFserver, $downloadScript, $downloadPre;
+	global $isEMFserver, $downloadScript, $downloadPre, $PR;
 
-	$mid = "$downloadPre/tools/emf/downloads/drops/"; // new for www.eclipse.org centralized download.php script
+	$mid = "$downloadPre/tools/$PR/downloads/drops/"; // new for www.eclipse.org centralized download.php script
 
 	return (is_file("$PWD$url.md5") ? "<div>" . pretty_size(filesize("$PWD$url")) . " (<a href=\"" . ($isEMFserver ? "" : "http://download.eclipse.org") . "$mid$url.md5\">md5</a>)</div>" : "") . "<a href=\"$downloadScript$pre$mid$url\">$label</a>";
 }
 
 function pretty_size($bytes)
 {
-	$sufs = array("B", "K", "M", "G", "T", "P"); //emf shouldn't be larger than 999.9 petabytes any time soon, hopefully
+	$sufs = array("B", "K", "M", "G", "T", "P"); //we shouldn't be larger than 999.9 petabytes any time soon, hopefully
 	$suf = 0;
 
 	while ($bytes >= 1000)
@@ -1105,22 +1139,20 @@ function doLanguagePacks()
 
 function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive = false)
 {
-	global $downloadScript, $downloadPre;
-	$cnt = 0;
+	global $downloadScript, $downloadPre, $PR;
 
 	foreach ($packs as $name => $packPre)
 	{
 		foreach ($cols as $alt => $packMid)
 		{
-			print "<li><img src=\"http://www.eclipse.org/emf/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt: ";
-			$cnt=0;
+			print "<li><img src=\"http://www.eclipse.org/$PR/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt: ";
+			$ret = array();
 			foreach ($subcols as $alt2 => $packMid2)
 			{
-			  if ($cnt>0) { print ", "; }
-			  print "<a href=\"".($isArchive?"http://archive.eclipse.org":$downloadScript).
-			    "$downloadPre/tools/emf/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
-			  $cnt++;
+				$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org" : $downloadScript) .
+					"$downloadPre/tools/$PR/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
 			}
+			print join(", ", $ret);
 			print "</li>\n";
 		}
 	}
@@ -1134,10 +1166,12 @@ function grep($pattern, $file)
 	{
 		if (preg_match($pattern, $z))
 		{
+			$filec = array();
 			return true;
 		}
 	}
 
+	$filec = array();
 	return false;
 }
 
@@ -1183,18 +1217,15 @@ function outputBuild($branch, $ID, $c)
 
 function getBuildArtifacts($dir, $branchID)
 {
-	global $isEMFserver, $downloadPre;
+	global $isEMFserver, $downloadPre, $PR, $deps;
 
-	$deps = array(
-		"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>"
-	);
-	$mid = "$downloadPre/tools/emf/downloads/drops/";
+	$mid = "$downloadPre/tools/$PR/downloads/drops/";
 	$file = "$dir/$branchID/build.cfg";
 	$lines = (is_file($file) && is_readable($file) ? file($file) : array());
 
 	foreach ($lines as $z)
 	{
-	  $regs = null;
+		$regs = null;
 		if (preg_match("/^((?:" . join("|", array_keys($deps)) . ")(?:DownloadURL|File|BuildURL))=(.+)$/", $z, $regs))
 		{
 			$opts[$regs[1]] = $regs[2];
@@ -1206,13 +1237,15 @@ function getBuildArtifacts($dir, $branchID)
 		$builddir[$z] = $opts["${z}DownloadURL"] . $opts["${z}BuildURL"];
 		# Eclipse: R-3.2.1-200609210945 or S-3.3M2-200609220010 or I20060926-0935 or M20060919-1045
 		# Other: 2.2.1/R200609210005 or 2.2.1/S200609210005
-		$buildID[$z] = str_replace("/"," ",preg_replace("/.+\/drops\/(.+)/","$1",$opts["${z}BuildURL"]));
+		$buildID[$z] = str_replace("/", " ", preg_replace("/.+\/drops\/(.+)/", "$1", $opts["${z}BuildURL"]));
 		$buildfile[$z] = $builddir[$z] . "/" . $opts["${z}File"];
+		$builddir[$z] = (!preg_match("/^http/", $builddir[$z]) ? "http://www.eclipse.org/downloads/download.php?file=$builddir[$z]" : $builddir[$z]);
+		$buildfile[$z] = (!preg_match("/^http/", $buildfile[$z]) ? "http://www.eclipse.org/downloads/download.php?file=$buildfile[$z]" : $buildfile[$z]);
 	}
 
 	$ret = "";
 		
-	if (is_array($builddir) > 0)
+	if (is_array($builddir))
 	{
 		$details = array(
 			"Config File" => "build.cfg",
@@ -1223,7 +1256,7 @@ function getBuildArtifacts($dir, $branchID)
 		$link = ($isEMFserver ? "" : "http://download.eclipse.org");
 		
 		$ret .= "<li>\n";
-		$ret .= "<img src=\"http://www.eclipse.org/emf/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies\n";
+		$ret .= "<img src=\"http://www.eclipse.org/$PR/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies\n";
 		$ret .= "<ul>\n";
 		foreach (array_keys($deps) as $z)
 		{
@@ -1233,7 +1266,7 @@ function getBuildArtifacts($dir, $branchID)
 		$ret .= "</li>\n";
 
 		$ret .= "<li>\n";
-		$ret .= "<img src=\"http://www.eclipse.org/emf/images/dl-more.gif\" alt=\"More info about this build\"/> Build Details\n";
+		$ret .= "<img src=\"http://www.eclipse.org/$PR/images/dl-more.gif\" alt=\"More info about this build\"/> Build Details\n";
 		$ret .= "<ul>\n";
 		$ret .= "<li><a href=\"$link$mid${branchID}/testResults.php\">Test Results &amp; Compile Logs</a></li>\n";
 		foreach (array_keys($details) as $label)
@@ -1256,7 +1289,9 @@ function showToggle($showAll, $showMax, $sortBy, $count)
 
 function showArchived()
 {
-	$oldrels = array("2.1.1" => "200509281310",
+	global $PR;
+	$oldrels = array(
+		"2.1.1" => "200509281310",
 		"2.1.0" => "200507070200",
 		"2.0.5" => "200511291418",
 		"2.0.4" => "200509300951",
@@ -1272,9 +1307,9 @@ function showArchived()
 	print "<ul id=\"archives\">\n";
 	foreach (array_keys($oldrels) as $z)
 	{
-		print "<li><a href=\"http://archive.eclipse.org/tools/emf/downloads/drops/$z/R$oldrels[$z]\">$z</a> (" . IDtoDateStamp($oldrels[$z], 0) . ")</li>\n";
+		print "<li><a href=\"http://archive.eclipse.org/tools/$PR/downloads/drops/$z/R$oldrels[$z]\">$z</a> (" . IDtoDateStamp($oldrels[$z], 0) . ")</li>\n";
 	}
-	print "<li><a href=\"http://www.eclipse.org/emf/downloads/dl-emf1x.html\">1.x</a> (2003)</li>\n";
+	print "<li><a href=\"http://www.eclipse.org/$PR/downloads/dl-emf1x.html\">1.x</a> (2003)</li>\n";
 	print "</ul>\n";
 	print "</div>\n";
 }
