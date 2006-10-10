@@ -1009,53 +1009,23 @@ function doLanguagePacks()
 	<p>IBM is pleased to contribute translations for the Eclipse Modeling Framework.</p>
 	<ul>
 		<li>
-			<a href="javascript:toggle('lang2_2_1')">2.2.1 Language Packs</a><a name="NL22x"></a>
-			<ul id="lang2_2_1">
+			<a href="javascript:toggle('lang2_2')">2.2.x Language Packs</a><a name="NL22x"></a>
+			<ul id="lang2_2">
 					<?php
 					$packs = array (
-						"2.2.1 NLS Translation Packs" => "NLpacks-"
+						"2.2.x NLS Translation Packs" => "NLpacks-"
 					);
 					$cols = array (
 						"EMF, SDO" => "emf-sdo",
 						"XSD" => "xsd"
 					);
 					$subcols = array (
-						"SDK" => "SDK-",
-						"Runtime" => "runtime-"
+						"2.2.1 SDK" => "SDK-2.2.1",
+						"2.2.1 Runtime" => "runtime-2.2.1",
+						"2.2.0 SDK" => "SDK-2.2",
+						"2.2.0 Runtime" => "runtime-2.2"
 					);
-					$packSuf = "2.2.1.zip";
-					$folder = "NLS/2.2.1/";
-					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
-				<li>
-					<p>The language packs contain the following translations:</p>
-					<ul>
-						<li>NLpack1 - German, Spanish, French, Italian, Japanese, Korean, Portuguese (Brazil), Traditional Chinese, Simplified Chinese</li>
-						<li>NLpack2 - Czech, Hungarian, Polish, Russian</li>
-						<li>NLpack2a - Danish, Dutch, Finnish, Greek, Norwegian, Portuguese, Swedish and Turkish</li>
-						<li>NLpackBidi - Arabic</li>
-					</ul>
-					<p>Each language pack zip contains 4 other zips (one for each of the language groups above). Unpack these zips into your Eclipse directory before starting Eclipse.</p>
-					<p>These translations are based on EMF 2.2.1.</p>
-				</li>
-			</ul>
-		</li>
-
-		<li>
-			<a href="javascript:toggle('lang2_2')">2.2.0 Language Packs</a><a name="NL22"></a>
-			<ul id="lang2_2" style="display: none">
-					<?php
-					$packs = array (
-						"2.2.0 NLS Translation Packs" => "NLpacks-"
-					);
-					$cols = array (
-						"EMF, SDO" => "emf-sdo",
-						"XSD" => "xsd"
-					);
-					$subcols = array (
-						"SDK" => "SDK-",
-						"Runtime" => "runtime-"
-					);
-					$packSuf = "2.2.zip";
+					$packSuf = ".zip";
 					$folder = "NLS/2.2/";
 					doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder); ?>
 				<li>
@@ -1067,7 +1037,7 @@ function doLanguagePacks()
 						<li>NLpackBidi - Arabic</li>
 					</ul>
 					<p>Each language pack zip contains 4 other zips (one for each of the language groups above). Unpack these zips into your Eclipse directory before starting Eclipse.</p>
-					<p>These translations work with EMF 2.2.0.</p>
+					<p>These translations are based on EMF 2.2.0 or 2.2.1, respectively.</p>
 				</li>
 			</ul>
 		</li>
@@ -1147,12 +1117,36 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive =
 		{
 			print "<li><img src=\"http://www.eclipse.org/$PR/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt: ";
 			$ret = array();
-			foreach ($subcols as $alt2 => $packMid2)
+			if (sizeof($subcols)>2) 
 			{
-				$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org" : $downloadScript) .
-					"$downloadPre/tools/$PR/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
+			  print "<ul>\n";
+			  $cnt=0;
+  			foreach ($subcols as $alt2 => $packMid2)
+  			{
+  			  if ($cnt > 0 && $cnt % 2 == 0) 
+  			  {
+      			print "<li>".join(", ", $ret)."</li>\n";
+      			$ret = array();
+          }
+ 	  			$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org" : $downloadScript) .
+  		  			"$downloadPre/tools/$PR/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
+ 					$cnt++;
+				}
+				if (sizeof($ret)>0) 
+				{
+      			print "<li>".join(", ", $ret)."</li>\n";
+				}
+			  print "</ul>\n";
 			}
-			print join(", ", $ret);
+			else
+			{
+  			foreach ($subcols as $alt2 => $packMid2)
+  			{
+  				$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org" : $downloadScript) .
+  					"$downloadPre/tools/$PR/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
+				}
+  			print join(", ", $ret);
+			}
 			print "</li>\n";
 		}
 	}
