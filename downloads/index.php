@@ -1037,7 +1037,7 @@ function doLanguagePacks()
 						<li>NLpackBidi - Arabic</li>
 					</ul>
 					<p>Each language pack zip contains 4 other zips (one for each of the language groups above). Unpack these zips into your Eclipse directory before starting Eclipse.</p>
-					<p>These translations are based on EMF 2.2.0 or 2.2.1, respectively.</p>
+					<p>These translations are based on EMF 2.2.1 and 2.2.0, respectively.</p>
 				</li>
 			</ul>
 		</li>
