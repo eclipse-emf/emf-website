@@ -1,7 +1,7 @@
 <?php
 $pre = "../"; 
 include $pre."includes/header.php"; 
-//internalUseOnly(); 
+internalUseOnly(); 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
@@ -73,7 +73,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 			<tr>
 				<td colspan="2"></td>
 				<td colspan="4">
-					<div name="fullURL" id="fullURL" style="font-size:9px;" readonly="readonly">&#160;</div>
+					<div name="fullURL" id="fullURL" style="border:0;font-size:9px;" readonly="readonly">&#160;</div>
 				</td>
 			</tr>
 			
@@ -297,7 +297,6 @@ function showfullURL(val)
 {
 	fullURL = document.getElementById('fullURL');
 	fullURL.innerHTML = val ? "&#160;--&gt; " + val + " &lt;--" : "&#160;";
-	//fullURL.style.display = val ? "" : "none";
 }
 
 function loadSelectedValues() {
