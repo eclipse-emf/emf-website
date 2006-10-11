@@ -486,7 +486,6 @@ setTimeout('selectDefaultCVSBranch()',501);
 			($_POST["build_Build_Alias"]?' -buildAlias '.$_POST["build_Build_Alias"]:"").	// 2.0.2, for example
 			' -tagBuild '.($_POST["build_Tag_Build"]=="Yes"?"true":"false").		// new, 04/07/12
 			' -buildType '.$_POST["build_Build_Type"].
-			//' -javaHome /opt/sun/j2sdk1.4.2_03'. // on mp
 			' -javaHome '.($_POST["build_debug_java_home"]!=""?$_POST["build_debug_java_home"]:$defaultJDK). // on emf
 			' -downloadsDir '.$workDir.'/../downloads'. // use central location: /home/www-data/build/downloads
 			' -buildDir '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.
@@ -497,9 +496,6 @@ setTimeout('selectDefaultCVSBranch()',501);
 			($_POST["build_Run_Tests_Old"]=="Y"?' -runOldTests '.$BR:'').		// pass $BR to -runOldTests flag
 			($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
 			
-			// TODO: add JDK defaults to build.options.txt
-			($PR == "uml2" || false!==strpos($_POST["build_CVS_Branch"],"R2_") ? " -javaHome /opt/ibm-java2-1.4":'').
-
 			// three new debugging options as of oct 6
 			($_POST["build_debug_basebuilder_branch"]!=""?' -basebuilderBranch '.$_POST["build_debug_basebuilder_branch"]:'').
 			($_POST["build_debug_proj_releng_branch"]!=""?' -projRelengBranch '.$_POST["build_debug_proj_releng_branch"]:'').
