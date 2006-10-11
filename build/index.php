@@ -496,6 +496,9 @@ setTimeout('selectDefaultCVSBranch()',501);
 			($_POST["build_Run_Tests_JDK50"]=="Y"?' -runJDK50Tests '.$BR:''). // pass $BR to -runJDK50Tests flag
 			($_POST["build_Run_Tests_Old"]=="Y"?' -runOldTests '.$BR:'').		// pass $BR to -runOldTests flag
 			($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
+			
+			// TODO: add JDK defaults to build.options.txt
+			($PR == "uml2" || false!==strpos($_POST["build_CVS_Branch"],"R2_") ? " -javaHome /opt/ibm-java2-1.4":'').
 
 			// three new debugging options as of oct 6
 			($_POST["build_debug_basebuilder_branch"]!=""?' -basebuilderBranch '.$_POST["build_debug_basebuilder_branch"]:'').
