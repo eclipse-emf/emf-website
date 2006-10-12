@@ -274,11 +274,6 @@ function showfullURL(val)
 	fullURL.innerHTML = val ? "&#160;--&gt; " + val + " &lt;--" : "&#160;";
 }
 
-function loadDefaults() {
-  field=document.forms.buildForm.build_Build_Type;
-  pickDefaults(field.options[field.selectedIndex].value);
-}
-
 function pickDefaults(val) {
 	document.forms.buildForm.build_Tag_Build.selectedIndex=(val=='N'?1:0); // Nightly = No; others = Yes
 	divNum=branchToDivNum();
@@ -400,12 +395,13 @@ function doSubmit() {
 	}
 }
 
-function selectDefaults() {
+function doOnLoadDefaults() {
 	doBranchSelected(document.forms.buildForm.build_CVS_Branch);
+  field=document.forms.buildForm.build_Build_Type;
+  pickDefaults(field.options[field.selectedIndex].value);
 }
 
-setTimeout('loadDefaults()',500);
-setTimeout('selectDefaults()',501);
+setTimeout('doOnLoadDefaults()',500);
 
 </script>
 <?php } else { // page two, form submission results
