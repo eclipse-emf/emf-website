@@ -1,7 +1,7 @@
 <?php
 $pre = "../"; 
 include $pre."includes/header.php"; 
-internalUseOnly(); 
+//internalUseOnly(); 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
@@ -19,10 +19,6 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 
 <?php	
 
-	if ($_POST["build_Branch"] && $_POST["build_Branch"]=="-") { 
-		$previewOnly="true"; // ie, DO NOT BUILD!
-	}
-	
 	if (!$_POST["process"]=="build") { // page one, the form
 		print "<p>To run a build, please complete the following form and click the Build button.</p>";
 	} else { 
@@ -40,9 +36,8 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 
 	/** done customizing, shouldn't have to change anything below here **/
 
-	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$dependenciesURLsFile);
-
-	sort($options["RunTests"]); reset ($options["RunTests"]);
+	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$dependenciesURLsFile); 
+	#print "<pre>"; print_r ($options); print "</pre>"; 
 
 	if (!$_POST["process"]=="build") { // page one, the form
 
@@ -56,10 +51,11 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				<td>&#160;</td>
 				<td><b>Branch, Subproject &amp; Type</b></td>
 				<td>&#160;</td>
-				<input name="build_Branch" type="hidden" size=8 maxlength=10 onchange="this.value=this.value.replace(/[^0-9\.]/g,'');">
-				<td colspan=3><select name="build_CVS_Branch" onchange="pickDefaultBuildID(this.options[this.selectedIndex].text)">
-				<?php displayOptions($options["Branch"],true); ?>
-				</select> &#160;
+				<input name="build_Branch" type="hidden" size="8" maxlength="10" onchange="this.value=this.value.replace(/[^0-9\.]/g,'');"/>
+				<input name="build_Java_Home" type="hidden" size="20"/>
+				<td colspan=3><select name="build_CVS_Branch" onchange="doBranchSelected(this)">
+				<?php displayOptionsTriplet($options["BranchAndJDK"]); ?>
+				</select> <br/>
 				<select name="build_Project" onchange="document.location.href='?project='+this.options[this.selectedIndex].value+'<?php 
 					print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>'">
 					<option <?php print $PR == "emf" ? "selected " : ""; ?>value="emf">EMF</option>
@@ -97,7 +93,8 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
 							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
 						</tr>						
-					</table>							
+					</table>
+            <p><small>&#160;&#160;-- AND/OR --</small></p>
 				</td>
 				<td>&#160;</td>
 				<td colspan=2>
@@ -108,7 +105,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 			</tr>
 			<tr valign="top">
 				<td colspan=2>&#160;</td>
-				<td><small>&#160;&#160;-- AND/OR --<br><br>
+				<td><small>
 					paste full URL(s), one per<br>
 					line or comma separated<br>
 					(new values will be stored)</small>
@@ -123,44 +120,13 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 			<tr>
 				<td rowspan="2" valign="top"><img src="<?php print $WWWpre; ?>images/numbers/3.gif" /></td>
 				<td rowspan="2">&#160;</td>
-				<td colspan=1><b>JDK &amp; Basebuilder Branch</b></td>
+				<td colspan=1>
+        <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">org.eclipse.releng.basebuilder</a> branch:<br><small>-basebuilderBranch</small>				
+				</td>
 				<td>&#160;</td>
-				<td colspan="2"><select name="build_debug_java_home">
-<?php 
-
-	function jdkCompare($a, $b)
-	{
-	   if ($a == $b) {
-	       return 0;
-	   } else {
-	   	  if (false!==strpos($b,"1.5")) return 1;
-	   	  if (false!==strpos($b,"50")) return -1;
-	   	  if (false!==strpos($b,"131")) return -1;
-	   	  if (ord($a) < ord($b)) {
-	   	  	return (fileatime("/opt/".$b) < fileatime("/opt/".$a) ? -1 : 1);
-	   	  } else {
-	   	  	return 1;
-	   	  }
-	   }
-	}
-
-	$JDKs = loadDirSimple("/opt",".*(jdk|j2sdk|java|Java).*(1.3|13|1.4|14|5.0).*","d"); usort($JDKs,"jdkCompare"); reset($JDKs); // include Sun and 1.3/5.0
-	foreach ($JDKs as $jdk) { 
-		if (realpath("/opt/".$jdk) == "/opt/".$jdk) { // not a link 
-			$label = false!==strpos(strtolower($jdk),"ibm") ? "IBM ".str_replace("IBMJava2-","",str_replace("ibm-java2-ws-sdk-pj9xia32","",str_replace("ibm-java2-sdk-","",$jdk))) : "Sun ".$jdk;
-			print "<option ".($selected == "/opt/".$jdk ? "selected " : "")."value=\"/opt/".$jdk."\">$label</option>\n";
-		}
-	}
-?>
-				</select></td>
+				<td><input size="20" name="build_debug_basebuilder_branch" value="<?php echo $options["BaseBuilderBranch"][0]; ?>"></td>
+				<td><small> Enter Tag/Branch/Version, eg., HEAD, M2_33, R3_2_maintenance, r321_v20060830 :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
 			</tr>
-			<tr>
-				<td colspan=1><a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">org.eclipse.releng.basebuilder</a> branch:<br><small>-basebuilderBranch</small></td>
-				<td>&#160;</td>
-				<td><input size="25" name="build_debug_basebuilder_branch" value="HEAD"></td>
-				<td><small> Enter Tag/Branch/Version, eg., HEAD, M2_33, <br/>R3_2_maintenance, r321_v20060830 :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
-			</tr>
-			
 			<tr><td colspan="6">&#160;</td></tr>
 
 			<tr>
@@ -181,8 +147,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				<td><select name="build_Tag_Build" size=1>
 				<?php displayOptions($options["TagBuild"]); ?>
 				</select></td>
-				<td><small>If Yes, this tag will appear in CVS as "build_200405061234" <br>
-				if No, CVS will NOT be tagged with this build's ID</small></td>
+				<td><small>If Yes, this tag will appear in CVS as "build_200405061234". If No, CVS will NOT be tagged with this build's ID</small></td>
 			</tr> 
 
 			<tr><td colspan="6">&#160;</td></tr>
@@ -197,9 +162,19 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				
 				<?php if ($PR == "emf") { ?>
 				<td colspan="1">
-				<?php displayCheckboxes("build_Run_Tests",$options["RunTests"]); ?>
+				<div name="divRunTests30" id="divRunTests30" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests30"],"_30"); ?>
+				</div>
+				<div name="divRunTests22" id="divRunTests22" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests22"],"_22"); ?>
+				</div>
+				<div name="divRunTests21" id="divRunTests21" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests21"],"_21"); ?>
+				</div>
 				</td>
-				<td><small>Standard JUnit Tests are added incrementally with bug fixes. 
+				<td><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
+				<div id="divRunTestsDetail" name="divRunTestsDetail" style="display:none;border:0">
+				<small>Standard JUnit Tests are added incrementally with bug fixes. 
 				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
 				If yes to JUnit Tests, tests will be performed during build to
 				validate results and will be refected in build results on download 
@@ -213,16 +188,22 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
 				Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build 
 				completes old tests will be run with new SDK zip &amp; selected eclipse SDK.
-				</small></td>
+				</small>
+				</div>
+				</td>
 				
 				<?php } else if ($PR == "uml2") { ?>
 				<td colspan="1">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests"]); ?>
 				</td>
-				<td><small>
-				If yes to JUnit Tests, tests will be performed during build<br>
-				to validate results and will be refected in build results on<br>
-				download page and build detail pages.</small></td>
+				<td><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
+				<div id="divRunTestsDetail" name="divRunTestsDetail" style="display:none;border:0">
+				<small>
+				If yes to JUnit Tests, tests will be performed during build
+				to validate results and will be refected in build results on
+				download page and build detail pages.</small>
+				</div>
+				</td>
 				
 				<?php } ?>
 			</tr> 
@@ -250,7 +231,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 					<tr>
 						<td colspan=1>org.eclipse.<?php print $PR; ?> branch:<br><small>-branch</small></td>
 						<td>&#160;</td>
-						<td><input size="15" name="build_debug_branch" value=""></td>
+						<td><input size="15" name="build_debug_CVS_Branch" value=""></td>
 						<td><small> Override value above; enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
 					</tr>
 					<tr>
@@ -258,12 +239,6 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 						<td>&#160;</td>
 						<td><input size="15" name="build_debug_proj_releng_branch" value=""></td>
 						<td><small> Enter Tag/Branch/Version, eg., build_200409171617, R2_0_maintenance</small></td>
-					</tr>
-					<tr>
-						<td colspan=1>JUnit Tests Only (no build)?<br><small>-antTarget runTestsOnly</small></td>
-						<td>&#160;</td>
-						<td><input size="15" name="build_debug_runTestsOnly" value=""></td>
-						<td><small> Enter a build's datestamp, eg., 200411040245</small></td>
 					</tr>
 					<?php if ($PR == "emf") { ?>
 					<tr>
@@ -299,57 +274,117 @@ function showfullURL(val)
 	fullURL.innerHTML = val ? "&#160;--&gt; " + val + " &lt;--" : "&#160;";
 }
 
-function loadSelectedValues() {
-	with (document.forms.buildForm) { 
-		setCheckbox("build_Run_Tests_JDK14",true);
-		setCheckbox("build_Run_Tests_JUnit",true);
-	}
+function loadDefaults() {
+  field=document.forms.buildForm.build_Build_Type;
+  pickDefaults(field.options[field.selectedIndex].value);
 }
 
 function pickDefaults(val) {
 	document.forms.buildForm.build_Tag_Build.selectedIndex=(val=='N'?1:0); // Nightly = No; others = Yes
+	divNum=branchToDivNum();
 	if (val=='N') {
-		setCheckbox("build_Run_Tests_JUnit",true);
-		setCheckbox("build_Run_Tests_JDK13",false);
-		setCheckbox("build_Run_Tests_JDK14",true);
-		setCheckbox("build_Run_Tests_JDK50",false);
-		setCheckbox("build_Run_Tests_Old",false);
-	} else if (val=='R' || val=='S') {
-		setCheckbox("build_Run_Tests_JUnit",true);
-		setCheckbox("build_Run_Tests_JDK13",false);
-		setCheckbox("build_Run_Tests_JDK14",true);
-		setCheckbox("build_Run_Tests_JDK50",true);
-		setCheckbox("build_Run_Tests_Old",true);
-	} else if (val=='M' || val=='I') {
-		setCheckbox("build_Run_Tests_JUnit",true);
-		setCheckbox("build_Run_Tests_JDK13",false);
-		setCheckbox("build_Run_Tests_JDK14",true);
-		setCheckbox("build_Run_Tests_JDK50",true);
-		setCheckbox("build_Run_Tests_Old",true);
+		setCheckbox("build_Run_Tests_JUnit",true,divNum);
+		setCheckbox("build_Run_Tests_JDK13",false,divNum);
+		setCheckbox("build_Run_Tests_JDK14",true,divNum);
+		setCheckbox("build_Run_Tests_JDK50",false,divNum);
+		setCheckbox("build_Run_Tests_Binary",false,divNum);
+		setCheckbox("build_Run_Tests_Source",false,divNum);
+		setCheckbox("build_Run_Tests_Old",false,divNum);
+	} else {
+		setCheckbox("build_Run_Tests_JUnit",true,divNum);
+		setCheckbox("build_Run_Tests_JDK13",false,divNum);
+		setCheckbox("build_Run_Tests_JDK14",false,divNum);
+		setCheckbox("build_Run_Tests_JDK50",true,divNum);
+		setCheckbox("build_Run_Tests_Binary",true,divNum);
+		setCheckbox("build_Run_Tests_Source",true,divNum);
+		setCheckbox("build_Run_Tests_Old",true,divNum);
 	}
 }
 
-function setCheckbox(field,bool) 
+function branchToDivNum() 
+{
+  return document.forms.buildForm.build_Branch.value.substring(0,3).replace(".","");
+}
+
+function setCheckbox(field,bool,divNum) 
 {
 	if (document.forms.buildForm && document.forms.buildForm.elements[field] && document.forms.buildForm.elements[field].type=="checkbox")
 	{
 		document.forms.buildForm.elements[field].checked=bool;
+	} else {
+	  elem = document.getElementById(field+(divNum?"_"+divNum:""));
+	  if (elem && elem.style.display != "none") {
+	    elem.checked=bool;
+	  }
 	}
 }
-function pickDefaultBuildID(val) {
+
+function doBranchSelected(field) {
+  val=field.options[field.selectedIndex].text;
+  br=pickDefaultBranch(val);
+  pickDefaultJavaHome(val);
+  toggleCheckboxes(br);
+}
+
+function pickDefaultBranch(val) {
 	with (document.forms.buildForm) { 
 		if (val.indexOf(" | ")>0) { 
-			build_Branch.value=val.substring(val.indexOf(" | ")+3); // since the text label shown in the select box is not available for POST, store it here
+			build_Branch.value=val.substring(val.indexOf(" | ")+3,val.lastIndexOf(" | ")); // since the text label shown in the select box is not available for POST, store it here
 		} else {
 			build_Branch.value=val; // since the text label shown in the select box is not available for POST, store it here
 		}
+	  return build_Branch.value;
 	}
+}
+
+function pickDefaultJavaHome(val) {
+	with (document.forms.buildForm) { 
+		if (val.indexOf(" | ")>0) { 
+			build_Java_Home.value=val.substring(3+val.lastIndexOf(" | ")); // since the text label shown in the select box is not available for POST, store it here
+		} else {
+			build_Java_Home.value=val; // since the text label shown in the select box is not available for POST, store it here
+		}
+		return build_Java_Home.value;
+	}
+}
+
+function toggleDetails()
+{
+  toggle=document.getElementById("divRunTestsToggle");
+  detail=document.getElementById("divRunTestsDetail");
+  if (toggle.innerHTML=="More Info") 
+  {
+    toggle.innerHTML="Hide Info";
+    detail.style.display="";
+  } 
+  else
+  {
+    toggle.innerHTML="More Info";
+    detail.style.display="none";
+  }
+}
+function toggleCheckboxes(val) {
+  divs = new Array(
+    "divRunTests30",
+    "divRunTests22",
+    "divRunTests21",
+    "divRunTests"
+  );
+  divNum=branchToDivNum(); 
+  for (i=0; i<divs.length; i++) {
+    elem = document.getElementById(divs[i]);
+    if (elem) 
+    {
+      elem.style.display = divs[i] == "divRunTests"+divNum ? "" : "none";
+    }
+  }
 }
 
 function doSubmit() {
 	answer = true;
+  divNum=branchToDivNum(); 
 	with (document.forms.buildForm) { 
-		if (build_Run_Tests_JUnit.checked==false // if not running JUnit tests
+		if (elements["build_Run_Tests_JUnit"+(divNum?"_"+divNum:"")] && elements["build_Run_Tests_JUnit"+(divNum?"_"+divNum:"")].checked==false // if not running JUnit tests
 			&& build_Build_Type.options[build_Build_Type.selectedIndex].value!='N' // and not a Nightly
 			) {
 				answer = confirm(
@@ -365,13 +400,12 @@ function doSubmit() {
 	}
 }
 
-function selectDefaultCVSBranch() {
-	field=document.forms.buildForm.build_CVS_Branch;
-	pickDefaultBuildID(field.options[field.selectedIndex].text);
+function selectDefaults() {
+	doBranchSelected(document.forms.buildForm.build_CVS_Branch);
 }
 
-setTimeout('loadSelectedValues()',500);
-setTimeout('selectDefaultCVSBranch()',501);
+setTimeout('loadDefaults()',500);
+setTimeout('selectDefaults()',501);
 
 </script>
 <?php } else { // page two, form submission results
@@ -381,16 +415,15 @@ setTimeout('selectDefaultCVSBranch()',501);
 		$newDependencies = splitDependencies($_POST["build_Dependencies_URL_New"]);
 		$dependencyURLs = getDependencyURLs($_POST["build_Dependencies_URL"],$newDependencies,$dependenciesURLsFile);	
 
-		$buildTimestamp = ($_POST["build_debug_runTestsOnly"] ? $_POST["build_debug_runTestsOnly"] : date("YmdHi") );
-		$testOnlyTimeStamp = $_POST["build_debug_runTestsOnly"] ? "_".date("YmdHi") : "";
+		$buildTimestamp = date("YmdHi");
 
 		$ID = $_POST["build_Build_Type"].$buildTimestamp;
 		$BR = $_POST["build_Branch"]; 
 		$PR = $GET["project"] ? $GET["project"] : $_POST["build_Project"]; 
-	
-		$_POST["build_Branch"] = 	($_POST["build_Branch"]?$_POST["build_Branch"]:$_POST["build_CVS_Branch"]);
 		
-		$logfile = '/downloads/drops/'.$BR.'/'.$ID.'/buildlog'.$testOnlyTimeStamp.'.txt';
+		$BR_suffix = "_".str_replace(".","",substr($BR,0,3));
+		
+		$logfile = '/downloads/drops/'.$BR.'/'.$ID.'/buildlog.txt';
 
 	if ($PR == "emf") 
 	{
@@ -412,7 +445,7 @@ setTimeout('selectDefaultCVSBranch()',501);
 	} 
 	else
 	{
-		
+		// ...?
 	}
 ?>
 
@@ -468,7 +501,7 @@ setTimeout('selectDefaultCVSBranch()',501);
 		//foreach ($branches as $k => $b) { print "$k => $b<br>"; }
 
 		if ($branches["HEAD"] == $_POST["build_CVS_Branch"]) { $_POST["build_CVS_Branch"] = "HEAD"; }
-
+		
 		// fire the shell script...
 
 		/** see http://ca3.php.net/manual/en/function.exec.php **/
@@ -478,15 +511,13 @@ setTimeout('selectDefaultCVSBranch()',501);
 		$preCmd .= 'print "buildVer='.$BR.'" > '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse/transientProperties.txt ;';
 
 		$cmd = ('bash -c "exec nohup setsid '.$workDir.'/scripts/start.sh -proj '.$PR.
-			' -branch '.($_POST["build_debug_branch"]!=""?$_POST["build_debug_branch"]:$_POST["build_CVS_Branch"]).
+			' -branch '.($_POST["build_debug_CVS_Branch"]!=""?$_POST["build_debug_CVS_Branch"]:$_POST["build_CVS_Branch"]).
 			$dependencyURLs.
-			($_POST["build_debug_runTestsOnly"]!=""? ' -antTarget runTestsOnly':
-				($_POST["build_Run_Tests_JUnit"]=="Y"?' -antTarget run':' -antTarget runWithoutTest')
-			).
+			($_POST["build_Run_Tests_JUnit"]=="Y" || $_POST["build_Run_Tests_JUnit".$BR_suffix]=="Y" ?' -antTarget run':' -antTarget runWithoutTest').
 			($_POST["build_Build_Alias"]?' -buildAlias '.$_POST["build_Build_Alias"]:"").	// 2.0.2, for example
 			' -tagBuild '.($_POST["build_Tag_Build"]=="Yes"?"true":"false").		// new, 04/07/12
 			' -buildType '.$_POST["build_Build_Type"].
-			' -javaHome '.($_POST["build_debug_java_home"]!=""?$_POST["build_debug_java_home"]:$defaultJDK). // on emf
+			' -javaHome '.$_POST["build_Java_Home"].
 			' -downloadsDir '.$workDir.'/../downloads'. // use central location: /home/www-data/build/downloads
 			' -buildDir '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.
 			' -buildTimestamp '.$buildTimestamp.
@@ -501,7 +532,6 @@ setTimeout('selectDefaultCVSBranch()',501);
 			($_POST["build_debug_proj_releng_branch"]!=""?' -projRelengBranch '.$_POST["build_debug_proj_releng_branch"]:'').
 			($_POST["build_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["build_debug_emf_old_tests_branch"]:'').
 			($_POST["build_debug_noclean"]=="Y"?' -noclean':'').
-			($testOnlyTimeStamp?' -testOnlyTimeStamp '.$testOnlyTimeStamp:'').
 
 			' >> '.$workDir.$logfile.' 2>&1 &"');	// logging to unique files
 
@@ -633,7 +663,7 @@ function updateDependenciesFile($file,$lines,$newSize,$origSize) {
 	}	
 }
 
-function displayCheckboxes($label,$options,$verbose=false) {
+function displayCheckboxes($label,$options,$divSuffix="") {
 	$matches = null;
 	if ($options["reversed"]) {
 		// pop that item out
@@ -647,9 +677,9 @@ function displayCheckboxes($label,$options,$verbose=false) {
 		if (!preg_match("/\-\=[\d\.]+/",$opt)) { 
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <input type="checkbox" name="bar" value="Y">foo
 				$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				print "\n\t<input type=\"checkbox\" "."name=\"".$label."_".trim($matches[2])."\" value=\"Y\">".($verbose?trim($matches[2])." | ":"").trim($matches[1]);
+				print "\n\t<input id=\"".$label."_".trim($matches[2]).$divSuffix."\" type=\"checkbox\" "."name=\"".$label."_".trim($matches[2]).$divSuffix."\" value=\"Y\">".trim($matches[1]);
 			} else { // turn foo into <input type="checkbox" name="foo" value="Y">foo</option>
-				print "\n\t<input type=\"checkbox\" "."name=\"".$label."_".$opt."\" value=\"Y\">".$opt;
+				print "\n\t<input id=\"".$label."_".$opt.$divSuffix."\" type=\"checkbox\" "."name=\"".$label."_".$opt.$divSuffix."\" value=\"Y\">".$opt;
 			}
 			print "<br/>\n";
 		}
@@ -675,10 +705,41 @@ function displayOptions($options,$verbose=false) {
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
 				$matches = null;
 				preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".($verbose?trim($matches[2])." | ":"").trim($matches[1])."</option>";
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".
+				  ($verbose?trim($matches[2])." | ":"").trim($matches[1]).
+				  "</option>";
 			} else if (strstr($opt,"http") && strstr($opt,"drops")) { // turn http://foo/bar.zip into <option value="http://foo/bar.zip">bar.zip</option>
 				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".
 					substr($opt,6+strpos($opt,"drops"))."</option>";
+			} else { // turn foo into <option value="foo">foo</option>
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
+			}
+		}
+	}
+}
+
+function displayOptionsTriplet($options) {
+	$matches = null;
+	if ($options["reversed"]) {
+		// pop that item out
+		array_shift($options);
+		$options = array_reverse($options);
+	}
+
+	foreach ($options as $o => $option) {
+		$opt = $option;
+		$isSelected = false;
+		if (!preg_match("/\-\=[\d\.]+/",$opt)) { 
+			if (strstr($opt,"|selected")) {  // remove the |selected keyword
+				$isSelected=true;
+				$opt = substr($opt,0,strpos($opt,"|selected"));
+			}
+			if (false!==substr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
+				$matches = null;
+				preg_match("/([^\=]+)\=([^\=]+)\,([^\,]+)/",$opt,$matches);
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".
+				  trim($matches[2])." | ".trim($matches[1])." | ".trim($matches[3]).
+				  "</option>";
 			} else { // turn foo into <option value="foo">foo</option>
 				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
 			}
@@ -761,7 +822,7 @@ function loadOptionsFromArray($sp) {
 
 	foreach ($sp as $s) { 
 		if (strpos($s,"#")===0) { // skip, comment line
-		} else if (preg_match("/\[([a-zA-Z\_\|]+)\]/",$s,$matches)) { // section starts
+		} else if (preg_match("/\[([a-zA-Z0-9\_\|]+)\]/",$s,$matches)) { // section starts
 			if (strlen($s)>2) { 
 				$isReversed = false;
 				if (strstr($s,"|reversed")) {  // remove the |reversed keyword
@@ -788,7 +849,7 @@ function loadOptionsFromArray($sp) {
 }
 
 	function getBranches($options) { 
-		foreach ($options["Branch"] as $br => $branch) { 
+		foreach ($options["BranchAndJDK"] as $br => $branch) { 
 				$arr[	getValueFromOptionsString($branch,"name")] = 
 						getValueFromOptionsString($branch,"value");
 		}
