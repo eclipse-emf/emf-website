@@ -419,7 +419,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			}
 
 			global $SERVER_NAME;
-			$ret.="<td bgcolor=\"#FFFFFF\">".(is_file($testsPWD.$path.$testDir."/testlog.txt")?("<a href=\"".(strstr($SERVER_NAME,"emf.torolab.ibm.com")?"/emf/log-viewer.php?test=$path".$testDir."/":$pre.$mid.$path.$testDir."/testlog.txt")."\" class=\"buildlog\"><span class=\"buildlog\">".makeDateTime($testDir)."</span></a>"):"<span class=\"buildlog\">&nbsp;&nbsp;&nbsp;</span>")."</td>";
+			$ret.="<td bgcolor=\"#FFFFFF\">".(is_file($testsPWD.$path.$testDir."/testlog.txt")?("<a href=\"".(strstr($SERVER_NAME,"emf.torolab.ibm.com")?"/emf/build/log-viewer.php?test=$path".$testDir."/":$pre.$mid.$path.$testDir."/testlog.txt")."\" class=\"buildlog\"><span class=\"buildlog\">".makeDateTime($testDir)."</span></a>"):"<span class=\"buildlog\">&nbsp;&nbsp;&nbsp;</span>")."</td>";
 			$ret .= "</tr>";
 		}
 		$ret .= "</table>";
