@@ -1,5 +1,8 @@
 <?php
-	if (preg_match("/^(Miasma|Industrial|Phoenix|Blue)$/", $_GET["skin"], $regs))
+
+	$debug = (preg_match("/^\d+$/", $_GET["debug"]) ? $_GET["debug"] : -1);
+  
+	if (preg_match("/^(Blue|EclipsStandard|Industrial|Lazarus|Miasma|OldStyle|Phoenix|PlainText)$/", $_GET["skin"], $regs))
 	{
 		$theme = $regs[1];
 	}
