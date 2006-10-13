@@ -510,7 +510,6 @@ setTimeout('doOnLoadDefaults()',500);
 
 		// create the log dir before trying to log to it
 		$preCmd = 'mkdir -p '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse ;';
-		$preCmd .= 'print "buildVer='.$BR.'" > '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.'/eclipse/transientProperties.txt ;';
 
 		$cmd = ('bash -c "exec nohup setsid '.$workDir.'/scripts/start.sh -proj '.$PR.
 			' -branch '.($_POST["build_debug_CVS_Branch"]!=""?$_POST["build_debug_CVS_Branch"]:$_POST["build_CVS_Branch"]).
