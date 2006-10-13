@@ -57,10 +57,17 @@ $PR = "emf"; ?>
 	<form method=POST enctype="multipart/form-data" name="patchForm">
 			<input type="hidden" name="MAX_FILE_SIZE" value="5242880" /> <!-- 5M limit -->
 			<input type="hidden" name="process" value="test" />
+			<tr>
+				<td colspan="2"></td>
+				<td colspan="4">
+					<div name="fullURL" id="fullURL" style="border:0;font-size:9px;" readonly="readonly">&#160;</div>
+				</td>
+			</tr>
+			
 			<tr valign="top">
 				<td><img src="<?php print $WWWpre; ?>images/numbers/1.gif" /></td>
 				<td>&#160;</td>
-				<td><b>Dependency URLs</b><br>
+				<td><b>Dependency&#160;URLs</b><br>
 				
 					<small>
 					choose URLs (use <em>CTRL</em> <br> 
@@ -69,12 +76,12 @@ $PR = "emf"; ?>
 						<tr><td><b>Public</b></td><td><b>Mirror</b></td></tr>
 						<?php $buildServer = array("www.eclipse.org","emf.torolab.ibm.com","emft.eclipse.org","download.eclipse.org"); ?>
 						<tr>						
-							<td> &#149; <a href="http://download.eclipse.org/eclipse/downloads/">Eclipse</a></td>
-							<td> &#149; <a href="http://fullmoon/downloads/">Eclipse</a></td>
+							<td>&#160;&#149;&#160;<a href="http://download.eclipse.org/eclipse/downloads/">Eclipse</a></td>
+							<td>&#160;&#149;&#160;<a href="http://fullmoon/downloads/">Eclipse</a></td>
 						</tr>
 						<tr>						
-							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
-							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
+							<td>&#160;&#149;&#160;<a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
+							<td>&#160;&#149;&#160;<a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
 						</tr>						
 					</table>
             <p><small>&#160;&#160;-- AND/OR --</small></p>
@@ -100,36 +107,14 @@ $PR = "emf"; ?>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
 			
-			<tr valign=top>
-				<td rowspan=2><img src="http://www.eclipse.org/emf/images/numbers/2.gif" /></td>
-				<td rowspan=2>&#160;</td>
-				<td rowspan=2><b>Patch Zip</b><br><small>
-				optional</small></td>
-				<td rowspan=2>&#160;</td>
-				<td><input name="tests_Patch_Zipfile" type="file"></td>
-				<td><small>If you would like to use a patch on top of the above EMF SDK, 
-				create a zip with base folders <b style="color:red">eclipse/plugins/</b> and/or <b style="color:red">eclipse/features/</b>,
-				and upload it here. <b style="color:red">Limit 5M filesize</b>.
-				</small></td>
-			</tr>
-			<tr valign=top>
-				<td>
-				<small>&#160;&#160;&#160;&#160; - or - </small><br/>
-					<input name="tests_Patch_Zipfile_Name" type="text" size="25" maxlength="80"></td>
-				<td>&#160;&#160;&#160;&#160;<small> - or - </small><br/>
-				<small>SCP your patch file onto this server and place it in 
-				<b style="color:red">/home/www-data/tests/tools/emf/patches</b>.
-				Your file must be readable by the web user. Enter either the full path or just the filename.
-				</small></td>
-			</tr>
 			<tr bgcolor="#eeeeee">
-				<td bgcolor="#ffffff" rowspan="2"><img src="http://www.eclipse.org/emf/images/numbers/3.gif" /></td>
+				<td bgcolor="#ffffff" rowspan="2"><img src="http://www.eclipse.org/emf/images/numbers/2.gif" /></td>
 				<td bgcolor="#ffffff" rowspan="2">&#160;</td>
 				<td rowspan="2" valign="top"><b>Run Tests</b><br><small>
 				at least one must be selected</small></td>
 				<td rowspan="2">&#160;</td>
 				<td>
-				<?php displayCheckboxes("tests_Run_Tests",$options["RunTests"],false,$isEMFbuildServer); ?>
+				<?php displayCheckboxes("tests_Run_Tests",$options["RunTests"],false,false); ?>
 				<br> Old Tests branch: <input style="font-size:10px" size="17" name="tests_debug_emf_old_tests_branch">
 				</td>
 				<td rowspan="1" valign="top"><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
@@ -207,12 +192,36 @@ $PR = "emf"; ?>
 					</tr>
 				</table></td>
 			</tr>
+
+			<tr valign=top>
+				<td rowspan=2><img src="http://www.eclipse.org/emf/images/numbers/3.gif" /></td>
+				<td rowspan=2>&#160;</td>
+				<td rowspan=2><b>Patch Zip</b><br><small>
+				optional</small></td>
+				<td rowspan=2>&#160;</td>
+				<td><input name="tests_Patch_Zipfile" type="file"></td>
+				<td><small>If you would like to use a patch on top of the above EMF SDK, 
+				create a zip with base folders <b style="color:red">eclipse/plugins/</b> and/or <b style="color:red">eclipse/features/</b>,
+				and upload it here. <b style="color:red">Limit 5M filesize</b>.
+				</small></td>
+			</tr>
+			<tr valign=top>
+				<td>
+				<small>&#160;&#160;&#160;&#160; - or - </small><br/>
+					<input name="tests_Patch_Zipfile_Name" type="text" size="20" maxlength="80"></td>
+				<td>&#160;&#160;&#160;&#160;<small> - or - </small><br/>
+				<small>SCP your patch file onto this server and place it in 
+				<b style="color:red">/home/www-data/tests/tools/emf/patches</b>.
+				Your file must be readable by the web user. Enter either the full path or just the filename.
+				</small></td>
+			</tr>
+			
 			<tr>
 				<td><img src="http://www.eclipse.org/emf/images/numbers/4.gif" /></td>
 				<td>&#160;</td>
-				<td><b>Email Address</b><br><small>optional: if you would like to be<br />notified when the tests are complete</small></td>
-				<td>&#160;</td>
-				<td colspan=2><input name="tests_Email" size=25 maxlength=80></td>
+				<td bgcolor="#eeeeee"><b>Email Address</b><br><small>optional: if you would like to be<br />notified when the tests are complete</small></td>
+				<td bgcolor="#eeeeee">&#160;</td>
+				<td bgcolor="#eeeeee" colspan=2><input name="tests_Email" size=20 maxlength=80></td>
 			</tr>
 
 <?php if ($debug) { ?>
@@ -256,29 +265,21 @@ $PR = "emf"; ?>
 	</form>
 </table>
 <script language="javascript">
-function selectEclipseURL() {
-	with (document.forms.patchForm) {
-		if (tests_Eclipse_URL.selectedIndex<0 && tests_Eclipse_URL_New.value=='') {
-			tests_Eclipse_URL.selectedIndex=0;
-		}
-	}
+function showfullURL(val)
+{
+	fullURL = document.getElementById('fullURL');
+	fullURL.innerHTML = val ? "&#160;--&gt; " + val + " &lt;--" : "&#160;";
 }
-function selectEMFURL() {
-	with (document.forms.patchForm) {
-		if (tests_EMF_URL.selectedIndex<0 && tests_EMF_URL_New.value=='') {
-			tests_EMF_URL.selectedIndex=0;
-		}
-	}
-}
+
 
 function loadSelectedValues() {
 	with (document.forms.patchForm) { 
-		document.forms.patchForm.tests_Run_Tests_Perf.checked=<?php print $isEMFbuildServer?"false":"true"; ?>;
+		//document.forms.patchForm.tests_Run_Tests_Perf.checked=<?php print $isEMFbuildServer?"false":"true"; ?>;
 		document.forms.patchForm.tests_Run_Tests_JDK13.checked=false;
 	}
 }
 
-setTimeout('selectEclipseURL();selectEMFURL();loadSelectedValues()',500);
+setTimeout('loadSelectedValues()',500);
 
 function doSubmit() {
 	//loadOptions();
@@ -625,9 +626,9 @@ print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Options</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"?project=$PR&amp;debug\">debug test</a></li>\n";
-print "<li><a href=\"?project=$PR&amp;previewOnly\">preview test</a></li>\n";
-print "<li><a href=\"?project=$PR&amp;debug&previewOnly\">preview debug test</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug=1\">debug test</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;previewOnly=1\">preview test</a></li>\n";
+print "<li><a href=\"?project=$PR&amp;debug=1&amp;previewOnly=1\">preview debug test</a></li>\n";
 print "<li><a href=\"?project=$PR\">normal test</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
@@ -942,4 +943,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.5 2006/10/13 02:21:52 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.6 2006/10/13 02:37:05 nickb Exp $ -->
