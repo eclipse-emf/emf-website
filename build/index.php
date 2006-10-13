@@ -523,10 +523,11 @@ setTimeout('doOnLoadDefaults()',500);
 			' -downloadsDir '.$workDir.'/../downloads'. // use central location: /home/www-data/build/downloads
 			' -buildDir '.$workDir.'/downloads/drops/'.$BR.'/'.$ID.
 			' -buildTimestamp '.$buildTimestamp.
-			($_POST["build_Run_Tests_JDK13"]=="Y"?' -runJDK13Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
-			($_POST["build_Run_Tests_JDK14"]=="Y"?' -runJDK14Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
-			($_POST["build_Run_Tests_JDK50"]=="Y"?' -runJDK50Tests '.$BR:''). // pass $BR to -runJDK50Tests flag
-			($_POST["build_Run_Tests_Old"]=="Y"?' -runOldTests '.$BR:'').		// pass $BR to -runOldTests flag
+			($_POST["build_Run_Tests_JDK13"]=="Y" || $_POST["build_Run_Tests_JDK13".$BR_suffix]=="Y"?' -runJDK13Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
+			($_POST["build_Run_Tests_JDK14"]=="Y" || $_POST["build_Run_Tests_JDK14".$BR_suffix]=="Y"?' -runJDK14Tests '.$BR:''). // pass $BR to -runJDK13Tests flag
+			($_POST["build_Run_Tests_JDK50"]=="Y" || $_POST["build_Run_Tests_JDK50".$BR_suffix]=="Y"?' -runJDK50Tests '.$BR:''). // pass $BR to -runJDK50Tests flag
+			($_POST["build_Run_Tests_Old"]=="Y"   || $_POST["build_Run_Tests_Old".$BR_suffix]=="Y"  ?' -runOldTests '.  $BR:''). // pass $BR to -runOldTests   flag
+			// TODO: add build_Run_Tests_Binary & build_Run_Tests_Source
 			($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
 			
 			// three new debugging options as of oct 6
