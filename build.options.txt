@@ -1,9 +1,4 @@
-# build options file
-# note also that there must be a directory below this one called data which is set to 777 permission so that files can be read/written via anon web user. x bit must be set too so the dir is openable/viewable
-
-# this defines the alias "HEAD" to a particular stream within CVS. As of 040714, sequence reversed - Pretty_Branch_Name=CVS_Branch_Name
-# note that for build versions that can no longer be build, use -=x.y.z so that they still get listed,
-# but aren't available in the build branch selection list
+# build/downloads options file
 
 [BaseBuilderBranch]
 r321_v20060830
