@@ -384,7 +384,6 @@ function doSubmit() {
 	  if (!elements[tofocus]){
   	  tofocus="build_Run_Tests_JUnit";
  	  }
- 	  alert("tofocus="+tofocus);
 		if (elements[tofocus] && elements[tofocus].checked==false // if not running JUnit tests
 			&& build_Build_Type.options[build_Build_Type.selectedIndex].value!='N' // and not a Nightly
 			) {
