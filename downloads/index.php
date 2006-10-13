@@ -1229,6 +1229,12 @@ function getBuildArtifacts($dir, $branchID)
 		{
 			$opts[$regs[1]] = $regs[2];
 		}
+		else if (preg_match("/^(javaHome)=(.+)$/", $z, $regs))
+		{
+			$rp = realpath($regs[2]);
+			$rp = $rp == $regs[2] ? $rp : $regs[2]." (".$rp.")";
+			$opts[$regs[1]] = str_replace("/opt/","",$rp);
+		}
 	}
 
 	foreach (array_keys($deps) as $z)
@@ -1257,7 +1263,7 @@ function getBuildArtifacts($dir, $branchID)
 		$ret .= "<li>\n";
 		$ret .= "<img src=\"http://www.eclipse.org/$PR/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies\n";
 		$ret .= "<ul>\n";
-		$ret .= $opts["javaHome"] ? "<li>".$opts["JDK"]."</li>\n" : "";
+		$ret .= $opts["javaHome"] ? "<li>".$opts["javaHome"]."</li>\n" : "";
 		foreach (array_keys($deps) as $z)
 		{
 			$ret .= "<li><div><a href=\"$builddir[$z]\">Build Page</a></div>$deps[$z] <a href=\"$buildfile[$z]\">$buildID[$z]</a></li>\n";
