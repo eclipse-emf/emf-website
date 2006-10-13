@@ -61,7 +61,7 @@ $buildOptionsFile = "$pre/build.options.txt"; // read only
 
 if (preg_match("/(?:emf|fullmoon)\./", $_SERVER["HTTP_HOST"])) //internal
 {
-	$downloadScript = "../../../tools/$PR/scripts/download.php?dropFile=";
+	$downloadScript = "../../..";
 	$downloadPre = "../../..";
 }
 else // all others
@@ -427,7 +427,7 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 		$stat = "";
 		$sty = "";
 		$cnt = getTestResultsFailureCount($testsPWD . $path, $testDirs, $log);
-		$testlog = ($isEMFserver ? "/$PR/build/log-viewer.php?test=$path$testDirs[0]/$log" : "$pre$mid$path$testDirs[0]/$log");
+		$testlog = "$pre$mid$path$testDirs[0]/$log";
 		if ($cnt === "")
 		{
 			$stat = "<a href=\"" . ($isEMFserver ? "/$PR/build/log-viewer.php?test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt") . "\">...</a> ";
@@ -443,7 +443,7 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 		else
 		{
 			$sty = "errors"; // it's always a failure here (see below)
-			$stat = "<a href=\"$testlog\">$cnt F ($sty)</a>";
+			$stat = " <a href=\"$testlog\">$cnt F</a> ";
 		}
 		$ret .= "<li" . ($sty != "" ? " class=\"$sty\"" : "") . "><div>$stat</div>" . strtoupper($t) . "</li>\n";
 
@@ -708,6 +708,11 @@ function createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel = 
 			if (is_file("$PWD/$branch/$ID/$pre2$filePre[$uu]$u-$ziplabel.zip")) // for compatibilty with uml2, where there's no "RT" value in $u
 			{
 				$echo_out .= fileFound("$PWD/", "$branch/$ID/$pre2$filePre[$uu]$u-$ziplabel.zip", // again, for uml2
+					$label);
+			}
+			else if (is_file("$PWD/$branch/$ID/$filePre[$uu]$u-$ziplabel.zip")) // for compatibilty with uml2, where there's no "RT" value in $u
+			{
+				$echo_out .= fileFound("$PWD/", "$branch/$ID/$filePre[$uu]$u-$ziplabel.zip", // again, for uml2
 					$label);
 			}
 			else
@@ -1171,7 +1176,7 @@ function grep($pattern, $file)
 
 function outputBuild($branch, $ID, $c)
 {
-	global $PWD, $isEMFserver, $dls, $filePre, $jdk14testsPWD, $jdk50testsPWD, $testsPWD;
+	global $PWD, $isEMFserver, $dls, $filePre, $jdk14testsPWD, $jdk50testsPWD, $testsPWD, $sortBy;
 	$pre2 = (is_dir("$PWD/$branch/$ID/eclipse/$ID/") ? "eclipse/$branch/$ID/" : "");
 
 	$zips_in_folder = loadDirSimple("$PWD/$branch/$ID/", "(\.zip)", "f");
@@ -1196,7 +1201,7 @@ function outputBuild($branch, $ID, $c)
 
 	$ret = "<li>\n";
 	$ret .= "<div>" . showBuildResults("$PWD/", "$branch/$ID/") . ($isEMFserver && $summary ? $summary : "") . "</div>";
-	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . ($_GET["sortBy"] == "date" ? "&amp;sortBy=date" : "") . "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
+	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>".($sortBy=="date"&&$IDlabel!=$branch?"$branch / ":"")."$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . ($_GET["sortBy"] == "date" ? "&amp;sortBy=date" : "") . "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
 
 	$ret .= "<ul id=\"r$ID\"" . (($c == 0 && !isset($_GET["hlbuild"])) || $ID == $_GET["hlbuild"] ? "" : " style=\"display: none\"") . ">\n";
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
@@ -1252,6 +1257,7 @@ function getBuildArtifacts($dir, $branchID)
 		$ret .= "<li>\n";
 		$ret .= "<img src=\"http://www.eclipse.org/$PR/images/dl-deps.gif\" alt=\"Upstream dependencies used to build this driver\"/> Build Dependencies\n";
 		$ret .= "<ul>\n";
+		$ret .= $opts["javaHome"] ? "<li>".$opts["JDK"]."</li>\n" : "";
 		foreach (array_keys($deps) as $z)
 		{
 			$ret .= "<li><div><a href=\"$builddir[$z]\">Build Page</a></div>$deps[$z] <a href=\"$buildfile[$z]\">$buildID[$z]</a></li>\n";
