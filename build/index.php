@@ -213,7 +213,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				<td>&#160;</td>
 				<td><b>Email Address</b><br><small>optional</small></td>
 				<td>&#160;</td>
-				<td colspan="1"><input name="build_Email" size=25 maxlength=80></td>
+				<td colspan="1"><input name="build_Email" size="20" maxlength="80"/></td>
 				<td><small>If you would like to be notified when the build <br>
 				(and/or tests) completes</small></td>
 			</tr>
@@ -358,6 +358,7 @@ function toggleDetails()
     detail.style.display="none";
   }
 }
+
 function toggleCheckboxes(val) {
   divs = new Array(
     "divRunTests30",
@@ -379,19 +380,26 @@ function doSubmit() {
 	answer = true;
   divNum=branchToDivNum(); 
 	with (document.forms.buildForm) { 
-		if (elements["build_Run_Tests_JUnit"+(divNum?"_"+divNum:"")] && elements["build_Run_Tests_JUnit"+(divNum?"_"+divNum:"")].checked==false // if not running JUnit tests
+  	tofocus="build_Run_Tests_JUnit"+(divNum?"_"+divNum:"");
+	  if (!elements[tofocus]){
+  	  tofocus="build_Run_Tests_JUnit";
+ 	  }
+ 	  alert("tofocus="+tofocus);
+		if (elements[tofocus] && elements[tofocus].checked==false // if not running JUnit tests
 			&& build_Build_Type.options[build_Build_Type.selectedIndex].value!='N' // and not a Nightly
 			) {
 				answer = confirm(
 					'Are you sure you want to run a '+build_Build_Type.options[build_Build_Type.selectedIndex].text+"\n"+
 					'build without running JUnit tests?');
+		} else {
+		  tofocus=null;
 		}
 	}
 	//loadOptions();
 	if (answer) { 
 		document.forms.buildForm.submit();
-	} else {
-		document.forms.buildForm.build_Run_Tests_JUnit.focus();
+	} else if (tofocus) {
+		document.forms.buildForm.elements[tofocus].focus();
 	}
 }
 
