@@ -78,7 +78,6 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				<td>&#160;</td>
 				<td><b>Dependency URLs</b><br>
 				
-					<!-- TODO: add more links here -->
 					<small>
 					choose URLs (use <em>CTRL</em> <br> 
 					for multiple selections)</small>
