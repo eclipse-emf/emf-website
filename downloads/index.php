@@ -29,10 +29,6 @@ $dls = array(
 $suf = array("emf-sdo-xsd" => "all", "emf-sdo" => "emf-sdo",
 	"emf" => "emf-sdo", "xsd" => "xsd");
 
-$deps = array(
-	"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>"
-);
-
 $filePre = array( // file prefixes - also defines the DL image to use, and image alt tag
 	"emf-sdo-xsd",
 	"emf-sdo-xsd",
@@ -1198,44 +1194,58 @@ function outputBuild($branch, $ID, $c)
 		$tests .= getOldTestResults("$testsPWD/", "$branch/$ID/", $summary) . "\n";
 		$summary = ($summary ? "<span>$summary</span>" : "");
 	}
+	
+	$deps = array(
+		"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>"
+	);
+	
+	$opts = loadBuildConfig("$PWD/$branch/$ID/build.cfg", $deps);
 
 	$ret = "<li>\n";
 	$ret .= "<div>" . showBuildResults("$PWD/", "$branch/$ID/") . ($isEMFserver && $summary ? $summary : "") . "</div>";
-	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>".($sortBy=="date"&&$IDlabel!=$branch?"$branch / ":"")."$IDlabel</i> (" . IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . ($_GET["sortBy"] == "date" ? "&amp;sortBy=date" : "") . "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>";
+	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>".($sortBy=="date"&&$IDlabel!=$branch?"$branch / ":"")."$IDlabel</i> (" . 
+	  IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . 
+	  ($_GET["sortBy"] == "date" ? "&amp;sortBy=date" : "") . 
+	  "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>" . 
+  	($opts["noclean"]||is_dir("$PWD/$branch/$ID/eclipse/$ID") ? " <b><i style=\"color:orange\">noclean</i></b> <img alt=\"Purge releng materials before promoting this build!\" src=\"../images/bug.png\"/>" : "");
 
 	$ret .= "<ul id=\"r$ID\"" . (($c == 0 && !isset($_GET["hlbuild"])) || $ID == $_GET["hlbuild"] ? "" : " style=\"display: none\"") . ">\n";
 	$ret .= createFileLinks($dls, $PWD, $branch, $ID, $pre2, $filePre, $ziplabel);
 
 	$ret .= $tests;
-	$ret .= getBuildArtifacts("$PWD", "$branch/$ID");
+	$ret .= getBuildArtifacts($opts, "$branch/$ID", $deps);
 	$ret .= "</ul>\n";
 	$ret .= "</li>\n";
 
 	return $ret;
 }
 
-function getBuildArtifacts($dir, $branchID)
+function loadBuildConfig($file, $deps) 
 {
-	global $isEMFserver, $downloadPre, $PR, $deps;
-
-	$mid = "$downloadPre/tools/$PR/downloads/drops/";
-	$file = "$dir/$branchID/build.cfg";
 	$lines = (is_file($file) && is_readable($file) ? file($file) : array());
 
 	foreach ($lines as $z)
 	{
-		$regs = null;
-		if (preg_match("/^((?:" . join("|", array_keys($deps)) . ")(?:DownloadURL|File|BuildURL))=(.+)$/", $z, $regs))
+	  $regs = null;
+		if (preg_match("/^((?:" . join("|", array_keys($deps)) . ")(?:DownloadURL|File|BuildURL))=(.{2,})$/", $z, $regs))
 		{
 			$opts[$regs[1]] = $regs[2];
 		}
-		else if (preg_match("/^(javaHome)=(.+)$/", $z, $regs))
+		else if (preg_match("/^(javaHome|noclean)=(.+)$/", $z, $regs))
 		{
-			$rp = realpath($regs[2]);
-			$rp = $rp == $regs[2] ? $rp : $regs[2]." (".$rp.")";
-			$opts[$regs[1]] = str_replace("/opt/","",$rp);
+		  $rp = realpath($regs[2]);
+		  $rp = $rp == $regs[2] ? $rp : $regs[2] . " (" . $rp . ")";
+		  $opts[$regs[1]] = str_replace("/opt/", "", $rp);
 		}
 	}
+  return $opts;
+}
+
+function getBuildArtifacts($opts, $branchID, $deps)
+{
+	global $isEMFserver, $downloadPre, $PR;
+
+	$mid = "$downloadPre/tools/$PR/downloads/drops/";
 
 	foreach (array_keys($deps) as $z)
 	{
@@ -1257,7 +1267,7 @@ function getBuildArtifacts($dir, $branchID)
 			"Map File" => "directory.txt",
 			"Build Log" => "buildlog.txt"
 		);
-		
+
 		$link = ($isEMFserver ? "" : "http://download.eclipse.org");
 		
 		$ret .= "<li>\n";
