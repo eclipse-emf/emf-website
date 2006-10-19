@@ -4,10 +4,10 @@
 
 	$isWWWserver = ($SERVER_NAME=="www.eclipse.org"||$SERVER_NAME=="eclipse.org");
 	
-	if (!$isWWWserver) { 
-		header("Location: http://www.eclipse.org/emf/docs.php");
-		exit;
-	} else {
+	//if (!$isWWWserver) { 
+		//header("Location: http://www.eclipse.org/emf/docs.php");
+	//	exit;
+	//} else {
 		$files = loadDirSimple(".",".*","f");
 		if (sizeof($files)>0) { ?><!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
@@ -30,7 +30,7 @@
 		} else {
 			echo "No presentation docs found!";
 		}
-	}
+	//}
 
 /**********************/
 
