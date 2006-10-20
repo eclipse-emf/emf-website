@@ -15,9 +15,9 @@ $emails = array(
 	"emf" => "codeslave@ca.ibm.com,emerks@ca.ibm.com,marcelop@ca.ibm.com,davidms@ca.ibm.com,khussey@ca.ibm.com,walkerp@us.ibm.com",
 	"uml2" => "khussey@ca.ibm.com,jbruck@ca.ibm.com"
 );
-$users = array(
-	"emf" => array("nickb","nboldt"),
-	"uml2" => array("khussey","khussey")
+$users = array( // runs as, access IES map file repo as, ssh as
+	"emf" => array("nickb@emf.torolab.ibm.com","nickb","nboldt"),
+	"uml2" => array("khussey@emf.torolab.ibm.com","khussey","khussey")
 );
 
 ?>
@@ -199,15 +199,15 @@ function loadSelects() {
 			// create the log dir before trying to log to it
 			$preCmd = 'mkdir -p '.$logdir.';';
 	
-			$cmd = ('bash -c "exec nohup setsid ssh nickb@emf.torolab.ibm.com'.
+			$cmd = ('bash -c "exec nohup setsid ssh '.$users[$PR][0].
 				' \"cd '.
 					$workDir.'/scripts; ./promoteToEclipse.sh'.
 					' -'.$PR.
 					' -Q'.
 					' -branch '.$BR.
 					' -buildID '.$ID.
-					' -user '.$users[$PR][0].
-					' -userIES '.$users[$PR][1].
+					' -user '.$users[$PR][1].
+					' -userIES '.$users[$PR][2].
 					($_POST["build_Update_ISS_Map_File"]!=""?'':' -noies').
 					($_POST["build_Announce_In_Newsgroup"]!=""?' -announce':'').
 					($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
