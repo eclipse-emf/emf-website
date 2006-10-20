@@ -1,6 +1,5 @@
 <?php 
-$pre = !isset($pre)?"../../":$pre; 	
-include $pre."includes/header.php"; 
+require_once($_SERVER['DOCUMENT_ROOT'] ."/www/emf/includes/header.php"); 
 
 if (!$isWWWserver) 
 { 
