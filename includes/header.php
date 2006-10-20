@@ -1,5 +1,5 @@
 <?php
-include_once $pre . "includes/scripts.php"; 
+require_once($_SERVER['DOCUMENT_ROOT'] ."/emf/includes/scripts.php"); 
 $WWWpre = "http://www.eclipse.org/emf/"; 
 $WWWprePhysical = "/home/data/httpd/www.eclipse.org/html/emf/";
 $WWWpreXSD = "http://www.eclipse.org/xsd/";
