@@ -50,12 +50,6 @@ $users = array( // runs as, access IES map file repo as, ssh as
 
 	$options = loadOptionsFromRemoteFiles($buildOptionsFile,$dependenciesURLsFile);
 
-	if ($_POST["build_Branch_And_Build_ID"]) { 
-		$projRelengBranch = getprojRelengBranch($options["Branch"],$_POST["build_Branch_And_Build_ID"]);
-		//print "projRelengBranch = $projRelengBranch<br>";
-		$_POST["build_EMF_Releng_Branch"] = $projRelengBranch;
-	}
-
 	//print "Branches:"; print_r($options["Branch"]);
 	$buildIDs = array();
 	$buildIDs2 = array();
@@ -93,7 +87,6 @@ $users = array( // runs as, access IES map file repo as, ssh as
 					<?php displayOptions($buildIDs,false,0); ?>
 				</select></td>
 			</tr>
-			<input type="hidden" name="build_EMF_Releng_Branch" value="HEAD" />
 
 			<tr>
 				<td>&#160;</td>
