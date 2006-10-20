@@ -22,7 +22,7 @@ if (sizeof($files)>2) {
 	rsort($files);
 	foreach ($files as $file) { 
 		if ($file != "CVS" && $file !="index.php")
-		print '<li><a href="'.$file.'">'.$file.'</a></li>'."\n";
+		print '<li><a href="'.$file.'">'.str_replace("_"," ",$file).'</a></li>'."\n";
 	}
 } else {
 	print "<li>No presentation materials found!</li>\n";
