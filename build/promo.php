@@ -201,7 +201,7 @@ function loadSelects() {
 	
 			$cmd = ('bash -c "exec nohup setsid ssh '.$users[$PR][0].
 				' \"cd '.
-					$workDir.'/scripts; ./promoteToEclipse.sh'.
+					$workDir.'/../emf/scripts; ./promoteToEclipse.sh'. // one script, not two.
 					' -'.$PR.
 					' -Q'.
 					' -branch '.$BR.
