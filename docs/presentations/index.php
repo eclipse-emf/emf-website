@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] ."/www/emf/includes/header.php"); 
+require_once($_SERVER['DOCUMENT_ROOT'] ."/emf/includes/header.php"); 
 
 if (!$isWWWserver) 
 { 
@@ -12,7 +12,7 @@ ob_start();
 
 $dirName = str_replace("/index.php","",$_SERVER["SCRIPT_NAME"]);
 $dirName = explode("/",$dirName); $dirName = $dirName[sizeof($dirName)-1]; 
-$files = loadDirSimple("$dirName",".*","f");
+$files = loadDirSimple("$dirName",".*");
 print '<div id="midcolumn">
 <div class="homeitem3col">
 <h3>Presentation Materials '.($dirName!='presentations'?'From '.$dirName:'').'</h3>
@@ -21,12 +21,10 @@ print '<div id="midcolumn">
 if (sizeof($files)>0) { 
 	rsort($files);
 	foreach ($files as $file) { 
-		if (false===strpos($file,"CVS") && false===strpos($file,"index")) {
-			echo '<li><a href="'.$file.'">'.$file.'</a></li>';
-		}
+		print '<li><a href="'.$file.'">'.$file.'</a></li>'."\n";
 	}
 } else {
-	echo "<li>No presentation materials found!</li>";
+	print "<li>No presentation materials found!</li>\n";
 }
 print '</ul>
 </div>
@@ -34,15 +32,13 @@ print '</ul>
 
 /**********************/
 
-function loadDirSimple($dir,$ext,$type) { // 1D array
+function loadDirSimple($dir,$ext) { // 1D array
 	$stuff = array();
 	if (is_dir($dir) && is_readable($dir)) { 
 		ini_set("display_errors","0"); // suppress file not found errors
 		$handle=opendir($dir);
 		while (($file = readdir($handle))!==false) {
-		  if ( ($ext=="" || preg_match("/".$ext."$/",$file)) && $file!=".." && $file!="." && $type=="f") { 
-			  $stuff[] = "$file"; 
-		  } else if ( ($ext=="" || preg_match("/".$ext."$/",$file)) && $file!=".." && $file!="." && $type=="d") {
+		  if ( ($ext=="" || preg_match("/".$ext."$/",$file)) && $file!=".." && $file!="." && $file!="CVS" && $file!="index.php") { 
 			  $stuff[] = "$file"; 
 		  }
 		}
