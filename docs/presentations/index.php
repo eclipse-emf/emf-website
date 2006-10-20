@@ -29,6 +29,14 @@ if (sizeof($files)>2) {
 }
 print '</ul>
 </div>
+<div id="midcolumn">
+<div class="homeitem3col">
+<h3>Other Documentation</h3>
+<ul>
+	<li><a href="/emf/docs/">Other Documentation</a></li>
+</ul>
+</div>
+
 </div>';
 
 $html = ob_get_contents();
