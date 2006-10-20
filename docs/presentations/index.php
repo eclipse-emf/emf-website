@@ -1,6 +1,6 @@
 <?php 
-$pre = "../../":$pre; 	
-include_once $pre."includes/header.php"; 
+$pre = !isset($pre)?"../../":$pre; 	
+include $pre."includes/header.php"; 
 
 if (!$isWWWserver) 
 { 

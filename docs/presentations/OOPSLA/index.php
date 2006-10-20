@@ -1,1 +1,1 @@
-<?php $pre = "../../../";  include "../index.php"; ?>
+<?php include "../index.php"; ?>
