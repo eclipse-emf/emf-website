@@ -1,6 +1,6 @@
 <?php 
 $pre = "../"; 
-include $pre."includes/header.php"; 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 internalUseOnly(); 
 
 $build = $_GET["build"]; 

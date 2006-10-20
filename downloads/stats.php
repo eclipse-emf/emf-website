@@ -37,7 +37,7 @@ $pass = $qsvars["pass"];	$goodpass = "trilobyt3";
 if ($user != $gooduser || $pass != $goodpass) { 
 	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
 	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
-	include $pre . "includes/header.php";
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 	echo "<p>Sorry, you're not authorized. Please contact codeslave (at) ca (dot) ibm (dot) com.</p>\n";
 	echo "<p>&#160;</p>";
 	exit;
@@ -145,7 +145,7 @@ $queries = array(
 /***** RUN SECOND QUERY + DISPLAY RESULTS as HTML or XML *****/
 
 $qsvarsToShow = array("sql", "generator"); // extra information to echo - generator version + SQL run
-$qsvars["generator"] = '$Id: stats.php,v 1.96 2006/09/18 02:53:47 nickb Exp $';
+$qsvars["generator"] = '$Id: stats.php,v 1.97 2006/10/20 21:50:24 nickb Exp $';
 $qsvars["sql"] = $qsvars["table"] && array_key_exists($qsvars["table"],$queries) ? htmlentities($preQuery.";\n".$queries[$qsvars["table"]]) : ""; 
 
 if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
@@ -159,7 +159,7 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 	} else {
 		$HTMLTitle = "Eclipse Tools - EMF Download Stats";
 		$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
-		include $pre . "includes/header.php";
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 		echo "Querying ... ";
 		$results = doQuery($queries[$qsvars["table"]]);
 		echo "done (".$time->displaytime()." seconds).<br/><br/>";
@@ -169,7 +169,7 @@ if ($qsvars["table"] && array_key_exists($qsvars["table"],$queries)) {
 } else {
 	$HTMLTitle = "Eclipse Tools - EMF Download Stats";
 	$ProjectName = array("EMF","Eclipse Modeling Framework","Download Stats");
-	include $pre . "includes/header.php";
+	require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 	echo "<p>Choose a table &amp; display format. Query may take over 2 minutes. Please be patient.</p>\n<ul>";
 	foreach ($queries as $title => $query) {
 		echo "<li>".$title.": <a href=\"$PHP_SELF?".
@@ -284,7 +284,7 @@ function doQuery($sql,$isCSV=false) {
 		# Mysql disconnects automatically, but I like my disconnects to be explicit.
 		$dbc->disconnect();
 		echo "<p align=\"right\"><small>\n".
-			 '$Id: stats.php,v 1.96 2006/09/18 02:53:47 nickb Exp $'.
+			 '$Id: stats.php,v 1.97 2006/10/20 21:50:24 nickb Exp $'.
 			 "\n</small></p>\n";
 		echo "</data>\n";
 		exit;

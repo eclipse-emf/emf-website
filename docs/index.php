@@ -1,8 +1,8 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
 ob_start();
-include_once $pre . "includes/header.php";  //actually needed here, for $CVSpre stuff
 $doc = $_GET["doc"]; //FIXME: gaping security hole!
 if ($doc && $doc != "docs/docs.xml")
 {
@@ -55,4 +55,4 @@ $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/incl
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
 
-<!-- $Id: index.php,v 1.2 2006/08/28 18:07:00 nickb Exp $ -->
+<!-- $Id: index.php,v 1.3 2006/10/20 21:49:43 nickb Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 $pre = "../"; 
-include $pre."includes/header.php"; 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 internalUseOnly(); 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
@@ -943,4 +943,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.6 2006/10/13 02:37:05 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.7 2006/10/20 21:49:15 nickb Exp $ -->

@@ -245,7 +245,7 @@
     
 /**********************************************************/
 
-    if ($doHeaderAndFooter) { include ($pre."includes/header.php"); }
+    if ($doHeaderAndFooter) { require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); }
 	
 	// include javascript, etc.  
     echo '
@@ -665,4 +665,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.21 2006/09/18 02:53:47 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.22 2006/10/20 21:50:24 nickb Exp $ -->
