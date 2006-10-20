@@ -10,10 +10,15 @@ $debug = isset($_GET["debug"]) ? 1 : 0;
 $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; 
 $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf"; 
 
+// TODO: pull these values from promoteToEclipse.*.properties instead
 $emails = array(
 	"emf" => "codeslave@ca.ibm.com,emerks@ca.ibm.com,marcelop@ca.ibm.com,davidms@ca.ibm.com,khussey@ca.ibm.com,walkerp@us.ibm.com",
 	"uml2" => "khussey@ca.ibm.com,jbruck@ca.ibm.com"
-)
+);
+$users = array(
+	"emf" => array("nickb","nboldt"),
+	"uml2" => array("khussey","khussey")
+);
 
 ?>
 <div id="midcolumn">
@@ -197,11 +202,12 @@ function loadSelects() {
 			$cmd = ('bash -c "exec nohup setsid ssh nickb@emf.torolab.ibm.com'.
 				' \"cd '.
 					$workDir.'/scripts; ./promoteToEclipse.sh'.
-					' -emf -Q'.
+					' -'.$PR.
+					' -Q'.
 					' -branch '.$BR.
 					' -buildID '.$ID.
-					' -user nickb'.
-					' -userIES nboldt'.
+					' -user '.$users[$PR][0].
+					' -userIES '.$users[$PR][1].
 					($_POST["build_Update_ISS_Map_File"]!=""?'':' -noies').
 					($_POST["build_Announce_In_Newsgroup"]!=""?' -announce':'').
 					($_POST["build_Email"]!=""?' -email '.$_POST["build_Email"]:'').
