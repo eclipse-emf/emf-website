@@ -14,6 +14,7 @@ $dirName = str_replace("/index.php","",$_SERVER["SCRIPT_NAME"]);
 $dirName = explode("/",$dirName); $dirName = $dirName[sizeof($dirName)-1]; 
 $files = loadDirSimple($_SERVER['DOCUMENT_ROOT'] . "/emf/docs/presentations/" . ($dirName!='presentations'?$dirName:""), ".*", $dirName!='presentations'?"f":"d");
 print '<div id="midcolumn">
+
 <div class="homeitem3col">
 <h3>Presentation Materials '.($dirName!='presentations'?'From '.$dirName:'').'</h3>
 <ul>
@@ -29,7 +30,6 @@ if (sizeof($files)>2) {
 }
 print '</ul>
 </div>
-<div id="midcolumn">
 <div class="homeitem3col">
 <h3>Other Documentation</h3>
 <ul>
