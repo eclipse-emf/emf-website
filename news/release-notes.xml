@@ -8,6 +8,8 @@
   	</b>
   </blockquote>
   
+<version-def label="2.3.0" version="2.3.0"/>
+<version-def label="2.2.2" version="2.2.2"/>
 <version-def label="2.2.1" version="2.2.1"/>
 
 <project-def label="EMF &amp; SDO Release Notes" project="emf"/>
@@ -154,4 +156,4 @@
 </entry>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.209 2006/09/29 17:58:49 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.210 2006/10/30 22:35:17 nickb Exp $ -->
