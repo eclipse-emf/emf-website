@@ -5,14 +5,14 @@ r321_v20060830
 
 [BranchAndJDK]
 #used in build.php for selecting build branch
-3.0.0=HEAD,/opt/sun-java2-5.0|selected
+2.3.0=HEAD,/opt/sun-java2-5.0|selected
 2.2.2=R2_2_maintenance,/opt/sun-java2-1.4
 #2.1.3=R2_1_maintenance,/opt/sun-java2-1.4
 #2.0.6=R2_0_maintenance,/opt/sun-java2-1.4
 
 [Branch]
 # used in downloads/index.php
--=3.0.0
+-=2.3.0
 -=2.2.2
 -=2.2.1
 -=2.2.0
