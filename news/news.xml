@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="October 30, 2006" showOn="docs,whatsnew">
+	<a href="http://www.eclipse.org/emf/docs/#presentations">CASCON and OOPSLA presentation &amp; workshop exercises</a> are available.
+</news>
 <news date="September 29, 2006" showOn="whatsnew">
 	<!-- R200609210005 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.2.1">Version 2.2.1</a> Release build
@@ -1140,6 +1143,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.201 2006/09/29 17:58:49 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.202 2006/10/30 22:15:30 nickb Exp $ -->
 
 </doc>
