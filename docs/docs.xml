@@ -239,7 +239,7 @@ and Animations of the internals of XSD models</a>
 			<div>October 25 2006</div><a name="oopsla2006intro"></a>OOPSLA 2006 - Introduction to EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/OOPSLA/OOPSLA_2006_T38_Intro_To_EMF.pdf">Presentation</a> (PDF)</li>
-				<li><a href="http://www.eclipse.org/emf/docs/presentations/OOPSLA/OOPSLA_2006_T38_Intro_To_EMF_org.eclipse.emf.tutorial.intro_2.2.1.zip">Workshop Plugin</a> (ZIP)</li>
+				<li><a href="http://www.eclipse.org/emf/docs/presentations/OOPSLA/OOPSLA_2006_T38_Intro_To_EMF_org.eclipse.emf.tutorial.intro_2.2.1.zip">Workshop Cheat Sheet Plugin</a> (ZIP)</li>
 			</ul>
 		</li>
 
@@ -247,7 +247,7 @@ and Animations of the internals of XSD models</a>
 			<div>October 19 2006</div><a name="cascon2006intro"></a>CASCON 2006 - Introduction to EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/CASCON/CASCON_2006.pdf">Presentation</a> (PDF)</li>
-				<li><a href="http://www.eclipse.org/emf/docs/presentations/CASCON/CASCON_2006_org.eclipse.emf.tutorial.intro.zip">Workshop Project</a> (ZIP)</li>
+				<li><a href="http://www.eclipse.org/emf/docs/presentations/CASCON/CASCON_2006_org.eclipse.emf.tutorial.intro.zip">Workshop Cheat Sheet Plugin</a> (ZIP)</li>
 			</ul>
 		</li>
 
@@ -485,4 +485,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.49 2006/10/30 22:09:47 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.50 2006/10/30 22:40:23 nickb Exp $ -->
