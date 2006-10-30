@@ -161,8 +161,8 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["pr
 				
 				<?php if ($PR == "emf") { ?>
 				<td colspan="1">
-				<div name="divRunTests30" id="divRunTests30" style="display:none;border:0">
-				<?php displayCheckboxes("build_Run_Tests",$options["RunTests30"],"_30"); ?>
+				<div name="divRunTests23" id="divRunTests23" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests23"],"_23"); ?>
 				</div>
 				<div name="divRunTests22" id="divRunTests22" style="display:none;border:0">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests22"],"_22"); ?>
@@ -360,7 +360,7 @@ function toggleDetails()
 
 function toggleCheckboxes(val) {
   divs = new Array(
-    "divRunTests30",
+    "divRunTests23",
     "divRunTests22",
     "divRunTests21",
     "divRunTests"

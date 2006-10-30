@@ -42,7 +42,7 @@ $PR = "emf"; ?>
 	$options = loadOptionsFromRemoteFiles($testsOptionsFile,$dependenciesURLsFile); 
 
 	// remove JUnit option
-	$options["RunTests"] = array_unique(array_merge($options["RunTests30"],$options["RunTests22"],$options["RunTests21"]));
+	$options["RunTests"] = array_unique(array_merge($options["RunTests23"],$options["RunTests22"],$options["RunTests21"]));
 	foreach ($options["RunTests"] as $o => $p) { //print "$o => $p<br>";
 		if (false===strpos($p,"JUnit")) { $newopt["RunTests"][$o] = $p; }
 	}
@@ -943,4 +943,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.7 2006/10/20 21:49:15 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.8 2006/10/30 22:32:01 nickb Exp $ -->

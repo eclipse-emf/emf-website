@@ -53,7 +53,7 @@ JDK 1.4 &amp; Standalone=JDK14
 JDK 5.0 &amp; Standalone=JDK50
 Old Tests=Old
 
-[RunTests30]
+[RunTests23]
 JUnit Tests=JUnit
 JDK 5.0 &amp; Standalone=JDK50
 #Binary Compatibility=Binary
