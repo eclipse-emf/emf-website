@@ -53,7 +53,7 @@ $PR = "emf"; ?>
 
 ?>
 
-<table>
+<table cellspacing="0" cellpadding="3">
 	<form method=POST enctype="multipart/form-data" name="patchForm">
 			<input type="hidden" name="MAX_FILE_SIZE" value="5242880" /> <!-- 5M limit -->
 			<input type="hidden" name="process" value="test" />
@@ -108,44 +108,32 @@ $PR = "emf"; ?>
 			<tr><td colspan="6">&#160;</td></tr>
 			
 			<tr bgcolor="#eeeeee">
-				<td bgcolor="#ffffff" rowspan="2"><img src="http://www.eclipse.org/emf/images/numbers/2.gif" /></td>
-				<td bgcolor="#ffffff" rowspan="2">&#160;</td>
-				<td rowspan="2" valign="top"><b>Run Tests</b><br><small>
-				at least one must be selected</small></td>
-				<td rowspan="2">&#160;</td>
-				<td>
-				<?php displayCheckboxes("tests_Run_Tests",$options["RunTests"],false,false); ?>
-				<br> Old Tests branch: <input style="font-size:10px" size="17" name="tests_debug_emf_old_tests_branch">
-				</td>
-				<td rowspan="1" valign="top"><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
+				<td bgcolor="#ffffff" rowspan="1"><img src="http://www.eclipse.org/emf/images/numbers/2.gif" /></td>
+				<td bgcolor="#ffffff" rowspan="1">&#160;</td>
+				<td rowspan="1" valign="top"><b>Run Tests</b><br><small>
+				at least one must be selected</small><br/><br/>
+				<small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
 				<div id="divRunTestsDetail" name="divRunTestsDetail" style="display:none;border:0">
 				<small>
 				Selected tests will be run concurrently. Tests run on patched <br>
 				builds will be listed on their respective test results pages, <br>
 				marked with prefix 'P'. Note that JDK Tests are the subset of the <br>
 				available JUnit tests that can be run standalone (without Eclipse).<br><br>
-				For Old Tests, use Branch, eg., R2_0_maintenance (if blank, HEAD)
+				For Old Tests, use Branch, eg., R2_0_maintenance (if blank, HEAD) and <br>
+				specify JDK to use (if not default).
 				</small>
 				</div>
 				</td>
-			</tr>
-
-			<!-- <tr>
-				<td bgcolor="#eeeeee">
-				<input type="checkbox" name="tests_Run_Tests_Perf" value="Y">Perf Tests, using Automated <br> Tests from build: <input style="font-size:10px" size="19" name="tests_Run_Tests_Perf_ID"><br/>
-				Test continuously for <input style="font-size:10px" size="2" name="tests_Run_Tests_Perf_Repeats" value="<?php print $isEMFbuildServer?"":"10"; ?>"> builds?</td>
-				<td bgcolor="#eeeeee" rowspan="1" valign="top">
-				eg., to run tests on EMF 2.1.0/I200503130300 using the tests from<br/>
-				<b>2.1.0/I200505150500</b>, select the EMF I200503130300 driver above, <br/>
-				and enter the build ID at left as '<b>2.1.0/I200505150500</b>'. Leave blank<br/>
-				to test using the above build's tests. If 'continous' box is blank, run only<br/>
-				once; otherwise run up to specified number of tests.</td>
-			</tr> -->
-
-			<tr bgcolor="#eeeeee">
-				<td colspan=1><table>
+				<td rowspan="1">&#160;</td>
+				<td valign="top">
+				<?php displayCheckboxes("tests_Run_Tests",$options["RunTests"],false,false); ?>
+				<br> 
+				</td>
+				<td rowspan="1" valign="top">
+				
+				<table>
 					<tr>
-						<td valign=top colspan=2><b>JDK 1.4 Compiler Args</b></td></tr>
+						<td valign=top colspan=2><b>JDK 1.4 Tests Compiler Args</b></td></tr>
 					<tr>
 						<td>JDK:</td>
 						<td><small><select style="font-size:10px" name="tests_Compiler_JDK14">
@@ -168,10 +156,11 @@ $PR = "emf"; ?>
 					<tr>
 						<td colspan=2><input checked type="checkbox" name="tests_Compiler_Arg_Deprecation" value="Y"> Use -deprecation flag</td>
 					</tr>
-				</table></td>
-				<td colspan=1><table>
+				</table>
+				
+				<table>
 					<tr>
-						<td valign=top colspan=2><b>JDK 5.0 Compiler Args</b></td></tr>
+						<td valign=top colspan=2><b>JDK 5.0 Tests Compiler Args</b></td></tr>
 					<tr>
 						<td>Source version:</td>
 						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source">
@@ -190,7 +179,24 @@ $PR = "emf"; ?>
 						<option value="unchecked,deprecation">unchecked,deprecation</option>
 						</select></small></td>
 					</tr>
-				</table></td>
+				</table>
+								
+				<table>
+					<tr>
+						<td valign=top colspan=2><b>Old Tests Options</b></td></tr>
+					<tr>
+						<td>Old Tests branch:</td>
+						<td><small><input style="font-size:10px" size="17" name="tests_debug_emf_old_tests_branch"></td>
+					</tr>
+					<tr>
+						<td>Old Tests JDK:</td>
+						<td><small><select style="font-size:10px" name="tests_debug_emf_old_tests_java_home" onchange="">
+							<?php displayJDKOptions($options["BranchAndJDK"]); ?>
+						</select></td>
+					</tr>
+				</table>
+				
+				</td>
 			</tr>
 
 			<tr valign=top>
@@ -412,6 +418,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php#goto<?p
 					' -testDir '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
+					($_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
 					($_POST["tests_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["tests_debug_emf_old_tests_branch"]:'').
 					($_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
 					($_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
@@ -845,6 +852,35 @@ function updateDependenciesFile($file,$lines,$newSize,$origSize) {
 	}	
 }
 
+function displayJDKOptions($options) {
+	$matches = null;
+	if ($options["reversed"]) {
+		// pop that item out
+		array_shift($options);
+		$options = array_reverse($options);
+	}
+
+	foreach ($options as $o => $option) {
+		$opt = $option;
+		$isSelected = false;
+		if (!preg_match("/\-\=[\d\.]+/",$opt)) { 
+			if (strstr($opt,"|selected")) {  // remove the |selected keyword
+				$isSelected=true;
+				$opt = substr($opt,0,strpos($opt,"|selected"));
+			}
+			if (false!==substr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
+				$matches = null;
+				preg_match("/([^\=]+)\=([^\=]+)\,([^\,]+)/",$opt,$matches);
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[3])."\">".
+				  trim($matches[3]).
+				  "</option>";
+			} else { // turn foo into <option value="foo">foo</option>
+				print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
+			}
+		}
+	}
+}
+
 // compare project index, then datestamps
 function compareURLs($a, $b) {
    $aPF = substr($a,0,strpos($a,"="));
@@ -943,4 +979,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.8 2006/10/30 22:32:01 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.9 2006/11/01 20:09:47 nickb Exp $ -->
