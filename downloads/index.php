@@ -209,9 +209,9 @@ print "</div>\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Language Packs</h6>\n";
 print "<ul>\n";
-print "<li><a href=\"#NL22x\">2.2.x</a></li>\n";
-print "<li><a href=\"#NL21x\">2.1.x</a></li>\n";
-print "<li><a href=\"#NL20x\">2.0.x</a></li>\n";
+print "<li><a href=\"#NLS2.2.x\">2.2.x</a></li>\n";
+print "<li><a href=\"#NLS2.1.x\">2.1.x</a></li>\n";
+print "<li><a href=\"#NLS2.0.x\">2.0.x</a></li>\n";
 print "</ul>\n";
 print "</div>\n";
 
@@ -1010,7 +1010,7 @@ function doLanguagePacks()
 	<p>IBM is pleased to contribute translations for the Eclipse Modeling Framework.</p>
 	<ul>
 		<li>
-			<a href="javascript:toggle('lang2_2')">2.2.x Language Packs</a><a name="NL22x"></a>
+			<a href="javascript:toggle('lang2_2')">2.2.x Language Packs</a><a name="NLS2.2.x"></a>
 			<ul id="lang2_2">
 					<?php
 					$packs = array (
@@ -1044,7 +1044,7 @@ function doLanguagePacks()
 		</li>
 
 		<li>
-			<a href="javascript:toggle('lang2_1')">2.1.x Language Packs</a><a name="NL21x"></a>
+			<a href="javascript:toggle('lang2_1')">2.1.x Language Packs</a><a name="NLS2.1.x"></a>
 			<ul id="lang2_1" style="display: none">
 					<?php
 					$packs = array (
@@ -1075,7 +1075,7 @@ function doLanguagePacks()
 		</li>
 
 		<li>
-			<a href="javascript:toggle('lang2_0')">2.0.x Language Packs</a><a name="NL20x"></a>
+			<a href="javascript:toggle('lang2_0')">2.0.x Language Packs</a><a name="NLS2.0.x"></a>
 			<ul id="lang2_0" style="display: none">
 					<?php
 					$packs = array (
@@ -1116,7 +1116,7 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive =
 	{
 		foreach ($cols as $alt => $packMid)
 		{
-			print "<li><img src=\"http://www.eclipse.org/$PR/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt: ";
+			print "<li><img src=\"http://" . $_SERVER["HTTP_HOST"] . "/$PR/images/dl-$packMid.gif\" alt=\"$alt\"/> $alt: ";
 			$ret = array();
 			if (sizeof($subcols)>2) 
 			{
@@ -1129,7 +1129,7 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive =
       			print "<li>".join(", ", $ret)."</li>\n";
       			$ret = array();
           }
- 	  			$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org" : $downloadScript) .
+ 	  			$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org/" : $downloadScript) .
   		  			"$downloadPre/tools/$PR/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
  					$cnt++;
 				}
@@ -1143,7 +1143,7 @@ function doNLSLinksList($packs, $cols, $subcols, $packSuf, $folder, $isArchive =
 			{
   			foreach ($subcols as $alt2 => $packMid2)
   			{
-  				$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org" : $downloadScript) .
+  				$ret[] = "<a href=\"" . ($isArchive ? "http://archive.eclipse.org/" : $downloadScript) .
   					"$downloadPre/tools/$PR/downloads/drops/$folder$packPre$packMid-$packMid2$packSuf\">$alt2</a>";
 				}
   			print join(", ", $ret);
