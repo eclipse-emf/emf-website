@@ -14,9 +14,29 @@
 
 <xsl:template name="show_notes" match="/">
 <xsl:for-each select="data">
+	<div id="rightcolumn">
+		<div class="sideitem">
+			<h6>Search CVS</h6>
+			<form action="http://www.eclipse.org/emf/searchcvs.php" method="get" name="bugform" target="_blank">
+				<p>
+				<label for="bug">Bug ID: </label><input size="7" type="text" name="q" id="q"/>
+				<input type="submit" value="Go!"/>
+				</p>
+			</form>
+		</div>
+		<xsl:if test="count(oldreleasenotes) != 0">
+			<div class="sideitem">
+				<h6>Older Releases</h6>
+				<ul>
+					<xsl:for-each select="oldreleasenotes">
+						<li><a href="{@href}"><xsl:value-of select="@label"/></a></li>
+					</xsl:for-each>
+				</ul>
+			</div>
+	  </xsl:if>
+	</div>
+	
 	<div id="midcolumn">
-	<!-- form controls -->
-	<xsl:copy-of select="document('release-notes-form-controls.xml')/div/node()"/>
 
 	<!-- nav header table (release/milestone list) -->
 	<xsl:for-each select="project-def">
@@ -134,7 +154,7 @@
 								<xsl:otherwise><img src="../images/icon-{../@project}.gif" alt="{../@project}"/></xsl:otherwise>
 							</xsl:choose>
 							</div>
-						    <a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
+							<a href="http://www.eclipse.org/emf/searchcvs.php?q={@id}"><img src="http://www.eclipse.org/emf/images/delta.gif" alt="CVS Delta"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id={@id}" target="_bugz"><xsl:value-of select="@id"/></a><xsl:text disable-output-escaping="yes">&#038;#160;</xsl:text>
 							<xsl:value-of select="."/>
 							</li>
@@ -152,8 +172,9 @@
 		</xsl:if>
 	</xsl:for-each>
 	</div>
+
 </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
-<!-- $Id: release-notes.xsl,v 1.43 2006/09/15 04:14:10 nickb Exp $ -->
+<!-- $Id: release-notes.xsl,v 1.44 2006/11/02 23:14:34 nickb Exp $ -->

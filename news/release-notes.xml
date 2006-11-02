@@ -168,5 +168,10 @@
 	rm -fr bugs.rdf;
 -->
 
+<oldreleasenotes href="release-notes2.2.php" label="2.2"/>
+<oldreleasenotes href="release-notes2.1.php" label="2.1"/>
+<oldreleasenotes href="release-notes2.0.php" label="2.0"/>
+<oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
+
 </data>
-<!-- $Id: release-notes.xml,v 1.213 2006/11/02 20:03:48 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.214 2006/11/02 23:14:34 nickb Exp $ -->

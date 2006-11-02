@@ -17,6 +17,18 @@
 	$downurl = (preg_match("/^(emf\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"], $regs) ? "http://$regs[1]" : "http://www.eclipse.org");
 	$bugurl = "https://bugs.eclipse.org";
 
+	$projects = array(
+		"EMF, SDO & XSD" => "",
+		"EMF &amp; SDO" => "emf",
+		"XSD" => "xsd"
+	);
+
+	$nomenclature = "Component"; //are we dealing with "components" or "projects"?
+
+	$regs = null;
+	$proj = (isset($_GET["project"]) && preg_match("/^(" . join("|", $projects) . ")$/", $_GET["project"], $regs) ? $regs[1] : "");		
+
+	// this isn't quite the same as EMFT or MDT... yet
 	$Nav->addNavSeparator("EMF", "$rooturl/emf.php");
 	$Nav->addCustomNav("SDO", "$rooturl/sdo.php", "_self", 2);
 	$Nav->addCustomNav("XSD", "$rooturl/xsd.php", "_self", 2);
@@ -38,4 +50,6 @@
 	$Nav->addCustomNav("Open Bugs", "$bugurl/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id" . $collist, "_self", 2);
 	$Nav->addCustomNav("Submit A Bug", "$bugurl/bugs/enter_bug.cgi?product=EMF", "_self", 2);
 	$Nav->addCustomNav("Contributors", "$rooturl/eclipse-project-ip-log.csv", "_self", 2);
+
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/emf/includes/scripts.php"; 
 ?>

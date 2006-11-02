@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.15 2006/11/02 14:16:16 nickb Exp $ 
+	// $Id: scripts.php,v 1.16 2006/11/02 23:14:34 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -256,4 +256,39 @@
 		}
 	}
 	
+function doSelectProject($projectArray, $proj, $nomenclature, $style = "homeitem3col", $showAll = "", $showMax = "", $sortBy = "")
+{
+	$vars = array("showAll", "showMax", "sortBy", "hlbuild");
+
+	$hlbuild = (isset($_GET["hlbuild"]) && preg_match("/^[IMNRS]\d{12}$/", $_GET["hlbuild"]) ? $_GET["hlbuild"] : "");
+
+	$out = "<div class=\"" . ($style == "sideitem" ? "sideitem" : "homeitem3col") . "\">\n";
+	$out .= "<" . ($style == "sideitem" ? "h6" : "h3") . ">$nomenclature selection</" . ($style == "sideitem" ? "h6" : "h3") . ">\n";
+	$out .= "<form action=\"" . $_SERVER["SCRIPT_NAME"] . "\" method=\"get\" id=\"subproject_form\">\n";
+	$out .= "<p>\n";
+	$out .= "<label for=\"project\">$nomenclature: </label>\n";
+	$out .= "<select id=\"project\" name=\"project\" onchange=\"javascript:document.getElementById('subproject_form').submit()\">\n";
+
+	foreach ($projectArray as $k => $v) 
+	{
+		$out .= "<option value=\"$v\"" . ("") . ">$k</option>\n";
+	}
+	$out .= "</select>\n";
+	foreach ($vars as $z)
+	{
+		if ($$z !== "")
+		{
+			$out .= "<input type=\"hidden\" name=\"$z\" value=\"" . $$z . "\"/>\n";
+		}
+	}
+	$tmp = preg_replace("#^/#", "", $proj);
+	$out = preg_replace("#<option (value=\"$tmp\")>#", "<option selected=\"selected\" $1>", $out);
+	$out .= "<input type=\"submit\" value=\"Go!\"/>\n";
+	$out .= "</p>\n";
+	$out .= "</form>\n";
+	$out .= "</div>\n";
+
+	return $out;
+}
+
 ?>
