@@ -92,12 +92,11 @@ $users = array( // runs as, access IES map file repo as, ssh as
 				<td>&#160;</td>
 				<td><b>Options</b><br><small></small></td>
 				<td>&#160;</td>
-				<td><input type="checkbox" name="build_Update_ISS_Map_File" value="Yes" checked="checked"> Update ISS Map File? 
+				<td colspan="2"><input type="checkbox" name="build_Update_ISS_Map_File" value="Yes" checked="checked"> Update ISS Map File? 
 				<small><select style="font-size:9px" name="build_IES_CVS_Branch" size="1">
 					<?php displayOptions($options["BranchIES"],false,0); ?>
 				</select></small><br/>
 				<input type="checkbox" name="build_Announce_In_Newsgroup" value="Yes" checked="checked"> Announce In Newsgroup?</td>
-				<td></td>
 			</tr>
 
 			<tr>
