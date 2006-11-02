@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.14 2006/08/21 21:27:46 nickb Exp $ 
+	// $Id: scripts.php,v 1.15 2006/11/02 14:16:16 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -15,10 +15,15 @@
 		if ($debug_echoPWD && is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { echo "<!-- Found[1dyn]: PWD -->"; $debug_echoPWD=0; }
 
 		//static assignments
+		
+		$isEMFserver = false!==strpos($_SERVER["SERVER_NAME"],"emf");
+		$isWWWserver = ($_SERVER["SERVER_NAME"]=="www.eclipse.org"||$_SERVER["SERVER_NAME"]=="eclipse.org");	
+		$isEclipseCluster = !$isEMFserver&&false!==strpos($_SERVER["SERVER_NAME"],"eclipse.org");
+
 		if (!is_dir($PWD) || !is_readable($PWD) || ($suf=="logs" && !is_writable($PWD)) ) { 
 			if ($_SERVER["HTTP_HOST"]=="emf.torolab.ibm.com" || $_SERVER["HTTP_HOST"]=="emf") {
 				$PWD = "/home/www-data/emf-build/tools/emf/downloads/drops"; 
-			} else if ($_SERVER["HTTP_HOST"]=="download1.eclipse.org") {
+			} else if ($isEclipseCluster) {
 				$PWD = "/home/data/httpd/download.eclipse.org/tools/emf/".$suf;
 			} else if ($_SERVER["HTTP_HOST"]=="fullmoon.torolab.ibm.com") {
 				$PWD = "/home/www/tools/emf/".$suf; 
