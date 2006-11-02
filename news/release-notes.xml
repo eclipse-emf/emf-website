@@ -18,6 +18,7 @@
 <bug id="162207">[Duplicate] Type conversion from long to BigDecimal  loses information.</bug>
 <bug id="162209">[Duplicate] Unload performance of ECrossReferenceAdapter</bug>
 <bug id="162538">[Duplicate] ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
+<bug id="162604">[Duplicate] Generation of "operations" not serialized when other annotations are present</bug>
 <bug id="163086">[Duplicate] NPE when generating from annotated Java</bug>
 </entry>
 
@@ -168,4 +169,4 @@
 -->
 
 </data>
-<!-- $Id: release-notes.xml,v 1.212 2006/11/02 19:56:27 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.213 2006/11/02 20:03:48 nickb Exp $ -->
