@@ -41,6 +41,7 @@
 <bug id="163073">NPE when generating from annotated Java</bug>
 <bug id="163113">Dynamic validation and generated validation produce differing results</bug>
 <bug id="163140">JMerge: AST implementation of the facade</bug>
+<bug id="163206">compareFolders.sh failing when promoting builds</bug>
 <bug id="163225">The templates are not consistent regarding adding an extra line at the end of the file</bug>
 </entry>
 
@@ -214,4 +215,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.216 2006/11/03 06:34:31 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.217 2006/11/03 22:55:38 nickb Exp $ -->
