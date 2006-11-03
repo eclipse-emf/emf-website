@@ -21,7 +21,6 @@
 <bug id="157082">A dataType property makes Lists multiplicity-1 in JavaEcoreBuilder</bug>
 <bug id="158550">Unload performance of ECrossReferenceAdapter</bug>
 <bug id="159384" sub="sdo">BasicCommandStack: notify listeners on saveIsDone()</bug>
-<bug id="159406">Is version number of Feature correct ?</bug>
 <bug id="159500">Utilities for platform:/plugin URIs</bug>
 <bug id="159737">ComposedAdapterFactory does not implement adaptNew()</bug>
 <bug id="159860">Extending the ControlAction programmatically</bug>
@@ -36,15 +35,10 @@
 <bug id="161517">Simultaneous direct and indirect resource containment</bug>
 <bug id="162004">RECORD_UNKNOWN_FEATURE load option fails to function properly on certain types of root elements</bug>
 <bug id="162127">NotifyingListImpl.addAllUnique(int, Object[], int, int) mishandles ADD_MANY</bug>
-<bug id="162203">[Duplicate] RECORD_UNKNOWN_FEATURE load option fails to function properly on certain types of root elements</bug>
-<bug id="162207">[Duplicate] Type conversion from long to BigDecimal  loses information.</bug>
-<bug id="162209">[Duplicate] Unload performance of ECrossReferenceAdapter</bug>
 <bug id="162422">The xmlns:prefix and xsi:schemaLocation features of a document root should not be children by default</bug>
 <bug id="162471">ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
-<bug id="162538">[Duplicate] ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
 <bug id="162784">Change MANIFEST.MF to indicate the need for 5.0 execution environment</bug>
 <bug id="163073">NPE when generating from annotated Java</bug>
-<bug id="163086">[Duplicate] NPE when generating from annotated Java</bug>
 <bug id="163113">Dynamic validation and generated validation produce differing results</bug>
 <bug id="163140">JMerge: AST implementation of the facade</bug>
 <bug id="163225">The templates are not consistent regarding adding an extra line at the end of the file</bug>
@@ -220,4 +214,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.215 2006/11/03 04:55:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.216 2006/11/03 06:34:31 nickb Exp $ -->
