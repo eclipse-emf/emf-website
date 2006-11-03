@@ -12,6 +12,44 @@
 <version-def label="2.2.2" version="2.2.2"/>
 <version-def label="2.2.1" version="2.2.1"/>
 
+<entry build="I200611021608" project="emf" version="2.3.0">
+<bug id="143231">The newWizard should be optional</bug>
+<bug id="146306">Generated editors should select the root-most object when opened</bug>
+<bug id="147594">JET Compiler doesn&apos;t create missing target folder</bug>
+<bug id="148446">NotificationWrapper.merge(Notification) causes infinite recursion.</bug>
+<bug id="154264">Don&apos;t make mixed feature of DocumentRoot be Children</bug>
+<bug id="157082">A dataType property makes Lists multiplicity-1 in JavaEcoreBuilder</bug>
+<bug id="158550">Unload performance of ECrossReferenceAdapter</bug>
+<bug id="159384" sub="sdo">BasicCommandStack: notify listeners on saveIsDone()</bug>
+<bug id="159406">Is version number of Feature correct ?</bug>
+<bug id="159500">Utilities for platform:/plugin URIs</bug>
+<bug id="159737">ComposedAdapterFactory does not implement adaptNew()</bug>
+<bug id="159860">Extending the ControlAction programmatically</bug>
+<bug id="160751">Type conversion from long to BigDecimal fails when using Java 5.0</bug>
+<bug id="160756">Exploiting the new GenPackage.generateModelWizard attribute</bug>
+<bug id="160871">Adding the new java.lang classes to the CodeGenUtil.getJavaDefaultTypes() set</bug>
+<bug id="161053">EMF from XSD file wizard uses wrong name when creating new project</bug>
+<bug id="161092">JDOM doesn&apos;t work properly when JDT&apos;s source compatibility is set to 1.5</bug>
+<bug id="161439">Schema location URI does not get escaped during save</bug>
+<bug id="161461">DefaultValueLiteral &quot;&quot; for EReferences silently produced, produces .xsd parse error.</bug>
+<bug id="161507">NPE when closing a GenModel editor opened with a non IFileEditorInput</bug>
+<bug id="161517">Simultaneous direct and indirect resource containment</bug>
+<bug id="162004">RECORD_UNKNOWN_FEATURE load option fails to function properly on certain types of root elements</bug>
+<bug id="162127">NotifyingListImpl.addAllUnique(int, Object[], int, int) mishandles ADD_MANY</bug>
+<bug id="162203">[Duplicate] RECORD_UNKNOWN_FEATURE load option fails to function properly on certain types of root elements</bug>
+<bug id="162207">[Duplicate] Type conversion from long to BigDecimal  loses information.</bug>
+<bug id="162209">[Duplicate] Unload performance of ECrossReferenceAdapter</bug>
+<bug id="162422">The xmlns:prefix and xsi:schemaLocation features of a document root should not be children by default</bug>
+<bug id="162471">ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
+<bug id="162538">[Duplicate] ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
+<bug id="162784">Change MANIFEST.MF to indicate the need for 5.0 execution environment</bug>
+<bug id="163073">NPE when generating from annotated Java</bug>
+<bug id="163086">[Duplicate] NPE when generating from annotated Java</bug>
+<bug id="163113">Dynamic validation and generated validation produce differing results</bug>
+<bug id="163140">JMerge: AST implementation of the facade</bug>
+<bug id="163225">The templates are not consistent regarding adding an extra line at the end of the file</bug>
+</entry>
+
 <entry build="M200611020834" project="emf" version="2.2.2">
 <bug id="159406">Is version number of Feature correct ?</bug>
 <bug id="162203">[Duplicate] RECORD_UNKNOWN_FEATURE load option fails to function properly on certain types of root elements</bug>
@@ -20,6 +58,14 @@
 <bug id="162538">[Duplicate] ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
 <bug id="162604">[Duplicate] Generation of "operations" not serialized when other annotations are present</bug>
 <bug id="163086">[Duplicate] NPE when generating from annotated Java</bug>
+</entry>
+
+<entry build="I200611021608" project="xsd" version="2.3.0">
+<bug id="159500">Utilities for platform:/plugin URIs</bug>
+<bug id="159635">Error exporting model to XML Schema for XMI</bug>
+<bug id="161794">Failed to clone a global element and replace the cloned one with the one refers to this global element</bug>
+<bug id="162591">Generation of &quot;operations&quot; not serialized when other annotations are present</bug>
+<bug id="162784">Change MANIFEST.MF to indicate the need for 5.0 execution environment</bug>
 </entry>
 
 <entry build="M200611020834" project="xsd" version="2.2.2">
@@ -174,4 +220,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.214 2006/11/02 23:14:34 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.215 2006/11/03 04:55:34 nickb Exp $ -->
