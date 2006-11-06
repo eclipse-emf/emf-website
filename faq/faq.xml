@@ -8,7 +8,7 @@
   	</b>
   </blockquote>
   
-  <modified>$Date: 2006/08/30 21:58:21 $</modified>
+  <modified>$Date: 2006/11/06 23:45:07 $</modified>
   <author>$Author: nickb $</author>
 
   <entry date="2004/02/01 00:00" UNID="20040201-28367460">
@@ -235,7 +235,7 @@ Can I link parts of UML diagrams to portions of the code in the EMF editor?
     </question>
     <answer>
 Yes, but the <a
-href="http://www.eclipse.org/uml2">UML2 project</a> should be able to provide
+href="http://www.eclipse.org/modeling/mdt/?project=uml2-uml#uml2-uml">UML2 project</a> should be able to provide
 you with
 most of the "model" code that you need, and the <a
 href="http://www.eclipse.org/gef">GEF project</a> will give you a huge
@@ -1803,6 +1803,6 @@ new LibraryResourceFactoryImpl());</tt>
    <category-def category="dev" label="Developer" />
 <!--   <category-def category="unc" label="Uncategorized" /> -->
 
-   <!-- $Id: faq.xml,v 1.21 2006/08/30 21:58:21 nickb Exp $ -->
+   <!-- $Id: faq.xml,v 1.22 2006/11/06 23:45:07 nickb Exp $ -->
 
 </faq>

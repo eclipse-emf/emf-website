@@ -62,7 +62,7 @@ include "${pre}includes/nav.php";
 		<h6>Related links</h6>
 		<ul>
 			<li><a href="http://www.eclipse.org/modeling">Eclipse Modeling</a></li>
-			<li><a href="http://www.eclipse.org/uml2">UML2</a></li>
+			<li><a href="http://www.eclipse.org/modeling/mdt/?project=uml2-uml#uml2-uml">UML2</a></li>
 			<li><a href="http://www.eclipse.org/emft">EMF Tech (EMFT)</a></li>
 			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a></li>
 			<li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html">Eclipse 3.3 Project Plan</a></li>

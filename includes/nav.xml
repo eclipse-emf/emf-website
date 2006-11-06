@@ -205,7 +205,7 @@
 
   <tr valign="CENTER">
     <td valign="CENTER" height="21">
-      &#160; <a href="http://www.eclipse.org/uml2" class="nav" target="_top">UML2</a>
+      &#160; <a href="http://www.eclipse.org/modeling/mdt/?project=uml2-uml#uml2-uml" class="nav" target="_top">UML2</a>
     </td>
   </tr>
 
@@ -292,4 +292,4 @@
   </tr>
 </table>
 </div>
-<!-- $Id: nav.xml,v 1.20 2006/09/08 21:11:44 nickb Exp $ -->
+<!-- $Id: nav.xml,v 1.21 2006/11/06 23:45:07 nickb Exp $ -->
