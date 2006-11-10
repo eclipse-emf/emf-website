@@ -12,6 +12,7 @@
 <version-def label="2.2.2" version="2.2.2"/>
 <version-def label="2.2.1" version="2.2.1"/>
 
+<entry build="2.3.0M3" project="emf" version="2.3.0" buildID="S200611091546"/>
 <entry build="I200611021608" project="emf" version="2.3.0">
 <bug id="143231">The newWizard should be optional</bug>
 <bug id="146306">Generated editors should select the root-most object when opened</bug>
@@ -53,6 +54,10 @@
 <bug id="162538">[Duplicate] ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
 <bug id="162604">[Duplicate] Generation of "operations" not serialized when other annotations are present</bug>
 <bug id="163086">[Duplicate] NPE when generating from annotated Java</bug>
+</entry>
+
+<entry build="2.3.0M3" project="xsd" version="2.3.0" buildID="S200611091546">
+<bug id="163833">Make all plugins be 2.3.0 and update .classpaths/.setting-prefs for 1.5</bug>
 </entry>
 
 <entry build="I200611021608" project="xsd" version="2.3.0">
@@ -215,4 +220,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.217 2006/11/03 22:55:38 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.218 2006/11/10 00:00:30 nickb Exp $ -->
