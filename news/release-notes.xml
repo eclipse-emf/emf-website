@@ -64,20 +64,8 @@
 </entry>
 
 <entry build="M200611091648" project="emf" version="2.2.2">
-<bug id="148019">org.eclipse.emf.common.command.CompoundCommand does not refresh isExecutable attribute when append(Command command) is called</bug>
-<bug id="149180">Remove &quot;.contains&quot; check on listeners of ChangeNotifier</bug>
-<bug id="149332">Utility method similar to DeleteCommand (get those pesky crossrefs)</bug>
-<bug id="149770">JETBuilder should call IWorkspace.validateEdit(..) before file updates</bug>
-<bug id="153577">refName=&quot;/-1&quot;</bug>
-<bug id="155285">Feature Request: Support java serialization for AbstractEnumerator</bug>
-<bug id="156538">Provide a mechanism for fencing off non-copied references in ECoreUtil.copier object</bug>
-<bug id="161744">getReachableObjectsOfType StackOverFlow on Large Instance Data</bug>
-<bug id="163140">JMerge: AST implementation of the facade</bug>
-<bug id="163225">The templates are not consistent regarding adding an extra line at the end of the file</bug>
-<bug id="163321">Possible bug in ConverterUtil$WorkspaceResourceValidator.validate(List)</bug>
-<bug id="163445">Use LinkedHashMap in XSDEcoreBuilder for more deterministic behavior</bug>
-<bug id="163833">Make all plugins be 2.3.0 and update .classpaths/.setting-prefs for 1.5</bug>
-<bug id="163856">JMerger: AST facade impl places { after a line comment</bug>
+<bug id="163871">[Duplicate] Extensible generator: bugs and Javadoc</bug>
+<bug id="163941">[Duplicate] Controlling a package leaving model in an inconsistent state.</bug>
 </entry>
 
 <entry build="M200611020834" project="emf" version="2.2.2">
@@ -104,7 +92,6 @@
 </entry>
 
 <entry build="M200611091648" project="xsd" version="2.2.2">
-<bug id="163833">Make all plugins be 2.3.0 and update .classpaths/.setting-prefs for 1.5</bug>
 </entry>
 
 <entry build="M200611020834" project="xsd" version="2.2.2">
@@ -259,4 +246,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.220 2006/11/11 00:25:17 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.221 2006/11/11 07:52:22 nickb Exp $ -->
