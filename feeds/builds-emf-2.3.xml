@@ -3,12 +3,12 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
-  <link href="http://www.eclipse.org/emf/feeds/builds.xml" rel="self" type="application/atom+xml"/>
+  <link href="http://download.eclipse.org/tools/emf/feeds/builds-emf-2.3.xml" rel="self" type="application/atom+xml"/>
   <updated>2006-11-09T23:59:12Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
-  <id>http://www.eclipse.org/emf/feeds/builds.xml</id>
+  <id>http://download.eclipse.org/tools/emf/feeds/builds-emf-2.3.xml</id>
   <entry>
     <title>[announce] EMF 2.3.0M3 (S200611091546) is available</title>
     <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200611091546#S200611091546"/>

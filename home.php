@@ -33,7 +33,7 @@ include "${pre}includes/nav.php";
 
 <div id="rightcolumn">
 	<div class="sideitem">
-	<h6><a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"><img align="right" style="float:right" alt="EMF Build Feed" src="images/rss-atom10.gif" width="45" height="13" border="0"></a>News</h6>
+	<h6><a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf-2.3.xml"><img align="right" style="float:right" alt="EMF 2.3 Build Feed" src="images/rss-atom10.gif" width="45" height="13" border="0"></a>News</h6>
 		<?php getNews(3, "whatsnew", "vert"); ?>
 		<ul>
 			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>
@@ -81,7 +81,7 @@ $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="includes/home.css"/>' . "\n");
-$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds.xml"/>' . "\n");
+$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf-2.3.xml"/>' . "\n");
 $App->AddExtraHtmlHeader('<style type="text/css">.homeitem { clear: none; }</style>' . "\n"); //hack for ie, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=154356
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>

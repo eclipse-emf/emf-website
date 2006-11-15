@@ -41,7 +41,11 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 	"xsd"
 );
 
-$rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
+$rssfeed = array(
+  "Latest" => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf-2.3.xml\"><img style=\"float:right\" alt=\"Latest EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
+  "2.3"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf-2.3.xml\"><img style=\"float:right\" alt=\"EMF 2.3 Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
+  "2.2"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf-2.2.xml\"><img style=\"float:right\" alt=\"EMF 2.2 Build Feed\" src=\"../images/rss-atom10.gif\"></a>"
+  );
 
 $debug = -1;
 $hadLoadDirSimpleError = 1; //have we echoed the loadDirSimple() error msg yet? if 1, omit error; if 0, echo at most 1 error
@@ -97,7 +101,7 @@ else
 if (sizeof($builds) == 0)
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<h3>${rssfeed}Builds</h3>\n";
+	print "<h3>" . $rssfeed["Latest"] . "Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
 	print "</ul>\n";
@@ -112,7 +116,7 @@ if ($sortBy != "date")
 		foreach ($types as $type => $IDs)
 		{
 			print "<div class=\"homeitem3col\">\n";
-			print "<h3>$rssfeed" . $buildTypes[$branch][$type] . "s</h3>\n";
+			print "<h3>" . $rssfeed[preg_replace("/(\d+\.\d+)\.\d+/","$1",$branch)] . $buildTypes[$branch][$type] . "s</h3>\n";
 			print "<ul class=\"releases\">\n";
 			$i = 0;
 			foreach ($IDs as $ID)
@@ -138,7 +142,7 @@ if ($sortBy != "date")
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<a name=\"latest\"></a><h3>${rssfeed}Latest Builds</h3>\n";
+	print "<a name=\"latest\"></a><h3>" . $rssfeed["Latest"] . "Latest Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
 	foreach ($builds as $rID => $rbranch)
@@ -239,7 +243,7 @@ $pageAuthor = "Neil Skrypuch";
 
 # Generate the web page
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/' . $PR . '/includes/downloads.css"/>' . "\n");
-$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/' . $PR . '/feeds/builds.xml"/>' . "\n");
+$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf-2.3.xml"/>' . "\n");
 $App->AddExtraHtmlHeader('<script src="/' . $PR . '/includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
