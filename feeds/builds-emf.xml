@@ -3,19 +3,19 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
-  <link href="http://download.eclipse.org/tools/emf/feeds/builds-emf-2.3.xml" rel="self" type="application/atom+xml"/>
+  <link href="http://download.eclipse.org/tools/emf/feeds/builds-emf.xml" rel="self" type="application/atom+xml"/>
   <updated>2006-11-16T21:14:00Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
-  <id>http://download.eclipse.org/tools/emf/feeds/builds-emf-2.3.xml</id>
+  <id>http://download.eclipse.org/tools/emf/feeds/builds-emf.xml</id>
   <entry>
     <title>[announce] EMF M200611161441 (2.2.2.M200611161441) is available</title>
     <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441"/>
     <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441</id>
     <updated>2006-11-16T21:14:00Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611161441" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441" type="M" version="2.2.2">
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611161441" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441" type="M" version="2.2.2">
         <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611161441/" log="buildlog.txt" map="directory.txt"/>
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
@@ -31,6 +31,33 @@
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/eclipse/downloads/drops/M20061115-1052/eclipse-SDK-M20061115-1052-linux-gtk.tar.gz</dependency>
+        </dependencies>
+        <coordinated status="CALLISTOSITEREADY"/>
+      </build>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF M200611091648 (2.2.2.M200611091648) is available</title>
+    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611091648#M200611091648"/>
+    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611091648#M200611091648</id>
+    <updated>2006-11-15T19:50:10Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611091648" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611091648#M200611091648" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611091648/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.2
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611091648.zip</release>
+        </releases>
+        <tests>
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611091648/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/eclipse/downloads/drops/M20061108-1320/eclipse-SDK-M20061108-1320-linux-gtk.tar.gz</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -83,6 +110,32 @@
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/eclipse/downloads/drops/I20061101-1200/eclipse-SDK-I20061101-1200-linux-gtk.tar.gz</dependency>
+        </dependencies>
+        <coordinated status="CALLISTOSITEREADY"/>
+      </build>
+    </summary>
+  </entry>
+  <entry>
+    <title>[announce] EMF M200611020834 (2.2.2.M200611020834) is available</title>
+    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834"/>
+    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834</id>
+    <updated>2006-11-02T15:29:46Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611020834" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834" type="M" version="2.2.2">
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.2
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611020834.zip</release>
+        </releases>
+        <tests>
+          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.2.2/M200611020834/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/R-3.2.1-200609210945/eclipse-SDK-3.2.1-linux-gtk.tar.gz</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>

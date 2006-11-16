@@ -3,12 +3,12 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
-  <link href="http://www.eclipse.org/emf/feeds/builds-emf-2.2-N.xml" rel="self" type="application/atom+xml"/>
+  <link href="http://www.eclipse.org/emf/feeds/builds-emf-N.xml" rel="self" type="application/atom+xml"/>
   <updated>2006-11-15T21:25:02Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
-  <id>http://www.eclipse.org/emf/feeds/builds-emf-2.2-N.xml</id>
+  <id>http://www.eclipse.org/emf/feeds/builds-emf-N.xml</id>
   <entry>
     <title>[announce] EMF build222 (2.2.2.N200611011542) is available</title>
     <link href="http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.2/N200611011542"/>

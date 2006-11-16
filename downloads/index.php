@@ -42,9 +42,9 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 );
 
 $rssfeed = array(
-  "Latest" => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf-2.3.xml\"><img style=\"float:right\" alt=\"Latest EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
-  "2.3"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf-2.3.xml\"><img style=\"float:right\" alt=\"EMF 2.3 Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
-  "2.2"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf-2.2.xml\"><img style=\"float:right\" alt=\"EMF 2.2 Build Feed\" src=\"../images/rss-atom10.gif\"></a>"
+  "Latest" => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"Latest EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
+  "2.3"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF 2.3 Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
+  "2.2"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF 2.2 Build Feed\" src=\"../images/rss-atom10.gif\"></a>"
   );
 
 $debug = -1;
@@ -243,7 +243,7 @@ $pageAuthor = "Neil Skrypuch";
 
 # Generate the web page
 $App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/' . $PR . '/includes/downloads.css"/>' . "\n");
-$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf-2.3.xml"/>' . "\n");
+$App->AddExtraHtmlHeader('<link type="application/rss+xml" rel="alternate" title="EMF Build Feed" href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf.xml"/>' . "\n");
 $App->AddExtraHtmlHeader('<script src="/' . $PR . '/includes/downloads.js" type="text/javascript"></script>' . "\n"); //ie doesn't understand self closing script tags, and won't even try to render the page if you use one
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
