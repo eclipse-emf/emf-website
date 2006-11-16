@@ -391,9 +391,9 @@ function toggleDetails()
 	?>
 <br />
 
-Test results will he located here: <a href="/emf/build/tests/results.php#goto<?php print $BR."".substr($ID,0,1); ?>">BVT, FVT, SVT</a>, 
-<a href="/emf/build/tests/results-jdk.php?version=14#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 1.4</a>, 
-<a href="/emf/build/tests/results-jdk.php?version=50#goto<?php print $BR."".substr($ID,0,1); ?>">JDK 5.0</a>.
+Test results will he located here: <a href="/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>, 
+<a href="/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>, 
+<a href="/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>.
 
 <?php
 			// then dump this data to a tabbed-text file for tracking/reporting
@@ -979,4 +979,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.9 2006/11/01 20:09:47 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.10 2006/11/16 21:43:07 nickb Exp $ -->
