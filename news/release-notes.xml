@@ -63,6 +63,10 @@
 <bug id="163225">The templates are not consistent regarding adding an extra line at the end of the file</bug>
 </entry>
 
+<entry build="M200611161441" project="emf" version="2.2.2">
+<bug id="164855">[Duplicate] xmi:idref attribute not recognized</bug>
+</entry>
+
 <entry build="M200611091648" project="emf" version="2.2.2">
 <bug id="163871">[Duplicate] Extensible generator: bugs and Javadoc</bug>
 <bug id="163941">[Duplicate] Controlling a package leaving model in an inconsistent state.</bug>
@@ -89,6 +93,10 @@
 <bug id="161794">Failed to clone a global element and replace the cloned one with the one refers to this global element</bug>
 <bug id="162591">Generation of &quot;operations&quot; not serialized when other annotations are present</bug>
 <bug id="162784">Change MANIFEST.MF to indicate the need for 5.0 execution environment</bug>
+</entry>
+
+<entry build="M200611161441" project="xsd" version="2.2.2">
+<bug id="164460">xsd:restrcition on xsd:complexType handled not properly</bug>
 </entry>
 
 <entry build="M200611091648" project="xsd" version="2.2.2">
@@ -246,4 +254,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.221 2006/11/11 07:52:22 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.222 2006/11/16 22:48:17 nickb Exp $ -->
