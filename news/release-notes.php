@@ -33,8 +33,7 @@ else
 $projectArray = $projects;
 
 /*
- * To work, this script must be run with a version of PHP4 which
- * includes the Sablotron XSLT extension compiled into it
+ * To work, this script must be run with a version of PHP4 with Sablotron XSLT or PHP 5 with XSL
  * 
  * Params in stylesheet:
  *  

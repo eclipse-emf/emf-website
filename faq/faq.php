@@ -3,24 +3,66 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 
 ob_start();
 
-$pre = "../";
+$fileBase = 'file://' . getcwd() . '/';
+$XMLfile = "faq.xml";
+$XSLfile = "faq.xsl";
+$params = array();
+$result = "";
 
 /*
- * To work, this script must be run with a version of PHP4 which
- * includes the Sablotron XSLT extension compiled into it
- * 
+ * To work, this script must be run with a version of PHP4 with Sablotron XSLT or PHP 5 with XSL
  */
 
-$processor = xslt_create();
-$fileBase = 'file://' . getcwd() . '/';
-xslt_set_base($processor, $fileBase);
-$XMLfile = "faq.xml";
-$result = xslt_process($processor, $fileBase . $XMLfile, $fileBase . 'faq.xsl', NULL, array(), array());
+if (phpversion() >= 5 && class_exists('DOMDocument') && class_exists('XSLTProcessor'))
+{
+	// PHP 5 w/ XSL
+    $doc = new DOMDocument();
+    $xsl = new XSLTProcessor();
+ 
+    $doc->load($fileBase . $XSLfile);
+    $xsl->importStyleSheet($doc);
+ 
+    $doc->load($fileBase . $XMLfile);
+    foreach ($params as $param => $paramVal)
+    {
+	    $xsl->setParameter('', $param, $paramVal);
+	    }
+ 
+	    $result = $xsl->transformToXML($doc);
+		if (!$result)
+		{
+			
+			print '<div id="midcolumn"><div class="homeitem3col"><h3>An error has occurred!</h3>'."\n";
+		print "<ul><li><b>PHP5::XSL:</b> A problem occurred trying to parse $XMLfile with $XSLfile!</li></ul>";
+		print "</div></div>\n";	
+	}
+}
+else if (phpversion() >=4 && function_exists('xslt_create'))
+{
+	// PHP 4 w/ Sablotron
+	$processor = xslt_create();
+	xslt_set_base($processor, $fileBase);
+	$result = xslt_process($processor, $fileBase . $XMLfile, $fileBase . $XSLfile, NULL, array(), $params);
+	if (!$result)
+	{
+		print '<div id="midcolumn"><div class="homeitem3col"><h3>An error has occurred!</h3>'."\n";
+		print "<ul><li><b>PHP4::Sablotron XSLT:</b> Trying to parse $XMLfile with $XSLfile: ";
+		print "ERROR #" . xslt_errno($processor) . " : " . xslt_error($processor);
+		print "</li></ul></div></div>\n";	
+	}
+}
+else
+{
+	print '<div id="midcolumn"><div class="homeitem3col"><h3>An error has occurred!</h3>'."\n";
+	print "<ul><li><b>PHP::No XSLT:</b> This page cannot be displayed. " .
+			"Try here instead: <a href=\"http://www.eclipse.org" . 
+		$_SERVER["SCRIPT_NAME"] . "\">http://www.eclipse.org" . 
+		$_SERVER["SCRIPT_NAME"] . "</a></li>" .
+			"</ul>\n";
+	print "</div></div>\n";	
+}
+echo $result; 
 
-if(!$result) echo xslt_errno($processor) . " : " . xslt_error($processor);
-echo $result; ?>
-
-<?php
 $html = ob_get_contents();
 ob_end_clean();
 $html = preg_replace('/^\Q<?xml version="1.0" encoding="ISO-8859-1"?>\E/', "", $html);
