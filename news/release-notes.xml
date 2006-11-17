@@ -12,6 +12,9 @@
 <version-def label="2.2.2" version="2.2.2"/>
 <version-def label="2.2.1" version="2.2.1"/>
 
+<entry build="I200611161558" project="emf" version="2.3.0">
+</entry>
+
 <entry build="2.3.0M3" project="emf" version="2.3.0" buildID="S200611091546">
 <bug id="149180">Remove &quot;.contains&quot; check on listeners of ChangeNotifier</bug>
 <bug id="149770">JETBuilder should call IWorkspace.validateEdit(..) before file updates</bug>
@@ -80,6 +83,9 @@
 <bug id="162538">[Duplicate] ECrossReferenceAdapter&apos;s resolveAll method does not resolve proxies stored in many valued features</bug>
 <bug id="162604">[Duplicate] Generation of "operations" not serialized when other annotations are present</bug>
 <bug id="163086">[Duplicate] NPE when generating from annotated Java</bug>
+</entry>
+
+<entry build="I200611161558" project="xsd" version="2.3.0">
 </entry>
 
 <entry build="2.3.0M3" project="xsd" version="2.3.0" buildID="S200611091546">
@@ -254,4 +260,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.222 2006/11/16 22:48:17 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.223 2006/11/17 00:47:56 nickb Exp $ -->
