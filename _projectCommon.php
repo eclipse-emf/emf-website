@@ -1,8 +1,8 @@
 <?php
 
-	$debug = (preg_match("/^\d+$/", $_GET["debug"]) ? $_GET["debug"] : -1);
+	$debug = (isset($_GET["debug"]) && preg_match("/^\d+$/", $_GET["debug"]) ? $_GET["debug"] : -1);
   
-	if (preg_match("/^(Blue|EclipsStandard|Industrial|Lazarus|Miasma|OldStyle|Phoenix|PlainText)$/", $_GET["skin"], $regs))
+	if (isset($_GET["skin"]) && preg_match("/^(Blue|EclipsStandard|Industrial|Lazarus|Miasma|OldStyle|Phoenix|PlainText)$/", $_GET["skin"], $regs))
 	{
 		$theme = $regs[1];
 	}
