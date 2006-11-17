@@ -58,7 +58,7 @@ if (true)
 		$fileBase = 'file://' . getcwd() . '/';
 		$result = "";
 		
-		if (phpversion() >= 5)
+		if (phpversion() >= 5 && class_exists('DOMDocument') && class_exists('XSLTProcessor'))
 		{
 	 		// PHP 5 w/ XSL
 	 	    $doc = new DOMDocument();
@@ -82,7 +82,7 @@ if (true)
 				print "</div></div>\n";	
 			}
 		}
-		else if (function_exists('xslt_create'))
+		else if (phpversion() >=4 && function_exists('xslt_create'))
 		{
 	 		// PHP 4 w/ Sablotron
 			$processor = xslt_create();
@@ -99,7 +99,7 @@ if (true)
 		else
 		{
 			print '<div id="midcolumn"><div class="homeitem3col"><h3>An error has occurred!</h3>'."\n";
-			print "<ul><li><b>PHP4::No XSLT:</b> This page cannot be displayed. " .
+			print "<ul><li><b>PHP::No XSLT:</b> This page cannot be displayed. " .
 					"Try here instead: <a href=\"http://www.eclipse.org" . 
 				$_SERVER["SCRIPT_NAME"] . "?project=" . $params["project"] . "&amp;version=" . $params["version"] . "\">http://www.eclipse.org" . 
 				$_SERVER["SCRIPT_NAME"] . "?project=" . $params["project"] . "&amp;version=" . $params["version"] . "</a></li>" .
