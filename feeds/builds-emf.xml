@@ -10,6 +10,33 @@
   </author>
   <id>http://download.eclipse.org/tools/emf/feeds/builds-emf.xml</id>
   <entry>
+    <title>[announce] EMF I200611161558 (2.3.0.I200611161558) is available</title>
+    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611161558#I200611161558"/>
+    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611161558#I200611161558</id>
+    <updated>2006-11-16T23:10:25Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611161558" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611161558#I200611161558" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611161558/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.3.0
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611161558.zip</release>
+        </releases>
+        <tests>
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611161558/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/I20061114-1636/eclipse-SDK-I20061114-1636-linux-gtk.tar.gz</dependency>
+        </dependencies>
+        <coordinated status="CALLISTOSITEREADY"/>
+      </build>
+    </summary>
+  </entry>
+  <entry>
     <title>[announce] EMF M200611161441 (2.2.2.M200611161441) is available</title>
     <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441"/>
     <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441</id>
