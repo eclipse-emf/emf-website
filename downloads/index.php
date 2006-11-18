@@ -42,6 +42,8 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 );
 
 $rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
+$moreinfo = array("2.3.0" => '<a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img style="float:right" src="/emf/images/more-info.png" alt="What\'s New in EMF Code Merge (2.3.0.I200611161558)" border="0"/></a>'); 
+$moreinfo[0] = $moreinfo["2.3.0"]; // default to show on Latest Builds
 
 $debug = -1;
 $hadLoadDirSimpleError = 1; //have we echoed the loadDirSimple() error msg yet? if 1, omit error; if 0, echo at most 1 error
@@ -97,7 +99,7 @@ else
 if (sizeof($builds) == 0)
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<h3>${rssfeed}Builds</h3>\n";
+	print "<h3>Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
 	print "</ul>\n";
@@ -112,7 +114,7 @@ if ($sortBy != "date")
 		foreach ($types as $type => $IDs)
 		{
 			print "<div class=\"homeitem3col\">\n";
-			print "<h3>$rssfeed" . $buildTypes[$branch][$type] . "s</h3>\n";
+			print "<h3>" . $rssfeed . (isset($moreinfo[$branch])?$moreinfo[$branch]:"") . $buildTypes[$branch][$type] . "s</h3>\n";
 			print "<ul class=\"releases\">\n";
 			$i = 0;
 			foreach ($IDs as $ID)
@@ -138,7 +140,7 @@ if ($sortBy != "date")
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<a name=\"latest\"></a><h3>${rssfeed}Latest Builds</h3>\n";
+	print "<a name=\"latest\"></a><h3>" . $rssfeed . (isset($moreinfo[0])?$moreinfo[0]:"") . "Latest Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
 	foreach ($builds as $rID => $rbranch)
@@ -963,10 +965,18 @@ function doRequirements()
 	
 	<ul id="requirements">
 		<li>
-			<a href="javascript:toggle('req2_2_0')">EMF 2.2.1, 2.2.0</a>
-			<ul id="req2_2_0">
-				<li>Eclipse 3.2.1 or 3.2.0</li>
-				<li>Java 1.4.2 or 1.5.0</li>
+			<div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img src="http://www.eclipse.org/home/images/new.gif" border="0"/> Code merge behaviour has changed as of 2.3.0.I200611161558</a>.</div><a href="javascript:toggle('req2_3_0')">EMF 2.3.0</a>
+			<ul id="req2_3_0">
+				<li>Eclipse 3.3.0</li>
+				<li>Java 5.0</li>
+			</ul>
+		</li>
+
+		<li>
+			<a href="javascript:toggle('req2_2_0')">EMF 2.2.2, 2.2.1, 2.2.0</a>
+			<ul id="req2_2_0" style="display: none">
+				<li>Eclipse 3.2.2, 3.2.1 or 3.2.0</li>
+				<li>Java 1.4.2 or 5.0</li>
 			</ul>
 		</li>
 
