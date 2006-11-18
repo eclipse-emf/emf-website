@@ -13,6 +13,14 @@
 <version-def label="2.2.1" version="2.2.1"/>
 
 <entry build="I200611161558" project="emf" version="2.3.0">
+<bug id="164193">Provide an example showing how to extend the generator</bug>
+<bug id="164506">StringIndexOutOfBoundsException if GenModel.templateLocation is empty string</bug>
+<bug id="164852">xmi:idref attribute not recognized</bug>
+<bug id="164338">Make the AST facade implementation the default JMerger facade</bug>
+<bug id="164397">GenPackage's GenerateModelWizard property is not been reconciled</bug>
+<bug id="164683">JMerge: AST Facade Implementation is not writting new NL markers</bug>
+<bug id="164700">JMerge: AST Facade implementation is removing commented out imports</bug>
+<bug id="164872">JMerger: NPE when sorting an new field in the target</bug>
 </entry>
 
 <entry build="2.3.0M3" project="emf" version="2.3.0" buildID="S200611091546">
@@ -67,6 +75,7 @@
 </entry>
 
 <entry build="M200611161441" project="emf" version="2.2.2">
+<bug id="164507">[Duplicate] StringIndexOutOfBoundsException if GenModel.templateLocation is empty string</bug>
 <bug id="164855">[Duplicate] xmi:idref attribute not recognized</bug>
 </entry>
 
@@ -86,6 +95,7 @@
 </entry>
 
 <entry build="I200611161558" project="xsd" version="2.3.0">
+<bug id="164460">xsd:restriction on xsd:complexType handled not properly</bug>
 </entry>
 
 <entry build="2.3.0M3" project="xsd" version="2.3.0" buildID="S200611091546">
@@ -102,7 +112,7 @@
 </entry>
 
 <entry build="M200611161441" project="xsd" version="2.2.2">
-<bug id="164460">xsd:restrcition on xsd:complexType handled not properly</bug>
+<bug id="164462">[Duplicate] xsd:restriction on xsd:complexType handled not properly</bug>
 </entry>
 
 <entry build="M200611091648" project="xsd" version="2.2.2">
@@ -260,4 +270,4 @@
 <oldreleasenotes href="release-notes-1.x.php" label="1.x"/>
 
 </data>
-<!-- $Id: release-notes.xml,v 1.223 2006/11/17 00:47:56 nickb Exp $ -->
+<!-- $Id: release-notes.xml,v 1.224 2006/11/18 08:45:11 nickb Exp $ -->
