@@ -31,44 +31,44 @@
     <release status="scheduled"
              date="30/06/2006"
              name="2.2.0"
-             plan="http://www.eclipse.org/emf/docs/?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html" />
+             plan="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.2.html" />
     <!-- Future 2.x maintenance -->
     <!-- 2.x releases -->
     <release status="completed"
              date="19/01/2006"
              name="2.1.2"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.2/R200601191349" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.1.2/R200601191349" />
     <release status="completed"
              date="28/09/2005"
              name="2.1.1"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.1.1/R200509281310" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.1.1/R200509281310" />
     <release status="completed"
              date="07/07/2005"
              name="2.1.0"
-             plan="http://www.eclipse.org/emf/docs/?doc=http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
+             plan="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.1.html" />
     <release status="completed"
              date="29/11/2005"
              name="2.0.5"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.5/R200511291418" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.0.5/R200511291418" />
     <release status="completed"
              date="30/09/2005"
              name="2.0.4"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.4/R200509300951" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.0.4/R200509300951" />
     <release status="completed"
              date="09/06/2005"
              name="2.0.3"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.3/R200506091052" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.0.3/R200506091052" />
     <release status="completed"
              date="15/03/2005"
              name="2.0.2"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.2/R200503151315" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.0.2/R200503151315" />
     <release status="completed"
              date="17/09/2004"
              name="2.0.1"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0.1/R200409171617" />
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.0.1/R200409171617" />
     <release status="completed"
              date="28/06/2004"
-             download="http://download.eclipse.org/tools/emf/scripts/downloads-viewer.php?s=2.0/R200406280827"
+             download="http://www.eclipse.org/emf/downloads/?project=emf&s=2.0/R200406280827"
              name="2.0.0" />
     
     <!-- 1.x releases -->
