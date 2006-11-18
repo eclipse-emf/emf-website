@@ -41,17 +41,13 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 	"xsd"
 );
 
-$rssfeed = array(
-  "Latest" => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"Latest EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
-  "2.3"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF 2.3 Build Feed\" src=\"../images/rss-atom10.gif\"></a>",
-  "2.2"    => "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF 2.2 Build Feed\" src=\"../images/rss-atom10.gif\"></a>"
-  );
+$rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
 
 $debug = -1;
 $hadLoadDirSimpleError = 1; //have we echoed the loadDirSimple() error msg yet? if 1, omit error; if 0, echo at most 1 error
-$sortBy = (preg_match("/^(date)$/", $_GET["sortBy"], $regs) ? $regs[1] : "");
-$showAll = (preg_match("/^(1)$/", $_GET["showAll"], $regs) ? $regs[1] : "0");
-$showMax = (preg_match("/^(\d+)$/", $_GET["showMax"], $regs) ? $regs[1] : ($sortBy == "date" ? "10" : "5"));
+$sortBy = (isset($_GET["sortBy"]) && preg_match("/^(date)$/", $_GET["sortBy"], $regs) ? $regs[1] : "");
+$showAll = (isset($_GET["showAll"]) && preg_match("/^(1)$/", $_GET["showAll"], $regs) ? $regs[1] : "0");
+$showMax = (isset($_GET["showMax"]) && preg_match("/^(\d+)$/", $_GET["showMax"], $regs) ? $regs[1] : ($sortBy == "date" ? "10" : "5"));
 $doRefreshPage = false;
 $hideInstructions = 0;
 $numzips = 7;
@@ -101,7 +97,7 @@ else
 if (sizeof($builds) == 0)
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<h3>" . $rssfeed["Latest"] . "Builds</h3>\n";
+	print "<h3>${rssfeed}Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	print "<li><i><b>Error!</b></i> No builds found on this server!</li>";
 	print "</ul>\n";
@@ -116,7 +112,7 @@ if ($sortBy != "date")
 		foreach ($types as $type => $IDs)
 		{
 			print "<div class=\"homeitem3col\">\n";
-			print "<h3>" . $rssfeed[preg_replace("/(\d+\.\d+)\.\d+/","$1",$branch)] . $buildTypes[$branch][$type] . "s</h3>\n";
+			print "<h3>$rssfeed" . $buildTypes[$branch][$type] . "s</h3>\n";
 			print "<ul class=\"releases\">\n";
 			$i = 0;
 			foreach ($IDs as $ID)
@@ -142,7 +138,7 @@ if ($sortBy != "date")
 else if ($sortBy == "date")
 {
 	print "<div class=\"homeitem3col\">\n";
-	print "<a name=\"latest\"></a><h3>" . $rssfeed["Latest"] . "Latest Builds</h3>\n";
+	print "<a name=\"latest\"></a><h3>${rssfeed}Latest Builds</h3>\n";
 	print "<ul class=\"releases\">\n";
 	$c = 0;
 	foreach ($builds as $rID => $rbranch)
@@ -651,7 +647,7 @@ function loadOptionsFromArray($sp)
 			{
 				$doSection = $matches[1];
 
-				if ($matches[2] == "|reversed") //FIXME: reversed does nothing right now, apparently it's supposed to work
+				if (isset($matches[2]) && $matches[2] == "|reversed") //FIXME: reversed does nothing right now, apparently it's supposed to work
 				{
 					$options[$doSection]["reversed"] = true;
 				}
