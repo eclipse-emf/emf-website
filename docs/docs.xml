@@ -130,6 +130,10 @@
 		</li>
 
 		<li>
+			<div>Nov 18 2006</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html">What's New in EMF Code Merge? (2.3.0.I200611161558)</a>
+		</li>
+
+		<li>
 			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
 		</li>
 
@@ -485,4 +489,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.50 2006/10/30 22:40:23 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.51 2006/11/18 06:48:21 nickb Exp $ -->
