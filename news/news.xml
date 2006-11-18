@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc>
+<news date="Nov 18, 2006" showOn="docs,whatsnew">
+	Details about <a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html">Changes to the EMF Code Merge</a> (2.3.0) are available.
+</news>
 <news date="November 16, 2006" showOn="whatsnew">
 	<!-- I200611161558 -->
 	<a href="http://www.eclipse.org/emf/news/release-notes.php?version=2.3.0">Version 2.3.0</a> Integration build
@@ -568,7 +571,7 @@
 	<a href="http://www.eclipse.org/emf/docs/?doc=docs/whatsnew/emf2.1.html">What`s New in EMF 2.1?</a> overview published.
 </news>
 <news date="July 06, 2005" showOn="whatsnew,docs">
-	<a href="http://www.eclipse.org/emf/docs/?doc=http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1 vs. EMF 2.0.1</a> performance results published.
+	<a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1 vs. EMF 2.0.1</a> performance results published.
 </news>
 <news date="July 06, 2005" showOn="whatsnew,docs">
 	<a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.1_Release_Review.pdf">EMF 2.1 Release Review</a> presentation published.
@@ -1179,6 +1182,6 @@
 	<a href="http://www.eclipse.org/emf/docs/#references">Getting EMF Source Files from CVS</a> is available.
 </news>
 
-<!-- $Id: news.xml,v 1.210 2006/11/17 00:47:56 nickb Exp $ -->
+<!-- $Id: news.xml,v 1.211 2006/11/18 06:48:59 nickb Exp $ -->
 
 </doc>
