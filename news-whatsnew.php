@@ -3,7 +3,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 
 ob_start();
 
-include "includes/scripts.php";
 print "<div id=\"midcolumn\">\n";
 print "<div class=\"homeitem3col\">\n";
 print "<h3>All News</h3>\n";
@@ -14,9 +13,10 @@ print "</div>\n";
 $html = ob_get_contents();
 ob_end_clean();
 
-$pageTitle = "Eclipse Tools - All News";
+$pageTitle = "Eclipse Modeling - EMF - News";
 $pageKeywords = ""; // TODO: add something here
 $pageAuthor = "Neil Skrypuch";
 
+$App->AddExtraHtmlHeader('<link rel="stylesheet" type="text/css" href="/emf/includes/docs.css"/>' . "\n");
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
