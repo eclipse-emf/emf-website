@@ -31,6 +31,7 @@ if ($_SERVER["QUERY_STRING"]) {
 	// serve http://emf.torolab.ibm.com/tools/emf/xsd/javadoc/2.1.0/org/eclipse/xsd/package-summary.html#details (latest version)
 
 	$subprojsR = array_reverse($subprojs, true);
+	$vers = array();
 	foreach ($subprojsR as $label => $projct) {
 		if (false !== strpos($_SERVER["QUERY_STRING"], $subproj)) {
 			$vers = loadDirSimple($PWD . $projct . "/javadoc", "(\d\.\d|\d\.\d\.\d+)", "d");
