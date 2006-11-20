@@ -31,7 +31,7 @@ if ($isWWWserver)
 	foreach ($subprojs as $label => $subproj)
 	{
 		print '<li><b> ' . $label . '</b>' . "\n";
-		$vers = loadDirSimple("$PWD$subproj/javadoc", "", "d");
+		$vers = loadDirSimple("$PWD$subproj/javadoc", "(\d\.\d|\d\.\d\.\d+)", "d");
 		rsort($vers);
 		reset($vers);
 		foreach ($vers as $ver)
