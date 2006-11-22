@@ -27,7 +27,7 @@ $extraf = array(
 	array("regex" => "/(?:project|module): ?(\S+)/", "sql" => "`project` LIKE '%s'", "sqlpart" => "where"),
 	array("regex" => "/startdate: ?(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)/", "sql" => "`date` >= STR_TO_DATE('%s', '%%Y-%%m-%%d %%T')", "sqlpart" => "where"),
 	array("regex" => "/enddate: ?(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)/", "sql" => "`date` <= STR_TO_DATE('%s', '%%Y-%%m-%%d %%T')", "sqlpart" => "where"),
-	array("regex" => "/branch: ?(\S+)/", "sql" => "`branch` LIKE '%%%s%%'", "sqlpart" => "having") //is a calculated value, won't work in WHERE
+	array("regex" => "/branch: ?(\S+)/", "sql" => "`branch` LIKE '%%%s%%'", "sqlpart" => "where")
 );
 
 $q = (get_magic_quotes_gpc() ? $_GET["q"] : addslashes($_GET["q"]));
