@@ -731,6 +731,8 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	global $pre, $isEMFserver, $numzips, $PR;
 	$mid = "../../../tools/$PR/downloads/drops/"; // this is a symlink on the filesystem!
 
+	$out = "";
+	
 	$warnings = 0;
 	$errors = 0;
 
@@ -920,7 +922,9 @@ function fileFound($PWD, $url, $label) //only used once
 
 	$mid = "$downloadPre/tools/$PR/downloads/drops/"; // new for www.eclipse.org centralized download.php script
 
-	return (is_file("$PWD$url.md5") ? "<div>" . pretty_size(filesize("$PWD$url")) . " (<a href=\"" . ($isEMFserver ? "" : "http://download.eclipse.org") . "$mid$url.md5\">md5</a>)</div>" : "") . "<a href=\"$downloadScript$pre$mid$url\">$label</a>";
+	return (is_file("$PWD$url.md5") ? "<div>" . pretty_size(filesize("$PWD$url")) . 
+		" (<a href=\"" . ($isEMFserver ? "" : "http://download.eclipse.org") . "$mid$url.md5\">md5</a>)</div>" : "") . 
+		"<a href=\"$downloadScript$mid$url\">$label</a>";
 }
 
 function pretty_size($bytes)
@@ -1194,6 +1198,7 @@ function outputBuild($branch, $ID, $c)
 	// generalize for any relabelled build, thus 2.0.1/M200405061234/*-2.0.2.zip is possible; label = 2.0.2
 	$IDlabel = $ziplabel;
 
+	$tests = ""; 
 	if ($isEMFserver)
 	{
 	  // $summary is passed in by reference, so no warning should appear here
@@ -1215,7 +1220,7 @@ function outputBuild($branch, $ID, $c)
 	$ret .= "<div>" . showBuildResults("$PWD/", "$branch/$ID/") . ($isEMFserver && $summary ? $summary : "") . "</div>";
 	$ret .= "<a href=\"javascript:toggle('r$ID')\"><i>".($sortBy=="date"&&$IDlabel!=$branch?"$branch / ":"")."$IDlabel</i> (" . 
 	  IDtoDateStamp($ID, ($isEMFserver ? 0 : 1)) . ")</a><a name=\"$ID\"> </a> <a href=\"?showAll=1&amp;hlbuild=$ID" . 
-	  ($_GET["sortBy"] == "date" ? "&amp;sortBy=date" : "") . 
+	  ($sortBy == "date" ? "&amp;sortBy=date" : "") . 
 	  "#$ID\"><img alt=\"Link to this build\" src=\"../images/link.png\"/></a>" . 
   	($opts["noclean"]||is_dir("$PWD/$branch/$ID/eclipse/$ID") ? " <b><i style=\"color:orange\">noclean</i></b> <img alt=\"Purge releng materials before promoting this build!\" src=\"../images/bug.png\"/>" : "");
 
@@ -1342,7 +1347,7 @@ function showArchived()
 
 function file_contents($file) //TODO: remove this when we upgrade php to >= 4.3.0 everywhere
 {
-	if (function_exists(file_get_contents))
+	if (function_exists('file_get_contents'))
 	{
 		return file_get_contents($file);
 	}
