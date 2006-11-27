@@ -735,12 +735,13 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	
 	$warnings = 0;
 	$errors = 0;
-
+	$failures = 0;
+	
 	$result = "";
 	$icon = "";
 
 	$indexHTML = "";
-	$testResultsPHP = "";
+	$compilelogSummary = "";
 
 	$link = "";
 	$link2 = "";
@@ -782,27 +783,21 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 				}
 			}
 
-			//check testResults.php for results
 			if ($icon != "not")
 			{
-				if (is_file("$PWD${path}testResults.php"))
+				//check compilelogs/summary.txt for results
+				if (is_file("$PWD${path}compilelogs/summary.txt"))
 				{
-					$testResultsPHP = file("$PWD${path}testResults.php");
+					$compilelogSummary = file_contents("$PWD${path}compilelogs/summary.txt");
 					$link2 = "$pre$mid${path}testResults.php";
-					foreach ($testResultsPHP as $tr)
+					if ($compilelogSummary)
 					{
-						if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $tr))
+						$m = null;
+						if (preg_match("/(\d+)P, (\d+)W, (\d+)E, (\d+)F/", $compilelogSummary, $m))
 						{
-							$rows = explode("<tr>", $tr); // break into pieces
-							foreach ($rows as $r => $row)
-							{
-								$m = null;
-								if (preg_match("/<td>(\d*)<\/td><td>(\d*)<\/td><\/tr>/", $row, $m))
-								{
-									$errors   += $m[1];
-									$warnings += $m[2];
-								}
-							}
+							$warnings += $m[2];
+							$errors += $m[3];
+							$failures += $m[4];
 						}
 					}
 				}
