@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
-if ($isWWWserver)
+if ($isWWWserver && class_exists("Poll"))
 {
 	# Enable polls on this page: Polls are good for 3 months!
 	$App->usePolls();
@@ -14,6 +14,10 @@ if ($isWWWserver)
 	$Poll->addOption(4, "Meh.");
 	# $Poll->noGraph();  # uncomment to disable bar graph
 	$pollHTML = $Poll->getHTML();
+}
+else
+{
+	$pollHTML = "";
 }
    
 ob_start();
@@ -43,7 +47,7 @@ include "${pre}includes/nav.php";
 		</ul>
 	</div>
 
-<?php if ($isWWWserver) { ?>
+<?php if ($isWWWserver && $pollHTML) { ?>
 	<div class="sideitem">
 	<h6>Poll</h6>
 	<?php echo $pollHTML; ?>
