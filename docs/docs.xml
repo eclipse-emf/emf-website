@@ -117,7 +117,7 @@
 		<li>
 			<div><i>updated every build</i></div>Javadoc
 			<ul>
-				<li><a target="_out" href="http://download.eclipse.org/tools/emf/javadoc/">EMF</a>, <a target="_out" href="http://download.eclipse.org/tools/emf/xsd/javadoc/">XSD</a></li>
+				<li><a target="_out" href="http://www.eclipse.org/emf/javadoc/">EMF</a>, <a target="_out" href="http://www.eclipse.org/emf/javadoc/">XSD</a></li>
 			</ul>
 		</li>
 
@@ -211,7 +211,7 @@ and Animations of the internals of XSD models</a>
 			<ul>
 				<li><a target="_out" href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">Announcement</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">Whitepaper</a></li>
 				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">1.0 specification</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">2.0 specification</a></li>
-				<li><a target="_out" href="http://download.eclipse.org/tools/emf/sdo/javadoc/">Javadoc</a></li>
+				<li><a target="_out" href="http://www.eclipse.org/emf/javadoc/">Javadoc</a></li>
 			</ul>
 		</li>
 
@@ -489,4 +489,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.51 2006/11/18 06:48:21 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.52 2006/11/28 03:17:40 nickb Exp $ -->
