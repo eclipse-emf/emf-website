@@ -1,1 +1,1 @@
-<?php header("Location: http://www.eclipse.org/modeling/emf/news/relnotes1.x.php"); ?>
+<?php header("Location: http://www.eclipse.org/modeling/emf/emf/news/relnotes1.x.php"); ?>
