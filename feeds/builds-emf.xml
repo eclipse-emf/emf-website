@@ -19,7 +19,7 @@
         <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611230200/" log="buildlog.txt" map="directory.txt"/>
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.2
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611230200.zip</release>
@@ -47,7 +47,7 @@
         <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611230000/" log="buildlog.txt" map="directory.txt"/>
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.3.0
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611230000.zip</release>
@@ -75,7 +75,7 @@
         <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611161558/" log="buildlog.txt" map="directory.txt"/>
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.3.0
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611161558.zip</release>
@@ -102,7 +102,7 @@
         <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611161441/" log="buildlog.txt" map="directory.txt"/>
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.2
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611161441.zip</release>
@@ -129,7 +129,7 @@
         <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611091648/" log="buildlog.txt" map="directory.txt"/>
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.2
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611091648.zip</release>
@@ -155,7 +155,7 @@
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611091546" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200611091546#S200611091546" type="S" version="2.3.0">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.3.0
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-2.3.0M3.zip</release>
@@ -181,7 +181,7 @@
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611021608" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611021608#I200611021608" type="I" version="2.3.0">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.3.0
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611021608.zip</release>
@@ -207,7 +207,7 @@
       <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611020834" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834" type="M" version="2.2.2">
         <update>http://download.eclipse.org/tools/emf/updates/</update>
         <downloads>http://www.eclipse.org/emf/downloads/</downloads>
-        <releasenotes>http://www.eclipse.org/emf/news/release-notes.php?version=2.2.2
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611020834.zip</release>

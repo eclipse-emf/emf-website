@@ -41,7 +41,7 @@ include "${pre}includes/nav.php";
 		<?php getNews(3, "whatsnew", "vert"); ?>
 		<ul>
 			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>
-			<li><a href="http://www.eclipse.org/emf/news/release-notes.php">EMF Release Notes</a></li>
+			<li><a href="http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf">EMF Release Notes</a></li>
 			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a></li>
 			<li><a href="<?php echo $pre; ?>news-whatsnew.php">Older news</a></li>
 		</ul>
