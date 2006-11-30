@@ -43,6 +43,7 @@ $emails = array (
 
 <?php
 
+
 if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 { // page one, the form
 	print "<p>To promote, please complete the following form and click the Promote button.</p>";
@@ -55,6 +56,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 
 <p>
 <?php
+
 
 $workDir = "/home/www-data/build/" . $PR;
 
@@ -87,7 +89,10 @@ foreach ($options["Branch"] as $br)
 			if (is_dir("$workDir/downloads/drops/$BR/$bid/testresults/xml"))
 			{ // no point adding them to the list if there's no data available!
 				$buildcfgs = getBuildConfig("$workDir/downloads/drops/$BR/$bid/");
-				$buildIDs2[substr($bid, 1) . substr($bid, 0, 1)] = $BR . "/" . $bid . ($buildcfgs["branch"] ? " | ". $buildcfgs["branch"] : "") ;
+				if ($buildcfgs["branch"])
+				{
+					$buildIDs2[substr($bid, 1) . substr($bid, 0, 1)] = $BR . "/" . $bid . " | " . $buildcfgs["branch"];
+				}
 			}
 		}
 	}
@@ -184,6 +189,7 @@ function loadSelects() {
 </script>
 <?php
 
+
 } else
 { // page two, form submission results
 
@@ -208,6 +214,7 @@ function loadSelects() {
 			Here's what you submitted:</li>
 	<?php
 
+
 		print "<ul>\n";
 		foreach ($_POST as $k => $v)
 		{
@@ -231,6 +238,7 @@ function loadSelects() {
 	<p><b>NOTE:</b> If you are redirected to a fullmoon mirror, you may not see the new build for at least an hour.</p>
 
 <?php
+
 
 		// fire the shell script...
 		/** see http://ca3.php.net/manual/en/function.exec.php **/
@@ -517,9 +525,13 @@ function loadSelects() {
 
 	function getBuildConfig($dir)
 	{
-		// get data from build.cfg, turn into array of name/value pairs
-		$data = file($dir . "build.cfg");
 		$results = array ();
+		// get data from build.cfg, turn into array of name/value pairs
+		if (!is_file($dir . "build.cfg"))
+		{
+			return $results;
+		}
+		$data = file($dir . "build.cfg");
 		foreach ($data as $line)
 		{
 			$bits = explode("=", $line);
