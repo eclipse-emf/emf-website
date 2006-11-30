@@ -33,13 +33,6 @@ R3_2_maintenance
 -=2.0
 -=1.1.1.1
 
-[BuildType]
-Release=R
-Stable=S
-Integration=I
-Maintenance=M
-Nightly=N|selected
-
 [TagBuild]
 Yes
 No|selected
