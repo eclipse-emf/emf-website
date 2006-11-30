@@ -40,12 +40,12 @@ $dependenciesURLsFile = is_file($workDir . "/../emf/requests/dependencies.urls.t
 /** done customizing, shouldn't have to change anything below here **/
 
 $options = loadOptionsFromRemoteFiles($buildOptionsFile, $dependenciesURLsFile);
-$options["BuildType"] = array(
-		"Release=R",
-		"Stable=S",
-		"Integration=I",
-		"Maintenance=M",
-		"Nightly=N|selected"
+$options["BuildType"] = array (
+	"Release=R",
+	"Stable=S",
+	"Integration=I",
+	"Maintenance=M",
+	"Nightly=N|selected"
 );
 
 if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
@@ -66,6 +66,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<?php displayOptionsTriplet($options["BranchAndJDK"]); ?>
 				</select> <br/>
 				<select name="build_Project" onchange="document.location.href='?project='+this.options[this.selectedIndex].value+'<?php
+
 
 	print ($debug ? "&amp;debug=1" : "") . ($previewOnly ? "&amp;previewOnly=1" : "");
 ?>'">
@@ -423,19 +424,20 @@ setTimeout('doOnLoadDefaults()',500);
 </script>
 <?php
 
+
 } else
 { // page two, form submission results
 
 	/****************************** END OF PAGE ONE / START OF PAGE TWO **********************************/
 
-	$newDependencies = splitDependencies(isset($_POST["build_Dependencies_URL_New"])?$_POST["build_Dependencies_URL_New"]:"");
-	$dependencyURLs = getDependencyURLs(isset($_POST["build_Dependencies_URL"])?$_POST["build_Dependencies_URL"]:"", $newDependencies, $dependenciesURLsFile);
+	$newDependencies = splitDependencies(isset ($_POST["build_Dependencies_URL_New"]) ? $_POST["build_Dependencies_URL_New"] : "");
+	$dependencyURLs = getDependencyURLs(isset ($_POST["build_Dependencies_URL"]) ? $_POST["build_Dependencies_URL"] : "", $newDependencies, $dependenciesURLsFile);
 
 	$buildTimestamp = date("YmdHi");
 
 	$ID = $_POST["build_Build_Type"] . $buildTimestamp;
 	$BR = $_POST["build_Branch"];
-	$PR = isset($_GET["project"]) && $_GET["project"] ? $_GET["project"] : (isset($_POST["build_Project"]) ? $_POST["build_Project"] : "");
+	$PR = isset ($_GET["project"]) && $_GET["project"] ? $_GET["project"] : (isset ($_POST["build_Project"]) ? $_POST["build_Project"] : "");
 
 	$BR_suffix = "_" . str_replace(".", "", substr($BR, 0, 3));
 
@@ -496,6 +498,7 @@ setTimeout('doOnLoadDefaults()',500);
 
 <?php
 
+
 	if (!$previewOnly)
 	{
 ?>
@@ -509,20 +512,22 @@ setTimeout('doOnLoadDefaults()',500);
 
 	<?php
 
+
 		print "<ul>\n";
-		$i = 2;
 		foreach ($_POST as $k => $v)
 		{
-			if (strstr($k, "build_") && trim($v) != "" && !strstr($k, "_Sel"))
+			if (strstr($k, "build_") && !strstr($k, "_Sel"))
 			{
-				$lab = preg_replace("/\_/", " ", substr($k, 6));
-				$val = $k == "build_Dependencies_URL_New" ? $newDependencies : $v;
-				print "<li>";
-				print (is_array($val) ? "<b>" .
-				$lab . ":</b>" . "<ul>\n<li><small>" . join("</small></li>\n<li><small>", $val) . "</small></li>\n</ul>\n" : "<div>" .
-				$val . "</div>" . "<b>" . $lab . ":</b>");
-				print "</li>\n";
-				$i++;
+				if ((is_array($v) && sizeof($v) > 0) || (!is_array($v) && $v != ""))
+				{
+					$lab = preg_replace("/\_/", " ", substr($k, 6));
+					$val = $k == "build_Dependencies_URL_New" ? $newDependencies : $v;
+					print "<li>";
+					print (is_array($val) ? "<b>" .
+					$lab . ":</b>" . "<ul>\n<li><small>" . join("</small></li>\n<li><small>", $val) . "</small></li>\n</ul>\n" : "<div>" .
+					$val . "</div>" . "<b>" . $lab . ":</b>");
+					print "</li>\n";
+				}
 			}
 		}
 
@@ -535,7 +540,7 @@ setTimeout('doOnLoadDefaults()',500);
 		$branches = getBranches($options);
 		//foreach ($branches as $k => $b) { print "$k => $b<br>"; }
 
-		if ($branches["HEAD"] == $_POST["build_CVS_Branch"])
+		if (isset ($branches["HEAD"]) && isset ($_POST["build_CVS_Branch"]) && $branches["HEAD"] == $_POST["build_CVS_Branch"])
 		{
 			$_POST["build_CVS_Branch"] = "HEAD";
 		}
@@ -547,31 +552,51 @@ setTimeout('doOnLoadDefaults()',500);
 		// create the log dir before trying to log to it
 		$preCmd = 'mkdir -p ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID . '/eclipse ;';
 
-		$cmd = ('bash -c "exec nohup setsid ' . $workDir . '/scripts/start.sh -proj ' . $PR .
-		' -branch ' . ($_POST["build_debug_CVS_Branch"] != "" ? $_POST["build_debug_CVS_Branch"] : $_POST["build_CVS_Branch"]) .
+		$cmd = 'bash -c "exec nohup setsid ' . $workDir . '/scripts/start.sh -proj ' . $PR .
+		' -branch ' . (isset ($_POST["build_debug_CVS_Branch"]) && $_POST["build_debug_CVS_Branch"] != "" ? $_POST["build_debug_CVS_Branch"] : (isset ($_POST["build_CVS_Branch"]) ? $_POST["build_CVS_Branch"] : "")) .
 		$dependencyURLs .
-		 ($_POST["build_Run_Tests_JUnit"] == "Y" || $_POST["build_Run_Tests_JUnit" . $BR_suffix] == "Y" ? ' -antTarget run' : ' -antTarget runWithoutTest') .
+		 ((isset($_POST["build_Run_Tests_JUnit"]) && $_POST["build_Run_Tests_JUnit"] == "Y") || (isset($_POST["build_Run_Tests_JUnit" . $BR_suffix]) && $_POST["build_Run_Tests_JUnit" . $BR_suffix] == "Y") ? ' -antTarget run' : ' -antTarget runWithoutTest') .
 			 ($_POST["build_Build_Alias"] ? ' -buildAlias ' . $_POST["build_Build_Alias"] : "") . // 2.0.2, for example
 		' -tagBuild ' . ($_POST["build_Tag_Build"] == "Yes" ? "true" : "false") . // new, 04/07/12
-	' -buildType ' . $_POST["build_Build_Type"] .
-		' -javaHome ' . $_POST["build_Java_Home"] .
-			' -downloadsDir ' . $workDir . '/../downloads' . // use central location: /home/www-data/build/downloads
-	' -buildDir ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID .
-		' -buildTimestamp ' . $buildTimestamp .
-			 ($_POST["build_Run_Tests_JDK13"] == "Y" || $_POST["build_Run_Tests_JDK13" . $BR_suffix] == "Y" ? ' -runJDK13Tests ' . $BR : '') . // pass $BR to -runJDK13Tests flag
-		 ($_POST["build_Run_Tests_JDK14"] == "Y" || $_POST["build_Run_Tests_JDK14" . $BR_suffix] == "Y" ? ' -runJDK14Tests ' . $BR : '') . // pass $BR to -runJDK13Tests flag
-		 ($_POST["build_Run_Tests_JDK50"] == "Y" || $_POST["build_Run_Tests_JDK50" . $BR_suffix] == "Y" ? ' -runJDK50Tests ' . $BR : '') . // pass $BR to -runJDK50Tests flag
-		 ($_POST["build_Run_Tests_Old"] == "Y" || $_POST["build_Run_Tests_Old" . $BR_suffix] == "Y" ? ' -runOldTests ' . $BR : '') . // pass $BR to -runOldTests   flag
-		// TODO: add build_Run_Tests_Binary & build_Run_Tests_Source
-	 ($_POST["build_Email"] != "" ? ' -email ' . $_POST["build_Email"] : '') .
+	' -buildDir ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID . ' -buildTimestamp ' . $buildTimestamp;
+		' -buildType ' . $_POST["build_Build_Type"] . ' -javaHome ' . $_POST["build_Java_Home"] . ' -downloadsDir ' . $workDir . '/../downloads' .
+		// /home/www-data/build/downloads
 
-			// three new debugging options as of oct 6
-	 ($_POST["build_debug_basebuilder_branch"] != "" ? ' -basebuilderBranch ' . $_POST["build_debug_basebuilder_branch"] : '') .
-		 ($_POST["build_debug_proj_releng_branch"] != "" ? ' -projRelengBranch ' . $_POST["build_debug_proj_releng_branch"] : '') .
-		 ($_POST["build_debug_emf_old_tests_branch"] != "" ? ' -emfOldTestsBranch ' . $_POST["build_debug_emf_old_tests_branch"] : '') .
-		 ($_POST["build_debug_noclean"] == "Y" ? ' -noclean' : '') .
+		$fields = array (
+			"-runJDK13Tests" => "build_Run_Tests_JDK13",
+			"-runJDK14Tests" => "build_Run_Tests_JDK14",
+			"-runJDK50Tests" => "build_Run_Tests_JDK50",
+			"-runOldTests" => "build_Run_Tests_Old"
+				// TODO: add build_Run_Tests_Binary & build_Run_Tests_Source
+	
+		);
+		foreach ($fields as $flag => $field)
+		{
+			// $_POST["build_Run_Tests_JDK50"] or $_POST["build_Run_Tests_JDK50_23"] == "Y" 
+			if ((isset ($_POST[$field]) && $_POST[$field] == "Y") || (isset ($_POST[$field . $BR_suffix]) && $_POST[$field . $BR_suffix] == "Y"))
+			{
+				$cmd .= ' ' . $flag . ' ' . $BR; // -runJDK50Tests M200612341234
+			}
+		}
 
-		' >> ' . $workDir . $logfile . ' 2>&1 &"'); // logging to unique files
+		$fields = array (
+			"-basebuilderBranch" => "build_debug_basebuilder_branch",
+			"-projRelengBranch" => "build_debug_proj_releng_branch",
+			"-emfOldTestsBranch" => "build_debug_emf_old_tests_branch",
+			"-email" => "build_Email"
+		);
+		foreach ($fields as $flag => $field)
+		{
+			// $_POST["build_debug_basebuilder_branch"] != "" 
+			if (isset ($_POST[$field]) && $_POST[$field] != "")
+			{
+				$cmd .= ' ' . $flag . ' ' . $_POST[$field]; // -basebuilderBranch foo
+			}
+		}
+
+		$cmd .= 
+		 (isset($_POST["build_debug_noclean"]) && $_POST["build_debug_noclean"] == "Y" ? ' -noclean' : '') .
+		' >> ' . $workDir . $logfile . ' 2>&1 &"'; // logging to unique files
 
 		if ($previewOnly)
 		{
