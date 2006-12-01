@@ -3,7 +3,13 @@ $pre = "../";
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
 internalUseOnly();
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php");
+$App = new App();
+$Nav = new Nav();
+$Menu = new Menu();
+include ($App->getProjectCommon());
 ob_start();
 
 $debug = isset ($_GET["debug"]) ? 1 : 0;
@@ -555,11 +561,13 @@ setTimeout('doOnLoadDefaults()',500);
 		$cmd = 'bash -c "exec nohup setsid ' . $workDir . '/scripts/start.sh -proj ' . $PR .
 		' -branch ' . (isset ($_POST["build_debug_CVS_Branch"]) && $_POST["build_debug_CVS_Branch"] != "" ? $_POST["build_debug_CVS_Branch"] : (isset ($_POST["build_CVS_Branch"]) ? $_POST["build_CVS_Branch"] : "")) .
 		$dependencyURLs .
-		 ((isset($_POST["build_Run_Tests_JUnit"]) && $_POST["build_Run_Tests_JUnit"] == "Y") || (isset($_POST["build_Run_Tests_JUnit" . $BR_suffix]) && $_POST["build_Run_Tests_JUnit" . $BR_suffix] == "Y") ? ' -antTarget run' : ' -antTarget runWithoutTest') .
+		 ((isset ($_POST["build_Run_Tests_JUnit"]) && $_POST["build_Run_Tests_JUnit"] == "Y") || (isset ($_POST["build_Run_Tests_JUnit" . $BR_suffix]) && $_POST["build_Run_Tests_JUnit" . $BR_suffix] == "Y") ? ' -antTarget run' : ' -antTarget runWithoutTest') .
 			 ($_POST["build_Build_Alias"] ? ' -buildAlias ' . $_POST["build_Build_Alias"] : "") . // 2.0.2, for example
 		' -tagBuild ' . ($_POST["build_Tag_Build"] == "Yes" ? "true" : "false") . // new, 04/07/12
-	' -buildDir ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID . ' -buildTimestamp ' . $buildTimestamp;
-		' -buildType ' . $_POST["build_Build_Type"] . ' -javaHome ' . $_POST["build_Java_Home"] . ' -downloadsDir ' . $workDir . '/../downloads' .
+	' -buildDir ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID .
+		' -buildTimestamp ' . $buildTimestamp .
+		' -buildType ' . $_POST["build_Build_Type"] . ' -javaHome ' . $_POST["build_Java_Home"] .
+		' -downloadsDir ' . $workDir . '/../downloads';
 		// /home/www-data/build/downloads
 
 		$fields = array (
@@ -568,6 +576,7 @@ setTimeout('doOnLoadDefaults()',500);
 			"-runJDK50Tests" => "build_Run_Tests_JDK50",
 			"-runOldTests" => "build_Run_Tests_Old"
 				// TODO: add build_Run_Tests_Binary & build_Run_Tests_Source
+
 	
 		);
 		foreach ($fields as $flag => $field)
@@ -594,8 +603,7 @@ setTimeout('doOnLoadDefaults()',500);
 			}
 		}
 
-		$cmd .= 
-		 (isset($_POST["build_debug_noclean"]) && $_POST["build_debug_noclean"] == "Y" ? ' -noclean' : '') .
+		$cmd .= (isset ($_POST["build_debug_noclean"]) && $_POST["build_debug_noclean"] == "Y" ? ' -noclean' : '') .
 		' >> ' . $workDir . $logfile . ' 2>&1 &"'; // logging to unique files
 
 		if ($previewOnly)
