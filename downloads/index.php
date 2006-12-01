@@ -1205,7 +1205,7 @@ function outputBuild($branch, $ID, $c)
 	$tests = ""; 
 	if ($isEMFserver)
 	{
-	  // $summary is passed in by reference, so no warning should appear here
+	  	$summary = isset($summary) ? $summary : "";
 		$tests = getJDKTestResults("$jdk14testsPWD/", "$branch/$ID/", "jdk14", $summary) . "\n";
 		$summary .= ($summary ? "</span><span>" : "");
 		$tests .= getJDKTestResults("$jdk50testsPWD/", "$branch/$ID/", "jdk50", $summary) . "\n";
