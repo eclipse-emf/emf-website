@@ -96,7 +96,9 @@
 		</li>
 
 		<li>
-			<div>June 13 2005</div><a href="http://www.eclipse.org/emf/docs/misc/cvsdoc/emfcvsug.html">Getting EMF Source Files from CVS</a>
+			<div>Dec 5 2006</div>Getting EMF Source Files from CVS: <a href="http://www.eclipse.org/emf/docs/misc/cvsdoc/emfcvsug.html">Using Eclipse</a> and <a href="http://wiki.eclipse.org/index.php/CVS_Source_From_Mapfile">For A Given Build's Mapfile</a> (commandline)
+			
+			
 		</li>
 
 		<li>
@@ -489,4 +491,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.52 2006/11/28 03:17:40 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.53 2006/12/05 21:30:20 nickb Exp $ -->
