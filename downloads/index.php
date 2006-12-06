@@ -821,7 +821,7 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 			// check JUnit results
 			if ($icon != "not")
 			{
-				$files = loadDirSimple("$PWD${path}testresults/xml/", ".xml", "d");
+				$files = loadDirSimple("$PWD${path}testresults/xml/", ".xml", "f");
 				$out = "";
 				$noProblems = true;
 				foreach ($files as $file)
@@ -854,18 +854,15 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 				}
 			}
 
-			if ($icon == "")
+			if ($errors)
 			{
-				if ($errors)
-				{
-					$icon = "not";
-					$result = "COMPILER ERROR";
-				}
-				else
-				{
-					$icon = ($warnings ? "check-maybe" : "check");
-					$result = "";
-				}
+				$icon = "not";
+				$result = "COMPILER ERROR";
+			}
+			else
+			{
+				$icon = ($warnings ? "check-maybe" : "check");
+				$result = "";
 			}
 
 		}
@@ -960,10 +957,12 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	}
 	else
 	{
-		$out .= $result ? $result . ": " : "";
-		$out .= ($errors > 0 ? "$errors E, " : "");
-		$out .= ($failures > 0 ? "$failures F, " : "");
-		$out .= ($warnings > 0 ? "$warnings W" : "");
+		$out  .= $result ? $result . ": " : "";
+		$out2  = "";
+		$out2 .= ($errors > 0 ? "$errors E, " : "");
+		$out2 .= ($failures > 0 ? "$failures F, " : "");
+		$out2 .= ($warnings > 0 ? "$warnings W" : "");
+		$out  .= preg_replace("/^(.+), $/","$1",$out2);
 	}
 	$out .= "</a> <a href=\"$link\"><img src=\"http://www.eclipse.org/$PR/images/$icon.gif\" alt=\"$icon\"/></a>";
 
