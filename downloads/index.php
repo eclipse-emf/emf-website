@@ -617,6 +617,23 @@ function getTestResultsFailureCount($path, $testDirs, $file)
 	return $num;
 }
 
+function getTestResultsJUnitXML($file)
+{
+	$results = null;
+	$data = file($file);
+	foreach ($data as $line)
+	{
+		// <testsuite errors="0" failures="0" ...>
+		preg_match("/<testsuite errors=\"(\d+)\" failures=\"(\d+).+\"/", $line, $matches);
+		if (isset ($matches) && is_array($matches) && sizeof($matches) >= 3)
+		{
+			$results = $matches[0] === "0" && $matches[2] === "0" ? null : array($matches[1],$matches[2]); // Errors, Failures
+			return $results;
+		}
+	}
+	return $results;
+}
+
 function getBuildTypes($options)
 {
 	$arr = array();
@@ -801,22 +818,38 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 				}
 			}
 
+			// check JUnit results
 			if ($icon != "not")
 			{
-				//check compilelogs/summary.txt for results
-				if (is_file("$PWD${path}compilelogs/summary.txt"))
+				$files = loadDirSimple("$PWD${path}testresults/xml/", ".xml", "d");
+				$out = "";
+				$noProblems = true;
+				foreach ($files as $file)
 				{
-					$compilelogSummary = file_contents("$PWD${path}compilelogs/summary.txt");
-					$link2 = "$pre$mid${path}testResults.php";
-					if ($compilelogSummary)
+					$results = getTestResultsJUnitXML("$PWD${path}testresults/xml/" . $file);
+					if ($results && is_array($results)) 
 					{
-						$m = null;
-						if (preg_match("/(\d+)P, (\d+)W, (\d+)E, (\d+)F/", $compilelogSummary, $m))
-						{
-							$warnings += $m[2];
-							$errors += $m[3];
-							$failures += $m[4];
-						}
+						$errors += $results[0];
+						$failures += $results[1];
+						$icon = "not";
+						$results = null;
+					}
+				}
+			}
+
+			//check compilelogs/summary.txt for results
+			if (is_file("$PWD${path}compilelogs/summary.txt"))
+			{
+				$compilelogSummary = file_contents("$PWD${path}compilelogs/summary.txt");
+				$link2 = "$pre$mid${path}testResults.php";
+				if ($compilelogSummary)
+				{
+					$m = null;
+					if (preg_match("/(\d+)P, (\d+)W, (\d+)E, (\d+)F/", $compilelogSummary, $m))
+					{
+						$warnings += $m[2];
+						$errors += $m[3];
+						$failures += $m[4];
 					}
 				}
 			}
@@ -920,10 +953,18 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	}
 	$link2 = ($isEMFserver ? "" : "http://download.eclipse.org/") . $link2;
 	
-	$out .= "<a href=\"$link2\">$result";
-	$out .= ($errors == 0 && $warnings == 0) && !$result ? "Success" : "";
-	$out .= ($errors > 0 || $warnings > 0) && $result ? ": " : "";
-	$out .= ($errors > 0 ? "$errors E, $warnings W" : ($warnings > 0 ? "$warnings W" : ""));
+	$out .= "<a href=\"$link2\">";
+	if ($errors == 0 && $failures == 0 && $warnings == 0 && !$result)
+	{
+		$out .= "Success";
+	}
+	else
+	{
+		$out .= $result ? $result . ": " : "";
+		$out .= ($errors > 0 ? "$errors E, " : "");
+		$out .= ($failures > 0 ? "$failures F, " : "");
+		$out .= ($warnings > 0 ? "$warnings W" : "");
+	}
 	$out .= "</a> <a href=\"$link\"><img src=\"http://www.eclipse.org/$PR/images/$icon.gif\" alt=\"$icon\"/></a>";
 
 	return $out;
