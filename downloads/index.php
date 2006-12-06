@@ -950,14 +950,14 @@ function showBuildResults($PWD, $path) // given path to /../downloads/drops/M200
 	}
 	$link2 = ($isEMFserver ? "" : "http://download.eclipse.org/") . $link2;
 	
-	$out .= "<a href=\"$link2\">";
+	$out .= "<a href=\"$link2\">$result";
 	if ($errors == 0 && $failures == 0 && $warnings == 0 && !$result)
 	{
 		$out .= "Success";
 	}
 	else
 	{
-		$out  .= $result ? $result . ": " : "";
+		$out  .= $result && $result != "..." ? ": " : "";
 		$out2  = "";
 		$out2 .= ($errors > 0 ? "$errors E, " : "");
 		$out2 .= ($failures > 0 ? "$failures F, " : "");
