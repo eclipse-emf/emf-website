@@ -213,7 +213,16 @@ print "<li><a href=\"#archives\">Archived Releases</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads/build-types.php\">About Build Types</a></li>\n";
 print "<li><a href=\"http://www.eclipse.org/emf/downloads/verifyMD5.php\">Using md5 Files</a></li>\n";
 print "<li><a href=\"https://bugs.eclipse.org/bugs/buglist.cgi?product=" . strtoupper($PR) . "&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED\">Open Bugs</a></li>\n";
-print "<li><a href=\"http://www.eclipse.org/$PR/news/release-notes.php\">Release Notes</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/$PR/news/relnotes.php?project=$PR&amp;version=HEAD\">Release Notes</a></li>\n";
+print "</ul>\n";
+print "</div>\n";
+
+print "<div class=\"sideitem\">\n";
+print "<h6>Getting Sources</h6>\n";
+print "<ul>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/docs/misc/cvsdoc/emfcvsug.html\">CVS + Eclipse</a></li>\n" . 
+		"<li><a href=\"http://wiki.eclipse.org/index.php/CVS_Source_From_Mapfile\">CVS + Mapfile + script</a></li>\n" . 
+		"<li><a href=\"http://www.eclipse.org/$PR/downloads/?project=$PR\">SDK zip</a> or <a href=\"http://www.eclipse.org/$PR/updates/\">Update Manager</a> (org.*.source_x.y.z.*/*src.zip)</li>\n";
 print "</ul>\n";
 print "</div>\n";
 
