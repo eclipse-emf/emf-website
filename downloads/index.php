@@ -1397,16 +1397,4 @@ function showArchived()
 	print "</ul>\n";
 	print "</div>\n";
 }
-
-function file_contents($file) //TODO: remove this when we upgrade php to >= 4.3.0 everywhere
-{
-	if (function_exists('file_get_contents'))
-	{
-		return file_get_contents($file);
-	}
-	else
-	{
-		return join("", file($file));
-	}
-}
 ?>
