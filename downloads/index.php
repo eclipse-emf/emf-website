@@ -42,7 +42,7 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 );
 
 $rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
-$moreinfo = array("2.3.0" => '<a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img style="float:right" src="/emf/images/more-info.png" alt="What\'s New in EMF Code Merge (2.3.0.I200611161558)" border="0"/></a>'); 
+$moreinfo = array("2.3.0" => '<a href="http://www.eclipse.org/emf/docs/#whatsnew"><img style="float:right" src="/emf/images/more-info.png" alt="What\'s New in EMF 2.3.0?" border="0"/></a>'); 
 $moreinfo[0] = $moreinfo["2.3.0"]; // default to show on Latest Builds
 
 $debug = -1;
@@ -1022,7 +1022,11 @@ function doRequirements()
 	
 	<ul id="requirements">
 		<li>
-			<div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img src="http://www.eclipse.org/home/images/new.gif" border="0"/> Code merge behaviour has changed as of 2.3.0.I200611161558</a>.</div><a href="javascript:toggle('req2_3_0')">EMF 2.3.0</a>
+			<div>
+			<a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img src="http://www.eclipse.org/home/images/new.gif" border="0"/> Code merge behaviour has changed as of 2.3.0.I200611161558</a>.<br/>
+			<a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics"><img src="http://www.eclipse.org/home/images/new.gif" border="0"/> Support for JDK 5.0 generics has changed as of 2.3.0.I200612071030</a>.
+			</div>
+			<a href="javascript:toggle('req2_3_0')">EMF 2.3.0</a>
 			<ul id="req2_3_0">
 				<li>Eclipse 3.3.0</li>
 				<li>Java 5.0</li>
