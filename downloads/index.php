@@ -1023,8 +1023,9 @@ function doRequirements()
 	<ul id="requirements">
 		<li>
 			<div>
-			<a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img src="http://www.eclipse.org/home/images/new.gif" border="0"/> Code merge behaviour has changed as of 2.3.0.I200611161558</a>.<br/>
-			<a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics"><img src="http://www.eclipse.org/home/images/new.gif" border="0"/> Support for JDK 5.0 generics has changed as of 2.3.0.I200612071030</a>.
+
+			<a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics"><img src="/modeling/images/new.gif" border="0"/> Support for JDK 5.0 generics has changed as of 2.3.0.I200612071030</a>.<br/>
+			<a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img src="/modeling/images/new.gif" border="0"/> Code merge behaviour has changed as of 2.3.0.I200611161558</a>.
 			</div>
 			<a href="javascript:toggle('req2_3_0')">EMF 2.3.0</a>
 			<ul id="req2_3_0">

@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.21 2006/12/07 21:04:14 nickb Exp $ 
+	// $Id: scripts.php,v 1.22 2006/12/07 22:51:27 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -206,7 +206,7 @@ function getNews($lim, $key)
 			print "<p>\n";
 			if (strtotime($regs[1][$i]) > strtotime("-3 weeks"))
 			{
-				print '<img src="http://www.eclipse.org/home/images/new.gif" alt="New!"/>&#160;';
+				print '<img src="/modeling/images/new.gif" alt="New!"/> ';
 			}
 			$app = (date("Y", strtotime($regs[1][$i])) < date("Y") ? ", Y" : "");
 			print date(($key == "whatsnew" ? "M" : "F") . '\&\n\b\s\p\;jS' . $app, strtotime($regs[1][$i])) . ' - ' . "\n";
@@ -262,9 +262,9 @@ function build_news($cvsprojs, $cvscoms, $proj, $limit = 4)
 	{
 		while ($row = mysql_fetch_row($result))
 		{
-			$img = ($row[5] ? "<img src=\"http://www.eclipse.org/home/images/new.gif\" alt=\"New!\"/>&#160;" : "");
+			$img = ($row[5] ? "<img src=\"/modeling/images/new.gif\" alt=\"New!\"/>" : "");
 			$link = "<a href=\"/$PR/downloads/?showAll=1&amp;project=" . $projectsf[$row[0]] . "&amp;hlbuild=$row[6]#$row[6]\">";
-			print "<p>$img$row[3] - $link" . strtoupper($projectsf[$row[0]]) . " $row[1]</a> ($row[2]) " . $types[$row[4]] . " build available for ${link}download</a></p>";
+			print "<p>$img $row[3] - $link" . strtoupper($projectsf[$row[0]]) . " $row[1]</a> ($row[2]) " . $types[$row[4]] . " build available for ${link}download</a></p>";
 		}
 	}
 }
