@@ -9,11 +9,7 @@
 	</p>
 
 	<p>
-		Release notes: 
-		<a href="/emf/news/release-notes.php?version=2.2">2.2</a>,
-		<a href="/emf/news/release-notes.php?version=2.1">2.1</a>,
-		<a href="/emf/news/release-notes.php?version=2.0">2.0</a>,
-		<a href="/emf/news/release-notes-1.x.php">1.x</a>
+		<a href="/modeling/emf/news/relnotes.php?project=emf&amp;version=HEAD">Release Notes</a>
 	</p>
 </div>
 
