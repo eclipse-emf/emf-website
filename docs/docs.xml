@@ -6,19 +6,19 @@
 		<li><a href="#overviews">EMF Overview Papers</a></li>
 		<li><a href="#tutorials">EMF Tutorials</a></li>
 		<li><a href="#references">Books, Guides, and References</a></li>
+		<li><a href="#whatsnew">What's New In ___?</a></li>
 		<li><a href="#dWdocuments">developerWorks</a></li>
-		<li><a href="#xsd">XML Schema Infoset Model (XSD)</a></li>
-		<li><a href="#sdo">Service Data Objects (SDO)</a></li>
+		<li><a href="#presentations">Presentations &amp; Workshops</a></li>
 	</ul>
 </div>
 <div class="homeitem">
 	<h3>Other Resources</h3>
 	<ul>
-		<li><a href="#presentations">Presentations &amp; Workshops</a></li>
+		<li><a href="#xsd">XML Schema Infoset Model (XSD)</a></li>
+		<li><a href="#sdo">Service Data Objects (SDO)</a></li>
 		<li><a href="#contributions">Contributed Articles</a></li>
 		<li><a href="#perf">EMF Performance</a></li>
-		<li><a href="#emf20xdocs">EMF 2.0</a></li>
-		<li><a href="#emf1xdocs">EMF 1.x</a></li>
+		<li><a href="#emf20xdocs">EMF 2.0</a>, <a href="#emf1xdocs">EMF 1.x</a></li>
 		<li><a href="#plandocs">Project Management</a></li>
 	</ul>
 </div>
@@ -132,14 +132,6 @@
 		</li>
 
 		<li>
-			<div>Nov 18 2006</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html">What's New in EMF Code Merge? (2.3.0.I200611161558)</a>
-		</li>
-
-		<li>
-			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/tools2.1.html">What's New in EMF Tools? (2.1.0.I200505191347)</a>
-		</li>
-
-		<li>
 			<div>Sept 23  2004</div>Eclipse.org Newsgroups - Offline Searching with 
 				<a href="http://www.eclipse.org/emf/docs/misc/SearchingNewsgroups/SearchingNewsgroupsMozilla.html">Mozilla</a> or 
 				<a href="http://www.eclipse.org/emf/docs/misc/SearchingNewsgroups/SearchingNewsgroupsOutlook.html">Outlook Express</a>
@@ -153,13 +145,33 @@
 </div>
 
 <div class="homeitem3col">
+	<a name="whatsnew"></a>
+	<h3>What's New In ___?</h3>
+
+	<ul>
+		<li>
+			<div>Dec 7 2006</div><a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics">What's New In EMF <u>Generics</u>? (2.3.0.I200612071030)</a>
+		</li>
+
+		<li>
+			<div>Nov 18 2006</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html">What's New In EMF <u>Code Merge</u>? (2.3.0.I200611161558)</a>
+		</li>
+
+		<li>
+			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/tools2.1.html">What's New In EMF <u>Tools</u>? (2.1.0.I200505191347)</a>
+		</li>
+
+	</ul>
+</div>
+
+<div class="homeitem3col">
 	<a name="dWdocuments"></a>
 	<h3>developerWorks</h3>
 
 	<ul>
 		<li>
 			<div>May 7 2004</div><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/index.html">XML Schema Infoset Model, Part 1</a><br/>
-			First published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, November 4 2003
+			First published by <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, Nov 4 2003
 			<ul>
 				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/os-schema1-ltr.pdf">Presentation</a> (PDF)</li>
 				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema1/org.eclipse.xsd.examples_part1.zip">Examples</a> (zipped eclipse plugin project)</li>
@@ -168,7 +180,7 @@
 
 		<li>
 			<div>May 7 2004</div><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/index.html">XML Schema Infoset Model, Part 2</a><br/>
-			First published <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, February 17 2004<br/>
+			First published <a href="http://www.ibm.com/developerWorks" target="_dw">IBM developerWorks</a>, Feb 17 2004<br/>
 			<ul>
 				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/os-schema2-ltr.pdf">Presentation</a> (PDF)</li>
 				<li><a target="_dw" href="http://www.eclipse.org/emf/docs/xsd/dW/os-schema2/org.eclipse.xsd.examples_part2.zip">Examples</a> (zipped eclipse plugin project)</li>
@@ -180,69 +192,12 @@
 </div>
 
 <div class="homeitem3col">
-	<a name="xsd"></a>
-	<h3>XML Schema Infoset Model (XSD)</h3>
-
-	<ul>
-		<li>
-			<div>July 2002</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">Analyzing XML schemas with the Schema Infoset Model</a>
-		</li>
-
-		<li>
-			<div>June 3 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/diagrams/diagrams.html">Diagrams 
-and Animations of the internals of XSD models</a>
-		</li>
-	</ul>
-</div>
-
-<div class="homeitem3col">
-	<a name="sdo"></a>
-	<h3>Service Data Objects (SDO)</h3>
-
-	<ul>
-		<li>
-			<div>Sep 28 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">Introduction to Service Data Objects</a>
-		</li>
-
-		<li>
-			<div>October 12 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf.ecore.sdo/doc/org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Tutorial: Using the SDO Data Graph Editor</a>
-		</li>
-
-		<li>
-			<div>June 29 2005</div>SDO Reference:
-			<ul>
-				<li><a target="_out" href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">Announcement</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">Whitepaper</a></li>
-				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">1.0 specification</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">2.0 specification</a></li>
-				<li><a target="_out" href="http://www.eclipse.org/emf/javadoc/">Javadoc</a></li>
-			</ul>
-		</li>
-
-		<li>
-			<div>June 7 2006</div><a target="_out" href="http://incubator.apache.org/tuscany/sdo_index.html">Apache Tuscany Project</a>
-		</li>
-
-
-		<li>
-			<div>July 1 2004</div><a target="_out" href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">Redbook: WebSphere Studio 5.1.2 JavaServer Faces and Service Data Objects</a>
-		</li>
-
-		<li>
-			<div>July 1 2004</div><a target="_out" href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">Enterprise Information Integration Technology</a> (usage)
-		</li>
-
-		<li>
-			<div>Oct 6 2004</div><a target="_out" href="http://www.sys-con.com/story/?storyid=46652&amp;DE=1">Integrating relational data into Web applications</a> (an introduction to SDO)
-		</li>
-	</ul>
-</div>
-
-<div class="homeitem3col">
 	<a name="presentations"></a>
 	<h3>Presentations &amp; Workshops</h3>
 
 	<ul>
 		<li>
-			<div>October 25 2006</div><a name="oopsla2006intro"></a>OOPSLA 2006 - Introduction to EMF
+			<div>Oct 25 2006</div><a name="oopsla2006intro"></a>OOPSLA 2006 - Introduction to EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/OOPSLA/OOPSLA_2006_T38_Intro_To_EMF.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/OOPSLA/OOPSLA_2006_T38_Intro_To_EMF_org.eclipse.emf.tutorial.intro_2.2.1.zip">Workshop Cheat Sheet Plugin</a> (ZIP)</li>
@@ -250,7 +205,7 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>October 19 2006</div><a name="cascon2006intro"></a>CASCON 2006 - Introduction to EMF
+			<div>Oct 19 2006</div><a name="cascon2006intro"></a>CASCON 2006 - Introduction to EMF
 			<ul>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/CASCON/CASCON_2006.pdf">Presentation</a> (PDF)</li>
 				<li><a href="http://www.eclipse.org/emf/docs/presentations/CASCON/CASCON_2006_org.eclipse.emf.tutorial.intro.zip">Workshop Cheat Sheet Plugin</a> (ZIP)</li>
@@ -300,16 +255,72 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>February 6 2004</div><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2004_Rapid_Development_Using_EMF.pdf">EclipseCon 2004 EMF Presentation</a> (PDF)
+			<div>Feb 6 2004</div><a href="http://www.eclipse.org/emf/docs/presentations/EclipseCon/EclipseCon2004_Rapid_Development_Using_EMF.pdf">EclipseCon 2004 EMF Presentation</a> (PDF)
 		</li>
 
 		<li>
-			<div>December 2 2003</div><a target="_out" href="http://www.codegeneration.net/tiki-read_article.php?articleId=38">EMF Interview</a> with David Steinberg
+			<div>Dec 2 2003</div><a target="_out" href="http://www.codegeneration.net/tiki-read_article.php?articleId=38">EMF Interview</a> with David Steinberg
 		</li>
 	</ul>
 </div>
 
-<!-- new May 2004 -->
+<div class="homeitem3col">
+	<a name="xsd"></a>
+	<h3>XML Schema Infoset Model (XSD)</h3>
+
+	<ul>
+		<li>
+			<div>July 2002</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/articles/dwtip1-scpw/index.html">Analyzing XML schemas with the Schema Infoset Model</a>
+		</li>
+
+		<li>
+			<div>June 3 2005</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.xsd/doc/org.eclipse.xsd.doc/references/diagrams/diagrams.html">Diagrams 
+and Animations of the internals of XSD models</a>
+		</li>
+	</ul>
+</div>
+
+<div class="homeitem3col">
+	<a name="sdo"></a>
+	<h3>Service Data Objects (SDO)</h3>
+
+	<ul>
+		<li>
+			<div>Sep 28 2004</div><a target="_out" href="http://www-106.ibm.com/developerworks/java/library/j-sdo/">Introduction to Service Data Objects</a>
+		</li>
+
+		<li>
+			<div>Oct 12 2004</div><a href="http://dev.eclipse.org/viewcvs/indextools.cgi/~checkout~/org.eclipse.emf.ecore.sdo/doc/org.eclipse.emf.ecore.sdo.doc/tutorials/datagraph/datagraph.html">Tutorial: Using the SDO Data Graph Editor</a>
+		</li>
+
+		<li>
+			<div>June 29 2005</div>SDO Reference:
+			<ul>
+				<li><a target="_out" href="http://www.ibm.com/developerworks/java/library/j-commonj-sdowmt/">Announcement</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Next-Gen-Data-Programming-Whitepaper.doc">Whitepaper</a></li>
+				<li><a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v1.0.pdf">1.0 specification</a>, <a target="_out" href="ftp://www6.software.ibm.com/software/developer/library/j-commonj-sdowmt/Commonj-SDO-Specification-v2.0.pdf">2.0 specification</a></li>
+				<li><a target="_out" href="http://www.eclipse.org/emf/javadoc/">Javadoc</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<div>June 7 2006</div><a target="_out" href="http://incubator.apache.org/tuscany/sdo_index.html">Apache Tuscany Project</a>
+		</li>
+
+
+		<li>
+			<div>July 1 2004</div><a target="_out" href="http://www.redbooks.ibm.com/redbooks/pdfs/sg246361.pdf">Redbook: WebSphere Studio 5.1.2 JavaServer Faces and Service Data Objects</a>
+		</li>
+
+		<li>
+			<div>July 1 2004</div><a target="_out" href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0407saracco/index.html">Enterprise Information Integration Technology</a> (usage)
+		</li>
+
+		<li>
+			<div>Oct 6 2004</div><a target="_out" href="http://www.sys-con.com/story/?storyid=46652&amp;DE=1">Integrating relational data into Web applications</a> (an introduction to SDO)
+		</li>
+	</ul>
+</div>
+
 <div class="homeitem3col">
 	<a name="contributions"></a>
 	<h3>Contributed Articles</h3>
@@ -351,17 +362,17 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>November 30 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)<br/>
+			<div>Nov 30 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-Rule%20Modeling%20With%20EMF/article.html">Modeling Rule-Based Systems with EMF</a> (Eclipse Corner article)<br/>
 			by Chaur G. Wu
 		</li>
 
 		<li>
-			<div>October 12 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a> (Eclipse Corner article)<br/>
+			<div>Oct 12 2004</div><a target="_out" href="http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html">EMF goes RCP</a> (Eclipse Corner article)<br/>
 			by Marcelo Paternostro
 		</li>
 
 		<li>
-			<div>December 9 2002</div><a target="_out" href="http://www.eclipse.org/articles/Article-Using%20EMF/using-emf.html">Using EMF</a> (Eclipse Corner article)<br/>
+			<div>Dec 9 2002</div><a target="_out" href="http://www.eclipse.org/articles/Article-Using%20EMF/using-emf.html">Using EMF</a> (Eclipse Corner article)<br/>
 			by Catherine Griffin
 		</li>
 	</ul>
@@ -491,4 +502,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.53 2006/12/05 21:30:20 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.54 2006/12/07 20:51:28 nickb Exp $ -->
