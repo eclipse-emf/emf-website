@@ -2,6 +2,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
+include($_SERVER["DOCUMENT_ROOT"] . "/emf/includes/db.php");
+
 if ($isWWWserver && class_exists("Poll"))
 {
 	# Enable polls on this page: Polls are good for 3 months!
@@ -37,13 +39,18 @@ include "${pre}includes/nav.php";
 
 <div id="rightcolumn">
 	<div class="sideitem">
-	<h6><a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf.xml"><img align="right" style="float:right" alt="EMF 2.3 Build Feed" src="images/rss-atom10.gif" width="45" height="13" border="0"></a>News</h6>
-		<?php getNews(3, "whatsnew", "vert"); ?>
+	<h6>News</h6>
+		<?php getNews(4, "whatsnew", "vert"); ?>
 		<ul>
-			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/EMF_2.2_Release_Review.pdf">EMF 2.2 Release Review Presentation</a></li>
-			<li><a href="http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=HEAD">EMF Release Notes</a></li>
-			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/whatsnew/emf2.1.html">What's New in EMF 2.1?</a></li>
-			<li><a href="<?php echo $pre; ?>news-whatsnew.php">Older news</a></li>
+			<li><a href="/emf/news-whatsnew.php">Older news</a></li>
+		</ul>
+	</div>
+
+	<div class="sideitem">
+	<h6><a href="http://www.eclipse.org/downloads/download.php?file=/tools/emf/feeds/builds-emf.xml"><img style="float:right" alt="EMF Build Feed" src="images/rss-atom10.gif"/></a>Build News</h6>
+		<?php build_news($cvsprojs, $cvscoms, $proj); ?>
+		<ul>
+			<li><a href="/emf/news-whatsnew.php#build">Older build news</a></li>
 		</ul>
 	</div>
 

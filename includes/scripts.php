@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.17 2006/12/07 18:06:35 nickb Exp $ 
+	// $Id: scripts.php,v 1.18 2006/12/07 20:24:50 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -175,87 +175,111 @@
 		echo($s.$br); 
 	}
 
-	function getFile($file) {
-		global $WWWpre, $WWWprePhysical, $isEclipseCluster;
-		$fp = false;
-		$contents = "";
-		if ($isEclipseCluster) { 
-			$fp = fopen($WWWprePhysical . $file, "r");
-		} else {
-			$fp = fopen($WWWpre . $file, "r");
-		}
-		if ($fp !== false) {
-		    while (!feof($fp)) { $contents .= fread($fp, 4096); }
-			fclose($fp);
-			if (false!==strpos($contents,"\n")) return explode("\n", $contents);
-		}
-		return array($contents);
+function getNews($lim, $key)
+{
+	global $PR;
+
+	$xml = file_contents($_SERVER["DOCUMENT_ROOT"] . "/$PR/" . "news/news.xml"); 
+	$news_regex = "%
+		^<news\ date=\"([^\"]+)\"(?:\ showOn=\"([^\"]+)\")?>$\\n
+		((?:^[^<].+$\\n)+)
+		^</news>$\\n
+		%mx";
+
+	if (!$xml)
+	{
+		print "<p><b><i>Error</i></b> Couldn't find any news!</p>\n";
 	}
 
-	// TODO: this function should be rewritten per bug 166311
-	function getNews($lim,$key,$style="horiz") {
-		global $CVSpre,$pre,$isWWWserver; 
-		$xml = getFile("news/news.xml"); 
-		if (!$xml) {
-			$xml = array();
-		}
-		$xmlCollect=0;
-		$xmlItems = array();
-		$xmlCurrentDate=null;
-		foreach ($xml as $line) { 
-			$m=null;
-			if (preg_match("/\<news date\=\"([^\"]+)\" showOn\=\"([^\"]+)\"\>/",$line,$m)) { // start of item, date
-				if (strstr($m[2],",")) {
-					$keys = explode(",",$m[2]);
-				} else {
-					$keys = array($m[2]);
-				}
-				if ($key=="all" || in_array($key,$keys)) { // only show 'em if they match
-					$xmlCollect = 1;
-					$xmlCurrentDate = $m[1];
-					$xmlItems[] = array($m[1] => "");
-				}
-			} else if ($key=="all" && preg_match("/\<news date\=\"([^\"]+)\"\>/",$line,$m)) { // start of item, date
-				$xmlCollect = 1;
-				$xmlCurrentDate = $m[1];
-				$xmlItems[] = array($m[1] => "");
-			} else if ($xmlCollect && !preg_match("/\<\/news\>/",$line,$m)) { // while collecting contents
-				$line = preg_replace("/href=\"\#latest/","href=\""."downloads.php#latest",$line);
-				//$line = preg_replace("/href=\"\#(emf\_3)/","href=\"whatsnew.php?ver=3.x#emf_3",$line);
-				//$line = preg_replace("/href=\"\#([IMNRS]\d{12})/","href=\""."news-release-notes.php?ver=2.0.0#$1",$line); // not needed
-				$line = preg_replace("/href=\"\#emf\_((\d)(\d)(\d))/","href=\""."news-release-notes.php?ver=$2.$3.$4#emf_$1",$line);
-				if (preg_match("/href=\"downloads.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
-					$line = preg_replace("/href=\"/","href=\"".($isWWWserver?"http://download.eclipse.org/tools/emf/scripts/":$pre),$line);
-				} else if (preg_match("/href=\".+\.php\"/",$line) && !preg_match("/href=\"http/",$line)) { 
-					$line = preg_replace("/href=\"/","href=\"$pre",$line);
-				} else if (preg_match("/href=\".+\.php\?.+\=.+\.html(#[a-zA-Z0-9\_\.]+|#|)\"/",$line) && !preg_match("/href=\"http/",$line)) { 
-					// a link such as docs.php?doc=docs/../faq/index.html - no moleste!
-				} else if (preg_match("/href=\".+\.html(#[a-zA-Z0-9\_\.]+|#|)\"/",$line) && !preg_match("/href=\"http/",$line)) { 
-					$line = preg_replace("/href=\"/","href=\"$CVSpre",$line);
-				}
-				$xmlItems[sizeof($xmlItems)-1][$xmlCurrentDate] .= $line;
-			} else if (preg_match("/\<\/news\>/",$line,$m)) { // end of item
-				$xmlCollect = 0;
-			} 
+	$regs = null;
+	preg_match_all($news_regex, $xml, $regs);
+	foreach (array_keys($regs[0]) as $i)
+	{
+		if ($i >= $lim && $lim > 0)
+		{
+			return;
 		}
 
-		if ($style=="vert") { 
-			foreach ($xmlItems as $i => $pair) { 
-				if ($lim<0 || $i<$lim) {
-					echo "<p>\n";
-					foreach ($pair as $date => $contents) { 
-						if (strtotime($date)>strtotime("-3 weeks")) { 
-							echo '<img src="http://www.eclipse.org/emf/images/new.gif" alt="New!" width="31" height="14"/>';
-						}
-						$app = (date("Y",strtotime($date))<date("Y") ? ", Y" : "");
-						echo '<b>' . date(($key=="whatsnew"?"M":"F").'\&\n\b\s\p\;j\<\s\u\p\>S\<\/\s\u\p\>' . $app, strtotime($date)).'</b> - '."\n";
-						echo $contents;
-					}
-					echo "</p>\n";
-				}
+		$showOn = explode(",", $regs[2][$i]);
+		if ($key == "all" || in_array($key, $showOn))
+		{
+			print "<p>\n";
+			if (strtotime($regs[1][$i]) > strtotime("-3 weeks"))
+			{
+				print '<img src="http://www.eclipse.org/home/images/new.gif" alt="New!"/>';
 			}
+			$app = (date("Y", strtotime($regs[1][$i])) < date("Y") ? ", Y" : "");
+			print date(($key == "whatsnew" ? "M" : "F") . '\&\n\b\s\p\;jS' . $app, strtotime($regs[1][$i])) . ' - ' . "\n";
+			print $regs[3][$i];
+			print "</p>\n";
 		}
 	}
+}
+
+function build_news($cvsprojs, $cvscoms, $proj, $limit = 4)
+{
+	global $projects, $PR;
+
+	$types = array(
+		"I" => "integration",
+		"M" => "maintenance",
+		"N" => "nightly",
+		"R" => "release",
+		"S" => "stable"
+	);
+
+	$limit = ($limit >= 0 ? "LIMIT $limit" : "");
+
+	$projectsf = array_flip($cvsprojs);
+	$q = array();
+
+	foreach (array_keys($cvsprojs) as $z)
+	{
+		$q[$z] = "('$cvsprojs[$z]', '')";
+	}
+
+	foreach (array_keys($cvscoms) as $z)
+	{
+		foreach (array_keys($cvscoms[$z]) as $y)
+		{
+			$q[$y] = "('$z', '{$cvscoms[$z][$y]}')";
+		}
+	}
+
+	$tmp = array_keys($q);
+	$proj = (isset($q[$proj]) ? $proj : $tmp[0]);
+	if ($proj && isset($q[$proj]))
+	{
+		$where = $q[$proj];
+	}
+	else
+	{
+		$where = join(",", $q);
+	}
+
+	$result = wmysql_query("SELECT `project`, `vanityname`, `branch`, CONCAT(DATE_FORMAT(`buildtime`, '%b %D '), IF(YEAR(`buildtime`) = YEAR(NOW()), '', YEAR(`buildtime`))), `type`, `buildtime` >= NOW() - INTERVAL 3 WEEK, CONCAT(`type`, DATE_FORMAT(buildtime, '%Y%m%d%H%i')) FROM `releases` WHERE (`project`, `component`) IN($where) ORDER BY `buildtime` DESC $limit");
+	if ($result)
+	{
+		while ($row = mysql_fetch_row($result))
+		{
+			$img = ($row[5] ? "<img src=\"http://www.eclipse.org/home/images/new.gif\" alt=\"New!\"/>" : "");
+			$link = "<a href=\"/$PR/downloads/?showAll=1&amp;project=" . $projectsf[$row[0]] . "&amp;hlbuild=$row[6]#$row[6]\">";
+			print "<p>$img$row[3] - $link" . strtoupper($projectsf[$row[0]]) . " $row[1]</a> ($row[2]) " . $types[$row[4]] . " build available for ${link}download</a></p>";
+		}
+	}
+}
+
+function file_contents($file) //TODO: remove this when we upgrade php to >= 4.3.0 everywhere
+{
+	if (function_exists("file_get_contents"))
+	{
+		return file_get_contents($file);
+	}
+	else
+	{
+		return join("", file($file));
+	}
+}
 	
 function doSelectProject($projectArray, $proj, $nomenclature, $style = "homeitem3col", $showAll = "", $showMax = "", $sortBy = "")
 {

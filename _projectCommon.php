@@ -26,10 +26,18 @@ $projects = array (
 	"XSD" => "xsd"
 );
 
+$cvsprojs = array(
+	"emf" => "org.eclipse.emf",
+	"xsd" => "org.eclipse.xsd"
+);
+
+$cvscoms = array();
+
 $nomenclature = "Component"; //are we dealing with "components" or "projects"?
 
 $regs = null;
 $proj = (isset ($_GET["project"]) && preg_match("/^(" . join("|", $projects) . ")$/", $_GET["project"], $regs) ? $regs[1] : "");
+$PR = "emf";
 
 // this isn't quite the same as EMFT or MDT... yet
 $Nav->addNavSeparator("EMF", "$rooturl/emf.php");

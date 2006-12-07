@@ -1,13 +1,22 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
+require($_SERVER["DOCUMENT_ROOT"] . "/modeling/includes/db.php");
+
 ob_start();
 
 print "<div id=\"midcolumn\">\n";
+
 print "<div class=\"homeitem3col\">\n";
 print "<h3>All News</h3>\n";
 getNews(-1, "all", "vert");
 print "</div>\n";
+
+print "<div class=\"homeitem3col\"><a name=\"build\"></a>\n";
+print "<h3>All Build News</h3>\n";
+build_news($cvsprojs, $cvscoms, $proj, -1);
+print "</div>\n";
+
 print "</div>\n";
 
 $html = ob_get_contents();
