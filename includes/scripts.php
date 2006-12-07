@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.18 2006/12/07 20:24:50 nickb Exp $ 
+	// $Id: scripts.php,v 1.19 2006/12/07 20:35:19 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -257,7 +257,9 @@ function build_news($cvsprojs, $cvscoms, $proj, $limit = 4)
 		$where = join(",", $q);
 	}
 
-	$result = wmysql_query("SELECT `project`, `vanityname`, `branch`, CONCAT(DATE_FORMAT(`buildtime`, '%b %D '), IF(YEAR(`buildtime`) = YEAR(NOW()), '', YEAR(`buildtime`))), `type`, `buildtime` >= NOW() - INTERVAL 3 WEEK, CONCAT(`type`, DATE_FORMAT(buildtime, '%Y%m%d%H%i')) FROM `releases` WHERE (`project`, `component`) IN($where) ORDER BY `buildtime` DESC $limit");
+	$result = null; 
+	
+	//$result = wmysql_query("SELECT `project`, `vanityname`, `branch`, CONCAT(DATE_FORMAT(`buildtime`, '%b %D '), IF(YEAR(`buildtime`) = YEAR(NOW()), '', YEAR(`buildtime`))), `type`, `buildtime` >= NOW() - INTERVAL 3 WEEK, CONCAT(`type`, DATE_FORMAT(buildtime, '%Y%m%d%H%i')) FROM `releases` WHERE (`project`, `component`) IN($where) ORDER BY `buildtime` DESC $limit");
 	if ($result)
 	{
 		while ($row = mysql_fetch_row($result))
