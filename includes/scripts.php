@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.16 2006/11/02 23:14:34 nickb Exp $ 
+	// $Id: scripts.php,v 1.17 2006/12/07 18:06:35 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -192,6 +192,7 @@
 		return array($contents);
 	}
 
+	// TODO: this function should be rewritten per bug 166311
 	function getNews($lim,$key,$style="horiz") {
 		global $CVSpre,$pre,$isWWWserver; 
 		$xml = getFile("news/news.xml"); 
