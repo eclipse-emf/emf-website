@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.20 2006/12/07 20:38:30 nickb Exp $ 
+	// $Id: scripts.php,v 1.21 2006/12/07 21:04:14 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -235,14 +235,14 @@ function build_news($cvsprojs, $cvscoms, $proj, $limit = 4)
 
 	foreach (array_keys($cvsprojs) as $z)
 	{
-		$q[$z] = "('$cvsprojs[$z]', '')";
+		$q[$z] = "(CONVERT('$cvsprojs[$z]' USING utf8), CONVERT('' USING utf8))";
 	}
 
 	foreach (array_keys($cvscoms) as $z)
 	{
 		foreach (array_keys($cvscoms[$z]) as $y)
 		{
-			$q[$y] = "('$z', '{$cvscoms[$z][$y]}')";
+			$q[$y] = "(CONVERT('$z' USING utf8), CONVERT('{$cvscoms[$z][$y]}' USING utf8))";
 		}
 	}
 
@@ -257,9 +257,7 @@ function build_news($cvsprojs, $cvscoms, $proj, $limit = 4)
 		$where = join(",", $q);
 	}
 
-	$result = null; 
-	
-	//$result = wmysql_query("SELECT `project`, `vanityname`, `branch`, CONCAT(DATE_FORMAT(`buildtime`, '%b %D '), IF(YEAR(`buildtime`) = YEAR(NOW()), '', YEAR(`buildtime`))), `type`, `buildtime` >= NOW() - INTERVAL 3 WEEK, CONCAT(`type`, DATE_FORMAT(buildtime, '%Y%m%d%H%i')) FROM `releases` WHERE (`project`, `component`) IN($where) ORDER BY `buildtime` DESC $limit");
+	$result = wmysql_query("SELECT `project`, `vanityname`, `branch`, CONCAT(DATE_FORMAT(`buildtime`, '%b %D '), IF(YEAR(`buildtime`) = YEAR(NOW()), '', YEAR(`buildtime`))), `type`, `buildtime` >= NOW() - INTERVAL 3 WEEK, CONCAT(`type`, DATE_FORMAT(buildtime, '%Y%m%d%H%i')) FROM `releases` WHERE (`project`, `component`) IN($where) ORDER BY `buildtime` DESC $limit");
 	if ($result)
 	{
 		while ($row = mysql_fetch_row($result))
