@@ -70,13 +70,22 @@ include "${pre}includes/nav.php";
 	</div>
 
 	<div class="sideitem">
+		<h6>Plans</h6>
+		<ul>
+			<li><a href="http://wiki.eclipse.org/index.php/Callisto_Coordinated_Maintenance">Callisto 3.2.x Maintenance</a></li>
+			<li><a href="http://wiki.eclipse.org/index.php/Europa_Simultaneous_Release">Europa 3.3 Plan</a></li>
+			<li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html">Eclipse 3.3 Plan</a></li>
+			<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.3.html">EMF 2.3 Plan</a></li>
+		</ul>
+	</div>
+
+	<div class="sideitem">
 		<h6>Related links</h6>
 		<ul>
 			<li><a href="http://www.eclipse.org/modeling">Eclipse Modeling</a></li>
-			<li><a href="http://www.eclipse.org/modeling/mdt/?project=uml2-uml#uml2-uml">UML2</a></li>
+			<li><a href="http://www.eclipse.org/modeling/mdt/">MDT</a>, <a href="http://www.eclipse.org/modeling/mdt/?project=uml2-uml#uml2-uml">UML2</a></li>
 			<li><a href="http://www.eclipse.org/emft">EMF Tech (EMFT)</a></li>
 			<li><a href="http://www.eclipse.org/emf/docs/?doc=docs/UsingUpdateManager/UsingUpdateManager.html">Using Update Manager</a></li>
-			<li><a href="http://www.eclipse.org/eclipse/development/eclipse_project_plan_3_3.html">Eclipse 3.3 Project Plan</a></li>
 		</ul>
 	</div>
 	

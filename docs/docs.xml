@@ -465,9 +465,9 @@ and Animations of the internals of XSD models</a>
 		</li>
 
 		<li>
-			<div>July 31 2006</div>EMF 3.0 Project Plan
+			<div>Dec 12 2006</div>EMF 2.3 Project Plan
 			<ul>
-				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_3.0.html">Overview</a></li>
+				<li><a href="http://www.eclipse.org/emf/docs/dev-plans/emf_project_plan_2.3.html">Overview</a></li>
 			</ul>
 		</li>
 
@@ -502,4 +502,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.54 2006/12/07 20:51:28 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.55 2006/12/12 18:31:14 nickb Exp $ -->

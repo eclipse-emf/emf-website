@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type"
     content="text/html; charset=utf-8" />
 
-    <title>Eclipse EMF and XSD - DRAFT 3.0.0 Plans</title>
+    <title>Eclipse EMF and XSD - DRAFT 2.3.0 Plans</title>
 
     <link rel="stylesheet" href="http://www.eclipse.org/emf/docs/book.css" type="text/css" />
   </head>
@@ -15,16 +15,16 @@
    <div class="Section1">
       <h1>Eclipse Modeling Framework (EMF)
       <br />
-		Draft 3.0.0 Plans</h1> 
+		Draft 2.3.0 Plans</h1> 
 
 		<h3>Including XML Schema Infoset Model (XSD) framework</h3>
 
-      <p>Last revised <tt>$Date: 2006/08/23 21:38:22 $</tt> ( 
+      <p>Last revised <tt>$Date: 2006/12/12 18:31:14 $</tt> ( 
       <img width="12" height="12" src="/emf/images/green-box.gif"
       border="0" />
 
       marks interesting changes over a previous revision of this
-      document) 
+      document). This document previously referred to EMF 3.0.0, but that release has been renumbered to 2.3.0.
 
       </p>
 
@@ -44,7 +44,7 @@
 
       <p>This document lays out the feature and API set for the
       next feature release of the Eclipse Modeling Framework (EMF) project (which includes XSD)
-      after 2.2.0, designated releases 3.0.0.</p>
+      after 2.2.0, designated releases 2.3.0.</p>
 
       <ul type="disc">
         <li>
@@ -184,7 +184,7 @@
       system. The chief dependence is on the Eclipse Platform, and
       on the Java 2 Platform that runs it.</p>
 
-      <p>The EMF and XSD 3.0.0 releases depend on the
+      <p>The EMF and XSD 2.3.0 releases depend on the
       following:</p>
 
       <ul type="disc">
@@ -193,7 +193,7 @@
         <li>Eclipse Platform 3.3.0</li>
       </ul>
 
-      <p>The 3.0.0 releases of EMF and XSD are designed to run
+      <p>The 2.3.0 releases of EMF and XSD are designed to run
       on any configuration supporting the above components.</p>
 
       <p>The Eclipse Platform runs in a variety of operating
@@ -234,27 +234,27 @@
 
       Compatibility with Previous Releases</h2>
 
-      <h3>Compatibility of Release 3.0.0 with 2.2.0</h3>
+      <h3>Compatibility of Release 2.3.0 with 2.2.0</h3>
 
-      <p>EMF and XSD 3.0.0 will be compatible with EMF and XSD 2.2.0, except in those areas noted in the 
+      <p>EMF and XSD 2.3.0 will be compatible with EMF and XSD 2.2.0, except in those areas noted in the 
       <a href="#MigrationGuide">
-        <em>EMF and XSD 3.0.0 Migration Guide.</em>
+        <em>EMF and XSD 2.3.0 Migration Guide.</em>
       </a>.</p>
 
       <p>
       <b>API Contract Compatibility:</b>
 
-      EMF and XSD 3.0.0 will be upwards contract-compatible
+      EMF and XSD 2.3.0 will be upwards contract-compatible
       with EMF and XSD 2.2.0 except in those areas noted in the
       
       <a href="#MigrationGuide">
-        <em>EMF and XSD 3.0.0 Migration Guide.</em>
+        <em>EMF and XSD 2.3.0 Migration Guide.</em>
       </a>
 
       Programs that use affected APIs and extension points will
-      need to be ported to EMF and XSD 3.0.0 APIs. Downward
+      need to be ported to EMF and XSD 2.3.0 APIs. Downward
       contract compatibility is not supported. There is no
-      guarantee that compliance with EMF and XSD 3.0.0 APIs
+      guarantee that compliance with EMF and XSD 2.3.0 APIs
       would ensure compliance with EMF and XSD 1.x APIs. Refer
       to 
       <em>
@@ -269,14 +269,14 @@
       <p>
       <b>Binary (plug-in) Compatibility:</b>
 
-      EMF and XSD 3.0.0 will be upwards binary-compatible with
+      EMF and XSD 2.3.0 will be upwards binary-compatible with
       EMF and XSD 2.2.0 except in those areas noted in the 
       <a href="#MigrationGuide">
-        <em>EMF and XSD 3.0.0 Migration Guide.</em>
+        <em>EMF and XSD 2.3.0 Migration Guide.</em>
       </a>
 
       Downward plug-in compatibility is not supported: plug-ins
-      compiled against EMF and XSD 3.0.0 will likely be
+      compiled against EMF and XSD 2.3.0 will likely be
       unusable with EMF and XSD 1.x. Refer to 
       <em>
         <a
@@ -292,8 +292,8 @@
 
       Source files written to use EMF and XSD 2.2.0 APIs will
       usually compile and run successfully against EMF and XSD
-      3.0.0 APIs, although this cannot be guaranteed. 
-      Because EMF 3.0.0 will exploit new Java language constructs, 
+      2.3.0 APIs, although this cannot be guaranteed. 
+      Because EMF 2.3.0 will exploit new Java language constructs, 
       there is an increased chance of source incompatibilities 
       compared to previous EMF releases.
       In some
@@ -306,11 +306,11 @@
       <p>
       <b>Workspace Compatibility:</b>
 
-      EMF and XSD 3.0.0 will be upwards
+      EMF and XSD 2.3.0 will be upwards
       workspace-compatible with EMF and XSD 2.2.0 unless noted.
       This means that workspaces and projects created by an Eclipse
       with EMF and XSD 2.2.0 installed can be successfully
-      opened by an Eclipse with EMF and XSD 3.0.0 installed.
+      opened by an Eclipse with EMF and XSD 2.3.0 installed.
       This includes both hidden metadata, which is localized to a
       particular workspace, as well as metadata files found within
       a workspace project, which may propagate between workspaces
@@ -343,10 +343,10 @@
       <a name="MigrationGuide">
       </a>
 
-      EMF and XSD 3.0.0 Migration Guide</h3>
+      EMF and XSD 2.3.0 Migration Guide</h3>
 
       <p>At this time, there are no known issues migrating from
-      2.2.0 to 3.0.0. 
+      2.2.0 to 2.3.0. 
       Should this change, this document will be
       revised, or a secondary document will be added documenting
       any known issues.</p>
@@ -371,7 +371,7 @@
 
         <li>
         <b>Release Currency</b>
-        - Modeling projects will maintain release currency concurrent with 3.x releases. For EMF and XSD 3.0.0, this means currency with Eclipse 3.3.0 and Java SE 5.0.</li>
+        - Modeling projects will maintain release currency concurrent with 3.x releases. For EMF and XSD 2.3.0, this means currency with Eclipse 3.3.0 and Java SE 5.0.</li>
 		
 		<li><b>Modeling Project Integration</b> 
 		- Facilitate and participate in integration & re-use of build and release infrastructure and web content across subprojects. Promote development of a community around modeling technologies at Eclipse.
@@ -459,7 +459,7 @@ areas where existing features will be significantly reworked.
 that release. For the most current list of these items, see the
 following links:</p>
 
-<p><b>3.0.0 release:</b></p>
+<p><b>2.3.0 release:</b></p>
 <p><a 
 	href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMF,XSD&bug_status=NEW&bug_status=REOPENED&bug_status=ASSIGNED&target_milestone=3.0&order=bugs.bug_status,bugs.target_milestone,bugs.bug_id&query_format=advanced">All Open</a> 
 	| <a
