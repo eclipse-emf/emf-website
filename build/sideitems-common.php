@@ -13,6 +13,8 @@ if ($isEMFserver) { ?>
 	<ul>
 		<li><a href="http://instawiki.webahead.ibm.com/pilot/wiki/Wiki.jsp?page=<?php print strtoupper($PR); ?>&wiki=Rational_Modeling_Tools_Team">w3 Wiki</a></li>
 		<li><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=<?php print strtoupper($PR); ?>&amp;bug_status=ASSIGNED">Assigned Bugs</a></li>
+		<li><a href="http://www.eclipse.org/modeling/emf/searchcvs.php?q=project%3Aorg.eclipse.emf+branch%3A+HEAD+days%3A+7">Development This Week</a></li>
+		<li><a href="http://www.eclipse.org/modeling/emf/searchcvs.php?q=project%3Aorg.eclipse.emf+branch%3A+R+days%3A+7">Maintenance This Week</a></li>
 		<li><a href="http://emf.torolab.ibm.com/<?php print $PR; ?>/downloads/downloads.php">Download Stats</a></li>
 	</ul>
 </div>
