@@ -12,7 +12,7 @@ print "<h3>All News</h3>\n";
 getNews(-1, "all", "vert");
 print "</div>\n";
 
-print "<div class=\"homeitem3col\"><a name=\"build\"></a>\n";
+print "<a name=\"build\"></a><div class=\"homeitem3col\">\n";
 print "<h3>All Build News</h3>\n";
 build_news($cvsprojs, $cvscoms, $proj, -1);
 print "</div>\n";
