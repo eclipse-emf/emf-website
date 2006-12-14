@@ -6,7 +6,7 @@
 		<li><a href="#overviews">EMF Overview Papers</a></li>
 		<li><a href="#tutorials">EMF Tutorials</a></li>
 		<li><a href="#references">Books, Guides, and References</a></li>
-		<li><a href="#whatsnew">What's New In ___?</a></li>
+		<li><a href="#whatsnew">What's New In ...?</a></li>
 		<li><a href="#dWdocuments">developerWorks</a></li>
 		<li><a href="#presentations">Presentations &amp; Workshops</a></li>
 	</ul>
@@ -146,7 +146,7 @@
 
 <div class="homeitem3col">
 	<a name="whatsnew"></a>
-	<h3>What's New In ___?</h3>
+	<h3>What's New In ...?</h3>
 
 	<ul>
 		<li>
@@ -502,4 +502,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.55 2006/12/12 18:31:14 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.56 2006/12/14 15:52:10 marcelop Exp $ -->
