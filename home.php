@@ -40,7 +40,7 @@ include "${pre}includes/nav.php";
 <div id="rightcolumn">
 	<div class="sideitem">
 	<h6>News</h6>
-		<?php getNews(4, "whatsnew", "vert"); ?>
+		<?php getNews(4, "whatsnew"); ?>
 		<ul>
 			<li><a href="/emf/news-whatsnew.php">Older news</a></li>
 		</ul>
