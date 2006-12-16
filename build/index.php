@@ -142,7 +142,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</td>
 				<td>&#160;</td>
 				<td><input size="20" name="build_debug_basebuilder_branch" value="<?php echo isset($options["BaseBuilderBranch"]) ? $options["BaseBuilderBranch"][0] : ""; ?>"></td>
-				<td><small> Enter Tag/Branch/Version, eg., HEAD, M2_33, R3_2_maintenance, r321_v20060830 :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
+				<td><small> Enter Tag/Branch/Version, eg., HEAD, R3_2_maintenance, M3_33, r322_v20061115a :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
 
