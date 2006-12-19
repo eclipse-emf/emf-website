@@ -170,7 +170,8 @@ $PR = "emf"; ?>
 					</tr>
 
 					<tr>
-						<td>Xlint (warnings) - use "-" options to suppress instead of enabling:</td>
+						<td>Xlint (warnings) - use "-" options to<br/>
+							suppress instead of enabling:</td>
 						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint">
 						<option value="">Choose...</option>
 						<option value="all">all</option>
@@ -982,4 +983,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.11 2006/12/19 18:00:58 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.12 2006/12/19 18:03:56 nickb Exp $ -->
