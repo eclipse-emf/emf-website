@@ -170,14 +170,17 @@ $PR = "emf"; ?>
 					</tr>
 
 					<tr>
-						<td>Xlint (warnings):</td>
+						<td>Xlint (warnings) - use "-" options to suppress instead of enabling:</td>
 						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint">
 						<option value="">Choose...</option>
 						<option value="all">all</option>
-						<option selected value="unchecked">unchecked (default)</option>
+						<option value="unchecked">unchecked</option>
 						<option value="deprecation">deprecation</option>
 						<option value="unchecked,deprecation">unchecked,deprecation</option>
-						</select></small></td>
+						<option value="">none</option>
+						<option selected value="-unchecked">-unchecked (default)</option>
+						<option value="-deprecation">-deprecation</option>
+						<option value="-unchecked,-deprecation">-unchecked,-deprecation</option>						</select></small></td>
 					</tr>
 				</table>
 								
@@ -979,4 +982,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.10 2006/11/16 21:43:07 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.11 2006/12/19 18:00:58 nickb Exp $ -->
