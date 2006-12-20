@@ -556,7 +556,7 @@ setTimeout('doOnLoadDefaults()',500);
 		// create the log dir before trying to log to it
 		$preCmd = 'mkdir -p ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID . '/eclipse ;';
 
-		$cmd = 'bash -c "exec nohup setsid ' . $workDir . '/scripts/start.sh -proj ' . $PR .
+		$cmd = '/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid ' . $workDir . '/scripts/start.sh -proj ' . $PR .
 		' -branch ' . (isset ($_POST["build_debug_CVS_Branch"]) && $_POST["build_debug_CVS_Branch"] != "" ? $_POST["build_debug_CVS_Branch"] : (isset ($_POST["build_CVS_Branch"]) ? $_POST["build_CVS_Branch"] : "")) .
 		$dependencyURLs .
 		 ((isset ($_POST["build_Run_Tests_JUnit"]) && $_POST["build_Run_Tests_JUnit"] == "Y") || (isset ($_POST["build_Run_Tests_JUnit" . $BR_suffix]) && $_POST["build_Run_Tests_JUnit" . $BR_suffix] == "Y") ? ' -antTarget run' : ' -antTarget runWithoutTest') .

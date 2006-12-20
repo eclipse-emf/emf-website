@@ -401,7 +401,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				$cmd = ('bash -c "exec nohup setsid '.$PWD.'/scripts/start.sh'.
+				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid '.$PWD.'/scripts/start.sh'.
 					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
 					' -testDir '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
@@ -440,7 +440,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				$cmd = ('bash -c "exec nohup setsid /home/www-data/emf-build/scripts/runJDK13Tests.sh'.
+				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runJDK13Tests.sh'.
 					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
@@ -485,7 +485,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				$cmd = ('bash -c "exec nohup setsid /home/www-data/emf-build/scripts/runJDK14Tests.sh'.
+				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runJDK14Tests.sh'.
 					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
@@ -524,7 +524,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				// create the log dir before trying to log to it
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				$cmd = ('bash -c "exec nohup setsid /home/www-data/emf-build/scripts/runJDK50Tests.sh'.
+				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runJDK50Tests.sh'.
 					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
@@ -576,7 +576,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 					}
 				}
 
-				$cmd = ('bash -c "exec nohup setsid /home/www-data/emf-build/scripts/runPerfTests.sh'.
+				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runPerfTests.sh'.
 					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
@@ -967,4 +967,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.13 2006/12/20 19:11:28 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.14 2006/12/20 20:06:21 nickb Exp $ -->

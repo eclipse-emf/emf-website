@@ -246,7 +246,7 @@ function loadSelects() {
 		// create the log dir before trying to log to it
 		$preCmd = 'mkdir -p ' . $logdir . ';';
 
-		$cmd = ('bash -c "exec nohup setsid ssh ' . $users[$PR][0] .
+		$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid ssh ' . $users[$PR][0] .
 		' \"cd ' .
 			$workDir . '/../emf/scripts; ./promoteToEclipse.sh' . // one script, not two.
 		' -sub ' . $PR .
