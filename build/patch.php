@@ -34,7 +34,6 @@ $PR = "emf"; ?>
 	/** customization options here **/
 	$testsOptionsFile = $pre."build.options.txt"; // read only
 
-	$testsRequestsFileTXT = $PWD."/requests/build.requests.txt";	// set filename to "" to disable tabbed TXT file
 	$dependenciesURLsFile = $workDir."/../emf/requests/dependencies.urls.txt"; // read-write, one shared file
 
 	/** done customizing, shouldn't have to change anything below here **/
@@ -367,10 +366,6 @@ function toggleDetails()
 		$logfile = $PWD.'/'.$logfile;
 
 		print "<ul>\n";
-		if ($testsRequestsFileTXT) {
-			$txtH = "ID\tDate\tTime";
-			$txt = $testTimestamp."\t".date("Y/m/d\tH:i");
-		}
 		$i=2;
 		foreach ($_POST as $k => $v) {
 			if (strstr($k,"tests_") && trim($v)!="" && !strstr($k,"_Sel") ) { 
@@ -381,15 +376,12 @@ function toggleDetails()
 					"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" : 
 					"<div>".$val."</div>" . "<b>".$lab.":</b>");
 				print "</li>\n";
-				if ($testsRequestsFileTXT) { $txtH.= ($i>0?"\t":"") . $lab; $txt .= ($i>0?"\t":"") . (is_array($val)? join(",",$val):$val); }
 				$i++;
 			}
 		} 
 
 		print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b></li>\n"; 
-		print "</ul>\n";
-		if ($testsRequestsFileTXT) { $txtH.="\tUser IP\n"; $txt .="\t".$_SERVER["REMOTE_ADDR"]."\n"; }
-		
+		print "</ul>\n";		
 		print "</ul>\n";
 
 	?>
@@ -400,14 +392,6 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 <a href="/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>.
 
 <?php
-			// then dump this data to a tabbed-text file for tracking/reporting
-			if ($testsRequestsFileTXT) {
-				if (!file_exists($testsRequestsFileTXT) || filesize($testsRequestsFileTXT)<5) { $txt = $txtH.$txt;	} // new file? do header
-				$f = fopen($testsRequestsFileTXT,"a");
-				fputs($f,$txt);
-				fclose($f);
-			}
-
 			/*** OLD TESTS ***/
 			if ($_POST["tests_Run_Tests_Old"]=="Y") {
 
@@ -983,4 +967,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.12 2006/12/19 18:03:56 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.13 2006/12/20 19:11:28 nickb Exp $ -->

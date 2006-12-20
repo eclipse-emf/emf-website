@@ -541,8 +541,6 @@ setTimeout('doOnLoadDefaults()',500);
 		print "</ul>\n";
 		print "</ul>\n";
 
-		// push this file to cvs - can't be done automatically cuz of file perms. (www-data doesn't have access to CVS) - isntead, add instructions on email & output page
-
 		$branches = getBranches($options);
 		//foreach ($branches as $k => $b) { print "$k => $b<br>"; }
 

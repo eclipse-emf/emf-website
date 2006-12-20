@@ -57,13 +57,6 @@ $hadLoadDirSimpleError=1;
 	$branches = getBranches($options);
 	//if ($debug>0) { w("BRANCHES:",1); wArr($branches,"<br>",true,""); w("<hr noshade size=1 />"); }
 
-	$buildRequestsFileTXT = $workDir."/../emf/requests/build.requests.txt";	// set filename to "" to disable tabbed TXT file
-	$buildDetails = file($buildRequestsFileTXT);
-	if (!$buildDetails) { 
-		//echo "Error! <b>$buildRequestsFileTXT</b> not found!"; exit;
-		$buildDetails = array();
-	}
-
 	$sortBy  = array_key_exists("sortBy",$_GET)  ? $_GET["sortBy"]  : "";
 	$showAll = array_key_exists("showAll",$_GET) ? $_GET["showAll"] : "";
 	$showAllResults = array_key_exists("showAllResults",$_GET) ? $_GET["showAllResults"] : "";
@@ -270,7 +263,6 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		// sort the $builds into a 3D array
 
 		global $PWD, $showBuildsIfDirNotExist, $sortBy, $debug;
-		//wArr($buildDetails);
 
 		$builds_temp = array();
 
@@ -282,7 +274,6 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			//w("BUILD DIRS [$branch]:",1); wArr($buildDirs[$branch],"<br>",true,""); w("<hr noshade size=1 />");			
 		}
 
-		$buildDetails ="";
 		if ($buildDirs && is_array($buildDirs)) {
 			foreach ($buildDirs as $br => $dirList) { 
 				foreach ($dirList as $i => $dir) { 
@@ -310,66 +301,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		//wArr($builds_temp); 
 
 		return $builds_temp;
-	}
-	
-	function getBuildsFromDetails($buildDetails,$branches) {
-		// sort the $builds into a 3D array
-
-		global $PWD, $showBuildsIfDirNotExist,$sortBy;
-		//wArr($buildDetails);
-
-
-		$builds_temp = array();
-
-		if ($buildDetails && is_array($buildDetails)) {
-
-			// ID	Date	Time	Branch	Build Type	Eclipse URL	Run Tests	Build ID	Email	User IP
-			// 0	1		2		3			4				5				6				7			7			8
-			foreach ($buildDetails as $i => $rows) { 
-				if ($i>0) {
-					$row = explode("\t",$rows);
-					if ($showBuildsIfDirNotExist || 
-						file_exists($PWD."/".$row[0])) {
-
-						if ($sortBy!="date") { 
-							$row[3] = $branches[$row[3]]; // alias "HEAD" to "2.0" 
-							if (!$builds_temp[$row[3]]) {				$builds_temp[$row[3]] = array();				}//b[3.0]
-							if (!$builds_temp[$row[3]][$row[4]]) { $builds_temp[$row[3]][$row[4]] = array(); }//b[3.0][N]
-							$builds_temp[$row[3]][$row[4]][] = $row[0];
-						} else {
-							if (!is_array($builds_temp[$row[1].$row[2].$row[0]][$row[3].$row[4]]) 
-								|| (is_array($builds_temp[$row[1].$row[2].$row[0]][$row[3].$row[4]]) && !in_array($row[0],$builds_temp[$row[1].$row[2].$row[0]][$row[3].$row[4]])
-								) ) {
-								$builds_temp[$row[1].$row[2].$row[0]][$row[3]." ".$row[4]][] = $row[0];
-							}
-						}
-					} else {
-						//w("NOT FOUND: ".$PWD."../"."../../tools/emf/"."downloads/drops/".$row[0],1);
-					}
-				}
-			}
-		}
-
-		//wArr($builds_temp); 
-
-		return $builds_temp;
-	}
-
-/*	function getPlatform($ID,$buildDetails) {
-		foreach ($buildDetails as $i => $rows) { 
-			if ($i>0) {
-				$row = explode("\t",$rows);
-				if ($row[0]==$ID) { 
-					$url = $row[5];
-					if (stristr($url,"linux-motif")) {			return "<small><a href=\"$url\" target=\"_new\">L-Mtf</a></small>"; 
-					} else if (stristr($url,"linux-gtk")) {	return "<small><a href=\"$url\" target=\"_new\">L-Gtk</a></small>"; 
-					} else if (stristr($url,"win32")) {			return "<small><a href=\"$url\" target=\"_new\">Win32</a></small>"; 
-					}
-				}
-			}
-		}
-		return "";
-	} */
+	}	
 
 	function getAllOldTestResults($testsPWD,$path) { // given a build ID, determine any test results for BVT, FVT, SVT
 		global $pre;
