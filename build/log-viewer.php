@@ -1,74 +1,36 @@
 <?php 
-$pre = "../"; 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
+
 internalUseOnly(); 
 
-$build = $_GET["build"]; 
-$test = $_GET["test"]; 
-$jdk13test = $_GET["jdk13test"]; 
-$jdk14test = $_GET["jdk14test"]; 
-$jdk50test = $_GET["jdk50test"]; 
+ob_start();
 
-if (!$build && !$test && !$jdk13test && !$jdk14test && !$jdk50test) { 
-	exit;
-}
+/* from $_GET */
+$params = array(
+	"build" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/$#",
+	"test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
+	"jdk13test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
+	"jdk14test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
+	"jdk15test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#"
+);
 
-$head = $_GET["head"]; 
-$tail = $_GET["tail"]; 
+/* check these files, %s replaced with param from above */
+$files = array(
+	"build" => array("/var/www/tools/emf/downloads/drops/%sbuildlog.txt"),
+	"test" => array(
+		"/var/www/tools/emf/tests/%s",
+		"/var/www/tools/emf/tests/%stestlog.txt"
+	),
+	"jdk13test" => array("/var/www/tools/emf/jdk13tests/%stestlog.txt"),
+	"jdk14test" => array("/var/www/tools/emf/jdk14tests/%stestlog.txt"),
+	"jdk15test" => array("/var/www/tools/emf/jdk15tests/%stestlog.txt")
+);
 
-if ($build && false===strpos($build,"..")) { 
-	$logfile = "/var/www/tools/emf/downloads/drops/".$build."buildlog.txt";
-	if (is_file($logfile) && is_readable($logfile)) {
-		$log = getFileHeadTail($logfile);
-	} else {
-		print $build."buildlog.txt not found.";
-		exit;
-	}
-} else if ($test && false===strpos($test,"..")) { 
-	if (is_file("/var/www/tools/emf/tests/".$test)) { 
-		$logfile = "/var/www/tools/emf/tests/".$test;
-	} else {
-		$logfile = "/var/www/tools/emf/tests/".$test."testlog.txt";
-	}
-	if (is_file($logfile) && is_readable($logfile)) {
-		$log = getFileHeadTail($logfile);
-	} else {
-		print $test."testlog.txt not found.";
-		exit;
-	}
-} else if ($jdk13test && false===strpos($jdk13test,"..")) { 
-	$logfile = "/var/www/tools/emf/jdk13tests/".$jdk13test."testlog.txt";
-	if (is_file($logfile) && is_readable($logfile)) {
-		$log = getFileHeadTail($logfile);
-	} else {
-		print $jdk13test."testlog.txt not found.";
-		exit;
-	}
-} else if ($jdk14test && false===strpos($jdk14test,"..")) { 
-	$logfile = "/var/www/tools/emf/jdk14tests/".$jdk14test."testlog.txt";
-	if (is_file($logfile) && is_readable($logfile)) {
-		$log = getFileHeadTail($logfile);
-	} else {
-		print $jdk14test."testlog.txt not found.";
-		exit;
-	}
-} else if ($jdk50test && false===strpos($jdk50test,"..")) { 
-	$logfile = "/var/www/tools/emf/jdk50tests/".$jdk50test."testlog.txt";
-	if (is_file($logfile) && is_readable($logfile)) {
-		$log = getFileHeadTail($logfile);
-	} else {
-		print $jdk50test."testlog.txt not found.";
-		exit;
-	}
-}
-
+/* replace these values with key */
 $reps = array(
 	"o.e.emf" => "org.eclipse.emf",
 	"o.e.e.r.build" => "org.eclipse.emf.releng.build",
-	"o.e.r" => "org.eclipse.releng"
-);
-
-$reps2 = array(
+	"o.e.r" => "org.eclipse.releng",
 	"dd" => "/home/www-data/emf-build/tools/emf/downloads/drops",
 	"tests" => "/home/www-data/tests/tools/emf/tests",
 	"jdk13tests" => "/home/www-data/jdk13tests",
@@ -76,94 +38,102 @@ $reps2 = array(
 	"jdk50tests" => "/home/www-data/jdk50tests"
 );
 
-$viewAs = "<tt style=\"font-size:11px\">".
-	"<a href=\"$PHP_SELF"."?".getQS()."&head=30\">head -30</a> | ".
-	"<a href=\"$PHP_SELF"."?".getQS()."&tail=30\">tail -30</a> | ".
-	"<a href=\"/tools/emf/".
-	($jdk50test?"jdk50tests/".$jdk50test."test":
-		($jdk14test?"jdk14tests/".$jdk14test."test":
-			($jdk13test?"jdk13tests/".$jdk13test."test":
-				($test?"tests/".$test."test":
-					"downloads/drops/".$build."build"
-				)
-			)
-		)
-	).
-	"log.txt\">view unformatted</a>".
-	"</tt><br/><br/>\n";
-print $viewAs;
-print "\n";
+/* apply span class="key" */
+$hl = array(
+	"error" => "/(fail(?:ure)?|error|warning|could not|No such|cannot|usage:)/iS", //S for study (huge speed boost here)
+	"fail" => "/(BUILD FAILED)/",
+	"success" => "/(BUILD SUCCESSFUL)/"
+);
 
-$j=0;
-if ($log && is_array($log))
+/* remove these lines */
+$filter = array(
+	"/^\[CVS .+\] U.+$/" => "",
+	"/^s+\n$/" => ""
+);
+
+foreach (array_keys($params) as $z)
 {
-	foreach ($log as $i => $line) { 
-		foreach ($reps as $rep => $fnd) { 
-			if (false!==strpos($line,$fnd)){
-				$line = preg_replace("!".$fnd."!","<i>{<a href=\"#[".$fnd."]#\">$rep</a>}</i>",$line);
+	if (isset($_GET[$z]) && preg_match($params[$z], $_GET[$z]))
+	{
+		foreach ($files[$z] as $y)
+		{
+			$f = sprintf($y, $_GET[$z]);
+			$args[] = "$z=" . $_GET[$z];
+			if (!is_file($f) || !is_readable($f))
+			{
+				print "<b>Error:</b> $f is not a file or is not readable.";
+				exit;
 			}
 		}
-	
-		foreach ($reps2 as $rep => $fnd) { 
-			if (false!==strpos($line,$fnd)){
-				$line = preg_replace("!".$fnd."!"," \ \n\t<i>{<a href=\"#[".$fnd."]#\">$rep</a>}</i>",$line);
-			}
-		}
-	
-		if (
-				false!==strpos($line,"Fail") || false!==strpos($line,"fail") || false!==strpos($line,"FAIL") ||
-				false!==strpos($line,"Warning") || false!==strpos($line,"warning") || 
-				false!==strpos($line,"Error") || false!==strpos($line,"error") || 
-				false!==strpos($line,"could not") || false!==strpos($line,"No such") ||
-				false!==strpos($line,"cannot") || false!==strpos($line,"usage:")
-			) { 
-			$line = preg_replace("/(FAILURE|Failure|failure|fail|Fail|Error|error|Warning|warning|could not|No such|cannot|usage:)/","<b style=\"color:orange;background-color:black\">".strtoupper("$1")."</b>",$line);
-		}
-	
-		if (false!==strpos($line,"BUILD FAILED")) { 
-			$line = preg_replace("/(BUILD FAILED)/","<b style=\"color:red\">$1</b>",$line);
-		}
-	
-		if (false!==strpos($line,"BUILD SUCCESSFUL")) { 
-			$line = preg_replace("/(BUILD SUCCESSFUL)/","<b style=\"color:GREEN\">$1</b>",$line);
-		}
-	
-		if (false!==strpos($line,"[cvs] U")) { 
-		//} else if (false!==strpos($line,"getFromCVS:")) { 
-		} else if (trim($line)=="") {
-		} else {
-			$j++;
-			print "<table width=\"100%\"><tr bgcolor=\"#".($j%2==0?"EEEEEE":"FFFFFF")."\" valign=\"top\"><td><a name=\"line".str_pad($j,4,"0",STR_PAD_LEFT)."\"><tt style=\"font-size:12px\">[<i style=\"color:purple\">".str_pad($j,4,"0",STR_PAD_LEFT)."</i>]</tt></a></td><td width=\"100%\"><pre style=\"font-size:12px\">".wordwrap($line,90,"\n")."</pre></td></tr></table>\n";
-		}
-	}	
-}
-print "\n";
-print $viewAs;
-
-/**************************************************/
-
-function getFileHeadTail($file) { 
-	$log=null;
-	global $head,$tail;
-	if ($head) { 
-		exec("head -".$head." $file",$log); return $log;
-	} else if ($tail) { 
-		exec("tail -".$tail." $file",$log); return $log;
-	} else {
-		return file($file);
 	}
 }
 
-function getQS() {
-	global $_GET;
-	$string = "";
-	foreach ($_GET as $k => $v) { 
-		if ($k != "head" && $k != "tail") { 
-			if ($string) { $string .= "&"; }
-			$string .= $k."=".$v;
-		}
+if (isset($f))
+{
+	if (isset($_GET["head"]) && is_numeric($_GET["head"]))
+	{
+		exec("head -n" . $_GET["head"] . " $f", $log);
 	}
-	return $string;
+	else if (isset($_GET["tail"]) && is_numeric($_GET["tail"]))
+	{
+		exec("tail -n" . $_GET["tail"] . " $f", $log);
+	}
+	else
+	{
+		exec("tail -n30 $f", $log);
+	}
+}
+else
+{
+	exit;
 }
 
+print "<div id=\"midcolumn\">\n";
+
+options($args, $f);
+
+/* batching all of these into one preg_replace is worth a very large (nearly an order of magnitude) speed boost */
+$matches = preg_replace("/^(.+)$/", "!($1)!", array_values($reps));
+$replacements = preg_replace("/^(.+)$/", "<abbr title=\"\\\$1\">$1</abbr>", array_keys($reps));
+
+$matches = array_merge($matches, $hl);
+$replacements = array_merge($replacements, preg_replace("/^(.+)$/", "<span class=\"$1\">\\\$1</span>", array_keys($hl)));
+
+$matches = array_merge($matches, array_keys($filter));
+$replacements = array_merge($replacements, $filter);
+
+$log = preg_replace($matches, $replacements, $log);
+
+$i = 0;
+foreach ($log as $z)
+{
+	$i++;
+	if ($z)
+	{
+		print "<pre><a name=\"l$i\" href=\"#l$i\">$i</a>" . wordwrap($z) . "</pre>\n";
+	}
+}
+
+options($args, $f);
+
+print "</div>\n";
+
+$html = ob_get_contents();
+ob_end_clean();
+
+$pageTitle = "Eclipse Modeling - Log Viewer";
+$pageKeywords = ""; // TODO: add something here
+$pageAuthor = "Neil Skrypuch";
+
+$App->AddExtraHtmlHeader("<link rel=\"stylesheet\" type=\"text/css\" href=\"/modeling/includes/log-viewer.css\"/>\n");
+$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+
+function options($args, $f)
+{
+	print "<div class=\"options\">\n";
+	print "<a href=\"?" . join("&amp;", $args) . "&amp;head=30\">head -n30</a>";
+	print "<a href=\"?" . join("&amp;", $args) . "&amp;tail=30\">tail -n30</a>";
+	print "<a href=\"" . preg_replace("#^/var/www#", "", $f) . "\">view unformatted</a>";
+	print "</div>\n";
+}
 ?>

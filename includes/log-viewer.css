@@ -1,0 +1,75 @@
+#midcolumn pre
+{
+	padding: 0;
+	margin: 0;
+}
+
+#midcolumn pre:hover
+{
+	background-color: #DDF6FF;
+}
+
+#midcolumn pre span.error
+{
+	background-color: black;
+	color: orange;
+}
+
+#midcolumn pre span.fail
+{
+	color: red
+	font-weight: bold;
+}
+
+#midcolumn pre span.success
+{
+	color: green;
+	font-weight: bold;
+}
+
+#midcolumn pre a[name]
+{
+	float: left;
+	width: 5em;
+	text-align: right;
+	margin-right: 1em;
+}
+
+#midcolumn pre a[name]:before
+{
+	content: "[";
+}
+
+#midcolumn pre a[name]:after
+{
+	content: "]";
+}
+
+#midcolumn abbr
+{
+	border-bottom: 1px dotted gray;
+	/* removes konqueror's custom abbr style */
+	font: inherit;
+	letter-spacing: inherit;
+}
+
+#midcolumn abbr:before
+{
+	content: "{";
+}
+
+#midcolumn abbr:after
+{
+	content: "}";
+}
+
+#midcolumn div.options
+{
+	text-align: center;
+	margin: 1em;
+}
+
+#midcolumn div.options a
+{
+	margin: 1em;
+}
