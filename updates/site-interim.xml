@@ -1490,6 +1490,61 @@
 		<category name="EMF SDK 2.2.2 M200612211127"/>
 	</feature>
 
+
+	<feature url="features/org.eclipse.emf.doc_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.doc" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf.ecore.sdo.doc_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.ecore.sdo.doc" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf.ecore.sdo.source_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.ecore.sdo.source" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf.ecore.sdo_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.ecore.sdo" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf.sdk_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.sdk" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf.source_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.source" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.xsd.doc_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.xsd.doc" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.xsd.source_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.xsd.source" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.xsd_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.xsd" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
+
+	<feature url="features/org.eclipse.emf.examples_2.3.0.v200612211251.jar" patch="false" id="org.eclipse.emf.examples" version="2.3.0.v200612211251">
+		<category name="EMF SDK 2.3.0M4 S200612211251"/>
+	</feature>
+
 <category-def label="EMF SDK 2.2.1 M200607130000 (EMF + SDO + XSD)" name="EMF SDK 2.2.1 M200607130000">
 		<description>
 This category contains the various features of the 2.2.1 M200607130000 build of EMF SDK, which includes EMF, SDO, and XSD source, plugins, and documentation.
@@ -1649,6 +1704,12 @@ This category contains the various features of the 2.3.0 I200612141025 build of 
 	<category-def label="EMF SDK 2.2.2 M200612211127 (EMF + SDO + XSD)" name="EMF SDK 2.2.2 M200612211127">
 		<description>
 This category contains the various features of the 2.2.2 M200612211127 build of EMF SDK, which includes EMF, SDO, and XSD source, plugins, and documentation.
+		</description>
+	</category-def>
+
+	<category-def label="EMF SDK 2.3.0M4 S200612211251 (EMF + SDO + XSD)" name="EMF SDK 2.3.0M4 S200612211251">
+		<description>
+This category contains the various features of the 2.3.0M4 S200612211251 build of EMF SDK, which includes EMF, SDO, and XSD source, plugins, and documentation.
 		</description>
 	</category-def>
 </site>
