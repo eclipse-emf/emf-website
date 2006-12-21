@@ -310,7 +310,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		// $testsPWD is path to root of tests; $path defines 2.0/I200405141234/ ... also need to then check subdirs
 
 		$ret = "";
-		$tests = array ("build", "junit", "standalone");
+		$tests = ($VER== "50" ? array("build", "junit") : array("build", "junit", "standalone"));
 		$testDirs = array();
 		if (is_dir($testsPWD.$path) && is_readable($testsPWD.$path)) { 
 			$testDirs = loadDirSimple($testsPWD.$path,"\d{12}","d"); // get dirs
@@ -336,7 +336,8 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 				if ($cnt===0 || 
 					(false===strpos($cnt,"F") && false===strpos($cnt,"E") && false===strpos($cnt,"P"))
 					) { // nothing, or no E or F or P or W
-					$cnt = getJDKTestResultsFailureCount($f,$t);
+					$didRunBuildTest = true;
+					$cnt = getJDKTestResultsFailureCount($f,$t, &$didRunBuildTest);
 					if ($cnt==="...") { 
 						$ret .= "<td bgcolor=\"#FFFFFF\">&#160;<a style=\"text-decoration:none\" href=\"".($pre.$mid.$path.$testDir."/testlog.txt")."\"><span class=\"inprogress\"><abbr title=\"$t\">.&#160;.&#160;.</abbr></a>&#160;</td>"."\n";
 					} else if ($cnt==="") { 
@@ -345,7 +346,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 						$ret .= "<td bgcolor=\"#FFFFFF\" align=center>&#160;<a class=\"errors\" href=\"".
 							$pre.$mid.$path.
 							$testDir.
-							"/testlog.txt\"><abbr title=\"$t\"><img src=\"http://www.eclipse.org/emf/images/check.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"Passed!\"></abbr></a>&#160;</td>"."\n";
+							"/testlog.txt\"><abbr title=\"$t\"><img src=\"http://www.eclipse.org/emf/images/check".($didRunBuildTest?"":"-maybe").".gif\" border=\"0\" alt=\"".($didRunBuildTest?"Passed!":"Skipped")."\"></abbr></a>&#160;</td>"."\n";
 					} else if (false!==strpos($cnt,"FAILED")) {
 						$ret .= "<td bgcolor=\"#FFFFFF\" align=center>&#160;<a class=\"errors\" href=\"".
 							$pre.$mid.$path.
@@ -389,15 +390,19 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		return "";
 	}
 
-	function getJDKTestResultsFailureCount($f,$type="") {
+	function getJDKTestResultsFailureCount($f,$type="",&$didRunBuildTest) {
 		$fails=0;
 		$errors=0;
 		$notes=0;
 		$warns=0;
+		$deprecates=0;
 		$isBuild=true;
 		$isDone=false;
 		if ($f && sizeof($f)>0) {
 			foreach ($f as $line) { 
+				if (false!==strpos($line,"runJUnitTestsOnly:")) { // won't be doing the first half
+					$didRunBuildTest=false;
+				}
 				// check first half of the log for build problems; second half for test problems. 
 				// split on line with "runJUnitTests:"
 				if (false!==strpos($line,"runJUnitTests:")) { // second half
@@ -411,13 +416,13 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 						} else if ($m[2]=="error") { 
 							$errors+=$m[1];
 						}
+					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"deprecate")) { 
+						$deprecates+=1;
 					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"warning")) { 
 						$m=null;preg_match("/\[javac\] (\d+) (warning).+/",$line,$m);
 						if ($m[2]=="warning") { 
 							$warns+=$m[1];
 						}
-					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"deprecate")) { 
-						$notes+=1;
 					} else if (false!==strpos($line,"BUILD FAILED")) {
 						$fails="FAILED";
 						$isDone=true;
@@ -425,9 +430,11 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 					}
 				} else if (!$isBuild && $type!="build") { 
 					if (false!==strpos($line,"[java] There was ") || false!==strpos($line,"[java] There were ")) { 
-						$m=null;preg_match("/(was|were) (\d+) (fail|error).+/",$line,$m);
+						$m=null;preg_match("/(was|were) (\d+) (fail|error|warning).+/",$line,$m);
 						if ($m[3]=="fail") { 
 							$fails+=$m[2];
+						} else if ($m[3]=="warning") { 
+							$warns+=$m[2];
 						} else if ($m[3]=="error") { 
 							$errors+=$m[2];
 						}
@@ -446,7 +453,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 				return "...";
 			}
 			//w("<b>$fails F, $errors E</b>",1);
-			if ($fails===0 && $errors===0 && $notes===0 && $warns===0) { 
+			if ($fails===0 && $errors===0 && $notes===0 && $warns===0 && $deprecates===0) { 
 				return 0;
 			} else {
 				$ret="";
@@ -464,6 +471,10 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 				if ($warns>0) { 
 					if ($ret) { $ret.=",&#160;"; }
 					$ret.= $warns."&#160;W";
+				}
+				if ($deprecates>0) { 
+					if ($ret) { $ret.=",&#160;"; }
+					$ret.= $deprecates."&#160;D";
 				}
 				if (!$ret && $fails==="FAILED") { 
 					$ret = "FAILED";

@@ -362,7 +362,11 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 		$testlog = ($isEMFserver ? "/$PR/build/log-viewer.php?${type}test=$path$testDirs[0]/" : "$pre$mid$path$testDirs[0]/testlog.txt");
 		if ($cnt === 0 || preg_match("/^[^EFP]+$/", $cnt)) // nothing, or no E or F or P
 		{
+			/*
 			$cnt = ($type == "jdk50" ? getJDK50TestResultsFailureCount($f, $t) : getJDK14TestResultsFailureCount($f, $t));
+			*/
+			$didRunBuildTest = true;
+			$cnt = getJDKTestResultsFailureCount($f,$t, &$didRunBuildTest);
 			if ($cnt === "...") //not done (yet)
 			{
 				$stat = "<a href=\"$testlog\">...</a>";
@@ -371,13 +375,13 @@ function getJDKTestResults($testsPWD, $path, $type, &$status) //type is "jdk50" 
 			{
 				$stat = "empty log";
 			}
+			else if ($cnt === 0) //all passed, 0 F, E, and N
+			{
+				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/check".($didRunBuildTest?"":"-maybe").".gif\" alt=\"".($didRunBuildTest?"Passed!":"Skipped")."\"/></a>";
+			}
 			else if (preg_match("/FAILED/", $cnt)) //build failed
 			{
 				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/not.gif\" alt=\"BUILD FAILED!\"/></a>";
-			}
-			else if ($cnt === 0) //all passed, 0 F, E, and N
-			{
-				$stat = "<a href=\"$testlog\"><img src=\"http://www.eclipse.org/$PR/images/check.gif\" alt=\"Passed!\"/></a>";
 			}
 			else //something else
 			{
@@ -475,6 +479,105 @@ function getOldTestResults($testsPWD, $path, &$status) // given a build ID, dete
 	return "<li>$tmp<ul>$ret</ul></li>";
 }
 
+	function getJDKTestResultsFailureCount($f,$type="",&$didRunBuildTest) {
+		$fails=0;
+		$errors=0;
+		$notes=0;
+		$warns=0;
+		$deprecates=0;
+		$isBuild=true;
+		$isDone=false;
+		if ($f && sizeof($f)>0) {
+			foreach ($f as $line) { 
+				if (false!==strpos($line,"runJUnitTestsOnly:")) { // won't be doing the first half
+					$didRunBuildTest=false;
+				}
+				// check first half of the log for build problems; second half for test problems. 
+				// split on line with "runJUnitTests:"
+				if (false!==strpos($line,"runJUnitTests:")) { // second half
+					$isBuild=false;
+				}
+				if ($isBuild && $type=="build") {
+					if (false!==strpos($line,"[javac]") && false!==strpos($line,"error")) { 
+						$m=null;preg_match("/\[javac\] (\d+) (fail|error).+/",$line,$m);
+						if ($m[2]=="fail") { 
+							$fails+=$m[1];
+						} else if ($m[2]=="error") { 
+							$errors+=$m[1];
+						}
+					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"deprecate")) { 
+						$deprecates+=1;
+					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"warning")) { 
+						$m=null;preg_match("/\[javac\] (\d+) (warning).+/",$line,$m);
+						if ($m[2]=="warning") { 
+							$warns+=$m[1];
+						}
+					} else if (false!==strpos($line,"BUILD FAILED")) {
+						$fails="FAILED";
+						$isDone=true;
+						break;
+					}
+				} else if (!$isBuild && $type!="build") { 
+					if (false!==strpos($line,"[java] There was ") || false!==strpos($line,"[java] There were ")) { 
+						$m=null;preg_match("/(was|were) (\d+) (fail|error|warning).+/",$line,$m);
+						if ($m[3]=="fail") { 
+							$fails+=$m[2];
+						} else if ($m[3]=="warning") { 
+							$warns+=$m[2];
+						} else if ($m[3]=="error") { 
+							$errors+=$m[2];
+						}
+					} else if (false!==strpos($line,"BUILD FAILED")) {
+						$fails="FAILED";
+						$isDone=true;
+						break;
+					}
+				}
+				if (false!==strpos($line,"finished on:")) {
+					$isDone=true;
+				}
+			}
+			
+			if (!$isDone) { 
+				return "...";
+			}
+			//w("<b>$fails F, $errors E</b>",1);
+			if ($fails===0 && $errors===0 && $notes===0 && $warns===0 && $deprecates===0) { 
+				return 0;
+			} else {
+				$ret="";
+				if ($fails>0 && $fails!=="FAILED") { 
+					$ret.= $fails."&#160;F";
+				}
+				if ($errors>0) { 
+					if ($ret) { $ret.=",&#160;"; }
+					$ret.= $errors."&#160;E";
+				}
+				if ($notes>0) { 
+					if ($ret) { $ret.=",&#160;"; }
+					$ret.= $notes."&#160;N";
+				}
+				if ($warns>0) { 
+					if ($ret) { $ret.=",&#160;"; }
+					$ret.= $warns."&#160;W";
+				}
+				if ($deprecates>0) { 
+					if ($ret) { $ret.=",&#160;"; }
+					$ret.= $deprecates."&#160;D";
+				}
+				if (!$ret && $fails==="FAILED") { 
+					$ret = "FAILED";
+				}
+				//echo $ret."<br>";
+				return $ret;
+			}
+		} else {
+			return "";
+		}
+	}
+
+
+/*
 function getJDK14TestResultsFailureCount($f, $type = "")
 {
 	$issues = array("fail" => 0, "error" => 0, "note" => 0); //counts
@@ -499,8 +602,10 @@ function getJDK50TestResultsFailureCount($f, $type = "")
 
 	return getGenericTestResultsFailureCount($f, $type, $issues, $steps, $parse);
 }
+*/
 
 /* TODO: investigate if lines with "fail" also have "error" in them, if not, then the old version was letting them slip through and was most likely a bug */
+/*
 function getGenericTestResultsFailureCount($f, $type, $issues, $steps, $parse)
 {
 	$step = 0;
@@ -595,6 +700,7 @@ function parseIssues($issues, $failed)
 		return $ret;
 	}
 }
+*/
 
 function getTestResultsFailureCount($path, $testDirs, $file)
 {
