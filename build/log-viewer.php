@@ -6,27 +6,22 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.p
 
 internalUseOnly(); 
 
-ob_start();
-
 /* from $_GET */
 $params = array(
 	"build" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/$#",
 	"test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
 	"jdk13test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
 	"jdk14test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
-	"jdk15test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#"
+	"jdk50test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#"
 );
 
 /* check these files, %s replaced with param from above */
 $files = array(
 	"build" => array("/var/www/tools/emf/downloads/drops/%sbuildlog.txt"),
-	"test" => array(
-		"/var/www/tools/emf/tests/%s",
-		"/var/www/tools/emf/tests/%stestlog.txt"
-	),
+	"test" => array("/var/www/tools/emf/tests/%stestlog.txt"),
 	"jdk13test" => array("/var/www/tools/emf/jdk13tests/%stestlog.txt"),
 	"jdk14test" => array("/var/www/tools/emf/jdk14tests/%stestlog.txt"),
-	"jdk15test" => array("/var/www/tools/emf/jdk15tests/%stestlog.txt")
+	"jdk50test" => array("/var/www/tools/emf/jdk50tests/%stestlog.txt")
 );
 
 /* replace these values with key */
@@ -64,7 +59,7 @@ foreach (array_keys($params) as $z)
 			$args[] = "$z=" . $_GET[$z];
 			if (!is_file($f) || !is_readable($f))
 			{
-				print "<b>Error:</b> $f is not a file or is not readable.";
+				print "<b>Error:</b> $f is not a file or is not readable.\n";
 				exit;
 			}
 		}
@@ -88,8 +83,11 @@ if (isset($f))
 }
 else
 {
+	print "Found nothing, quitting...\n";
 	exit;
 }
+
+ob_start();
 
 print "<div id=\"midcolumn\">\n";
 
