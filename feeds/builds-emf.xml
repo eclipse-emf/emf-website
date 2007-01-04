@@ -4,11 +4,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://download.eclipse.org/tools/emf/feeds/builds-emf.xml" rel="self" type="application/atom+xml"/>
-  <updated>2007-01-04T14:20:38Z</updated>
+  <updated>2007-01-04T15:37:31Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://download.eclipse.org/tools/emf/feeds/builds-emf.xml</id>
+  <entry>
+    <title>[announce] EMF I200701040200 (2.3.0.I200701040200) is available</title>
+    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200"/>
+    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200</id>
+    <updated>2007-01-04T15:37:31Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701040200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701040200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701040200.zip</release>
+        </releases>
+        <tests>
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701040200/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/S-3.3M4-200612141445/eclipse-SDK-3.3M4-linux-gtk.tar.gz</dependency>
+          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
+        </dependencies>
+        <coordinated status="CALLISTOSITEREADY"/>
+      </build>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF I200701040200 (2.3.0.I200701040200) is available</title>
     <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200"/>
