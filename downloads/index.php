@@ -1375,7 +1375,8 @@ function outputBuild($branch, $ID, $c)
 	}
 	
 	$deps = array(
-		"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>"
+		"eclipse" => "<a href=\"http://www.eclipse.org/eclipse/\">Eclipse</a>",
+		"emf" => "<a href=\"http://www.eclipse.org/emf/\">EMF</a>"
 	);
 	
 	$opts = loadBuildConfig("$PWD/$branch/$ID/build.cfg", $deps);
