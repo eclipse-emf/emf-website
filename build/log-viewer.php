@@ -68,7 +68,7 @@ foreach (array_keys($params) as $z)
 
 $offset = isset($_GET["offset"]) && is_numeric($_GET["offset"]) ? $_GET["offset"] : 0; 
 $step = isset($_GET["step"]) && is_numeric($_GET["step"]) ? $_GET["step"] : 50; // how many lines to display?
-$maxlines = exec("wc -l $f"); $maxlines = trim(preg_replace("/[\t\ \n]*(\d+)[\t\ \n]+.+/","$1",$maxlines));
+$maxlines = exec("wc -l $f"); $maxlines = preg_replace("/[\t\ \n]*(\d+)[\t\ \n]+.+/","$1",$maxlines);
 
 if (isset($f))
 {
@@ -148,7 +148,7 @@ function options($args, $f)
 		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step\">" . ($offset + $step) . " to ". ($offset + $step + $step). " &gt;</a>";
 	}
 	print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;&gt;</a>";
-	print "<a href=\"" . preg_replace("#^".$_SERVER['DOCUMENT_ROOT']."#", "", $f) . "\">unformatted log (" . pretty_size(filesize("$f")) . ")</a>";
+	print "<a href=\"" . preg_replace("#^".$_SERVER['DOCUMENT_ROOT']."#", "", $f) . "\">unformatted log (" . trim(pretty_size(filesize("$f"))) . ")</a>";
 	print "</div>\n";
 }
 
