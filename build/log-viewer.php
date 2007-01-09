@@ -143,9 +143,18 @@ function options($args, $f)
 		print "<a href=\"?" . join("&amp;", $args) . "&amp;step=$step\">&lt; 0 - $step</a>";
 		
 	}
-	if ($offset + $step <= $maxlines)
+	if ($offset + $step + $step <= $maxlines)
 	{
 		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step\">" . ($offset + $step) . " to ". ($offset + $step + $step). " &gt;</a>";
+	}
+	else if ($offset + $step <= $maxlines)
+	{
+		$step2 = $maxlines - $offset - $step;
+		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step2\">" . ($offset + $step) . " to ". ($maxlines). " &gt;</a>";
+	}
+	else
+	{
+		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;</a>";
 	}
 	print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;&gt;</a>";
 	print "<a href=\"" . preg_replace("#^".$_SERVER['DOCUMENT_ROOT']."#", "", $f) . "\">unformatted log (" . trim(pretty_size(filesize("$f"))) . ")</a>";
