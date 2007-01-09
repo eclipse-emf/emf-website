@@ -143,13 +143,14 @@ function options($args, $f)
 		print "<a href=\"?" . join("&amp;", $args) . "&amp;step=$step\">&lt; 0 - $step</a>";
 		
 	}
+
+	$step2 = $maxlines - $offset - $step;
 	if ($offset + $step + $step <= $maxlines)
 	{
 		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step\">" . ($offset + $step) . " to ". ($offset + $step + $step). " &gt;</a>";
 	}
-	else if ($offset + $step <= $maxlines)
+	else if ($offset + $step <= $maxlines && $step2 > 0)
 	{
-		$step2 = $maxlines - $offset - $step;
 		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step2\">" . ($offset + $step) . " to ". ($maxlines). " &gt;</a>";
 	}
 	else
