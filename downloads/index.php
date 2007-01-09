@@ -42,7 +42,7 @@ $filePre = array( // file prefixes - also defines the DL image to use, and image
 );
 
 $rssfeed = "<a href=\"http://www.eclipse.org/downloads/download.php?file=/tools/$PR/feeds/builds-emf.xml\"><img style=\"float:right\" alt=\"EMF Build Feed\" src=\"../images/rss-atom10.gif\"></a>";
-$moreinfo = array("2.3.0" => '<a href="http://www.eclipse.org/emf/docs/#whatsnew"><img style="float:right" src="/emf/images/more-info.png" alt="What\'s New in EMF 2.3.0?" border="0"/></a>'); 
+$moreinfo = array("2.3.0" => '<a href="http://www.eclipse.org/emf/docs/#whatsnew"><img style="float:right" src="/emf/images/more-info.png" alt="The Bleeding Edge" border="0"/></a>'); 
 $moreinfo[0] = $moreinfo["2.3.0"]; // default to show on Latest Builds
 
 $debug = -1;
@@ -1136,8 +1136,13 @@ function doRequirements()
 	<ul id="requirements">
 		<li>
 			<div align="right">
-
-			<img src="/modeling/images/new.gif" border="0"/> <a href="http://www.eclipse.org/emf/docs/#whatsnew">EMF 2.3.0 contains significant, <u>binary compatible</u> <br>changes from previous releases. Details at right</a>.
+			<table width="310" border="0" cellspacing="1" cellpadding="1">
+				<tr valign="top">
+					<td><img src="/modeling/images/new.gif" border="0" align="left" valign="top"/></td>
+					<td><table style="border:0px" cellspacing="0" cellpadding="2"><tr><td>EMF 2.3.0 contains significant, though binary  
+			compatible, changes from previous releases. See <a href="http://www.eclipse.org/emf/docs/#whatsnew">The Bleeding Edge</a> for details (also at right).</td></tr></table></td>
+				</tr>
+			</table>
 			</div>
 			<a href="javascript:toggle('req2_3_0')">EMF 2.3.0</a>
 			<ul id="req2_3_0">

@@ -6,7 +6,7 @@
 		<li><a href="#overviews">EMF Overview Papers</a></li>
 		<li><a href="#tutorials">EMF Tutorials</a></li>
 		<li><a href="#references">Books, Guides, and References</a></li>
-		<li><a href="#whatsnew">The Bleeding Edge (What's New In The Latest EMF?)</a></li>
+		<li><a href="#whatsnew">The Bleeding Edge</a></li>
 		<li><a href="#dWdocuments">developerWorks</a></li>
 		<li><a href="#presentations">Presentations &amp; Workshops</a></li>
 	</ul>
@@ -17,7 +17,7 @@
 		<li><a href="#xsd">XML Schema Infoset Model (XSD)</a></li>
 		<li><a href="#sdo">Service Data Objects (SDO)</a></li>
 		<li><a href="#contributions">Contributed Articles</a></li>
-		<li><a href="#emf21xdocs">EMF 2.1 (incl. Performance)</a></li>
+		<li><a href="#emf21xdocs">EMF 2.1</a></li>
 		<li><a href="#emf20xdocs">EMF 2.0</a>, <a href="#emf1xdocs">EMF 1.x</a></li>
 		<li><a href="#plandocs">Project Management</a></li>
 	</ul>
@@ -150,11 +150,11 @@
 
 <div class="homeitem3col">
 	<a name="whatsnew"></a>
-	<h3>The Bleeding Edge (What's New In The Latest EMF?)</h3>
+	<h3>The Bleeding Edge</h3>
 
 	<ul>
 		<li>
-			<div>Jan 8 2006</div><a href="http://wiki.eclipse.org/index.php/EMF_2.3_JVM_Requirements"><u>JVM Requirements</u>? (2.3.0.M3+)</a>
+			<div>Jan 8 2007</div><a href="http://wiki.eclipse.org/index.php/EMF_2.3_JVM_Requirements"><u>JVM Requirements</u>? (2.3.0.M3+)</a>
 		</li>
 
 		<li>
@@ -505,4 +505,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.57 2007/01/09 00:21:42 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.58 2007/01/09 18:13:52 nickb Exp $ -->
