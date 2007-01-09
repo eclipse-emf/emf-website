@@ -6,7 +6,7 @@
 		<li><a href="#overviews">EMF Overview Papers</a></li>
 		<li><a href="#tutorials">EMF Tutorials</a></li>
 		<li><a href="#references">Books, Guides, and References</a></li>
-		<li><a href="#whatsnew">What's New In ...?</a></li>
+		<li><a href="#whatsnew">The Bleeding Edge (What's New In The Latest EMF?)</a></li>
 		<li><a href="#dWdocuments">developerWorks</a></li>
 		<li><a href="#presentations">Presentations &amp; Workshops</a></li>
 	</ul>
@@ -17,7 +17,7 @@
 		<li><a href="#xsd">XML Schema Infoset Model (XSD)</a></li>
 		<li><a href="#sdo">Service Data Objects (SDO)</a></li>
 		<li><a href="#contributions">Contributed Articles</a></li>
-		<li><a href="#perf">EMF Performance</a></li>
+		<li><a href="#emf21xdocs">EMF 2.1 (incl. Performance)</a></li>
 		<li><a href="#emf20xdocs">EMF 2.0</a>, <a href="#emf1xdocs">EMF 1.x</a></li>
 		<li><a href="#plandocs">Project Management</a></li>
 	</ul>
@@ -78,12 +78,12 @@
 		</li>
 
 		<li>
-			<div>June 17 2005</div><a target="_out" href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/jet1/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
+			<div>Jan 3 2007</div><a target="_out" href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/jet1/jet_tutorial1.html">JET Tutorial Part 1 (Introduction to JET)</a><br/>
 			Contributed by Remko Popma
 		</li>
 
 		<li>
-			<div>May 31 2004</div><a target="_out" href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/jet2/jet_tutorial2.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
+			<div>Jan 3 2007</div><a target="_out" href="http://dev.eclipse.org/viewcvs/indextools.cgi/*checkout*/org.eclipse.emf/doc/org.eclipse.emf.doc/tutorials/jet2/jet_tutorial2.html">JET Tutorial Part 2 (Write Code that Writes Code)</a><br/>
 			Contributed by Remko Popma
 		</li>
 
@@ -124,6 +124,10 @@
 		</li>
 
 		<li>
+			<div>July 7 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTips.html">EMF Performance Tips</a>
+		</li>
+
+		<li>
 			<div>April 29 2004</div><a target="_out" href="http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg246302.html">GEF EMF Redbook</a>
 		</li>
 
@@ -146,19 +150,19 @@
 
 <div class="homeitem3col">
 	<a name="whatsnew"></a>
-	<h3>What's New In ...?</h3>
+	<h3>The Bleeding Edge (What's New In The Latest EMF?)</h3>
 
 	<ul>
 		<li>
-			<div>Dec 7 2006</div><a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics">What's New In EMF <u>Generics</u>? (2.3.0.I200612071030)</a>
+			<div>Jan 8 2006</div><a href="http://wiki.eclipse.org/index.php/EMF_2.3_JVM_Requirements"><u>JVM Requirements</u>? (2.3.0.M3+)</a>
 		</li>
 
 		<li>
-			<div>Nov 18 2006</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html">What's New In EMF <u>Code Merge</u>? (2.3.0.I200611161558)</a>
+			<div>Dec 7 2006</div><a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics"><u>Generics</u> (2.3.0.I200612071030)</a>
 		</li>
 
 		<li>
-			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/tools2.1.html">What's New In EMF <u>Tools</u>? (2.1.0.I200505191347)</a>
+			<div>Nov 18 2006</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><u>Code Merge</u> (2.3.0.I200611161558)</a>
 		</li>
 
 	</ul>
@@ -379,19 +383,18 @@ and Animations of the internals of XSD models</a>
 </div>
 
 <div class="homeitem3col">
-	<a name="perf"></a>
-	<h3>EMF Performance</h3>
+	<a name="emf21xdocs"></a>
+	<h3>EMF 2.1</h3>
 	<ul>
-		<li>
-			<div>July 7 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTips.html">EMF 2.1.0 Performance Tips</a>
-		</li>
-
 		<li>
 			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsResults.html">EMF 2.1.0 vs. 2.0.1 Performance Report</a>
 		</li>
 
 		<li>
 			<div>July 6 2005</div><a href="http://www.eclipse.org/emf/docs/performance/EMFPerformanceTestsFAQ.html">EMF 2.1.0 vs. 2.0.1 Performance FAQ</a>
+		</li>
+		<li>
+			<div>May 19 2005</div><a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/tools2.1.html">What's New In EMF <u>Tools</u>? (2.1.0.I200505191347)</a>
 		</li>
 	</ul>
 </div>
@@ -502,4 +505,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.56 2006/12/14 15:52:10 marcelop Exp $ -->
+<!-- $Id: docs.xml,v 1.57 2007/01/09 00:21:42 nickb Exp $ -->

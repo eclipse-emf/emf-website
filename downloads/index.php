@@ -204,6 +204,13 @@ doLanguagePacks(); ?>
 
 print "<div id=\"rightcolumn\">\n";
 
+print '<div class="sideitem">'."\n". '<h6>The Bleeding Edge</h6>';
+getNews(4, "bleedingedge", true, "M d - ", "");
+print ' <ul>
+			<li><a href="/emf/docs/#whatsnew">More from the Edge</a></li>
+		</ul>
+	</div>
+';
 print "<div class=\"sideitem\">\n";
 print "<h6>Additional Info</h6>\n";
 print "<ul>\n";
@@ -1128,10 +1135,9 @@ function doRequirements()
 	
 	<ul id="requirements">
 		<li>
-			<div>
+			<div align="right">
 
-			<a href="http://wiki.eclipse.org/index.php/EMF_2.3_Generics"><img src="/modeling/images/new.gif" border="0"/> Support for JDK 5.0 generics has changed as of 2.3.0.I200612071030</a>.<br/>
-			<a href="http://www.eclipse.org/emf/docs/2.x/whatsnew/merge2.3.html"><img src="/modeling/images/new.gif" border="0"/> Code merge behaviour has changed as of 2.3.0.I200611161558</a>.
+			<img src="/modeling/images/new.gif" border="0"/> <a href="http://www.eclipse.org/emf/docs/#whatsnew">EMF 2.3.0 contains significant, <u>binary compatible</u> <br>changes from previous releases. Details at right</a>.
 			</div>
 			<a href="javascript:toggle('req2_3_0')">EMF 2.3.0</a>
 			<ul id="req2_3_0">

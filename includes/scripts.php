@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.22 2006/12/07 22:51:27 nickb Exp $ 
+	// $Id: scripts.php,v 1.23 2007/01/09 00:21:42 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -175,7 +175,7 @@
 		echo($s.$br); 
 	}
 
-function getNews($lim, $key)
+function getNews($lim, $key, $linkOnly=false, $dateFmtPre="", $dateFmtSuf="")
 {
 	global $PR;
 
@@ -193,9 +193,10 @@ function getNews($lim, $key)
 
 	$regs = null;
 	preg_match_all($news_regex, $xml, $regs);
+	$i_real = 0;
 	foreach (array_keys($regs[0]) as $i)
 	{
-		if ($i >= $lim && $lim > 0)
+		if ($i_real >= $lim && $lim > 0)
 		{
 			return;
 		}
@@ -203,14 +204,41 @@ function getNews($lim, $key)
 		$showOn = explode(",", $regs[2][$i]);
 		if ($key == "all" || in_array($key, $showOn))
 		{
+			$i_real++;
 			print "<p>\n";
 			if (strtotime($regs[1][$i]) > strtotime("-3 weeks"))
 			{
-				print '<img src="/modeling/images/new.gif" alt="New!"/> ';
+				if (preg_match("/update/i",$regs[3][$i]))
+				{
+					print '<img src="/modeling/images/updated.gif" alt="Updated!"/> ';					
+				}
+				else
+				{
+					print '<img src="/modeling/images/new.gif" alt="New!"/> ';
+				}
+				
 			}
-			$app = (date("Y", strtotime($regs[1][$i])) < date("Y") ? ", Y" : "");
-			print date(($key == "whatsnew" ? "M" : "F") . '\&\n\b\s\p\;jS' . $app, strtotime($regs[1][$i])) . ' - ' . "\n";
-			print $regs[3][$i];
+			if (!$dateFmtPre && !$dateFmtSuf)
+			{
+				$app = (date("Y", strtotime($regs[1][$i])) < date("Y") ? ", Y" : "");	
+				print date("M" . '\&\n\b\s\p\;jS' . $app, strtotime($regs[1][$i])) . ' - ' . "\n";
+			} else if ($dateFmtPre)
+			{
+				print date($dateFmtPre,strtotime($regs[1][$i]));
+			}
+			if ($linkOnly)
+			{
+				$link = preg_replace("#.+(<a .+</a>).+#","$1",$regs[3][$i]);
+			}
+			else
+			{
+				$link = $regs[3][$i];
+			}
+			print $link;
+			if ($dateFmtSuf)
+			{
+				print date($dateFmtSuf,strtotime($regs[1][$i]));
+			}
 			print "</p>\n";
 		}
 	}
