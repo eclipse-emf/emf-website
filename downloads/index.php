@@ -205,7 +205,7 @@ doLanguagePacks(); ?>
 print "<div id=\"rightcolumn\">\n";
 
 print '<div class="sideitem">'."\n". '<h6>The Bleeding Edge</h6>';
-getNews(4, "bleedingedge", true, "M d - ", "");
+getNews(4, "bleedingedge", true);
 print ' <ul>
 			<li><a href="/emf/docs/#whatsnew">More from the Edge</a></li>
 		</ul>
