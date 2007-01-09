@@ -17,11 +17,11 @@ $params = array(
 
 /* check these files, %s replaced with param from above */
 $files = array(
-	"build" => array("/var/www/tools/emf/downloads/drops/%sbuildlog.txt"),
-	"test" => array("/var/www/tools/emf/tests/%stestlog.txt"),
-	"jdk13test" => array("/var/www/tools/emf/jdk13tests/%stestlog.txt"),
-	"jdk14test" => array("/var/www/tools/emf/jdk14tests/%stestlog.txt"),
-	"jdk50test" => array("/var/www/tools/emf/jdk50tests/%stestlog.txt")
+	"build" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/downloads/drops/%sbuildlog.txt"),
+	"test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/tests/%stestlog.txt"),
+	"jdk13test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/jdk13tests/%stestlog.txt"),
+	"jdk14test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/jdk14tests/%stestlog.txt"),
+	"jdk50test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/jdk50tests/%stestlog.txt")
 );
 
 /* replace these values with key */
@@ -66,19 +66,19 @@ foreach (array_keys($params) as $z)
 	}
 }
 
+$offset = isset($_GET["offset"]) && is_numeric($_GET["offset"]) ? $_GET["offset"] : 0; 
+$step = isset($_GET["step"]) && is_numeric($_GET["step"]) ? $_GET["step"] : 50; // how many lines to display?
+$maxlines = exec("wc -l $f"); $maxlines = explode(" ", $maxlines); $maxlines = $maxlines[0];
+
 if (isset($f))
 {
-	if (isset($_GET["head"]) && is_numeric($_GET["head"]))
+	if ($offset>0)
 	{
-		exec("head -n" . $_GET["head"] . " $f", $log);
-	}
-	else if (isset($_GET["tail"]) && is_numeric($_GET["tail"]))
-	{
-		exec("tail -n" . $_GET["tail"] . " $f", $log);
+		exec("head -n" . ($step + $offset) . " $f | tail -n$step", $log);
 	}
 	else
 	{
-		exec("tail -n30 $f", $log);
+		exec("head -n" . $step . " $f", $log);
 	}
 }
 else
@@ -105,7 +105,7 @@ $replacements = array_merge($replacements, $filter);
 
 $log = preg_replace($matches, $replacements, $log);
 
-$i = 0;
+$i = $offset;
 foreach ($log as $z)
 {
 	$i++;
@@ -131,10 +131,39 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 
 function options($args, $f)
 {
+	global $offset,$step,$maxlines;
 	print "<div class=\"options\">\n";
-	print "<a href=\"?" . join("&amp;", $args) . "&amp;head=30\">head -n30</a>";
-	print "<a href=\"?" . join("&amp;", $args) . "&amp;tail=30\">tail -n30</a>";
-	print "<a href=\"" . preg_replace("#^/var/www#", "", $f) . "\">view unformatted</a>";
+	print "<a href=\"?" . join("&amp;", $args) . "&amp;step=$step\">&lt;&lt; 0 - $step</a>";
+	if ($offset - $step >= 0) 
+	{	
+		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset - $step) . "&amp;step=$step\">&lt; " . ($offset - $step) . " to ". ($offset). "</a>";
+	}
+	else
+	{
+		print "<a href=\"?" . join("&amp;", $args) . "&amp;step=$step\">&lt; 0 - $step</a>";
+		
+	}
+	if ($offset + $step <= $maxlines)
+	{
+		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step\">" . ($offset + $step) . " to ". ($offset + $step + $step). " &gt;</a>";
+	}
+	print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;&gt;</a>";
+	print "<a href=\"" . preg_replace("#^".$_SERVER['DOCUMENT_ROOT']."#", "", $f) . "\">unformatted log (" . pretty_size(filesize("$f")) . ")</a>";
 	print "</div>\n";
 }
+
+function pretty_size($bytes)
+{
+	$sufs = array("B", "K", "M", "G", "T", "P"); //we shouldn't be larger than 999.9 petabytes any time soon, hopefully
+	$suf = 0;
+
+	while ($bytes >= 1000)
+	{
+		$bytes /= 1024;
+		$suf++;
+	}
+
+	return sprintf("%3.1f%s", $bytes, $sufs[$suf]);
+}
+
 ?>
