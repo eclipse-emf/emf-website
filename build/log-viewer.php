@@ -29,7 +29,7 @@ $reps = array(
 	"o.e.emf" => "org.eclipse.emf",
 	"o.e.e.r.build" => "org.eclipse.emf.releng.build",
 	"o.e.r" => "org.eclipse.releng",
-	"dd" => "/home/www-data/emf-build/tools/emf/downloads/drops",
+	"dd" => "/home/www-data/build/emf/tools/emf/downloads/drops",
 	"tests" => "/home/www-data/tests/tools/emf/tests",
 	"jdk13tests" => "/home/www-data/jdk13tests",
 	"jdk14tests" => "/home/www-data/jdk14tests",
@@ -59,7 +59,7 @@ foreach (array_keys($params) as $z)
 			$args[] = "$z=" . $_GET[$z];
 			if (!is_file($f) || !is_readable($f))
 			{
-				print "<b>Error:</b> $f is not a file or is not readable.\n";
+				print "<b>Error:</b> " . preg_replace("#.+/$PR/(.+)#","$1",$f) . " is not a file or is not readable.\n";
 				exit;
 			}
 		}
@@ -131,33 +131,33 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 
 function options($args, $f)
 {
-	global $offset,$step,$maxlines;
+	global $offset,$step,$maxlines,$proj;
 	print "<div class=\"options\">\n";
-	print "<a href=\"?" . join("&amp;", $args) . "&amp;step=$step\">&lt;&lt; 0 - $step</a>";
+	print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;step=$step\">&lt;&lt; 0 - $step</a>";
 	if ($offset - $step >= 0) 
 	{	
-		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset - $step) . "&amp;step=$step\">&lt; " . ($offset - $step) . " to ". ($offset). "</a>";
+		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;offset=" . ($offset - $step) . "&amp;step=$step\">&lt; " . ($offset - $step) . " to ". ($offset). "</a>";
 	}
 	else
 	{
-		print "<a href=\"?" . join("&amp;", $args) . "&amp;step=$step\">&lt; 0 - $step</a>";
+		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;step=$step\">&lt; 0 - $step</a>";
 		
 	}
 
 	$step2 = $maxlines - $offset - $step;
 	if ($offset + $step + $step <= $maxlines)
 	{
-		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step\">" . ($offset + $step) . " to ". ($offset + $step + $step). " &gt;</a>";
+		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step\">" . ($offset + $step) . " to ". ($offset + $step + $step). " &gt;</a>";
 	}
 	else if ($offset + $step <= $maxlines && $step2 > 0)
 	{
-		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step2\">" . ($offset + $step) . " to ". ($maxlines). " &gt;</a>";
+		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;offset=" . ($offset + $step) . "&amp;step=$step2\">" . ($offset + $step) . " to ". ($maxlines). " &gt;</a>";
 	}
 	else
 	{
-		print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;</a>";
+		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;</a>";
 	}
-	print "<a href=\"?" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;&gt;</a>";
+	print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;offset=" . ($maxlines - $step) . "&amp;step=$step\">" . ($maxlines - $step) . " to " . ($maxlines) . " &gt;&gt;</a>";
 	print "<a href=\"" . preg_replace("#^".$_SERVER['DOCUMENT_ROOT']."#", "", $f) . "\">unformatted log (" . trim(pretty_size(filesize("$f"))) . ")</a>";
 	print "</div>\n";
 }
