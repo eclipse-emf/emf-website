@@ -117,10 +117,7 @@
 		</li>
 
 		<li>
-			<div><i>updated every build</i></div>Javadoc
-			<ul>
-				<li><a target="_out" href="http://www.eclipse.org/emf/javadoc/">EMF</a>, <a target="_out" href="http://www.eclipse.org/emf/javadoc/">XSD</a></li>
-			</ul>
+			<div><i>updated every build</i></div><a target="_out" href="http://www.eclipse.org/emf/javadoc/">Javadoc</a>
 		</li>
 
 		<li>
@@ -505,4 +502,4 @@ and Animations of the internals of XSD models</a>
 	</ul>
 </div>
 
-<!-- $Id: docs.xml,v 1.58 2007/01/09 18:13:52 nickb Exp $ -->
+<!-- $Id: docs.xml,v 1.59 2007/01/10 21:02:30 nickb Exp $ -->
