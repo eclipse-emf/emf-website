@@ -1,7 +1,0 @@
-21 ntTest#demandFeature	6545.5555555556	75.847068353218	1779	35.730472522298
-22 reateDemandFeatureDO	2752.2222222222	29.907264074877	1434	17.448336437737
-
-
-# To create this plot, execute the following commands:
-$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
-$ /opt/ploticus/pl -png -o /tmp/perf-plots/OpenContent.png -prefab vbars data=/tmp/perf-plots/OpenContent_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1

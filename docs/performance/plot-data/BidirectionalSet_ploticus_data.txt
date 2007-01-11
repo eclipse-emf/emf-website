@@ -1,9 +1,0 @@
-30 etAdaptedByGenerated	1.6673611111111	0.040944258347987	1.4885416666667	0.038916780672369
-31 lTest#setByGenerated	5.1666666666667	0.24382370680473	5.2266666666667	0.2804014978562
-32 onalTest#setWithESet	5.2188888888889	0.37919139113528	5.2944444444444	0.3711169327554
-57 st#setObjectWithESet	0.033194444444444	0.0019764235376052	0.033148148148148	0.00021960261528947
-
-
-# To create this plot, execute the following commands:
-$ export PLOTICUS_PREFABS=/opt/ploticus/prefabs;
-$ /opt/ploticus/pl -png -o /tmp/perf-plots/BidirectionalSet.png -prefab vbars data=/tmp/perf-plots/BidirectionalSet_ploticus_data.txt delim=tab x=1 y=2 err=3 y2=4 err2=5 name=2.0.1 name2=2.1.0 stubvert=yes erronly=yes errcolor=orange errcolor2=darkblue sep=0 barwidth=0.01 ygrid=yes errthick=0.1 errwidth=0.03 title="CPU Time (microseconds)" 2>&1

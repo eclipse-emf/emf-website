@@ -1,3 +1,1 @@
-<?php
-//no longer used
-?>
+<?php header("Location: query.php"); ?>
