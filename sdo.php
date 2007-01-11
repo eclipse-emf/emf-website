@@ -1,4 +1,1 @@
-<?php
-$page = "sdo";
-include "home.php";
-?>
+<?php header("Location: /modeling/emf/?project=sdo"); ?>

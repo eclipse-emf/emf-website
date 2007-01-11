@@ -1,3 +1,1 @@
-<?php
-include "emf.php";
-?>
+<?php header("Location: /modeling/emf/?project=emf"); ?>

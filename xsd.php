@@ -1,4 +1,1 @@
-<?php
-$page = "xsd";
-include "home.php";
-?>
+<?php header("Location: /modeling/mdt/?project=xsd#xsd"); ?>

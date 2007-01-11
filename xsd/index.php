@@ -1,1 +1,1 @@
-<?php $pre="../"; $page = "xsd"; include $pre."home.php"; ?>
+<?php header("Location: /modeling/mdt/?project=xsd#xsd"); ?>

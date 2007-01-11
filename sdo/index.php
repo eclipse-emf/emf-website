@@ -1,1 +1,1 @@
-<?php $pre="../"; $page = "sdo"; include $pre."home.php"; ?>
+<?php header("Location: /modeling/emf/?project=sdo"); ?>
