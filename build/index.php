@@ -39,7 +39,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 $workDir = "/home/www-data/build/" . $PR;
 
 /** customization options here **/
-$buildOptionsFile = is_file($pre . "../$PR/build.options.txt") ? $pre . "../$PR/build.options.txt" : ($PR == "emf" ? "/var/www/www.eclipse.org/htdocs/emf/build.options.txt" : "/var/www/www.eclipse.org/htdocs/modeling/mdt/uml2-uml/build.options.txt"); // read only
+$buildOptionsFile = is_file($pre . "../$PR/build.options.txt") ? $pre . "../$PR/build.options.txt" : ($PR == "emf" ? "/var/www/www.eclipse.org/htdocs/emf/build.options.txt" : "/var/www/www.eclipse.org/htdocs/modeling/mdt/uml2/build.options.txt"); // read only
 
 $dependenciesURLsFile = is_file($workDir . "/../emf/requests/dependencies.urls.txt") ? $workDir . "/../emf/requests/dependencies.urls.txt" : "requests/dependencies.urls.txt"; // read-write, one shared file
 
@@ -513,7 +513,7 @@ setTimeout('doOnLoadDefaults()',500);
 <?php } ?>
 
 	<ul>
-		<li><a href="/<?php print $PR == "emf" ? $PR : "modeling/mdt"; ?>/downloads/?project=<?php print $PR=="emf"?"emf":"uml2-uml"; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
+		<li><a href="/<?php print $PR == "emf" ? $PR : "modeling/mdt"; ?>/downloads/?project=<?php print $PR=="emf"?"emf":"uml2"; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
 		Here's what you submitted:</li>
 
 	<?php
