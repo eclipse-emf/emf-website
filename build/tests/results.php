@@ -16,7 +16,7 @@ $hadLoadDirSimpleError=1;
 <?php
 	$doRefreshPage = false;
 	$dropsPWD = getPWD("downloads/drops"); // see scripts.php
-	$testsPWD = "/home/www-data/tests/tools/emf/tests"; // path on emf.torolab.ibm.com
+	$testsPWD = "/home/www-data/oldtests"; // path on emf.torolab.ibm.com
 	$PWD		 = $showAllResults?$testsPWD:$dropsPWD; // path on emf.torolab.ibm.com
 
 	$workDir = "/home/www-data/build/".$PR;
