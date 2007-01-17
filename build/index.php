@@ -905,7 +905,7 @@ setTimeout('doOnLoadDefaults()',500);
 			{ // split line so that foo=bar becomes <option value="bar">foo</option>
 				$matches = null;
 				preg_match("/([^\=]+)\=([^\=]*)/", $opt, $matches);
-				$catg = substr(trim($matches[1]), 1);
+				$catg = substr(trim($matches[1]), 2);
 				if ($catg != $currCatg)
 				{
 					if ($currCatg != "")
