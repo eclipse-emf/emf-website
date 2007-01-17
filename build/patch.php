@@ -402,7 +402,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				$preCmd = 'mkdir -p '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid '.$PWD.'/scripts/start.sh'.
-					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
+					' -downloadsDir /home/www-data/build/downloads'.
 					' -testDir '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
@@ -441,7 +441,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runJDK13Tests.sh'.
-					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
+					' -downloadsDir /home/www-data/build/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
@@ -486,7 +486,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runJDK14Tests.sh'.
-					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
+					' -downloadsDir /home/www-data/build/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
@@ -525,7 +525,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runJDK50Tests.sh'.
-					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
+					' -downloadsDir /home/www-data/build/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
@@ -577,7 +577,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				}
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/emf-build/scripts/runPerfTests.sh'.
-					' -downloadsDir /home/www-data/emf-build/tools/emf/downloads'.
+					' -downloadsDir /home/www-data/build/downloads'.
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
@@ -967,4 +967,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.14 2006/12/20 20:06:21 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.15 2007/01/17 22:56:34 nickb Exp $ -->

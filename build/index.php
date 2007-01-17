@@ -565,7 +565,7 @@ setTimeout('doOnLoadDefaults()',500);
 	' -buildDir ' . $workDir . '/downloads/drops/' . $BR . '/' . $ID .
 		' -buildTimestamp ' . $buildTimestamp .
 		' -buildType ' . $_POST["build_Build_Type"] . ' -javaHome ' . $_POST["build_Java_Home"] .
-		' -downloadsDir ' . $workDir . '/../downloads';
+		' -downloadsDir /home/www-data/build/downloads';
 		// /home/www-data/build/downloads
 
 		$fields = array (
