@@ -740,9 +740,18 @@ setTimeout('doOnLoadDefaults()',500);
 	function findCatg($url)
 	{
 		$matches = array (
-			"2emf" => "emf-sdo-xsd-",
-			"1eclipse" => "eclipse-",
-			"9other" => "/"
+			"11gmf" => "GMF-",
+			"10gef" => "GEF-",
+			"09net4j" => "emft-net4j-",
+			"08validation" => "emft-validation-",
+			"07transaction" => "emft-transaction-",
+			"06query" => "emft-query-",
+			"05ocl" => "emft-ocl-",
+			"04orbit" => "orbit-",
+			"03uml2" => "uml2-",
+			"02emf" => "emf-sdo-xsd-",
+			"01eclipse" => "eclipse-",
+			"99other" => "/"
 		);
 		foreach ($matches as $catg => $match)
 		{
