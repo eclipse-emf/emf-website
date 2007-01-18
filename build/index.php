@@ -513,7 +513,7 @@ setTimeout('doOnLoadDefaults()',500);
 <?php } ?>
 
 	<ul>
-		<li><a href="/<?php print $PR == "emf" ? $PR : "modeling/mdt"; ?>/downloads/?project=<?php print $PR=="emf"?"emf":"uml2"; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
+		<li><a href="/<?php print $PR == "modeling/emf" ? $PR : "modeling/mdt"; ?>/downloads/?project=<?php print $PR=="emf"?"emf":"uml2"; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
 		Here's what you submitted:</li>
 
 	<?php
