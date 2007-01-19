@@ -83,7 +83,7 @@ foreach ($options["Branch"] as $br)
 	// define which build types to show:
 	if (is_dir("$workDir/downloads/drops/$BR"))
 	{
-		$buildIDs = loadDirSimple("$workDir/downloads/drops/$BR", "([MISR]+\d{12})", "d"); // include N builds
+		$buildIDs = loadDirSimple("$workDir/downloads/drops/$BR", "([MISRN]+\d{12})", "d"); // include N builds
 		foreach ($buildIDs as $k => $bid)
 		{
 			if (is_dir("$workDir/downloads/drops/$BR/$bid/testresults/xml"))
@@ -132,7 +132,8 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<small><select style="font-size:9px" name="build_IES_CVS_Branch" size="1">
 					<?php displayOptions($options["BranchIES"],false,0); ?>
 				</select></small><br/>
-				<input type="checkbox" name="build_Announce_In_Newsgroup" value="Yes" checked="checked"> Announce In Newsgroup?</td>
+				<input type="checkbox" name="build_Announce_In_Newsgroup" value="Yes" checked="checked"> Announce In Newsgroup?<br/>
+				<input type="checkbox" name="build_Close_Bugz_Only" value="Yes" checked="checked"> Move Assigned Bugs to Fixed? (-bugzonly)</td>
 			</tr>
 
 			<tr>
@@ -201,7 +202,7 @@ function loadSelects() {
 	// echo "got: cvsbranch: $cvsbranch, ID: $ID, BR: $BR<br/>";
 
 	$logdir = "/home/www-data/promo_logs/";
-	$logfile = "promo_log_" . $BR . "." . $ID . "_" . date("YmdHis") . ".txt";
+	$logfile = "promo_log_" . ($_POST["build_Close_Bugz_Only"] != "" ? 'bugzonly_' : '') . $BR . "." . $ID . "_" . date("YmdHis") . ".txt";
 
 	if (!$previewOnly)
 	{
@@ -257,6 +258,7 @@ function loadSelects() {
 		' -user ' . $users[$PR][1] .
 		' -userIES ' . $users[$PR][2] .
 		' -branchIES ' . $_POST["build_IES_CVS_Branch"] .
+		 ($_POST["build_Close_Bugz_Only"] != "" ? ' -bugzonly' : '') .
 		 ($_POST["build_Update_ISS_Map_File"] != "" ? '' : ' -noies') .
 		 ($_POST["build_Announce_In_Newsgroup"] != "" ? ' -announce' : '') .
 		 ($_POST["build_Email"] != "" ? ' -email ' . $_POST["build_Email"] : '') .
