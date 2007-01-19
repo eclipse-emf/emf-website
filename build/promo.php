@@ -83,7 +83,7 @@ foreach ($options["Branch"] as $br)
 	// define which build types to show:
 	if (is_dir("$workDir/downloads/drops/$BR"))
 	{
-		$buildIDs = loadDirSimple("$workDir/downloads/drops/$BR", "([MISRN]+\d{12})", "d"); // include N builds
+		$buildIDs = loadDirSimple("$workDir/downloads/drops/$BR", "([MISR]+\d{12})", "d"); // include N builds
 		foreach ($buildIDs as $k => $bid)
 		{
 			if (is_dir("$workDir/downloads/drops/$BR/$bid/testresults/xml"))
