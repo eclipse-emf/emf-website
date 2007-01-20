@@ -34,11 +34,18 @@ $PR = "emf"; ?>
 	/** customization options here **/
 	$testsOptionsFile = $pre."build.options.txt"; // read only
 
-	$dependenciesURLsFile = $workDir."/../emf/requests/dependencies.urls.txt"; // read-write, one shared file
+	$dependenciesURLsFile = "/home/www-data/build/requests/dependencies.urls.txt"; // read-write, one shared file
 
 	/** done customizing, shouldn't have to change anything below here **/
 
 	$options = loadOptionsFromRemoteFiles($testsOptionsFile,$dependenciesURLsFile); 
+$options["BuildType"] = array (
+	"Release=R",
+	"Stable=S",
+	"Integration=I",
+	"Maintenance=M",
+	"Nightly=N|selected"
+);
 
 	// remove JUnit option
 	$options["RunTests"] = array_unique(array_merge($options["RunTests23"],$options["RunTests22"],$options["RunTests21"]));
@@ -819,9 +826,18 @@ function trimmed_read($file) {
 
 function findCatg($url) {
 	$matches = array(
-		"2emf" => "emf-sdo-xsd-",
-		"1eclipse" => "eclipse-",
-		"9other" => "/"
+		"11gmf" => "GMF-",
+		"10gef" => "GEF-",
+		"09net4j" => "emft-net4j-",
+		"08validation" => "emft-validation-",
+		"07transaction" => "emft-transaction-",
+		"06query" => "emft-query-",
+		"05ocl" => "emft-ocl-",
+		"04orbit" => "orbit-",
+		"03uml2" => "uml2-",
+		"02emf" => "emf-sdo-xsd-",
+		"01eclipse" => "eclipse-",
+		"99other" => "/"
 	);
 	foreach ($matches as $catg => $match) { 
 		if (false!==strpos($url,$match)) {
@@ -894,7 +910,7 @@ function displayURLs($options,$verbose=false) {
 		$opt = $option;
 		if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
 			$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-			$catg = substr(trim($matches[1]),1);
+			$catg = substr(trim($matches[1]), 2);
 			if ($catg!=$currCatg) {
 				if ($currCatg!="") 
 					print "\n\t<option "."value=\""."\"></option>";
@@ -967,4 +983,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.15 2007/01/17 22:56:34 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.16 2007/01/20 03:17:45 nickb Exp $ -->
