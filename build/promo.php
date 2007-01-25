@@ -133,7 +133,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					<?php displayOptions($options["BranchIES"],false,0); ?>
 				</select></small><br/>
 				<input type="checkbox" name="build_Announce_In_Newsgroup" value="Yes" checked="checked"> Announce In Newsgroup?<br/>
-				<input type="checkbox" name="build_Close_Bugz_Only" value="Yes" checked="checked"> Move Assigned Bugs to Fixed? (-bugzonly)</td>
+				<input type="checkbox" name="build_Close_Bugz_Only" value="Yes"> Move Assigned Bugs to Fixed? (-bugzonly)</td>
 			</tr>
 
 			<tr>
