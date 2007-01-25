@@ -4,11 +4,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
   <link href="http://download.eclipse.org/tools/emf/feeds/builds-emf.xml" rel="self" type="application/atom+xml"/>
-  <updated>2007-01-25T18:22:52Z</updated>
+  <updated>2007-01-25T19:13:56Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
   <id>http://download.eclipse.org/tools/emf/feeds/builds-emf.xml</id>
+  <entry>
+    <title>[announce] EMF I200701250200 (2.3.0.I200701250200) is available</title>
+    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701250200#I200701250200"/>
+    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701250200#I200701250200</id>
+    <updated>2007-01-25T19:13:56Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701250200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701250200#I200701250200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701250200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/tools/emf/updates/</update>
+        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701250200.zip</release>
+        </releases>
+        <tests>
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701250200/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/eclipse/downloads/drops/I20070116-1510/eclipse-SDK-I20070116-1510-linux-gtk.tar.gz</dependency>
+        </dependencies>
+        <coordinated status="CALLISTOSITEREADY"/>
+      </build>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF M200701250000 (2.2.2.M200701250000) is available</title>
     <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701250000#M200701250000"/>
