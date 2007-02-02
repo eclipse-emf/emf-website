@@ -832,7 +832,7 @@ function findCatg($url) {
 		"08validation" => "emft-validation-",
 		"07transaction" => "emft-transaction-",
 		"06query" => "emft-query-",
-		"05ocl" => "emft-ocl-",
+		"05ocl" => "mdt-ocl-|emft-ocl-",
 		"04orbit" => "orbit-",
 		"03uml2" => "uml2-",
 		"02emf" => "emf-sdo-xsd-",
@@ -840,7 +840,7 @@ function findCatg($url) {
 		"99other" => "/"
 	);
 	foreach ($matches as $catg => $match) { 
-		if (false!==strpos($url,$match)) {
+		if (false!==strpos($url,$match) || preg_match("#(".$match.")#",$url)) {
 			return $catg;
 		}
 	}
@@ -983,4 +983,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.16 2007/01/20 03:17:45 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.17 2007/02/02 01:16:30 nickb Exp $ -->

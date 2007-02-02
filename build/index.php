@@ -737,30 +737,27 @@ setTimeout('doOnLoadDefaults()',500);
 		return $ret;
 	}
 
-	function findCatg($url)
-	{
-		$matches = array (
-			"11gmf" => "GMF-",
-			"10gef" => "GEF-",
-			"09net4j" => "emft-net4j-",
-			"08validation" => "emft-validation-",
-			"07transaction" => "emft-transaction-",
-			"06query" => "emft-query-",
-			"05ocl" => "emft-ocl-",
-			"04orbit" => "orbit-",
-			"03uml2" => "uml2-",
-			"02emf" => "emf-sdo-xsd-",
-			"01eclipse" => "eclipse-",
-			"99other" => "/"
-		);
-		foreach ($matches as $catg => $match)
-		{
-			if (false !== strpos($url, $match))
-			{
-				return $catg;
-			}
+function findCatg($url) {
+	$matches = array(
+		"11gmf" => "GMF-",
+		"10gef" => "GEF-",
+		"09net4j" => "emft-net4j-",
+		"08validation" => "emft-validation-",
+		"07transaction" => "emft-transaction-",
+		"06query" => "emft-query-",
+		"05ocl" => "mdt-ocl-|emft-ocl-",
+		"04orbit" => "orbit-",
+		"03uml2" => "uml2-",
+		"02emf" => "emf-sdo-xsd-",
+		"01eclipse" => "eclipse-",
+		"99other" => "/"
+	);
+	foreach ($matches as $catg => $match) { 
+		if (false!==strpos($url,$match) || preg_match("#(".$match.")#",$url)) {
+			return $catg;
 		}
 	}
+}
 
 	function updateDependenciesFile($file, $lines, $newSize, $origSize)
 	{
