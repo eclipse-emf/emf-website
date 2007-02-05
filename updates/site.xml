@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<site mirrorsURL="http://www.eclipse.org/downloads/download.php?file=/tools/emf/updates/site.xml&amp;format=xml">
-	<description url="http://download.eclipse.org/tools/emf/updates/site.xml">
+<site mirrorsURL="http://www.eclipse.org/downloads/download.php?file=/modeling/emf/updates/site.xml&amp;format=xml">
+	<description url="http://download.eclipse.org/modeling/emf/updates/site.xml">
 	To install these plugins, point your Eclipse Update Manager at this site.
 	</description>
 
