@@ -124,16 +124,20 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</select></td>
 			</tr>
 
-			<tr>
+			<tr valign="top">
 				<td>&#160;</td>
 				<td><b>Options</b><br><small></small></td>
 				<td>&#160;</td>
-				<td colspan="2"><input type="checkbox" name="build_Update_ISS_Map_File" value="Yes" checked="checked"> Update ISS Map File? 
+				<td colspan="2"><p><input type="checkbox" name="build_Update_ISS_Map_File" value="Yes" checked="checked"> Update ISS Map File? 
 				<small><select style="font-size:9px" name="build_IES_CVS_Branch" size="1">
 					<?php displayOptions($options["BranchIES"],false,0); ?>
-				</select></small><br/>
-				<input type="checkbox" name="build_Announce_In_Newsgroup" value="Yes" checked="checked"> Announce In Newsgroup?<br/>
-				<input type="checkbox" name="build_Close_Bugz_Only" value="Yes"> Move Assigned Bugs to Fixed? (-bugzonly)</td>
+				</select></small></p>
+				<p><input type="checkbox" name="build_Announce_In_Newsgroup" value="Yes" checked="checked"> Announce In Newsgroup?</p>
+				<p><input type="checkbox" name="build_Update_Coordinated_Update_Site" value="Yes"> Update Coordinated Update Site? 
+				<small><select style="font-size:9px" name="build_Coordinated_Site_Name" size="1">
+					<?php displayOptions(array("europa","callisto"),false,0); ?>
+				</select></small></p>
+				<p><input type="checkbox" name="build_Close_Bugz_Only" value="Yes" onclick="doOnclickBugzonly(this.checked)"> Move Assigned Bugs to Fixed? (-bugzonly)</p></td>
 			</tr>
 
 			<tr>
@@ -178,6 +182,17 @@ function doSubmit() {
 	} else {
 		// do nothing...
 	}
+}
+
+function doOnclickBugzonly(booln) {
+	with (document.forms.promoForm) {
+		build_Update_ISS_Map_File.disabled=booln;
+		build_IES_CVS_Branch.disabled=booln;
+		build_Announce_In_Newsgroup.disabled=booln;
+		build_Update_Coordinated_Update_Site.disabled=booln;
+		build_Coordinated_Site_Name.disabled=booln;
+		build_Email.disabled=booln;
+	} 
 }
 
 onload=loadSelects;
@@ -256,11 +271,12 @@ function loadSelects() {
 		' -branch ' . $BR .
 		' -buildID ' . $ID .
 		' -user ' . $users[$PR][1] .
-		' -userIES ' . $users[$PR][2] .
-		' -branchIES ' . $_POST["build_IES_CVS_Branch"] .
-		 ($_POST["build_Close_Bugz_Only"] != "" ? ' -bugzonly' : '') .
-		 ($_POST["build_Update_ISS_Map_File"] != "" ? '' : ' -noies') .
+		 ($_POST["build_Update_ISS_Map_File"]   != "" ? ' -userIES ' . $users[$PR][2] : '') .
+		 ($_POST["build_IES_CVS_Branch"]        != "" ? ' -branchIES ' . $_POST["build_IES_CVS_Branch"] : '') .
+		 ($_POST["build_Close_Bugz_Only"]       != "" ? ' -bugzonly' : '') .
+		 ($_POST["build_Update_ISS_Map_File"]   != "" ? '' : ' -noies') .
 		 ($_POST["build_Announce_In_Newsgroup"] != "" ? ' -announce' : '') .
+		 ($_POST["build_Update_Coordinated_Update_Site"] != "" ? ' -coordsite ' . $_POST["build_Coordinated_Site_Name"] : '') .
 		 ($_POST["build_Email"] != "" ? ' -email ' . $_POST["build_Email"] : '') .
 		' \"' .
 		' >> ' . $logdir . $logfile . ' 2>&1 &"'); // logging to unique files
