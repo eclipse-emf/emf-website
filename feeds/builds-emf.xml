@@ -3,29 +3,56 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>EMF Builds</title>
-  <link href="http://download.eclipse.org/tools/emf/feeds/builds-emf.xml" rel="self" type="application/atom+xml"/>
-  <updated>2007-02-12T15:49:08Z</updated>
+  <link href="http://download.eclipse.org/modeling/emf/feeds/builds-emf.xml" rel="self" type="application/atom+xml"/>
+  <updated>2007-02-12T23:00:13Z</updated>
   <author>
     <name>EMF Build Team</name>
   </author>
-  <id>http://download.eclipse.org/tools/emf/feeds/builds-emf.xml</id>
+  <id>http://download.eclipse.org/modeling/emf/feeds/builds-emf.xml</id>
+  <entry>
+    <title>[announce] EMF 2.3.0M5 (S200702121527) is available</title>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702121527#S200702121527"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702121527#S200702121527</id>
+    <updated>2007-02-12T23:00:13Z</updated>
+    <summary>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200702121527" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702121527#S200702121527" type="S" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/S200702121527/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
+        <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
+          </releasenotes>
+        <releases>
+          <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-2.3.0M5.zip</release>
+        </releases>
+        <tests>
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/S200702121527/testResults.php" type="junit">
+            <result arch="ALL" os="ALL" ws="ALL">PASS</result>
+          </test>
+        </tests>
+        <dependencies>
+          <dependency>http://download.eclipse.org/downloads/drops/S-3.3M5-200702091006/eclipse-SDK-3.3M5-linux-gtk.tar.gz</dependency>
+        </dependencies>
+        <coordinated status="CALLISTOSITEREADY"/>
+      </build>
+    </summary>
+  </entry>
   <entry>
     <title>[announce] EMF 2.2.2RC2 (S200702121014) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200702121014#S200702121014"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200702121014#S200702121014</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702121014#S200702121014"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702121014#S200702121014</id>
     <updated>2007-02-12T15:49:08Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200702121014" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200702121014#S200702121014" type="S" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/S200702121014/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200702121014" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702121014#S200702121014" type="S" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/S200702121014/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-2.2.2RC2.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/S200702121014/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/S200702121014/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -38,21 +65,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200702071857 (2.3.0.I200702071857) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200702071857#I200702071857"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200702071857#I200702071857</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200702071857#I200702071857"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200702071857#I200702071857</id>
     <updated>2007-02-08T04:52:10Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200702071857" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200702071857#I200702071857" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200702071857/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200702071857" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200702071857#I200702071857" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200702071857/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200702071857.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200702071857/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200702071857/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -65,21 +92,21 @@
   </entry>
   <entry>
     <title>[announce] EMF 2.2.2RC (S200702071707) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200702071707#S200702071707"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200702071707#S200702071707</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702071707#S200702071707"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702071707#S200702071707</id>
     <updated>2007-02-08T00:20:30Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200702071707" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200702071707#S200702071707" type="S" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/S200702071707/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200702071707" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200702071707#S200702071707" type="S" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/S200702071707/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-2.2.2RC.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/S200702071707/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/S200702071707/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -92,21 +119,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200702010200 (2.3.0.I200702010200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200702010200#I200702010200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200702010200#I200702010200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200702010200#I200702010200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200702010200#I200702010200</id>
     <updated>2007-02-01T08:19:08Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200702010200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200702010200#I200702010200" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200702010200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200702010200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200702010200#I200702010200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200702010200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200702010200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200702010200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200702010200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -119,21 +146,21 @@
   </entry>
   <entry>
     <title>[announce] EMF M200702010000 (2.2.2.M200702010000) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200702010000#M200702010000"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200702010000#M200702010000</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200702010000#M200702010000"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200702010000#M200702010000</id>
     <updated>2007-02-01T06:06:48Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200702010000" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200702010000#M200702010000" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200702010000/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200702010000" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200702010000#M200702010000" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200702010000/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200702010000.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200702010000/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200702010000/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -146,21 +173,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200701250200 (2.3.0.I200701250200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701250200#I200701250200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701250200#I200701250200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701250200#I200701250200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701250200#I200701250200</id>
     <updated>2007-01-25T19:13:56Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701250200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701250200#I200701250200" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701250200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701250200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701250200#I200701250200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701250200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701250200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701250200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701250200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -173,21 +200,21 @@
   </entry>
   <entry>
     <title>[announce] EMF M200701250000 (2.2.2.M200701250000) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701250000#M200701250000"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701250000#M200701250000</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701250000#M200701250000"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701250000#M200701250000</id>
     <updated>2007-01-25T18:22:52Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701250000" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701250000#M200701250000" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701250000/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701250000" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701250000#M200701250000" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701250000/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200701250000.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701250000/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701250000/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -200,21 +227,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200701181443 (2.3.0.I200701181443) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701181443#I200701181443"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701181443#I200701181443</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701181443#I200701181443"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701181443#I200701181443</id>
     <updated>2007-01-18T23:27:32Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701181443" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701181443#I200701181443" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701181443/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701181443" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701181443#I200701181443" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701181443/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701181443.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701181443/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701181443/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -227,21 +254,21 @@
   </entry>
   <entry>
     <title>[announce] EMF M200701181044 (2.2.2.M200701181044) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701181044#M200701181044"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701181044#M200701181044</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701181044#M200701181044"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701181044#M200701181044</id>
     <updated>2007-01-18T16:40:26Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701181044" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701181044#M200701181044" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701181044/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701181044" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701181044#M200701181044" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701181044/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200701181044.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701181044/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701181044/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -254,27 +281,27 @@
   </entry>
   <entry>
     <title>[announce] EMF I200701110200 (2.3.0.I200701110200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701110200#I200701110200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701110200#I200701110200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701110200#I200701110200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701110200#I200701110200</id>
     <updated>2007-01-11T08:10:28Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701110200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701110200#I200701110200" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701110200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701110200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701110200#I200701110200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701110200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701110200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701110200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701110200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/S-3.3M4-200612141445/eclipse-SDK-3.3M4-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -282,27 +309,27 @@
   </entry>
   <entry>
     <title>[announce] EMF M200701110000 (2.2.2.M200701110000) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701110000#M200701110000"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701110000#M200701110000</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701110000#M200701110000"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701110000#M200701110000</id>
     <updated>2007-01-11T06:09:05Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701110000" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701110000#M200701110000" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701110000/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701110000" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701110000#M200701110000" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701110000/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200701110000.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701110000/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701110000/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/M20070103-0800/eclipse-SDK-M20070103-0800-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.2.2/M200612211127/emf-sdo-xsd-SDK-M200612211127.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.2.2/M200612211127/emf-sdo-xsd-SDK-M200612211127.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -310,27 +337,27 @@
   </entry>
   <entry>
     <title>[announce] EMF I200701040200 (2.3.0.I200701040200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701040200#I200701040200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701040200#I200701040200</id>
     <updated>2007-01-04T15:37:31Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701040200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701040200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701040200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701040200#I200701040200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701040200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701040200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701040200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701040200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/S-3.3M4-200612141445/eclipse-SDK-3.3M4-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -338,27 +365,27 @@
   </entry>
   <entry>
     <title>[announce] EMF I200701040200 (2.3.0.I200701040200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701040200#I200701040200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701040200#I200701040200</id>
     <updated>2007-01-04T14:20:38Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701040200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200701040200#I200701040200" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701040200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200701040200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200701040200#I200701040200" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701040200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200701040200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200701040200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200701040200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/S-3.3M4-200612141445/eclipse-SDK-3.3M4-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.3.0/S200612211251/emf-sdo-xsd-SDK-2.3.0M4.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -366,27 +393,27 @@
   </entry>
   <entry>
     <title>[announce] EMF M200701040000 (2.2.2.M200701040000) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701040000#M200701040000"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701040000#M200701040000</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701040000#M200701040000"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701040000#M200701040000</id>
     <updated>2007-01-04T06:09:29Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701040000" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200701040000#M200701040000" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701040000/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200701040000" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200701040000#M200701040000" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701040000/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200701040000.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200701040000/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200701040000/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/M20070103-0800/eclipse-SDK-M20070103-0800-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.2.2/M200612211127/emf-sdo-xsd-SDK-M200612211127.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.2.2/M200612211127/emf-sdo-xsd-SDK-M200612211127.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -394,21 +421,21 @@
   </entry>
   <entry>
     <title>[announce] EMF 2.3.0M4 (S200612211251) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200612211251#S200612211251"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200612211251#S200612211251</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200612211251#S200612211251"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200612211251#S200612211251</id>
     <updated>2006-12-21T19:51:03Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200612211251" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200612211251#S200612211251" type="S" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/S200612211251/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200612211251" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200612211251#S200612211251" type="S" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/S200612211251/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-2.3.0M4.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/S200612211251/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/S200612211251/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -421,21 +448,21 @@
   </entry>
   <entry>
     <title>[announce] EMF M200612211127 (2.2.2.M200612211127) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612211127#M200612211127"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612211127#M200612211127</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612211127#M200612211127"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612211127#M200612211127</id>
     <updated>2006-12-21T17:58:32Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200612211127" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612211127#M200612211127" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200612211127/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200612211127" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612211127#M200612211127" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200612211127/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200612211127.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200612211127/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200612211127/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -448,21 +475,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200612141025 (2.3.0.I200612141025) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200612141025#I200612141025"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200612141025#I200612141025</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200612141025#I200612141025"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200612141025#I200612141025</id>
     <updated>2006-12-14T17:34:48Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200612141025" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200612141025#I200612141025" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200612141025/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200612141025" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200612141025#I200612141025" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200612141025/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200612141025.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200612141025/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200612141025/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -475,27 +502,27 @@
   </entry>
   <entry>
     <title>[announce] EMF M200612140300 (2.2.2.M200612140300) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612140300#M200612140300"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612140300#M200612140300</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612140300#M200612140300"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612140300#M200612140300</id>
     <updated>2006-12-14T15:39:32Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200612140300" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612140300#M200612140300" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200612140300/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200612140300" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612140300#M200612140300" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200612140300/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200612140300.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200612140300/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200612140300/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/M20061129-0800/eclipse-SDK-M20061129-0800-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.2.2/M200611300200/emf-sdo-xsd-SDK-M200611300200.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.2.2/M200611300200/emf-sdo-xsd-SDK-M200611300200.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -503,21 +530,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200612071030 (2.3.0.I200612071030) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200612071030#I200612071030"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200612071030#I200612071030</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200612071030#I200612071030"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200612071030#I200612071030</id>
     <updated>2006-12-07T17:42:45Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200612071030" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200612071030#I200612071030" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200612071030/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200612071030" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200612071030#I200612071030" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200612071030/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200612071030.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200612071030/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200612071030/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -530,27 +557,27 @@
   </entry>
   <entry>
     <title>[announce] EMF M200612070200 (2.2.2.M200612070200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612070200#M200612070200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612070200#M200612070200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612070200#M200612070200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612070200#M200612070200</id>
     <updated>2006-12-07T08:09:08Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200612070200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200612070200#M200612070200" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200612070200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200612070200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200612070200#M200612070200" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200612070200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200612070200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200612070200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200612070200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/M20061129-0800/eclipse-SDK-M20061129-0800-linux-gtk.tar.gz</dependency>
-          <dependency>http://download.eclipse.org/tools/emf/downloads/drops/2.2.2/M200611300200/emf-sdo-xsd-SDK-M200611300200.zip</dependency>
+          <dependency>http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.2.2/M200611300200/emf-sdo-xsd-SDK-M200611300200.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -558,26 +585,26 @@
   </entry>
   <entry>
     <title>[announce] EMF M200611300200 (2.2.2.M200611300200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611300200#M200611300200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611300200#M200611300200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611300200#M200611300200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611300200#M200611300200</id>
     <updated>2006-11-30T08:13:50Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611300200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611300200#M200611300200" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611300200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611300200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611300200#M200611300200" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611300200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611300200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611300200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611300200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
-          <dependency>http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.2/M200611161441/emf-sdo-xsd-SDK-M200611161441.zip</dependency>
+          <dependency>http://emf.torolab.ibm.com/modeling/emf/emf/downloads/drops/2.2.2/M200611161441/emf-sdo-xsd-SDK-M200611161441.zip</dependency>
           <dependency>http://fullmoon/downloads/drops/M20061115-1052/eclipse-SDK-M20061115-1052-linux-gtk.tar.gz</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
@@ -586,27 +613,27 @@
   </entry>
   <entry>
     <title>[announce] EMF I200611300000 (2.3.0.I200611300000) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611300000#I200611300000"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611300000#I200611300000</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611300000#I200611300000"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611300000#I200611300000</id>
     <updated>2006-11-30T06:37:34Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611300000" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611300000#I200611300000" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611300000/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611300000" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611300000#I200611300000" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200611300000/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611300000.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611300000/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200611300000/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/I20061121-1845/eclipse-SDK-I20061121-1845-linux-gtk.tar.gz</dependency>
-          <dependency>http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.3.0/I200611230000/emf-sdo-xsd-SDK-I200611230000.zip</dependency>
+          <dependency>http://emf.torolab.ibm.com/modeling/emf/emf/downloads/drops/2.3.0/I200611230000/emf-sdo-xsd-SDK-I200611230000.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -614,26 +641,26 @@
   </entry>
   <entry>
     <title>[announce] EMF M200611230200 (2.2.2.M200611230200) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611230200#M200611230200"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611230200#M200611230200</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611230200#M200611230200"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611230200#M200611230200</id>
     <updated>2006-11-23T08:02:08Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611230200" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611230200#M200611230200" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611230200/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611230200" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611230200#M200611230200" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611230200/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611230200.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611230200/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611230200/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
-          <dependency>http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.2.2/M200611161441/emf-sdo-xsd-SDK-M200611161441.zip</dependency>
+          <dependency>http://emf.torolab.ibm.com/modeling/emf/emf/downloads/drops/2.2.2/M200611161441/emf-sdo-xsd-SDK-M200611161441.zip</dependency>
           <dependency>http://fullmoon/downloads/drops/M20061115-1052/eclipse-SDK-M20061115-1052-linux-gtk.tar.gz</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
@@ -642,27 +669,27 @@
   </entry>
   <entry>
     <title>[announce] EMF I200611230000 (2.3.0.I200611230000) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611230000#I200611230000"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611230000#I200611230000</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611230000#I200611230000"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611230000#I200611230000</id>
     <updated>2006-11-23T06:05:20Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611230000" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611230000#I200611230000" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611230000/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611230000" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611230000#I200611230000" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200611230000/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611230000.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611230000/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200611230000/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
         <dependencies>
           <dependency>http://download.eclipse.org/downloads/drops/I20061121-1845/eclipse-SDK-I20061121-1845-linux-gtk.tar.gz</dependency>
-          <dependency>http://emf.torolab.ibm.com/tools/emf/downloads/drops/2.3.0/S200611091546/emf-sdo-xsd-SDK-2.3.0M3.zip</dependency>
+          <dependency>http://emf.torolab.ibm.com/modeling/emf/emf/downloads/drops/2.3.0/S200611091546/emf-sdo-xsd-SDK-2.3.0M3.zip</dependency>
         </dependencies>
         <coordinated status="CALLISTOSITEREADY"/>
       </build>
@@ -670,21 +697,21 @@
   </entry>
   <entry>
     <title>[announce] EMF I200611161558 (2.3.0.I200611161558) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611161558#I200611161558"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611161558#I200611161558</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611161558#I200611161558"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611161558#I200611161558</id>
     <updated>2006-11-16T23:10:25Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611161558" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611161558#I200611161558" type="I" version="2.3.0">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611161558/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611161558" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611161558#I200611161558" type="I" version="2.3.0">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200611161558/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611161558.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.3.0/I200611161558/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.3.0/I200611161558/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -697,21 +724,21 @@
   </entry>
   <entry>
     <title>[announce] EMF M200611161441 (2.2.2.M200611161441) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611161441#M200611161441"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611161441#M200611161441</id>
     <updated>2006-11-16T21:14:00Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611161441" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611161441#M200611161441" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611161441/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611161441" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611161441#M200611161441" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611161441/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611161441.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611161441/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611161441/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -724,21 +751,21 @@
   </entry>
   <entry>
     <title>[announce] EMF M200611091648 (2.2.2.M200611091648) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611091648#M200611091648"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611091648#M200611091648</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611091648#M200611091648"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611091648#M200611091648</id>
     <updated>2006-11-15T19:50:10Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611091648" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611091648#M200611091648" type="M" version="2.2.2">
-        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611091648/" log="buildlog.txt" map="directory.txt"/>
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611091648" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611091648#M200611091648" type="M" version="2.2.2">
+        <detail config="build.cfg" href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611091648/" log="buildlog.txt" map="directory.txt"/>
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611091648.zip</release>
         </releases>
         <tests>
-          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/tools/emf/downloads/drops/2.2.2/M200611091648/testResults.php" type="junit">
+          <test href="http://www.eclipse.org/downloads/download.php?r=1&amp;file=/modeling/emf/emf/downloads/drops/2.2.2/M200611091648/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -751,20 +778,20 @@
   </entry>
   <entry>
     <title>[announce] EMF 2.3.0M3 (S200611091546) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200611091546#S200611091546"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200611091546#S200611091546</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200611091546#S200611091546"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200611091546#S200611091546</id>
     <updated>2006-11-09T23:59:12Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611091546" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=S200611091546#S200611091546" type="S" version="2.3.0">
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611091546" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=S200611091546#S200611091546" type="S" version="2.3.0">
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-2.3.0M3.zip</release>
         </releases>
         <tests>
-          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.3.0/S200611091546/testResults.php" type="junit">
+          <test href="http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.3.0/S200611091546/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -777,20 +804,20 @@
   </entry>
   <entry>
     <title>[announce] EMF I200611021608 (2.3.0.I200611021608) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611021608#I200611021608"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611021608#I200611021608</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611021608#I200611021608"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611021608#I200611021608</id>
     <updated>2006-11-02T22:29:19Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611021608" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=I200611021608#I200611021608" type="I" version="2.3.0">
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="HEAD" datetime="200611021608" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=I200611021608#I200611021608" type="I" version="2.3.0">
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.3.0
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-I200611021608.zip</release>
         </releases>
         <tests>
-          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.3.0/I200611021608/testResults.php" type="junit">
+          <test href="http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.3.0/I200611021608/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
@@ -803,20 +830,20 @@
   </entry>
   <entry>
     <title>[announce] EMF M200611020834 (2.2.2.M200611020834) is available</title>
-    <link href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834"/>
-    <id>http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834</id>
+    <link href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611020834#M200611020834"/>
+    <id>http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611020834#M200611020834</id>
     <updated>2006-11-02T15:29:46Z</updated>
     <summary>
-      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611020834" href="http://www.eclipse.org/emf/downloads/?showAll=1&amp;hlbuild=M200611020834#M200611020834" type="M" version="2.2.2">
-        <update>http://download.eclipse.org/tools/emf/updates/</update>
-        <downloads>http://www.eclipse.org/emf/downloads/</downloads>
+      <build xmlns="http://www.eclipse.org/2006/BuildFeed" branch="R2_2_maintenance" datetime="200611020834" href="http://www.eclipse.org/modeling/emf/downloads/?project=emf&amp;showAll=1&amp;hlbuild=M200611020834#M200611020834" type="M" version="2.2.2">
+        <update>http://download.eclipse.org/modeling/emf/updates/</update>
+        <downloads>http://www.eclipse.org/modeling/emf/downloads/?project=emf</downloads>
         <releasenotes>http://www.eclipse.org/modeling/emf/news/relnotes.php?project=emf&amp;version=2.2.2
           </releasenotes>
         <releases>
           <release arch="ALL" os="ALL" type="SDK" ws="ALL">emf-sdo-xsd-SDK-M200611020834.zip</release>
         </releases>
         <tests>
-          <test href="http://download.eclipse.org/tools/emf/downloads/drops/2.2.2/M200611020834/testResults.php" type="junit">
+          <test href="http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.2.2/M200611020834/testResults.php" type="junit">
             <result arch="ALL" os="ALL" ws="ALL">PASS</result>
           </test>
         </tests>
