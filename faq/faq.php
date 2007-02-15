@@ -1,1 +1,1 @@
-<?php header("Location: /modeling/emf/faq/"); ?>
+<?php header("Location: http://wiki.eclipse.org/index.php/EMF-FAQ"); ?>
