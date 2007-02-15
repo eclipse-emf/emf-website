@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.23 2007/01/09 00:21:42 nickb Exp $ 
+	// $Id: scripts.php,v 1.24 2007/02/15 23:53:33 nickb Exp $ 
 
 	function getPWD($suf="") {
 		$PWD="";
@@ -24,7 +24,7 @@
 			if ($_SERVER["HTTP_HOST"]=="emf.torolab.ibm.com" || $_SERVER["HTTP_HOST"]=="emf") {
 				$PWD = "/home/www-data/emf-build/tools/emf/downloads/drops"; 
 			} else if ($isEclipseCluster) {
-				$PWD = "/home/data/httpd/download.eclipse.org/tools/emf/".$suf;
+				$PWD = "/home/local/data/httpd/download.eclipse.org/tools/emf/".$suf;
 			} else if ($_SERVER["HTTP_HOST"]=="fullmoon.torolab.ibm.com") {
 				$PWD = "/home/www/tools/emf/".$suf; 
 			}
@@ -34,10 +34,10 @@
 
 		//try a default guess: /home/www, two options
 		if (!is_dir($PWD) || !is_readable($PWD) || ($suf=="logs" && !is_writable($PWD)) ) { 
-			$PWD = "/home/data/httpd/download.eclipse.org/"; 
+			$PWD = "/home/local/data/httpd/download.eclipse.org/"; 
 			if (is_dir($PWD) && is_readable($PWD)) { 
 				// try 1:
-				$PWD = "/home/data/httpd/download.eclipse.org/tools/emf/".$suf; // default path
+				$PWD = "/home/local/data/httpd/download.eclipse.org/tools/emf/".$suf; // default path
 
 				if (is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { 
 					if ($debug_echoPWD ) { echo "<!-- Found[3def-a]: PWD -->"; $debug_echoPWD=0; }

@@ -12,7 +12,7 @@ include ($App->getProjectCommon());
 
 if ($isWWWserver)
 {
-	$PWD = "/home/data/httpd/download.eclipse.org/tools/emf/";
+	$PWD = "/home/local/data/httpd/download.eclipse.org/tools/emf/";
 	$jdPWD = "/downloads/download.php?file=/tools/emf/";
 }
 else
