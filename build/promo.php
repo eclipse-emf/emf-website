@@ -482,15 +482,6 @@ function loadSelects() {
 		return $options;
 	}
 
-	function getBranches($options)
-	{
-		foreach ($options["Branch"] as $br => $branch)
-		{
-			$arr[getValueFromOptionsString($branch, "name")] = getValueFromOptionsString($branch, "value");
-		}
-		return $arr;
-	}
-
 	function getValueFromOptionsString($opt, $nameOrValue)
 	{
 		if (strstr($opt, "|selected"))
