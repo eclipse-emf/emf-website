@@ -73,13 +73,10 @@ $options = loadOptionsFromRemoteFiles($buildOptionsFile, $dependenciesURLsFile);
 $buildIDs = array ();
 $buildIDs2 = array ();
 
-foreach ($options["Branch"] as $br)
+foreach ($options["BranchAndJDK"] as $br)
 {
 	$bits = explode("=", $br);
-	if ($bits[0] == "-")
-	{
-		$BR = $bits[1];
-	}
+	$BR = $bits[0];
 	// define which build types to show:
 	if (is_dir("$workDir/downloads/drops/$BR"))
 	{
