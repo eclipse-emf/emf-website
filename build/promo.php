@@ -10,6 +10,7 @@ $App = new App();
 $Nav = new Nav();
 $Menu = new Menu();
 include ($App->getProjectCommon());
+internalUseOnly();
 ob_start();
 
 $debug = isset ($_GET["debug"]) ? 1 : 0;
