@@ -13,7 +13,6 @@ include ($App->getProjectCommon());
 internalUseOnly();
 ob_start();
 
-$debug = isset ($_GET["debug"]) ? 1 : 0;
 $previewOnly = isset ($_GET["previewOnly"]) ? 1 : 0;
 $PR = isset ($_GET["project"]) && $_GET["project"] && preg_match("/(emf|uml2)/", $_GET["project"]) ? $_GET["project"] : "emf";
 
@@ -39,8 +38,8 @@ $emails = array (
 
 <div class="homeitem3col">
 <h3>Promote 
-	<a style="color:white" href="?project=emf<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a> &amp; 
-	<a style="color:white" href="?project=uml2<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">UML2</a></h3>
+	<a style="color:white" href="?project=emf<?php print ($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a> &amp; 
+	<a style="color:white" href="?project=uml2<?php print ($previewOnly?"&amp;previewOnly=1":""); ?>">UML2</a></h3>
 
 <?php
 
@@ -51,7 +50,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 } else
 {
 	print "<p>Your promotion is " . ($previewOnly ? "<b>NOT</b> " : "") . "in progress" . ($previewOnly ? ", but the command is displayed below for preview" : "") .
-	". <a href=\"?project=$PR" . ($debug ? "&amp;debug=1" : "") . ($previewOnly ? "&amp;previewOnly=1" : "") . "\">Promote another?</a></p>";
+	". <a href=\"?project=$PR" . ($previewOnly ? "&amp;previewOnly=1" : "") . "\">Promote another?</a></p>";
 }
 ?>
 
@@ -307,9 +306,7 @@ function loadSelects() {
 	print "<div class=\"sideitem\">\n";
 	print "<h6>Options</h6>\n";
 	print "<ul>\n";
-	print "<li><a href=\"?project=$PR&amp;debug=1\">debug promo</a></li>\n";
 	print "<li><a href=\"?project=$PR&amp;previewOnly=1\">preview promo</a></li>\n";
-	print "<li><a href=\"?project=$PR&amp;debug=1&previewOnly=1\">preview debug promo</a></li>\n";
 	print "<li><a href=\"?project=$PR\">normal promo</a></li>\n";
 	print "</ul>\n";
 	print "</div>\n";
@@ -437,7 +434,7 @@ function loadSelects() {
 	{
 		$options = array ();
 		$doSection = "";
-		$debug = isset ($debug) ? $debug : 0; // 1
+		global $debug;
 
 		foreach ($sp as $s)
 		{

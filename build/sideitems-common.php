@@ -3,9 +3,19 @@ if ($isEMFserver) { ?>
 <div class="sideitem">
 	<h6>Actions</h6>
 	<ul>
-		<li><a href="http://emf.torolab.ibm.com/emf/build/?project=<?php print $PR; ?>">New Build</a></li>
-		<?php if ($PR=="emf") { ?><li><a href="http://emf.torolab.ibm.com/emf/build/patch.php">New Test</a></li><?php } ?>
-		<li><a href="http://emf.torolab.ibm.com/emf/build/promo.php?project=<?php print $PR; ?>">Promote</a></li>
+		<?php if ($PR=="emf") { ?>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/?project=emf">New Build</a> (EMF)</li>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/patch.php">New Test</a> (EMF)</li>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/promo.php?project=emf">Old Promote</a> (EMF)</li>
+		<?php } else if ($PR=="uml2") { ?>
+		<li><a href="/modeling/mdt/uml2/build/">New Build</a> (MDT)</li>
+		<li><a href="/modeling/mdt/uml2/build/promo.php">New Promote</a> (MDT)</li>
+		<hr noshade="noshade" size="1" width="80%"/>
+	</ul>
+	<ul>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/?project=uml2">Old Build</a> (UML2)</li>
+		<li><a href="http://emf.torolab.ibm.com/emf/build/promo.php?project=uml2">Old Promote</a> (UML2)</li>
+		<?php } ?>
 	</ul>
 </div>
 <div class="sideitem">
