@@ -1,4 +1,6 @@
 <?php 
+$_SERVER['DOCUMENT_ROOT'] = $_SERVER["SERVER_NAME"] == "build.eclipse.org" ? "/opt/public/modeling" : $_SERVER['DOCUMENT_ROOT'];
+
 # TODO: remove this when migrated to /modeling/emf
 require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
 
