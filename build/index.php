@@ -21,8 +21,7 @@ $PR = $_GET["project"] && preg_match("/(emf|uml2)/", $_GET["project"]) ? $_GET["
 
 <div class="homeitem3col">
 <h3>Building 
-	<a style="color:white" href="?project=emf<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a> &amp; 
-	<a style="color:white" href="?project=uml2<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">UML2</a></h3>
+	<a style="color:white" href="?project=emf<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a></h3>
 
 <?php
 
@@ -666,7 +665,7 @@ setTimeout('doOnLoadDefaults()',500);
 	$html = ob_get_contents();
 	ob_end_clean();
 
-	$pageTitle = "EMF + UML2 - New Build";
+	$pageTitle = "EMF - New Build";
 	$pageKeywords = "";
 	$pageAuthor = "Nick Boldt";
 
