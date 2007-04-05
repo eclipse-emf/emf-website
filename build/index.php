@@ -62,6 +62,13 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 	<form method=POST name="buildForm">
 			<input type="hidden" name="process" value="build" />
 			<tr>
+				<td colspan="4"></td>
+				<td colspan="2">
+					<div id="note" name="note" style="border:0;font-style:italic;font-weight:bold" readonly="readonly">&#160;</div>
+				</td>
+			</tr>
+			
+			<tr>
 				<td><img src="/emf/images/numbers/1.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Branch, Subproject &amp; Type</b></td>
@@ -285,6 +292,16 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 </table>
 <script language="javascript">
 
+function setNote(val) 
+{
+  note = document.getElementById('note');
+  if (val == "UML2")
+	note.innerHTML = " [!] " + val + " has moved to <a href=\"/modeling/mdt/" + val.toLowerCase() + "/build/\">MDT</a>. This build is deprecated. [/!] "
+  else
+  	note.innerHTML = "";
+}
+
+
 function showfullURL(val)
 {
 	fullURL = document.getElementById('fullURL');
@@ -423,6 +440,7 @@ function doOnLoadDefaults() {
 	doBranchSelected(document.forms.buildForm.build_CVS_Branch);
   field=document.forms.buildForm.build_Build_Type;
   pickDefaults(field.options[field.selectedIndex].value);
+  field=document.forms.buildForm.build_Project;    setNote(field.options[field.selectedIndex].text);
 }
 
 setTimeout('doOnLoadDefaults()',500);
