@@ -1,11 +1,11 @@
 <div class="homeitem">
 	<h3>Downloads</h3>
 	<p>
-		<a href="/emf/downloads/">Downloads</a><br/>
-		<a href="/emf/updates/">Update Manager</a>
+		<a href="/modeling/emf/downloads/?project=emf">Downloads</a><br/>
+		<a href="/modeling/emf/updates/">Update Manager</a>
 		<br/>
-		v2.x: <a href="/emf/downloads/">EMF, SDO &amp; XSD</a>, 
-		v1.x: <a href="/emf/downloads/dl-emf1x.html">EMF &amp; XSD</a> 
+		v2.x: <a href="/modeling/emf/downloads/?project=emf">EMF, SDO &amp; XSD</a>, 
+		v1.x: <a href="/modeling/emf/downloads/dl-emf1x.html">EMF &amp; XSD</a> 
 	</p>
 
 	<p>
