@@ -309,8 +309,8 @@ function showXML(dateStamp,type,range) {
 	<td><table>
 		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Country'?'checked ':''); ?>value="Country" name="type">By Country</td><td>[Fast!]</td></tr>
 		<tr><td><input onfocus="doOptions(this,'File')" type="radio" <?php echo ($type=='File'?'checked ':''); ?>value="File" name="type"> By File (Zips &amp; Jars)</td><td>[Medium]</td></tr>
-		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain</td><td>[Very Slow! 
-			- Use Only 1 Month Of Data Or Less]</td></tr>
+<!--		<tr><td><input onfocus="doOptions(this,'Domain/Country')" type="radio" <?php echo ($type=='Domain'?'checked ':''); ?>value="Domain" name="type"> Domain</td><td>[Very Slow! 
+			- Use Only 1 Month Of Data Or Less]</td></tr> --> <!-- not allowed, see bug 138284 -->
 	</table></td>
 </tr>
 <tr><td colspan="2"><hr noshade="noshade" size="1" width="100%"/></td></tr>
@@ -318,7 +318,7 @@ function showXML(dateStamp,type,range) {
 <tr>
 	<td><b>Data Sort:</b></td>
 	<td>
-		<input type="radio" <?php echo ($sortBy=='Key'?'checked ':''); ?>value="Key" name="sortBy"> Domain or File 
+		<input type="radio" <?php echo ($sortBy=='Key'?'checked ':''); ?>value="Key" name="sortBy"><!-- Domain or --> File 
 		<input type="radio" <?php echo ($sortBy=='Hits'?'checked ':''); ?>value="Hits" name="sortBy"> Hits
 	</td>
 </tr>
@@ -343,7 +343,7 @@ function showXML(dateStamp,type,range) {
 </tr>
 
 <tr style="display:<?php echo $type!="File"?"show":"none"; ?>" id="ihtrDomainOptions">
-	<td width="150"><b>Domain &amp; Country Grouping:</b></td>
+	<td width="150"><b><!-- Domain &amp; -->Country Grouping:</b></td>
 	<td>
 		<input type="checkbox" <?php echo (in_array("groupTLD",$groups)?'checked ':''); ?>value="groupTLD" name="groups[]"> By TLD - best to <a href="javascript:doSort()">sort by Domain</a>, not Hits<br/>
 	</td>
@@ -665,4 +665,4 @@ function getMonth($m) {
 }
 
 ?>
-<!-- $Id: downloads.php,v 1.22 2006/10/20 21:50:24 nickb Exp $ -->
+<!-- $Id: downloads.php,v 1.23 2007/04/17 21:05:35 nickb Exp $ -->

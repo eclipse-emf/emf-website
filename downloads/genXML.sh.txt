@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id: genXML.sh.txt,v 1.14 2006/02/16 20:08:28 nickb Exp $
+# $Id: genXML.sh.txt,v 1.15 2007/04/17 21:05:35 nickb Exp $
 #
 # To use this script, do the following:
 # mv genXML.sh.txt genXML.sh; chmod u+x genXML.sh genXML.?.sh; dos2unix genXML.sh gentXML.?.sh
@@ -33,7 +33,7 @@ if [ $# -lt 1 ]; then
   echo "  -user,   -u <REQUIRED: username for SQL access>";
   echo "  -pass,   -p <REQUIRED: password for SQL access>";
   echo "  -file,   -F <generate file data>";
-  echo "  -domain, -D <generate FQDN data>";
+  #echo "  -domain, -D <generate FQDN data>"; # disabled, see bug 138284
   echo "  -country,-C <generate country data>";
   echo "  -dates,  -d <list of dates to generate,  eg. -d 20051231 20060101>"
   echo "  -weeks,  -w <list of weeks to generate,  eg. -w 51 52 01 02 03>"
@@ -95,12 +95,12 @@ while [ "$#" -gt 0 ]; do
       echo "  $1"
       shift 1;
       ;;
-    '-domain'|'-D')
-      tables=$tables" Domain";
-      echo "  $1";
-      shift 1;
-      ;;
-    '-domain'|'-C')
+#    '-domain'|'-D') # disabled, seee bug 138284
+#      tables=$tables" Domain";
+#      echo "  $1";
+#      shift 1;
+#      ;;
+    '-country'|'-C')
       tables=$tables" Country";
       echo "  $1";
       shift 1;
