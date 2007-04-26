@@ -1,1 +1,1 @@
-<?php header("Location: /modeling/emf/?project=sdo"); ?>
+<?php header("Location: /modeling/emf/?project=sdo#sdo"); ?>

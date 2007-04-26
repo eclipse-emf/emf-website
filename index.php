@@ -1,1 +1,1 @@
-<?php header("Location: /modeling/emf/?project=emf"); ?>
+<?php header("Location: /modeling/emf/"); ?>
