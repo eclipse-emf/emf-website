@@ -194,6 +194,9 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<div name="divRunTests21" id="divRunTests21" style="display:none;border:0">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests21"],"_21"); ?>
 				</div>
+				<div name="divRunTests20" id="divRunTests20" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests20"],"_20"); ?>
+				</div>
 				</td>
 				<td><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
 				<div id="divRunTestsDetail" name="divRunTestsDetail" style="display:none;border:0">
