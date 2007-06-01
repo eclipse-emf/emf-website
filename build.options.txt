@@ -7,8 +7,8 @@ M4_33
 #used in build.php for selecting build branch
 2.3.0=HEAD,/opt/sun-java2-5.0
 2.2.4=R2_2_maintenance,/opt/sun-java2-1.4
-#2.1.3=R2_1_maintenance,/opt/sun-java2-1.4
-#2.0.6=R2_0_maintenance,/opt/sun-java2-1.4
+2.1.3=R2_1_maintenance,/opt/sun-java2-1.4
+2.0.6=R2_0_maintenance,/opt/sun-java2-1.4
 
 [BranchIES]
 #used in promo.php for selecting branch for IES mapfile commit
@@ -22,9 +22,11 @@ R3_2_maintenance
 -=2.2.3
 -=2.2.1
 -=2.2.0
+-=2.1.3
 -=2.1.2
 -=2.1.1
 -=2.1.0
+-=2.0.6
 -=2.0.5
 -=2.0.4
 -=2.0.3
@@ -39,6 +41,13 @@ Yes
 No|selected
 
 #series of checkboxes, depending on version
+[RunTests20]
+JUnit Tests=JUnit
+JDK 1.3 Tests=JDK13
+JDK 1.4 &amp; Standalone=JDK14
+JDK 5.0 &amp; Standalone=JDK50
+Old Tests=Old
+
 [RunTests21]
 JUnit Tests=JUnit
 JDK 1.3 Tests=JDK13
