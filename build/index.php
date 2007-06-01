@@ -397,6 +397,7 @@ function toggleCheckboxes(val) {
     "divRunTests23",
     "divRunTests22",
     "divRunTests21",
+    "divRunTests20",
     "divRunTests"
   );
   divNum=branchToDivNum(); 
