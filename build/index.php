@@ -318,16 +318,16 @@ function pickDefaults(val) {
 		setCheckbox("build_Run_Tests_JDK13",false,divNum);
 		setCheckbox("build_Run_Tests_JDK14",true,divNum);
 		setCheckbox("build_Run_Tests_JDK50",false,divNum);
-		setCheckbox("build_Run_Tests_Binary",false,divNum);
-		setCheckbox("build_Run_Tests_Source",false,divNum);
+		/*setCheckbox("build_Run_Tests_Binary",false,divNum);
+		setCheckbox("build_Run_Tests_Source",false,divNum);*/
 		setCheckbox("build_Run_Tests_Old",false,divNum);
 	} else {
 		setCheckbox("build_Run_Tests_JUnit",true,divNum);
 		setCheckbox("build_Run_Tests_JDK13",false,divNum);
 		setCheckbox("build_Run_Tests_JDK14",false,divNum);
 		setCheckbox("build_Run_Tests_JDK50",true,divNum);
-		setCheckbox("build_Run_Tests_Binary",true,divNum);
-		setCheckbox("build_Run_Tests_Source",true,divNum);
+		/*setCheckbox("build_Run_Tests_Binary",true,divNum);
+		setCheckbox("build_Run_Tests_Source",true,divNum);*/
 		setCheckbox("build_Run_Tests_Old",true,divNum);
 	}
 }
@@ -595,8 +595,6 @@ setTimeout('doOnLoadDefaults()',500);
 			"-runJDK50Tests" => "build_Run_Tests_JDK50",
 			"-runOldTests" => "build_Run_Tests_Old"
 				// TODO: add build_Run_Tests_Binary & build_Run_Tests_Source
-
-	
 		);
 		foreach ($fields as $flag => $field)
 		{
