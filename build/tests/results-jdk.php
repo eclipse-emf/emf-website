@@ -6,7 +6,7 @@ internalUseOnly();
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
 
-$VER = $_GET["version"] && preg_match("/(14|50)/",$_GET["version"])? $_GET["version"] : "50"; 
+$VER = $_GET["version"] && preg_match("/(13|14|50)/",$_GET["version"])? $_GET["version"] : "50"; 
 $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf"; 
 $hadLoadDirSimpleError=1;
 
