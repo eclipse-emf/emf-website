@@ -99,7 +99,7 @@ EOHTML;
 						if ($k == "bug_id") { 
 							echo "<a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\t";
 						} else if ($k == "thetext") {
-							echo "\n".preg_replace("/.*(\[contrib.+\]).*/","\1",str_replace("\n"," ",$v));
+							echo preg_replace("/.*(\\[contrib.+\\]).*/","$1",str_replace("\n"," ",$v))."\t";
 						} else {
 							echo "$v\t";
 						}
