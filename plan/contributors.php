@@ -62,8 +62,8 @@ else
 {
 	while($myrow = mysql_fetch_row($rs)) 
 	{
-		$contrib_email = preg_replace("/.*(\\[contrib email=\".+\"\/\\]).*/","$1",str_replace("\n"," ",$myrow[2]));
-		$data["b".$myrow[0]] = ",".$myrow[0].",%%CONTRIB_EMAIL=".$contrib_email."%%,,".preg_replace("/().+)\@.+/","$1",$myrow[1]);
+		$contrib_email = preg_replace("/.*\\[contrib email=\"(.+)\"\/\\].*/","$1",str_replace("\n"," ",$myrow[2]));
+		$data["b".$myrow[0]] = ",".$myrow[0].",%%CONTRIB_EMAIL=".$contrib_email."%%,,".preg_replace("/(.+)\@.+/","$1",$myrow[1]);
 		$contributors[$contrib_email] = $contrib_email; 
 	}
 	if ($debug)
