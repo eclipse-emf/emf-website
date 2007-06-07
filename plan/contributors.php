@@ -134,11 +134,11 @@ foreach ($data as $b => $line)
 	print $line."\n";
 }
 
-print "\n\nTo determine values for Component & Size, click below for bug reports:\n\n"; 
+print "\n\nTo determine values for Component & Size, click below for Search CVS:\n\n"; 
 foreach ($data as $b => $line)
 {
 	$v = substr($b,1);
-	print "<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
+	print "<a href=\"http://www.eclipse.org/modeling/emf/searchcvs.php?q=$v\" target=\"_bug\">$v</a>\n";
 }
 print "</pre>\n";
 ?>
