@@ -13,6 +13,8 @@ require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.c
 header("Content-Type: text/plain");
 
 $bugs = $_GET["bugs"]; 
+$debug = isset($_GET["debug"]);
+
 if (!$bugs) 
 { 
 	echo "Enter a list of bugs to return csv data, eg:\n?bugs=147594,149770,161744,165770,166967,166112,170204,156783,170223,136881,179004,185971\n\n"; 
@@ -37,11 +39,16 @@ ORDER BY
 ASC";
    
 $data = array();
+$contributors = array();
 
 # Connect to database
 $dbc = new DBConnectionBugs();
 $dbh = $dbc->connect();
 
+if ($debug)
+{
+	print "QUERY:\n$query\n";
+}
 $rs = mysql_query($query, $dbh);
 if(mysql_errno($dbh) > 0) 
 {
@@ -59,6 +66,12 @@ else
 		$data["b".$myrow[0]] = ",".$myrow[0].",%%CONTRIB_EMAIL=".$contrib_email."%%,,".preg_replace("/().+)\@.+/","$1",$myrow[1]);
 		$contributors[$contrib_email] = $contrib_email; 
 	}
+	if ($debug)
+	{
+		print "\nDATA:\n"; print_r($data);
+		print "\nCONTRIBUTORS:\n"; print_r($contributors);
+	}
+	
 	$myrow = null;
 	$query = "
 	SELECT DISTINCT
@@ -67,6 +80,10 @@ else
 	  profiles as PROF 
 	WHERE 
 	  PROF.login_name IN ('".join($contributors,"', '")."')";
+	if ($debug)
+	{
+		print "QUERY:\n$query\n";
+	}
 	$rs = mysql_query($query, $dbh);
 	if(mysql_errno($dbh) > 0) 
 	{
@@ -78,11 +95,14 @@ else
 	}
 	else 
 	{
-		$data = array();
 		while($myrow = mysql_fetch_row($rs)) 
 		{
 			$contributors[$myrow[0]] = $myrow[1];
 		}
+	}
+	if ($debug)
+	{
+		print "\nCONTRIBUTORS:\n"; print_r($contributors);
 	}
 	$dbc->disconnect();
 	$rs  = null;
@@ -93,10 +113,22 @@ else
 	{
 		$m = null;
 		preg_match("/%%CONTRIB_EMAIL=(.+)%%/",$line,$m);
+		if ($debug)
+		{
+			print "\nCONTRIB_EMAIL: "; print($m[1]);
+		}
 		if (array_key_exists($m[1],$contributors) && isset($contributors[$m[1]]))
 		{
+			if ($debug)
+			{
+				print "\nCONTRIB_NAME: "; print($contributors[$m[1]]);
+			}
 			$data[$b] = preg_replace("/%%CONTRIB_EMAIL=.+%%/",$contributors[$m[1]],$line);
 		}
+	}
+	if ($debug)
+	{
+		print "\nDATA:\n"; print_r($data);
 	}
 }
 
