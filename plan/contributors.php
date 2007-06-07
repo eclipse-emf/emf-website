@@ -10,7 +10,7 @@
 # Load up the classfile
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
-header("Content-Type: text/html"); print "<pre>";
+print "<html><body><pre>";
 
 $bugs = $_GET["bugs"]; 
 $debug = isset($_GET["debug"]);
