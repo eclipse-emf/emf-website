@@ -27,7 +27,7 @@
 ';
    echo <<<EOHTML
 SELECT DISTINCT
-  BUG.bug_id, PROF.realname, PROF.login_name, BUG.bug_when
+  BUG.bug_id, PROF.realname, PROF.login_name, TXT.bug_when
 FROM 
   bugs as BUG, 
   profiles as PROF, 
@@ -40,10 +40,10 @@ WHERE
   BUG.bug_id IN (147594, 149770, 161744, 165770, 166967, 
   	166112, 170204, 156783, 170223, 136881, 179004, 185971)
 ORDER BY
-  bug_when
+  TXT.bug_when
 ASC;
 SELECT DISTINCT
-  BUG.bug_id, PROF.realname, BUG.bug_when, TXT.thetext
+  BUG.bug_id, PROF.realname, TXT.bug_when, TXT.thetext
 FROM 
   bugs as BUG, 
   profiles as PROF, 
@@ -55,7 +55,7 @@ WHERE
   BUG.bug_id IN (147594, 149770, 161744, 165770, 166967, 
   166112, 170204, 156783, 170223, 136881, 179004, 185971)
 ORDER BY
-  bug_when
+  TXT.bug_when
 ASC
 
 </pre>
@@ -99,7 +99,7 @@ EOHTML;
 						if ($k == "bug_id") { 
 							echo "<a style=\"color:purple\" href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\t";
 						} else if ($k == "thetext") {
-							echo "\n".preg_replace("#.+(\[contrib.*\]).+#","\1",$v);
+							echo "\n".preg_replace("/.+(\[contrib.+\]).+/","$1",$v);
 						} else {
 							echo "$v\t";
 						}
