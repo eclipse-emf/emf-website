@@ -74,12 +74,12 @@ else
 	
 	$myrow = null;
 	$query = "
-	SELECT DISTINCT
-	  PROF.login_name, PROF.realname 
-	FROM 
-	  profiles as PROF 
-	WHERE 
-	  PROF.login_name IN ('".join($contributors,"', '")."')";
+SELECT DISTINCT
+  PROF.login_name, PROF.realname 
+FROM 
+  profiles as PROF 
+WHERE 
+  PROF.login_name IN ('".join($contributors,"', '")."')";
 	if ($debug)
 	{
 		print "QUERY:\n$query\n";
@@ -97,7 +97,11 @@ else
 	{
 		while($myrow = mysql_fetch_row($rs)) 
 		{
-			$contributors[$myrow[0]] = $myrow[1];
+			if ($myrow[1]) 
+			{
+				$contributors[$myrow[0]] = $myrow[1];
+			}
+			
 		}
 	}
 	if ($debug)
@@ -113,16 +117,8 @@ else
 	{
 		$m = null;
 		preg_match("/%%CONTRIB_EMAIL=(.+)%%/",$line,$m);
-		if ($debug)
-		{
-			print "\nCONTRIB_EMAIL: "; print($m[1]);
-		}
 		if (array_key_exists($m[1],$contributors) && isset($contributors[$m[1]]))
 		{
-			if ($debug)
-			{
-				print "\nCONTRIB_NAME: "; print($contributors[$m[1]]);
-			}
 			$data[$b] = preg_replace("/%%CONTRIB_EMAIL=.+%%/",$contributors[$m[1]],$line);
 		}
 	}
