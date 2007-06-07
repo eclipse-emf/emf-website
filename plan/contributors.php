@@ -10,7 +10,7 @@
 # Load up the classfile
 require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
 
-header("Content-Type: text/plain");
+header("Content-Type: text/html"); print "<pre>";
 
 $bugs = $_GET["bugs"]; 
 $debug = isset($_GET["debug"]);
@@ -128,8 +128,17 @@ WHERE
 	}
 }
 
+print "Component,Bug #,Contributor,Size,Committer\n";
 foreach ($data as $b => $line)
 {
 	print $line."\n";
 }
+
+print "\n\nTo determine values for Component & Size, click below for bug reports:\n\n"; 
+foreach ($data as $b => $line)
+{
+	$v = substr($b,1);
+	print "<a href=\"https://bugs.eclipse.org/bugs/show_bug.cgi?id=$v\" target=\"_bug\">$v</a>\n";
+}
+print "</pre>\n";
 ?>
