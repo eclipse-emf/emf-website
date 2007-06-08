@@ -49,7 +49,6 @@ Old Tests=Old
 
 [RunTests21]
 JUnit Tests=JUnit
-JDK 1.3 Tests=JDK13
 JDK 1.4 &amp; Standalone=JDK14
 JDK 5.0 &amp; Standalone=JDK50
 Old Tests=Old
