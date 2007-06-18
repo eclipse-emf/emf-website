@@ -10,7 +10,7 @@
 			<product name="EMF"/>
 	</bugzilla>
 	
-	<!-- TODO: bug 182613: this shoud eventually point to a page listing the team -->
+	<!-- TODO: bug 182613: this should eventually point to a page listing the team -->
 	<team url="/modeling/emf/eclipse-project-ip-log.php"/>
 
 	<cvs repository="/cvsroot/tools/">
@@ -24,7 +24,7 @@
 	</cvs>
 
 	<description url="/modeling/emf/docs/#overviews" 
-							 paragraph-url="/modeling/emf/project-info/project-page-paragraph.html"/>
+		paragraph-url="/modeling/emf/project-info/project-page-paragraph.html"/>
 
 	<summary paragraph-url="/modeling/emf/project-info/summary.html"/>
 
