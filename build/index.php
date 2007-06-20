@@ -1,4 +1,11 @@
 <?php
+
+if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
+{
+	header("Location: /modeling/mdt/uml2/build/");
+	exit;	
+}
+
 $pre = "../";
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
 internalUseOnly();
@@ -14,7 +21,7 @@ ob_start();
 
 $debug = isset ($_GET["debug"]) ? 1 : 0;
 $previewOnly = isset ($_GET["previewOnly"]) ? 1 : 0;
-$PR = $_GET["project"] && preg_match("/(emf|uml2)/", $_GET["project"]) ? $_GET["project"] : "emf";
+$PR = "emf";
 ?>
 
 <div id="midcolumn">
@@ -38,7 +45,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 $workDir = "/home/www-data/build/" . $PR;
 
 /** customization options here **/
-$buildOptionsFile = is_file($pre . "../$PR/build.options.txt") ? $pre . "../$PR/build.options.txt" : ($PR == "emf" ? "/var/www/www.eclipse.org/htdocs/emf/build.options.txt" : "/var/www/www.eclipse.org/htdocs/modeling/mdt/uml2/build.options.txt"); // read only
+$buildOptionsFile = is_file($pre . "../$PR/build.options.txt") ? $pre . "../$PR/build.options.txt" : "/var/www/www.eclipse.org/htdocs/emf/build.options.txt"; // read only
 
 $dependenciesURLsFile = is_file($workDir . "/../emf/requests/dependencies.urls.txt") ? $workDir . "/../emf/requests/dependencies.urls.txt" : "requests/dependencies.urls.txt"; // read-write, one shared file
 
@@ -83,8 +90,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 	print ($debug ? "&amp;debug=1" : "") . ($previewOnly ? "&amp;previewOnly=1" : "");
 ?>'">
 					<option <?php print $PR == "emf" ? "selected " : ""; ?>value="emf">EMF</option>
-					<option <?php print $PR == "uml2" ? "selected " : ""; ?>value="uml2">UML2</option>
-				</select>
+					lect>
 				<select name="build_Build_Type" onchange="pickDefaults(this.options[this.selectedIndex].value)">
 				<?php displayOptions($options["BuildType"]); ?>
 				</select></td>
@@ -218,19 +224,6 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</div>
 				</td>
 				
-				<?php } else if ($PR == "uml2") { ?>
-				<td colspan="1">
-				<?php displayCheckboxes("build_Run_Tests",$options["RunTests"]); ?>
-				</td>
-				<td><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
-				<div id="divRunTestsDetail" name="divRunTestsDetail" style="display:none;border:0">
-				<small>
-				If yes to JUnit Tests, tests will be performed during build
-				to validate results and will be refected in build results on
-				download page and build detail pages.</small>
-				</div>
-				</td>
-				
 				<?php } ?>
 			</tr> 
 
@@ -297,10 +290,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 function setNote(val) 
 {
   note = document.getElementById('note');
-  if (val == "UML2")
-	note.innerHTML = " [!] " + val + " has moved to <a href=\"/modeling/mdt/" + val.toLowerCase() + "/build/\">MDT</a>. This build is deprecated. [/!] "
-  else
-  	note.innerHTML = "";
+  note.innerHTML = "";
 }
 
 
@@ -534,7 +524,7 @@ setTimeout('doOnLoadDefaults()',500);
 <?php } ?>
 
 	<ul>
-		<li><a href="/modeling/<?php print $PR == "emf" ? $PR : "mdt"; ?>/downloads/?project=<?php print $PR=="emf"?$PR:"uml2"; ?>&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
+		<li><a href="/modeling/<?php print $PR == "emf" ? $PR : "mdt"; ?>/downloads/?project=emf&amp;sortBy=date&amp;hlbuild=0#latest">You can view, explore, or download your build here</a>.
 		Here's what you submitted:</li>
 
 	<?php

@@ -1,8 +1,8 @@
 <?php
 
-if (isset ($_GET["project"]) && $_GET["project"]=="uml2")
+if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
 {
-	header("Location: /modeling/mdt/uml2/build/");
+	header("Location: /modeling/mdt/uml2/build/promo.php");
 	exit;	
 }
 
@@ -21,7 +21,7 @@ internalUseOnly();
 ob_start();
 
 $previewOnly = isset ($_GET["previewOnly"]) ? 1 : 0;
-$PR = isset ($_GET["project"]) && $_GET["project"] && preg_match("/(emf)/", $_GET["project"]) ? $_GET["project"] : "emf";
+$PR = "emf";
 
 // TODO: pull these values from promoteToEclipse.*.properties instead
 $emails = array (
