@@ -1,4 +1,11 @@
 <?php
+
+if (isset ($_GET["project"]) && $_GET["project"]=="uml2")
+{
+	header("Location: /modeling/mdt/uml2/build/");
+	exit;	
+}
+
 $pre = "../";
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
 internalUseOnly();
@@ -14,23 +21,17 @@ internalUseOnly();
 ob_start();
 
 $previewOnly = isset ($_GET["previewOnly"]) ? 1 : 0;
-$PR = isset ($_GET["project"]) && $_GET["project"] && preg_match("/(emf|uml2)/", $_GET["project"]) ? $_GET["project"] : "emf";
+$PR = isset ($_GET["project"]) && $_GET["project"] && preg_match("/(emf)/", $_GET["project"]) ? $_GET["project"] : "emf";
 
 // TODO: pull these values from promoteToEclipse.*.properties instead
 $emails = array (
-	"emf" => "codeslave@ca.ibm.com,emerks@ca.ibm.com,marcelop@ca.ibm.com,davidms@ca.ibm.com,khussey@ca.ibm.com,walkerp@us.ibm.com",
-	"uml2" => "khussey@ca.ibm.com,jbruck@ca.ibm.com"
+	"emf" => ""
 );
 	$users = array (// runs as, access IES map file repo as, ssh as
 	"emf" => array (
 		"nickb@emf.torolab.ibm.com",
 		"nickb",
 		"nboldt"
-	),
-	"uml2" => array (
-		"khussey@emf.torolab.ibm.com",
-		"khussey",
-		"khussey"
 	)
 );
 ?>
@@ -38,8 +39,7 @@ $emails = array (
 
 <div class="homeitem3col">
 <h3>Promote 
-	<a style="color:white" href="?project=emf<?php print ($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a> &amp; 
-	<a style="color:white" href="?project=uml2<?php print ($previewOnly?"&amp;previewOnly=1":""); ?>">UML2</a></h3>
+	<a style="color:white" href="?project=emf<?php print ($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a></h3>
 
 <?php
 
