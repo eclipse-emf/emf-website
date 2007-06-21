@@ -1,1 +1,0 @@
-<?php header("Location: /modeling/emf/downloads/install.php"); ?>
