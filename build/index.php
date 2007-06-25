@@ -90,7 +90,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 	print ($debug ? "&amp;debug=1" : "") . ($previewOnly ? "&amp;previewOnly=1" : "");
 ?>'">
 					<option <?php print $PR == "emf" ? "selected " : ""; ?>value="emf">EMF</option>
-					lect>
+				</select>
 				<select name="build_Build_Type" onchange="pickDefaults(this.options[this.selectedIndex].value)">
 				<?php displayOptions($options["BuildType"]); ?>
 				</select></td>
