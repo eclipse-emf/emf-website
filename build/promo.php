@@ -214,7 +214,7 @@ function loadSelects() {
 	// echo "got: cvsbranch: $cvsbranch, ID: $ID, BR: $BR<br/>";
 
 	$logdir = "/home/www-data/promo_logs/";
-	$logfile = "promo_log_" . ($_POST["build_Close_Bugz_Only"] != "" ? 'bugzonly_' : '') . $BR . "." . $ID . "_" . date("YmdHis") . ".txt";
+	$logfile = "promo_log_" . $BR . "." . $ID . "_" . date("YmdHis") . ($_POST["build_Close_Bugz_Only"] != "" ? '_bugzonly' : '') . ".txt";
 
 	if (!$previewOnly)
 	{
