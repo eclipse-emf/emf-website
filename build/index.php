@@ -191,6 +191,9 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				
 				<?php if ($PR == "emf") { ?>
 				<td colspan="1">
+				<div name="divRunTests24" id="divRunTests24" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests24"],"_24"); ?>
+				</div>
 				<div name="divRunTests23" id="divRunTests23" style="display:none;border:0">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests23"],"_23"); ?>
 				</div>
@@ -387,6 +390,7 @@ function toggleDetails()
 
 function toggleCheckboxes(val) {
   divs = new Array(
+    "divRunTests24",
     "divRunTests23",
     "divRunTests22",
     "divRunTests21",
