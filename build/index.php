@@ -6,10 +6,11 @@ if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
 	exit;	
 }
 
-$pre = "../";
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
 internalUseOnly();
+
+$pre = "../";
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");

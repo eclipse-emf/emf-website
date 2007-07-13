@@ -1,7 +1,9 @@
 <?php
+$isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
+internalUseOnly();
+
 $pre = "../../"; 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/scripts.php"); 
-internalUseOnly(); 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
@@ -9,7 +11,6 @@ ob_start();
 $VER = $_GET["version"] && preg_match("/(13|14|50)/",$_GET["version"])? $_GET["version"] : "50"; 
 $PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf"; 
 $hadLoadDirSimpleError=1;
-
 ?>
 
 <div id="midcolumn">
