@@ -1,6 +1,6 @@
 <?php
 $pre = "../"; 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/scripts.php"); 
 internalUseOnly(); 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
@@ -71,7 +71,7 @@ $options["BuildType"] = array (
 			</tr>
 			
 			<tr valign="top">
-				<td><img src="<?php print $WWWpre; ?>images/numbers/1.gif" /></td>
+				<td><img src="/modeling/images/numbers/1.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Dependency&#160;URLs</b><br>
 				
@@ -983,4 +983,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.18 2007/04/19 18:51:50 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.19 2007/07/13 14:30:39 nickb Exp $ -->

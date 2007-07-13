@@ -7,7 +7,7 @@ if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
 }
 
 $pre = "../";
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/scripts.php");
 internalUseOnly();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");
@@ -104,7 +104,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 			</tr>
 			
 			<tr valign="top">
-				<td><img src="<?php print $WWWpre; ?>images/numbers/2.gif" /></td>
+				<td><img src="/modeling/images/numbers/2.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Dependency URLs</b><br>
 				
@@ -147,7 +147,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 			<tr><td colspan="6">&#160;</td></tr>
 
 			<tr>
-				<td rowspan="2" valign="top"><img src="<?php print $WWWpre; ?>images/numbers/3.gif" /></td>
+				<td rowspan="2" valign="top"><img src="/modeling/images/numbers/3.gif" /></td>
 				<td rowspan="2">&#160;</td>
 				<td colspan=1>
         <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">org.eclipse.releng.basebuilder</a> branch:<br><small>-basebuilderBranch</small>				
@@ -159,7 +159,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 			<tr><td colspan="6">&#160;</td></tr>
 
 			<tr>
-				<td rowspan="2" valign="top"><img src="<?php print $WWWpre; ?>images/numbers/4.gif" /></td>
+				<td rowspan="2" valign="top"><img src="/modeling/images/numbers/4.gif" /></td>
 				<td rowspan="2">&#160;</td>
 				<td><b>Build Alias</b><br><small>optional</small></td>
 				<td>&#160;</td>

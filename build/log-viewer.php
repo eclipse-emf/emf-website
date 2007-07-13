@@ -2,7 +2,7 @@
 $_SERVER['DOCUMENT_ROOT'] = $_SERVER["SERVER_NAME"] == "build.eclipse.org" ? "/opt/public/modeling" : $_SERVER['DOCUMENT_ROOT'];
 
 # TODO: remove this when migrated to /modeling/emf
-require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php"); 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/scripts.php"); 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 
@@ -30,6 +30,7 @@ $files = array(
 $reps = array(
 	"o.e.emf" => "org.eclipse.emf",
 	"o.e.e.r.build" => "org.eclipse.emf.releng.build",
+	"o.e.e.releng" => "org.eclipse.emf.releng",
 	"o.e.r" => "org.eclipse.releng",
 	"dd" => "/home/www-data/build/modeling/emf/emf/downloads/drops", // new path
 	"tests" => "/home/www-data/oldtests", // new path

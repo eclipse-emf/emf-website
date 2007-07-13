@@ -7,7 +7,7 @@ if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
 }
 
 $pre = "../";
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/header.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/scripts.php");
 internalUseOnly();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");
