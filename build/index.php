@@ -7,7 +7,8 @@ if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
 }
 
 $pre = "../";
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/emf/includes/scripts.php");
+$isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
 internalUseOnly();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");
