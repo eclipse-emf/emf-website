@@ -83,7 +83,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td>&#160;</td>
 				<input name="build_Branch" type="hidden" size="8" maxlength="10" onchange="this.value=this.value.replace(/[^0-9\.]/g,'');"/>
 				<input name="build_Java_Home" type="hidden" size="20"/>
-				<td colspan=3><select name="build_CVS_Branch" onchange="doBranchSelected(this)">
+				<td colspan=3><select name="build_CVS_Branch" onchange="doBranchSelected(this,document.forms.buildForm.build_Build_Type)">
 				<?php displayOptionsTriplet($options["BranchAndJDK"]); ?>
 				</select> <br/>
 				<select name="build_Project" onchange="document.location.href='?project='+this.options[this.selectedIndex].value+'<?php
@@ -310,16 +310,14 @@ function pickDefaults(val) {
 	divNum=branchToDivNum();
 	if (val=='N') {
 		setCheckbox("build_Run_Tests_JUnit",true,divNum);
-		setCheckbox("build_Run_Tests_JDK13",false,divNum);
-		setCheckbox("build_Run_Tests_JDK14",true,divNum);
+		setCheckbox("build_Run_Tests_JDK14",false,divNum);
 		setCheckbox("build_Run_Tests_JDK50",false,divNum);
 		/*setCheckbox("build_Run_Tests_Binary",false,divNum);
 		setCheckbox("build_Run_Tests_Source",false,divNum);*/
 		setCheckbox("build_Run_Tests_Old",false,divNum);
 	} else {
 		setCheckbox("build_Run_Tests_JUnit",true,divNum);
-		setCheckbox("build_Run_Tests_JDK13",false,divNum);
-		setCheckbox("build_Run_Tests_JDK14",false,divNum);
+		setCheckbox("build_Run_Tests_JDK14",true,divNum);
 		setCheckbox("build_Run_Tests_JDK50",true,divNum);
 		/*setCheckbox("build_Run_Tests_Binary",true,divNum);
 		setCheckbox("build_Run_Tests_Source",true,divNum);*/
@@ -345,11 +343,13 @@ function setCheckbox(field,bool,divNum)
 	}
 }
 
-function doBranchSelected(field) {
+function doBranchSelected(field,field2) {
   val=field.options[field.selectedIndex].text;
   br=pickDefaultBranch(val);
   pickDefaultJavaHome(val);
   toggleCheckboxes(br);
+  val2=field2.options[field2.selectedIndex].value;
+  pickDefaults(val2)
 }
 
 function pickDefaultBranch(val) {
@@ -436,7 +436,7 @@ function doSubmit() {
 }
 
 function doOnLoadDefaults() {
-	doBranchSelected(document.forms.buildForm.build_CVS_Branch);
+  doBranchSelected(document.forms.buildForm.build_CVS_Branch,document.forms.buildForm.build_Build_Type);
   field=document.forms.buildForm.build_Build_Type;
   pickDefaults(field.options[field.selectedIndex].value);
   field=document.forms.buildForm.build_Project;    setNote(field.options[field.selectedIndex].text);
