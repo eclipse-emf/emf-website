@@ -1,13 +1,13 @@
 <?php 
 
-	// $Id: scripts.php,v 1.25 2007/07/13 14:30:39 nickb Exp $ 
+	// $Id: scripts.php,v 1.26 2007/07/27 16:20:12 nickb Exp $ 
 	$isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 	$isWWWserver = (preg_match("/^(?:www.|)eclipse.org$/", $_SERVER["SERVER_NAME"]));
 	$isEclipseCluster = (preg_match("/^(?:www.||download.|download1.|build.)eclipse.org$/", $_SERVER["SERVER_NAME"]));
 
 	function getPWD($suf="") {
 		$PWD="";
-		global $_SERVER, $isEMFserver, $isWWWserver, $isEclipseCluster;
+		global $_SERVER, $isEMFserver, $isWWWserver, $isEclipseCluster, $App;
 
 		$debug_echoPWD=1; // set 0 to hide (for security purposes!)
 
@@ -23,7 +23,7 @@
 			if ($_SERVER["HTTP_HOST"]=="emf.torolab.ibm.com" || $_SERVER["HTTP_HOST"]=="emf") {
 				$PWD = "/home/www-data/build/emf/tools/emf/downloads/drops"; 
 			} else if ($isEclipseCluster) {
-				$PWD = "/home/local/data/httpd/download.eclipse.org/tools/emf/".$suf;
+				$PWD = $App->getDownloadBasePath() . "/tools/emf/".$suf;
 			} else if ($_SERVER["HTTP_HOST"]=="fullmoon.torolab.ibm.com") {
 				$PWD = "/home/www/tools/emf/".$suf; 
 			}
@@ -33,10 +33,10 @@
 
 		//try a default guess: /home/www, two options
 		if (!is_dir($PWD) || !is_readable($PWD) || ($suf=="logs" && !is_writable($PWD)) ) { 
-			$PWD = "/home/local/data/httpd/download.eclipse.org/"; 
+			$PWD = $App->getDownloadBasePath(); 
 			if (is_dir($PWD) && is_readable($PWD)) { 
 				// try 1:
-				$PWD = "/home/local/data/httpd/download.eclipse.org/tools/emf/".$suf; // default path
+				$PWD = $App->getDownloadBasePath() . "/tools/emf/".$suf; // default path
 
 				if (is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { 
 					if ($debug_echoPWD ) { echo "<!-- Found[3def-a]: PWD -->"; $debug_echoPWD=0; }
