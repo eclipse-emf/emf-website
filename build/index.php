@@ -121,8 +121,8 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 							<td> &#149; <a href="http://fullmoon/downloads/">Eclipse</a></td>
 						</tr>
 						<tr>						
-							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
-							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
+							<td> &#149; <a href="http://<?php print $buildServer[0]; ?>/modeling/emf/downloads/?project=emf&amp;showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
+							<td> &#149; <a href="http://<?php print $buildServer[1]; ?>/modeling/emf/downloads/?project=emf&amp;showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
 						</tr>						
 					</table>
             <p><small>&#160;&#160;-- AND/OR --</small></p>
