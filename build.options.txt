@@ -1,7 +1,7 @@
 # build/downloads/patched test options file
 
 [BaseBuilderBranch]
-RC4_33
+v20070614
 
 [BranchAndJDK]
 #used in build.php for selecting build branch
