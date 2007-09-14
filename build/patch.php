@@ -147,7 +147,7 @@ $options["BuildType"] = array (
 						<td><small><select style="font-size:10px" name="tests_Compiler_JDK14">
 <?php 
 	//$JDKs = loadDirSimple("/opt",".*(jdk|j2sdk|java|Java).*(1.4|14).*","d"); rsort($JDKs); reset($JDKs); // include Sun
-	$JDKs = loadDirSimple("/opt",".*(java).*(14).*","d"); sort($JDKs); reset($JDKs); // omit Sun
+	$JDKs = loadDirSimple("/opt",".*(java|Java).*(14|1\.4).*","d"); sort($JDKs); reset($JDKs); // omit Sun
 	$selected = realpath("/opt/ibm-java2-1.4");
 	foreach ($JDKs as $jdk) { 
 		if (!is_link("/opt/".$jdk)) { 
@@ -986,4 +986,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.21 2007/09/14 22:09:24 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.22 2007/09/14 22:10:24 nickb Exp $ -->
