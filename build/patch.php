@@ -203,7 +203,8 @@ $options["BuildType"] = array (
 					<tr>
 						<td>Old Tests JDK:</td>
 						<td><small><select style="font-size:10px" name="tests_debug_emf_old_tests_java_home" onchange="">
-							<?php displayJDKOptions($options["BranchAndJDK"]); ?>
+								<option value="/opt/sun-java2-5.0">sun-java2-5.0</option>
+								<option value="/opt/sun-java2-1.4">sun-java2-1.4</option>
 						</select></td>
 					</tr>
 				</table>
@@ -985,4 +986,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.20 2007/07/13 19:33:59 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.21 2007/09/14 22:09:24 nickb Exp $ -->
