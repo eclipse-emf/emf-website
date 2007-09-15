@@ -128,7 +128,7 @@ $hadLoadDirSimpleError=1;
 
 						$zips_in_folder = loadDirSimple("$dropsPWD/$branch/$ID/","(\.zip)","f"); //wArr($zips_in_folder);
 						// for testing, you can find a list of files like this:
-						// `find /home/www-data/build/emf/tools/emf/downloads/drops/2.0.1 -type f -maxdepth 2 -name *.zip -name *emf-sdo-xsd-SDK*`
+						// `find /home/www-data/build/modeling/emf/emf/downloads/drops/2.0.1 -type f -maxdepth 2 -name *.zip -name *emf-sdo-xsd-SDK*`
 						$ziplabel = (sizeof($zips_in_folder)<1) ? $ID : 
 							preg_replace("/(.+)\-([^\-]+)(\.zip)/","$2",$zips_in_folder[0]); // grab first entry
 
@@ -304,7 +304,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 	
 	function getAllJDKTestResults($testsPWD,$path) { // given a build ID, determine any test results for build, junit
 		global $pre,$VER;
-		$mid = "../"."../../tools/emf/"."jdk".$VER."tests/"; // this is a symlink on the filesystem!
+		$mid = "../../../modeling/emf/emf/jdk".$VER."tests/"; // this is a symlink on the filesystem!
 
 		// return four <td> cells, one per test. if all passed, green check + link to log; if failures, red number (of failures) + link to log
 

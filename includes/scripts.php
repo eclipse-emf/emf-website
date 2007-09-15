@@ -1,6 +1,6 @@
 <?php 
 
-	// $Id: scripts.php,v 1.26 2007/07/27 16:20:12 nickb Exp $ 
+	// $Id: scripts.php,v 1.27 2007/09/15 02:31:25 nickb Exp $ 
 	$isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 	$isWWWserver = (preg_match("/^(?:www.|)eclipse.org$/", $_SERVER["SERVER_NAME"]));
 	$isEclipseCluster = (preg_match("/^(?:www.||download.|download1.|build.)eclipse.org$/", $_SERVER["SERVER_NAME"]));
@@ -21,11 +21,11 @@
 		
 		if (!is_dir($PWD) || !is_readable($PWD) || ($suf=="logs" && !is_writable($PWD)) ) { 
 			if ($_SERVER["HTTP_HOST"]=="emf.torolab.ibm.com" || $_SERVER["HTTP_HOST"]=="emf") {
-				$PWD = "/home/www-data/build/emf/tools/emf/downloads/drops"; 
+				$PWD = "/home/www-data/build/modeling/emf/emf/downloads/drops"; 
 			} else if ($isEclipseCluster) {
-				$PWD = $App->getDownloadBasePath() . "/tools/emf/".$suf;
+				$PWD = $App->getDownloadBasePath() . "/modeling/emf/emf/".$suf;
 			} else if ($_SERVER["HTTP_HOST"]=="fullmoon.torolab.ibm.com") {
-				$PWD = "/home/www/tools/emf/".$suf; 
+				$PWD = "/home/www/modeling/emf/emf/".$suf; 
 			}
 		}
 
@@ -36,13 +36,13 @@
 			$PWD = $App->getDownloadBasePath(); 
 			if (is_dir($PWD) && is_readable($PWD)) { 
 				// try 1:
-				$PWD = $App->getDownloadBasePath() . "/tools/emf/".$suf; // default path
+				$PWD = $App->getDownloadBasePath() . "/modeling/emf/emf/".$suf; // default path
 
 				if (is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { 
 					if ($debug_echoPWD ) { echo "<!-- Found[3def-a]: PWD -->"; $debug_echoPWD=0; }
 				} else {
 					// try 2:
-					$PWD = "/home/www/eclipse/tools/emf/".$suf; // default path
+					$PWD = "/home/www/eclipse/modeling/emf/emf/".$suf; // default path
 					if (is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { 
 						if ($debug_echoPWD ) { echo "<!-- Found[3def-b]: PWD -->"; $debug_echoPWD=0; }
 					}
@@ -55,13 +55,13 @@
 			$PWD = "/var/www/"; 
 			if (is_dir($PWD) && is_readable($PWD)) { 
 				// try 1:
-				$PWD = "/var/www/tools/emf/".$suf; // default path
+				$PWD = "/var/www/modeling/emf/emf/".$suf; // default path
 
 				if (is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { 
 					if ($debug_echoPWD) { echo "<!-- Found[4def-a]: PWD -->"; $debug_echoPWD=0; }
 				} else {
 					// try 2:
-					$PWD = "/var/www/eclipse/tools/emf/".$suf; // default path
+					$PWD = "/var/www/eclipse/modeling/emf/emf/".$suf; // default path
 					if (is_dir($PWD) && is_readable($PWD) && ($suf!="logs" || is_writable($PWD)) ) { 
 						if ($debug_echoPWD) { echo "<!-- Found[4def-b]: PWD -->"; $debug_echoPWD=0; }
 					}
@@ -138,9 +138,9 @@
 				/*echo '
 					<p> While this problem is being resolved, you can get a copy of the latest EMF, SDO, or XSD from here:
 					<ul>
-						<li><a href="http://download.eclipse.org/tools/emf/downloads/drops/2.0/I200406030436/">http://download.eclipse.org/tools/emf/downloads/drops/2.0/I200406030436/</a> [Main Public Mirror]</li>
-						<li><a href="http://fullmoon.toronto.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/">http://fullmoon.toronto.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/</a> [IBM Only]</li>
-						<li><a href="http://fullmoon.hursley.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/">http://fullmoon.hursley.ibm.com/tools/emf/downloads/drops/2.0/I200406030436/</a> [IBM Only]</li>
+						<li><a href="http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200406030436/">http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200406030436/</a> [Main Public Mirror]</li>
+						<li><a href="http://fullmoon.toronto.ibm.com/modeling/emf/emf/downloads/drops/2.0/I200406030436/">http://fullmoon.toronto.ibm.com/modeling/emf/emf/downloads/drops/2.0/I200406030436/</a> [IBM Only]</li>
+						<li><a href="http://fullmoon.hursley.ibm.com/modeling/emf/emf/downloads/drops/2.0/I200406030436/">http://fullmoon.hursley.ibm.com/modeling/emf/emf/downloads/drops/2.0/I200406030436/</a> [IBM Only]</li>
 					</ul>
 					</p>
 					<p> Thanks for your patience! </p>

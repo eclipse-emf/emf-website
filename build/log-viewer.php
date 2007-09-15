@@ -18,11 +18,11 @@ $params = array(
 
 /* check these files, %s replaced with param from above */
 $files = array(
-	"build" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/downloads/drops/%sbuildlog.txt"),
-	"test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/tests/%stestlog.txt"),
-	"jdk13test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/jdk13tests/%stestlog.txt"),
-	"jdk14test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/jdk14tests/%stestlog.txt"),
-	"jdk50test" => array($_SERVER['DOCUMENT_ROOT'] . "/tools/emf/jdk50tests/%stestlog.txt")
+	"build" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/downloads/drops/%sbuildlog.txt"),
+	"test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/oldtests/%stestlog.txt"),
+	"jdk13test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk13tests/%stestlog.txt"),
+	"jdk14test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk14tests/%stestlog.txt"),
+	"jdk50test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk50tests/%stestlog.txt")
 );
 
 /* replace these values with key */

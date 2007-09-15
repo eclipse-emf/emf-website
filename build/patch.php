@@ -230,7 +230,7 @@ $options["BuildType"] = array (
 					<input name="tests_Patch_Zipfile_Name" type="text" size="20" maxlength="80"></td>
 				<td>&#160;&#160;&#160;&#160;<small> - or - </small><br/>
 				<small>SCP your patch file onto this server and place it in 
-				<b style="color:red">/home/www-data/tests/tools/emf/patches</b>.
+				<b style="color:red">/home/www-data/oldtests/patches</b>.
 				Your file must be readable by the web user. Enter either the full path or just the filename.
 				</small></td>
 			</tr>
@@ -330,14 +330,14 @@ function toggleDetails()
   		$bits = explode(" ",$testDependencyURLs);
   		foreach ($bits as $bit) { 
   		  if (false!==strpos($bit,"emf-")) {
-  			  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/tools/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
+  			  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
   			  $BR = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/.+!","$1",$bit);
   			  $ID = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/([IMNRS]\d{12})/.+!","$2",$bit);
   		    break;
   		  }
   	  }
 	
-			$uploaddir = '/home/www-data/tests/tools/emf/patches/';
+			$uploaddir = '/home/www-data/oldtests/patches/';
 			if ($_FILES['tests_Patch_Zipfile']['name']) {
 				$uploadfile = $uploaddir . basename($_FILES['tests_Patch_Zipfile']['name']);
 
@@ -406,14 +406,14 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 			if ($_POST["tests_Run_Tests_Old"]=="Y") {
 
 				$PWD = "/home/www-data/tests";
-				$logfile = 'tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
+				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
 
 				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp;
+				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid '.$PWD.'/scripts/start.sh'.
 					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.'/tools/emf/tests/'.$BR.'/'.$ID.'/'.$testTimestamp.
+					' -testDir '.$PWD.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
 					($_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
@@ -474,7 +474,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   			} else {
   				exec($cmd);
   			}
-				print '<ul><li><a href="/tools/emf/jdk13tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+				print '<ul><li><a href="/modeling/emf/emf/jdk13tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 
 			}
 
@@ -523,7 +523,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   			} else {
   				exec($cmd);
   			}
-				print '<ul><li><a href="/tools/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+				print '<ul><li><a href="/modeling/emf/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 			}
 
 			/*** JDK 5.0 TESTS ***/
@@ -560,68 +560,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   			} else {
   				exec($cmd);
   			}
-				print '<ul><li><a href="/tools/emf/jdk50tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+				print '<ul><li><a href="/modeling/emf/emf/jdk50tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 			}
-
-			/*** PERF TESTS ***/
-/*			if ($_POST["tests_Run_Tests_Perf"]=="Y") {
-				$PWD = "/home/www-data/perftests";
-				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
-
-				// print path to logfile into lockfile
-				$preCmd2 = 'print '.$PWD."/".$logfile." > ".$PWD."/perftests.lock";
-
-				$tBR = $BR;
-				$tID = $ID;
-
-				if ($_POST["tests_Run_Tests_Perf_ID"]!="") {
-					if (false!==strpos($_POST["tests_Run_Tests_Perf_ID"],"/")) {
-						$tID = explode("/",$_POST["tests_Run_Tests_Perf_ID"]);
-						$tBR = $tID[0]; $tID = $tID[1];
-					} else {
-						$tBR = $BR; $tID = $_POST["tests_Run_Tests_Perf_ID"];
-					}
-				}
-
-				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runPerfTests.sh'.
-					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
-					$testDependencyURLs.
-					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					($_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					($_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
-
-					($isEMFbuildServer?
-						' -testFile /home/www-data/build/emf/tools/emf/downloads/drops/'.$tBR.'/'.$tID.'/emf-sdo-xsd-Automated-Tests-'.$tID.'.zip':
-						' -testURL http://emf.torolab.ibm.com/tools/emf/downloads/drops/'.$tBR.'/'.$tID.'/emf-sdo-xsd-Automated-Tests-'.$tID.'.zip'
-					).
-
-					($_POST["tests_Run_Tests_Perf_Repeats"]!=""?
-						' -continuous '.$_POST["tests_Run_Tests_Perf_Repeats"]
-					:'').
-
-					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
-  			if ($previewOnly) { 
-  				print '</div><div class="homeitem3col">'."\n";
-  				print "<h3>Build Command (Preview Only)</h3>\n";
-  				print "<p><small><code>$preCmd</code></small></p>";
-  				print "<p><small><code>$preCmd2</code></small></p>";
-  			} else {
-  				exec($preCmd);
-  				exec($preCmd2);
-  				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
-  			}
-  
-  			if ($previewOnly) { 
-  				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
-  			} else {
-  				exec($cmd);
-  			}
-				print '<ul><li><a href="/tools/emf/perftests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
-			}*/
 
 		} // end else 
 		
@@ -977,7 +917,7 @@ function displayURLs($options,$verbose=false) {
 		foreach ($lockfiles as $lockfile => $resultspage) {
 			if (is_file($lockfile)) {
 				$oc = file($lockfile);
-				$oc = str_replace("/home/www-data/","http://".$SERVER_NAME."/tools/emf/",$oc[0]);
+				$oc = str_replace("/home/www-data/","http://".$SERVER_NAME."/modeling/emf/emf/",$oc[0]);
 				$o .= '&#160;&#160;*&#160;<a href="'.$resultspage.'">Results</a>&#160;&#160;*&#160;<a href="'.$oc.'">'.$oc.'</a><br/>'."\n";
 			}
 		}
@@ -986,4 +926,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.22 2007/09/14 22:10:24 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.23 2007/09/15 02:31:25 nickb Exp $ -->
