@@ -1,43 +1,20 @@
 # build/downloads/patched test options file
 
 [BaseBuilderBranch]
-v20070614
+M1_34
 
 [BranchAndJDK]
 #used in build.php for selecting build branch
 2.4.0=HEAD,/opt/sun-java2-5.0
 2.3.2=R2_3_maintenance,/opt/sun-java2-5.0
-2.2.4=R2_2_maintenance,/opt/sun-java2-1.4
-2.1.3=R2_1_maintenance,/opt/sun-java2-1.4
-2.0.6=R2_0_maintenance,/opt/sun-java2-1.4
+2.2.5=R2_2_maintenance,/opt/sun-java2-1.4
+2.1.4=R2_1_maintenance,/opt/sun-java2-1.4
+2.0.7=R2_0_maintenance,/opt/sun-java2-1.4
 
 [BranchIES]
 #used in promo.php for selecting branch for IES mapfile commit
 HEAD
 R3_3_maintenance
-
-[Branch]
-# used in downloads page to determine what to show
--=2.4.0
--=2.3.1
--=2.3.0
--=2.2.4
--=2.2.3
--=2.2.1
--=2.2.0
--=2.1.3
--=2.1.2
--=2.1.1
--=2.1.0
--=2.0.6
--=2.0.5
--=2.0.4
--=2.0.3
--=2.0.2
--=2.0.1
--=2.0.0
--=2.0
--=1.1.1.1
 
 [TagBuild]
 Yes
