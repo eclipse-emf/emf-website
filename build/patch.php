@@ -413,7 +413,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 
 				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid '.$PWD.'/scripts/start.sh'.
 					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.$BR.'/'.$ID.'/'.$testTimestamp.
+					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
 					($_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
@@ -926,4 +926,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.23 2007/09/15 02:31:25 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.24 2007/11/01 23:29:23 nickb Exp $ -->
