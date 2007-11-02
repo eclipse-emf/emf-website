@@ -59,7 +59,7 @@ $hadLoadDirSimpleError=1;
 	$branches = getBranches($options);
 	//if ($debug>0) { w("BRANCHES:",1); wArr($branches,"<br>",true,""); w("<hr noshade size=1 />"); }
 
-	$sortBy  = array_key_exists("sortBy",$_GET)  ? $_GET["sortBy"]  : "";
+	$sortBy  = array_key_exists("sortBy",$_GET)  ? $_GET["sortBy"]  : "date";
 	$showAll = array_key_exists("showAll",$_GET) ? $_GET["showAll"] : "";
 	$showAllResults = array_key_exists("showAllResults",$_GET) ? $_GET["showAllResults"] : "";
 
