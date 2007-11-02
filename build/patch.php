@@ -747,10 +747,10 @@ function getTestDependencyURLs($chosen, $entered, $file) {
 	  if ($choice) {
 	    if (false!==strpos($choice,"eclipse-SDK")) {
 	      $ret .= " -eclipseURL ".$choice;
-      } else if (false!==strpos($choice,"emf-")) {
+	    } else if (false!==strpos($choice,"emf-")) {
 	      $ret .= " -emfFile ".preg_replace("!http://([^/]+)/(.+)!","/home/www-data/build/$2",$choice);
-      }
-    }
+	    }
+	  }
 	}
 	return $ret;
 }
@@ -926,4 +926,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.24 2007/11/01 23:29:23 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.25 2007/11/02 01:16:09 nickb Exp $ -->
