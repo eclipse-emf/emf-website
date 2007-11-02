@@ -1,4 +1,4 @@
-<?php
+<?php /**/
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
 internalUseOnly();
@@ -438,7 +438,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   			} else {
   				exec($cmd);
   			}
-				print '<ul><li><a href="/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+				print '<ul><li><a href="/modeling/emf/emf/oldtests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 			}
 
 			/*** JDK 1.3 TESTS ***/
@@ -926,4 +926,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.25 2007/11/02 01:16:09 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.26 2007/11/02 04:24:38 nickb Exp $ -->
