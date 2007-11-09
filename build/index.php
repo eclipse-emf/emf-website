@@ -156,8 +156,8 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</td>
 				<td>&#160;</td>
 				<td><input size="20" name="build_debug_basebuilder_branch" value="<?php echo isset($options["BaseBuilderBranch"]) ? $options["BaseBuilderBranch"][0] : ""; ?>"></td>
-				<td><small> <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder"><img alt="updated" src="/modeling/images/updated.gif" border="0"></a> Enter Tag/Branch/Version, eg., 
-				M1_34, v20070614, r322_v20070104,<br/>R3_1_maintenance, R3_0_maintenance :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
+				<td><small> <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder"><img alt="updated" src="/modeling/images/updated.gif" border="0"></a> Enter Tag or Branch, eg., 
+				v20071108, v20070614,<br/>r322_v20070104, R3_1_maintenance, R3_0_maintenance :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
 
@@ -179,7 +179,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td><select name="build_Tag_Build" size=1>
 				<?php displayOptions($options["TagBuild"]); ?>
 				</select></td>
-				<td><small>If Yes, this tag will appear in CVS as "build_200405061234". If No, CVS will NOT be tagged with this build's ID</small></td>
+				<td><small>If Yes, this tag will appear in CVS as "build_200405061234".<br/>If No, CVS will NOT be tagged with this build's ID</small></td>
 			</tr> 
 
 			<tr><td colspan="6">&#160;</td></tr>
