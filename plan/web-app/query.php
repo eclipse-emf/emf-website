@@ -2,8 +2,32 @@
 /* Copyright (c) 2007 IBM, made available under EPL v1.0
  * Contributors Nick Boldt
  *
- * Web app for retrieving database schema information. For REST API (plain text) output, see ../web-api/schema.php
+ * Web app for querying database. 
  */
+
+/*
+select longdescs.bug_id,who,concat('[',bug_when,'|',creation_ts,']'),concat('t',type),
+length(thetext),concat('att#',attach_id),ispatch from 
+longdescs,attachments where longdescs.bug_id=attachments.bug_id 
+and longdescs.bug_id in (209410,210561) 
+order by bug_when;
+
+#select bug_id,who,bug_when,comment_id,type,concat('.',extra_data),thetext from longdescs where bug_id=209410;
+
+select who,bug_id,bug_when,login_name,realname,attach_id from bugs_activity as ACT, profiles as PROF where PROF.login_name like 'codeslave%' and PROF.userid = ACT.who order by bug_when ASC limit 10;
+select who,bug_id,bug_when,login_name,realname,attach_id from bugs_activity as ACT, profiles as PROF where PROF.login_name like 'codeslave%' and PROF.userid = ACT.who order by bug_when DESC limit 10;
+
+#select who,bug_id,bug_when,login_name,realname,attach_id from bugs_activity as ACT, profiles as PROF, attach_data as DATA where PROF.login_name like 'codeslave%' and PROF.userid = ACT.who AND DATA.id=bugs_activity.attach_id and attach_id not null and substr(thedata,0,30) like 'Fixed in %' order by bug_when DESC limit 10;
+
+select who,bug_id,bug_when,login_name,realname,attach_id from bugs_activity as ACT, profiles as PROF where ACT.bug_id=209410 and PROF.userid = ACT.who limit 20;
+
+select attach_id,bug_id,creation_ts,submitter_id,ispatch from attachments where submitter_id=8130 and bug_id >= 209410;
+
+select id, ispatch, length(thedata),submitter_id from attach_data, attachments where attachments.attach_id=attach_data.id and attach_data.id in (82701,83148);
+
+select count(login_name) from profiles;
+*/
+
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
 
@@ -12,7 +36,7 @@ $theme = "Phoenix";
 require_once "../web-api/bugzilla-common.inc.php";
 
 $pageTitle = "Bugzilla Query";
-$query = stripslashes($_POST["query"]);
+$query = isset($_POST["query"]) ? stripslashes($_POST["query"]) : "";
 
 print "<div id=\"midcolumn\">\n";
 
