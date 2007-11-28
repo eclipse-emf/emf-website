@@ -9,13 +9,7 @@ ob_start();
 
 $theme = "Phoenix";
 
-ini_set('display_errors', 1); ini_set('error_reporting', E_ALL);
-
-# Load up the classfile
-require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
-
-$_dbc  = new DBConnectionBugs();
-$_dbh  = $_dbc->connect();
+require_once "../web-api/bugzilla-common.inc.php";
 
 $_query0 = "SHOW TABLES";
 
@@ -44,13 +38,13 @@ else
 	$split_thresh = $lim > 5 ? ceil($lim/5) : 5;
 	while($row = mysql_fetch_row($result))
 	{
+		$cnt++;
 		if ($cnt % $split_thresh == 1) 
 		{
 			print "</table></td><td valign=\"top\" style=\"padding-left:6px\"><table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">\n"; 
 		}
-		$cnt++;
   		$tables[] = $row[0];
-  		print "<tr bgcolor=\"" . "\"> <td valign=\"top\" align=\"left\" style=\"padding-left:6px\"><a href=\"#" . $row[0] . "\">" . ucfirst($row[0]) . "</a></td</tr>\n";
+  		print "<tr bgcolor=\"" . bgcol($cnt) . "\"> <td valign=\"top\" align=\"left\" style=\"padding-left:6px\"><a href=\"#" . $row[0] . "\">" . ucfirst($row[0]) . "</a></td</tr>\n";
   	}
 	print "</table></td></tr></table></p>\n";
 }
@@ -117,4 +111,9 @@ $pageKeywords = "";
 $pageAuthor = "Nick Boldt";
 
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+
+function bgcol($row)
+{
+	return $row % 2 == 0 ? "#EEEEEE" : "#FFFFFF"; 
+}
 ?>

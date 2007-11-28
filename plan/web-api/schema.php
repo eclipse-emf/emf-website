@@ -5,15 +5,9 @@
  * The REST web-api for retrieving database schema information. For HTML output, see ../web-app/schema.php
  */
 header("Content-type: text/plain");
-ini_set('display_errors', 1); ini_set('error_reporting', E_ALL);
+require_once "../web-api/bugzilla-common.inc.php";
 
 print "Bugzilla Explorer - Database Schema\n\n";
-
-# Load up the classfile
-require_once "/home/data/httpd/eclipse-php-classes/system/dbconnection_bugs_ro.class.php";
-
-$_dbc  = new DBConnectionBugs();
-$_dbh  = $_dbc->connect();
 
 $_query0 = "SHOW TABLES";
 
