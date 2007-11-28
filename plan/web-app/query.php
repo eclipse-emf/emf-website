@@ -11,11 +11,12 @@ $theme = "Phoenix";
 
 require_once "../web-api/bugzilla-common.inc.php";
 
+$pageTitle = "Bugzilla Query";
 $query = stripslashes($_POST["query"]);
 
 print "<div id=\"midcolumn\">\n";
 
-print "<h1>Bugzilla Query</h1>\n";
+print "<h1>$pageTitle</h1>\n";
 print "<i>Separate multiple queries with semi-colon (\";\")</i><br/>\n";
 
 print '<form method=post><textarea style="font-size:10px" name=query rows=20 cols=80>' . $query . '</textarea><br/><input type=submit name="Submit" style="font-size:12px">' . "\n";
@@ -34,8 +35,6 @@ foreach ($queries as $i => $query) {
 	}
 }
 
-print "</div>\n";
-
 print "</div>\n"; // midcolumn
 
 print "<div id=\"rightcolumn\">\n";
@@ -48,7 +47,7 @@ print "</div>\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>Help</h6>\n";
 print "<p><ul><li><a href=\"schema.php\">Database Schema</a></li>\n";
-print "<li><a href=\"http://www.eclipse.org/emf/plan/query.php\">Sample queries</a></li></ul></p>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/plan/query.php\">Sample Queries</a></li></ul></p>\n";
 print "</div>\n";
 	
 print "</div>\n"; // rightcolumn
