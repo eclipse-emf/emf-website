@@ -29,9 +29,10 @@ if (false!==strpos($query,";")) {
 } else {
 	$queries = array($query);
 }
-foreach ($queries as $i => $query) { 
-	if (trim($query)) { 
-		print "<pre>"; displayQuery(trim($query)); print "</pre>\n";
+foreach ($queries as $query) {
+	$q = trim($query); 
+	if ($q && !preg_match("/^#/",$q)) { 
+		print "<pre>"; displayQuery($q); print "</pre>\n";
 	}
 }
 
