@@ -44,19 +44,22 @@ print "<h1>$pageTitle</h1>\n";
 print "<i>Separate multiple queries with semi-colon (\";\")</i><br/>\n";
 
 print '<form method=post><textarea style="font-size:10px" name=query rows=20 cols=80>' . $query . '</textarea><br/><input type=submit name="Submit" style="font-size:12px">' . "\n";
-print "<hr noshade size=\"1\" width=\"50%\"/>\n";
+
+if ($query)
+{
+	print "<hr noshade size=\"1\" width=\"50%\"/>\n";
+	print "<h1>Results</h1>\n";
    
-print "<h1>Results</h1>\n";
-   
-if (false!==strpos($query,";")) {
-	$queries = explode(";",$query);
-} else {
-	$queries = array($query);
-}
-foreach ($queries as $query) {
-	$q = trim($query); 
-	if ($q && !preg_match("/^#/",$q)) { 
-		print "<pre>"; displayQuery($q); print "</pre>\n";
+	if (false!==strpos($query,";")) {
+		$queries = explode(";",$query);
+	} else {
+		$queries = array($query);
+	}
+	foreach ($queries as $query) {
+		$q = trim($query); 
+		if ($q && !preg_match("/^#/",$q)) { 
+			print "<pre>"; displayQuery($q); print "</pre>\n";
+		}
 	}
 }
 
