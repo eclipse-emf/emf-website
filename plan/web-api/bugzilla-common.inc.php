@@ -84,4 +84,9 @@ function http_file_get_contents($host, $url, $qs=null)
 		return $file_contents;
 	}
 }
+
+function bgcol($row)
+{
+	return $row % 2 == 0 ? "#EEEEEE" : "#FFFFFF"; 
+}
 ?>

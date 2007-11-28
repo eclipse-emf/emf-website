@@ -112,8 +112,4 @@ $pageAuthor = "Nick Boldt";
 
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 
-function bgcol($row)
-{
-	return $row % 2 == 0 ? "#EEEEEE" : "#FFFFFF"; 
-}
 ?>
