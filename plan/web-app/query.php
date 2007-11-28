@@ -22,11 +22,9 @@ print "<h3>Query</h3>\n";
 
    echo '
 <form method=post><tr valign="top"><td align="left">
-   <pre style="font-size:12px"><i style="font-size:11px">separate multiple queries with semi-colon (";")
-  -&gt; <a href="schema.php">database schema</a> (tables, fields)</i></pre>
-   <textarea style="font-size:12px" name=query rows=20 cols=110>'.$query.'</textarea><br/>
+   <pre style="font-size:12px"><i style="font-size:11px">separate multiple queries with semi-colon (";")</i></pre>
+   <textarea style="font-size:10px" name=query rows=20 cols=80>'.$query.'</textarea><br/>
    <input type=submit name="Submit" style="font-size:12px">
-   <a href="http://www.eclipse.org/emf/plan/query.php">Sample queries</a>
 ';
 print "</div>\n";
    
@@ -40,7 +38,7 @@ if (false!==strpos($query,";")) {
 }
 foreach ($queries as $i => $query) { 
 	if (trim($query)) { 
-		displayQuery($query);
+		print "<pre>"; displayQuery($query); print "</pre>\n";
 	}
 }
 
@@ -53,6 +51,12 @@ print "<div id=\"rightcolumn\">\n";
 print "<div class=\"sideitem\">\n";
 print "<h6>About</h6>\n";
 print "<p>Updated:<br/>" . date("Y-m-d H:i T") . "</p>\n";
+print "</div>\n";
+	
+print "<div class=\"sideitem\">\n";
+print "<h6>Help</h6>\n";
+print "<p><ul><li><a href=\"schema.php\">Database Schema</a></li>\n";
+print "<li><a href=\"http://www.eclipse.org/emf/plan/query.php\">Sample queries</a></li></ul></p>\n";
 print "</div>\n";
 	
 print "</div>\n"; // rightcolumn
