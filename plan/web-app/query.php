@@ -26,7 +26,47 @@ select attach_id,bug_id,creation_ts,submitter_id,ispatch from attachments where 
 select id, ispatch, length(thedata),submitter_id from attach_data, attachments where attachments.attach_id=attach_data.id and attach_data.id in (82701,83148);
 
 select count(login_name) from profiles;
-*/
+
+select 
+ products.name,components.name,profiles.login_name,bugs.bug_id,
+ length(longdescs.thetext),length(attach_data.thedata) 
+from
+ products,components,profiles,bugs,longdescs,attachments,attach_data
+where 
+ bugs.component_id=components.id and bugs.product_id=products.id and
+ bugs.bug_id=longdescs.bug_id and bugs.bug_id=attachments.bug_id and
+ profiles.user_id=longdescs.who and profiles.user_id=attachments.submitter_id
+ and attachments.attach_id=attach_data.id
+ and bugs.bug_id=209410
+limit 5;
+
+select 
+ products.name,components.name,profiles.login_name,bugs.bug_id,
+ length(longdescs.thetext) 
+from
+ products,components,profiles,bugs,longdescs
+where 
+ bugs.component_id=components.id and bugs.product_id=products.id and
+ bugs.bug_id=longdescs.bug_id and 
+ profiles.user_id=longdescs.who 
+ and bugs.bug_id=209410
+limit 5;
+
+select 
+ products.name,components.name,profiles.login_name,bugs.bug_id,
+ length(attach_data.thedata) 
+from
+ products,components,profiles,bugs,attachments,attach_data
+where 
+ bugs.component_id=components.id and bugs.product_id=products.id and
+ bugs.bug_id=attachments.bug_id and
+ profiles.user_id=attachments.submitter_id
+ and attachments.attach_id=attach_data.id
+ and bugs.bug_id=209410
+limit 5;
+
+
+* */
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
