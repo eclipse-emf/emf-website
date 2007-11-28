@@ -15,21 +15,13 @@ $query = stripslashes($_POST["query"]);
 
 print "<div id=\"midcolumn\">\n";
 
-print "<h1>Query Tool</h1>";
+print "<h1>Bugzilla Query</h1>\n";
+print "<i>Separate multiple queries with semi-colon (\";\")</i><br/>\n";
 
-print "<div class=\"homeitem3col\">\n";
-print "<h3>Query</h3>\n";
-
-   echo '
-<form method=post><tr valign="top"><td align="left">
-   <pre style="font-size:12px"><i style="font-size:11px">separate multiple queries with semi-colon (";")</i></pre>
-   <textarea style="font-size:10px" name=query rows=20 cols=80>'.$query.'</textarea><br/>
-   <input type=submit name="Submit" style="font-size:12px">
-';
-print "</div>\n";
+print '<form method=post><textarea style="font-size:10px" name=query rows=20 cols=80>' . $query . '</textarea><br/><input type=submit name="Submit" style="font-size:12px">' . "\n";
+print "<hr noshade size=\"1\" width=\"50%\"/>\n";
    
-print "<div class=\"homeitem3col\">\n";
-print "<h3>Results</h3>\n";
+print "<h1>Results</h1>\n";
    
 if (false!==strpos($query,";")) {
 	$queries = explode(";",$query);
@@ -38,7 +30,7 @@ if (false!==strpos($query,";")) {
 }
 foreach ($queries as $i => $query) { 
 	if (trim($query)) { 
-		print "<pre>"; displayQuery($query); print "</pre>\n";
+		print "<pre>"; displayQuery(trim($query)); print "</pre>\n";
 	}
 }
 
