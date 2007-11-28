@@ -36,13 +36,23 @@ if (!$result)
 } 
 else 
 {
-	print "<p><ul>\n";
-  	while($row = mysql_fetch_row($result))
-  	{
+	print "<p><table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">" . 
+			"<tr><td valign=\"top\" style=\"padding-left:0px\">" . 
+				"<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n";
+	$cnt = 0;
+	$lim = mysql_num_rows($result);
+	$split_thresh = $lim > 5 ? ceil($lim/5) : 5;
+	while($row = mysql_fetch_row($result))
+	{
+		if ($cnt % $split_thresh == 1) 
+		{
+			print "</table></td><td valign=\"top\" style=\"padding-left:6px\"><table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">\n"; 
+		}
+		$cnt++;
   		$tables[] = $row[0];
-    	print "<li><a href=\"#" . $row[0] . "\">" . ucfirst($row[0]) . "</a></li>\n";
+  		print "<tr bgcolor=\"" . "\"> <td valign=\"top\" align=\"left\" style=\"padding-left:6px\"><a href=\"#" . $row[0] . "\">" . ucfirst($row[0]) . "</a></td</tr>\n";
   	}
-	print "</ul></p>\n";
+	print "</table></td></tr></table></p>\n";
 }
 
 print "</div>\n";
