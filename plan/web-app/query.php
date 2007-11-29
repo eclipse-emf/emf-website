@@ -161,7 +161,7 @@ order by domain,committer,type)
 
 */
 
-$start = strtotime();
+$time_start = microtime(true);
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
 
@@ -203,7 +203,7 @@ print "<div id=\"rightcolumn\">\n";
 
 print "<div class=\"sideitem\">\n";
 print "<h6>About</h6>\n";
-print "<p>Elapsed:<br/>" . (strtotime() - $start) . "s</p>\n";
+print "<p>Elapsed:<br/>" . (microtime(true) - $time_start) . "s</p>\n";
 print "<p>Updated:<br/>" . date("Y-m-d H:i T") . "</p>\n";
 print "</div>\n";
 	
@@ -224,4 +224,5 @@ $pageKeywords = "";
 $pageAuthor = "Nick Boldt";
 
 $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+print "<p align=\"right\">" . (microtime(true) - $time_start) . "s</p>\n";
 ?>
