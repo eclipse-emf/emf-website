@@ -127,7 +127,19 @@ order by domain,committer,type)
 
 --------------------
 
-# all comments, attachments, patches per company:
+# count committers
+select
+ count(SUBSTRING_INDEX(profiles.login_name,'@',-1)) as count_domains
+from profiles;
+
+# count committers per company
+select
+ DISTINCT SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain, count(SUBSTRING_INDEX(profiles.login_name,'@',1)) as count_domains_per_company
+from profiles
+group by domain
+order by count_domains_per_company desc;
+
+# all comments, attachments, patches per subcompany:
 (select
  SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
  SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
@@ -158,6 +170,40 @@ where
  bugs.bug_id>=1 and profiles.login_name like '%@ca.ibm.com'
 group by domain,committer,type
 order by domain,committer,type)
+
+# all comments, attachments, patches per company:
+(select
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ count(longdescs.thetext),
+ sum(length(longdescs.thetext)),
+ "COMMENT" as type
+from
+ products,profiles,bugs,longdescs
+where 
+ bugs.product_id=products.id and bugs.bug_id=longdescs.bug_id and
+ profiles.userid=longdescs.who and 
+ bugs.bug_id>=1 and profiles.login_name like '%@%.ibm.com'
+group by domain,committer
+order by domain,committer,type) 
+UNION
+(select 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ count(attach_data.thedata),
+ sum(length(attach_data.thedata)),
+ if(attachments.ispatch=1,"PATCH","ATTACH") as type
+from
+ products,profiles,bugs,attachments,attach_data
+where 
+ bugs.product_id=products.id and
+ bugs.bug_id=attachments.bug_id and attachments.attach_id=attach_data.id and
+ profiles.userid=attachments.submitter_id and
+ bugs.bug_id>=1 and profiles.login_name like '%@%.ibm.com'
+group by domain,committer,type
+having domain like '%ca.ibm.com'
+order by domain,committer,type)
+
 
 */
 
