@@ -27,47 +27,141 @@ select id, ispatch, length(thedata),submitter_id from attach_data, attachments w
 
 select count(login_name) from profiles;
 
-select 
- products.name,components.name,profiles.login_name,bugs.bug_id,
- length(longdescs.thetext),length(attach_data.thedata) 
-from
- products,components,profiles,bugs,longdescs,attachments,attach_data
-where 
- bugs.component_id=components.id and bugs.product_id=products.id and
- bugs.bug_id=longdescs.bug_id and bugs.bug_id=attachments.bug_id and
- profiles.user_id=longdescs.who and profiles.user_id=attachments.submitter_id
- and attachments.attach_id=attach_data.id
- and bugs.bug_id=209410
-limit 5;
+# ---------------------
 
-select 
- products.name,components.name,profiles.login_name,bugs.bug_id,
- length(longdescs.thetext) 
+select
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ count(longdescs.thetext),
+ concat(sum(length(longdescs.thetext)),"b")
 from
- products,components,profiles,bugs,longdescs
+ products,profiles,bugs,longdescs
 where 
- bugs.component_id=components.id and bugs.product_id=products.id and
- bugs.bug_id=longdescs.bug_id and 
- profiles.user_id=longdescs.who 
- and bugs.bug_id=209410
-limit 5;
+ bugs.product_id=products.id and bugs.bug_id=longdescs.bug_id and
+ profiles.userid=longdescs.who and 
+ bugs.bug_id=209408
+group by committer,domain
+order by committer,domain
+limit 100; # num/size comments;
 
 select 
- products.name,components.name,profiles.login_name,bugs.bug_id,
- length(attach_data.thedata) 
-from
- products,components,profiles,bugs,attachments,attach_data
+ longdescs.bug_when, products.name, bugs.bug_id,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ concat(length(longdescs.thetext),"b") from
+ products,profiles,bugs,longdescs
 where 
- bugs.component_id=components.id and bugs.product_id=products.id and
- bugs.bug_id=attachments.bug_id and
- profiles.user_id=attachments.submitter_id
- and attachments.attach_id=attach_data.id
- and bugs.bug_id=209410
-limit 5;
+ bugs.product_id=products.id and bugs.bug_id=longdescs.bug_id and
+ profiles.userid=longdescs.who and 
+ bugs.bug_id=209408
+order by longdescs.bug_when,profiles.login_name
+limit 100; # comments;
 
+select 
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ count(attach_data.thedata),
+ concat(sum(length(attach_data.thedata)),"b"),
+ if(attachments.ispatch=1,"PATCH","") as patch
+from
+ products,profiles,bugs,attachments,attach_data
+where 
+ bugs.product_id=products.id and
+ bugs.bug_id=attachments.bug_id and attachments.attach_id=attach_data.id and
+ profiles.userid=attachments.submitter_id and
+ bugs.bug_id=209408
+group by committer,domain,patch
+having patch in ("PATCH","")
+order by committer,domain,patch
+limit 100; # num/size attachments;
 
-* */
+select 
+attachments.creation_ts,  products.name, bugs.bug_id,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ concat(length(attach_data.thedata),"b"),
+ if(attachments.ispatch=1,"PATCH","")
+from
+ products,profiles,bugs,attachments,attach_data
+where 
+ bugs.product_id=products.id and
+ bugs.bug_id=attachments.bug_id and attachments.attach_id=attach_data.id and
+ profiles.userid=attachments.submitter_id and
+ bugs.bug_id=209408
+order by  attachments.creation_ts,profiles.login_name
+limit 100; # attachments;
 
+-----------------
+
+# all comments, attachments, patches per committer:
+(select
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ count(longdescs.thetext),
+ sum(length(longdescs.thetext)),
+ "COMMENT" as type
+from
+ products,profiles,bugs,longdescs
+where 
+ bugs.product_id=products.id and bugs.bug_id=longdescs.bug_id and
+ profiles.userid=longdescs.who and 
+ bugs.bug_id>=1 and profiles.login_name = 'codeslave@ca.ibm.com'
+group by domain,committer
+order by domain,committer,type) 
+UNION
+(select 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ count(attach_data.thedata),
+ sum(length(attach_data.thedata)),
+ if(attachments.ispatch=1,"PATCH","ATTACH") as type
+from
+ products,profiles,bugs,attachments,attach_data
+where 
+ bugs.product_id=products.id and
+ bugs.bug_id=attachments.bug_id and attachments.attach_id=attach_data.id and
+ profiles.userid=attachments.submitter_id and
+ bugs.bug_id>=1 and profiles.login_name = 'codeslave@ca.ibm.com'
+group by domain,committer,type
+order by domain,committer,type)
+
+--------------------
+
+# all comments, attachments, patches per company:
+(select
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ count(longdescs.thetext),
+ sum(length(longdescs.thetext)),
+ "COMMENT" as type
+from
+ products,profiles,bugs,longdescs
+where 
+ bugs.product_id=products.id and bugs.bug_id=longdescs.bug_id and
+ profiles.userid=longdescs.who and 
+ bugs.bug_id>=1 and profiles.login_name like '%@ca.ibm.com'
+group by domain,committer
+order by domain,committer,type) 
+UNION
+(select 
+ SUBSTRING_INDEX(profiles.login_name,'@',-1) as domain,
+ SUBSTRING_INDEX(profiles.login_name,'@',1) as committer, 
+ count(attach_data.thedata),
+ sum(length(attach_data.thedata)),
+ if(attachments.ispatch=1,"PATCH","ATTACH") as type
+from
+ products,profiles,bugs,attachments,attach_data
+where 
+ bugs.product_id=products.id and
+ bugs.bug_id=attachments.bug_id and attachments.attach_id=attach_data.id and
+ profiles.userid=attachments.submitter_id and
+ bugs.bug_id>=1 and profiles.login_name like '%@ca.ibm.com'
+group by domain,committer,type
+order by domain,committer,type)
+
+*/
+
+$start = strtotime();
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
 
@@ -109,6 +203,7 @@ print "<div id=\"rightcolumn\">\n";
 
 print "<div class=\"sideitem\">\n";
 print "<h6>About</h6>\n";
+print "<p>Elapsed:<br/>" . (strtotime() - $start) . "s</p>\n";
 print "<p>Updated:<br/>" . date("Y-m-d H:i T") . "</p>\n";
 print "</div>\n";
 	
