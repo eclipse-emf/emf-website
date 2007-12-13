@@ -147,13 +147,20 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 			<tr>
 				<td rowspan="2" valign="top"><img src="/modeling/images/numbers/3.gif" /></td>
 				<td rowspan="2">&#160;</td>
-				<td colspan=1>
-        <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">org.eclipse.releng.basebuilder</a> branch:<br><small>-basebuilderBranch</small>				
-				</td>
+				<td colspan=1><a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">Basebuilder</a> Branch:</td>
 				<td>&#160;</td>
 				<td><input size="20" name="build_debug_basebuilder_branch" value="<?php echo isset($options["BaseBuilderBranch"]) ? $options["BaseBuilderBranch"][0] : ""; ?>"></td>
-				<td><small> <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder"><img alt="updated" src="/modeling/images/updated.gif" border="0"></a> Enter Tag or Branch, eg., 
-				v20071108, v20070614,<br/>r322_v20070104, R3_1_maintenance, R3_0_maintenance :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a></small></td>
+				<td width="350"><small><a id="divToggle_relengBasebuilder" name="divToggle_relengBasebuilder" href="javascript:toggleDetails('relengBasebuilder')">[+]</a></small>
+					<div id="divDetail_relengBasebuilder" name="divDetail_relengBasebuilder" style="display:none;border:0">
+					<small>
+					Enter Tag or Branch, eg., 
+						<acronym title="Eclipse 3.4.x">v20071108</acronym>, 
+						<acronym title="Eclipse 3.3.x">v20070614</acronym>, 
+						<acronym title="Eclipse 3.2.x">r322_v20070104</acronym>, 
+						<acronym title="Eclipse 3.1.x">R3_1_maintenance</acronym> :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a>
+					</small>
+					</div>
+				</td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
 
@@ -163,9 +170,13 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td><b>Build Alias</b><br><small>optional</small></td>
 				<td>&#160;</td>
 				<td><input name="build_Build_Alias" size=8></td>
-				<td><small>
-					Eg., for labelling Release builds as "2.0.1"<br> 
-					instead of "R200408081212"</small></td>
+				<td width="300"><small><a id="divToggle_buildAlias" name="divToggle_buildAlias" href="javascript:toggleDetails('buildAlias')">[+]</a></small>
+					<div id="divDetail_buildAlias" name="divDetail_buildAlias" style="display:none;border:0">
+					<small>
+					Eg., to label a milestone as "0.7.0M4" instead of "S200712120000". You must include the version -- "M4" is not valid.
+					</small>
+					</div>
+				</td>
 			</tr>
 
 			<tr>
@@ -175,7 +186,10 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td><select name="build_Tag_Build" size=1>
 				<?php displayOptions($options["TagBuild"]); ?>
 				</select></td>
-				<td><small>If Yes, this tag will appear in CVS as "build_200405061234".<br/>If No, CVS will NOT be tagged with this build's ID</small></td>
+				<td><small><a id="divToggle_MapfileRule" name="divToggle_MapfileRule" href="javascript:toggleDetails('MapfileRule')">[+]</a></small>
+				<div id="divDetail_MapfileRule" name="divDetail_MapfileRule" style="display:none;border:0">
+					<small>If Yes, this tag will appear in CVS as "build_200405061234".<br/>If No, CVS will NOT be tagged with this build's ID</small>
+				</td>
 			</tr> 
 
 			<tr><td colspan="6">&#160;</td></tr>
@@ -206,24 +220,23 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests20"],"_20"); ?>
 				</div>
 				</td>
-				<td><small><a id="divRunTestsToggle" name="divRunTestsToggle" href="javascript:toggleDetails()">More Info</a></small>
-				<div id="divRunTestsDetail" name="divRunTestsDetail" style="display:none;border:0">
-				<small>Standard JUnit Tests are added incrementally with bug fixes. 
-				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
-				If yes to JUnit Tests, tests will be performed during build to
-				validate results and will be refected in build results on download 
-				page and build detail pages.
-				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
-				If yes to JDK x.x Tests, EMF will be build using IBM JDK x.x, then 
-				the EMF zips built with 1.4 will be run (and tested using the above 
-				JUnit tests using IBM JRE x.x. For Standalone tests, the EMF
-				Standalone on runtime zip(s) will be used instead of the SDK for
-				running the same standalone JUnit tests as are used by the JDK tests.
-				<br/><img src="/emf/images/c.gif" width="1" height="3" border="0" alt=""><br/>
-				Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build 
-				completes old tests will be run with new SDK zip &amp; selected eclipse SDK.
-				</small>
-				</div>
+				<td width="300"><small><a id="divToggle_RunTests" name="divToggle_RunTests" href="javascript:toggleDetails('RunTests')">[+]</a></small>
+					<div id="divDetail_RunTests" name="divDetail_RunTests" style="display:none;border:0">
+					<small>
+					If yes to JUnit Tests, tests will be performed during build to
+					validate results and will be refected in build results on download 
+					page and build detail pages.
+					<p>
+					If yes to JDK x.x Tests, EMF will be build using IBM JDK x.x, then 
+					the EMF zips built with 1.4 will be run (and tested using the above 
+					JUnit tests using IBM JRE x.x. For Standalone tests, the EMF
+					Standalone on runtime zip(s) will be used instead of the SDK for
+					running the same standalone JUnit tests as are used by the JDK tests.
+					<p>
+					Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build 
+					completes old tests will be run with new SDK zip &amp; selected eclipse SDK.
+					</small>
+					</div>
 				</td>
 				
 				<?php } ?>
@@ -235,8 +248,12 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td><b>Email Address</b><br><small>optional</small></td>
 				<td>&#160;</td>
 				<td colspan="1"><input name="build_Email" size="20" maxlength="80"/></td>
-				<td><small>If you would like to be notified when the build <br>
-				(and/or tests) completes</small></td>
+				<td width="300"><small><a id="divToggle_email" name="divToggle_email" href="javascript:toggleDetails('email')">[+]</a></small>
+					<div id="divDetail_email" name="divDetail_email" style="display:none;border:0">
+					<small>Add your email (or comma-separated emails) to be notified when done. See <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=210396">bug 210396</a>.
+					</small>
+					</div>
+				</td>
 			</tr>
 
 <?php if ($debug) { ?>
@@ -371,18 +388,18 @@ function pickDefaultJavaHome(val) {
 	}
 }
 
-function toggleDetails()
+function toggleDetails(id)
 {
-  toggle=document.getElementById("divRunTestsToggle");
-  detail=document.getElementById("divRunTestsDetail");
-  if (toggle.innerHTML=="More Info") 
+  toggle=document.getElementById("divToggle_" + id);
+  detail=document.getElementById("divDetail_" + id);
+  if (toggle.innerHTML=="[+]") 
   {
-    toggle.innerHTML="Hide Info";
+    toggle.innerHTML="[-]";
     detail.style.display="";
   } 
   else
   {
-    toggle.innerHTML="More Info";
+    toggle.innerHTML="[+]";
     detail.style.display="none";
   }
 }
