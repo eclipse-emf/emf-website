@@ -406,7 +406,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					(iiset($_POST["tests_debug_emf_old_tests_java_home"]) && $_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
+					(isset($_POST["tests_debug_emf_old_tests_java_home"]) && $_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
 					(isset($_POST["tests_debug_emf_old_tests_branch"]) && $_POST["tests_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["tests_debug_emf_old_tests_branch"]:'').
 					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
 					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
@@ -898,4 +898,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.31 2007/12/23 01:08:23 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.32 2007/12/23 01:10:01 nickb Exp $ -->
