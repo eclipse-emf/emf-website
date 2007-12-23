@@ -368,7 +368,8 @@ function toggleDetails()
 		print "<ul>\n";
 		$i=2;
 		foreach ($_POST as $k => $v) {
-			if (strstr($k,"tests_") && trim($v)!="" && !strstr($k,"_Sel") ) {
+			if (strstr($k, "tests_") && !strstr($k, "_Sel") && (is_array($v) || trim($v) != "")) // tests_Dependencies_URL_New sets $v to an array; all others are strings
+			{
 				$lab = preg_replace("/\_/"," ",substr($k,6));
 				$val = $k == "tests_Dependencies_URL_New" ? $newDependencies : $v;
 				print "<li>";
@@ -898,4 +899,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.32 2007/12/23 01:10:01 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.33 2007/12/23 01:13:12 nickb Exp $ -->
