@@ -3,13 +3,13 @@ $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NA
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
 internalUseOnly();
 
-$pre = "../"; 
+$pre = "../";
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
 
 $debug = isset($_GET["debug"]) ? 1 : 0;
-$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0; 
+$previewOnly = isset($_GET["previewOnly"]) ? 1 : 0;
 $PR = "emf"; ?>
 
 <div id="midcolumn">
@@ -19,7 +19,7 @@ $PR = "emf"; ?>
 
 <?php
 
-	if (!$_POST["process"]=="build") { // page one, the form
+	if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
 		print "<p>To test a build of EMF, please complete the following form and click the Run Tests button.</p>";
 	} else {
 		print "<p>Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
@@ -40,7 +40,7 @@ $PR = "emf"; ?>
 
 	/** done customizing, shouldn't have to change anything below here **/
 
-	$options = loadOptionsFromRemoteFiles($testsOptionsFile,$dependenciesURLsFile); 
+	$options = loadOptionsFromRemoteFiles($testsOptionsFile,$dependenciesURLsFile);
 $options["BuildType"] = array (
 	"Release=R",
 	"Stable=S",
@@ -57,7 +57,7 @@ $options["BuildType"] = array (
 	$options["RunTests"] = $newopt["RunTests"];
 	sort($options["RunTests"]); reset ($options["RunTests"]);
 
-	if (!$_POST["process"]=="test") { // page one, the form
+	if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
 
 ?>
 
@@ -71,26 +71,26 @@ $options["BuildType"] = array (
 					<div name="fullURL" id="fullURL" style="border:0;font-size:9px;" readonly="readonly">&#160;</div>
 				</td>
 			</tr>
-			
+
 			<tr valign="top">
 				<td><img src="/modeling/images/numbers/1.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Dependency&#160;URLs</b><br>
-				
+
 					<small>
-					choose URLs (use <em>CTRL</em> <br> 
+					choose URLs (use <em>CTRL</em> <br>
 					for multiple selections)</small>
 					<table>
 						<tr><td><b>Public</b></td><td><b>Mirror</b></td></tr>
 						<?php $buildServer = array("www.eclipse.org","emf.torolab.ibm.com","emft.eclipse.org","download.eclipse.org"); ?>
-						<tr>						
+						<tr>
 							<td>&#160;&#149;&#160;<a href="http://download.eclipse.org/eclipse/downloads/">Eclipse</a></td>
 							<td>&#160;&#149;&#160;<a href="http://fullmoon/downloads/">Eclipse</a></td>
 						</tr>
-						<tr>						
+						<tr>
 							<td>&#160;&#149;&#160;<a href="http://<?php print $buildServer[0]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
 							<td>&#160;&#149;&#160;<a href="http://<?php print $buildServer[1]; ?>/emf/downloads/?showAll=&amp;sortBy=date&amp;hlbuild=0#latest">EMF</a></td>
-						</tr>						
+						</tr>
 					</table>
             <p><small>&#160;&#160;-- AND/OR --</small></p>
 				</td>
@@ -114,7 +114,7 @@ $options["BuildType"] = array (
 				</td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
-			
+
 			<tr bgcolor="#eeeeee">
 				<td bgcolor="#ffffff" rowspan="1"><img src="http://www.eclipse.org/emf/images/numbers/2.gif" /></td>
 				<td bgcolor="#ffffff" rowspan="1">&#160;</td>
@@ -135,22 +135,22 @@ $options["BuildType"] = array (
 				<td rowspan="1">&#160;</td>
 				<td valign="top">
 				<?php displayCheckboxes("tests_Run_Tests",$options["RunTests"],false,false); ?>
-				<br> 
+				<br>
 				</td>
 				<td rowspan="1" valign="top">
-				
+
 				<table>
 					<tr>
 						<td valign=top colspan=2><b>JDK 1.4 Tests Compiler Args</b></td></tr>
 					<tr>
 						<td>JDK:</td>
 						<td><small><select style="font-size:10px" name="tests_Compiler_JDK14">
-<?php 
+<?php
 	//$JDKs = loadDirSimple("/opt",".*(jdk|j2sdk|java|Java).*(1.4|14).*","d"); rsort($JDKs); reset($JDKs); // include Sun
 	$JDKs = loadDirSimple("/opt",".*(java|Java).*(14|1\.4).*","d"); sort($JDKs); reset($JDKs); // omit Sun
 	$selected = realpath("/opt/ibm-java2-1.4");
-	foreach ($JDKs as $jdk) { 
-		if (!is_link("/opt/".$jdk)) { 
+	foreach ($JDKs as $jdk) {
+		if (!is_link("/opt/".$jdk)) {
 			$label = false!==strpos(strtolower($jdk),"ibm") ? "IBM ".str_replace("ibm-java2-ws-sdk-pj9xia32","",$jdk) : "Sun ".$jdk;
 			print "<option value=\"/opt/".$jdk."\">$label</option>\n";
 			if (false!==strpos(strtolower($jdk),"ibm")) {
@@ -165,7 +165,7 @@ $options["BuildType"] = array (
 						<td colspan=2><input checked type="checkbox" name="tests_Compiler_Arg_Deprecation" value="Y"> Use -deprecation flag</td>
 					</tr>
 				</table>
-				
+
 				<table>
 					<tr>
 						<td valign=top colspan=2><b>JDK 5.0 Tests Compiler Args</b></td></tr>
@@ -192,7 +192,7 @@ $options["BuildType"] = array (
 						<option value="-unchecked,-deprecation">-unchecked,-deprecation</option>						</select></small></td>
 					</tr>
 				</table>
-								
+
 				<table>
 					<tr>
 						<td valign=top colspan=2><b>Old Tests Options</b></td></tr>
@@ -208,7 +208,7 @@ $options["BuildType"] = array (
 						</select></td>
 					</tr>
 				</table>
-				
+
 				</td>
 			</tr>
 
@@ -219,7 +219,7 @@ $options["BuildType"] = array (
 				optional</small></td>
 				<td rowspan=2>&#160;</td>
 				<td><input name="tests_Patch_Zipfile" type="file"></td>
-				<td><small>If you would like to use a patch on top of the above EMF SDK, 
+				<td><small>If you would like to use a patch on top of the above EMF SDK,
 				create a zip with base folders <b style="color:red">eclipse/plugins/</b> and/or <b style="color:red">eclipse/features/</b>,
 				and upload it here. <b style="color:red">Limit 5M filesize</b>.
 				</small></td>
@@ -229,12 +229,12 @@ $options["BuildType"] = array (
 				<small>&#160;&#160;&#160;&#160; - or - </small><br/>
 					<input name="tests_Patch_Zipfile_Name" type="text" size="20" maxlength="80"></td>
 				<td>&#160;&#160;&#160;&#160;<small> - or - </small><br/>
-				<small>SCP your patch file onto this server and place it in 
+				<small>SCP your patch file onto this server and place it in
 				<b style="color:red">/home/www-data/oldtests/patches</b>.
 				Your file must be readable by the web user. Enter either the full path or just the filename.
 				</small></td>
 			</tr>
-			
+
 			<tr>
 				<td><img src="http://www.eclipse.org/emf/images/numbers/4.gif" /></td>
 				<td>&#160;</td>
@@ -292,7 +292,7 @@ function showfullURL(val)
 
 
 function loadSelectedValues() {
-	with (document.forms.patchForm) { 
+	with (document.forms.patchForm) {
 		//document.forms.patchForm.tests_Run_Tests_Perf.checked=<?php print $isEMFbuildServer?"false":"true"; ?>;
 		document.forms.patchForm.tests_Run_Tests_JDK13.checked=false;
 	}
@@ -309,11 +309,11 @@ function toggleDetails()
 {
   toggle=document.getElementById("divRunTestsToggle");
   detail=document.getElementById("divRunTestsDetail");
-  if (toggle.innerHTML=="More Info") 
+  if (toggle.innerHTML=="More Info")
   {
     toggle.innerHTML="Hide Info";
     detail.style.display="";
-  } 
+  }
   else
   {
     toggle.innerHTML="More Info";
@@ -325,10 +325,10 @@ function toggleDetails()
 <?php } else { // page two, form submission results
 
   		$newDependencies = splitDependencies($_POST["tests_Dependencies_URL_New"]);
-  		$testDependencyURLs = getTestDependencyURLs($_POST["tests_Dependencies_URL"],$newDependencies,$dependenciesURLsFile);	
-  		
+  		$testDependencyURLs = getTestDependencyURLs($_POST["tests_Dependencies_URL"],$newDependencies,$dependenciesURLsFile);
+
   		$bits = explode(" ",$testDependencyURLs);
-  		foreach ($bits as $bit) { 
+  		foreach ($bits as $bit) {
   		  if (false!==strpos($bit,"emf-")) {
   			  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
   			  $BR = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/.+!","$1",$bit);
@@ -336,7 +336,7 @@ function toggleDetails()
   		    break;
   		  }
   	  }
-	
+
 			$uploaddir = '/home/www-data/oldtests/patches/';
 			if ($_FILES['tests_Patch_Zipfile']['name']) {
 				$uploadfile = $uploaddir . basename($_FILES['tests_Patch_Zipfile']['name']);
@@ -378,27 +378,27 @@ function toggleDetails()
 		print "<ul>\n";
 		$i=2;
 		foreach ($_POST as $k => $v) {
-			if (strstr($k,"tests_") && trim($v)!="" && !strstr($k,"_Sel") ) { 
+			if (strstr($k,"tests_") && trim($v)!="" && !strstr($k,"_Sel") ) {
 				$lab = preg_replace("/\_/"," ",substr($k,6));
 				$val = $k == "tests_Dependencies_URL_New" ? $newDependencies : $v;
 				print "<li>";
-				print (is_array($val)? 
-					"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" : 
+				print (is_array($val)?
+					"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" :
 					"<div>".$val."</div>" . "<b>".$lab.":</b>");
 				print "</li>\n";
 				$i++;
 			}
-		} 
+		}
 
-		print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b></li>\n"; 
-		print "</ul>\n";		
+		print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b></li>\n";
+		print "</ul>\n";
 		print "</ul>\n";
 
 	?>
 <br />
 
-Test results will he located here: <a href="/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>, 
-<a href="/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>, 
+Test results will he located here: <a href="/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>,
+<a href="/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>,
 <a href="/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>.
 
 <?php
@@ -424,7 +424,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 			// three output options: uncomment a line and comment out the other two.
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-  			if ($previewOnly) { 
+  			if ($previewOnly) {
   				print '</div><div class="homeitem3col">'."\n";
   				print "<h3>Build Command (Preview Only)</h3>\n";
   				print "<p><small><code>$preCmd</code></small></p>";
@@ -432,8 +432,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   				exec($preCmd);
   				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
   			}
-  
-  			if ($previewOnly) { 
+
+  			if ($previewOnly) {
   				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
   			} else {
   				exec($cmd);
@@ -460,7 +460,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-  			if ($previewOnly) { 
+  			if ($previewOnly) {
   				print '</div><div class="homeitem3col">'."\n";
   				print "<h3>Build Command (Preview Only)</h3>\n";
   				print "<p><small><code>$preCmd</code></small></p>";
@@ -468,8 +468,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   				exec($preCmd);
   				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
   			}
-  
-  			if ($previewOnly) { 
+
+  			if ($previewOnly) {
   				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
   			} else {
   				exec($cmd);
@@ -509,7 +509,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-  			if ($previewOnly) { 
+  			if ($previewOnly) {
   				print '</div><div class="homeitem3col">'."\n";
   				print "<h3>Build Command (Preview Only)</h3>\n";
   				print "<p><small><code>$preCmd</code></small></p>";
@@ -517,8 +517,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   				exec($preCmd);
   				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
   			}
-  
-  			if ($previewOnly) { 
+
+  			if ($previewOnly) {
   				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
   			} else {
   				exec($cmd);
@@ -546,7 +546,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-  			if ($previewOnly) { 
+  			if ($previewOnly) {
   				print '</div><div class="homeitem3col">'."\n";
   				print "<h3>Build Command (Preview Only)</h3>\n";
   				print "<p><small><code>$preCmd</code></small></p>";
@@ -554,8 +554,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
   				exec($preCmd);
   				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
   			}
-  
-  			if ($previewOnly) { 
+
+  			if ($previewOnly) {
   				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
   			} else {
   				exec($cmd);
@@ -563,8 +563,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				print '<ul><li><a href="/modeling/emf/emf/jdk50tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 			}
 
-		} // end else 
-		
+		} // end else
+
 print "</div>\n</div>\n";
 
 print "<div id=\"rightcolumn\">\n";
@@ -649,7 +649,7 @@ function loadOptionsFromFiles($file1,$file2) { // fn not used
 	return $options;
 }
 
-function loadOptionsFromRemoteFiles($file1,$file2) { 
+function loadOptionsFromRemoteFiles($file1,$file2) {
 	$sp1 = file($file1);	if (!$sp1) { $sp1 = array(); }
 	$sp2 = file($file2);	if (!$sp2) { $sp2 = array(); }
 	$options = loadOptionsFromArray( array_merge($sp1,$sp2) );
@@ -662,10 +662,10 @@ function loadOptionsFromArray($sp) {
 	$debug=-1;
 	$doSection = "";
 
-	foreach ($sp as $s) { 
+	foreach ($sp as $s) {
 		if (strpos($s,"#")===0) { // skip, comment line
 		} else if (preg_match("/\[([a-zA-Z0-9\_\|]+)\]/",$s,$matches)) { // section starts
-			if (strlen($s)>2) { 
+			if (strlen($s)>2) {
 				$isReversed = false;
 				if (strstr($s,"|reversed")) {  // remove the |reversed keyword
 					$isReversed=true;
@@ -679,8 +679,8 @@ function loadOptionsFromArray($sp) {
 				$options[$doSection] = array();
 				if ($isReversed) { $options[$doSection]["reversed"] = $isReversed; }
 			}
-		} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) { 
-			if (strlen($s)>2) { 
+		} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) {
+			if (strlen($s)>2) {
 				if ($debug>0) print "Loading: $s<br>";
 				$options[$doSection][] = trim($s);
 			}
@@ -709,11 +709,11 @@ function splitDependencies($entered) {
 // return a string in the form "-eclipseURL http://... -emfFile http://..."
 function getTestDependencyURLs($chosen, $entered, $file) {
 	if (!$chosen) $chosen = array();
-	if (!is_array($chosen)) $chosen = array($chosen); // cast to array if not already 
-	
+	if (!is_array($chosen)) $chosen = array($chosen); // cast to array if not already
+
 	$origSize = 0;
 	$newSize = 0;
-	
+
 	// load values from $entered into $chosen
 	if ($entered) {
 		$lines = trimmed_read($file);
@@ -732,16 +732,16 @@ function getTestDependencyURLs($chosen, $entered, $file) {
 				if ($catg && $urlFixed) {
 					$lines[] = "$catg=$urlFixed"; // don't add a blank entry!
 				}
-			}					
+			}
 		}
 		$newSize = sizeof($lines);
 	}
-	
+
 	$lines = array_unique($lines); // remove duplicate entries
 
 //	foreach ($chosen as $e) print "<i>. $e</i><br/>\n";
 	updateDependenciesFile($file,$lines,$newSize,$origSize);
-	
+
 	$ret = "";
 	foreach ($chosen as $choice) {
 	  if ($choice) {
@@ -755,9 +755,9 @@ function getTestDependencyURLs($chosen, $entered, $file) {
 	return $ret;
 }
 
-function trimmed_read($file) {		
+function trimmed_read($file) {
 	$lines = array();
-	if (is_writable($file) && is_readable($file)) { 
+	if (is_writable($file) && is_readable($file)) {
 		$f = fopen($file, "r");
 		if ($f) {
 			while (!feof($f) && ($line = trim(fgets($f, 4096))) ) $lines[] = $line;
@@ -782,7 +782,7 @@ function findCatg($url) {
 		"01eclipse" => "eclipse-",
 		"99other" => "/"
 	);
-	foreach ($matches as $catg => $match) { 
+	foreach ($matches as $catg => $match) {
 		if (false!==strpos($url,$match) || preg_match("#(".$match.")#",$url)) {
 			return $catg;
 		}
@@ -796,7 +796,7 @@ function updateDependenciesFile($file,$lines,$newSize,$origSize) {
 			fwrite($f,$line."\n");
 		}
 		fclose($f);
-	}	
+	}
 }
 
 function displayJDKOptions($options) {
@@ -810,7 +810,7 @@ function displayJDKOptions($options) {
 	foreach ($options as $o => $option) {
 		$opt = $option;
 		$isSelected = false;
-		if (!preg_match("/\-\=[\d\.]+/",$opt)) { 
+		if (!preg_match("/\-\=[\d\.]+/",$opt)) {
 			if (strstr($opt,"|selected")) {  // remove the |selected keyword
 				$isSelected=true;
 				$opt = substr($opt,0,strpos($opt,"|selected"));
@@ -834,7 +834,7 @@ function compareURLs($a, $b) {
    $bPF = substr($b,0,strpos($b,"="));
    $aDS = preg_replace("/.+([0-9]{12}|[0-9]{8}\-[0-9]{4}).+/","$1",$a);
    $bDS = preg_replace("/.+([0-9]{12}|[0-9]{8}\-[0-9]{4}).+/","$1",$b);
-   return $aPF == $bPF ? ($aDS < $bDS ? 1 : -1) : ($aPF > $bPF ? 1 : -1);  
+   return $aPF == $bPF ? ($aDS < $bDS ? 1 : -1) : ($aPF > $bPF ? 1 : -1);
 }
 
 function displayURLs($options,$verbose=false) {
@@ -846,7 +846,7 @@ function displayURLs($options,$verbose=false) {
 
 	usort($options, "compareURLs"); reset($options);
 	//sort($options); reset($options);
-	
+
 	$matches=null;
 	$currCatg="";
 	foreach ($options as $o => $option) {
@@ -855,11 +855,11 @@ function displayURLs($options,$verbose=false) {
 			$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
 			$catg = substr(trim($matches[1]), 2);
 			if ($catg!=$currCatg) {
-				if ($currCatg!="") 
+				if ($currCatg!="")
 					print "\n\t<option "."value=\""."\"></option>";
 				print "\n\t<option "."value=\""."\"> -- ".$catg." -- </option>";
 				$currCatg=$catg;
-			}	
+			}
 			print "\n\t<option "."value=\"".trim($matches[2])."\">".substr(trim($matches[2]),6+strpos(trim($matches[2]),"drops"))."</option>";
 		} else if (strstr($opt,"http") && strstr($opt,"drops")) { // turn http://foo/bar.zip into <option value="http://foo/bar.zip">bar.zip</option>
 			print "\n\t<option "."value=\"".$opt."\">".
@@ -910,6 +910,7 @@ function displayURLs($options,$verbose=false) {
 	function checkIfTestsInProgress() {
 		global $SERVER_NAME;
 
+		$o = "";
 		// look for lockfiles in the testing dirs; if any found, return a warning about overlapping tests
 		$lockfiles = array(
 			"/home/www-data/perftests/perftests.lock"=> "/tests/results-perf.php"
@@ -926,4 +927,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.26 2007/11/02 04:24:38 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.27 2007/12/23 00:38:34 nickb Exp $ -->
