@@ -314,7 +314,7 @@ function toggleDetails()
 <?php } else { // page two, form submission results
 
   		$newDependencies = splitDependencies($_POST["tests_Dependencies_URL_New"]);
-  		$testDependencyURLs = getTestDependencyURLs($_POST["tests_Dependencies_URL"],$newDependencies,$dependenciesURLsFile);
+  		$testDependencyURLs = getTestDependencyURLs(isset($_POST["tests_Dependencies_URL"]) ? $_POST["tests_Dependencies_URL"] : null,$newDependencies,$dependenciesURLsFile);
 
   		$bits = explode(" ",$testDependencyURLs);
   		foreach ($bits as $bit) {
@@ -362,7 +362,7 @@ function toggleDetails()
 
 	<?php
 
-		$logfile = $PWD.'/'.$logfile;
+		$logfile = $logfile ? $PWD.'/'.$logfile : "";
 
 		print "<ul>\n";
 		$i=2;
@@ -392,7 +392,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 
 <?php
 			/*** OLD TESTS ***/
-			if ($_POST["tests_Run_Tests_Old"]=="Y") {
+			if (isset($_POST["tests_Run_Tests_Old"]) && $_POST["tests_Run_Tests_Old"]=="Y") {
 
 				$PWD = "/home/www-data/tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
@@ -431,7 +431,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 			}
 
 			/*** JDK 1.3 TESTS ***/
-			if ($_POST["tests_Run_Tests_JDK13"]=="Y") {
+			if (isset($_POST["tests_Run_Tests_JDK13"]) && $_POST["tests_Run_Tests_JDK13"]=="Y") {
 
 				$PWD = "/home/www-data/jdk13tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
@@ -468,7 +468,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 			}
 
 			/*** JDK 1.4 TESTS ***/
-			if ($_POST["tests_Run_Tests_JDK14"]=="Y") {
+			if (isset($_POST["tests_Run_Tests_JDK14"]) && $_POST["tests_Run_Tests_JDK14"]=="Y") {
 
 				$PWD = "/home/www-data/jdk14tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
@@ -516,7 +516,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 			}
 
 			/*** JDK 5.0 TESTS ***/
-			if ($_POST["tests_Run_Tests_JDK50"]=="Y") {
+			if (isset($_POST["tests_Run_Tests_JDK50"]) && $_POST["tests_Run_Tests_JDK50"]=="Y") {
 				$PWD = "/home/www-data/jdk50tests";
 				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
 
@@ -897,4 +897,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.29 2007/12/23 00:45:18 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.30 2007/12/23 01:05:24 nickb Exp $ -->
