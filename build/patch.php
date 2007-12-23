@@ -595,7 +595,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 /************************** METHODS *****************************************/
 
 function displayCheckboxes($label,$options,$verbose=false,$isChecked=false) {
-	if ($options["reversed"]) {
+	if (isset($options["reversed"]) && $options["reversed"]) {
 		// pop that item out
 		array_shift($options);
 		$options = array_reverse($options);
@@ -927,4 +927,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.27 2007/12/23 00:38:34 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.28 2007/12/23 00:40:39 nickb Exp $ -->
