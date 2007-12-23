@@ -1,11 +1,9 @@
 <?php
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
-internalUseOnly();
-
 $pre = "../../";
-
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
+internalUseOnly(); 
 ob_start();
 
 $showAllResults = null;
@@ -51,7 +49,6 @@ $hadLoadDirSimpleError=1;
 	$buildTypes = getBuildTypes($options);
 
 	//if ($debug>0) { w("BUILD TYPES:",1); wArr($buildTypes,"<br>",true,""); w("<hr noshade size=1 />"); }
-
 
 	// get branches from options file
 	$branches = getBranches($options);
@@ -332,7 +329,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a href=\"".
 						(is_file($testsPWD.$path.$testDir."/results/".$t.".html") ?
 							$pre.$mid.$path.$testDir."/results/".$t.".html#_Test_Results" : $pre.$mid.$path.$testDir."/testlog.txt").
-						"\"><span class=\"errors\"><abbr title=\"$t\"><img src=\"".$pre."images/not.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"BUILD FAILED!\"></abbr></a>&nbsp;</td>"."\n";
+						"\"><span class=\"errors\"><abbr title=\"$t\"><img src=\"/modeling/images/not.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"BUILD FAILED!\"></abbr></a>&nbsp;</td>"."\n";
 				} else if ($cnt==="...") {
 					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a style=\"text-decoration:none\" href=\"".($pre.$mid.$path.$testDir."/testlog.txt")."\"><span class=\"inprogress\"><abbr title=\"$t\">.&nbsp;.&nbsp;.</abbr></a>&nbsp;</td>"."\n";
 				} else if ($cnt==="") {
@@ -343,7 +340,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 						$testDir.
 						"/results/".
 						$t.
-						".html#_Test_Results\"><abbr title=\"$t\"><img src=\"".$pre."images/check.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"Passed!\"></abbr></a>&nbsp;</td>"."\n";
+						".html#_Test_Results\"><abbr title=\"$t\"><img src=\"/modeling/images/check.gif\" width=\"16\" height=\"12\" border=\"0\" alt=\"Passed!\"></abbr></a>&nbsp;</td>"."\n";
 				} else {
 					$ret .= "<td bgcolor=\"#FFFFFF\">&nbsp;<a class=\"errors\" href=\"".
 						$pre.$mid.$path.
