@@ -262,20 +262,10 @@ $options["BuildType"] = array (
 			</tr>
 <?php } ?>
 
-		<?php $testsInProgress = checkIfTestsInProgress();
-				if ($testsInProgress) { ?>
-			<tr>
-				<td>&#160;</td>
-				<td colspan=6 align=left>
-						<b style="color:red">There are tests in progress. Please make sure that running your tests will not overlap performance testing, or you may skew the results.</b><br>
-						<?php print $testsInProgress."<br>"; ?>
-				</td>
-			</tr>
-		<?php } ?>
 			<tr>
 				<td>&#160;</td>
 				<td colspan=2 align=center>
-					<input style="<?php if ($testsInProgress) { print 'color:red;font-weight:bold'; } ?>" type="button" value="<?php print ($previewOnly?"Preview":"Run"); ?> Tests" onclick="doSubmit()">
+					<input style="" type="button" value="<?php print ($previewOnly?"Preview":"Run"); ?> Tests" onclick="doSubmit()">
 				</td>
 			</tr>
 			<tr>
@@ -293,7 +283,6 @@ function showfullURL(val)
 
 function loadSelectedValues() {
 	with (document.forms.patchForm) {
-		//document.forms.patchForm.tests_Run_Tests_Perf.checked=<?php print $isEMFbuildServer?"false":"true"; ?>;
 		document.forms.patchForm.tests_Run_Tests_JDK13.checked=false;
 	}
 }
@@ -907,24 +896,5 @@ function displayURLs($options,$verbose=false) {
 		}
 	}
 
-	function checkIfTestsInProgress() {
-		global $SERVER_NAME;
-
-		$o = "";
-		// look for lockfiles in the testing dirs; if any found, return a warning about overlapping tests
-		$lockfiles = array(
-			"/home/www-data/perftests/perftests.lock"=> "/tests/results-perf.php"
-		);
-		foreach ($lockfiles as $lockfile => $resultspage) {
-			if (is_file($lockfile)) {
-				$oc = file($lockfile);
-				$oc = str_replace("/home/www-data/","http://".$SERVER_NAME."/modeling/emf/emf/",$oc[0]);
-				$o .= '&#160;&#160;*&#160;<a href="'.$resultspage.'">Results</a>&#160;&#160;*&#160;<a href="'.$oc.'">'.$oc.'</a><br/>'."\n";
-			}
-		}
-
-		return $o;
-	}
-
 ?>
-<!-- $Id: patch.php,v 1.28 2007/12/23 00:40:39 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.29 2007/12/23 00:45:18 nickb Exp $ -->
