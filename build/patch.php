@@ -10,6 +10,7 @@ ob_start();
 
 $debug = isset($_GET["debug"]) ? 1 : 0;
 $previewOnly = isset($_GET["previewOnly"]) ? 1 : 0;
+$logfile = "";
 $PR = "emf"; ?>
 
 <div id="midcolumn">
@@ -405,10 +406,10 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					($_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
-					($_POST["tests_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["tests_debug_emf_old_tests_branch"]:'').
-					($_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					($_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+					(iiset($_POST["tests_debug_emf_old_tests_java_home"]) && $_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
+					(isset($_POST["tests_debug_emf_old_tests_branch"]) && $_POST["tests_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["tests_debug_emf_old_tests_branch"]:'').
+					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
 
 			// three output options: uncomment a line and comment out the other two.
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
@@ -444,8 +445,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					($_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					($_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
 
 					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
@@ -489,8 +490,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					($_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					($_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
 
 					' -compiler '.$compiler.
 					($_POST["tests_Compiler_Arg_Deprecation"]!=""?' -compilerArgDeprecation '.$_POST["tests_Compiler_Arg_Deprecation"]:'').
@@ -528,8 +529,8 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 					$testDependencyURLs.
 					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					($_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					($_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
 					($_POST["tests_Compiler_Arg_Source"]!=""?' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source"]:'').
 					($_POST["tests_Compiler_Arg_Xlint"]!=""?' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint"]:'').
 
@@ -897,4 +898,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.30 2007/12/23 01:05:24 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.31 2007/12/23 01:08:23 nickb Exp $ -->
