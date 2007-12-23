@@ -3,25 +3,26 @@ $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NA
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
 internalUseOnly();
 
-$pre = "../../"; 
+$pre = "../../";
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
 ob_start();
 
-$VER = $_GET["version"] && preg_match("/(13|14|50)/",$_GET["version"])? $_GET["version"] : "50"; 
-$PR = $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf"; 
+$showAllResults = null;
+$showMax = null;
+
+$VER = isset($_GET["version"]) && $_GET["version"] && preg_match("/(13|14|50)/",$_GET["version"])? $_GET["version"] : "50";
+$PR = isset($_GET["project"]) && $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf";
 $hadLoadDirSimpleError=1;
 ?>
-
 <div id="midcolumn">
-
 <?php
 	$doRefreshPage = false;
 	$dropsPWD = getPWD("downloads/drops"); // see scripts.php
 	$testsPWD = "/home/www-data/jdk".$VER."tests"; // path on emf.torolab.ibm.com
 	$PWD		 = $showAllResults?$testsPWD:$dropsPWD; // path on emf.torolab.ibm.com
 
-	if (!is_dir($PWD) || !is_readable($PWD)) { 
+	if (!is_dir($PWD) || !is_readable($PWD)) {
 			echo "<p> Download Drops Directory ($PWD) not found or not readable! </p>";
 			echo "<p> Please report this problem to <a href=\"mailto:codeslave@ca.ibm.com?Subject=Download Drops Directory not found or not readable in downloads-common.php, line 17\">codeslave@ca.ibm.com</a> </p>";
 			exit;
@@ -47,7 +48,7 @@ $hadLoadDirSimpleError=1;
 	//if ($debug>0) { w("OPTIONS:",1); wArr($options,"<br>",true,""); w("<hr noshade size=1 />"); }
 
 	// get build types from options file
-	$buildTypes = getBuildTypes($options); 
+	$buildTypes = getBuildTypes($options);
 
 	//if ($debug>0) { w("BUILD TYPES:",1); wArr($buildTypes,"<br>",true,""); w("<hr noshade size=1 />"); }
 
@@ -63,7 +64,7 @@ $hadLoadDirSimpleError=1;
 	if ($sortBy!="date") {
 		$builds = getBuildsFromDirs($branches);
 		$builds = reorderArray($builds,$buildTypes);
-		$latest = getLatest($builds);	
+		$latest = getLatest($builds);
 		$latest = reorderArray($latest,$buildTypes);
 	} else {
 		$builds = getBuildsFromDirs("");
@@ -82,27 +83,27 @@ $hadLoadDirSimpleError=1;
 		 $numHeaders = 0;
 		 $k=-1;
 
-		if ($sortBy=="date") { 
+		if ($sortBy=="date") {
 			print '<div class="homeitem3col"><h3>Latest Test Results</h3>'."\n";
 			echo "<table cellspacing=3 cellpadding=0>";
 		}
-		
+
 		foreach($builds as $t_branch => $builds2) {
 			 foreach($builds2 as $t_type => $builds3) {
-				 if ($sortBy!="date") { 
+				 if ($sortBy!="date") {
 					 $branch=$t_branch;
 					 $type=$t_type;
 					 $name = $buildTypes[$branch][$type];
 					 print '<div class="homeitem3col"><h3>'.$name.'s Results</h3>'."\n";
 					 echo "<table cellspacing=3 cellpadding=0>";
 				 }
-				 if ($numHeaders==0 || $sortBy!="date") { 
+				 if ($numHeaders==0 || $sortBy!="date") {
 					 echo "
 					 <tr valign=bottom>".
 					 ($sortBy=="date"?"<td><b><a href=\"?project=$PR&amp;version=$VER&amp;showAllResults=".$showAllResults."&amp;showAll=".$showAll."&amp;sortBy=type\">Type</a><a name=\"latest\">&#160;</a></b></td>":"")
 					 .$cols1;
 					 $numHeaders++;
-				 } 
+				 }
 
 				ini_set("display_errors","0"); // suppress file not found errors
 				foreach($builds3 as $t_k => $t_ID) {
@@ -118,10 +119,10 @@ $hadLoadDirSimpleError=1;
 						$k = $t_k;
 					}
 
-					if ($showAll || $k<$showMax) { 
+					if ($showAll || $k<$showMax) {
 						$bgcolor = ($bgk%2==1?"FFFFFF":"EEEEEE"); $bgk++;
 						 echo "<tr valign=top bgcolor=\"#$bgcolor\">";
-								 
+
 						$pre2 = (is_dir("$PWD/$branch/$ID/eclipse/$ID/") ? "eclipse/$branch/$ID/" : "");
 
 						echo ($sortBy=="date"?"<td>".$type."</td>":"");
@@ -129,14 +130,14 @@ $hadLoadDirSimpleError=1;
 						$zips_in_folder = loadDirSimple("$dropsPWD/$branch/$ID/","(\.zip)","f"); //wArr($zips_in_folder);
 						// for testing, you can find a list of files like this:
 						// `find /home/www-data/build/modeling/emf/emf/downloads/drops/2.0.1 -type f -maxdepth 2 -name *.zip -name *emf-sdo-xsd-SDK*`
-						$ziplabel = (sizeof($zips_in_folder)<1) ? $ID : 
+						$ziplabel = (sizeof($zips_in_folder)<1) ? $ID :
 							preg_replace("/(.+)\-([^\-]+)(\.zip)/","$2",$zips_in_folder[0]); // grab first entry
 
 						// generalize for any relabelled build, thus 2.0.1/M200405061234/*-2.0.2.zip is possible; label = 2.0.2
 						$IDlabel = $ziplabel;
 
 						 echo "<td><a href=\"".$pre."downloads/?showAll=1&amp;hlbuild=".$ID."#".$ID."\">$IDlabel</a></td>\n";
-						 
+
 						 echo "<td><small>".IDtoDateStamp($ID,1)."</small></td>\n";
 
 						 echo "<td>".(strstr($_SERVER["SERVER_NAME"],"eclipse.org")?'':
@@ -145,7 +146,7 @@ $hadLoadDirSimpleError=1;
 						 echo "</tr>\n";
 					}
 		 		 }
-				 if ($sortBy!="date" && sizeof($builds3)>$showMax) { 
+				 if ($sortBy!="date" && sizeof($builds3)>$showMax) {
 					 if (!$showAll || $showAll=="false") {
 						 echo "<tr><td>&#160;</td>";
 						 echo "<td align=center><small>(<a href=\"?project=$PR&amp;version=$VER&amp;showAllResults=$showAllResults&amp;showAll=true&amp;sortBy=$sortBy\">show all ".sizeof($builds3)." builds</a>)</small></td></tr>\n";
@@ -154,13 +155,13 @@ $hadLoadDirSimpleError=1;
 						 echo "<td align=center><small>(<a href=\"?project=$PR&amp;version=$VER&amp;showAllResults=$showAllResults&amp;showAll=&amp;sortBy=$sortBy\">show only ".$showMax." builds </a>)</small></td></tr>\n";
 					 }
 				 }
-				 if ($sortBy!="date") { 
+				 if ($sortBy!="date") {
 					 echo "</table>";
 					print '</div>'."\n";
 				 }
 			 }
 		 }
-		 if ($sortBy=="date") { 
+		 if ($sortBy=="date") {
 			if (sizeof($builds)>$showMax) {
 				if (!$showAll || $showAll=="false") {
 					echo "<tr><td>&#160;</td><td>&#160;</td><td align=center><small>(<a href=\"?project=$PR&amp;version=$VER&amp;showAllResults=$showAllResults&amp;showAll=true&amp;sortBy=$sortBy\">show all ".sizeof($builds)." builds</a>)</small></td></tr>\n";
@@ -203,11 +204,11 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 
 /************************** METHODS *****************************************/
 
-	function reorderArray($arr,$buildTypes) { 
+	function reorderArray($arr,$buildTypes) {
 		global $debug;
-		// resort the 2D or 3D array (latest or builds), 
-		// using branches as the sort order for 1D, and 
-		// build types for 2D. 
+		// resort the 2D or 3D array (latest or builds),
+		// using branches as the sort order for 1D, and
+		// build types for 2D.
 		// If 3D, rsort() the last dimension
 
 		//wArr($buildTypes);
@@ -215,7 +216,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 
 		$new = array();
 
-		if ($buildTypes) { 
+		if ($buildTypes) {
 			foreach ($buildTypes as $br => $types) {
 				//w("br: $br -->");
 				$new[$br] = array();
@@ -224,7 +225,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 					if (array_key_exists($br,$arr) && array_key_exists($bt,$arr[$br]) && $arr[$br][$bt]) {
 						//w("bt: $bt -->");
 						$new[$br][$bt] = $arr[$br][$bt];
-						if (is_array($new[$br][$bt])) { 
+						if (is_array($new[$br][$bt])) {
 							$new[$br][$bt] = array_unique($new[$br][$bt]);
 							rsort($new[$br][$bt]); reset($new[$br][$bt]);
 
@@ -252,13 +253,13 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 				}
 			}
 		}
-		if ($debug>0) { 
+		if ($debug>0) {
 			w("<b>AFTER:</b>",1); wArr($new,"<br>",true,""); w("<hr noshade size=1 />",1);
 		}
 		return $new;
 	}
 
-	function getBuildsFromDirs($branches) { 
+	function getBuildsFromDirs($branches) {
 		// sort the $builds into a 3D array
 
 		global $PWD, $showBuildsIfDirNotExist, $sortBy, $debug;
@@ -268,22 +269,22 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		$branchDirs = loadDirSimple($PWD,".*","d");
 
 		$buildDirs = array();
-		foreach ($branchDirs as $branch) { 
+		foreach ($branchDirs as $branch) {
 			$buildDirs[$branch] = loadDirSimple($PWD."/".$branch,"(I|N|S|R|M)\d{12}","d");
-			//w("BUILD DIRS [$branch]:",1); wArr($buildDirs[$branch],"<br>",true,""); w("<hr noshade size=1 />");			
+			//w("BUILD DIRS [$branch]:",1); wArr($buildDirs[$branch],"<br>",true,""); w("<hr noshade size=1 />");
 		}
 
 		if ($buildDirs && is_array($buildDirs)) {
-			foreach ($buildDirs as $br => $dirList) { 
-				foreach ($dirList as $i => $dir) { 
+			foreach ($buildDirs as $br => $dirList) {
+				foreach ($dirList as $i => $dir) {
 					$ty = substr($dir,0,1); // first char				// w($ty,1);
 
-					if ($sortBy!="date") { 
+					if ($sortBy!="date") {
 						if (!array_key_exists($br,$builds_temp) || !$builds_temp[$br]) {				$builds_temp[$br] = array();				}//b[3.0]
 						if (!array_key_exists($ty,$builds_temp[$br]) || !$builds_temp[$br][$ty]) { $builds_temp[$br][$ty] = array(); }			 //b[3.0][N]
 						$builds_temp[$br][$ty][] = $dir;
 					} else {
-						$dttm = substr($dir,1); // last 12 digits		
+						$dttm = substr($dir,1); // last 12 digits
 						//if ($debug>1) { w("dttm = ".$dttm.", dir = ".$dir); }
 						$a = $dttm.$ty;
 						$b = $br.$ty;
@@ -297,11 +298,11 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			}
 		}
 
-		//wArr($builds_temp); 
+		//wArr($builds_temp);
 
 		return $builds_temp;
 	}
-	
+
 	function getAllJDKTestResults($testsPWD,$path) { // given a build ID, determine any test results for build, junit
 		global $pre,$VER;
 		$mid = "../../../modeling/emf/emf/jdk".$VER."tests/"; // this is a symlink on the filesystem!
@@ -313,37 +314,37 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		$ret = "";
 		$tests = ($VER== "50" ? array("build", "junit") : array("build", "junit", "standalone"));
 		$testDirs = array();
-		if (is_dir($testsPWD.$path) && is_readable($testsPWD.$path)) { 
+		if (is_dir($testsPWD.$path) && is_readable($testsPWD.$path)) {
 			$testDirs = loadDirSimple($testsPWD.$path,"\d{12}","d"); // get dirs
 			rsort($testDirs); reset($testDirs);
 		}
 
-		if (!is_file($testsPWD.$path.$testDirs[sizeof($testDirs)-1]."/testlog.txt")) { 
+		if (!is_file($testsPWD.$path.$testDirs[sizeof($testDirs)-1]."/testlog.txt")) {
 			return "";
 		}
 
 		$ret .= "<table width=\"100%\">";
-		foreach ($testDirs as $testDir) { 
+		foreach ($testDirs as $testDir) {
 			$ret .= "<tr>";
 			$file = $testsPWD.$path.$testDir."/testlog.txt";
-			if (is_file($file) && is_readable($file)) { 
+			if (is_file($file) && is_readable($file)) {
 				$f = file($file);
-			} else { 
+			} else {
 				$f = array();
 			}
-			
+
 			$cnt=0;
 			foreach ($tests as $t) {
-				if ($cnt===0 || 
+				if ($cnt===0 ||
 					(false===strpos($cnt,"F") && false===strpos($cnt,"E") && false===strpos($cnt,"P"))
 					) { // nothing, or no E or F or P or W
 					$didRunBuildTest = true;
 					$cnt = getJDKTestResultsFailureCount($f,$t, &$didRunBuildTest);
-					if ($cnt==="...") { 
+					if ($cnt==="...") {
 						$ret .= "<td bgcolor=\"#FFFFFF\">&#160;<a style=\"text-decoration:none\" href=\"".($pre.$mid.$path.$testDir."/testlog.txt")."\"><span class=\"inprogress\"><abbr title=\"$t\">.&#160;.&#160;.</abbr></a>&#160;</td>"."\n";
-					} else if ($cnt==="") { 
+					} else if ($cnt==="") {
 						$ret .= "<td bgcolor=\"#FFFFFF\"><span class=\"errors\"><abbr title=\"$t\">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</abbr></td>"."\n";
-					} else if ($cnt===0) { 
+					} else if ($cnt===0) {
 						$ret .= "<td bgcolor=\"#FFFFFF\" align=center>&#160;<a class=\"errors\" href=\"".
 							$pre.$mid.$path.
 							$testDir.
@@ -377,13 +378,13 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			$ret .= "</tr>";
 		}
 		$ret .= "</table>";
-		return $ret; 
+		return $ret;
 	}
 
 	function getCompilerArg($f,$param,$label) {
-		foreach ($f as $line) { 
+		foreach ($f as $line) {
 			if (false!==strpos($line,"[jdk50]")) { return ""; } // done... if we didn't find it, it's not there
-			if (false!==strpos($line,"compilerArg".$param)) { 
+			if (false!==strpos($line,"compilerArg".$param)) {
 				$bits = explode(" ",$line);
 				return '<abbr title="'.$param.'">'.$bits[3]."</abbr>";
 			}
@@ -400,28 +401,28 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		$isBuild=true;
 		$isDone=false;
 		if ($f && sizeof($f)>0) {
-			foreach ($f as $line) { 
+			foreach ($f as $line) {
 				if (false!==strpos($line,"runJUnitTestsOnly:")) { // won't be doing the first half
 					$didRunBuildTest=false;
 				}
-				// check first half of the log for build problems; second half for test problems. 
+				// check first half of the log for build problems; second half for test problems.
 				// split on line with "runJUnitTests:"
 				if (false!==strpos($line,"runJUnitTests:")) { // second half
 					$isBuild=false;
 				}
 				if ($isBuild && $type=="build") {
-					if (false!==strpos($line,"[javac]") && false!==strpos($line,"error")) { 
+					if (false!==strpos($line,"[javac]") && false!==strpos($line,"error")) {
 						$m=null;preg_match("/\[javac\] (\d+) (fail|error).+/",$line,$m);
-						if ($m[2]=="fail") { 
+						if ($m[2]=="fail") {
 							$fails+=$m[1];
-						} else if ($m[2]=="error") { 
+						} else if ($m[2]=="error") {
 							$errors+=$m[1];
 						}
-					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"deprecate")) { 
+					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"deprecate")) {
 						$deprecates+=1;
-					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"warning")) { 
+					} else if (false!==strpos($line,"[javac]") && false!==strpos($line,"warning")) {
 						$m=null;preg_match("/\[javac\] (\d+) (warning).+/",$line,$m);
-						if ($m[2]=="warning") { 
+						if ($m[2]=="warning") {
 							$warns+=$m[1];
 						}
 					} else if (false!==strpos($line,"BUILD FAILED")) {
@@ -429,14 +430,14 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 						$isDone=true;
 						break;
 					}
-				} else if (!$isBuild && $type!="build") { 
-					if (false!==strpos($line,"[java] There was ") || false!==strpos($line,"[java] There were ")) { 
+				} else if (!$isBuild && $type!="build") {
+					if (false!==strpos($line,"[java] There was ") || false!==strpos($line,"[java] There were ")) {
 						$m=null;preg_match("/(was|were) (\d+) (fail|error|warning).+/",$line,$m);
-						if ($m[3]=="fail") { 
+						if ($m[3]=="fail") {
 							$fails+=$m[2];
-						} else if ($m[3]=="warning") { 
+						} else if ($m[3]=="warning") {
 							$warns+=$m[2];
-						} else if ($m[3]=="error") { 
+						} else if ($m[3]=="error") {
 							$errors+=$m[2];
 						}
 					} else if (false!==strpos($line,"BUILD FAILED")) {
@@ -450,34 +451,34 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 				}
 			}
 
-			if (!$isDone) { 
+			if (!$isDone) {
 				return "...";
 			}
 			//w("<b>$fails F, $errors E</b>",1);
-			if ($fails===0 && $errors===0 && $notes===0 && $warns===0 && $deprecates===0) { 
+			if ($fails===0 && $errors===0 && $notes===0 && $warns===0 && $deprecates===0) {
 				return 0;
 			} else {
 				$ret="";
-				if ($fails>0 && $fails!=="FAILED") { 
+				if ($fails>0 && $fails!=="FAILED") {
 					$ret.= $fails."&#160;F";
 				}
-				if ($errors>0) { 
+				if ($errors>0) {
 					if ($ret) { $ret.=",&#160;"; }
 					$ret.= $errors."&#160;E";
 				}
-				if ($notes>0) { 
+				if ($notes>0) {
 					if ($ret) { $ret.=",&#160;"; }
 					$ret.= $notes."&#160;N";
 				}
-				if ($warns>0) { 
+				if ($warns>0) {
 					if ($ret) { $ret.=",&#160;"; }
 					$ret.= $warns."&#160;W";
 				}
-				if ($deprecates>0) { 
+				if ($deprecates>0) {
 					if ($ret) { $ret.=",&#160;"; }
 					$ret.= $deprecates."&#160;D";
 				}
-				if (!$ret && $fails==="FAILED") { 
+				if (!$ret && $fails==="FAILED") {
 					$ret = "FAILED";
 				}
 				//echo $ret."<br>";
@@ -488,30 +489,30 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		}
 	}
 
-	function getBranches($options) { 
+	function getBranches($options) {
 		$arr = array();
-		if ($options["Branch"] && is_array($options["Branch"])) {
-			foreach ($options["Branch"] as $br => $branch) { 
-					$arr[	getValueFromOptionsString($branch,"name")] = 
+		if (isset($options["Branch"]) && $options["Branch"] && is_array($options["Branch"])) {
+			foreach ($options["Branch"] as $br => $branch) {
+					$arr[	getValueFromOptionsString($branch,"name")] =
 							getValueFromOptionsString($branch,"value");
 			}
 		}
 		return $arr;
 	}
 
-	function getBuildTypes($options) { 
+	function getBuildTypes($options) {
 		$arr = array();
-		if ($options["Branch"] && is_array($options["Branch"])) {
-			foreach ($options["Branch"] as $br => $branch) { 
-				foreach ($options["BuildType"] as $bt => $buildType) { 
+		if (isset($options["Branch"]) && $options["Branch"] && is_array($options["Branch"])) {
+			foreach ($options["Branch"] as $br => $branch) {
+				foreach ($options["BuildType"] as $bt => $buildType) {
 					$v = getValueFromOptionsString($branch,"value");
-					if (!array_key_exists($v,$arr) || !$arr[$v]) { 
+					if (!array_key_exists($v,$arr) || !$arr[$v]) {
 						$arr[$v] = array();
 					}
 					$arr
 						[$v]				// [2.0]
 						[getValueFromOptionsString($buildType,"value")] =		// [N]
-							$v. " " . 
+							$v. " " .
 							getValueFromOptionsString($buildType,"name") . " Build";
 				}
 			}
@@ -520,14 +521,14 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		return $arr;
 	}
 
-	function getValueFromOptionsString($opt,$nameOrValue) { 
+	function getValueFromOptionsString($opt,$nameOrValue) {
 		if (strstr($opt,"|selected")) {  // remove the |selected keyword
 			$opt = substr($opt,0,strpos($opt,"|selected"));
 		}
 		if (strstr($opt,"=")) {  // split the name=value pairs, if present
-			if ($nameOrValue=="name" || $nameOrValue===0) { 
+			if ($nameOrValue=="name" || $nameOrValue===0) {
 				$opt = substr($opt,0,strpos($opt,"="));
-			} else if ($nameOrValue=="value" || $nameOrValue==1) { 
+			} else if ($nameOrValue=="value" || $nameOrValue==1) {
 				$opt = substr($opt,strpos($opt,"=")+1);
 			}
 		}
@@ -535,7 +536,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 	}
 
 	function listOptions($options,$bool) {
-		if ($options["reversed"]) {
+		if (isset($options["reversed"]) && $options["reversed"]) {
 			// pop that item out
 			array_shift($options);
 			$options = array_reverse($options);
@@ -550,9 +551,9 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			}
 			if (strstr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
 				$matches=null;preg_match("/([^\=]+)\=([^\=]*)/",$opt,$matches);
-				if (!$bool) { 
+				if (!$bool) {
 					echo trim($matches[2]);
-				} else { 
+				} else {
 					echo trim($matches[1]);
 				}
 			} else { // turn foo into <option value="foo">foo</option>
@@ -562,7 +563,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		}
 	}
 
-	function loadOptionsFromFile($file) { 
+	function loadOptionsFromFile($file) {
 		ini_set("display_errors","0"); // suppress file not found errors
 		$sp = file($file);
 		ini_set("display_errors","1"); // and turn 'em back on.
@@ -577,11 +578,11 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		//$debug=1;
 		$doSection = "";
 
-		foreach ($sp as $s) { 
+		foreach ($sp as $s) {
 			$matches=null;
 			if (strpos($s,"#")===0) { // skip, comment line
 			} else if (preg_match("/\[([a-zA-Z\_\|]+)\]/",$s,$matches)) { // section starts
-				if (strlen($s)>2) { 
+				if (strlen($s)>2) {
 					$isReversed = false;
 					if (strstr($s,"|reversed")) {  // remove the |reversed keyword
 						$isReversed=true;
@@ -595,8 +596,8 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 					$options[$doSection] = array();
 					if ($isReversed) { $options[$doSection]["reversed"] = $isReversed; }
 				}
-			} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) { 
-				if (strlen($s)>2) { 
+			} else if (!preg_match("/\[([a-zA-Z\_]+)\]/",$s,$matches)) {
+				if (strlen($s)>2) {
 					if ($debug>1) echo "Loading: $s<br>";
 					$options[$doSection][] = trim($s);
 				}
@@ -606,8 +607,8 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		return $options;
 	}
 
-	function getLatest($builds) { 
-		// given a list of dirs, determine the most recent ones by date/time sequence 
+	function getLatest($builds) {
+		// given a list of dirs, determine the most recent ones by date/time sequence
 		$latest = array();
 		foreach ($builds as $branch => $builds2) {
 			foreach ($builds2 as $type => $builds3) {
@@ -627,7 +628,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 	}
 
 	function IDtoDateStamp($ID,$style) { // given N200402121441, return date("D, j M Y -- H:i (O)")
-		if ($ID && !preg_match("/\_/",$ID)) { 
+		if ($ID && !preg_match("/\_/",$ID)) {
 			 $year = substr($ID, 1, 4);
 			 $month = substr($ID, 5, 2);
 			 $day = substr($ID, 7, 2);
@@ -635,7 +636,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			 $minute = substr($ID,11,2);
 			 $timeStamp = mktime($hour, $minute, 0, $month, $day, $year);
 			 return date( ($style?"D, j M Y -- H:i (O)":'Y/m/d H:i'), $timeStamp);
-		} else if ($ID && preg_match("/\_/",$ID)) { 
+		} else if ($ID && preg_match("/\_/",$ID)) {
 			 $year = substr($ID, 0, 4);
 			 $month = substr($ID, 4, 2);
 			 $day = substr($ID, 6, 2);
@@ -643,7 +644,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 			 $minute = substr($ID,11,2);
 			 $timeStamp = mktime($hour, $minute, 0, $month, $day, $year);
 			 return date( ($style?"D, j M Y -- H:i (O)":'Y/m/d H:i'), $timeStamp);
-		} else { 
+		} else {
 			return "";
 		}
 	}
