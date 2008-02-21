@@ -517,41 +517,43 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 				print '<ul><li><a href="/modeling/emf/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 			}
 
-			/*** JDK 5.0 TESTS ***/
-			if (isset($_POST["tests_Run_Tests_JDK50"]) && $_POST["tests_Run_Tests_JDK50"]=="Y") {
-				$PWD = "/home/www-data/jdk50tests";
-				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
+			/*** JDK 5.0/6.0 TESTS ***/
+			for ($i = 5; $i <= 6; $i++) {
+				if (isset($_POST["tests_Run_Tests_JDK${i}0"]) && $_POST["tests_Run_Tests_JDK${i}0"]=="Y") {
+					$PWD = "/home/www-data/jdk${i}0tests";
+					$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
 
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
+					// create the log dir before trying to log to it
+					$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK50Tests.sh'.
-					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
-					$testDependencyURLs.
-					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
-					($_POST["tests_Compiler_Arg_Source"]!=""?' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source"]:'').
-					($_POST["tests_Compiler_Arg_Xlint"]!=""?' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint"]:'').
+					$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK${i}0Tests.sh'.
+						' -downloadsDir /home/www-data/build/downloads'.
+						' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
+						$testDependencyURLs.
+						($uploadfile?' -emfPatchFile '.$uploadfile:'').
+						(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+						(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+						($_POST["tests_Compiler_Arg_Source"]!=""?' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source"]:'').
+						($_POST["tests_Compiler_Arg_Xlint"]!=""?' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint"]:'').
 
-					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
+						' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
-  			if ($previewOnly) {
-  				print '</div><div class="homeitem3col">'."\n";
-  				print "<h3>Build Command (Preview Only)</h3>\n";
-  				print "<p><small><code>$preCmd</code></small></p>";
-  			} else {
-  				exec($preCmd);
-  				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
-  			}
+		  			if ($previewOnly) {
+		  				print '</div><div class="homeitem3col">'."\n";
+		  				print "<h3>Build Command (Preview Only)</h3>\n";
+		  				print "<p><small><code>$preCmd</code></small></p>";
+		  			} else {
+		  				exec($preCmd);
+		  				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
+		  			}
 
-  			if ($previewOnly) {
-  				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
-  			} else {
-  				exec($cmd);
-  			}
-				print '<ul><li><a href="/modeling/emf/emf/jdk50tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+		  			if ($previewOnly) {
+		  				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
+		  			} else {
+		  				exec($cmd);
+		  			}
+					print '<ul><li><a href="/modeling/emf/emf/jdk${i}0tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+				}
 			}
 
 		} // end else
@@ -899,4 +901,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.33 2007/12/23 01:13:12 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.34 2008/02/21 21:37:00 nickb Exp $ -->

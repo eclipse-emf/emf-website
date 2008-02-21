@@ -1,4 +1,4 @@
-<?php 
+<?php
 $_SERVER['DOCUMENT_ROOT'] = $_SERVER["SERVER_NAME"] == "build.eclipse.org" ? "/opt/public/modeling" : $_SERVER['DOCUMENT_ROOT'];
 
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
@@ -13,7 +13,8 @@ $params = array(
 	"test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
 	"jdk13test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
 	"jdk14test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
-	"jdk50test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#"
+	"jdk50test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#",
+	"jdk60test" => "#^\d+\.\d+\.\d+/[IMNRS]\d{12}/\d{12}/$#"
 );
 
 /* check these files, %s replaced with param from above */
@@ -22,7 +23,8 @@ $files = array(
 	"test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/oldtests/%stestlog.txt"),
 	"jdk13test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk13tests/%stestlog.txt"),
 	"jdk14test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk14tests/%stestlog.txt"),
-	"jdk50test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk50tests/%stestlog.txt")
+	"jdk50test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk50tests/%stestlog.txt"),
+	"jdk60test" => array($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/jdk60tests/%stestlog.txt")
 );
 
 /* replace these values with key */
@@ -35,7 +37,8 @@ $reps = array(
 	"tests" => "/home/www-data/oldtests", // new path
 	"jdk13tests" => "/home/www-data/jdk13tests",
 	"jdk14tests" => "/home/www-data/jdk14tests",
-	"jdk50tests" => "/home/www-data/jdk50tests"
+	"jdk50tests" => "/home/www-data/jdk50tests",
+	"jdk60tests" => "/home/www-data/jdk60tests"
 );
 
 /* apply span class="key" */
@@ -68,7 +71,7 @@ foreach (array_keys($params) as $z)
 	}
 }
 
-$offset = isset($_GET["offset"]) && is_numeric($_GET["offset"]) ? $_GET["offset"] : 0; 
+$offset = isset($_GET["offset"]) && is_numeric($_GET["offset"]) ? $_GET["offset"] : 0;
 $step = isset($_GET["step"]) && is_numeric($_GET["step"]) ? $_GET["step"] : 50; // how many lines to display?
 $maxlines = exec("wc -l $f"); $maxlines = preg_replace("/[\t\ \n]*(\d+)[\t\ \n]+.+/","$1",$maxlines);
 
@@ -136,14 +139,13 @@ function options($args, $f)
 	global $offset,$step,$maxlines,$proj;
 	print "<div class=\"options\">\n";
 	print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;step=$step\">&lt;&lt; 0 - $step</a>";
-	if ($offset - $step >= 0) 
-	{	
+	if ($offset - $step >= 0)
+	{
 		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;offset=" . ($offset - $step) . "&amp;step=$step\">&lt; " . ($offset - $step) . " to ". ($offset). "</a>";
 	}
 	else
 	{
 		print "<a href=\"?project=$proj&amp;" . join("&amp;", $args) . "&amp;step=$step\">&lt; 0 - $step</a>";
-		
 	}
 
 	$step2 = $maxlines - $offset - $step;

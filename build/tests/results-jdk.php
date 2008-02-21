@@ -9,7 +9,7 @@ ob_start();
 $showAllResults = null;
 $showMax = null;
 
-$VER = isset($_GET["version"]) && $_GET["version"] && preg_match("/(13|14|50)/",$_GET["version"])? $_GET["version"] : "50";
+$VER = isset($_GET["version"]) && $_GET["version"] && preg_match("/(13|14|50|60)/",$_GET["version"])? $_GET["version"] : "50";
 $PR = isset($_GET["project"]) && $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf";
 $hadLoadDirSimpleError=1;
 ?>
@@ -310,7 +310,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 		// $testsPWD is path to root of tests; $path defines 2.0/I200405141234/ ... also need to then check subdirs
 
 		$ret = "";
-		$tests = ($VER== "50" ? array("build", "junit") : array("build", "junit", "standalone"));
+		$tests = ($VER== "50" || $VER== "60" ? array("build", "junit") : array("build", "junit", "standalone"));
 		$testDirs = array();
 		if (is_dir($testsPWD.$path) && is_readable($testsPWD.$path)) {
 			$testDirs = loadDirSimple($testsPWD.$path,"\d{12}","d"); // get dirs
@@ -381,7 +381,7 @@ $App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, 
 
 	function getCompilerArg($f,$param,$label) {
 		foreach ($f as $line) {
-			if (false!==strpos($line,"[jdk50]")) { return ""; } // done... if we didn't find it, it's not there
+			if (false!==strpos($line,"[jdk50]") || false!==strpos($line,"[jdk60]")) { return ""; } // done... if we didn't find it, it's not there
 			if (false!==strpos($line,"compilerArg".$param)) {
 				$bits = explode(" ",$line);
 				return '<abbr title="'.$param.'">'.$bits[3]."</abbr>";

@@ -3,13 +3,13 @@ $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NA
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
 $pre = "../../";
 require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php"); require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php");  require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); $App = new App(); $Nav = new Nav(); $Menu = new Menu(); include($App->getProjectCommon());
-internalUseOnly(); 
+internalUseOnly();
 ob_start();
 
 $showAllResults = null;
 $showMax = null;
 
-$VER = isset($_GET["version"]) && $_GET["version"] && preg_match("/(14|50)/",$_GET["version"])? $_GET["version"] : "50";
+$VER = isset($_GET["version"]) && $_GET["version"] && preg_match("/(14|50|60)/",$_GET["version"])? $_GET["version"] : "50";
 $PR = isset($_GET["project"]) && $_GET["project"] && preg_match("/(emf|uml2)/",$_GET["project"])? $_GET["project"] : "emf";
 $hadLoadDirSimpleError=1;
 ?>

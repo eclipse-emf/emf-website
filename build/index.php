@@ -3,7 +3,7 @@
 if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
 {
 	header("Location: /modeling/mdt/uml2/build/");
-	exit;	
+	exit;
 }
 
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
@@ -29,7 +29,7 @@ $PR = "emf";
 <div id="midcolumn">
 
 <div class="homeitem3col">
-<h3>Building 
+<h3>Building
 	<a style="color:white" href="?project=emf<?php print ($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":""); ?>">EMF</a></h3>
 
 <?php
@@ -75,7 +75,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					<div id="note" name="note" style="border:0;font-style:italic;font-weight:bold" readonly="readonly">&#160;</div>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td><img src="/emf/images/numbers/1.gif" /></td>
 				<td>&#160;</td>
@@ -104,19 +104,19 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					<div name="fullURL" id="fullURL" style="border:0;font-size:9px;" readonly="readonly">&#160;</div>
 				</td>
 			</tr>
-			
+
 			<tr valign="top">
 				<td><img src="/modeling/images/numbers/2.gif" /></td>
 				<td>&#160;</td>
 				<td><b>Dependency URLs</b><br>
-				
+
 					<small>
-					choose URLs (use <em>CTRL</em> <br> 
+					choose URLs (use <em>CTRL</em> <br>
 					for multiple selections)</small>
 					<table>
 						<tr><td><b>Public</b></td><td><b>Mirror</b></td></tr>
 						<?php $buildServer = array("www.eclipse.org","emf.torolab.ibm.com","emft.eclipse.org","download.eclipse.org"); ?>
-						<tr>						
+						<tr>
 							<td> &#149; <a href="http://download.eclipse.org/eclipse/downloads/">Eclipse</a></td>
 							<td> &#149; <a href="http://fullmoon/downloads/">Eclipse</a></td>
 						</tr>
@@ -153,10 +153,10 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td width="350"><small><a id="divToggle_relengBasebuilder" name="divToggle_relengBasebuilder" href="javascript:toggleDetails('relengBasebuilder')">[+]</a></small>
 					<div id="divDetail_relengBasebuilder" name="divDetail_relengBasebuilder" style="display:none;border:0">
 					<small>
-					Enter Tag or Branch, eg., 
-						<acronym title="Eclipse 3.4.x">v20071108</acronym>, 
-						<acronym title="Eclipse 3.3.x">v20070614</acronym>, 
-						<acronym title="Eclipse 3.2.x">r322_v20070104</acronym>, 
+					Enter Tag or Branch, eg.,
+						<acronym title="Eclipse 3.4.x">v20071108</acronym>,
+						<acronym title="Eclipse 3.3.x">v20070614</acronym>,
+						<acronym title="Eclipse 3.2.x">r322_v20070104</acronym>,
 						<acronym title="Eclipse 3.1.x">R3_1_maintenance</acronym> :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a>
 					</small>
 					</div>
@@ -190,7 +190,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<div id="divDetail_MapfileRule" name="divDetail_MapfileRule" style="display:none;border:0">
 					<small>If Yes, this tag will appear in CVS as "build_200405061234".<br/>If No, CVS will NOT be tagged with this build's ID</small>
 				</td>
-			</tr> 
+			</tr>
 
 			<tr><td colspan="6">&#160;</td></tr>
 
@@ -201,7 +201,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td><b>Run Tests</b><br><small>
 				optional</small></td>
 				<td>&#160;</td>
-				
+
 				<?php if ($PR == "emf") { ?>
 				<td colspan="1">
 				<div name="divRunTests24" id="divRunTests24" style="display:none;border:0">
@@ -224,23 +224,23 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					<div id="divDetail_RunTests" name="divDetail_RunTests" style="display:none;border:0">
 					<small>
 					If yes to JUnit Tests, tests will be performed during build to
-					validate results and will be refected in build results on download 
+					validate results and will be refected in build results on download
 					page and build detail pages.
 					<p>
-					If yes to JDK x.x Tests, EMF will be build using IBM JDK x.x, then 
-					the EMF zips built with 1.4 will be run (and tested using the above 
+					If yes to JDK x.x Tests, EMF will be build using IBM JDK x.x, then
+					the EMF zips built with 1.4 will be run (and tested using the above
 					JUnit tests using IBM JRE x.x. For Standalone tests, the EMF
 					Standalone on runtime zip(s) will be used instead of the SDK for
 					running the same standalone JUnit tests as are used by the JDK tests.
 					<p>
-					Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build 
+					Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build
 					completes old tests will be run with new SDK zip &amp; selected eclipse SDK.
 					</small>
 					</div>
 				</td>
-				
+
 				<?php } ?>
-			</tr> 
+			</tr>
 
 			<tr>
 				<td><img src="/emf/images/numbers/6.gif" /></td>
@@ -306,7 +306,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 </table>
 <script language="javascript">
 
-function setNote(val) 
+function setNote(val)
 {
   note = document.getElementById('note');
   note.innerHTML = "";
@@ -326,6 +326,7 @@ function pickDefaults(val) {
 		setCheckbox("build_Run_Tests_JUnit",true,divNum);
 		setCheckbox("build_Run_Tests_JDK14",false,divNum);
 		setCheckbox("build_Run_Tests_JDK50",false,divNum);
+		setCheckbox("build_Run_Tests_JDK60",false,divNum);
 		/*setCheckbox("build_Run_Tests_Binary",false,divNum);
 		setCheckbox("build_Run_Tests_Source",false,divNum);*/
 		setCheckbox("build_Run_Tests_Old",false,divNum);
@@ -333,18 +334,19 @@ function pickDefaults(val) {
 		setCheckbox("build_Run_Tests_JUnit",true,divNum);
 		setCheckbox("build_Run_Tests_JDK14",true,divNum);
 		setCheckbox("build_Run_Tests_JDK50",true,divNum);
+		setCheckbox("build_Run_Tests_JDK60",true,divNum);
 		/*setCheckbox("build_Run_Tests_Binary",true,divNum);
 		setCheckbox("build_Run_Tests_Source",true,divNum);*/
 		setCheckbox("build_Run_Tests_Old",true,divNum);
 	}
 }
 
-function branchToDivNum() 
+function branchToDivNum()
 {
   return document.forms.buildForm.build_Branch.value.substring(0,3).replace(".","");
 }
 
-function setCheckbox(field,bool,divNum) 
+function setCheckbox(field,bool,divNum)
 {
 	if (document.forms.buildForm && document.forms.buildForm.elements[field] && document.forms.buildForm.elements[field].type=="checkbox")
 	{
@@ -367,8 +369,8 @@ function doBranchSelected(field,field2) {
 }
 
 function pickDefaultBranch(val) {
-	with (document.forms.buildForm) { 
-		if (val.indexOf(" | ")>0) { 
+	with (document.forms.buildForm) {
+		if (val.indexOf(" | ")>0) {
 			build_Branch.value=val.substring(val.indexOf(" | ")+3,val.lastIndexOf(" | ")); // since the text label shown in the select box is not available for POST, store it here
 		} else {
 			build_Branch.value=val; // since the text label shown in the select box is not available for POST, store it here
@@ -378,8 +380,8 @@ function pickDefaultBranch(val) {
 }
 
 function pickDefaultJavaHome(val) {
-	with (document.forms.buildForm) { 
-		if (val.indexOf(" | ")>0) { 
+	with (document.forms.buildForm) {
+		if (val.indexOf(" | ")>0) {
 			build_Java_Home.value=val.substring(3+val.lastIndexOf(" | ")); // since the text label shown in the select box is not available for POST, store it here
 		} else {
 			build_Java_Home.value=val; // since the text label shown in the select box is not available for POST, store it here
@@ -392,11 +394,11 @@ function toggleDetails(id)
 {
   toggle=document.getElementById("divToggle_" + id);
   detail=document.getElementById("divDetail_" + id);
-  if (toggle.innerHTML=="[+]") 
+  if (toggle.innerHTML=="[+]")
   {
     toggle.innerHTML="[-]";
     detail.style.display="";
-  } 
+  }
   else
   {
     toggle.innerHTML="[+]";
@@ -413,10 +415,10 @@ function toggleCheckboxes(val) {
     "divRunTests20",
     "divRunTests"
   );
-  divNum=branchToDivNum(); 
+  divNum=branchToDivNum();
   for (i=0; i<divs.length; i++) {
     elem = document.getElementById(divs[i]);
-    if (elem) 
+    if (elem)
     {
       elem.style.display = divs[i] == "divRunTests"+divNum ? "" : "none";
     }
@@ -425,8 +427,8 @@ function toggleCheckboxes(val) {
 
 function doSubmit() {
 	answer = true;
-  divNum=branchToDivNum(); 
-	with (document.forms.buildForm) { 
+  divNum=branchToDivNum();
+	with (document.forms.buildForm) {
   	tofocus="build_Run_Tests_JUnit"+(divNum?"_"+divNum:"");
 	  if (!elements[tofocus]){
   	  tofocus="build_Run_Tests_JUnit";
@@ -442,7 +444,7 @@ function doSubmit() {
 		}
 	}
 	//loadOptions();
-	if (answer) { 
+	if (answer) {
 		document.forms.buildForm.submit();
 	} else if (tofocus) {
 		document.forms.buildForm.elements[tofocus].focus();
@@ -540,7 +542,7 @@ setTimeout('doOnLoadDefaults()',500);
 	{
 ?>
 	<p>Logfile is <a href="<?php print '/tools/'.$PR.$logfile; ?>"><?php print $workDir.$logfile; ?></a></p>
-	
+
 <?php } ?>
 
 	<ul>
@@ -603,12 +605,13 @@ setTimeout('doOnLoadDefaults()',500);
 			"-runJDK13Tests" => "build_Run_Tests_JDK13",
 			"-runJDK14Tests" => "build_Run_Tests_JDK14",
 			"-runJDK50Tests" => "build_Run_Tests_JDK50",
+			"-runJDK60Tests" => "build_Run_Tests_JDK60",
 			"-runOldTests" => "build_Run_Tests_Old"
 				// TODO: add build_Run_Tests_Binary & build_Run_Tests_Source
 		);
 		foreach ($fields as $flag => $field)
 		{
-			// $_POST["build_Run_Tests_JDK50"] or $_POST["build_Run_Tests_JDK50_23"] == "Y" 
+			// $_POST["build_Run_Tests_JDK50"] or $_POST["build_Run_Tests_JDK50_23"] == "Y"
 			if ((isset ($_POST[$field]) && $_POST[$field] == "Y") || (isset ($_POST[$field . $BR_suffix]) && $_POST[$field . $BR_suffix] == "Y"))
 			{
 				$cmd .= ' ' . $flag . ' ' . $BR; // -runJDK50Tests M200612341234
@@ -623,7 +626,7 @@ setTimeout('doOnLoadDefaults()',500);
 		);
 		foreach ($fields as $flag => $field)
 		{
-			// $_POST["build_debug_basebuilder_branch"] != "" 
+			// $_POST["build_debug_basebuilder_branch"] != ""
 			if (isset ($_POST[$field]) && $_POST[$field] != "")
 			{
 				$cmd .= ' ' . $flag . ' ' . $_POST[$field]; // -basebuilderBranch foo
@@ -651,7 +654,7 @@ setTimeout('doOnLoadDefaults()',500);
 			exec($cmd);
 		}
 
-	} // end else 
+	} // end else
 
 	print "</div>\n</div>\n";
 
@@ -719,7 +722,7 @@ setTimeout('doOnLoadDefaults()',500);
 		if (!is_array($chosen))
 			$chosen = array (
 				$chosen
-			); // cast to array if not already 
+			); // cast to array if not already
 
 		$origSize = 0;
 		$newSize = 0;
@@ -781,7 +784,7 @@ function findCatg($url) {
 		"01eclipse" => "eclipse-",
 		"99other" => "/"
 	);
-	foreach ($matches as $catg => $match) { 
+	foreach ($matches as $catg => $match) {
 		if (false!==strpos($url,$match) || preg_match("#(".$match.")#",$url)) {
 			return $catg;
 		}
