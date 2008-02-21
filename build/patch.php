@@ -51,7 +51,7 @@ $options["BuildType"] = array (
 );
 
 	// remove JUnit option
-	$options["RunTests"] = array_unique(array_merge($options["RunTests23"],$options["RunTests22"],$options["RunTests21"]));
+	$options["RunTests"] = array_unique(array_merge($options["RunTests24"],$options["RunTests23"],$options["RunTests22"],$options["RunTests21"]));
 	foreach ($options["RunTests"] as $o => $p) { //print "$o => $p<br>";
 		if (false===strpos($p,"JUnit")) { $newopt["RunTests"][$o] = $p; }
 	}
@@ -901,4 +901,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.34 2008/02/21 21:37:00 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.35 2008/02/21 23:00:22 nickb Exp $ -->
