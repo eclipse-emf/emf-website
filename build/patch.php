@@ -174,10 +174,9 @@ $options["BuildType"] = array (
 						<td>Source version:</td>
 						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source">
 						<option value="1.4">1.4</option>
-						<option value="1.5" selected>1.5 (aka 5.0)</option>
+						<option value="5.0" selected>5.0</option>
 						</select></small></td>
 					</tr>
-
 					<tr>
 						<td>Xlint (warnings) - use "-" options to<br/>
 							suppress instead of enabling:</td>
@@ -190,7 +189,36 @@ $options["BuildType"] = array (
 						<option value="">none</option>
 						<option selected value="-unchecked">-unchecked (default)</option>
 						<option value="-deprecation">-deprecation</option>
-						<option value="-unchecked,-deprecation">-unchecked,-deprecation</option>						</select></small></td>
+						<option value="-unchecked,-deprecation">-unchecked,-deprecation</option>
+						</select></small></td>
+					</tr>
+				</table>
+
+				<table>
+					<tr>
+						<td valign=top colspan=2><b>JDK 6.0 Tests Compiler Args</b></td></tr>
+					<tr>
+						<td>Source version:</td>
+						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source">
+						<option value="1.4">1.4</option>
+						<option value="5.0">5.0</option>
+						<option value="6.0" selected>6.0</option>
+						</select></small></td>
+					</tr>
+					<tr>
+						<td>Xlint (warnings) - use "-" options to<br/>
+							suppress instead of enabling:</td>
+						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint">
+						<option value="">Choose...</option>
+						<option value="all">all</option>
+						<option value="unchecked">unchecked</option>
+						<option value="deprecation">deprecation</option>
+						<option value="unchecked,deprecation">unchecked,deprecation</option>
+						<option value="">none</option>
+						<option selected value="-unchecked">-unchecked (default)</option>
+						<option value="-deprecation">-deprecation</option>
+						<option value="-unchecked,-deprecation">-unchecked,-deprecation</option>
+						</select></small></td>
 					</tr>
 				</table>
 
@@ -204,7 +232,8 @@ $options["BuildType"] = array (
 					<tr>
 						<td>Old Tests JDK:</td>
 						<td><small><select style="font-size:10px" name="tests_debug_emf_old_tests_java_home" onchange="">
-								<option value="/opt/sun-java2-5.0">sun-java2-5.0</option>
+								<option value="/opt/sun-java2-6.0">sun-java2-6.0</option>
+								<option value="/opt/sun-java2-5.0" selected>sun-java2-5.0</option>
 								<option value="/opt/sun-java2-1.4">sun-java2-1.4</option>
 						</select></td>
 					</tr>
@@ -901,4 +930,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.35 2008/02/21 23:00:22 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.36 2008/02/21 23:02:58 nickb Exp $ -->
