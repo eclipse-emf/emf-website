@@ -548,14 +548,14 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 
 			/*** JDK 5.0/6.0 TESTS ***/
 			for ($i = 5; $i <= 6; $i++) {
-				if (isset($_POST["tests_Run_Tests_JDK${i}0"]) && $_POST["tests_Run_Tests_JDK${i}0"]=="Y") {
-					$PWD = "/home/www-data/jdk${i}0tests";
+				if (isset($_POST["tests_Run_Tests_JDK" . $i . "0"]) && $_POST["tests_Run_Tests_JDK" . $i . "0"]=="Y") {
+					$PWD = "/home/www-data/jdk" . $i . "0tests";
 					$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
 
 					// create the log dir before trying to log to it
 					$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-					$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK${i}0Tests.sh'.
+					$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK' . $i . '0Tests.sh'.
 						' -downloadsDir /home/www-data/build/downloads'.
 						' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
 						$testDependencyURLs.
@@ -581,7 +581,7 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 		  			} else {
 		  				exec($cmd);
 		  			}
-					print '<ul><li><a href="/modeling/emf/emf/jdk${i}0tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+					print '<ul><li><a href="/modeling/emf/emf/jdk' . $i . '0tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
 				}
 			}
 
@@ -930,4 +930,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.36 2008/02/21 23:02:58 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.37 2008/02/21 23:06:24 nickb Exp $ -->
