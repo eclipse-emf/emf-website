@@ -172,15 +172,15 @@ $options["BuildType"] = array (
 						<td valign=top colspan=2><b>JDK 5.0 Tests Compiler Args</b></td></tr>
 					<tr>
 						<td>Source version:</td>
-						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source">
+						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source50">
 						<option value="1.4">1.4</option>
-						<option value="5.0" selected>5.0</option>
+						<option value="1.5" selected>1.5 (5.0)</option>
 						</select></small></td>
 					</tr>
 					<tr>
 						<td>Xlint (warnings) - use "-" options to<br/>
 							suppress instead of enabling:</td>
-						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint">
+						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint50">
 						<option value="">Choose...</option>
 						<option value="all">all</option>
 						<option value="unchecked">unchecked</option>
@@ -199,16 +199,16 @@ $options["BuildType"] = array (
 						<td valign=top colspan=2><b>JDK 6.0 Tests Compiler Args</b></td></tr>
 					<tr>
 						<td>Source version:</td>
-						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source">
+						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Source60">
 						<option value="1.4">1.4</option>
-						<option value="5.0">5.0</option>
-						<option value="6.0" selected>6.0</option>
+						<option value="1.5">1.5 (5.0)</option>
+						<option value="1.6" selected>1.6 (6.0)</option>
 						</select></small></td>
 					</tr>
 					<tr>
 						<td>Xlint (warnings) - use "-" options to<br/>
 							suppress instead of enabling:</td>
-						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint">
+						<td><small><select style="font-size:10px" name="tests_Compiler_Arg_Xlint60">
 						<option value="">Choose...</option>
 						<option value="all">all</option>
 						<option value="unchecked">unchecked</option>
@@ -562,8 +562,10 @@ Test results will he located here: <a href="/emf/build/tests/results.php?version
 						($uploadfile?' -emfPatchFile '.$uploadfile:'').
 						(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
 						(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
-						($_POST["tests_Compiler_Arg_Source"]!=""?' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source"]:'').
-						($_POST["tests_Compiler_Arg_Xlint"]!=""?' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint"]:'').
+						(isset($_POST["tests_Compiler_Arg_Source" . $i . "0"]) && $_POST["tests_Compiler_Arg_Source" . $i . "0"] != "" ?
+							' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source" . $i . "0"] : '').
+						(isset($_POST["tests_Compiler_Arg_Xlint" . $i . "0"]) && $_POST["tests_Compiler_Arg_Xlint" . $i . "0"] != "" ?
+							' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint" . $i . "0"] : '').
 
 						' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
@@ -930,4 +932,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.37 2008/02/21 23:06:24 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.38 2008/02/21 23:18:22 nickb Exp $ -->
