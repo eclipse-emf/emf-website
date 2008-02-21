@@ -418,8 +418,9 @@ function toggleDetails()
 <br />
 
 Test results will he located here: <a href="/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>,
-<a href="/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>,
-<a href="/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>.
+<a href="/modeling/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>,
+<a href="/modeling/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>,
+<a href="/modeling/emf/build/tests/results-jdk.php?version=60&amp;project=emf&amp;sortBy=date">JDK 6.0</a>.
 
 <?php
 			/*** OLD TESTS ***/
@@ -932,4 +933,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.38 2008/02/21 23:18:22 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.39 2008/02/21 23:24:06 nickb Exp $ -->
