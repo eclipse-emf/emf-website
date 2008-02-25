@@ -235,6 +235,9 @@ $options["BuildType"] = array (
 								<option value="/opt/sun-java2-6.0">sun-java2-6.0</option>
 								<option value="/opt/sun-java2-5.0" selected>sun-java2-5.0</option>
 								<option value="/opt/sun-java2-1.4">sun-java2-1.4</option>
+								<option value="/opt/ibm-java2-6.0">ibm-java2-6.0</option>
+								<option value="/opt/ibm-java2-5.0">ibm-java-5.0</option>
+								<option value="/opt/ibm-java2-1.4">ibm-java2-1.4</option>
 						</select></td>
 					</tr>
 				</table>
@@ -933,4 +936,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.40 2008/02/21 23:25:53 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.41 2008/02/25 17:46:42 nickb Exp $ -->
