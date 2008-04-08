@@ -804,7 +804,7 @@ function findCatg($url) {
 		"07transaction" => "emft-transaction-",
 		"06query" => "emft-query-",
 		"05ocl" => "mdt-ocl-|emft-ocl-",
-		"04orbit" => "orbit-",
+		"04orbit" => "orbit-|orbitBundles-",
 		"03uml2" => "uml2-",
 		"02emf" => "emf-sdo-xsd-",
 		"01eclipse" => "eclipse-",
@@ -936,4 +936,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.41 2008/02/25 17:46:42 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.42 2008/04/08 14:59:50 nickb Exp $ -->

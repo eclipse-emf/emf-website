@@ -781,7 +781,7 @@ function findCatg($url) {
 		"07transaction" => "emft-transaction-",
 		"06query" => "emft-query-",
 		"05ocl" => "mdt-ocl-|emft-ocl-",
-		"04orbit" => "orbit-",
+		"04orbit" => "orbit-|orbitBundles-",
 		"03uml2" => "uml2-",
 		"02emf" => "emf-sdo-xsd-",
 		"01eclipse" => "eclipse-",
