@@ -49,7 +49,7 @@ $workDir = "/home/www-data/build/" . $PR;
 /** customization options here **/
 $buildOptionsFile = is_file($pre . "../$PR/build.options.txt") ? $pre . "../$PR/build.options.txt" : "/var/www/www.eclipse.org/htdocs/emf/build.options.txt"; // read only
 
-$dependenciesURLsFile = is_file($workDir . "/../emf/requests/dependencies.urls.txt") ? $workDir . "/../emf/requests/dependencies.urls.txt" : "requests/dependencies.urls.txt"; // read-write, one shared file
+$dependenciesURLsFile = is_file($workDir . "/../requests/dependencies.urls.txt") ? $workDir . "/../requests/dependencies.urls.txt" : "requests/dependencies.urls.txt"; // read-write, one shared file
 
 /** done customizing, shouldn't have to change anything below here **/
 
@@ -62,6 +62,16 @@ $options["BuildType"] = array (
 	"Nightly=N|selected"
 );
 
+// bug 222298: this will probably break on some servers 
+$selectedDepsList = array();
+exec($workDir . "/../modeling/scripts/start_cron.sh -sub $projct -noSearchCVS -depsOnly", $selectedDepsList);
+$selectedDepsList2 = array(); 
+foreach($selectedDepsList as $i => $row)
+{
+	$bits = explode("=",$row);
+	$selectedDepsList2[$bits[0]] = $bits[1];  
+}
+$selectedDepsList = $selectedDepsList2; unset($selectedDepsList2); //print_r($selectedDepsList);
 if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 { // page one, the form
 ?>
@@ -99,9 +109,14 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 			</tr>
 
 			<tr>
-				<td colspan="2"></td>
-				<td colspan="4">
+				<td colspan="6" align="right">
 					<div name="fullURL" id="fullURL" style="border:0;font-size:9px;" readonly="readonly">&#160;</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"></td>
+				<td colspan="2">
+					<small><acronym title="Show all deps / show only selected deps"><a href="javascript:toggleDependencies()">Toggle Selection</a></acronym> | <acronym title="Define a regex in _common.php to use this"><a href="javascript:resetLatestDependencies()">Reset Latest Dependencies</a></acronym></small> 
 				</td>
 			</tr>
 
@@ -126,7 +141,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td>&#160;</td>
 				<td colspan=2>
 				<small>
-				<select multiple="multiple" style="font-size:9px" name="build_Dependencies_URL[]" size="9" onchange="showfullURL(this.options[this.selectedIndex].value);">
+				<select multiple="multiple" style="font-size:9px" name="build_Dependencies_URL[]" size="18" onchange="showfullURL(this.options[this.selectedIndex].value);">
 				<?php displayURLs($options["DependenciesURL"]); ?>
 				</select></td>
 			</tr>
@@ -139,7 +154,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</td>
 				<td>&#160;</td>
 				<td colspan=2>
-				<textarea name="build_Dependencies_URL_New" cols="50" rows="2"></textarea>
+				<textarea name="build_Dependencies_URL_New" cols="50" rows="1"></textarea>
 				</td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
@@ -165,9 +180,9 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 			<tr><td colspan="6">&#160;</td></tr>
 
 			<tr>
-				<td rowspan="2" valign="top"><img src="/modeling/images/numbers/4.gif" /></td>
+				<td valign="top" rowspan="2" valign="top"><img src="/modeling/images/numbers/4.gif" /></td>
 				<td rowspan="2">&#160;</td>
-				<td><b>Build Alias</b><br><small>optional</small></td>
+				<td><b>Build Alias</b><br><small>required for S and R builds</small></td>
 				<td>&#160;</td>
 				<td><input name="build_Build_Alias" size=8></td>
 				<td width="300"><small><a id="divToggle_buildAlias" name="divToggle_buildAlias" href="javascript:toggleDetails('buildAlias')">[+]</a></small>
@@ -306,18 +321,36 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 </table>
 <script language="javascript">
 
-function setNote(val)
-{
-  note = document.getElementById('note');
-  note.innerHTML = "";
-}
-
-
 function showfullURL(val)
 {
 	fullURL = document.getElementById('fullURL');
 	fullURL.innerHTML = val ? "&#160;--&gt; " + val + " &lt;--" : "&#160;";
 }
+
+<?php 
+/* pull list of deps from $options[regex], if defined; see $selectedDepsList above */
+if (isset($selectedDepsList) && sizeof($selectedDepsList)>0)
+{
+	$numDeps = sizeof($selectedDepsList);
+	$theDeps = implode(", ", array_keys($selectedDepsList));
+	print <<<EOT
+function setNote(val)
+{
+	// defined dynamically in _common.php using \$options[regex]
+   	note = document.getElementById('note');
+   	note.innerHTML = "Requires $numDeps SDKs: $theDeps";
+}	
+EOT;
+}
+else
+{ ?>
+function setNote(val)
+{
+	// defined statically -- replace this in _common.php using \$options[regex]
+    note = document.getElementById('note');
+	note.innerHTML = "Requires 1 SDK: Eclipse"
+} <?php 
+} ?>
 
 function pickDefaults(val) {
 	document.forms.buildForm.build_Tag_Build.selectedIndex=(val=='N'?1:0); // Nightly = No; others = Yes
@@ -443,7 +476,6 @@ function doSubmit() {
 		  tofocus=null;
 		}
 	}
-	//loadOptions();
 	if (answer) {
 		document.forms.buildForm.submit();
 	} else if (tofocus) {
@@ -451,11 +483,102 @@ function doSubmit() {
 	}
 }
 
+selectedDepsList = new Array();
+<?php $cnt=-1; foreach ($selectedDepsList as $key => $url) print "selectedDepsList[" . (++$cnt) . "] = '$url';\n"; ?>
+
+allDependencies = new Array();
+field=document.forms.buildForm.elements["build_Dependencies_URL[]"];
+for (i=0; i<field.options.length; i++)
+{
+	allDependencies[i] = [field.options[i].text, field.options[i].value, field.options[i].selected];
+}  
+
+
+/* onload of the page, pick the regex-specified defaults */
+function selectLatestDependencies()
+{
+  field=document.forms.buildForm.elements["build_Dependencies_URL[]"];
+  for (j=0;j<selectedDepsList.length;j++)
+  {
+	for (i=0;i<field.options.length;i++)
+  	{
+  		if (field.options[i].value == selectedDepsList[j])
+  		{
+  			//alert('Match: ' + selectedDepsList[j]);
+  			field.options[i].selected=true;
+  			break;
+  		}
+  	}
+  }
+  refreshAllDependencies();
+}
+
+function refreshAllDependencies()
+{
+  field=document.forms.buildForm.elements["build_Dependencies_URL[]"];
+  for (i=0;i<field.options.length;i++)
+  {
+  	for (j=0;j<allDependencies.length;j++)
+  	{
+  		if (allDependencies[j][0] == field.options[i].text && allDependencies[j][1] == field.options[i].value)
+  		{ 
+  			allDependencies[j][2] = field.options[i].selected;
+  		}
+  	}
+  }
+}
+
+/* use this to purge any user-selected values and to only pick the latest deps */
+function resetLatestDependencies()
+{
+  if (selectedDepsList.length)
+  { 
+  	field=document.forms.buildForm.elements["build_Dependencies_URL[]"];
+  	for (i=0;i<field.options.length;i++)
+  	{
+  		field.options[i].selected = false;
+  	}
+  	selectLatestDependencies();
+  }
+  else
+  {
+  	alert("No latest dependencies specified in\n\$options[\"regex\"] in _common.php.")
+  }
+}
+
+/* toggle showing all deps and only the selected ones */
+function toggleDependencies()
+{
+	field=document.forms.buildForm.elements["build_Dependencies_URL[]"];
+	if (allDependencies.length==field.options.length)
+	{
+		j=0;
+		for (i=field.options.length-1;i>=0;i--)
+	  	{
+			allDependencies[i][2] = field.options[i].selected;
+	  		if (!field.options[i].selected)
+	  		{
+	  			field.remove(i);
+	  		}
+	  	}
+	}
+	else
+	{
+		field.options.length=0
+		for (i=0;i<allDependencies.length;i++)
+		{
+			field.options[field.options.length] = new Option(allDependencies[i][0], allDependencies[i][1], false, allDependencies[i][2]);
+		}
+		//selectLatestDependencies()
+	}
+}
+
 function doOnLoadDefaults() {
   doBranchSelected(document.forms.buildForm.build_CVS_Branch,document.forms.buildForm.build_Build_Type);
   field=document.forms.buildForm.build_Build_Type;
   pickDefaults(field.options[field.selectedIndex].value);
-  field=document.forms.buildForm.build_Project;    setNote(field.options[field.selectedIndex].text);
+  selectLatestDependencies(); 
+  if (selectedDepsList.length) { toggleDependencies(); }  
 }
 
 setTimeout('doOnLoadDefaults()',500);
