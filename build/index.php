@@ -141,7 +141,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td>&#160;</td>
 				<td colspan=2>
 				<small>
-				<select multiple="multiple" style="font-size:9px" name="build_Dependencies_URL[]" size="18" onchange="showfullURL(this.options[this.selectedIndex].value);">
+				<select multiple="multiple" style="font-size:9px" name="build_Dependencies_URL[]" size="5" onchange="showfullURL(this.options[this.selectedIndex].value);">
 				<?php displayURLs($options["DependenciesURL"]); ?>
 				</select></td>
 			</tr>
@@ -154,7 +154,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</td>
 				<td>&#160;</td>
 				<td colspan=2>
-				<textarea name="build_Dependencies_URL_New" cols="10" rows="1"></textarea>
+				<textarea name="build_Dependencies_URL_New" cols="50" rows="1"></textarea>
 				</td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
