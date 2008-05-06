@@ -1,7 +1,7 @@
 # build/downloads/patched test options file
 
 [BaseBuilderBranch]
-M5_34
+M7_34
 
 [BranchAndJDK]
 #used in build.php for selecting build branch
