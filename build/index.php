@@ -154,7 +154,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				</td>
 				<td>&#160;</td>
 				<td colspan=2>
-				<textarea name="build_Dependencies_URL_New" cols="50" rows="1"></textarea>
+				<textarea name="build_Dependencies_URL_New" cols="10" rows="1"></textarea>
 				</td>
 			</tr>
 			<tr><td colspan="6">&#160;</td></tr>
