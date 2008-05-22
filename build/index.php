@@ -169,7 +169,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					<div id="divDetail_relengBasebuilder" name="divDetail_relengBasebuilder" style="display:none;border:0">
 					<small>
 					Enter Tag or Branch, eg.,
-						<acronym title="Eclipse 3.4.x">M5_34</acronym>,
+						<acronym title="Eclipse 3.4.x">RC1_34</acronym>,
 						<acronym title="Eclipse 3.3.x">v20070614</acronym>,
 						<acronym title="Eclipse 3.2.x">r322_v20070104</acronym>,
 						<acronym title="Eclipse 3.1.x">R3_1_maintenance</acronym> :: <a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">wiki</a>
