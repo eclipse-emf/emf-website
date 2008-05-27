@@ -1,13 +1,9 @@
 <?php
 
-if (isset ($_GET["project"]) && $_GET["project"] == "uml2")
-{
-	header("Location: /modeling/mdt/uml2/build/");
-	exit;
-}
-
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/build/_common.php");
+
 internalUseOnly();
 
 $pre = "../";
@@ -47,20 +43,27 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 $workDir = "/home/www-data/build/" . $PR;
 
 /** customization options here **/
-$buildOptionsFile = is_file($pre . "../$PR/build.options.txt") ? $pre . "../$PR/build.options.txt" : "/var/www/www.eclipse.org/htdocs/emf/build.options.txt"; // read only
-
 $dependenciesURLsFile = is_file($workDir . "/../requests/dependencies.urls.txt") ? $workDir . "/../requests/dependencies.urls.txt" : "requests/dependencies.urls.txt"; // read-write, one shared file
 
 /** done customizing, shouldn't have to change anything below here **/
 
-$options = loadOptionsFromRemoteFiles($buildOptionsFile, $dependenciesURLsFile);
-$options["BuildType"] = array (
-	"Release=R",
-	"Stable=S",
-	"Integration=I",
-	"Maintenance=M",
-	"Nightly=N|selected"
-);
+if (!isset($options))
+{
+	$options = array();
+}
+else
+{
+	$options = array_merge($options, loadOptionsFromFile($dependenciesURLsFile));
+}
+$options["BranchIES"] = array ("HEAD","R3_3_maintenance");
+$options["BuildType"] = array("Release=R","Stable=S","Integration=I","Maintenance=M","Nightly=N|selected");
+$options["TagBuild"] = array ("Yes", "No|selected");
+$options["RunTests20"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
+$options["RunTests21"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
+$options["RunTests22"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
+$options["RunTests23"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
+$options["RunTests24"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50",  	"Old Tests=Old" );
+#"Binary Compatibility=Binary", "Source Compatibility=Source",
 
 // bug 222298: this will probably break on some servers 
 $selectedDepsList = array();
@@ -164,7 +167,7 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td rowspan="2">&#160;</td>
 				<td colspan=1><a href="http://wiki.eclipse.org/index.php/Platform-releng-basebuilder">Basebuilder</a> Branch:</td>
 				<td>&#160;</td>
-				<td><input size="20" name="build_debug_basebuilder_branch" value="<?php echo isset($options["BaseBuilderBranch"]) ? $options["BaseBuilderBranch"][0] : ""; ?>"></td>
+				<td><input size="20" name="build_debug_basebuilder_branch" value="<?php echo $options["BaseBuilderBranch"]; ?>"></td>
 				<td width="350"><small><a id="divToggle_relengBasebuilder" name="divToggle_relengBasebuilder" href="javascript:toggleDetails('relengBasebuilder')">[+]</a></small>
 					<div id="divDetail_relengBasebuilder" name="divDetail_relengBasebuilder" style="display:none;border:0">
 					<small>
@@ -217,7 +220,6 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				optional</small></td>
 				<td>&#160;</td>
 
-				<?php if ($PR == "emf") { ?>
 				<td colspan="1">
 				<div name="divRunTests24" id="divRunTests24" style="display:none;border:0">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests24"],"_24"); ?>
@@ -253,8 +255,6 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					</small>
 					</div>
 				</td>
-
-				<?php } ?>
 			</tr>
 
 			<tr>
@@ -1001,37 +1001,37 @@ function findCatg($url) {
 		}
 	}
 
-	function displayOptionsTriplet($options)
-	{
+	function displayOptionsTriplet($options) {
 		$matches = null;
-		if ($options["reversed"])
-		{
+		if (isset($options["reversed"]) && $options["reversed"]) {
 			// pop that item out
 			array_shift($options);
 			$options = array_reverse($options);
 		}
-
-		foreach ($options as $o => $option)
-		{
+	
+		$showValues = true;
+		foreach ($options as $o => $option) {
 			$opt = $option;
 			$isSelected = false;
-			if (!preg_match("/\-\=[\d\.]+/", $opt))
-			{
-				if (strstr($opt, "|selected"))
-				{ // remove the |selected keyword
-					$isSelected = true;
-					$opt = substr($opt, 0, strpos($opt, "|selected"));
+			if (!preg_match("/\-\=[\d\.]+/",$opt)) {
+				if (strstr($opt,"|selected")) {  // remove the |selected keyword
+					$isSelected=true;
+					$opt = substr($opt,0,strpos($opt,"|selected"));
 				}
-				if (false !== substr($opt, "="))
-				{ // split line so that foo=bar becomes <option value="bar">foo</option>
+				if (false!==substr($opt,"=")) {  // split line so that foo=bar becomes <option value="bar">foo</option>
 					$matches = null;
-					preg_match("/([^\=]+)\=([^\=]+)\,([^\,]+)/", $opt, $matches);
-					print "\n\t<option " . ($isSelected ? "selected " : "") . "value=\"" . trim($matches[2]) . "\">" .
-					trim($matches[2]) . " | " . trim($matches[1]) . " | " . trim($matches[3]) .
-					"</option>";
-				} else
-				{ // turn foo into <option value="foo">foo</option>
-					print "\n\t<option " . ($isSelected ? "selected " : "") . "value=\"" . $opt . "\">" . $opt . "</option>";
+					preg_match("/([^\=]+)\=([^\=]+)\,([^\,]+)/",$opt,$matches);
+					if (false !== strpos($matches[2],"--"))
+					{
+						$showValues =  ($matches[1] == $_SERVER["SERVER_NAME"]);
+					}
+					else if ($showValues)
+					{
+						print "\n\t<option ".($isSelected?"selected ":"")."value=\"".trim($matches[2])."\">".
+					  			trim($matches[2])." | ".trim($matches[1])." | ".trim($matches[3])."</option>";
+					}
+				} else { // turn foo into <option value="foo">foo</option>
+					print "\n\t<option ".($isSelected?"selected ":"")."value=\"".$opt."\">".$opt."</option>";
 				}
 			}
 		}
@@ -1115,22 +1115,6 @@ function findCatg($url) {
 			$sp = file($file1);
 		}
 		$options = loadOptionsFromArray($sp);
-		return $options;
-	}
-
-	function loadOptionsFromRemoteFiles($file1, $file2)
-	{
-		$sp1 = file($file1);
-		if (!$sp1)
-		{
-			$sp1 = array ();
-		}
-		$sp2 = file($file2);
-		if (!$sp2)
-		{
-			$sp2 = array ();
-		}
-		$options = loadOptionsFromArray(array_merge($sp1, $sp2));
 		return $options;
 	}
 

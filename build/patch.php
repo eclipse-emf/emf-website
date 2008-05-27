@@ -1,6 +1,7 @@
 <?php /**/
 $isEMFserver = (preg_match("/^emf(?:\.torolab\.ibm\.com)$/", $_SERVER["SERVER_NAME"]));
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/modeling/includes/scripts.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/modeling/emf/emf/build/_common.php");
 internalUseOnly();
 
 $pre = "../";
@@ -19,49 +20,35 @@ $PR = "emf"; ?>
 <h3>Testing EMF Patched Builds</h3>
 
 <?php
+if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
+	print "<p>To test a build of EMF, please complete the following form and click the Run Tests button.</p>";
+} else {
+	print "<p>Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
+		". <a href=\"?project=$PR".($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":"")."\">Test another?</a></p>";
+}
 
-	if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
-		print "<p>To test a build of EMF, please complete the following form and click the Run Tests button.</p>";
-	} else {
-		print "<p>Your tests are ".($previewOnly?"<b>NOT</b> ":"")."in progress".($previewOnly?", but the command is displayed below for preview":"").
-			". <a href=\"?project=$PR".($debug?"&amp;debug=1":"").($previewOnly?"&amp;previewOnly=1":"")."\">Test another?</a></p>";
-	}
+print "<p>\n";
+
+$PWD = "/home/www-data/tests";
+$workDir = "/home/www-data/build/".$PR;
+
+/** customization options here **/
+$dependenciesURLsFile = "/home/www-data/build/requests/dependencies.urls.txt"; // read-write, one shared file
+
+/** done customizing, shouldn't have to change anything below here **/
+
+if (!isset($options))
+{
+	$options = array();
+}
+else
+{
+	$options = array_merge($options, loadOptionsFromFile($dependenciesURLsFile));
+}
+$options["RunTests"] = array (	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"JDK 6.0 &amp; Standalone=JDK60",	"Old Tests=Old"	);
+
+if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
 ?>
-
-<p>
-<?php
-
-	$PWD = "/home/www-data/tests";
-	$workDir = "/home/www-data/build/".$PR;
-
-	/** customization options here **/
-	$testsOptionsFile = $pre."build.options.txt"; // read only
-
-	$dependenciesURLsFile = "/home/www-data/build/requests/dependencies.urls.txt"; // read-write, one shared file
-
-	/** done customizing, shouldn't have to change anything below here **/
-
-	$options = loadOptionsFromRemoteFiles($testsOptionsFile,$dependenciesURLsFile);
-$options["BuildType"] = array (
-	"Release=R",
-	"Stable=S",
-	"Integration=I",
-	"Maintenance=M",
-	"Nightly=N|selected"
-);
-
-	// remove JUnit option
-	$options["RunTests"] = array_unique(array_merge($options["RunTests24"],$options["RunTests23"],$options["RunTests22"],$options["RunTests21"]));
-	foreach ($options["RunTests"] as $o => $p) { //print "$o => $p<br>";
-		if (false===strpos($p,"JUnit")) { $newopt["RunTests"][$o] = $p; }
-	}
-	$options["RunTests"] = $newopt["RunTests"];
-	sort($options["RunTests"]); reset ($options["RunTests"]);
-
-	if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
-
-?>
-
 <table cellspacing="0" cellpadding="3">
 	<form method=POST enctype="multipart/form-data" name="patchForm">
 			<input type="hidden" name="MAX_FILE_SIZE" value="5242880" /> <!-- 5M limit -->
@@ -344,46 +331,47 @@ function toggleDetails()
 }
 
 </script>
-<?php } else { // page two, form submission results
+<?php 
+} else { // page two, form submission results
 
-  		$newDependencies = splitDependencies($_POST["tests_Dependencies_URL_New"]);
-  		$testDependencyURLs = getTestDependencyURLs(isset($_POST["tests_Dependencies_URL"]) ? $_POST["tests_Dependencies_URL"] : null,$newDependencies,$dependenciesURLsFile);
+	$newDependencies = splitDependencies($_POST["tests_Dependencies_URL_New"]);
+	$testDependencyURLs = getTestDependencyURLs(isset($_POST["tests_Dependencies_URL"]) ? $_POST["tests_Dependencies_URL"] : null,$newDependencies,$dependenciesURLsFile);
+	
+	$bits = explode(" ",$testDependencyURLs);
+	foreach ($bits as $bit) {
+	  if (false!==strpos($bit,"emf-")) {
+		  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
+		  $BR = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/.+!","$1",$bit);
+		  $ID = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/([IMNRS]\d{12})/.+!","$2",$bit);
+	    break;
+	  }
+	}
 
-  		$bits = explode(" ",$testDependencyURLs);
-  		foreach ($bits as $bit) {
-  		  if (false!==strpos($bit,"emf-")) {
-  			  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
-  			  $BR = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/.+!","$1",$bit);
-  			  $ID = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/([IMNRS]\d{12})/.+!","$2",$bit);
-  		    break;
-  		  }
-  	  }
+	$uploaddir = '/home/www-data/oldtests/patches/';
+	if ($_FILES['tests_Patch_Zipfile']['name']) {
+		$uploadfile = $uploaddir . basename($_FILES['tests_Patch_Zipfile']['name']);
 
-			$uploaddir = '/home/www-data/oldtests/patches/';
-			if ($_FILES['tests_Patch_Zipfile']['name']) {
-				$uploadfile = $uploaddir . basename($_FILES['tests_Patch_Zipfile']['name']);
+		if ($debug) {
+			print '<pre>';
+			print 'File upload details:'."\n";
+			print_r($_FILES);
+			print "</pre>";
+		}
+		if (move_uploaded_file($_FILES['tests_Patch_Zipfile']['tmp_name'], $uploadfile) && chmod($uploadfile,0744)) {
+			print "<b style=\"color:green\">File successfully uploaded.</b>\n";
+		} else {
+			print "<b style=\"color:red\">Problem uploading &amp; copying your file from ".$_FILES['tests_Patch_Zipfile']['tmp_name']." to ".$uploadfile."!</b>\n";
+		}
+	} else if ($_POST["tests_Patch_Zipfile_Name"]) {
+		$uploadfile = $_POST["tests_Patch_Zipfile_Name"];
+		if (false===strpos($uploadfile,$uploaddir)) {
+			$uploadfile = $uploaddir.$uploadfile;
+		}
+	} else {
+		$uploadfile="";
+	}
 
-				if ($debug) {
-					print '<pre>';
-					print 'File upload details:'."\n";
-					print_r($_FILES);
-					print "</pre>";
-				}
-				if (move_uploaded_file($_FILES['tests_Patch_Zipfile']['tmp_name'], $uploadfile) && chmod($uploadfile,0744)) {
-					print "<b style=\"color:green\">File successfully uploaded.</b>\n";
-				} else {
-					print "<b style=\"color:red\">Problem uploading &amp; copying your file from ".$_FILES['tests_Patch_Zipfile']['tmp_name']." to ".$uploadfile."!</b>\n";
-				}
-			} else if ($_POST["tests_Patch_Zipfile_Name"]) {
-				$uploadfile = $_POST["tests_Patch_Zipfile_Name"];
-				if (false===strpos($uploadfile,$uploaddir)) {
-					$uploadfile = $uploaddir.$uploadfile;
-				}
-			} else {
-				$uploadfile="";
-			}
-
-			$testTimestamp = ($uploadfile?"P":"").date("YmdHi");
+	$testTimestamp = ($uploadfile?"P":"").date("YmdHi");
 
 	if (!$previewOnly) {
 ?>
@@ -392,61 +380,182 @@ function toggleDetails()
 <?php } ?>
 
 	<ul><li>Here's what you submitted:</li>
+<?php
 
-	<?php
+	$logfile = $logfile ? $PWD.'/'.$logfile : "";
 
-		$logfile = $logfile ? $PWD.'/'.$logfile : "";
-
-		print "<ul>\n";
-		$i=2;
-		foreach ($_POST as $k => $v) {
-			if (strstr($k, "tests_") && !strstr($k, "_Sel") && (is_array($v) || trim($v) != "")) // tests_Dependencies_URL_New sets $v to an array; all others are strings
-			{
-				$lab = preg_replace("/\_/"," ",substr($k,6));
-				$val = $k == "tests_Dependencies_URL_New" ? $newDependencies : $v;
-				print "<li>";
-				print (is_array($val)?
-					"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" :
-					"<div>".$val."</div>" . "<b>".$lab.":</b>");
-				print "</li>\n";
-				$i++;
-			}
+	print "<ul>\n";
+	$i=2;
+	foreach ($_POST as $k => $v) {
+		if (strstr($k, "tests_") && !strstr($k, "_Sel") && (is_array($v) || trim($v) != "")) // tests_Dependencies_URL_New sets $v to an array; all others are strings
+		{
+			$lab = preg_replace("/\_/"," ",substr($k,6));
+			$val = $k == "tests_Dependencies_URL_New" ? $newDependencies : $v;
+			print "<li>";
+			print (is_array($val)?
+				"<b>".$lab.":</b>" . "<ul>\n<li><small>".join("</small></li>\n<li><small>",$val)."</small></li>\n</ul>\n" :
+				"<div>".$val."</div>" . "<b>".$lab.":</b>");
+			print "</li>\n";
+			$i++;
 		}
+	}
 
-		print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b></li>\n";
-		print "</ul>\n";
-		print "</ul>\n";
+	print "<li><div>".$_SERVER["REMOTE_ADDR"]."</div><b>Your IP:</b></li>\n";
+	print "</ul>\n";
+	print "</ul>\n"; ?>
 
-	?>
 <br />
-
 Test results will he located here: <a href="/modeling/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>,
 <a href="/modeling/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>,
 <a href="/modeling/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>,
 <a href="/modeling/emf/build/tests/results-jdk.php?version=60&amp;project=emf&amp;sortBy=date">JDK 6.0</a>.
-
 <?php
-			/*** OLD TESTS ***/
-			if (isset($_POST["tests_Run_Tests_Old"]) && $_POST["tests_Run_Tests_Old"]=="Y") {
+	/*** OLD TESTS ***/
+	if (isset($_POST["tests_Run_Tests_Old"]) && $_POST["tests_Run_Tests_Old"]=="Y") {
 
-				$PWD = "/home/www-data/tests";
-				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
+		$PWD = "/home/www-data/tests";
+		$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
 
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
+		// create the log dir before trying to log to it
+		$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
 
-				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid '.$PWD.'/scripts/start.sh'.
-					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
-					$testDependencyURLs.
-					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					(isset($_POST["tests_debug_emf_old_tests_java_home"]) && $_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
-					(isset($_POST["tests_debug_emf_old_tests_branch"]) && $_POST["tests_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["tests_debug_emf_old_tests_branch"]:'').
-					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+		$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid '.$PWD.'/scripts/start.sh'.
+			' -downloadsDir /home/www-data/build/downloads'.
+			' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
+			$testDependencyURLs.
+			($uploadfile?' -emfPatchFile '.$uploadfile:'').
+			(isset($_POST["tests_debug_emf_old_tests_java_home"]) && $_POST["tests_debug_emf_old_tests_java_home"]!=""?' -javaHome '.$_POST["tests_debug_emf_old_tests_java_home"]:'').
+			(isset($_POST["tests_debug_emf_old_tests_branch"]) && $_POST["tests_debug_emf_old_tests_branch"]!=""?' -emfOldTestsBranch '.$_POST["tests_debug_emf_old_tests_branch"]:'').
+			(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+			(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
 
-			// three output options: uncomment a line and comment out the other two.
-					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
+	// three output options: uncomment a line and comment out the other two.
+			' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
+
+	if ($previewOnly) {
+		print '</div><div class="homeitem3col">'."\n";
+		print "<h3>Build Command (Preview Only)</h3>\n";
+		print "<p><small><code>$preCmd</code></small></p>";
+	} else {
+		exec($preCmd);
+		$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
+	}
+
+	if ($previewOnly) {
+		print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
+	} else {
+		exec($cmd);
+	}
+		print '<ul><li><a href="/modeling/emf/emf/oldtests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+	}
+
+	/*** JDK 1.3 TESTS ***/
+	if (isset($_POST["tests_Run_Tests_JDK13"]) && $_POST["tests_Run_Tests_JDK13"]=="Y") {
+
+		$PWD = "/home/www-data/jdk13tests";
+		$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
+
+		// create the log dir before trying to log to it
+		$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
+
+		$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK13Tests.sh'.
+			' -downloadsDir /home/www-data/build/downloads'.
+			' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
+			$testDependencyURLs.
+			($uploadfile?' -emfPatchFile '.$uploadfile:'').
+			(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+			(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+
+			' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
+
+	if ($previewOnly) {
+		print '</div><div class="homeitem3col">'."\n";
+		print "<h3>Build Command (Preview Only)</h3>\n";
+		print "<p><small><code>$preCmd</code></small></p>";
+	} else {
+		exec($preCmd);
+		$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
+	}
+
+	if ($previewOnly) {
+		print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
+	} else {
+		exec($cmd);
+	}
+		print '<ul><li><a href="/modeling/emf/emf/jdk13tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+
+	}
+
+	/*** JDK 1.4 TESTS ***/
+	if (isset($_POST["tests_Run_Tests_JDK14"]) && $_POST["tests_Run_Tests_JDK14"]=="Y") {
+
+		$PWD = "/home/www-data/jdk14tests";
+		$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
+
+		$j9=false;
+		$compiler = $_POST["tests_Compiler_JDK14"];
+		if (false!==strpos($compiler,",")) {
+			$compiler = explode(",",$compiler);
+			$j9=(false!==strpos($compiler[1],"j9"));
+			$compiler = $compiler[0];
+		}
+
+		// create the log dir before trying to log to it
+		$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
+
+		$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK14Tests.sh'.
+			' -downloadsDir /home/www-data/build/downloads'.
+			' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
+			$testDependencyURLs.
+			($uploadfile?' -emfPatchFile '.$uploadfile:'').
+			(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+			(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+
+			' -compiler '.$compiler.
+			($_POST["tests_Compiler_Arg_Deprecation"]!=""?' -compilerArgDeprecation '.$_POST["tests_Compiler_Arg_Deprecation"]:'').
+			($j9?' -runtimeArgJ9':'').
+
+			' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
+
+	if ($previewOnly) {
+		print '</div><div class="homeitem3col">'."\n";
+		print "<h3>Build Command (Preview Only)</h3>\n";
+		print "<p><small><code>$preCmd</code></small></p>";
+	} else {
+		exec($preCmd);
+		$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
+	}
+
+	if ($previewOnly) {
+		print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
+	} else {
+		exec($cmd);
+	}
+		print '<ul><li><a href="/modeling/emf/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+	}
+
+	/*** JDK 5.0/6.0 TESTS ***/
+	for ($i = 5; $i <= 6; $i++) {
+		if (isset($_POST["tests_Run_Tests_JDK" . $i . "0"]) && $_POST["tests_Run_Tests_JDK" . $i . "0"]=="Y") {
+			$PWD = "/home/www-data/jdk" . $i . "0tests";
+			$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
+
+			// create the log dir before trying to log to it
+			$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
+
+			$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK' . $i . '0Tests.sh'.
+				' -downloadsDir /home/www-data/build/downloads'.
+				' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
+				$testDependencyURLs.
+				($uploadfile?' -emfPatchFile '.$uploadfile:'').
+				(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
+				(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
+				(isset($_POST["tests_Compiler_Arg_Source" . $i . "0"]) && $_POST["tests_Compiler_Arg_Source" . $i . "0"] != "" ?
+					' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source" . $i . "0"] : '').
+				(isset($_POST["tests_Compiler_Arg_Xlint" . $i . "0"]) && $_POST["tests_Compiler_Arg_Xlint" . $i . "0"] != "" ?
+					' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint" . $i . "0"] : '').
+
+				' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
 
   			if ($previewOnly) {
   				print '</div><div class="homeitem3col">'."\n";
@@ -462,136 +571,11 @@ Test results will he located here: <a href="/modeling/emf/build/tests/results.ph
   			} else {
   				exec($cmd);
   			}
-				print '<ul><li><a href="/modeling/emf/emf/oldtests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
-			}
+			print '<ul><li><a href="/modeling/emf/emf/jdk' . $i . '0tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
+		}
+	}
 
-			/*** JDK 1.3 TESTS ***/
-			if (isset($_POST["tests_Run_Tests_JDK13"]) && $_POST["tests_Run_Tests_JDK13"]=="Y") {
-
-				$PWD = "/home/www-data/jdk13tests";
-				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
-
-				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK13Tests.sh'.
-					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
-					$testDependencyURLs.
-					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
-
-					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
-
-  			if ($previewOnly) {
-  				print '</div><div class="homeitem3col">'."\n";
-  				print "<h3>Build Command (Preview Only)</h3>\n";
-  				print "<p><small><code>$preCmd</code></small></p>";
-  			} else {
-  				exec($preCmd);
-  				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
-  			}
-
-  			if ($previewOnly) {
-  				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
-  			} else {
-  				exec($cmd);
-  			}
-				print '<ul><li><a href="/modeling/emf/emf/jdk13tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
-
-			}
-
-			/*** JDK 1.4 TESTS ***/
-			if (isset($_POST["tests_Run_Tests_JDK14"]) && $_POST["tests_Run_Tests_JDK14"]=="Y") {
-
-				$PWD = "/home/www-data/jdk14tests";
-				$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-
-				$j9=false;
-				$compiler = $_POST["tests_Compiler_JDK14"];
-				if (false!==strpos($compiler,",")) {
-					$compiler = explode(",",$compiler);
-					$j9=(false!==strpos($compiler[1],"j9"));
-					$compiler = $compiler[0];
-				}
-
-				// create the log dir before trying to log to it
-				$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
-
-				$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK14Tests.sh'.
-					' -downloadsDir /home/www-data/build/downloads'.
-					' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
-					$testDependencyURLs.
-					($uploadfile?' -emfPatchFile '.$uploadfile:'').
-					(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-					(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
-
-					' -compiler '.$compiler.
-					($_POST["tests_Compiler_Arg_Deprecation"]!=""?' -compilerArgDeprecation '.$_POST["tests_Compiler_Arg_Deprecation"]:'').
-					($j9?' -runtimeArgJ9':'').
-
-					' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
-
-  			if ($previewOnly) {
-  				print '</div><div class="homeitem3col">'."\n";
-  				print "<h3>Build Command (Preview Only)</h3>\n";
-  				print "<p><small><code>$preCmd</code></small></p>";
-  			} else {
-  				exec($preCmd);
-  				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
-  			}
-
-  			if ($previewOnly) {
-  				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
-  			} else {
-  				exec($cmd);
-  			}
-				print '<ul><li><a href="/modeling/emf/emf/jdk14tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
-			}
-
-			/*** JDK 5.0/6.0 TESTS ***/
-			for ($i = 5; $i <= 6; $i++) {
-				if (isset($_POST["tests_Run_Tests_JDK" . $i . "0"]) && $_POST["tests_Run_Tests_JDK" . $i . "0"]=="Y") {
-					$PWD = "/home/www-data/jdk" . $i . "0tests";
-					$logfile = $BR.'/'.$ID.'/'.$testTimestamp.'/testlog.txt';
-
-					// create the log dir before trying to log to it
-					$preCmd = 'mkdir -p '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp;
-
-					$cmd = ('/bin/bash -c "exec /usr/bin/nohup /usr/bin/setsid /home/www-data/build/emf/scripts/runJDK' . $i . '0Tests.sh'.
-						' -downloadsDir /home/www-data/build/downloads'.
-						' -testDir '.$PWD.'/'.$BR.'/'.$ID.'/'.$testTimestamp.
-						$testDependencyURLs.
-						($uploadfile?' -emfPatchFile '.$uploadfile:'').
-						(isset($_POST["tests_Email"]) && $_POST["tests_Email"]!=""?' -email '.$_POST["tests_Email"]:'').
-						(isset($_POST["tests_debug_noclean"]) && $_POST["tests_debug_noclean"]=="Y"?' -noclean':'').
-						(isset($_POST["tests_Compiler_Arg_Source" . $i . "0"]) && $_POST["tests_Compiler_Arg_Source" . $i . "0"] != "" ?
-							' -compilerArgSource '.$_POST["tests_Compiler_Arg_Source" . $i . "0"] : '').
-						(isset($_POST["tests_Compiler_Arg_Xlint" . $i . "0"]) && $_POST["tests_Compiler_Arg_Xlint" . $i . "0"] != "" ?
-							' -compilerArgXlint '.$_POST["tests_Compiler_Arg_Xlint" . $i . "0"] : '').
-
-						' >> '.$PWD."/".$logfile.' 2>&1 &"');	// logging to unique files
-
-		  			if ($previewOnly) {
-		  				print '</div><div class="homeitem3col">'."\n";
-		  				print "<h3>Build Command (Preview Only)</h3>\n";
-		  				print "<p><small><code>$preCmd</code></small></p>";
-		  			} else {
-		  				exec($preCmd);
-		  				$f = fopen($PWD."/".$logfile,"w"); fputs($f,preg_replace("/\ \-/","\n  -",$cmd)."\n\n"); fclose($f);
-		  			}
-
-		  			if ($previewOnly) {
-		  				print "<p><small><code>".preg_replace("/\ \-/","<br> -",$cmd)."</code></small></p>";
-		  			} else {
-		  				exec($cmd);
-		  			}
-					print '<ul><li><a href="/modeling/emf/emf/jdk' . $i . '0tests/'.$logfile.'">'.$PWD.'/'.$logfile.'</a></li></ul>'."\n";
-				}
-			}
-
-		} // end else
+} // end else
 
 print "</div>\n</div>\n";
 
@@ -669,18 +653,10 @@ function displayOptions($options) {
 	}
 }
 
-function loadOptionsFromFiles($file1,$file2) { // fn not used
+function loadOptionsFromFile($file1) { // fn not used
 	$sp = array();
 	if (is_file($file1)) { $sp = file($file1); }
-	if (is_file($file2)) { $sp = array_merge($sp,file($file2));	}
 	$options = loadOptionsFromArray($sp);
-	return $options;
-}
-
-function loadOptionsFromRemoteFiles($file1,$file2) {
-	$sp1 = file($file1);	if (!$sp1) { $sp1 = array(); }
-	$sp2 = file($file2);	if (!$sp2) { $sp2 = array(); }
-	$options = loadOptionsFromArray( array_merge($sp1,$sp2) );
 	return $options;
 }
 
@@ -936,4 +912,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.42 2008/04/08 14:59:50 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.43 2008/05/27 05:23:51 nickb Exp $ -->
