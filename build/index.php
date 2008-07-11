@@ -63,6 +63,7 @@ $options["RunTests21"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=
 $options["RunTests22"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
 $options["RunTests23"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
 $options["RunTests24"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50",  	"Old Tests=Old" );
+$options["RunTests25"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50",  	"Old Tests=Old" );
 #"Binary Compatibility=Binary", "Source Compatibility=Source",
 
 // bug 222298: this will probably break on some servers 
