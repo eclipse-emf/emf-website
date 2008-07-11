@@ -221,6 +221,9 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td>&#160;</td>
 
 				<td colspan="1">
+				<div name="divRunTests25" id="divRunTests25" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTests25"],"_25"); ?>
+				</div>
 				<div name="divRunTests24" id="divRunTests24" style="display:none;border:0">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests24"],"_24"); ?>
 				</div>
@@ -441,6 +444,7 @@ function toggleDetails(id)
 
 function toggleCheckboxes(val) {
   divs = new Array(
+    "divRunTests25",
     "divRunTests24",
     "divRunTests23",
     "divRunTests22",
