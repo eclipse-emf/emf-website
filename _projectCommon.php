@@ -118,4 +118,6 @@ $collist = "%26query_format%3Dadvanced&amp;column_changeddate=on&amp;column_bug_
 $Nav->addCustomNav("Open Bugs", "$bugurl/bugs/colchange.cgi?rememberedquery=product%3DEMF%2CXSD%26bug_status%3DNEW%26bug_status%3DASSIGNED%26bug_status%3DREOPENED%26order%3Dbugs.bug_status%2Cbugs.target_milestone%2Cbugs.bug_id" . $collist, "_self", 2);
 $Nav->addCustomNav("Submit A Bug", "$bugurl/bugs/enter_bug.cgi?product=EMF", "_self", 2);
 $Nav->addCustomNav("Contributors", "$rooturl/project-info/team.php", "_self", 2);
+addGoogleAnalyticsTrackingCodeToHeader();
+
 ?>
