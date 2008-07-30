@@ -405,7 +405,7 @@ function toggleDetails()
 	print "</ul>\n"; ?>
 
 <br />
-Test results will he located here: <a href="/modeling/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>,
+Test results will he located here: <!-- <a href="/modeling/emf/build/tests/results.php?version=&amp;project=emf&amp;sortBy=date">BVT, FVT, SVT</a>, -->
 <a href="/modeling/emf/build/tests/results-jdk.php?version=14&amp;project=emf&amp;sortBy=date">JDK 1.4</a>,
 <a href="/modeling/emf/build/tests/results-jdk.php?version=50&amp;project=emf&amp;sortBy=date">JDK 5.0</a>,
 <a href="/modeling/emf/build/tests/results-jdk.php?version=60&amp;project=emf&amp;sortBy=date">JDK 6.0</a>.
@@ -912,4 +912,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.44 2008/07/30 00:05:35 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.45 2008/07/30 00:13:05 nickb Exp $ -->

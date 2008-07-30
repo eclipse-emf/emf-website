@@ -248,14 +248,8 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 					validate results and will be refected in build results on download
 					page and build detail pages.
 					<p>
-					If yes to JDK x.x Tests, EMF will be build using IBM JDK x.x, then
-					the EMF zips built with 1.4 will be run (and tested using the above
-					JUnit tests using IBM JRE x.x. For Standalone tests, the EMF
-					Standalone on runtime zip(s) will be used instead of the SDK for
-					running the same standalone JUnit tests as are used by the JDK tests.
-					<p>
-					Old tests include: BVT, FVT, SVT. If yes to Old Tests, when build
-					completes old tests will be run with new SDK zip &amp; selected eclipse SDK.
+					If yes to JDK x.x Tests, EMF will be build using the specified JDK, then
+					tests will be run using different JDK(s) than the one used to build.
 					</small>
 					</div>
 				</td>
