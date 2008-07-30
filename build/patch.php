@@ -45,7 +45,7 @@ else
 {
 	$options = array_merge($options, loadOptionsFromFile($dependenciesURLsFile));
 }
-$options["RunTests"] = array (	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"JDK 6.0 &amp; Standalone=JDK60",	"Old Tests=Old"	);
+$options["RunTests"] = array (	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"JDK 6.0 &amp; Standalone=JDK60" );
 
 if (!isset($_POST["process"]) || $_POST["process"]!="test") { // page one, the form
 ?>
@@ -912,4 +912,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.43 2008/05/27 05:23:51 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.44 2008/07/30 00:05:35 nickb Exp $ -->

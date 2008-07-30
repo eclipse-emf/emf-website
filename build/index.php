@@ -58,12 +58,12 @@ else
 $options["BranchIES"] = array ("HEAD","R3_3_maintenance");
 $options["BuildType"] = array("Release=R","Stable=S","Integration=I","Maintenance=M","Nightly=N|selected");
 $options["TagBuild"] = array ("Yes", "No|selected");
-$options["RunTests20"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
-$options["RunTests21"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
-$options["RunTests22"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
-$options["RunTests23"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50",	"Old Tests=Old"	);
-$options["RunTests24"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50",  	"Old Tests=Old" );
-$options["RunTests25"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50",  	"Old Tests=Old" );
+$options["RunTests20"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50" );
+$options["RunTests21"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50" );
+$options["RunTests22"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50" );
+$options["RunTests23"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50" );
+$options["RunTests24"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50" );
+$options["RunTests25"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50" );
 #"Binary Compatibility=Binary", "Source Compatibility=Source",
 
 // bug 222298: this will probably break on some servers 
