@@ -642,11 +642,11 @@ setTimeout('doOnLoadDefaults()',500);
 			{
 				$_POST["build_debug_basebuilder_branch"] = "R3_2_maintenance";
 			}
-			if ($_POST["build_debug_emf_releng_branch"] == "")
+			if (!isset($_POST["build_debug_emf_releng_branch"]) || $_POST["build_debug_emf_releng_branch"] == "")
 			{
 				$_POST["build_debug_emf_releng_branch"] = "R2_2_maintenance";
 			}
-			if ($_POST["build_debug_emf_old_tests_branch"] == "")
+			if (!isset($_POST["build_debug_emf_old_tests_branch"]) || $_POST["build_debug_emf_old_tests_branch"] == "")
 			{
 				$_POST["build_debug_emf_old_tests_branch"] = "R2_2_maintenance";
 			}
