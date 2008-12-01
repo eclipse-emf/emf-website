@@ -340,7 +340,7 @@ function toggleDetails()
 	$bits = explode(" ",$testDependencyURLs);
 	foreach ($bits as $bit) {
 	  if (false!==strpos($bit,"emf-")) {
-		  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200404291310/emf-sdo-xsd-SDK-I200404291310.zip
+		  // need to calculate branch and buildID from the URL of the emf build: http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.0/I200404291310/emf-xsd-SDK-I200404291310.zip
 		  $BR = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/.+!","$1",$bit);
 		  $ID = preg_replace("!.+/downloads/drops/(\d+\.\d+\.\d+)/([IMNRS]\d{12})/.+!","$2",$bit);
 	    break;
@@ -773,16 +773,7 @@ function trimmed_read($file) {
 
 function findCatg($url) {
 	$matches = array(
-		"11gmf" => "GMF-",
-		"10gef" => "GEF-",
-		"09net4j" => "emft-net4j-",
-		"08validation" => "emft-validation-",
-		"07transaction" => "emft-transaction-",
-		"06query" => "emft-query-",
-		"05ocl" => "mdt-ocl-|emft-ocl-",
-		"04orbit" => "orbit-|orbitBundles-",
-		"03uml2" => "uml2-",
-		"02emf" => "emf-sdo-xsd-",
+		"02emf" => "emf-",
 		"01eclipse" => "eclipse-",
 		"99other" => "/"
 	);
@@ -912,4 +903,4 @@ function displayURLs($options,$verbose=false) {
 	}
 
 ?>
-<!-- $Id: patch.php,v 1.45 2008/07/30 00:13:05 nickb Exp $ -->
+<!-- $Id: patch.php,v 1.46 2008/12/01 01:06:58 nickb Exp $ -->

@@ -896,16 +896,7 @@ setTimeout('doOnLoadDefaults()',500);
 
 function findCatg($url) {
 	$matches = array(
-		"11gmf" => "GMF-",
-		"10gef" => "GEF-",
-		"09net4j" => "emft-net4j-",
-		"08validation" => "emft-validation-",
-		"07transaction" => "emft-transaction-",
-		"06query" => "emft-query-",
-		"05ocl" => "mdt-ocl-|emft-ocl-",
-		"04orbit" => "orbit-|orbitBundles-",
-		"03uml2" => "uml2-",
-		"02emf" => "emf-sdo-xsd-",
+		"02emf" => "emf-",
 		"01eclipse" => "eclipse-",
 		"99other" => "/"
 	);
