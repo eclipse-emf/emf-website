@@ -62,8 +62,7 @@ $options["RunTests20"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=
 $options["RunTests21"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50" );
 $options["RunTests22"] = array (	"JUnit Tests=JUnit",	"JDK 1.4 &amp; Standalone=JDK14",	"JDK 5.0 &amp; Standalone=JDK50" );
 $options["RunTests23"] = array (	"JUnit Tests=JUnit",	"JDK 5.0 &amp; Standalone=JDK50" );
-$options["RunTests24"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50" );
-$options["RunTests25"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50" );
+$options["RunTestsDefault"] = array (	"JUnit Tests=JUnit",	"JDK 6.0 &amp; Standalone=JDK60",	"JDK 5.0 &amp; Standalone=JDK50" );
 #"Binary Compatibility=Binary", "Source Compatibility=Source",
 
 // bug 222298: this will probably break on some servers 
@@ -222,11 +221,14 @@ if (!isset ($_POST["process"]) || !$_POST["process"] == "build")
 				<td>&#160;</td>
 
 				<td colspan="1">
+				<div name="divRunTests26" id="divRunTests26" style="display:none;border:0">
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTestsDefault"],"_26"); ?>
+				</div>
 				<div name="divRunTests25" id="divRunTests25" style="display:none;border:0">
-				<?php displayCheckboxes("build_Run_Tests",$options["RunTests25"],"_25"); ?>
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTestsDefault"],"_25"); ?>
 				</div>
 				<div name="divRunTests24" id="divRunTests24" style="display:none;border:0">
-				<?php displayCheckboxes("build_Run_Tests",$options["RunTests24"],"_24"); ?>
+				<?php displayCheckboxes("build_Run_Tests",$options["RunTestsDefault"],"_24"); ?>
 				</div>
 				<div name="divRunTests23" id="divRunTests23" style="display:none;border:0">
 				<?php displayCheckboxes("build_Run_Tests",$options["RunTests23"],"_23"); ?>
@@ -439,7 +441,8 @@ function toggleDetails(id)
 
 function toggleCheckboxes(val) {
   divs = new Array(
-    "divRunTests25",
+	"divRunTests26",
+	"divRunTests25",
     "divRunTests24",
     "divRunTests23",
     "divRunTests22",
