@@ -1,1 +1,0 @@
-<?php header("Location: /modeling/emf/emf/build/promo.php"); ?>

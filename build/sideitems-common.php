@@ -1,1 +1,0 @@
-<?php $projct = "emf"; include_once ("../../modeling/emf/build/sideitems-common.php"); sidebar(); ?>

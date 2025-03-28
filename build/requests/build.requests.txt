@@ -1,2 +1,0 @@
-ID      Date    Time    Build ID        Branch  Build Type      Eclipse URL     Tag Build       Run Tests JDK14 Run Tests JUnit Email   User IP
-S200609210005   2006/09/21      00:05   2.2.1   HEAD    S       http://fullmoon.torolab.ibm.com/downloads/drops/M20060919-1045/eclipse-SDK-M20060919-1045-linux-gtk.tar.gz      /opt/ibm-java2-ws-sdk-pj9xia32142sr5-20060421   r321_v20060824 2.2.1RC2 Yes     Y       Y       Y       Y       nick@divbyzero.com      9.26.94.150

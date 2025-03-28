@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>EMF | Eclipse Modeling</title>
+	<meta name="keywords" content="modeling,emf,ecore" />
+	<link rel="preconnect stylesheet" href="../modeling/project.css" />
+	<script src="../modeling/project.js"></script>
+	<script src="project.js"></script>
+	<style>
+		/* <![CDATA[*/
+		/*]]>*/
+	</style>
+</head>
+
+<body>
+
+	<div data-generate="generateDefaultBreadcrumb(this)">
+		<span>EMF</span>
+	</div>
+
+	<div data-generate="generateDefaults(this)">
+	</div>
+
+	<main>
+		<h1>Eclipse Modeling Framework</h1>
+		<p>
+			The EMF project is a modeling framework and code generation facility
+			for building tools and other applications based on a structured data model.
+			From a model specification described in <a href="https://www.omg.org/spec/XMI">XMI</a>,
+			EMF provides tools and runtime support to produce a set of Java classes for the model,
+			along with a set of adapter classes that enable viewing and command-based editing of the model,
+			as well as a basic editor.
+		</p>
+		<p>
+			EMF Core is a common standard for data models upon which many technologies and frameworks are built.
+			Please see the top-level Modeling project provides a
+			<a href="../modeling/details.html">comprehensive overview</a>.
+		</p>
+
+		<h3>EMF Core</h3>
+		<p>
+			EMF consists of three fundamental pieces:
+		</p>
+		<ul>
+			<li>
+				<b>EMF</b> -
+				The core EMF framework includes a
+				<a
+					href="https://download.eclipse.org/modeling/emf/emf/javadoc/2.10.0/org/eclipse/emf/ecore/package-summary.html#details">
+					meta model (Ecore)
+				</a>
+				for describing models
+				as well as runtime support for the models,
+				including change notification,
+				persistence support with default XMI serialization,
+				and a very efficient reflective API for manipulating EMF objects generically.
+			</li>
+
+			<li>
+				<b>EMF.Edit</b> -
+				The EMF.Edit framework includes generic reusable classes for building editors for EMF models.
+				It provides the folloiwng:
+				<ul>
+					<li>
+						Content and label provider classes,
+						property source support,
+						and other convenience classes
+						that allow EMF models to be displayed using standard desktop (JFace) viewers
+						and property sheets.
+					</li>
+					<li>
+						A command framework,
+						including a set of generic command implementation classes for building editors
+						that support fully automatic undo and redo.
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<b>EMF.Codegen</b> -
+				The EMF code generation facility is capable of generating everything needed
+				to build a complete editor for an EMF model.
+				It includes a UI from which generation options can be specified,
+				and generators can be invoked.
+				The generation facility leverages JDT (Java Development Tooling).
+			</li>
+		</ul>
+
+		<p>Three levels of code generation are supported:</p>
+		<ul>
+			<li>
+				<b>Model</b> -
+				provides Java interfaces and implementation classes for all the classes in the model,
+				plus a factory and package (metadata) implementation class.
+			</li>
+
+			<li>
+				<b>Edit</b> -
+				generates implementation classes called ItemProviders
+				that adapt the model classes for editing and display.
+			</li>
+
+			<li>
+				<b>Editor</b> -
+				produces a structured editor that conforms to the recommended style for Eclipse EMF model editors
+				and serves as a starting point from which to start customizing.
+			</li>
+		</ul>
+
+		<p>
+			All generators support regeneration of code while preserving user modifications.
+			The generators can be invoked either through the UI or headless from a command line.
+		</p>
+
+		<p>
+			Want to learn more about how easy it is to use this powerful technology to help you boost your Java
+			programming productivity,
+			application compatibility and integration?
+			Start by having a look at the <a href="docs.html">documentation</a>.
+		</p>
+	</main>
+</body>
+
+<script>
+	generate();	
+</script>
+
+</html>
