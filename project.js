@@ -25,6 +25,7 @@ defaultAside = toElements(`
 <a href="${emfBase}docs.html">Documentation</a>
 <a target="_out" href="https://github.com/eclipse-emf/org.eclipse.emf/discussions">Ask a Question</a>
 <a target="_out" href="https://github.com/eclipse-emf/org.eclipse.emf/issues">Report a Problem</a>
+<a href="${emfBase}markdown/">Wiki - FAQs &amp; Recipes</a>
 <a class="separator" href="${modelingBase}support.html"><i class="fa fa-address-book-o"></i> Support</a>
 `);
 
@@ -45,3 +46,7 @@ additionalAside = `
 		</ul>
 	</aside>
 </div>`;
+
+function niceName(name) {
+	return name.replaceAll(/\.md$/g, '').replaceAll(/[_-]/g, ' ').replaceAll(/([a-z])([A-Z])/g, '$1 $2').replace(/^([a-z])/, letter => letter.toLocaleUpperCase())
+}

@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Documentation | EMF</title>
+	<link rel="preconnect stylesheet" href="../../modeling/project.css" />
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked-gfm-heading-id/lib/index.umd.js"></script>
+	<script src="../../modeling/project.js"></script>
+	<script src="../project.js"></script>
+	<style>
+		/* <![CDATA[*/
+
+		img {
+			max-width: 100%;
+		}
+
+		th,
+		td {
+			border: 1px solid black;
+			padding: 0.2ex 1em;
+		}
+
+		th {
+			text-align: center;
+		}
+
+		td {
+			text-align: left;
+		}
+
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+			margin-bottom: 2ex;
+		}
+
+		#table-of-contents {
+			padding: 0;
+			margin: 0;
+			margin-left: 0.5em;
+		}
+
+		.tl1 {
+			margin-left: 0em;
+			font-size: 90%;
+		}
+
+		.tl2 {
+			margin-left: 0.5em;
+			font-size: 85%;
+		}
+
+		.tl3 {
+			margin-left: 1.0em;
+			font-size: 80%;
+		}
+
+		.tl4 {
+			margin-left: 1.5em;
+			font-size: 75%;
+		}
+
+		.tl5 {
+			margin-left: 2.0em;
+			font-size: 75%;
+		}
+
+		.tl6 {
+			margin-left: 2.5em;
+			font-size: 75%;
+		}
+
+		#toc {
+			float: right;
+			position: sticky;
+			top: 0;
+			margin-top: 1.5em;
+		}
+
+		#toc .sideitem {
+			padding: 0.5em 0.5em;
+			margin-bottom: 0;
+		}
+
+		#toc h2 {
+			margin-bottom: 0.5em;
+			padding-bottom: 0.0em;
+		}
+
+		#toc #table-of-contents {
+			max-height: 66vh;
+			overflow-y: auto;
+		}
+
+		details>summary {
+			margin-bottom: 0.5em;
+		}
+
+		details>summary::before {
+			content: '▷️ ';
+			color: orange;
+		}
+
+		details[open]>summary::before {
+			content: '◢ ';
+			color: orange;
+		}
+
+		:target {
+			border-style: solid;
+			border-width: 1px;
+		}
+
+		#edit-markdown-link {
+			display: block;
+			margin-bottom: 1em;
+		}
+
+		/*]]>*/
+	</style>
+</head>
+
+<body>
+	<div data-generate="generateDefaultBreadcrumb(this)">
+		<a href="..">EMF</a>
+		<span>Wiki</span>
+	</div>
+
+	<div data-generate="generateDefaults(this)">
+	</div>
+
+	<main>
+		<div id="markdown-target"></div>
+	</main>
+
+	<script>
+		//<![CDATA[
+
+		function getFileParameter() {
+			const search = new URLSearchParams(window.location.search);
+			return search.get('file') ?? 'index.md';
+		}
+
+		function getMarkdownSearch(path) {
+			const parts = /eclipse-platform\/www\.eclipse\.org-eclipse\/master(.*)/.exec(path);
+			if (parts == null) {
+				return `?file=${path}`;
+			}
+			return `?f=${parts[1].replace(/^\//, '')}`;
+		}
+
+		function getMarkdownURL(path) {
+			const parts = /eclipse-platform\/www\.eclipse\.org-eclipse\/master(.*)/.exec(path);
+			if (parts == null) {
+				return `${markdownBase}${path}`;
+			}
+			return `${selfHostedMarkdownBase}${parts[1].replace(/^\//, '')}`;
+		}
+
+		const file = getFileParameter();
+		
+		additionalAside = '';
+
+		tableOfContentsAside = `
+<div id="toc" class="col-md-6">
+	<aside>
+		<ul class="ul-left-nav">
+			<div  class="sideitem">
+				<h2>Table of Contents</h2>
+				<div id="toc-target">
+				</div>
+			</div>
+		</ul>
+	</aside>
+</div>`;
+
+		generate();
+
+		const targetElement = document.getElementById('markdown-target');
+
+		function fixHash(hash) {
+			return hash.toLowerCase();
+		}
+
+		function generateMarkdown(response) {
+			const text = response;
+			const editLink = `<a id="edit-markdown-link" href=""><span class="orange">\u270E Improve this page</span></a>\n`;
+			marked.use(markedGfmHeadingId.gfmHeadingId());
+			marked.use({
+				hooks: {
+					postprocess(html) {
+						return `${html}`;
+					}
+				}
+			});
+			targetElement.innerHTML = editLink + marked.parse(text);
+
+
+			const headings = markedGfmHeadingId.getHeadingList();
+			const headingText = `
+<ul id="table-of-contents">
+${headings.map(({id, raw, level}) => `<li class="tl${level}"><a href="#${id}">${raw}</a></li>`).join(' ')}
+</ul>
+`;
+			document.getElementById('toc-target').replaceChildren(...toElements(headingText));
+
+			const as = targetElement.querySelectorAll("a[href]");
+			for (const a of as) {
+				const href = a.getAttribute('href');
+				if (href == null || href == '') {
+					continue;
+				}
+
+				if (href.startsWith('#')) {
+					a.setAttribute('href', fixHash(href));
+					continue;
+				}
+
+				if (!href.startsWith('http') && !href.startsWith('/') && !href.startsWith('mailto:')) {
+					const url = new URL(window.location);
+					url.search = '';
+					url.hash = '';
+					a.href = `${url.href}?file=${href}`;
+				}
+			}
+
+			document.getElementById('edit-markdown-link').href = `https://github.com/eclipse-emf/emf-website/blob/master/markdown/${file}`;
+
+			// Ensure that we nagivate to the target.
+			if (document.location.hash.includes('#')) {
+				document.location.hash = document.location.hash;
+			}
+
+			updateTocSize();
+		}
+
+		document.title = `EMF | ${niceName(file.replace(/^.*\//, ''))}`;
+
+		const localURL = new URL(file, window.location);
+		defaultURL = localURL.toString();
+
+		function defaultHandler(url) {
+			fetch(url).then(response => {
+				return response.text();
+			}).then(text => {
+				generateMarkdown(text);
+			});
+		}
+
+		defaultHandler(defaultURL);
+
+		function updateTocSize() {
+			const toc = document.getElementById('toc');
+			const tocInner = document.getElementById('table-of-contents');
+			if (toc != null && tocInner != null) {
+				const height = window.document.documentElement.clientHeight;
+				tocInner.style.maxHeight = `${height - tocInner.getBoundingClientRect().top - 20}px`;
+				toc.style.maxHeight = `${height - toc.getBoundingClientRect().top - 20}px`;
+			}
+		}
+
+		const onscroll = window.onscroll;
+		window.onscroll = function (event) {
+			if (onscroll != null) {
+				onscroll(event);
+			}
+			updateTocSize();
+		};
+		window.onresize = updateTocSize;
+
+		//]]>
+	</script>
+
+</body>
